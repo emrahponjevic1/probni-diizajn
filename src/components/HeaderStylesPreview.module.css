@@ -61,7 +61,7 @@
 }
 
 /* ==========================================================================
-   FEATURED HERO CARD: OPCIJA 5 (HIBRID 1 + 3)
+   FEATURED HERO CARD: OPCIJA 5 (WATERMARK DIREKTNO IZA TEKSTA)
    ========================================================================== */
 .featuredHeroCard {
   background: linear-gradient(135deg, #fffcf8 0%, #fffbf5 100%);
@@ -74,7 +74,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.8rem;
 }
 
 .featuredHeaderRow {
@@ -107,23 +107,6 @@
   color: #78716c;
 }
 
-/* Big Ghost Watermark */
-.heroWatermark {
-  position: absolute;
-  top: 15px;
-  left: 20px;
-  font-size: 5.8rem;
-  font-weight: 950;
-  color: #1c1917;
-  opacity: 0.045;
-  letter-spacing: 0.05em;
-  line-height: 1;
-  user-select: none;
-  pointer-events: none;
-  text-transform: uppercase;
-  z-index: 1;
-}
-
 .heroContentStack {
   position: relative;
   z-index: 2;
@@ -150,95 +133,57 @@
 }
 
 /* ==========================================================================
-   4 COMPARISON CARDS GRID
+   CHAPTER TAG CONTAINER WITH DIRECT GHOST WATERMARK BEHIND IT
    ========================================================================== */
-.stylesGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.styleCard {
-  background: #fffcf8;
-  border: 1px solid #f2ede4;
-  border-radius: 24px;
-  padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.04);
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
+.chapterTagContainer {
   position: relative;
-  transition: all 0.3s ease;
-}
-
-.styleCard:hover {
-  transform: translateY(-3px);
-  border-color: #fed7aa;
-  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.08);
-}
-
-.cardHeaderLabel {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #f2ede4;
-  padding-bottom: 1rem;
-  position: relative;
-  z-index: 2;
+  align-self: flex-start;
+  padding: 0.5rem 0;
 }
 
-.optionNumber {
-  font-size: 0.82rem;
-  font-weight: 900;
-  color: #ea580c;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.optionVibe {
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: #78716c;
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  padding: 3px 10px;
-  border-radius: 99px;
-}
-
-/* Inside Card Content Mock */
-.cardMockBody {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  position: relative;
-  z-index: 2;
-}
-
-.mockHeading {
-  font-size: 1.85rem;
+.tagGhostWatermarkWord {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3.4rem;
   font-weight: 950;
   color: #1c1917;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  margin: 0;
+  opacity: 0.06;
+  letter-spacing: 0.04em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
 }
 
-.mockSubtext {
-  font-size: 0.92rem;
-  color: #57534e;
-  line-height: 1.55;
-  margin: 0;
+.tagGhostWatermarkNumber {
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 4.5rem;
+  font-weight: 950;
+  color: #ea580c;
+  opacity: 0.08;
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
 }
 
-/* ==========================================================================
-   TAG VARIANTS
-   ========================================================================== */
-/* Chapter Index (Option 1 & 5) */
 .chapterIndexTag {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 800;
   color: #ea580c;
   letter-spacing: 0.14em;
@@ -257,81 +202,85 @@
   font-weight: 900;
 }
 
-/* Line Accent (Option 2) */
-.lineAccentTag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: #ea580c;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+/* ==========================================================================
+   3 SUB-VARIATIONS GRID (DIRECT WATERMARK LOCKUPS)
+   ========================================================================== */
+.stylesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
-.accentBar {
-  width: 28px;
-  height: 2px;
-  background: linear-gradient(90deg, #ea580c 0%, #f59e0b 100%);
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-/* Ghost Watermark (Option 3) */
-.ghostTagWrapper {
+.styleCard {
+  background: #fffcf8;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   position: relative;
-  overflow: hidden;
-  padding-top: 0.5rem;
+  transition: all 0.3s ease;
 }
 
-.ghostWatermarkText {
-  position: absolute;
-  top: -12px;
-  left: -2px;
-  font-size: 3.4rem;
-  font-weight: 950;
-  color: #1c1917;
-  opacity: 0.045;
-  letter-spacing: 0.04em;
-  user-select: none;
-  pointer-events: none;
-  line-height: 1;
-  text-transform: uppercase;
+.styleCard:hover {
+  transform: translateY(-3px);
+  border-color: #fed7aa;
+  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.08);
 }
 
-.ghostFrontTag {
+.cardHeaderLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2ede4;
+  padding-bottom: 0.85rem;
   position: relative;
   z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+}
+
+.optionNumber {
   font-size: 0.82rem;
-  font-weight: 800;
+  font-weight: 900;
   color: #ea580c;
+  text-transform: uppercase;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
-/* Frameless Lead (Option 4) */
-.framelessLeadTag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 800;
+.optionVibe {
+  font-size: 0.74rem;
+  font-weight: 700;
   color: #78716c;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  padding: 3px 8px;
+  border-radius: 99px;
 }
 
-.tagDotSeparator {
-  color: #ea580c;
-  font-size: 0.95rem;
-  line-height: 1;
+/* Inside Card Content Mock */
+.cardMockBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 2;
 }
 
-.tagAccentWord {
-  color: #ea580c;
+.mockHeading {
+  font-size: 1.6rem;
+  font-weight: 950;
+  color: #1c1917;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+  margin: 0;
+}
+
+.mockSubtext {
+  font-size: 0.88rem;
+  color: #57534e;
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -344,7 +293,7 @@
 
   .stylesGrid {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 1.6rem;
   }
 
   .showcaseMainTitle {
@@ -353,11 +302,6 @@
 
   .heroHeading {
     font-size: 2rem;
-  }
-
-  .heroWatermark {
-    font-size: 4rem;
-    top: 30px;
   }
 
   .featuredHeroCard {
@@ -387,12 +331,15 @@
     font-size: 1.65rem;
   }
 
-  .heroWatermark {
-    font-size: 2.8rem;
-    top: 50px;
+  .tagGhostWatermarkWord {
+    font-size: 2.4rem;
+  }
+
+  .tagGhostWatermarkNumber {
+    font-size: 3.2rem;
   }
 
   .mockHeading {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 }

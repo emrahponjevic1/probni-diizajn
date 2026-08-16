@@ -8,38 +8,39 @@ export default function HeaderStylesPreview() {
         <div className={styles.showcaseTopIntro}>
           <span className={styles.topPill}>Ekskluzivni Predogled</span>
           <h2 className={styles.showcaseMainTitle}>
-            Editorial Dizajni Naslova (Brez Generičnih Bedžev)
+            Ghost Watermark Direktno Iza &quot;02 / NAŠA ZGODBA&quot;
           </h2>
           <p className={styles.showcaseDesc}>
-            Spodaj je vaša nova <strong>Opcija 5 (Hibrid 1 + 3)</strong> ter
-            preostale opcije za primerjavo.
+            Spodaj je prikazano, kako vodni žig stoji neposredno v ozadju
+            same vrstice <strong>&quot;— 02 / NAŠA ZGODBA &amp; TRADICIJA —&quot;</strong>,
+            s 3 finimi različicami.
           </p>
         </div>
 
         {/* ==================================================================
-            FEATURED HERO: OPCIJA 5 (HIBRID 1 + 3)
+            FEATURED HERO: GLAVNA RAZLIČICA (ZGODBA DIREKTNO IZA VRSTICE)
             ================================================================== */}
         <div className={styles.featuredHeroCard}>
-          {/* Ghost Watermark in Background */}
-          <span className={styles.heroWatermark}>TRADICIJA</span>
-
           <div className={styles.featuredHeaderRow}>
             <span className={styles.featuredBadge}>
-              ★ Vaša Ideja: Opcija 5 (Hibrid 1 + 3)
+              ★ Vaš Predlog: Watermark točno za tekstom
             </span>
             <span className={styles.featuredSubtitle}>
-              Editorial Chapter Index + Layered Ghost Watermark
+              Editorial Chapter Index + Direct Text Watermark Lockup
             </span>
           </div>
 
           <div className={styles.heroContentStack}>
-            {/* Editorial Chapter Tag from Option 1 */}
-            <div className={styles.chapterIndexTag}>
-              <span className={styles.chapterDash} />
-              <span>
-                <span className={styles.chapterNumber}>02</span> / NAŠA ZGODBA &amp; TRADICIJA
-              </span>
-              <span className={styles.chapterDash} />
+            {/* Tag with Watermark directly behind it */}
+            <div className={styles.chapterTagContainer}>
+              <span className={styles.tagGhostWatermarkWord}>ZGODBA</span>
+              <div className={styles.chapterIndexTag}>
+                <span className={styles.chapterDash} />
+                <span>
+                  <span className={styles.chapterNumber}>02</span> / NAŠA ZGODBA &amp; TRADICIJA
+                </span>
+                <span className={styles.chapterDash} />
+              </div>
             </div>
 
             {/* Main Heading */}
@@ -57,109 +58,95 @@ export default function HeaderStylesPreview() {
         </div>
 
         {/* ==================================================================
-            4 COMPARISON CARDS (PREOSTALE OPCIJE)
+            3 SUB-VARIATIONS GRID
             ================================================================== */}
         <div className={styles.stylesGrid}>
-          {/* Option 1: Pure Editorial Chapter Index */}
+          {/* Variation A: Word Watermark Behind Text */}
           <div className={styles.styleCard}>
             <div className={styles.cardHeaderLabel}>
-              <span className={styles.optionNumber}>Opcija 1</span>
-              <span className={styles.optionVibe}>Čisti Knjižni Indeks</span>
+              <span className={styles.optionNumber}>Varianta A</span>
+              <span className={styles.optionVibe}>Beseda za tekstom</span>
             </div>
 
             <div className={styles.cardMockBody}>
-              <div className={styles.chapterIndexTag}>
-                <span className={styles.chapterDash} />
-                <span>
-                  <span className={styles.chapterNumber}>02</span> / NAŠA ZGODBA &amp; TRADICIJA
-                </span>
-                <span className={styles.chapterDash} />
-              </div>
-
-              <h3 className={styles.mockHeading}>
-                Od pravega ognja do popolnega okusa.
-              </h3>
-
-              <p className={styles.mockSubtext}>
-                Časopisni indeks z diskretno številko poglavja in tankima
-                linijama. Brez vodnega žiga.
-              </p>
-            </div>
-          </div>
-
-          {/* Option 2: Artisanal Line Accent */}
-          <div className={styles.styleCard}>
-            <div className={styles.cardHeaderLabel}>
-              <span className={styles.optionNumber}>Opcija 2</span>
-              <span className={styles.optionVibe}>Organski Minimalizem</span>
-            </div>
-
-            <div className={styles.cardMockBody}>
-              <div className={styles.lineAccentTag}>
-                <span className={styles.accentBar} />
-                <span>Kulinarična Dediščina Ljubljane</span>
-              </div>
-
-              <h3 className={styles.mockHeading}>
-                Zaveza čistosti in avtentičnemu poreklu.
-              </h3>
-
-              <p className={styles.mockSubtext}>
-                Kratka topla akcentna linija (28px) pred čistim tekstom, ki ustvari
-                prijeten vizualni fokus in ritem branja.
-              </p>
-            </div>
-          </div>
-
-          {/* Option 3: Pure Ghost Typography */}
-          <div className={styles.styleCard}>
-            <div className={styles.cardHeaderLabel}>
-              <span className={styles.optionNumber}>Opcija 3</span>
-              <span className={styles.optionVibe}>Luxury Hotel &amp; Fine Dining</span>
-            </div>
-
-            <div className={styles.ghostTagWrapper}>
-              <span className={styles.ghostWatermarkText}>ČISTOST</span>
-
-              <div className={styles.cardMockBody}>
-                <div className={styles.ghostFrontTag}>
-                  <span>Tradicija okusov od leta 2004 →</span>
+              <div className={styles.chapterTagContainer}>
+                <span className={styles.tagGhostWatermarkWord}>TRADICIJA</span>
+                <div className={styles.chapterIndexTag}>
+                  <span className={styles.chapterDash} />
+                  <span>
+                    <span className={styles.chapterNumber}>02</span> / NAŠA ZGODBA
+                  </span>
+                  <span className={styles.chapterDash} />
                 </div>
-
-                <h3 className={styles.mockHeading}>
-                  100% Halal. Brez kompromisov pri čistosti.
-                </h3>
-
-                <p className={styles.mockSubtext}>
-                  V ozadju je velik, komaj opazen vodni žig, spredaj pa
-                  klasičen tekst.
-                </p>
               </div>
+
+              <h4 className={styles.mockHeading}>
+                Pravi ogenj &amp; 24h marinada
+              </h4>
+
+              <p className={styles.mockSubtext}>
+                Velika beseda &quot;TRADICIJA&quot; stoji neposredno v ozadju
+                indeksa z mehkih 6% vidljivosti.
+              </p>
             </div>
           </div>
 
-          {/* Option 4: Frameless Minimalist Tag */}
+          {/* Variation B: Huge Chapter Number Behind */}
           <div className={styles.styleCard}>
             <div className={styles.cardHeaderLabel}>
-              <span className={styles.optionNumber}>Opcija 4</span>
-              <span className={styles.optionVibe}>Sodobni Prestižni Monogram</span>
+              <span className={styles.optionNumber}>Varianta B</span>
+              <span className={styles.optionVibe}>Velika številka &quot;02&quot;</span>
             </div>
 
             <div className={styles.cardMockBody}>
-              <div className={styles.framelessLeadTag}>
-                <span>Ljubljana</span>
-                <span className={styles.tagDotSeparator}>·</span>
-                <span className={styles.tagAccentWord}>Trubarjeva &amp; Dunajska</span>
-                <span className={styles.tagDotSeparator}>·</span>
-                <span>Od 2004</span>
+              <div className={styles.chapterTagContainer}>
+                <span className={styles.tagGhostWatermarkNumber}>02</span>
+                <div className={styles.chapterIndexTag}>
+                  <span className={styles.chapterDash} />
+                  <span>
+                    <span className={styles.chapterNumber}>02</span> / NAŠA ZGODBA
+                  </span>
+                  <span className={styles.chapterDash} />
+                </div>
               </div>
 
-              <h3 className={styles.mockHeading}>
-                Pristni orientalski žar in domači kruh.
-              </h3>
+              <h4 className={styles.mockHeading}>
+                Kulinarična pot od leta 2004
+              </h4>
 
               <p className={styles.mockSubtext}>
-                Popolnoma raven tekst s srednjimi pikicami kot separatorji.
+                Ogromna prosojna številka poglavja &quot;02&quot; v topli jantarni
+                barvi se diskretno dviga za tekstom.
+              </p>
+            </div>
+          </div>
+
+          {/* Variation C: Halal Certificate Example */}
+          <div className={styles.styleCard}>
+            <div className={styles.cardHeaderLabel}>
+              <span className={styles.optionNumber}>Varianta C (Halal Primer)</span>
+              <span className={styles.optionVibe}>Sekcija 03 / Čistost</span>
+            </div>
+
+            <div className={styles.cardMockBody}>
+              <div className={styles.chapterTagContainer}>
+                <span className={styles.tagGhostWatermarkWord}>HALAL</span>
+                <div className={styles.chapterIndexTag}>
+                  <span className={styles.chapterDash} />
+                  <span>
+                    <span className={styles.chapterNumber}>03</span> / GARANCIJA KAKOVOSTI
+                  </span>
+                  <span className={styles.chapterDash} />
+                </div>
+              </div>
+
+              <h4 className={styles.mockHeading}>
+                100% Halal &amp; 0% Svinjskega Mesa
+              </h4>
+
+              <p className={styles.mockSubtext}>
+                Primer za Halal sekcijo z besedo &quot;HALAL&quot; ali
+                &quot;ČISTOST&quot; točno za vrstico.
               </p>
             </div>
           </div>

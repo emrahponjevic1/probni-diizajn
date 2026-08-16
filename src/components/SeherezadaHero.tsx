@@ -4,6 +4,96 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./SeherezadaHero.module.css";
 
+// Clean Vector SVG Icons
+const UtensilsSvg = ({ size = 19, className }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M18 2v6a3 3 0 0 1-3 3 3 3 0 0 1-3-3V2" />
+    <path d="M15 2v18" />
+    <path d="M5 2v7a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V2" />
+    <path d="M8 12v8" />
+  </svg>
+);
+
+const PhoneSvg = ({ size = 17, className }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+  </svg>
+);
+
+const PinSvg = ({ size = 16, className }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
+
+const TrophySvg = ({ size = 18, className }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+    <path d="M4 22h16" />
+    <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34" />
+    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+  </svg>
+);
+
+const ArrowRightSvg = ({ size = 16, className }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.4"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+
 export default function SeherezadaHero() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -146,7 +236,7 @@ export default function SeherezadaHero() {
                 className={`${styles.locationPillBtn} ${isDesktopLocOpen ? styles.locationPillBtnActive : ""}`}
                 aria-expanded={isDesktopLocOpen}
               >
-                <span>📍</span>
+                <PinSvg size={15} />
                 <span>{currentLocObj.name}</span>
                 <span style={{ fontSize: "0.72rem", opacity: 0.6 }}>▾</span>
               </button>
@@ -391,7 +481,7 @@ export default function SeherezadaHero() {
                 }}
                 className={`${styles.drawerLocationBtn} ${isDrawerLocOpen ? styles.drawerBtnActive : ""}`}
               >
-                <span className={styles.drawerActionIcon}>📍</span>
+                <PinSvg size={18} className={styles.drawerActionIcon} />
                 <div className={styles.drawerActionTextCol}>
                   <span className={styles.drawerActionLabel}>Lokal</span>
                   <span className={styles.drawerActionValue}>{currentLocObj.name}</span>
@@ -454,12 +544,13 @@ export default function SeherezadaHero() {
 
           {/* 5. Action Buttons */}
           <div className={styles.ctaRow}>
-            <button className={styles.primaryMenuBtn}>
-              <span>🍴 Prikaži Meni</span>
-              <span>&rarr;</span>
-            </button>
+            <a href="#meni" className={styles.primaryMenuBtn}>
+              <UtensilsSvg size={19} />
+              <span>Prikaži Meni</span>
+              <ArrowRightSvg size={16} />
+            </a>
             <a href="tel:+38669444812" className={styles.phoneBtn}>
-              <span className={styles.phoneRedIcon}>📞</span>
+              <PhoneSvg size={17} className={styles.phoneRedIcon} />
               <span>+386 69 444 812</span>
             </a>
           </div>
@@ -475,7 +566,7 @@ export default function SeherezadaHero() {
               }}
             >
               <div className={styles.locationTitle}>
-                <span>📍</span>
+                <PinSvg size={16} />
                 <span>Šeherezada 1</span>
               </div>
 
@@ -511,7 +602,7 @@ export default function SeherezadaHero() {
               }}
             >
               <div className={styles.locationTitle}>
-                <span>📍</span>
+                <PinSvg size={16} />
                 <span>Šeherezada 2</span>
               </div>
 
@@ -572,7 +663,9 @@ export default function SeherezadaHero() {
 
             {/* Floating Badge 2: PREMIUM - Ljubljana #1 */}
             <div className={styles.floatingBadgePremium}>
-              <div className={styles.trophyCircle}>🏆</div>
+              <div className={styles.trophyCircle}>
+                <TrophySvg size={18} />
+              </div>
               <span className={styles.premiumGoldTag}>PREMIUM</span>
               <div className={styles.floatingBadgePremiumTitle}>
                 Ljubljana #1
@@ -584,7 +677,7 @@ export default function SeherezadaHero() {
 
             {/* Floating Badge 3: Domač kruh po tajnem receptu */}
             <div className={styles.floatingBadgeRecipe}>
-              <span>🥖</span>
+              <span>✓</span>
               <span>Domač kruh po tajnem receptu</span>
             </div>
 

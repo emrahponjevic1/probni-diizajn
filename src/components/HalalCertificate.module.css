@@ -274,7 +274,16 @@
 
   .halalGrid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
+  }
+
+  /* Content first, image at the end on tablet & mobile */
+  .halalRightCol {
+    order: 1;
+  }
+
+  .certVisualWrapper {
+    order: 2;
   }
 
   .halalHeading {

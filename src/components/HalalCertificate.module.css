@@ -133,27 +133,55 @@
   gap: 1.3rem;
 }
 
-.sectionBadge {
+/* Chapter Tag Container with Direct Ghost Watermark Behind */
+.chapterTagContainer {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
   align-self: flex-start;
-  padding: 0.35rem 0.95rem;
-  border-radius: 99px;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  color: #ea580c;
-  font-size: 0.76rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  padding: 0.5rem 0;
 }
 
-.sectionBadgeDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+.tagGhostWatermark {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3.4rem;
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.055;
+  letter-spacing: 0.04em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.chapterIndexTag {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #ea580c;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.chapterDash {
+  width: 18px;
+  height: 1.5px;
   background: #ea580c;
+  opacity: 0.6;
+}
+
+.chapterNumber {
+  color: #1c1917;
+  font-weight: 900;
 }
 
 .halalHeading {

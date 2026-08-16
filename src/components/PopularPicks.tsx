@@ -252,6 +252,17 @@ export default function PopularPicks() {
             SECTION HEADER
             ================================================================== */}
         <div className={styles.sectionHeader}>
+          <div className={styles.chapterTagContainer}>
+            <span className={styles.tagGhostWatermark}>IZBOR</span>
+            <div className={styles.chapterIndexTag}>
+              <span className={styles.chapterDash} />
+              <span>
+                <span className={styles.chapterNumber}>01</span> / PRILJUBLJENE IZBIRE
+              </span>
+              <span className={styles.chapterDash} />
+            </div>
+          </div>
+
           <h2 className={styles.sectionTitle}>Priljubljene izbire</h2>
 
           <p className={styles.sectionSubtitle}>

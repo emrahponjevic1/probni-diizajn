@@ -33,9 +33,15 @@ export default function OurStory() {
         <div className={styles.magGrid}>
           {/* Left Column: Storytelling & 3 Quality Pillars */}
           <div className={styles.magLeftCol}>
-            <div className={styles.sectionBadge}>
-              <span className={styles.sectionBadgeDot} />
-              <span>Naša Zgodba &amp; Tradicija</span>
+            <div className={styles.chapterTagContainer}>
+              <span className={styles.tagGhostWatermark}>ZGODBA</span>
+              <div className={styles.chapterIndexTag}>
+                <span className={styles.chapterDash} />
+                <span>
+                  <span className={styles.chapterNumber}>02</span> / NAŠA ZGODBA &amp; TRADICIJA
+                </span>
+                <span className={styles.chapterDash} />
+              </div>
             </div>
 
             <h2 className={styles.magHeading}>

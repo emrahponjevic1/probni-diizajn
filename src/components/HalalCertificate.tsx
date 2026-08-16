@@ -40,9 +40,15 @@ export default function HalalCertificate() {
 
           {/* Right: Story & 3 Numbered Strips */}
           <div className={styles.halalRightCol}>
-            <div className={styles.sectionBadge}>
-              <span className={styles.sectionBadgeDot} />
-              <span>Garancija Kakovosti &amp; Čistosti</span>
+            <div className={styles.chapterTagContainer}>
+              <span className={styles.tagGhostWatermark}>ČISTOST</span>
+              <div className={styles.chapterIndexTag}>
+                <span className={styles.chapterDash} />
+                <span>
+                  <span className={styles.chapterNumber}>03</span> / GARANCIJA KAKOVOSTI
+                </span>
+                <span className={styles.chapterDash} />
+              </div>
             </div>
 
             <h2 className={styles.halalHeading}>

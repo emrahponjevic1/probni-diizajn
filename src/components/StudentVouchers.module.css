@@ -1,6 +1,6 @@
 /* ==========================================================================
    ŠEHEREZADA - ŠTUDENTSKA PREHRANA IN BONI
-   WARM LIGHT LUXURY RESTAURANT AESTHETIC
+   WARM LIGHT LUXURY RESTAURANT AESTHETIC (BENTO GRID MASTER LAYOUT)
    ========================================================================== */
 
 .studentSection {
@@ -32,66 +32,6 @@
   filter: blur(70px);
   pointer-events: none;
   z-index: 1;
-}
-
-/* ==========================================================================
-   STYLE SELECTOR BAR (INTERACTIVE PROTOTYPE PREVIEW)
-   ========================================================================== */
-.styleSelectorWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 3.5rem;
-  text-align: center;
-}
-
-.styleSelectorLabel {
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #ea580c;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  padding: 4px 14px;
-  border-radius: 99px;
-}
-
-.styleSwitcherTabs {
-  display: inline-flex;
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 99px;
-  padding: 5px;
-  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.06);
-  gap: 4px;
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-.styleTabBtn {
-  padding: 0.7rem 1.4rem;
-  border-radius: 99px;
-  border: none;
-  background: transparent;
-  color: #57534e;
-  font-size: 0.88rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-  font-family: inherit;
-}
-
-.styleTabBtn:hover {
-  color: #ea580c;
-}
-
-.styleTabBtnActive {
-  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
-  color: #ffffff !important;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
 }
 
 /* ==========================================================================
@@ -180,7 +120,7 @@
 }
 
 /* ==========================================================================
-   OPCIJA 1: USER LAYOUT (BENTO GRID MASTER)
+   BENTO GRID MASTER LAYOUT
    ========================================================================== */
 .bentoLayoutWrapper {
   display: flex;
@@ -530,319 +470,6 @@
 }
 
 /* ==========================================================================
-   OPCIJA 2: KAJ VSEBUJE BON (4-V-1 PLADENJ)
-   ========================================================================== */
-.trayGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.trayCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 22px;
-  padding: 1.6rem 1.4rem;
-  box-shadow: 0 4px 18px rgba(28, 25, 23, 0.04);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.8rem;
-  transition: all 0.25s ease;
-}
-
-.trayCard:hover {
-  transform: translateY(-3px);
-  border-color: #fed7aa;
-  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.1);
-}
-
-.trayIconBox {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: #fff7ed;
-  color: #ea580c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #fed7aa;
-}
-
-.trayStepNum {
-  font-size: 0.76rem;
-  font-weight: 900;
-  color: #ea580c;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.trayTitle {
-  font-size: 1.08rem;
-  font-weight: 800;
-  color: #1c1917;
-  margin: 0;
-}
-
-.trayDesc {
-  font-size: 0.84rem;
-  color: #78716c;
-  line-height: 1.45;
-  margin: 0;
-}
-
-.traySummaryBanner {
-  background: #ffffff;
-  border: 1px solid #fed7aa;
-  border-radius: 22px;
-  padding: 1.6rem 2.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.06);
-  flex-wrap: wrap;
-}
-
-.traySummaryText {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.traySummaryTitle {
-  font-size: 1.15rem;
-  font-weight: 900;
-  color: #1c1917;
-  margin: 0;
-}
-
-.traySummarySub {
-  font-size: 0.88rem;
-  color: #78716c;
-  margin: 0;
-}
-
-/* ==========================================================================
-   OPCIJA 3: EDITORIAL SPLIT-MAGAZINE (ŠTUDENTSKI VODNIK)
-   ========================================================================== */
-.splitGuideGrid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 4.5rem;
-  align-items: center;
-}
-
-.splitGuidePhotoCol {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid #f2ede4;
-  box-shadow: 0 20px 50px rgba(28, 25, 23, 0.08);
-}
-
-.splitGuidePhotoImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.splitGuidePillBadge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: rgba(28, 25, 23, 0.85);
-  backdrop-filter: blur(12px);
-  color: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 800;
-  padding: 6px 14px;
-  border-radius: 99px;
-}
-
-.splitGuideFloatingCard {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(14px);
-  border: 1px solid #fed7aa;
-  border-radius: 18px;
-  padding: 0.9rem 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.12);
-}
-
-.splitGuideStepsList {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  margin-top: 1rem;
-}
-
-.splitGuideStepItem {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.2rem;
-  align-items: center;
-  padding: 1.15rem 1.4rem;
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 18px;
-  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
-  transition: all 0.25s ease;
-}
-
-.splitGuideStepItem:hover {
-  transform: translateX(4px);
-  border-color: #fed7aa;
-  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
-}
-
-.splitStepNum {
-  font-size: 1.4rem;
-  font-weight: 950;
-  color: #ea580c;
-  opacity: 0.9;
-}
-
-.splitStepContent {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.splitStepTitle {
-  font-size: 1.02rem;
-  font-weight: 800;
-  color: #1c1917;
-  margin: 0;
-}
-
-.splitStepDesc {
-  font-size: 0.86rem;
-  color: #78716c;
-  line-height: 1.45;
-  margin: 0;
-}
-
-/* ==========================================================================
-   OPCIJA 4: 3 NAJBOLJŠI ŠTUDENTSKI MENIJI
-   ========================================================================== */
-.menusGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.8rem;
-}
-
-.menuCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 6px 22px rgba(28, 25, 23, 0.05);
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-}
-
-.menuCard:hover {
-  transform: translateY(-4px);
-  border-color: #fed7aa;
-  box-shadow: 0 14px 35px rgba(234, 88, 12, 0.12);
-}
-
-.menuCardImgWrapper {
-  position: relative;
-  width: 100%;
-  height: 220px;
-}
-
-.menuCardImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.menuCardBadge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: #ea580c;
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 99px;
-}
-
-.menuCardBody {
-  padding: 1.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  flex: 1;
-  justify-content: space-between;
-}
-
-.menuCardTitle {
-  font-size: 1.25rem;
-  font-weight: 900;
-  color: #1c1917;
-  margin: 0;
-}
-
-.menuCardIncludesList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin: 0.4rem 0;
-}
-
-.menuIncludeItem {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.84rem;
-  color: #57534e;
-}
-
-.menuIncludeDot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #ea580c;
-}
-
-.menuPriceRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #f2ede4;
-  padding-top: 1rem;
-  margin-top: 0.5rem;
-}
-
-.menuPriceLabel {
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: #78716c;
-  text-transform: uppercase;
-}
-
-.menuPriceValue {
-  font-size: 1.15rem;
-  font-weight: 950;
-  color: #ea580c;
-}
-
-/* ==========================================================================
    RESPONSIVENESS (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -864,38 +491,12 @@
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
-
-  .trayGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
-
-  .splitGuideGrid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .menusGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
 }
 
 @media (max-width: 640px) {
   .studentSection {
     /* Strict Universal Standards: Mobile 3.5rem top / 4rem bottom */
     padding: 3.5rem 1.25rem 4rem;
-  }
-
-  .styleSwitcherTabs {
-    flex-direction: column;
-    width: 100%;
-    border-radius: 20px;
-  }
-
-  .styleTabBtn {
-    width: 100%;
-    text-align: center;
   }
 
   .sectionTitle {
@@ -926,13 +527,5 @@
   .bannerCtaBtn {
     width: 100%;
     justify-content: center;
-  }
-
-  .trayGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .splitGuidePhotoCol {
-    height: 320px;
   }
 }

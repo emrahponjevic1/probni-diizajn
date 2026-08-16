@@ -288,7 +288,6 @@ export default function PopularPicks() {
                   >
                     <InfoCircleSvg size={18} />
                     <span>Sestavine in alergeni</span>
-                    <span>&rarr;</span>
                   </button>
                 </div>
               </div>

@@ -285,7 +285,7 @@ export default function PopularPicks() {
                     className={styles.detailsModalTriggerBtn}
                   >
                     <InfoCircleSvg size={18} />
-                    <span>Sestavine in alergeni</span>
+                    <span>Poglej podrobnosti</span>
                     <span>&rarr;</span>
                   </button>
                 </div>
@@ -377,8 +377,8 @@ export default function PopularPicks() {
                         type="button"
                         onClick={() => openDetailsModal(dish)}
                         className={styles.mobileInfoIconBtn}
-                        aria-label={`Poglej sestavine in alergene za ${dish.title}`}
-                        title="Poglej sestavine in alergene"
+                        aria-label={`Poglej podrobnosti za ${dish.title}`}
+                        title="Poglej podrobnosti"
                       >
                         <InfoCircleSvg size={28} />
                       </button>

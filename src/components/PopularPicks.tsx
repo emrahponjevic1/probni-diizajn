@@ -272,12 +272,14 @@ export default function PopularPicks() {
                 <h3 className={styles.magTitle}>{selectedDish.title}</h3>
                 <p className={styles.magDesc}>{selectedDish.description}</p>
 
-                {/* Unified Bottom Row: Price + Sestavine & Alergeni Button */}
+                {/* CENA Label Row Above Divider */}
+                <div className={styles.showcasePriceLabelRow}>
+                  <span className={styles.showcasePriceLabel}>Cena</span>
+                </div>
+
+                {/* Bottom Row: Price Value + Sestavine & Alergeni Button Inline */}
                 <div className={styles.showcaseBottomRow}>
-                  <div className={styles.showcasePriceBox}>
-                    <span className={styles.showcasePriceLabel}>Cena</span>
-                    <span className={styles.showcasePriceValue}>{selectedDish.price}</span>
-                  </div>
+                  <span className={styles.showcasePriceValue}>{selectedDish.price}</span>
 
                   <button
                     type="button"
@@ -366,11 +368,13 @@ export default function PopularPicks() {
                     <h3 className={styles.mobileCardTitle}>{dish.title}</h3>
                     <p className={styles.mobileCardDesc}>{dish.description}</p>
 
+                    {/* Mobile CENA Label Row Above Divider */}
+                    <div className={styles.mobilePriceLabelRow}>
+                      <span className={styles.mobilePriceLabel}>Cena</span>
+                    </div>
+
                     <div className={styles.mobileCardFooter}>
-                      <div className={styles.mobilePriceBox}>
-                        <span className={styles.mobilePriceLabel}>Cena</span>
-                        <span className={styles.mobilePriceValue}>{dish.price}</span>
-                      </div>
+                      <span className={styles.mobilePriceValue}>{dish.price}</span>
 
                       {/* Clean Borderless SVG Info Button */}
                       <button

@@ -150,33 +150,35 @@
   margin: 0;
 }
 
-/* Unified Bottom Row: Price + Sestavine & Alergeni Button */
+/* CENA Label Above Divider */
+.showcasePriceLabelRow {
+  margin-top: 0.8rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid #f2ede4;
+  display: flex;
+  align-items: center;
+}
+
+.showcasePriceLabel {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+/* Bottom Row: Price + Sestavine & Alergeni Button Perfectly Aligned */
 .showcaseBottomRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.2rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid #f2ede4;
-  margin-top: 0.6rem;
-}
-
-.showcasePriceBox {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.showcasePriceLabel {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #78716c;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  padding-top: 0.4rem;
 }
 
 .showcasePriceValue {
-  font-size: 1.85rem;
+  font-size: 1.95rem;
   font-weight: 950;
   color: #ea580c;
   letter-spacing: -0.02em;
@@ -187,7 +189,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   padding: 0.75rem 1.4rem;
   border-radius: 99px;
   background: #fff7ed;
@@ -460,32 +462,33 @@
   flex: 1;
 }
 
+.mobilePriceLabelRow {
+  margin-top: 0.65rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f2ede4;
+  display: flex;
+  align-items: center;
+}
+
+.mobilePriceLabel {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
 .mobileCardFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #f2ede4;
-  margin-top: 0.4rem;
-}
-
-.mobilePriceBox {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.mobilePriceLabel {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: #78716c;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  padding-top: 0.35rem;
 }
 
 .mobilePriceValue {
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   font-weight: 950;
   color: #ea580c;
   letter-spacing: -0.02em;

@@ -1277,7 +1277,7 @@
     grid-template-columns: 1fr;
     gap: 3.5rem;
     text-align: center;
-    padding-top: 0.5rem;
+    padding: 40px 1.5rem 40px;
   }
 
   .leftCol {
@@ -1395,7 +1395,7 @@
   }
 
   .heroContent {
-    padding: 0.5rem 1.25rem 2.2rem;
+    padding: 40px 1.25rem 40px;
     gap: 2.2rem;
   }
 

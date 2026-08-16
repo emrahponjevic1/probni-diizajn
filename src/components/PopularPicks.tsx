@@ -48,7 +48,6 @@ export default function PopularPicks() {
 
   // Modal / Popup State for Dish Details (Ingredients, Allergens, Description)
   const [modalDish, setModalDish] = useState<Dish | null>(null);
-  const [orderQuantity, setOrderQuantity] = useState<number>(1);
 
   const dishes: Dish[] = [
     {
@@ -179,11 +178,11 @@ export default function PopularPicks() {
 
   const selectedDish = dishes.find((d) => d.id === activeDishId) || dishes[0];
 
-  // Lock scroll when detail modal is open
+  // Lock scroll without jumping when detail modal is open
   useEffect(() => {
     if (modalDish) {
-      document.documentElement.classList.add("drawerActive");
-      document.body.classList.add("drawerActive");
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
 
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === "Escape") {
@@ -193,13 +192,9 @@ export default function PopularPicks() {
 
       window.addEventListener("keydown", handleKeyDown);
       return () => {
-        document.documentElement.classList.remove("drawerActive");
-        document.body.classList.remove("drawerActive");
+        document.body.style.overflow = prevOverflow;
         window.removeEventListener("keydown", handleKeyDown);
       };
-    } else {
-      document.documentElement.classList.remove("drawerActive");
-      document.body.classList.remove("drawerActive");
     }
   }, [modalDish]);
 
@@ -211,7 +206,6 @@ export default function PopularPicks() {
   };
 
   const openDetailsModal = (dish: Dish) => {
-    setOrderQuantity(1);
     setModalDish(dish);
   };
 
@@ -425,22 +419,6 @@ export default function PopularPicks() {
             role="dialog"
             aria-modal="true"
           >
-            {/* Modal Header Bar */}
-            <div className={styles.modalHeaderBar}>
-              <div className={styles.modalHeaderCategory}>
-                <span className={styles.modalCategoryBadge}>{modalDish.category}</span>
-                <span className={styles.modalHalalBadge}>✓ 100% Halal</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setModalDish(null)}
-                className={styles.modalCloseBtn}
-                aria-label="Zapri podrobnosti"
-              >
-                ✕
-              </button>
-            </div>
-
             {/* Modal Content Scroll Area */}
             <div className={styles.modalScrollBody}>
               {/* Dish Visual Header */}
@@ -500,25 +478,6 @@ export default function PopularPicks() {
 
             {/* Modal Footer / Order Bar */}
             <div className={styles.modalFooterBar}>
-              <div className={styles.quantityPicker}>
-                <button
-                  type="button"
-                  onClick={() => setOrderQuantity(Math.max(1, orderQuantity - 1))}
-                  className={styles.quantityBtn}
-                  disabled={orderQuantity <= 1}
-                >
-                  −
-                </button>
-                <span className={styles.quantityNum}>{orderQuantity}</span>
-                <button
-                  type="button"
-                  onClick={() => setOrderQuantity(orderQuantity + 1)}
-                  className={styles.quantityBtn}
-                >
-                  +
-                </button>
-              </div>
-
               <button
                 type="button"
                 onClick={() => {
@@ -527,15 +486,7 @@ export default function PopularPicks() {
                 }}
                 className={styles.modalOrderConfirmBtn}
               >
-                {orderedDishId === modalDish.id ? (
-                  "✓ Dodano v naročilo!"
-                ) : (
-                  <>
-                    <span>Dodaj v naročilo</span>
-                    <span>•</span>
-                    <span>{modalDish.price}</span>
-                  </>
-                )}
+                {orderedDishId === modalDish.id ? "✓ Dodano v naročilo!" : "Dodaj v naročilo"}
               </button>
             </div>
           </div>

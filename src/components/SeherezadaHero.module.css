@@ -316,13 +316,10 @@
   border-color: #fed7aa;
 }
 
-/* Bulletproof scroll lock on body & html when mobile menu is open */
+/* Scroll lock on body when mobile menu or modal is open without resetting scroll position */
 :global(html.drawerActive),
 :global(body.drawerActive) {
   overflow: hidden !important;
-  height: 100% !important;
-  touch-action: none !important;
-  -webkit-overflow-scrolling: auto !important;
 }
 
 /* ==========================================================================

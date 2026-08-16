@@ -232,26 +232,25 @@ export default function PopularPicks() {
               </div>
 
               <div className={styles.magazineContent}>
-                <div className={styles.magazineHeaderRow}>
-                  <div className={styles.tagWrapper}>
-                    <span className={styles.magSignatureTag}>ŠEHEREZADA IZBOR</span>
-                    <span className={styles.magHalalTag}>✓ 100% Halal</span>
-                  </div>
-                  <span className={styles.magPrice}>{selectedDish.price}</span>
-                </div>
-
                 <h3 className={styles.magTitle}>{selectedDish.title}</h3>
                 <p className={styles.magDesc}>{selectedDish.description}</p>
 
-                {/* Sestavine & Alergeni Modal Trigger */}
-                <button
-                  type="button"
-                  onClick={() => openDetailsModal(selectedDish)}
-                  className={styles.detailsModalTriggerBtn}
-                >
-                  <span>ℹ️ Vse sestavine &amp; alergeni</span>
-                  <span>&rarr;</span>
-                </button>
+                {/* Unified Bottom Row: Price + Sestavine & Alergeni Button */}
+                <div className={styles.showcaseBottomRow}>
+                  <div className={styles.showcasePriceBox}>
+                    <span className={styles.showcasePriceLabel}>Cena</span>
+                    <span className={styles.showcasePriceValue}>{selectedDish.price}</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => openDetailsModal(selectedDish)}
+                    className={styles.detailsModalTriggerBtn}
+                  >
+                    <span>ℹ️ Sestavine &amp; alergeni</span>
+                    <span>&rarr;</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

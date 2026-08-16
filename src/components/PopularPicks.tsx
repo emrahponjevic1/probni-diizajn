@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./PopularPicks.module.css";
 
@@ -20,6 +20,8 @@ interface Dish {
   description: string;
   image: string;
   ingredients: string;
+  ingredientsList: string[];
+  allergensList: string[];
 }
 
 export default function PopularPicks() {
@@ -27,6 +29,10 @@ export default function PopularPicks() {
   const [activeVersion, setActiveVersion] = useState<"v1_classic" | "v2_contrast" | "v3_reversed" | "v4_magazine">("v1_classic");
   const [activeDishId, setActiveDishId] = useState<number>(1);
   const [orderedDishId, setOrderedDishId] = useState<number | null>(null);
+
+  // Modal / Popup State for Dish Details (Ingredients, Allergens, Description)
+  const [modalDish, setModalDish] = useState<Dish | null>(null);
+  const [orderQuantity, setOrderQuantity] = useState<number>(1);
 
   const versionsList = [
     { id: "v1_classic" as const, label: "Verzija 1: Bistro Classic", icon: "🍽️" },
@@ -49,8 +55,16 @@ export default function PopularPicks() {
       badge: "Bestseller",
       badgeType: "bestseller",
       description:
-        "Sočno telečje in piščančje meso pečeno na pravem ognju, domač lepinji kruh po tajnem receptu, hrustljava zelenjava in hišna jogurtova omaka.",
+        "Hišna posebnost – sočno telečje in piščančje meso pečeno na pravem ognju, domač lepinji kruh po tajnem receptu, hrustljava zelenjava in hišna jogurtova omaka.",
       ingredients: "Telečje meso · Domač lepinja kruh · Sveža solata · Jogurtov preliv",
+      ingredientsList: [
+        "Domač lepinja kruh (sveže pečen)",
+        "Telečje & piščančje meso (100% Halal)",
+        "Sveža hrustljava solata & paradižnik",
+        "Rdeča čebula & rdeče zelje",
+        "Hišna kremasta jogurtova omaka",
+      ],
+      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)", "Sezam"],
       image: "/images/doner-kebab.jpg",
     },
     {
@@ -68,6 +82,14 @@ export default function PopularPicks() {
       description:
         "Domač tanek lavaš zvit z bogatim slojem mariniranega mesa, sveže solate, paradižnika in pristnih orientalskih začimb.",
       ingredients: "Tanek lavaš kruh · Mariniran döner · Paradižnik · Začimbe",
+      ingredientsList: [
+        "Tanek domač lavaš kruh",
+        "Marinirano döner meso na ognju",
+        "Sveži paradižniki & kumare",
+        "Zeliščna jogurtova omaka",
+        "Pristne orientalske začimbe",
+      ],
+      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)"],
       image: "/images/durum-falafel.jpg",
     },
     {
@@ -85,12 +107,20 @@ export default function PopularPicks() {
       description:
         "Zlato ocvrti čičerikini polpeti z orientalskimi zelišči, kremast domač humus, sveža mešana solata, tahini preliv in topel kruh.",
       ingredients: "Hrustljava čičerika · Domač humus · Tahini · Solata",
+      ingredientsList: [
+        "Zlati čičerikini polpeti z zelišči",
+        "Domač kremast humus s sezamom",
+        "Tahini sezamov preliv",
+        "Mešana sveža solata z oljčnim oljem",
+        "Topel domač kruh",
+      ],
+      allergensList: ["Sezam", "Gluten (pšenica)"],
       image: "/images/falafel.jpg",
     },
     {
       id: 4,
-      title: "Šeherezada Special Pizza",
-      category: "Pizze na kamnu",
+      title: "Kebab Pizza",
+      category: "Pice na kamnu",
       price: "8,90 €",
       oldPrice: "9,90 €",
       rating: 4.9,
@@ -101,8 +131,18 @@ export default function PopularPicks() {
       badge: "Hišna specialiteta",
       badgeType: "special",
       description:
-        "Hrustljavo testo pečeno na kamnu, hišni paradižnikov sugo, mozzarella, sočno döner meso, sveže gobe in sveža rukola.",
-      ingredients: "Testo na kamnu · Mozzarella · Döner meso · Rukola",
+        "Hišna posebnost – pica pečena na kamnu z domačim paradižnikovim sugojem, mozzarello, sočnim kebab mesom in jogurtovim prelivom.",
+      ingredients: "Pelati · Mozzarella · Kebab meso · Čebula · Jogurtov preliv",
+      ingredientsList: [
+        "Domače testo pečeno na kamnu",
+        "Pelati (paradižnikov sugo)",
+        "Mozzarella",
+        "Kebab meso",
+        "Čebula",
+        "Jogurtov preliv",
+        "Origano",
+      ],
+      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)"],
       image: "/images/pizza.jpg",
     },
     {
@@ -120,6 +160,15 @@ export default function PopularPicks() {
       description:
         "Vrhunski kulinarični izbor: döner meso, domači falafli, aromatični orientalski riž, zlati pomfri, pečen paradižnik in 3 hišne omake.",
       ingredients: "Döner meso · Falaflji · Riž · Pomfri · 3 hišne omake",
+      ingredientsList: [
+        "Telečji in piščančji döner",
+        "Domači hrustljavi falaflji",
+        "Aromatični orientalski riž",
+        "Zlato ocvrt pomfri",
+        "Pečen paradižnik & paprika",
+        "3 hišne omake (jogurtova, čilijeva, tahini)",
+      ],
+      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)", "Sezam"],
       image: "/images/hero-platter.jpg",
     },
     {
@@ -137,17 +186,54 @@ export default function PopularPicks() {
       description:
         "Hrustljav domač falafel v toplem lavaš kruhu s svežo kumaro, paradižnikom, metinim jogurtom in blagim sezamovim prelivom.",
       ingredients: "Falafel polpeti · Lavaš · Metin jogurt · Sezam",
+      ingredientsList: [
+        "Domači čičerikini falaflji",
+        "Tanek topel lavaš kruh",
+        "Sveže kumare in paradižnik",
+        "Osvežilen metin jogurt",
+        "Sezamov tahini preliv",
+      ],
+      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)", "Sezam"],
       image: "/images/durum-falafel.jpg",
     },
   ];
 
   const selectedDish = dishes.find((d) => d.id === activeDishId) || dishes[0];
 
+  // Lock scroll when detail modal is open
+  useEffect(() => {
+    if (modalDish) {
+      document.documentElement.classList.add("drawerActive");
+      document.body.classList.add("drawerActive");
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          setModalDish(null);
+        }
+      };
+
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.documentElement.classList.remove("drawerActive");
+        document.body.classList.remove("drawerActive");
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    } else {
+      document.documentElement.classList.remove("drawerActive");
+      document.body.classList.remove("drawerActive");
+    }
+  }, [modalDish]);
+
   const handleOrderClick = (dishId: number) => {
     setOrderedDishId(dishId);
     setTimeout(() => {
       setOrderedDishId(null);
     }, 1600);
+  };
+
+  const openDetailsModal = (dish: Dish) => {
+    setOrderQuantity(1);
+    setModalDish(dish);
   };
 
   return (
@@ -190,8 +276,8 @@ export default function PopularPicks() {
           <h2 className={styles.sectionTitle}>Priljubljene izbire</h2>
 
           <p className={styles.sectionSubtitle}>
-            Okusi, ki so osvojili Ljubljano. Kliknite na jed na desni za ogled
-            podrobnosti in naročilo.
+            Okusi, ki so osvojili Ljubljano. Kliknite na kartico ali gumb za ogled
+            vseh podrobnosti (sestavine, alergeni) in naročilo.
           </p>
         </div>
 
@@ -232,6 +318,16 @@ export default function PopularPicks() {
                   <div className={styles.v1IngredientsTag}>
                     <span>Sestavine:</span> {selectedDish.ingredients}
                   </div>
+
+                  {/* Detail Info Modal Trigger Button */}
+                  <button
+                    type="button"
+                    onClick={() => openDetailsModal(selectedDish)}
+                    className={styles.detailsModalTriggerBtn}
+                  >
+                    <span>ℹ️ Poglej sestavine in alergene</span>
+                    <span>&rarr;</span>
+                  </button>
 
                   <div className={styles.v1FooterRow}>
                     <div className={styles.priceColumn}>
@@ -286,7 +382,17 @@ export default function PopularPicks() {
 
                     <div className={styles.v1ItemRight}>
                       <span className={styles.v1ItemPrice}>{dish.price}</span>
-                      <span className={styles.v1Arrow}>➔</span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openDetailsModal(dish);
+                        }}
+                        className={styles.itemInfoIconBtn}
+                        title="Prikaži podrobnosti"
+                      >
+                        ℹ
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -331,6 +437,15 @@ export default function PopularPicks() {
                   <h3 className={styles.v2Title}>{selectedDish.title}</h3>
                   <p className={styles.v2Desc}>{selectedDish.description}</p>
 
+                  <button
+                    type="button"
+                    onClick={() => openDetailsModal(selectedDish)}
+                    className={styles.darkDetailsTriggerBtn}
+                  >
+                    <span>ℹ️ Sestavine in alergeni</span>
+                    <span>&rarr;</span>
+                  </button>
+
                   <div className={styles.v2DarkFooter}>
                     <div className={styles.v2PriceBox}>
                       <span className={styles.v2PriceLabel}>Skupaj</span>
@@ -349,7 +464,7 @@ export default function PopularPicks() {
               </div>
             </div>
 
-            {/* Right: Light Minimal Cards with Active Progress Bar */}
+            {/* Right: Light Minimal Cards */}
             <div className={styles.v2ListCol}>
               <div className={styles.v2ItemsList}>
                 {dishes.map((dish, idx) => (
@@ -370,6 +485,17 @@ export default function PopularPicks() {
                     </div>
                     <div className={styles.v2ItemEnd}>
                       <span className={styles.v2PriceTag}>{dish.price}</span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openDetailsModal(dish);
+                        }}
+                        className={styles.itemInfoIconBtn}
+                        title="Prikaži podrobnosti"
+                      >
+                        ℹ
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -379,7 +505,7 @@ export default function PopularPicks() {
         )}
 
         {/* ==================================================================
-            VERZIJA 3: REVERSED PANORAMA (DESNO HERO IZLOG + LEVO KARTICE)
+            VERZIJA 3: REVERSED PANORAMA (DESNO HERO + LEVO KARTICE)
             ================================================================== */}
         {activeVersion === "v3_reversed" && (
           <div className={styles.v3Grid}>
@@ -435,6 +561,16 @@ export default function PopularPicks() {
                     <div><strong>Priprava:</strong> Sveže na ognju</div>
                   </div>
 
+                  <button
+                    type="button"
+                    onClick={() => openDetailsModal(selectedDish)}
+                    className={styles.detailsModalTriggerBtn}
+                    style={{ margin: "0.2rem 0" }}
+                  >
+                    <span>ℹ️ Poglej sestavine in alergene</span>
+                    <span>&rarr;</span>
+                  </button>
+
                   <div className={styles.v3PanoramaFooter}>
                     <span className={styles.v3PanoramaPrice}>{selectedDish.price}</span>
                     <button
@@ -480,6 +616,16 @@ export default function PopularPicks() {
                   <h3 className={styles.v4MagTitle}>{selectedDish.title}</h3>
                   <p className={styles.v4MagDesc}>{selectedDish.description}</p>
 
+                  <button
+                    type="button"
+                    onClick={() => openDetailsModal(selectedDish)}
+                    className={styles.detailsModalTriggerBtn}
+                    style={{ marginBottom: "0.6rem" }}
+                  >
+                    <span>ℹ️ Vse sestavine &amp; alergeni</span>
+                    <span>&rarr;</span>
+                  </button>
+
                   <div className={styles.v4MagButtonRow}>
                     <button
                       type="button"
@@ -509,7 +655,20 @@ export default function PopularPicks() {
                       <h4 className={styles.v4LineTitle}>{dish.title}</h4>
                       <p className={styles.v4LineIngredients}>{dish.ingredients}</p>
                     </div>
-                    <span className={styles.v4LinePrice}>{dish.price}</span>
+                    <div className={styles.v4LineEnd}>
+                      <span className={styles.v4LinePrice}>{dish.price}</span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openDetailsModal(dish);
+                        }}
+                        className={styles.itemInfoIconBtn}
+                        title="Prikaži podrobnosti"
+                      >
+                        ℹ
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -533,6 +692,145 @@ export default function PopularPicks() {
           </a>
         </div>
       </div>
+
+      {/* ==================================================================
+          FOOD DETAIL MODAL / POPUP (SESTAVINE, ALERGENI, OPIS JEDI)
+          ================================================================== */}
+      {modalDish && (
+        <div className={styles.modalBackdrop} onClick={() => setModalDish(null)}>
+          <div
+            className={styles.modalContainer}
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            {/* Modal Header Bar */}
+            <div className={styles.modalHeaderBar}>
+              <div className={styles.modalHeaderCategory}>
+                <span className={styles.modalCategoryBadge}>{modalDish.category}</span>
+                <span className={styles.modalHalalBadge}>✓ 100% Halal</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setModalDish(null)}
+                className={styles.modalCloseBtn}
+                aria-label="Zapri podrobnosti"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Modal Content Scroll Area */}
+            <div className={styles.modalScrollBody}>
+              {/* Dish Visual Header */}
+              <div className={styles.modalVisualRow}>
+                <div className={styles.modalDishImgWrapper}>
+                  <Image
+                    src={modalDish.image}
+                    alt={modalDish.title}
+                    width={200}
+                    height={200}
+                    className={styles.modalDishImg}
+                  />
+                </div>
+
+                <div className={styles.modalTitleMeta}>
+                  <h3 className={styles.modalDishTitle}>{modalDish.title}</h3>
+                  <div className={styles.modalQuickBadges}>
+                    <span>★ {modalDish.rating} ({modalDish.reviewsCount} ocen)</span>
+                    <span>⏱ {modalDish.time}</span>
+                    <span>⚖️ {modalDish.weight}</span>
+                    <span>🔥 {modalDish.calories}</span>
+                  </div>
+                  <div className={styles.modalPriceText}>{modalDish.price}</div>
+                </div>
+              </div>
+
+              {/* 1. Opis Jedi */}
+              <div className={styles.modalSectionBox}>
+                <h4 className={styles.modalSectionTitle}>
+                  <span>📝</span>
+                  <span>Opis Jedi</span>
+                </h4>
+                <p className={styles.modalDescText}>{modalDish.description}</p>
+              </div>
+
+              {/* 2. Sestavine (Ingredients Checklist) */}
+              <div className={styles.modalSectionBox}>
+                <h4 className={styles.modalSectionTitle}>
+                  <span>🌿</span>
+                  <span>Sestavine</span>
+                </h4>
+                <ul className={styles.modalIngredientsList}>
+                  {modalDish.ingredientsList.map((item, idx) => (
+                    <li key={idx} className={styles.modalIngredientItem}>
+                      <span className={styles.ingredientCheckIcon}>✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 3. Alergeni (Allergens Pills) */}
+              <div className={styles.modalSectionBox}>
+                <h4 className={styles.modalSectionTitle}>
+                  <span>⚠️</span>
+                  <span>Alergeni</span>
+                </h4>
+                <div className={styles.modalAllergensGrid}>
+                  {modalDish.allergensList.map((allergen, idx) => (
+                    <span key={idx} className={styles.modalAllergenPill}>
+                      <span className={styles.allergenDot}>•</span>
+                      <span>{allergen}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Footer / Order Bar */}
+            <div className={styles.modalFooterBar}>
+              <div className={styles.quantityPicker}>
+                <button
+                  type="button"
+                  onClick={() => setOrderQuantity(Math.max(1, orderQuantity - 1))}
+                  className={styles.quantityBtn}
+                  disabled={orderQuantity <= 1}
+                >
+                  −
+                </button>
+                <span className={styles.quantityNum}>{orderQuantity}</span>
+                <button
+                  type="button"
+                  onClick={() => setOrderQuantity(orderQuantity + 1)}
+                  className={styles.quantityBtn}
+                >
+                  +
+                </button>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  handleOrderClick(modalDish.id);
+                  setTimeout(() => setModalDish(null), 900);
+                }}
+                className={styles.modalOrderConfirmBtn}
+              >
+                {orderedDishId === modalDish.id ? (
+                  "✓ Dodano v naročilo!"
+                ) : (
+                  <>
+                    <span>Dodaj v naročilo</span>
+                    <span>•</span>
+                    <span>{modalDish.price}</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

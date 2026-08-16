@@ -49,18 +49,19 @@
   transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mobileNavHidden,
-.mobileNavVisible {
-  transform: none;
-}
-
-/* Completely hide navbar when any Food Detail Modal is open */
-:global(body.foodModalActive) .navbarStickyWrapper {
+:global(html.modalActive) .navbarStickyWrapper,
+:global(body.modalActive) .navbarStickyWrapper {
+  display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  transition: none !important;
   transform: translateY(-100%) !important;
+  transition: none !important;
+}
+
+.mobileNavHidden,
+.mobileNavVisible {
+  transform: none;
 }
 
 .navbarStickyWrapperScrolled {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import styles from "./PopularPicks.module.css";
 
@@ -43,7 +44,12 @@ export default function PopularPicks() {
 
   // Carousel scroll index tracker
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
+  const [isMounted, setIsMounted] = useState(false);
   const carouselTrackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Modal / Popup State for Dish Details (Ingredients, Allergens, Description)
   const [modalDish, setModalDish] = useState<Dish | null>(null);
@@ -177,12 +183,15 @@ export default function PopularPicks() {
 
   const selectedDish = dishes.find((d) => d.id === activeDishId) || dishes[0];
 
-  // Bulletproof background scroll lock when detail modal is open
+  // Bulletproof background scroll lock & navbar suppression when detail modal is open
   useEffect(() => {
     if (modalDish) {
       const scrollY = window.scrollY;
 
-      document.body.classList.add("foodModalActive");
+      // Lock global html & body with modalActive flag
+      document.documentElement.classList.add("modalActive");
+      document.body.classList.add("modalActive");
+
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
       document.body.style.left = "0";
@@ -200,8 +209,6 @@ export default function PopularPicks() {
 
       return () => {
         const top = document.body.style.top;
-        const parsedScrollY = top ? parseInt(top, 10) * -1 : 0;
-
         document.body.style.position = "";
         document.body.style.top = "";
         document.body.style.left = "";
@@ -209,16 +216,16 @@ export default function PopularPicks() {
         document.body.style.width = "";
         document.body.style.overflow = "";
 
-        if (parsedScrollY) {
+        if (top) {
+          const parsedScrollY = parseInt(top || "0", 10) * -1;
           window.scrollTo(0, parsedScrollY);
         }
 
-        // Delay removing foodModalActive until browser completes scroll restore
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            document.body.classList.remove("foodModalActive");
-          });
-        });
+        // Delay removing modalActive flag so scroll restoration does not trigger navbar animation
+        setTimeout(() => {
+          document.documentElement.classList.remove("modalActive");
+          document.body.classList.remove("modalActive");
+        }, 100);
 
         window.removeEventListener("keydown", handleKeyDown);
       };
@@ -431,92 +438,96 @@ export default function PopularPicks() {
       {/* ==================================================================
           FOOD DETAIL MODAL / POPUP (SESTAVINE, ALERGENI, OPIS JEDI)
           ================================================================== */}
-      {modalDish && (
-        <div
-          className={styles.modalBackdrop}
-          onClick={() => setModalDish(null)}
-          onTouchMove={(e) => {
-            if (e.target === e.currentTarget) {
-              e.preventDefault();
-            }
-          }}
-        >
+      {modalDish &&
+        isMounted &&
+        typeof document !== "undefined" &&
+        createPortal(
           <div
-            className={styles.modalContainer}
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
+            className={styles.modalBackdrop}
+            onClick={() => setModalDish(null)}
+            onTouchMove={(e) => {
+              if (e.target === e.currentTarget) {
+                e.preventDefault();
+              }
+            }}
           >
-            {/* Modal Content Scroll Area */}
-            <div className={styles.modalScrollBody}>
-              {/* Dish Visual Header */}
-              <div className={styles.modalVisualRow}>
-                <div className={styles.modalDishImgWrapper}>
-                  <Image
-                    src={modalDish.image}
-                    alt={modalDish.title}
-                    width={200}
-                    height={200}
-                    className={styles.modalDishImg}
-                  />
-                </div>
-
-                <div className={styles.modalTitleMeta}>
-                  <h3 className={styles.modalDishTitle}>{modalDish.title}</h3>
-                  <div className={styles.modalQuickBadges}>
-                    <span className={styles.modalCategoryBadge}>{modalDish.category}</span>
-                    <span className={styles.modalHalalBadge}>✓ 100% Halal</span>
+            <div
+              className={styles.modalContainer}
+              onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+            >
+              {/* Modal Content Scroll Area */}
+              <div className={styles.modalScrollBody}>
+                {/* Dish Visual Header */}
+                <div className={styles.modalVisualRow}>
+                  <div className={styles.modalDishImgWrapper}>
+                    <Image
+                      src={modalDish.image}
+                      alt={modalDish.title}
+                      width={200}
+                      height={200}
+                      className={styles.modalDishImg}
+                    />
                   </div>
-                  <div className={styles.modalPriceText}>{modalDish.price}</div>
+
+                  <div className={styles.modalTitleMeta}>
+                    <h3 className={styles.modalDishTitle}>{modalDish.title}</h3>
+                    <div className={styles.modalQuickBadges}>
+                      <span className={styles.modalCategoryBadge}>{modalDish.category}</span>
+                      <span className={styles.modalHalalBadge}>✓ 100% Halal</span>
+                    </div>
+                    <div className={styles.modalPriceText}>{modalDish.price}</div>
+                  </div>
+                </div>
+
+                {/* 1. Opis Jedi */}
+                <div className={styles.modalSectionBox}>
+                  <h4 className={styles.modalSectionTitle}>Opis Jedi</h4>
+                  <p className={styles.modalDescText}>{modalDish.description}</p>
+                </div>
+
+                {/* 2. Sestavine (Ingredients Checklist) */}
+                <div className={styles.modalSectionBox}>
+                  <h4 className={styles.modalSectionTitle}>Sestavine</h4>
+                  <ul className={styles.modalIngredientsList}>
+                    {modalDish.ingredientsList.map((item, idx) => (
+                      <li key={idx} className={styles.modalIngredientItem}>
+                        <span className={styles.ingredientCheckIcon}>✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* 3. Alergeni (Allergens Pills) */}
+                <div className={styles.modalSectionBox}>
+                  <h4 className={styles.modalSectionTitle}>Alergeni</h4>
+                  <div className={styles.modalAllergensGrid}>
+                    {modalDish.allergensList.map((allergen, idx) => (
+                      <span key={idx} className={styles.modalAllergenPill}>
+                        <span className={styles.allergenDot}>•</span>
+                        <span>{allergen}</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* 1. Opis Jedi */}
-              <div className={styles.modalSectionBox}>
-                <h4 className={styles.modalSectionTitle}>Opis Jedi</h4>
-                <p className={styles.modalDescText}>{modalDish.description}</p>
-              </div>
-
-              {/* 2. Sestavine (Ingredients Checklist) */}
-              <div className={styles.modalSectionBox}>
-                <h4 className={styles.modalSectionTitle}>Sestavine</h4>
-                <ul className={styles.modalIngredientsList}>
-                  {modalDish.ingredientsList.map((item, idx) => (
-                    <li key={idx} className={styles.modalIngredientItem}>
-                      <span className={styles.ingredientCheckIcon}>✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* 3. Alergeni (Allergens Pills) */}
-              <div className={styles.modalSectionBox}>
-                <h4 className={styles.modalSectionTitle}>Alergeni</h4>
-                <div className={styles.modalAllergensGrid}>
-                  {modalDish.allergensList.map((allergen, idx) => (
-                    <span key={idx} className={styles.modalAllergenPill}>
-                      <span className={styles.allergenDot}>•</span>
-                      <span>{allergen}</span>
-                    </span>
-                  ))}
-                </div>
+              {/* Modal Footer Bar */}
+              <div className={styles.modalFooterBar}>
+                <button
+                  type="button"
+                  onClick={() => setModalDish(null)}
+                  className={styles.modalCloseWindowBtn}
+                >
+                  Zapri okno
+                </button>
               </div>
             </div>
-
-            {/* Modal Footer Bar */}
-            <div className={styles.modalFooterBar}>
-              <button
-                type="button"
-                onClick={() => setModalDish(null)}
-                className={styles.modalCloseWindowBtn}
-              >
-                Zapri okno
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </section>
   );
 }

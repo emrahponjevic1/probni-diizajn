@@ -7,7 +7,7 @@
   position: relative;
   width: 100%;
   background: #fffcf8;
-  padding: 4.5rem 1.5rem 6rem;
+  padding: 5rem 2rem 5.5rem;
   border-top: 1px solid #f2ede4;
   overflow: hidden;
 }
@@ -808,6 +808,10 @@
    RESPONSIVENESS (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 1080px) {
+  .popularSection {
+    padding: 4rem 1.5rem 4.5rem;
+  }
+
   .magazineGrid {
     grid-template-columns: 1fr;
     gap: 2.2rem;
@@ -827,7 +831,7 @@
 
 @media (max-width: 640px) {
   .popularSection {
-    padding: 3rem 1rem 4.5rem;
+    padding: 3.5rem 1.25rem 4rem;
   }
 
   .container {

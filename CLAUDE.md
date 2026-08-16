@@ -14,4 +14,16 @@
 - **Brand Accents**: `#ea580c` (Rich warm orange), `#f59e0b` (Amber gold), `#ef4444` (Coral red).
 - **Live Status Mint**: `#ecfdf5` background, `#a7f3d0` border, `#047857` / `#065f46` text.
 - **Card Borders**: `#f2ede4` / `#fed7aa`.
-- **Border Radii**: Cards (`18px` / `20px`), Buttons (`99px` / `16px`), Utility Buttons (`16px`), Squircles (`12px`).
+- **Border Radii**: Cards (`18px` - `28px`), Buttons (`99px` / `14px`), Utility Buttons (`16px`), Squircles (`12px`).
+
+## 3. Universal Section Margins & Padding Standards (STRICT RULE)
+All sections on the website MUST adhere to these exact margin and padding values:
+- **Container Max Width**: `max-width: 1360px; margin: 0 auto; width: 100%;`
+- **Horizontal Section Padding**:
+  - **Desktop (`> 1024px`)**: `2rem` (`32px`) on left and right (`padding: ... 2rem ...`).
+  - **Tablet (`640px - 1024px`)**: `1.5rem` (`24px`) on left and right (`padding: ... 1.5rem ...`).
+  - **Mobile (`<= 640px`)**: `1.25rem` (`20px`) on left and right (`padding: ... 1.25rem ...`).
+- **Vertical Section Padding**:
+  - **Desktop (`> 1024px`)**: `5rem` top, `5.5rem` bottom.
+  - **Tablet (`640px - 1024px`)**: `4rem` top, `4.5rem` bottom.
+  - **Mobile (`<= 640px`)**: `3.5rem` top, `4rem` bottom.

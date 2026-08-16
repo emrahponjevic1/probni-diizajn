@@ -7,9 +7,6 @@ import styles from "./SeherezadaHero.module.css";
 export default function SeherezadaHero() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isNavVisible, setIsNavVisible] = useState(true);
-
-  const lastScrollY = useRef(0);
 
   // Interactive Location & Language state
   const [selectedLocation, setSelectedLocation] = useState<"1" | "2">("1");
@@ -63,34 +60,13 @@ export default function SeherezadaHero() {
     }
   }, [isMobileMenuOpen]);
 
-  // Smart Sticky Navbar (Hide on Scroll Down, Show on Scroll Up beyond Island top)
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const islandThreshold = 80; // Top zone where floating island navbar lives
-
-      if (currentScrollY <= islandThreshold) {
-        // At the top: Always show the island navbar
-        setIsScrolled(false);
-        setIsNavVisible(true);
-      } else {
-        // Scrolled past top: Enable smart hide-on-down / show-on-up
+      if (window.scrollY > 20) {
         setIsScrolled(true);
-
-        const delta = currentScrollY - lastScrollY.current;
-
-        if (delta > 6) {
-          // Scrolling DOWN -> Hide navbar
-          setIsNavVisible(false);
-          setIsDesktopLocOpen(false);
-          setIsDesktopLangOpen(false);
-        } else if (delta < -6) {
-          // Scrolling UP -> Reveal sticky navbar
-          setIsNavVisible(true);
-        }
+      } else {
+        setIsScrolled(false);
       }
-
-      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -130,14 +106,8 @@ export default function SeherezadaHero() {
         <div className={styles.leftSoftGlow} />
       </div>
 
-      {/* Floating Island at Top -> Smart Sticky Auto-Hiding Navbar on Scroll */}
-      <div
-        className={`${styles.navbarStickyWrapper} ${
-          isScrolled ? styles.navbarStickyWrapperScrolled : ""
-        } ${
-          !isNavVisible && isScrolled ? styles.navbarHidden : styles.navbarVisible
-        }`}
-      >
+      {/* Floating Island at Top -> Full-Width on Scroll (Desktop) */}
+      <div className={`${styles.navbarStickyWrapper} ${isScrolled ? styles.navbarStickyWrapperScrolled : ""}`}>
         <header className={`${styles.navbarIsland} ${isScrolled ? styles.navbarFullWidth : ""}`}>
           <div className={styles.navbarInnerContainer}>
             {/* Brand Logo */}

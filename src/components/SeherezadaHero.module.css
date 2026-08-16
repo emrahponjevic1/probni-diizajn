@@ -54,6 +54,14 @@
   transform: none;
 }
 
+/* Completely hide navbar when any Food Detail Modal is open */
+:global(body.foodModalActive) .navbarStickyWrapper {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: none !important;
+}
+
 .navbarStickyWrapperScrolled {
   padding: 0;
 }

@@ -182,6 +182,7 @@ export default function PopularPicks() {
     if (modalDish) {
       const scrollY = window.scrollY;
 
+      document.body.classList.add("foodModalActive");
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
       document.body.style.left = "0";
@@ -199,6 +200,7 @@ export default function PopularPicks() {
 
       return () => {
         const top = document.body.style.top;
+        document.body.classList.remove("foodModalActive");
         document.body.style.position = "";
         document.body.style.top = "";
         document.body.style.left = "";

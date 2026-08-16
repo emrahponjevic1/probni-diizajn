@@ -153,18 +153,19 @@
 
 .bannerGhostWatermark {
   position: absolute;
-  right: -25px;
-  bottom: -40px;
+  left: 30px;
+  bottom: -20px;
   font-size: 11.5rem;
   font-weight: 950;
+  font-style: italic;
+  transform: rotate(-3deg) skewX(-4deg);
   color: #ffffff;
-  opacity: 0.13;
-  letter-spacing: 0.02em;
-  transform: rotate(-10deg);
-  transform-origin: bottom right;
+  opacity: 0.15;
+  letter-spacing: 0.04em;
   user-select: none;
   pointer-events: none;
   line-height: 1;
+  z-index: 1;
 }
 
 .bannerTopBadge {
@@ -515,10 +516,9 @@
   }
 
   .bannerGhostWatermark {
-    font-size: 6.5rem;
-    right: -15px;
-    bottom: -20px;
-    transform: rotate(-10deg);
+    font-size: 6.8rem;
+    left: 10px;
+    bottom: -15px;
   }
 
   .bannerBottomRow {

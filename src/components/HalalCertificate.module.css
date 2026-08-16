@@ -171,6 +171,34 @@
   margin: 0;
 }
 
+.trustPillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: -0.2rem;
+}
+
+.trustPillTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 99px;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  color: #1c1917;
+  font-size: 0.8rem;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(28, 25, 23, 0.04);
+}
+
+.trustPillTagHighlight {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #ea580c;
+}
+
 .guaranteesList {
   display: flex;
   flex-direction: column;

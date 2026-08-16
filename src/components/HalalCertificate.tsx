@@ -48,7 +48,7 @@ export default function HalalCertificate() {
                 </div>
                 <div className={styles.certPillMeta}>
                   <span className={styles.certPillTitle}>100% Halal Certificirano</span>
-                  <span className={styles.certPillSub}>Stalni veterinarski in halal nadzor</span>
+                  <span className={styles.certPillSub}>0% Svinjskega mesa · Brez kompromisov</span>
                 </div>
               </div>
             </div>
@@ -64,6 +64,21 @@ export default function HalalCertificate() {
             <h2 className={styles.halalHeading}>
               100% Halal. Brez kompromisov pri čistosti in izvoru.
             </h2>
+
+            <div className={styles.trustPillsRow}>
+              <span className={`${styles.trustPillTag} ${styles.trustPillTagHighlight}`}>
+                <span>✓</span>
+                <span>100% Halal Meso</span>
+              </span>
+              <span className={`${styles.trustPillTag} ${styles.trustPillTagHighlight}`}>
+                <span>✓</span>
+                <span>0% Svinjskega Mesa</span>
+              </span>
+              <span className={styles.trustPillTag}>
+                <span>✓</span>
+                <span>100% Brez Alkohola</span>
+              </span>
+            </div>
 
             <p className={styles.halalLeadText}>
               Pri Šeherezadi spoštujemo vaše zaupanje in kulinarično tradicijo.
@@ -93,10 +108,10 @@ export default function HalalCertificate() {
                   <SparklesPuritySvg size={24} />
                 </div>
                 <div className={styles.guaranteeContent}>
-                  <h3 className={styles.guaranteeTitle}>Ničelna toleranca za nečistoče</h3>
+                  <h3 className={styles.guaranteeTitle}>0% Svinjskega mesa &amp; ničelna toleranca</h3>
                   <p className={styles.guaranteeDesc}>
-                    V naših kuhinjah ni prisotnega svinjskega mesa, alkohola ali
-                    kakršnihkoli skritih živalskih maščobnih dodatkov.
+                    V naših kuhinjah velja stroga prepoved svinjine, svinjskih
+                    derivatov, alkohola ali kakršnihkoli skritih živalskih maščob.
                   </p>
                 </div>
               </div>

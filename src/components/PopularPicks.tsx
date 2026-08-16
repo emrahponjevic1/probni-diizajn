@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./PopularPicks.module.css";
 
@@ -22,6 +22,16 @@ interface Dish {
 export default function PopularPicks() {
   const [activeDishId, setActiveDishId] = useState<number>(1);
   const [orderedDishId, setOrderedDishId] = useState<number | null>(null);
+
+  // Mobile layout switcher for testing: "swipe" | "accordion" | "stacked"
+  const [mobileLayoutMode, setMobileLayoutMode] = useState<"swipe" | "accordion" | "stacked">("swipe");
+  
+  // Accordion active item state
+  const [expandedAccordionId, setExpandedAccordionId] = useState<number>(1);
+
+  // Carousel scroll index tracker
+  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
+  const carouselTrackRef = useRef<HTMLDivElement>(null);
 
   // Modal / Popup State for Dish Details (Ingredients, Allergens, Description)
   const [modalDish, setModalDish] = useState<Dish | null>(null);
@@ -192,9 +202,54 @@ export default function PopularPicks() {
     setModalDish(dish);
   };
 
+  const handleCarouselScroll = () => {
+    if (carouselTrackRef.current) {
+      const scrollLeft = carouselTrackRef.current.scrollLeft;
+      const cardWidth = carouselTrackRef.current.offsetWidth * 0.85;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      setCurrentSlideIndex(Math.min(newIndex, dishes.length - 1));
+    }
+  };
+
   return (
     <section className={styles.popularSection} id="meni">
       <div className={styles.container}>
+        {/* ==================================================================
+            MOBILE OPTIONS TEST SWITCHER (Za preizkus 3 mobilnih opcij)
+            ================================================================== */}
+        <div className={styles.mobileSwitcherBar}>
+          <span className={styles.switcherLabel}>📱 Preizkusi mobilni pogled:</span>
+          <div className={styles.switcherButtonsRow}>
+            <button
+              type="button"
+              onClick={() => setMobileLayoutMode("swipe")}
+              className={`${styles.switcherBtn} ${
+                mobileLayoutMode === "swipe" ? styles.switcherBtnActive : ""
+              }`}
+            >
+              <span>1. Touch Swipe</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileLayoutMode("accordion")}
+              className={`${styles.switcherBtn} ${
+                mobileLayoutMode === "accordion" ? styles.switcherBtnActive : ""
+              }`}
+            >
+              <span>2. Harmonika</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileLayoutMode("stacked")}
+              className={`${styles.switcherBtn} ${
+                mobileLayoutMode === "stacked" ? styles.switcherBtnActive : ""
+              }`}
+            >
+              <span>3. Kartice</span>
+            </button>
+          </div>
+        </div>
+
         {/* ==================================================================
             SECTION HEADER
             ================================================================== */}
@@ -202,15 +257,15 @@ export default function PopularPicks() {
           <h2 className={styles.sectionTitle}>Priljubljene izbire</h2>
 
           <p className={styles.sectionSubtitle}>
-            Okusi, ki so osvojili Ljubljano. Izberite jed na desni strani za ogled
-            podrobnosti, sestavin in naročilo.
+            Okusi, ki so osvojili Ljubljano. Pripravljeno sveže vsak dan iz
+            skrbno izbranih sestavin in domačega kruha.
           </p>
         </div>
 
         {/* ==================================================================
-            MAGAZINE EDITORIAL LAYOUT (LUKSUZNI MINIMAL SHOWCASE + LISTA)
+            DESKTOP VIEW: EDITORIAL SPLIT VIEW (Visible on desktop > 1024px)
             ================================================================== */}
-        <div className={styles.magazineGrid}>
+        <div className={styles.desktopMagazineGrid}>
           {/* Left: Sticky Magazine Hero Poster */}
           <div className={styles.magazineStickyCol}>
             <div className={styles.magazineCard}>
@@ -288,6 +343,195 @@ export default function PopularPicks() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* ==================================================================
+            MOBILE / TABLET VIEW: 3 DISTINCT ACCESSIBLE LAYOUTS (<= 1024px)
+            ================================================================== */}
+        <div className={styles.mobileViewWrapper}>
+          {/* ----------------------------------------------------------------
+              OPCIJA 1: TOUCH SWIPE CAROUSEL (Prirodno listanje prstom)
+              ---------------------------------------------------------------- */}
+          {mobileLayoutMode === "swipe" && (
+            <div className={styles.mobileSwipeContainer}>
+              {/* Swipe Counter & Instructions */}
+              <div className={styles.swipeTopInfo}>
+                <span className={styles.swipeHintText}>👈 Povlecite s prstom za več</span>
+                <span className={styles.swipeCounterBadge}>
+                  0{currentSlideIndex + 1} / 0{dishes.length}
+                </span>
+              </div>
+
+              {/* Scrollable Track */}
+              <div
+                className={styles.mobileSwipeTrack}
+                ref={carouselTrackRef}
+                onScroll={handleCarouselScroll}
+              >
+                {dishes.map((dish) => (
+                  <article key={dish.id} className={styles.mobileSwipeCard}>
+                    <div className={styles.mobileCardImageArea}>
+                      <Image
+                        src={dish.image}
+                        alt={dish.title}
+                        width={320}
+                        height={240}
+                        className={styles.mobileCardImg}
+                      />
+                      {dish.badge && (
+                        <span className={styles.mobileCardBadge}>{dish.badge}</span>
+                      )}
+                    </div>
+
+                    <div className={styles.mobileCardBody}>
+                      <h3 className={styles.mobileCardTitle}>{dish.title}</h3>
+                      <p className={styles.mobileCardDesc}>{dish.description}</p>
+
+                      <div className={styles.mobileCardFooter}>
+                        <div className={styles.showcasePriceBox}>
+                          <span className={styles.showcasePriceLabel}>Cena</span>
+                          <span className={styles.showcasePriceValue}>{dish.price}</span>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => openDetailsModal(dish)}
+                          className={styles.mobileDetailsBtn}
+                        >
+                          <span>ℹ️ Sestavine</span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              {/* Dot Indicators */}
+              <div className={styles.swipeDotsRow}>
+                {dishes.map((_, idx) => (
+                  <span
+                    key={idx}
+                    className={`${styles.swipeDot} ${
+                      currentSlideIndex === idx ? styles.swipeDotActive : ""
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ----------------------------------------------------------------
+              OPCIJA 2: HARMONIKA LISTA (ACCORDION EXPAND NA DODIR)
+              ---------------------------------------------------------------- */}
+          {mobileLayoutMode === "accordion" && (
+            <div className={styles.accordionListContainer}>
+              {dishes.map((dish, idx) => {
+                const isExpanded = expandedAccordionId === dish.id;
+                return (
+                  <div
+                    key={dish.id}
+                    className={`${styles.accordionItem} ${
+                      isExpanded ? styles.accordionItemOpen : ""
+                    }`}
+                  >
+                    {/* Header Row (Always Visible) */}
+                    <div
+                      className={styles.accordionHeader}
+                      onClick={() =>
+                        setExpandedAccordionId(isExpanded ? 0 : dish.id)
+                      }
+                    >
+                      <span className={styles.accordionNum}>0{idx + 1}</span>
+                      <div className={styles.accordionHeaderTitleCol}>
+                        <h4 className={styles.accordionTitle}>{dish.title}</h4>
+                        <span className={styles.accordionCategory}>{dish.category}</span>
+                      </div>
+                      <div className={styles.accordionHeaderEnd}>
+                        <span className={styles.accordionPrice}>{dish.price}</span>
+                        <span className={styles.accordionChevron}>
+                          {isExpanded ? "▲" : "▼"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Expandable Body */}
+                    {isExpanded && (
+                      <div className={styles.accordionBody}>
+                        <div className={styles.accordionImageWrapper}>
+                          <Image
+                            src={dish.image}
+                            alt={dish.title}
+                            width={300}
+                            height={200}
+                            className={styles.accordionImg}
+                          />
+                        </div>
+
+                        <p className={styles.accordionDescText}>{dish.description}</p>
+
+                        <div className={styles.accordionFooterRow}>
+                          <button
+                            type="button"
+                            onClick={() => openDetailsModal(dish)}
+                            className={styles.detailsModalTriggerBtn}
+                            style={{ width: "100%" }}
+                          >
+                            <span>ℹ️ Poglej sestavine in alergene</span>
+                            <span>&rarr;</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* ----------------------------------------------------------------
+              OPCIJA 3: VERTIKALNA GASTRO MREŽA (STACKED CLEAN CARDS)
+              ---------------------------------------------------------------- */}
+          {mobileLayoutMode === "stacked" && (
+            <div className={styles.stackedCardsContainer}>
+              {dishes.map((dish) => (
+                <article key={dish.id} className={styles.stackedCard}>
+                  <div className={styles.stackedImageArea}>
+                    <Image
+                      src={dish.image}
+                      alt={dish.title}
+                      width={380}
+                      height={220}
+                      className={styles.stackedImg}
+                    />
+                    {dish.badge && (
+                      <span className={styles.mobileCardBadge}>{dish.badge}</span>
+                    )}
+                  </div>
+
+                  <div className={styles.stackedCardBody}>
+                    <h3 className={styles.stackedTitle}>{dish.title}</h3>
+                    <p className={styles.stackedDesc}>{dish.description}</p>
+
+                    <div className={styles.showcaseBottomRow}>
+                      <div className={styles.showcasePriceBox}>
+                        <span className={styles.showcasePriceLabel}>Cena</span>
+                        <span className={styles.showcasePriceValue}>{dish.price}</span>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => openDetailsModal(dish)}
+                        className={styles.detailsModalTriggerBtn}
+                      >
+                        <span>ℹ️ Sestavine &amp; alergeni</span>
+                        <span>&rarr;</span>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* ==================================================================

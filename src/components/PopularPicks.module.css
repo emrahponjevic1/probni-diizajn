@@ -1,5 +1,5 @@
 /* ==========================================================================
-   POPULAR PICKS (PRILJUBLJENE IZBIRE) - MAGAZINE MINIMAL EDITORIAL
+   POPULAR PICKS (PRILJUBLJENE IZBIRE) - MAGAZINE DESKTOP + 3 MOBILE OPTIONS
    Strictly using Plus Jakarta Sans typography
    ========================================================================== */
 
@@ -17,7 +17,59 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 2.8rem;
+}
+
+/* ==========================================================================
+   MOBILE OPTIONS TEST SWITCHER
+   ========================================================================== */
+.mobileSwitcherBar {
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  border-radius: 18px;
+  padding: 0.75rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(234, 88, 12, 0.08);
+}
+
+.switcherLabel {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #57534e;
+}
+
+.switcherButtonsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.switcherBtn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  background: #fdfaf6;
+  border: 1px solid #e7e5e4;
+  color: #57534e;
+  font-size: 0.8rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.switcherBtn:hover {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.switcherBtnActive {
+  background: linear-gradient(135deg, #1c1917 0%, #292524 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* ==========================================================================
@@ -31,24 +83,6 @@
   max-width: 760px;
   margin: 0 auto;
   gap: 0.85rem;
-}
-
-.headerTopBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 1.1rem;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  border-radius: 99px;
-  font-size: 0.84rem;
-  font-weight: 800;
-  color: #ea580c;
-  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
-}
-
-.fireEmoji {
-  font-size: 0.95rem;
 }
 
 .sectionTitle {
@@ -69,9 +103,9 @@
 }
 
 /* ==========================================================================
-   MAGAZINE EDITORIAL LAYOUT (SHOWCASE + LIST)
+   DESKTOP SPLIT VIEW (Visible > 1024px)
    ========================================================================== */
-.magazineGrid {
+.desktopMagazineGrid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: 3.2rem;
@@ -227,7 +261,7 @@
   box-shadow: 0 6px 18px rgba(234, 88, 12, 0.25);
 }
 
-/* Right Column: Lines List */
+/* Desktop Right Column: Lines List */
 .magazineListCol {
   display: flex;
   flex-direction: column;
@@ -356,33 +390,360 @@
   color: #ea580c;
 }
 
-.itemInfoIconBtn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid #e7e5e4;
+/* ==========================================================================
+   MOBILE VIEW WRAPPER (DEFAULT HIDDEN ON DESKTOP)
+   ========================================================================== */
+.mobileViewWrapper {
+  display: none;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   OPCIJA 1: TOUCH SWIPE CAROUSEL (Mobile / Tablet)
+   -------------------------------------------------------------------------- */
+.mobileSwipeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.swipeTopInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.4rem;
+}
+
+.swipeHintText {
+  font-size: 0.82rem;
+  font-weight: 700;
   color: #78716c;
-  font-size: 0.88rem;
+}
+
+.swipeCounterBadge {
+  font-size: 0.78rem;
   font-weight: 800;
+  color: #ea580c;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.mobileSwipeTrack {
+  display: flex;
+  gap: 1.1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.8rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.mobileSwipeTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileSwipeCard {
+  flex: 0 0 86%;
+  max-width: 340px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(28, 25, 23, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileCardImageArea {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #fdfaf6 0%, #fff7ed 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-.itemInfoIconBtn:hover {
+.mobileCardImg {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ffffff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.mobileCardBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.25);
+}
+
+.mobileCardBody {
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.mobileCardTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #1c1917;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.mobileCardDesc {
+  font-size: 0.88rem;
+  color: #57534e;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.mobileCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  border-top: 1px solid #f2ede4;
+  margin-top: 0.3rem;
+}
+
+.mobileDetailsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 99px;
   background: #fff7ed;
+  border: 1px solid #fed7aa;
   color: #ea580c;
-  border-color: #fed7aa;
-  transform: scale(1.1);
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(234, 88, 12, 0.08);
+}
+
+.swipeDotsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.swipeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e7e5e4;
+  transition: all 0.25s ease;
+}
+
+.swipeDotActive {
+  width: 22px;
+  border-radius: 99px;
+  background: #ea580c;
+}
+
+/* --------------------------------------------------------------------------
+   OPCIJA 2: HARMONIKA LISTA (ACCORDION EXPAND)
+   -------------------------------------------------------------------------- */
+.accordionListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.accordionItem {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.accordionItemOpen {
+  border-color: #ea580c;
+  box-shadow: 0 8px 25px rgba(234, 88, 12, 0.1);
+  background: #fffdfa;
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.2rem;
+  cursor: pointer;
+  gap: 0.9rem;
+}
+
+.accordionNum {
+  font-size: 0.95rem;
+  font-weight: 900;
+  font-family: monospace;
+  color: #ea580c;
+  width: 28px;
+  flex-shrink: 0;
+}
+
+.accordionHeaderTitleCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.accordionTitle {
+  font-size: 1.08rem;
+  font-weight: 900;
+  color: #1c1917;
+  margin: 0;
+}
+
+.accordionCategory {
+  font-size: 0.76rem;
+  color: #78716c;
+}
+
+.accordionHeaderEnd {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.accordionPrice {
+  font-size: 1.15rem;
+  font-weight: 950;
+  color: #1c1917;
+}
+
+.accordionItemOpen .accordionPrice {
+  color: #ea580c;
+}
+
+.accordionChevron {
+  font-size: 0.75rem;
+  color: #ea580c;
+}
+
+.accordionBody {
+  padding: 0 1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  animation: modalFadeIn 0.25s ease;
+}
+
+.accordionImageWrapper {
+  width: 100%;
+  height: 170px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fdfaf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordionImg {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.accordionDescText {
+  font-size: 0.88rem;
+  color: #57534e;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.accordionFooterRow {
+  display: flex;
+  margin-top: 0.2rem;
+}
+
+/* --------------------------------------------------------------------------
+   OPCIJA 3: STACKED CLEAN CARDS
+   -------------------------------------------------------------------------- */
+.stackedCardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  width: 100%;
+}
+
+.stackedCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(28, 25, 23, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.stackedImageArea {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  background: linear-gradient(135deg, #fdfaf6 0%, #fff7ed 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stackedImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.stackedCardBody {
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.stackedTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #1c1917;
+  margin: 0;
+}
+
+.stackedDesc {
+  font-size: 0.88rem;
+  color: #57534e;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* ==========================================================================
-   FOOD DETAIL MODAL / POPUP (SESTAVINE, ALERGENI, OPIS JEDI)
+   FOOD DETAIL MODAL / POPUP
    ========================================================================== */
 .modalBackdrop {
   position: fixed;
@@ -769,19 +1130,17 @@
 /* ==========================================================================
    RESPONSIVENESS (TABLET & MOBILE)
    ========================================================================== */
-@media (max-width: 1080px) {
+@media (max-width: 1024px) {
   .popularSection {
     padding: 4rem 1.5rem 4.5rem;
   }
 
-  .magazineGrid {
-    grid-template-columns: 1fr;
-    gap: 2.2rem;
+  .desktopMagazineGrid {
+    display: none !important;
   }
 
-  .magazineStickyCol {
-    position: relative;
-    top: 0;
+  .mobileViewWrapper {
+    display: block !important;
   }
 
   .bottomBanner {
@@ -800,51 +1159,32 @@
     gap: 2.2rem;
   }
 
+  .mobileSwitcherBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .switcherButtonsRow {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.35rem;
+  }
+
+  .switcherBtn {
+    text-align: center;
+    padding: 0.45rem 0.3rem;
+    font-size: 0.74rem;
+  }
+
   .sectionTitle {
     font-size: 2.1rem;
   }
 
   .sectionSubtitle {
     font-size: 0.95rem;
-  }
-
-  .imageContainer {
-    height: 250px;
-  }
-
-  .magazinePlate {
-    width: 190px;
-    height: 190px;
-  }
-
-  .magazineContent {
-    padding: 1.4rem 1.2rem 1.6rem;
-  }
-
-  .magTitle {
-    font-size: 1.5rem;
-  }
-
-  .magPrice {
-    font-size: 1.5rem;
-  }
-
-  .lineItem {
-    padding: 1rem 0.8rem;
-    gap: 0.8rem;
-  }
-
-  .lineNum {
-    font-size: 0.9rem;
-    width: 28px;
-  }
-
-  .lineTitle {
-    font-size: 1.05rem;
-  }
-
-  .linePrice {
-    font-size: 1.15rem;
   }
 
   /* Modal on Mobile */

@@ -46,7 +46,17 @@
   z-index: 100;
   padding: 1.2rem 1.5rem 0;
   pointer-events: none;
-  transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navbarHidden {
+  transform: translateY(-120%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .navbarStickyWrapperScrolled {
@@ -1319,23 +1329,30 @@
 
 @media (max-width: 640px) {
   .heroWrapper {
-    padding-top: 0;
+    padding-top: 4.6rem;
   }
 
   .navbarStickyWrapper {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     padding: 0;
+    z-index: 100;
   }
 
   .navbarIsland,
   .navbarFullWidth {
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 0;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(242, 237, 228, 0.85);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 253, 250, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   .mobileDrawer {

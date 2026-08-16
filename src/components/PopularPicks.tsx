@@ -338,21 +338,24 @@ export default function PopularPicks() {
                   </div>
 
                   <div className={styles.mobileCardBody}>
-                    <div className={styles.mobileCardHeaderRow}>
-                      <h3 className={styles.mobileCardTitle}>{dish.title}</h3>
-                      <span className={styles.mobilePriceTag}>{dish.price}</span>
-                    </div>
-
+                    <h3 className={styles.mobileCardTitle}>{dish.title}</h3>
                     <p className={styles.mobileCardDesc}>{dish.description}</p>
 
-                    <button
-                      type="button"
-                      onClick={() => openDetailsModal(dish)}
-                      className={styles.mobileFullDetailsBtn}
-                    >
-                      <span>ℹ️ Sestavine &amp; alergeni</span>
-                      <span>&rarr;</span>
-                    </button>
+                    <div className={styles.mobileCardFooter}>
+                      <div className={styles.mobilePriceBox}>
+                        <span className={styles.mobilePriceLabel}>Cena</span>
+                        <span className={styles.mobilePriceValue}>{dish.price}</span>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => openDetailsModal(dish)}
+                        className={styles.mobileInfoIconBtn}
+                        aria-label={`Poglej sestavine in alergene za ${dish.title}`}
+                      >
+                        ℹ
+                      </button>
+                    </div>
                   </div>
                 </article>
               ))}

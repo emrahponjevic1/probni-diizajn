@@ -1,0 +1,284 @@
+/* ==========================================================================
+   ŠEHEREZADA - HEADER STYLES PREVIEW & COMPARISON
+   WARM LIGHT LUXURY RESTAURANT AESTHETIC (NON-BADGE EDITORIAL CONCEPTS)
+   ========================================================================== */
+
+.previewSection {
+  background: #ffffff;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px dashed #fed7aa;
+  border-bottom: 2px dashed #fed7aa;
+  /* Strict Universal Section Margins & Padding Standards */
+  padding: 5rem 2rem 5.5rem;
+}
+
+.previewContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.showcaseTopIntro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.topPill {
+  display: inline-flex;
+  padding: 4px 14px;
+  border-radius: 99px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.showcaseMainTitle {
+  font-size: 2.2rem;
+  font-weight: 950;
+  color: #1c1917;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.showcaseDesc {
+  font-size: 1rem;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   4 COMPARISON CARDS GRID (ALL 4 STYLES AT A GLANCE)
+   ========================================================================== */
+.stylesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.styleCard {
+  background: #fffcf8;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.styleCard:hover {
+  transform: translateY(-3px);
+  border-color: #fed7aa;
+  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.08);
+}
+
+.cardHeaderLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2ede4;
+  padding-bottom: 1rem;
+}
+
+.optionNumber {
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: #ea580c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.optionVibe {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #78716c;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  padding: 3px 10px;
+  border-radius: 99px;
+}
+
+/* Inside Card Content Mock */
+.cardMockBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  position: relative;
+}
+
+.mockHeading {
+  font-size: 1.85rem;
+  font-weight: 950;
+  color: #1c1917;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.mockSubtext {
+  font-size: 0.92rem;
+  color: #57534e;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   STYLE 1: EDITORIAL CHAPTER INDEX (— 02 / POREKLO —)
+   ========================================================================== */
+.chapterIndexTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ea580c;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.chapterDash {
+  width: 18px;
+  height: 1.5px;
+  background: #ea580c;
+  opacity: 0.6;
+}
+
+.chapterNumber {
+  color: #1c1917;
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   STYLE 2: ARTISANAL LINE ACCENT (━━━━ TEXT)
+   ========================================================================== */
+.lineAccentTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ea580c;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.accentBar {
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, #ea580c 0%, #f59e0b 100%);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   STYLE 3: GHOST WATERMARK / LAYERED TYPOGRAPHY
+   ========================================================================== */
+.ghostTagWrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 0.5rem;
+}
+
+.ghostWatermarkText {
+  position: absolute;
+  top: -12px;
+  left: -2px;
+  font-size: 3.4rem;
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.045;
+  letter-spacing: 0.04em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.ghostFrontTag {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ea580c;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   STYLE 4: FRAMELESS MINIMALIST LEAD (LJUBLJANA · TRADICIJA OD 2004)
+   ========================================================================== */
+.framelessLeadTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #78716c;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tagDotSeparator {
+  color: #ea580c;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.tagAccentWord {
+  color: #ea580c;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .previewSection {
+    padding: 4rem 1.5rem 4.5rem;
+  }
+
+  .stylesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .showcaseMainTitle {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .previewSection {
+    padding: 3.5rem 1.25rem 4rem;
+  }
+
+  .styleCard {
+    padding: 1.6rem 1.3rem;
+  }
+
+  .showcaseMainTitle {
+    font-size: 1.65rem;
+  }
+
+  .mockHeading {
+    font-size: 1.5rem;
+  }
+}

@@ -4,6 +4,25 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./PopularPicks.module.css";
 
+// Clean, borderless SVG Info / Exclamation Icon
+const InfoCircleSvg = ({ size = 20, className }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <circle cx="12" cy="12" r="10" />
+    <line x1="12" y1="16" x2="12" y2="12" />
+    <line x1="12" y1="8" x2="12.01" y2="8" />
+  </svg>
+);
+
 interface Dish {
   id: number;
   title: string;
@@ -260,7 +279,8 @@ export default function PopularPicks() {
                     onClick={() => openDetailsModal(selectedDish)}
                     className={styles.detailsModalTriggerBtn}
                   >
-                    <span>ℹ️ Sestavine &amp; alergeni</span>
+                    <InfoCircleSvg size={18} />
+                    <span>Sestavine in alergeni</span>
                     <span>&rarr;</span>
                   </button>
                 </div>
@@ -310,7 +330,7 @@ export default function PopularPicks() {
           <div className={styles.mobileSwipeContainer}>
             {/* Top Counter and Swipe Hint */}
             <div className={styles.swipeTopInfo}>
-              <span className={styles.swipeHintText}>👈 Povlecite s prstom za več</span>
+              <span className={styles.swipeHintText}>Povlecite za več specialitet</span>
               <span className={styles.swipeCounterBadge}>
                 0{currentSlideIndex + 1} / 0{dishes.length}
               </span>
@@ -347,13 +367,15 @@ export default function PopularPicks() {
                         <span className={styles.mobilePriceValue}>{dish.price}</span>
                       </div>
 
+                      {/* Clean Borderless SVG Info Button */}
                       <button
                         type="button"
                         onClick={() => openDetailsModal(dish)}
                         className={styles.mobileInfoIconBtn}
                         aria-label={`Poglej sestavine in alergene za ${dish.title}`}
+                        title="Poglej sestavine in alergene"
                       >
-                        ℹ
+                        <InfoCircleSvg size={24} />
                       </button>
                     </div>
                   </div>
@@ -445,19 +467,13 @@ export default function PopularPicks() {
 
               {/* 1. Opis Jedi */}
               <div className={styles.modalSectionBox}>
-                <h4 className={styles.modalSectionTitle}>
-                  <span>📝</span>
-                  <span>Opis Jedi</span>
-                </h4>
+                <h4 className={styles.modalSectionTitle}>Opis Jedi</h4>
                 <p className={styles.modalDescText}>{modalDish.description}</p>
               </div>
 
               {/* 2. Sestavine (Ingredients Checklist) */}
               <div className={styles.modalSectionBox}>
-                <h4 className={styles.modalSectionTitle}>
-                  <span>🌿</span>
-                  <span>Sestavine</span>
-                </h4>
+                <h4 className={styles.modalSectionTitle}>Sestavine</h4>
                 <ul className={styles.modalIngredientsList}>
                   {modalDish.ingredientsList.map((item, idx) => (
                     <li key={idx} className={styles.modalIngredientItem}>
@@ -470,10 +486,7 @@ export default function PopularPicks() {
 
               {/* 3. Alergeni (Allergens Pills) */}
               <div className={styles.modalSectionBox}>
-                <h4 className={styles.modalSectionTitle}>
-                  <span>⚠️</span>
-                  <span>Alergeni</span>
-                </h4>
+                <h4 className={styles.modalSectionTitle}>Alergeni</h4>
                 <div className={styles.modalAllergensGrid}>
                   {modalDish.allergensList.map((allergen, idx) => (
                     <span key={idx} className={styles.modalAllergenPill}>

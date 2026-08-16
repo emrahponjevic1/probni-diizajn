@@ -199,11 +199,6 @@ export default function PopularPicks() {
             SECTION HEADER
             ================================================================== */}
         <div className={styles.sectionHeader}>
-          <div className={styles.headerTopBadge}>
-            <span className={styles.fireEmoji}>🔥</span>
-            <span>Najbolj iskano</span>
-          </div>
-
           <h2 className={styles.sectionTitle}>Priljubljene izbire</h2>
 
           <p className={styles.sectionSubtitle}>
@@ -257,19 +252,6 @@ export default function PopularPicks() {
                   <span>ℹ️ Vse sestavine &amp; alergeni</span>
                   <span>&rarr;</span>
                 </button>
-
-                {/* Order Button */}
-                <div className={styles.magButtonRow}>
-                  <button
-                    type="button"
-                    onClick={() => handleOrderClick(selectedDish.id)}
-                    className={`${styles.magOrderBtn} ${
-                      orderedDishId === selectedDish.id ? styles.magOrderBtnAdded : ""
-                    }`}
-                  >
-                    {orderedDishId === selectedDish.id ? "✓ Dodano v naročilo!" : "+ Naroči to specialiteto"}
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -302,17 +284,6 @@ export default function PopularPicks() {
 
                   <div className={styles.lineEnd}>
                     <span className={styles.linePrice}>{dish.price}</span>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openDetailsModal(dish);
-                      }}
-                      className={styles.itemInfoIconBtn}
-                      title="Prikaži podrobnosti"
-                    >
-                      ℹ
-                    </button>
                   </div>
                 </div>
               ))}

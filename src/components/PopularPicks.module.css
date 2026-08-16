@@ -128,7 +128,7 @@
 }
 
 .magazineContent {
-  padding: 1.8rem 2rem 2.2rem;
+  padding: 1.8rem 2rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
@@ -152,7 +152,7 @@
 
 /* CENA Label Above Divider */
 .showcasePriceLabelRow {
-  margin-top: 0.8rem;
+  margin-top: 0.85rem;
   padding-bottom: 0.55rem;
   border-bottom: 1px solid #f2ede4;
   display: flex;
@@ -168,13 +168,13 @@
   line-height: 1;
 }
 
-/* Bottom Row: Price + Sestavine & Alergeni Button Perfectly Aligned */
+/* Bottom Row: Price + Sestavine & Alergeni Button Perfectly Centered */
 .showcaseBottomRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.2rem;
-  padding-top: 0.4rem;
+  padding-top: 1.15rem;
 }
 
 .showcasePriceValue {
@@ -439,7 +439,7 @@
 }
 
 .mobileCardBody {
-  padding: 1.4rem 1.4rem 1.6rem;
+  padding: 1.4rem 1.4rem 1.15rem;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -463,8 +463,8 @@
 }
 
 .mobilePriceLabelRow {
-  margin-top: 0.65rem;
-  padding-bottom: 0.5rem;
+  margin-top: 0.7rem;
+  padding-bottom: 0.45rem;
   border-bottom: 1px solid #f2ede4;
   display: flex;
   align-items: center;
@@ -484,7 +484,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 0.35rem;
+  padding-top: 1rem;
 }
 
 .mobilePriceValue {

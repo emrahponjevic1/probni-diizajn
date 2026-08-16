@@ -40,7 +40,6 @@ interface Dish {
 
 export default function PopularPicks() {
   const [activeDishId, setActiveDishId] = useState<number>(1);
-  const [orderedDishId, setOrderedDishId] = useState<number | null>(null);
 
   // Carousel scroll index tracker
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
@@ -216,13 +215,6 @@ export default function PopularPicks() {
       };
     }
   }, [modalDish]);
-
-  const handleOrderClick = (dishId: number) => {
-    setOrderedDishId(dishId);
-    setTimeout(() => {
-      setOrderedDishId(null);
-    }, 1600);
-  };
 
   const openDetailsModal = (dish: Dish) => {
     setModalDish(dish);
@@ -503,17 +495,14 @@ export default function PopularPicks() {
               </div>
             </div>
 
-            {/* Modal Footer / Order Bar */}
+            {/* Modal Footer Bar */}
             <div className={styles.modalFooterBar}>
               <button
                 type="button"
-                onClick={() => {
-                  handleOrderClick(modalDish.id);
-                  setTimeout(() => setModalDish(null), 900);
-                }}
-                className={styles.modalOrderConfirmBtn}
+                onClick={() => setModalDish(null)}
+                className={styles.modalCloseWindowBtn}
               >
-                {orderedDishId === modalDish.id ? "✓ Dodano v naročilo!" : "Dodaj v naročilo"}
+                Zapri okno
               </button>
             </div>
           </div>

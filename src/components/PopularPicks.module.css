@@ -1,0 +1,489 @@
+/* ==========================================================================
+   POPULAR PICKS (PRILJUBLJENE IZBIRE) - LUXURY WARM RESTAURANT THEME
+   Strictly using Plus Jakarta Sans typography
+   ========================================================================== */
+
+.popularSection {
+  position: relative;
+  width: 100%;
+  background: #fffcf8;
+  padding: 5rem 1.5rem 6rem;
+  border-top: 1px solid #f2ede4;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* ==========================================================================
+   SECTION HEADER & FILTER PILLS
+   ========================================================================== */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  gap: 0.9rem;
+}
+
+.headerTopBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1.1rem;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 99px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #ea580c;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
+}
+
+.fireEmoji {
+  font-size: 0.95rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-weight: 950;
+  color: #1c1917;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.sectionSubtitle {
+  font-size: 1.08rem;
+  color: #57534e;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0;
+}
+
+/* Filter Pills Row */
+.filterPillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.filterPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 99px;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  color: #57534e;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.filterPill:hover {
+  border-color: #f59e0b;
+  color: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.14);
+}
+
+.filterPillActive {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: #ffffff !important;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   DISHES GRID & CARDS
+   ========================================================================== */
+.dishesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.dishCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 24px rgba(28, 25, 23, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.dishCard:hover {
+  transform: translateY(-8px);
+  border-color: #fed7aa;
+  box-shadow: 0 20px 40px rgba(234, 88, 12, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Card Image Area */
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #fdfaf6;
+}
+
+.dishImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dishCard:hover .dishImage {
+  transform: scale(1.08);
+}
+
+/* Floating Badges */
+.dishBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 0.38rem 0.85rem;
+  border-radius: 99px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}
+
+.badgeBestseller {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+}
+
+.badgeRecommended {
+  background: linear-gradient(135deg, #ef4444, #ea580c);
+  color: #ffffff;
+}
+
+.badgeVegi {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.badgePlatter {
+  background: linear-gradient(135deg, #1c1917, #44403c);
+  color: #ffffff;
+}
+
+.timeTag {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.75rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid #f2ede4;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #1c1917;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+
+/* Card Body */
+.cardBody {
+  padding: 1.5rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.65rem;
+}
+
+.cardMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ratingBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.84rem;
+}
+
+.starIcon {
+  color: #f59e0b;
+  font-size: 0.95rem;
+}
+
+.ratingScore {
+  font-weight: 800;
+  color: #1c1917;
+}
+
+.reviewsCount {
+  font-weight: 500;
+  color: #78716c;
+  font-size: 0.78rem;
+}
+
+.halalGuarantee {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.dishTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #1c1917;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.dishDescription {
+  font-size: 0.9rem;
+  color: #57534e;
+  line-height: 1.55;
+  flex: 1;
+  margin: 0;
+}
+
+/* Card Footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #f5f0e8;
+  margin-top: 0.4rem;
+}
+
+.priceColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.priceLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.currentPrice {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ea580c;
+  letter-spacing: -0.02em;
+}
+
+.oldPrice {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #a8a29e;
+  text-decoration: line-through;
+}
+
+/* Order Button */
+.orderBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 99px;
+  background: #1c1917;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.15);
+  transition: all 0.25s ease;
+}
+
+.orderBtn:hover {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.35);
+}
+
+.orderBtnAdded {
+  background: #059669 !important;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35) !important;
+}
+
+/* ==========================================================================
+   BOTTOM CTA BANNER
+   ========================================================================== */
+.bottomBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.2rem 2.8rem;
+  background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.08);
+  margin-top: 1rem;
+}
+
+.bannerText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.bannerTitle {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #1c1917;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.bannerSubtitle {
+  font-size: 0.95rem;
+  color: #57534e;
+  margin: 0;
+}
+
+.bannerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  border-radius: 99px;
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.3);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.bannerBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(234, 88, 12, 0.4);
+  background: linear-gradient(135deg, #fbbf24 0%, #ea580c 100%);
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .dishesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+
+  .bottomBanner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .popularSection {
+    padding: 3.5rem 1.1rem 4.5rem;
+  }
+
+  .container {
+    gap: 2.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .filterPillsRow {
+    gap: 0.45rem;
+  }
+
+  .filterPill {
+    padding: 0.5rem 0.95rem;
+    font-size: 0.84rem;
+  }
+
+  .dishesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .cardImageWrapper {
+    height: 200px;
+  }
+
+  .cardBody {
+    padding: 1.3rem 1.3rem 1.4rem;
+  }
+
+  .dishTitle {
+    font-size: 1.15rem;
+  }
+
+  .dishDescription {
+    font-size: 0.86rem;
+  }
+
+  .bottomBanner {
+    padding: 1.6rem 1.3rem;
+  }
+
+  .bannerTitle {
+    font-size: 1.2rem;
+  }
+
+  .bannerSubtitle {
+    font-size: 0.86rem;
+  }
+
+  .bannerBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

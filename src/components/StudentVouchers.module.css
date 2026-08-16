@@ -153,13 +153,15 @@
 
 .bannerGhostWatermark {
   position: absolute;
-  right: -10px;
-  bottom: -30px;
-  font-size: 8.5rem;
+  right: -25px;
+  bottom: -40px;
+  font-size: 11.5rem;
   font-weight: 950;
   color: #ffffff;
-  opacity: 0.12;
-  letter-spacing: 0.04em;
+  opacity: 0.13;
+  letter-spacing: 0.02em;
+  transform: rotate(-10deg);
+  transform-origin: bottom right;
   user-select: none;
   pointer-events: none;
   line-height: 1;
@@ -513,9 +515,10 @@
   }
 
   .bannerGhostWatermark {
-    font-size: 5rem;
-    right: -10px;
-    bottom: -15px;
+    font-size: 6.5rem;
+    right: -15px;
+    bottom: -20px;
+    transform: rotate(-10deg);
   }
 
   .bannerBottomRow {

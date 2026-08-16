@@ -41,7 +41,7 @@ export default function HalalCertificate() {
           {/* Right: Story & 3 Numbered Strips */}
           <div className={styles.halalRightCol}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>ČISTOST</span>
+              <span className={styles.tagGhostWatermark}>HALAL</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
                 <span>

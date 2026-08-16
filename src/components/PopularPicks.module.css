@@ -26,10 +26,10 @@
 .sectionHeader {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 820px;
+  margin: 0;
   gap: 0.85rem;
 }
 
@@ -38,16 +38,16 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  align-self: flex-start;
   padding: 0.5rem 0;
 }
 
 .tagGhostWatermark {
   position: absolute;
-  left: 50%;
+  left: -4px;
   top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3.6rem;
+  transform: translateY(-50%);
+  font-size: 3.4rem;
   font-weight: 950;
   color: #1c1917;
   opacity: 0.055;

@@ -592,6 +592,30 @@
   gap: 1.4rem;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #ea580c rgba(254, 215, 170, 0.25);
+}
+
+/* Elegant Slim Orange Scrollbar for Chrome, Safari, Edge */
+.modalScrollBody::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modalScrollBody::-webkit-scrollbar-track {
+  background: rgba(254, 215, 170, 0.15);
+  border-radius: 99px;
+  margin: 16px 0;
+}
+
+.modalScrollBody::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f59e0b 0%, #ea580c 100%);
+  border-radius: 99px;
+  box-shadow: 0 1px 4px rgba(234, 88, 12, 0.3);
+}
+
+.modalScrollBody::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
 }
 
 .modalVisualRow {

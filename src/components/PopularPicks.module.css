@@ -378,10 +378,11 @@
 
 .mobileSwipeTrack {
   display: flex;
-  gap: 1.1rem;
+  gap: 1.2rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 0.8rem 0.5rem 2rem; /* Generous bottom padding to prevent any shadow or card clipping */
+  padding: 0.8rem 0.5rem 2.4rem;
+  margin-bottom: -1.2rem;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -391,36 +392,35 @@
 }
 
 .mobileSwipeCard {
-  flex: 0 0 84%;
-  max-width: 340px;
+  flex: 0 0 86%;
+  max-width: 360px;
   scroll-snap-align: center;
   background: #ffffff;
   border: 1px solid #f2ede4;
   border-radius: 26px;
   overflow: hidden;
-  box-shadow: 0 14px 36px rgba(28, 25, 23, 0.08), 0 2px 8px rgba(234, 88, 12, 0.04);
+  box-shadow: 0 10px 28px rgba(28, 25, 23, 0.07), 0 2px 8px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease;
 }
 
 .mobileCardImageArea {
   position: relative;
   width: 100%;
-  height: 200px;
-  background: radial-gradient(circle at center, #fffbf5 0%, #fff7ed 60%, #fed7aa 150%);
+  height: 220px;
+  background: linear-gradient(135deg, #fdfaf6 0%, #fff7ed 100%);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .mobileCardImg {
-  width: 160px;
-  height: 160px;
+  width: 175px;
+  height: 175px;
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid #ffffff;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(234, 88, 12, 0.1);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
 .mobileCardBadge {

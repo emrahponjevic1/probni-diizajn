@@ -1,19 +1,10 @@
-<!-- BEGIN:nextjs-agent-rules -->
-
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
-
 # Šeherezada Project Architecture & Design Rules
 
 ## 1. Typography Consistency (STRICT UNIVERSAL RULE)
 - **Single Universal Font**: **`Plus Jakarta Sans`** (`var(--font-jakarta)` / `font-family: inherit`).
 - **NO other fonts allowed** under any circumstances across any section, component, drawer, modal, or page.
 - All titles, subtitles, body text, buttons, badges, cards, navigation items, prices, and food descriptions MUST inherit and use `Plus Jakarta Sans`.
+- Weights used: `400` (Regular), `500` (Medium), `600` (Semi-bold), `700` (Bold), `800` (Extra Bold), `900`/`950` (Black/Heavy).
 
 ## 2. Visual Style & Color Palette
 - **Theme**: Warm Light Luxury Restaurant (Roastlux aesthetic) - *NO dark mode*.
@@ -23,6 +14,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **Brand Accents**: `#ea580c` (Rich warm orange), `#f59e0b` (Amber gold), `#ef4444` (Coral red).
 - **Live Status Mint**: `#ecfdf5` background, `#a7f3d0` border, `#047857` / `#065f46` text.
 - **Card Borders**: `#f2ede4` / `#fed7aa`.
+- **Border Radii**: Cards (`18px` - `28px`), Buttons (`99px` / `14px`), Utility Buttons (`16px`), Squircles (`12px`).
 
 ## 3. Universal Section Margins & Padding Standards (STRICT UNIVERSAL RULE)
 All sections on the website MUST adhere to these exact margin and padding values:

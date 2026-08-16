@@ -154,6 +154,11 @@ export default function SeherezadaHero() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Skip processing if modal is currently open
+      if (typeof document !== "undefined" && document.body.classList.contains("foodModalActive")) {
+        return;
+      }
+
       const currentScrollY = window.scrollY;
 
       // Desktop full-width threshold
@@ -162,12 +167,18 @@ export default function SeherezadaHero() {
       // Mobile Smart Hide-on-Scroll Logic (<= 1120px)
       if (currentScrollY <= 60) {
         setIsMobileNavVisible(true);
-      } else if (currentScrollY > lastScrollYRef.current + 8) {
-        // Scrolling down -> hide mobile navbar
-        setIsMobileNavVisible(false);
-      } else if (currentScrollY < lastScrollYRef.current - 8) {
-        // Scrolling up -> reveal mobile navbar
-        setIsMobileNavVisible(true);
+      } else {
+        const delta = currentScrollY - lastScrollYRef.current;
+        // Ignore large teleport jumps (e.g. scroll restoration after modal close)
+        if (Math.abs(delta) < 250) {
+          if (delta > 8) {
+            // Scrolling down -> hide mobile navbar
+            setIsMobileNavVisible(false);
+          } else if (delta < -8) {
+            // Scrolling up -> reveal mobile navbar
+            setIsMobileNavVisible(true);
+          }
+        }
       }
 
       lastScrollYRef.current = currentScrollY;

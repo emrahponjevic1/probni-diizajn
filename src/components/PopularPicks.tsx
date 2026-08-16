@@ -200,7 +200,8 @@ export default function PopularPicks() {
 
       return () => {
         const top = document.body.style.top;
-        document.body.classList.remove("foodModalActive");
+        const parsedScrollY = top ? parseInt(top, 10) * -1 : 0;
+
         document.body.style.position = "";
         document.body.style.top = "";
         document.body.style.left = "";
@@ -208,10 +209,16 @@ export default function PopularPicks() {
         document.body.style.width = "";
         document.body.style.overflow = "";
 
-        if (top) {
-          const parsedScrollY = parseInt(top || "0", 10) * -1;
+        if (parsedScrollY) {
           window.scrollTo(0, parsedScrollY);
         }
+
+        // Delay removing foodModalActive until browser completes scroll restore
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            document.body.classList.remove("foodModalActive");
+          });
+        });
 
         window.removeEventListener("keydown", handleKeyDown);
       };

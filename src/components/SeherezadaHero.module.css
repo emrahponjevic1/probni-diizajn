@@ -60,6 +60,7 @@
   visibility: hidden !important;
   pointer-events: none !important;
   transition: none !important;
+  transform: translateY(-100%) !important;
 }
 
 .navbarStickyWrapperScrolled {

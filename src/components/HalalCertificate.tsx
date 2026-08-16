@@ -12,13 +12,6 @@ const ShieldCheckSvg = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 
-const BanPorkSvg = ({ size = 24 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
-  </svg>
-);
-
 const SparklesPuritySvg = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 3v18" />
@@ -35,15 +28,24 @@ const HerbOrganicSvg = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 
-const AwardSealSvg = ({ size = 26 }: { size?: number }) => (
+const BanPorkSvg = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="8" r="6" />
-    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+    <circle cx="12" cy="12" r="10" />
+    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+  </svg>
+);
+
+const NoAlcoholSvg = ({ size = 24 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M8 22h8" />
+    <path d="M12 15v7" />
+    <path d="m12 15 5-7.5V3H7v4.5l5 7.5z" />
+    <line x1="3" y1="3" x2="21" y2="21" />
   </svg>
 );
 
 export default function HalalCertificate() {
-  const [activeVersion, setActiveVersion] = useState<1 | 2 | 3>(1);
+  const [activeSplitStyle, setActiveSplitStyle] = useState<"A" | "B" | "C">("A");
 
   return (
     <section className={styles.halalSection} id="halal">
@@ -52,67 +54,67 @@ export default function HalalCertificate() {
       <div className={styles.halalContainer}>
         {/* Style Selector Tabs (For Visual Comparison) */}
         <div className={styles.styleSelectorWrapper}>
-          <span className={styles.styleSelectorLabel}>Predogled Dizajnerskih Verzija (Halal &amp; 0% Svinjine)</span>
+          <span className={styles.styleSelectorLabel}>Predogled Split-View Variacij</span>
           <div className={styles.styleSwitcherTabs}>
             <button
               type="button"
-              onClick={() => setActiveVersion(1)}
-              className={`${styles.styleTabBtn} ${activeVersion === 1 ? styles.styleTabBtnActive : ""}`}
+              onClick={() => setActiveSplitStyle("A")}
+              className={`${styles.styleTabBtn} ${activeSplitStyle === "A" ? styles.styleTabBtnActive : ""}`}
             >
-              Verzija 1: Editorial Certifikat (Split-View)
+              Verzija A: Klasični Stebri (Pillars)
             </button>
             <button
               type="button"
-              onClick={() => setActiveVersion(2)}
-              className={`${styles.styleTabBtn} ${activeVersion === 2 ? styles.styleTabBtnActive : ""}`}
+              onClick={() => setActiveSplitStyle("B")}
+              className={`${styles.styleTabBtn} ${activeSplitStyle === "B" ? styles.styleTabBtnActive : ""}`}
             >
-              Verzija 2: Warm Bento Trust Grid
+              Verzija B: Bento 2x2 Mreža + Zlati Žig
             </button>
             <button
               type="button"
-              onClick={() => setActiveVersion(3)}
-              className={`${styles.styleTabBtn} ${activeVersion === 3 ? styles.styleTabBtnActive : ""}`}
+              onClick={() => setActiveSplitStyle("C")}
+              className={`${styles.styleTabBtn} ${activeSplitStyle === "C" ? styles.styleTabBtnActive : ""}`}
             >
-              Verzija 3: 3 Varnostna Stebra (Tri-Card)
+              Verzija C: Numerisane Široke Trake
             </button>
           </div>
         </div>
 
         {/* ==================================================================
-            VERZIJA 1: EDITORIAL CERTIFICATE SHOWCASE (SPLIT-VIEW)
+            VERZIJA A: KLASIČNI RAM + 3 VERTIKALNA STEBRA (PILLARS)
             ================================================================== */}
-        {activeVersion === 1 && (
-          <div className={styles.v1Grid}>
-            {/* Left: Certificate Frame */}
-            <div className={styles.v1CertWrapper}>
-              <div className={styles.v1CertFrame}>
+        {activeSplitStyle === "A" && (
+          <div className={styles.halalGrid}>
+            {/* Left: Certificate Visual Frame */}
+            <div className={styles.certVisualWrapper}>
+              <div className={styles.certCardFrame}>
                 <Image
                   src="/images/halal-certificate.jpg"
                   alt="Uradni Halal Certifikat Šeherezada Ljubljana"
                   width={480}
                   height={520}
-                  className={styles.v1CertImg}
+                  className={styles.certImg}
                 />
-                <div className={styles.v1FloatingPill}>
-                  <div className={styles.v1PillIconBox}>
+                <div className={styles.certFloatingVerifiedPill}>
+                  <div className={styles.certPillIcon}>
                     <ShieldCheckSvg size={20} />
                   </div>
-                  <div className={styles.v1PillMeta}>
-                    <span className={styles.v1PillTitle}>100% Halal Certificirano</span>
-                    <span className={styles.v1PillSub}>0% Svinjskega mesa · Brez kompromisov</span>
+                  <div className={styles.certPillMeta}>
+                    <span className={styles.certPillTitle}>100% Halal Certificirano</span>
+                    <span className={styles.certPillSub}>0% Svinjskega mesa · Brez kompromisov</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right: Narrative & 3 Trust Guarantees */}
-            <div className={styles.v1RightCol}>
+            {/* Right: Story & 3 Pillars */}
+            <div className={styles.halalRightCol}>
               <div className={styles.sectionBadge}>
                 <span className={styles.sectionBadgeDot} />
                 <span>Garancija Kakovosti &amp; Čistosti</span>
               </div>
 
-              <h2 className={styles.v1Heading}>
+              <h2 className={styles.halalHeading}>
                 100% Halal. Brez kompromisov pri čistosti in izvoru.
               </h2>
 
@@ -131,22 +133,22 @@ export default function HalalCertificate() {
                 </span>
               </div>
 
-              <p className={styles.v1LeadText}>
+              <p className={styles.halalLeadText}>
                 Pri Šeherezadi spoštujemo vaše zaupanje in kulinarično tradicijo.
                 Vsak kos mesa, vsaka omaka in vsaka sestavina v naših dveh
                 restavracijah v Ljubljani ustreza najvišjim halal standardom in
                 strogemu nadzoru kakovosti.
               </p>
 
-              <div className={styles.v1GuaranteesList}>
+              <div className={styles.guaranteesList}>
                 {/* Guarantee 1 */}
-                <div className={styles.v1GuaranteeCard}>
-                  <div className={styles.v1IconBox}>
+                <div className={styles.guaranteeCard}>
+                  <div className={styles.guaranteeIconBox}>
                     <ShieldCheckSvg size={24} />
                   </div>
-                  <div className={styles.v1CardContent}>
-                    <h3 className={styles.v1CardTitle}>Strogo nadzorovano poreklo</h3>
-                    <p className={styles.v1CardDesc}>
+                  <div className={styles.guaranteeContent}>
+                    <h3 className={styles.guaranteeTitle}>Strogo nadzorovano poreklo</h3>
+                    <p className={styles.guaranteeDesc}>
                       Uporabljamo izključno telečje in piščančje meso z veljavnim
                       mednarodnim certifikatom in popolno sledljivostjo od kmetije.
                     </p>
@@ -154,13 +156,13 @@ export default function HalalCertificate() {
                 </div>
 
                 {/* Guarantee 2 */}
-                <div className={styles.v1GuaranteeCard}>
-                  <div className={styles.v1IconBox}>
-                    <BanPorkSvg size={24} />
+                <div className={styles.guaranteeCard}>
+                  <div className={styles.guaranteeIconBox}>
+                    <SparklesPuritySvg size={24} />
                   </div>
-                  <div className={styles.v1CardContent}>
-                    <h3 className={styles.v1CardTitle}>0% Svinjskega mesa &amp; ničelna toleranca</h3>
-                    <p className={styles.v1CardDesc}>
+                  <div className={styles.guaranteeContent}>
+                    <h3 className={styles.guaranteeTitle}>0% Svinjskega mesa &amp; ničelna toleranca</h3>
+                    <p className={styles.guaranteeDesc}>
                       V naših kuhinjah velja stroga prepoved svinjine, svinjskih
                       derivatov, alkohola ali kakršnihkoli skritih živalskih maščob.
                     </p>
@@ -168,13 +170,13 @@ export default function HalalCertificate() {
                 </div>
 
                 {/* Guarantee 3 */}
-                <div className={styles.v1GuaranteeCard}>
-                  <div className={styles.v1IconBox}>
+                <div className={styles.guaranteeCard}>
+                  <div className={styles.guaranteeIconBox}>
                     <HerbOrganicSvg size={24} />
                   </div>
-                  <div className={styles.v1CardContent}>
-                    <h3 className={styles.v1CardTitle}>Čiste naravne sestavine</h3>
-                    <p className={styles.v1CardDesc}>
+                  <div className={styles.guaranteeContent}>
+                    <h3 className={styles.guaranteeTitle}>Čiste naravne sestavine</h3>
+                    <p className={styles.guaranteeDesc}>
                       Vse omake, solate in kruh so pripravljeni dnevno sveže iz
                       naravnih rastlinskih sestavin in pristnih orientalskih zelišč.
                     </p>
@@ -186,95 +188,98 @@ export default function HalalCertificate() {
         )}
 
         {/* ==================================================================
-            VERZIJA 2: WARM LUXURY BENTO TRUST GRID
+            VERZIJA B: BENTO 2X2 MREŽA + PREKLAPLJAJOČ ZLATI ŽIG
             ================================================================== */}
-        {activeVersion === 2 && (
-          <div>
-            <div className={styles.v2Header}>
-              <div className={styles.sectionBadge}>
-                <span className={styles.sectionBadgeDot} />
-                <span>Standard Zaupanja</span>
+        {activeSplitStyle === "B" && (
+          <div className={styles.halalGrid}>
+            {/* Left: Certificate with Corner Badge */}
+            <div className={styles.certVisualWrapper}>
+              <div className={styles.certCornerBadge}>
+                <span className={styles.cornerBadgeIcon}>★</span>
+                <span className={styles.cornerBadgeText}>100% PREVERJENO</span>
               </div>
-              <h2 className={styles.v1Heading}>100% Halal &amp; 0% Svinjskega Mesa</h2>
-              <div className={styles.trustPillsRow}>
-                <span className={`${styles.trustPillTag} ${styles.trustPillTagHighlight}`}>
-                  <span>✓</span>
-                  <span>100% Halal Certificirano</span>
-                </span>
-                <span className={`${styles.trustPillTag} ${styles.trustPillTagHighlight}`}>
-                  <span>✓</span>
-                  <span>0% Svinjskega Mesa</span>
-                </span>
-                <span className={styles.trustPillTag}>
-                  <span>✓</span>
-                  <span>Stalni Veterinarski Nadzor</span>
-                </span>
+
+              <div className={styles.certCardFrame}>
+                <Image
+                  src="/images/halal-certificate.jpg"
+                  alt="Uradni Halal Certifikat Šeherezada Ljubljana"
+                  width={480}
+                  height={520}
+                  className={styles.certImg}
+                />
+                <div className={styles.certFloatingVerifiedPill}>
+                  <div className={styles.certPillIcon}>
+                    <ShieldCheckSvg size={20} />
+                  </div>
+                  <div className={styles.certPillMeta}>
+                    <span className={styles.certPillTitle}>Uradno Halal Potrjeno</span>
+                    <span className={styles.certPillSub}>0% Svinjine · 2 Lokaciji v Ljubljani</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className={styles.v2BentoGrid}>
-              {/* Left Large Bento Card */}
-              <div className={styles.v2LargeBentoCard}>
-                <div className={styles.v2BentoCertThumb}>
-                  <Image
-                    src="/images/halal-certificate.jpg"
-                    alt="Halal certifikat"
-                    width={200}
-                    height={260}
-                    className={styles.v2BentoCertImg}
-                  />
-                </div>
-                <div className={styles.v2LargeBentoContent}>
-                  <div className={styles.sectionBadge} style={{ alignSelf: "flex-start" }}>
-                    <span>Uradni Dokument</span>
-                  </div>
-                  <h3 className={styles.v2LargeBentoTitle}>
-                    Certificirana Priprava &amp; Izvor Mesa
-                  </h3>
-                  <p className={styles.v2LargeBentoDesc}>
-                    Vsak dobavitelj mesa je podvržen strogim mednarodnim
-                    halal standardom. Zagotavljamo popolno sledljivost in
-                    vrhunsko higiensko neoporečnost v obeh naših poslovalnicah v Ljubljani.
-                  </p>
-                </div>
+            {/* Right: Narrative + 2x2 Bento Cards Grid */}
+            <div className={styles.halalRightCol}>
+              <div className={styles.sectionBadge}>
+                <span className={styles.sectionBadgeDot} />
+                <span>4 Ključne Zaveze Čistosti</span>
               </div>
 
-              {/* Right Stack of 3 Bento Cards */}
-              <div className={styles.v2RightBentoCol}>
-                <div className={`${styles.v2MiniBentoCard} ${styles.v2MiniBentoCardHighlight}`}>
-                  <div className={styles.v2MiniIconBox}>
-                    <BanPorkSvg size={22} />
-                  </div>
-                  <div>
-                    <h4 className={styles.v2MiniTitle}>0% Svinjskega Mesa</h4>
-                    <p className={styles.v2MiniDesc}>
-                      Popolnoma ločeni procesi in ničelna toleranca za svinjino ter alkohol.
-                    </p>
-                  </div>
-                </div>
+              <h2 className={styles.halalHeading}>
+                Popolna varnost in zaupanje v vsakem grižljaju.
+              </h2>
 
-                <div className={styles.v2MiniBentoCard}>
-                  <div className={styles.v2MiniIconBox}>
+              <p className={styles.halalLeadText}>
+                Pri Šeherezadi ne sklepamo kompromisov. Naš strog sistem nadzora
+                vam zagotavlja brezskrbno kulinarično doživetje pristnih okusov.
+              </p>
+
+              <div className={styles.bento4Grid}>
+                {/* Bento Card 1 */}
+                <div className={styles.bento4Card}>
+                  <div className={styles.bento4IconBox}>
                     <ShieldCheckSvg size={22} />
                   </div>
-                  <div>
-                    <h4 className={styles.v2MiniTitle}>100% Halal Meso</h4>
-                    <p className={styles.v2MiniDesc}>
-                      Izključno certificirano telečje in piščančje meso visoke kakovosti.
-                    </p>
-                  </div>
+                  <h3 className={styles.bento4Title}>100% Halal Meso</h3>
+                  <p className={styles.bento4Desc}>
+                    Izključno certificirano telečje in piščančje meso z mednarodno sledljivostjo.
+                  </p>
                 </div>
 
-                <div className={styles.v2MiniBentoCard}>
-                  <div className={styles.v2MiniIconBox}>
+                {/* Bento Card 2: 0% Pork Highlight */}
+                <div className={`${styles.bento4Card} ${styles.bento4CardHighlight}`}>
+                  <div className={styles.bento4IconBox}>
+                    <BanPorkSvg size={22} />
+                  </div>
+                  <h3 className={styles.bento4Title} style={{ color: "#ea580c" }}>
+                    0% Svinjskega Mesa
+                  </h3>
+                  <p className={styles.bento4Desc}>
+                    Stroga ničelna toleranca za svinjino, slanino ali živalske želatine.
+                  </p>
+                </div>
+
+                {/* Bento Card 3 */}
+                <div className={styles.bento4Card}>
+                  <div className={styles.bento4IconBox}>
+                    <NoAlcoholSvg size={22} />
+                  </div>
+                  <h3 className={styles.bento4Title}>100% Brez Alkohola</h3>
+                  <p className={styles.bento4Desc}>
+                    V celotnem procesu priprave hrane in omak nikoli ne uporabljamo alkohola.
+                  </p>
+                </div>
+
+                {/* Bento Card 4 */}
+                <div className={styles.bento4Card}>
+                  <div className={styles.bento4IconBox}>
                     <HerbOrganicSvg size={22} />
                   </div>
-                  <div>
-                    <h4 className={styles.v2MiniTitle}>Naravne Rastlinske Omake</h4>
-                    <p className={styles.v2MiniDesc}>
-                      Domači prelivi in sveže pečen kruh brez skritih živalskih emulgatorjev.
-                    </p>
-                  </div>
+                  <h3 className={styles.bento4Title}>Čiste Začimbe &amp; Kruh</h3>
+                  <p className={styles.bento4Desc}>
+                    Dnevno sveže pečene lepinje in domače zeliščne omake brez kemičnih dodatkov.
+                  </p>
                 </div>
               </div>
             </div>
@@ -282,86 +287,81 @@ export default function HalalCertificate() {
         )}
 
         {/* ==================================================================
-            VERZIJA 3: 3 TRI-CARD TRUST PILLARS
+            VERZIJA C: NUMERISANE ŠIROKE TRAKE (/01, /02, /03)
             ================================================================== */}
-        {activeVersion === 3 && (
-          <div>
-            <div className={styles.v3Header}>
-              <div className={styles.sectionBadge}>
-                <span className={styles.sectionBadgeDot} />
-                <span>3 Stebri Naše Zaveze</span>
+        {activeSplitStyle === "C" && (
+          <div className={styles.halalGrid}>
+            {/* Left: Clean Minimal Frame */}
+            <div className={styles.certVisualWrapper}>
+              <div className={styles.certCardFrame}>
+                <Image
+                  src="/images/halal-certificate.jpg"
+                  alt="Uradni Halal Certifikat Šeherezada Ljubljana"
+                  width={480}
+                  height={520}
+                  className={styles.certImg}
+                />
+                <div className={styles.certFloatingVerifiedPill}>
+                  <div className={styles.certPillIcon}>
+                    <ShieldCheckSvg size={20} />
+                  </div>
+                  <div className={styles.certPillMeta}>
+                    <span className={styles.certPillTitle}>100% Halal Certificirano</span>
+                    <span className={styles.certPillSub}>Vrhunska čistost in transparentnost</span>
+                  </div>
+                </div>
               </div>
-              <h2 className={styles.v1Heading}>Brezkompromisna Čistost in Kakovost</h2>
-              <p className={styles.v1LeadText}>
-                Za vas izbiramo le najboljše. Spoznajte 3 ključne stebre, ki
-                zagotavljajo pristnost in varnost vsakega obroka v Šeherezadi.
-              </p>
             </div>
 
-            <div className={styles.v3TriCardsGrid}>
-              {/* Card 1 */}
-              <div className={styles.v3Card}>
-                <div className={styles.v3CardIconBox}>
-                  <AwardSealSvg size={28} />
-                </div>
-                <h3 className={styles.v3CardTitle}>Uradni Halal Certifikat</h3>
-                <p className={styles.v3CardDesc}>
-                  Vsi mesni izdelki imajo veljaven mednarodni halal certifikat z
-                  jasno sledljivostjo porekla in stalnim veterinarskim nadzorom.
-                </p>
-                <div className={styles.v3CardCheckList}>
-                  <div className={styles.v3CardCheckItem}>
-                    <span className={styles.v3CheckMark}>✓</span>
-                    <span>100% Telečje &amp; Piščančje</span>
-                  </div>
-                  <div className={styles.v3CardCheckItem}>
-                    <span className={styles.v3CheckMark}>✓</span>
-                    <span>Mednarodna Verifikacija</span>
-                  </div>
-                </div>
+            {/* Right: Narrative + 3 Numbered Strips */}
+            <div className={styles.halalRightCol}>
+              <div className={styles.sectionBadge}>
+                <span className={styles.sectionBadgeDot} />
+                <span>Standardi Kakovosti</span>
               </div>
 
-              {/* Card 2 (Featured - 0% Pork) */}
-              <div className={`${styles.v3Card} ${styles.v3CardFeatured}`}>
-                <span className={styles.v3CardTopBadge}>Glavna Zaveza</span>
-                <div className={styles.v3CardIconBox}>
-                  <BanPorkSvg size={28} />
-                </div>
-                <h3 className={styles.v3CardTitle}>0% Svinjskega Mesa</h3>
-                <p className={styles.v3CardDesc}>
-                  V naših kuhinjah velja stroga ničelna toleranca. Nikoli ne
-                  uporabljamo svinjine, svinjske masti, alkohola ali živalskih želatin.
-                </p>
-                <div className={styles.v3CardCheckList}>
-                  <div className={styles.v3CardCheckItem}>
-                    <span className={styles.v3CheckMark}>✓</span>
-                    <span>Brez Svinjskih Derivatov</span>
-                  </div>
-                  <div className={styles.v3CardCheckItem}>
-                    <span className={styles.v3CheckMark}>✓</span>
-                    <span>100% Brez Alkohola</span>
-                  </div>
-                </div>
-              </div>
+              <h2 className={styles.halalHeading}>
+                Zaveza čistosti in avtentičnemu poreklu.
+              </h2>
 
-              {/* Card 3 */}
-              <div className={styles.v3Card}>
-                <div className={styles.v3CardIconBox}>
-                  <SparklesPuritySvg size={28} />
-                </div>
-                <h3 className={styles.v3CardTitle}>Čiste Naravne Sestavine</h3>
-                <p className={styles.v3CardDesc}>
-                  Domač kruh pečemo sproti v krušni peči, omake pa pripravljamo
-                  izključno iz svežih rastlinskih zelišč in izbranih začimb.
-                </p>
-                <div className={styles.v3CardCheckList}>
-                  <div className={styles.v3CardCheckItem}>
-                    <span className={styles.v3CheckMark}>✓</span>
-                    <span>Dnevno Sveže Pripravljeno</span>
+              <p className={styles.halalLeadText}>
+                Za vsakim obrokom stoji strogo spoštovanje halal standardov,
+                ki zagotavljajo najvišjo raven higiene, etike in kulinaričnega užitka.
+              </p>
+
+              <div className={styles.numberedStripsList}>
+                {/* Strip 1 */}
+                <div className={styles.stripCard}>
+                  <div className={styles.stripNumberBadge}>01</div>
+                  <div className={styles.stripContent}>
+                    <h3 className={styles.stripTitle}>Preverjeno in Certificirano Poreklo</h3>
+                    <p className={styles.stripDesc}>
+                      Vse meso prihaja iz nadzorovanih evropskih virov z veljavnim certifikatom.
+                    </p>
                   </div>
-                  <div className={styles.v3CardCheckItem}>
-                    <span className={styles.v3CheckMark}>✓</span>
-                    <span>Brez Umetnih Dodatkov</span>
+                </div>
+
+                {/* Strip 2 */}
+                <div className={styles.stripCard} style={{ borderColor: "#fed7aa", background: "#fffdfa" }}>
+                  <div className={styles.stripNumberBadge}>02</div>
+                  <div className={styles.stripContent}>
+                    <h3 className={styles.stripTitle} style={{ color: "#ea580c" }}>
+                      0% Svinjskega Mesa &amp; Brez Alkohola
+                    </h3>
+                    <p className={styles.stripDesc}>
+                      Brezkompromisna čistost kuhinje in popolna odsotnost vseh ne-halal sestavin.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Strip 3 */}
+                <div className={styles.stripCard}>
+                  <div className={styles.stripNumberBadge}>03</div>
+                  <div className={styles.stripContent}>
+                    <h3 className={styles.stripTitle}>Dnevno Sveže Pripravljeno</h3>
+                    <p className={styles.stripDesc}>
+                      Sveže lepinje, marinada po tajnem receptu in lokalna zelenjava vsak dan.
+                    </p>
                   </div>
                 </div>
               </div>

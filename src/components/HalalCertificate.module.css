@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ŠEHEREZADA - 100% HALAL CERTIFIKAT & 0% SVINJSKEGA MESA
-   WARM LIGHT LUXURY RESTAURANT AESTHETIC (3 BRAND-CONSISTENT VARIATIONS)
+   ŠEHEREZADA - 100% HALAL CERTIFIKAT & GARANCIJA KAKOVOSTI
+   WARM LIGHT LUXURY RESTAURANT AESTHETIC (CONSISTENT ROASTLUX THEME)
    ========================================================================== */
 
 .halalSection {
@@ -21,7 +21,7 @@
   z-index: 2;
 }
 
-/* Background Warm Amber Subtle Glow */
+/* Background Warm Amber Glow */
 .bgWarmGlow {
   position: absolute;
   top: 20%;
@@ -94,7 +94,133 @@
   box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
 }
 
-/* Common Section Badge */
+/* ==========================================================================
+   COMMON SPLIT GRID LAYOUT
+   ========================================================================== */
+.halalGrid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+/* Left: Certificate Visual Frame */
+.certVisualWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.certCardFrame {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid #f2ede4;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(28, 25, 23, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.certCardFrame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(234, 88, 12, 0.12);
+  border-color: #fed7aa;
+}
+
+.certImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.certFloatingVerifiedPill {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #fed7aa;
+  border-radius: 18px;
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.12);
+  z-index: 2;
+}
+
+.certPillIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #fff7ed;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #fed7aa;
+}
+
+.certPillMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.certPillTitle {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0;
+}
+
+.certPillSub {
+  font-size: 0.76rem;
+  color: #78716c;
+  margin: 0;
+}
+
+/* Floating Gold Corner Stamp */
+.certCornerBadge {
+  position: absolute;
+  top: 20px;
+  right: -14px;
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  border-radius: 99px;
+  padding: 0.55rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.16);
+  z-index: 3;
+}
+
+.cornerBadgeIcon {
+  color: #ea580c;
+  font-weight: 900;
+}
+
+.cornerBadgeText {
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: #1c1917;
+  letter-spacing: 0.02em;
+}
+
+/* Right: Narrative */
+.halalRightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
 .sectionBadge {
   display: inline-flex;
   align-items: center;
@@ -118,24 +244,33 @@
   background: #ea580c;
 }
 
+.halalHeading {
+  font-size: 2.75rem;
+  font-weight: 950;
+  color: #1c1917;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0;
+}
+
 .trustPillsRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem;
-  margin-top: 0.2rem;
+  margin-top: -0.2rem;
 }
 
 .trustPillTag {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.95rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 99px;
   background: #ffffff;
   border: 1px solid #f2ede4;
   color: #1c1917;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
   box-shadow: 0 2px 8px rgba(28, 25, 23, 0.04);
 }
@@ -146,120 +281,24 @@
   color: #ea580c;
 }
 
-/* ==========================================================================
-   VERZIJA 1: EDITORIAL CERTIFICATE SHOWCASE (SPLIT-VIEW)
-   ========================================================================== */
-.v1Grid {
-  display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 4.5rem;
-  align-items: center;
-}
-
-.v1CertWrapper {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
-}
-
-.v1CertFrame {
-  position: relative;
-  width: 100%;
-  height: 520px;
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid #f2ede4;
-  background: #ffffff;
-  box-shadow: 0 20px 50px rgba(28, 25, 23, 0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.v1CertFrame:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 60px rgba(234, 88, 12, 0.12);
-  border-color: #fed7aa;
-}
-
-.v1CertImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.v1FloatingPill {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid #fed7aa;
-  border-radius: 18px;
-  padding: 0.85rem 1.15rem;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.12);
-}
-
-.v1PillIconBox {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: #fff7ed;
-  color: #ea580c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid #fed7aa;
-}
-
-.v1PillTitle {
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: #1c1917;
-  margin: 0;
-}
-
-.v1PillSub {
-  font-size: 0.76rem;
-  color: #78716c;
-  margin: 0;
-}
-
-.v1RightCol {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-}
-
-.v1Heading {
-  font-size: 2.75rem;
-  font-weight: 950;
-  color: #1c1917;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  margin: 0;
-}
-
-.v1LeadText {
+.halalLeadText {
   font-size: 1.05rem;
   color: #57534e;
   line-height: 1.65;
   margin: 0;
 }
 
-.v1GuaranteesList {
+/* ==========================================================================
+   VERZIJA A: 3 VERTIKALNA STEBRA (PILLARS)
+   ========================================================================== */
+.guaranteesList {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 0.4rem;
 }
 
-.v1GuaranteeCard {
+.guaranteeCard {
   display: flex;
   align-items: flex-start;
   gap: 1.15rem;
@@ -271,13 +310,13 @@
   transition: all 0.25s ease;
 }
 
-.v1GuaranteeCard:hover {
+.guaranteeCard:hover {
   transform: translateX(4px);
   border-color: #fed7aa;
   box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
 }
 
-.v1IconBox {
+.guaranteeIconBox {
   width: 46px;
   height: 46px;
   border-radius: 12px;
@@ -290,20 +329,20 @@
   border: 1px solid #fed7aa;
 }
 
-.v1CardContent {
+.guaranteeContent {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.v1CardTitle {
+.guaranteeTitle {
   font-size: 1.02rem;
   font-weight: 800;
   color: #1c1917;
   margin: 0;
 }
 
-.v1CardDesc {
+.guaranteeDesc {
   font-size: 0.88rem;
   color: #78716c;
   line-height: 1.5;
@@ -311,111 +350,39 @@
 }
 
 /* ==========================================================================
-   VERZIJA 2: WARM LUXURY BENTO TRUST GRID
+   VERZIJA B: 2X2 BENTO MREŽA (BENTO 4-GRID)
    ========================================================================== */
-.v2Header {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.v2BentoGrid {
+.bento4Grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 1.5rem;
-  align-items: stretch;
-}
-
-/* Left Large Bento Card: Certificate Hero */
-.v2LargeBentoCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 28px;
-  padding: 2.2rem;
-  box-shadow: 0 10px 30px rgba(28, 25, 23, 0.06);
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 2rem;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.v2LargeBentoCard:hover {
-  border-color: #fed7aa;
-  box-shadow: 0 16px 40px rgba(234, 88, 12, 0.1);
-}
-
-.v2BentoCertThumb {
-  width: 100%;
-  height: 260px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid #f2ede4;
-  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.08);
-}
-
-.v2BentoCertImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.v2LargeBentoContent {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.v2LargeBentoTitle {
-  font-size: 1.5rem;
-  font-weight: 950;
-  color: #1c1917;
-  margin: 0;
-  line-height: 1.25;
-}
-
-.v2LargeBentoDesc {
-  font-size: 0.92rem;
-  color: #57534e;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Right Stack of 3 Bento Cards */
-.v2RightBentoCol {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
 
-.v2MiniBentoCard {
+.bento4Card {
   background: #ffffff;
   border: 1px solid #f2ede4;
   border-radius: 20px;
-  padding: 1.25rem 1.4rem;
-  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
+  padding: 1.25rem 1.2rem;
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
   transition: all 0.25s ease;
 }
 
-.v2MiniBentoCard:hover {
-  transform: translateY(-2px);
+.bento4Card:hover {
+  transform: translateY(-3px);
   border-color: #fed7aa;
-  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
+  box-shadow: 0 10px 24px rgba(234, 88, 12, 0.1);
 }
 
-.v2MiniBentoCardHighlight {
-  background: #fffdfa;
+.bento4CardHighlight {
+  background: linear-gradient(180deg, #fffdfa 0%, #fff7ed 100%);
   border-color: #fed7aa;
 }
 
-.v2MiniIconBox {
+.bento4IconBox {
   width: 42px;
   height: 42px;
   border-radius: 12px;
@@ -424,130 +391,80 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
   border: 1px solid #fed7aa;
+  margin-bottom: 0.2rem;
 }
 
-.v2MiniTitle {
-  font-size: 1.05rem;
-  font-weight: 850;
+.bento4Title {
+  font-size: 0.98rem;
+  font-weight: 800;
   color: #1c1917;
-  margin: 0 0 2px;
+  margin: 0;
 }
 
-.v2MiniDesc {
-  font-size: 0.84rem;
+.bento4Desc {
+  font-size: 0.82rem;
   color: #78716c;
   line-height: 1.45;
   margin: 0;
 }
 
 /* ==========================================================================
-   VERZIJA 3: 3 TRI-CARD TRUST PILLARS (HORIZONTAL CAROUSEL STYLE)
+   VERZIJA C: NUMERISANE ŠIROKE TRAKE (NUMBERED STRIPS)
    ========================================================================== */
-.v3Header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 3rem;
+.numberedStripsList {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.9rem;
+  margin-top: 0.5rem;
 }
 
-.v3TriCardsGrid {
+.stripCard {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.v3Card {
+  grid-template-columns: auto 1fr;
+  gap: 1.4rem;
+  align-items: center;
+  padding: 1.15rem 1.4rem;
   background: #ffffff;
   border: 1px solid #f2ede4;
-  border-radius: 24px;
-  padding: 2rem 1.8rem;
-  box-shadow: 0 6px 20px rgba(28, 25, 23, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
+  transition: all 0.25s ease;
+}
+
+.stripCard:hover {
+  transform: translateX(4px);
+  border-color: #fed7aa;
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.09);
+}
+
+.stripNumberBadge {
+  font-size: 1.45rem;
+  font-weight: 950;
+  color: #ea580c;
+  letter-spacing: -0.04em;
+  opacity: 0.85;
+  width: 44px;
+}
+
+.stripContent {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
-  transition: all 0.3s ease;
-  position: relative;
+  gap: 0.2rem;
 }
 
-.v3Card:hover {
-  transform: translateY(-4px);
-  border-color: #fed7aa;
-  box-shadow: 0 14px 35px rgba(234, 88, 12, 0.12);
-}
-
-.v3CardFeatured {
-  border-color: #fed7aa;
-  background: linear-gradient(180deg, #ffffff 0%, #fffbf5 100%);
-  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.08);
-}
-
-.v3CardTopBadge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  color: #ea580c;
-  font-size: 0.7rem;
+.stripTitle {
+  font-size: 1rem;
   font-weight: 800;
-  padding: 2px 8px;
-  border-radius: 99px;
-  text-transform: uppercase;
-}
-
-.v3CardIconBox {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  background: #fff7ed;
-  color: #ea580c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #fed7aa;
-}
-
-.v3CardTitle {
-  font-size: 1.25rem;
-  font-weight: 900;
   color: #1c1917;
   margin: 0;
-  line-height: 1.25;
 }
 
-.v3CardDesc {
-  font-size: 0.9rem;
-  color: #57534e;
-  line-height: 1.6;
+.stripDesc {
+  font-size: 0.86rem;
+  color: #78716c;
+  line-height: 1.45;
   margin: 0;
-  flex: 1;
-}
-
-.v3CardCheckList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  padding-top: 0.8rem;
-  border-top: 1px solid #f2ede4;
-}
-
-.v3CardCheckItem {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #1c1917;
-}
-
-.v3CheckMark {
-  color: #ea580c;
-  font-weight: 900;
 }
 
 /* ==========================================================================
@@ -555,44 +472,31 @@
    ========================================================================== */
 @media (max-width: 1024px) {
   .halalSection {
+    /* Strict Universal Standards: Tablet 4rem top / 4.5rem bottom */
     padding: 4rem 1.5rem 4.5rem;
   }
 
-  .v1Grid {
+  .halalGrid {
     grid-template-columns: 1fr;
     gap: 3.5rem;
   }
 
-  .v1Heading {
+  .halalHeading {
     font-size: 2.3rem;
   }
 
-  .v1CertFrame {
+  .certCardFrame {
     height: 440px;
   }
 
-  .v2BentoGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .v2LargeBentoCard {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .v2BentoCertThumb {
-    height: 220px;
-  }
-
-  .v3TriCardsGrid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+  .certCornerBadge {
+    right: 14px;
   }
 }
 
 @media (max-width: 640px) {
   .halalSection {
+    /* Strict Universal Standards: Mobile 3.5rem top / 4rem bottom */
     padding: 3.5rem 1.25rem 4rem;
   }
 
@@ -607,36 +511,32 @@
     text-align: center;
   }
 
-  .v1Heading {
+  .halalHeading {
     font-size: 1.95rem;
   }
 
-  .v1CertFrame {
+  .certCardFrame {
     height: 360px;
   }
 
-  .v1GuaranteeCard {
+  .bento4Grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guaranteeCard {
     padding: 1rem;
     gap: 0.85rem;
   }
 
-  .v1IconBox {
+  .guaranteeIconBox {
     width: 40px;
     height: 40px;
   }
 
-  .v1FloatingPill {
+  .certFloatingVerifiedPill {
     bottom: 14px;
     left: 14px;
     right: 14px;
     padding: 0.75rem 0.95rem;
-  }
-
-  .v2LargeBentoCard {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .v3Card {
-    padding: 1.5rem 1.3rem;
   }
 }

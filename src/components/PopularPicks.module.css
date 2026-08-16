@@ -128,9 +128,10 @@
 }
 
 .magazineContent {
-  padding: 1.8rem 2rem 0;
+  padding: 1.8rem 2rem 2.2rem;
   display: flex;
   flex-direction: column;
+  gap: 0.85rem;
 }
 
 .magTitle {
@@ -146,42 +147,43 @@
   font-size: 0.95rem;
   color: #57534e;
   line-height: 1.6;
-  margin: 0.75rem 0 0;
+  margin: 0;
 }
 
-/* CENA Label Above Divider */
-.showcasePriceLabelRow {
-  margin-top: 1.1rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #f2ede4;
-  display: flex;
-  align-items: center;
-}
-
-.showcasePriceLabel {
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: #78716c;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  line-height: 1;
-}
-
-/* Bottom Row: Price + Sestavine & Alergeni Button Perfectly Centered */
+/* Unified Bottom Row: Price + Sestavine & Alergeni Button */
 .showcaseBottomRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.2rem;
-  padding: 1.15rem 0 1.25rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #f2ede4;
+  margin-top: 0.6rem;
+  min-height: 52px;
+}
+
+.showcasePriceBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.showcasePriceLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
 }
 
 .showcasePriceValue {
-  font-size: 1.95rem;
+  font-size: 1.85rem;
   font-weight: 950;
   color: #ea580c;
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .detailsModalTriggerBtn {
@@ -200,6 +202,8 @@
   transition: all 0.25s ease;
   white-space: nowrap;
   box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
+  align-self: center;
+  line-height: 1;
 }
 
 .detailsModalTriggerBtn:hover {
@@ -438,9 +442,10 @@
 }
 
 .mobileCardBody {
-  padding: 1.35rem 1.35rem 0;
+  padding: 1.4rem 1.4rem 1.6rem;
   display: flex;
   flex-direction: column;
+  gap: 0.65rem;
   flex: 1;
 }
 
@@ -456,25 +461,8 @@
   font-size: 0.9rem;
   color: #57534e;
   line-height: 1.55;
-  margin: 0.55rem 0 0;
+  margin: 0;
   flex: 1;
-}
-
-.mobilePriceLabelRow {
-  margin-top: 0.9rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid #f2ede4;
-  display: flex;
-  align-items: center;
-}
-
-.mobilePriceLabel {
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: #78716c;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  line-height: 1;
 }
 
 .mobileCardFooter {
@@ -482,21 +470,40 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 0 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f2ede4;
+  margin-top: 0.4rem;
+  min-height: 52px;
+}
+
+.mobilePriceBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.mobilePriceLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
 }
 
 .mobilePriceValue {
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   font-weight: 950;
   color: #ea580c;
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.1;
   white-space: nowrap;
 }
 
 .mobileInfoIconBtn {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: transparent;
   border: none;
@@ -509,6 +516,7 @@
   transition: all 0.2s ease;
   flex-shrink: 0;
   padding: 0;
+  align-self: center;
 }
 
 .mobileInfoIconBtn:hover,

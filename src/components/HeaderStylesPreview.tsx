@@ -8,22 +8,63 @@ export default function HeaderStylesPreview() {
         <div className={styles.showcaseTopIntro}>
           <span className={styles.topPill}>Ekskluzivni Predogled</span>
           <h2 className={styles.showcaseMainTitle}>
-            4 Editorial Dizajna Naslova (Brez Generičnih Bedžev)
+            Editorial Dizajni Naslova (Brez Generičnih Bedžev)
           </h2>
           <p className={styles.showcaseDesc}>
-            Spodaj so 4 unikatni, luksuzni pristopi za označevanje sekcij, ki
-            nadomestijo generične AI pilule. Poglejte, kako vsak slog deluje v
-            praksi.
+            Spodaj je vaša nova <strong>Opcija 5 (Hibrid 1 + 3)</strong> ter
+            preostale opcije za primerjavo.
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* ==================================================================
+            FEATURED HERO: OPCIJA 5 (HIBRID 1 + 3)
+            ================================================================== */}
+        <div className={styles.featuredHeroCard}>
+          {/* Ghost Watermark in Background */}
+          <span className={styles.heroWatermark}>TRADICIJA</span>
+
+          <div className={styles.featuredHeaderRow}>
+            <span className={styles.featuredBadge}>
+              ★ Vaša Ideja: Opcija 5 (Hibrid 1 + 3)
+            </span>
+            <span className={styles.featuredSubtitle}>
+              Editorial Chapter Index + Layered Ghost Watermark
+            </span>
+          </div>
+
+          <div className={styles.heroContentStack}>
+            {/* Editorial Chapter Tag from Option 1 */}
+            <div className={styles.chapterIndexTag}>
+              <span className={styles.chapterDash} />
+              <span>
+                <span className={styles.chapterNumber}>02</span> / NAŠA ZGODBA &amp; TRADICIJA
+              </span>
+              <span className={styles.chapterDash} />
+            </div>
+
+            {/* Main Heading */}
+            <h3 className={styles.heroHeading}>
+              Od pravega ognja do popolnega okusa.
+            </h3>
+
+            <p className={styles.heroDesc}>
+              V restavraciji Šeherezada že več kot dve desetletji ohranjamo
+              pristno kulinarično dediščino. Naša skrivnost ni v zapletenosti,
+              temveč v potrpežljivosti, izbranih sestavinah in spoštovanju
+              tradicionalnih receptur.
+            </p>
+          </div>
+        </div>
+
+        {/* ==================================================================
+            4 COMPARISON CARDS (PREOSTALE OPCIJE)
+            ================================================================== */}
         <div className={styles.stylesGrid}>
-          {/* Option 1: Editorial Chapter Index */}
+          {/* Option 1: Pure Editorial Chapter Index */}
           <div className={styles.styleCard}>
             <div className={styles.cardHeaderLabel}>
               <span className={styles.optionNumber}>Opcija 1</span>
-              <span className={styles.optionVibe}>Michelin / Editorial Knjižni Slog</span>
+              <span className={styles.optionVibe}>Čisti Knjižni Indeks</span>
             </div>
 
             <div className={styles.cardMockBody}>
@@ -41,7 +82,7 @@ export default function HeaderStylesPreview() {
 
               <p className={styles.mockSubtext}>
                 Časopisni indeks z diskretno številko poglavja in tankima
-                linijama. Popolnoma brez okvira ali ozadja.
+                linijama. Brez vodnega žiga.
               </p>
             </div>
           </div>
@@ -70,7 +111,7 @@ export default function HeaderStylesPreview() {
             </div>
           </div>
 
-          {/* Option 3: Ghost Typography / Layered Watermark */}
+          {/* Option 3: Pure Ghost Typography */}
           <div className={styles.styleCard}>
             <div className={styles.cardHeaderLabel}>
               <span className={styles.optionNumber}>Opcija 3</span>
@@ -78,7 +119,7 @@ export default function HeaderStylesPreview() {
             </div>
 
             <div className={styles.ghostTagWrapper}>
-              <span className={styles.ghostWatermarkText}>TRADICIJA</span>
+              <span className={styles.ghostWatermarkText}>ČISTOST</span>
 
               <div className={styles.cardMockBody}>
                 <div className={styles.ghostFrontTag}>
@@ -90,8 +131,8 @@ export default function HeaderStylesPreview() {
                 </h3>
 
                 <p className={styles.mockSubtext}>
-                  V ozadju je velik, komaj opazen vodni žig (4% vidljivost),
-                  spredaj pa eleganten, čist mikro-podnaslov.
+                  V ozadju je velik, komaj opazen vodni žig, spredaj pa
+                  klasičen tekst.
                 </p>
               </div>
             </div>
@@ -119,7 +160,6 @@ export default function HeaderStylesPreview() {
 
               <p className={styles.mockSubtext}>
                 Popolnoma raven tekst s srednjimi pikicami kot separatorji.
-                Ustvari vtis resne gastronomske institucije.
               </p>
             </div>
           </div>

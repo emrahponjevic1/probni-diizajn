@@ -554,6 +554,8 @@
   justify-content: center;
   padding: 1.2rem;
   animation: modalFadeIn 0.25s ease;
+  overscroll-behavior: contain;
+  touch-action: none;
 }
 
 .modalContainer {
@@ -569,6 +571,8 @@
   animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
   position: relative;
+  overscroll-behavior: contain;
+  touch-action: auto;
 }
 
 .modalScrollBody {
@@ -577,6 +581,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modalVisualRow {

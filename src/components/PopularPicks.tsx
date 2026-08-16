@@ -178,10 +178,16 @@ export default function PopularPicks() {
 
   const selectedDish = dishes.find((d) => d.id === activeDishId) || dishes[0];
 
-  // Lock scroll without jumping when detail modal is open
+  // Bulletproof background scroll lock when detail modal is open
   useEffect(() => {
     if (modalDish) {
-      const prevOverflow = document.body.style.overflow;
+      const scrollY = window.scrollY;
+
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
 
       const handleKeyDown = (e: KeyboardEvent) => {
@@ -191,8 +197,21 @@ export default function PopularPicks() {
       };
 
       window.addEventListener("keydown", handleKeyDown);
+
       return () => {
-        document.body.style.overflow = prevOverflow;
+        const top = document.body.style.top;
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+
+        if (top) {
+          const parsedScrollY = parseInt(top || "0", 10) * -1;
+          window.scrollTo(0, parsedScrollY);
+        }
+
         window.removeEventListener("keydown", handleKeyDown);
       };
     }
@@ -412,7 +431,15 @@ export default function PopularPicks() {
           FOOD DETAIL MODAL / POPUP (SESTAVINE, ALERGENI, OPIS JEDI)
           ================================================================== */}
       {modalDish && (
-        <div className={styles.modalBackdrop} onClick={() => setModalDish(null)}>
+        <div
+          className={styles.modalBackdrop}
+          onClick={() => setModalDish(null)}
+          onTouchMove={(e) => {
+            if (e.target === e.currentTarget) {
+              e.preventDefault();
+            }
+          }}
+        >
           <div
             className={styles.modalContainer}
             onClick={(e) => e.stopPropagation()}

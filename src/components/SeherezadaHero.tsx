@@ -97,6 +97,8 @@ const ArrowRightSvg = ({ size = 16, className }: { size?: number; className?: st
 export default function SeherezadaHero() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileNavVisible, setIsMobileNavVisible] = useState(true);
+  const lastScrollYRef = useRef(0);
 
   // Interactive Location & Language state
   const [selectedLocation, setSelectedLocation] = useState<"1" | "2">("1");
@@ -152,11 +154,23 @@ export default function SeherezadaHero() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      const currentScrollY = window.scrollY;
+
+      // Desktop full-width threshold
+      setIsScrolled(currentScrollY > 20);
+
+      // Mobile Smart Hide-on-Scroll Logic (<= 1120px)
+      if (currentScrollY <= 60) {
+        setIsMobileNavVisible(true);
+      } else if (currentScrollY > lastScrollYRef.current + 8) {
+        // Scrolling down -> hide mobile navbar
+        setIsMobileNavVisible(false);
+      } else if (currentScrollY < lastScrollYRef.current - 8) {
+        // Scrolling up -> reveal mobile navbar
+        setIsMobileNavVisible(true);
       }
+
+      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -196,8 +210,12 @@ export default function SeherezadaHero() {
         <div className={styles.leftSoftGlow} />
       </div>
 
-      {/* Floating Island at Top -> Full-Width on Scroll (Desktop) */}
-      <div className={`${styles.navbarStickyWrapper} ${isScrolled ? styles.navbarStickyWrapperScrolled : ""}`}>
+      {/* Floating Island at Top (Desktop) / Smart Sticky Hide-on-Scroll (Mobile <= 1120px) */}
+      <div
+        className={`${styles.navbarStickyWrapper} ${
+          isScrolled ? styles.navbarStickyWrapperScrolled : ""
+        } ${!isMobileNavVisible ? styles.mobileNavHidden : styles.mobileNavVisible}`}
+      >
         <header className={`${styles.navbarIsland} ${isScrolled ? styles.navbarFullWidth : ""}`}>
           <div className={styles.navbarInnerContainer}>
             {/* Brand Logo */}

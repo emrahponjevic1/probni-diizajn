@@ -1,0 +1,1497 @@
+/* ==========================================================================
+   ŠEHEREZADA HERO - WARM RESTAURANT DESIGN (ROASTLUX STYLE)
+   ========================================================================== */
+
+.heroWrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: #fffdfa;
+  color: #1c1917;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5.5rem; /* Desktop room for floating island navbar */
+}
+
+/* ==========================================================================
+   BACKGROUND SUBTLE AMBIENT GLOW (VIEWPORT-SAFE)
+   ========================================================================== */
+.bgGraphics {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leftSoftGlow {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(254, 243, 199, 0.45) 0%, rgba(255, 253, 250, 0) 70%);
+  filter: blur(60px);
+}
+
+/* ==========================================================================
+   DESKTOP NAVBAR: DUAL MODE (ISLAND AT TOP -> 100% FULL-WIDTH ON SCROLL)
+   ========================================================================== */
+.navbarStickyWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.2rem 1.5rem 0;
+  pointer-events: none;
+  transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbarStickyWrapperScrolled {
+  padding: 0;
+}
+
+/* 1. Base Island Header (Desktop) */
+.navbarIsland {
+  pointer-events: auto;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.65rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #f2ede4;
+  border-radius: 99px;
+  box-shadow: 0 10px 30px rgba(28, 25, 23, 0.07);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. Scrolled State (Desktop: 100% Full-width with frosted blur) */
+.navbarFullWidth {
+  max-width: 100%;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #f2ede4;
+  background: rgba(255, 253, 250, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 0.85rem 2.5rem;
+}
+
+.navbarInnerContainer {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #ef4444, #ea580c);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 900;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.logoText {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #1c1917;
+  letter-spacing: -0.02em;
+}
+
+.logoAccent {
+  color: #ef4444;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  color: #57534e;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.navLink:hover,
+.navLinkActive {
+  color: #ef4444;
+}
+
+.navLinkActive::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: #ef4444;
+  border-radius: 2px;
+}
+
+/* Nav Actions Container (Positioning context for dropdowns flush to right edge) */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.locationPillBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #1c1917;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.48rem 0.95rem;
+  border-radius: 99px;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.locationPillBtn:hover,
+.locationPillBtnActive {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.langPillBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.48rem 0.85rem;
+  border-radius: 99px;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  color: #57534e;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.langPillBtn:hover,
+.langPillBtnActive {
+  background: #fef2f2;
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+/* Desktop Popover Menu: Spans exactly from left edge of location button to right edge of language button */
+.desktopDropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(28, 25, 23, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  z-index: 150;
+  animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.langDesktopDropdown {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.dropdownOptionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.95rem;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: #1c1917;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdownOptionItem:hover {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.dropdownOptionItemActive {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.dropdownItemMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdownItemSub {
+  font-size: 0.72rem;
+  color: #78716c;
+  font-weight: 500;
+}
+
+.dropdownItemCheck {
+  font-size: 0.9rem;
+  color: #ea580c;
+  font-weight: 800;
+}
+
+/* Hamburger Toggle Button */
+.hamburgerBtn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  color: #1c1917;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.hamburgerBtn:hover {
+  background: #fff7ed;
+  color: #ea580c;
+  border-color: #fed7aa;
+}
+
+/* Bulletproof scroll lock on body & html when mobile menu is open */
+:global(html.drawerActive),
+:global(body.drawerActive) {
+  overflow: hidden !important;
+  height: 100% !important;
+  touch-action: none !important;
+  -webkit-overflow-scrolling: auto !important;
+}
+
+/* ==========================================================================
+   MOBILE MENU DRAWER & OVERLAY (PERMANENT EDITORIAL BOUTIQUE STYLE)
+   ========================================================================== */
+.mobileMenuOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 12, 10, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  touch-action: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobileMenuOverlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+/* Base Drawer Container */
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 90%;
+  max-width: 410px;
+  background: #fffdfa;
+  color: #1c1917;
+  z-index: 999;
+  box-shadow: -15px 0 50px rgba(28, 25, 23, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  padding: 1.5rem 1.6rem 2rem;
+}
+
+.mobileDrawerOpen {
+  transform: translateX(0);
+}
+
+/* Editorial Drawer Header */
+.editorialHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid #f2ede4;
+}
+
+.closeDrawerBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #57534e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.closeDrawerBtn:hover {
+  background: #fff7ed;
+  color: #ea580c;
+  border-color: #fed7aa;
+}
+
+/* Editorial Navigation List */
+.editorialNavList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 1.2rem 0;
+  margin: 0;
+}
+
+.editorialNavItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.65rem 0.3rem;
+  border-bottom: 1px dashed #f2ede4;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.editorialNavTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #1c1917;
+  letter-spacing: -0.02em;
+  transition: all 0.25s ease;
+}
+
+.editorialNavNum {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #ea580c;
+  font-family: monospace;
+  transition: all 0.25s ease;
+}
+
+.editorialNavItem:hover .editorialNavTitle,
+.editorialNavItemActive .editorialNavTitle {
+  color: #ea580c;
+  transform: translateX(6px);
+}
+
+.editorialNavItem:hover .editorialNavNum,
+.editorialNavItemActive .editorialNavNum {
+  transform: translateX(4px);
+}
+
+/* Drawer Bottom Section */
+.drawerBottomSection {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* 100% Width Mint Live Status Card (Single Horizontal Row, Directly Above Divider) */
+.drawerStatusFullCard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.1rem;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.06);
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.drawerStatusLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.drawerStatusTitle {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #047857;
+}
+
+.drawerStatusTime {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #065f46;
+}
+
+/* ==========================================================================
+   DRAWER FOOTER: LOCATION & LANGUAGE SELECTOR UTILITIES
+   ========================================================================== */
+.editorialFooter {
+  padding-top: 1rem;
+  border-top: 1px solid #f2ede4;
+  position: relative;
+  width: 100%;
+}
+
+.drawerActionsGrid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.drawerLocationBtn,
+.drawerLangBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.95rem;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  border-radius: 16px;
+  color: #1c1917;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.drawerLocationBtn:hover,
+.drawerLangBtn:hover,
+.drawerBtnActive {
+  border-color: #ef4444;
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.drawerActionIcon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.drawerActionTextCol {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  flex: 1;
+}
+
+.drawerActionLabel {
+  font-size: 0.68rem;
+  color: #78716c;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.drawerActionValue {
+  font-size: 0.88rem;
+  color: #1c1917;
+  font-weight: 800;
+}
+
+.drawerActionArrow {
+  font-size: 0.75rem;
+  color: #a8a29e;
+  margin-left: auto;
+}
+
+/* Mobile Drawer Popover Menus (Opens Upwards Above Footer Buttons) */
+.drawerDropdownMenu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 18px;
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.12);
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  z-index: 200;
+  animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   HERO MAIN CONTENT
+   ========================================================================== */
+.heroContent {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 3.5rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  flex: 1;
+}
+
+/* Left Column: Text & Content */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 12;
+  position: relative;
+}
+
+.dotGridLeft {
+  position: absolute;
+  top: -20px;
+  left: -40px;
+  width: 100px;
+  height: 100px;
+  background-image: radial-gradient(#f59e0b 2px, transparent 2px);
+  background-size: 18px 18px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 1. Main Title (Šeherezada) - THICKER & BOLDER */
+.mainTitle {
+  font-size: clamp(3.2rem, 5.8vw, 5rem);
+  font-weight: 950;
+  line-height: 1;
+  color: #1c1917;
+  letter-spacing: -0.035em;
+  -webkit-text-stroke: 1.2px #1c1917;
+  text-stroke: 1.2px #1c1917;
+  margin: 0;
+}
+
+/* 2. Subtitle - INCREASED LETTER SPACING */
+.outlinedSubtitle {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0.035em;
+  margin-top: 0.35rem;
+  color: #ea580c;
+  -webkit-text-stroke: 1.5px #ea580c;
+  text-stroke: 1.5px #ea580c;
+}
+
+/* 3. Description */
+.description {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: #57534e;
+  max-width: 540px;
+  margin-top: 1.2rem;
+}
+
+/* 4. Google Reviews Badge */
+.reviewsBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+  padding: 0.6rem 1.2rem;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.05);
+}
+
+.redStars {
+  display: flex;
+  gap: 2px;
+  color: #ef4444;
+  font-size: 1.1rem;
+}
+
+.ratingScore {
+  font-weight: 800;
+  color: #1c1917;
+  font-size: 1.05rem;
+}
+
+.ratingCount {
+  color: #78716c;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* 5. Action Buttons */
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.primaryMenuBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.95rem 2.2rem;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(234, 88, 12, 0.35);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.primaryMenuBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(234, 88, 12, 0.45);
+  background: linear-gradient(135deg, #fbbf24 0%, #ea580c 100%);
+}
+
+.phoneBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ffffff;
+  color: #1c1917;
+  font-size: 1.02rem;
+  font-weight: 700;
+  padding: 0.9rem 1.8rem;
+  border-radius: 99px;
+  border: 1px solid #e7e5e4;
+  box-shadow: 0 4px 15px rgba(28, 25, 23, 0.06);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.phoneBtn:hover {
+  transform: translateY(-2px);
+  border-color: #f59e0b;
+  color: #ea580c;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.18);
+}
+
+.phoneRedIcon {
+  color: #ef4444;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   6. 2 LOCATION CARDS (LOKALI: ŠEHEREZADA 1 & ŠEHEREZADA 2)
+   ========================================================================== */
+.locationCardsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.8rem;
+  width: 100%;
+  max-width: 580px;
+}
+
+/* Desktop & Tablet: Grid with Title on Top, Address in Middle, Status on Left & Navodila on Right at Bottom */
+.locationCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 18px;
+  padding: 1.1rem 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "title title"
+    "address address"
+    "badge navodila";
+  row-gap: 0.45rem;
+  box-shadow: 0 4px 18px rgba(28, 25, 23, 0.05);
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.locationCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.12);
+  border-color: #fed7aa;
+}
+
+.locationTitle {
+  grid-area: title;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1c1917;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: left;
+  justify-self: start;
+}
+
+.locationAddress {
+  grid-area: address;
+  font-size: 0.86rem;
+  color: #57534e;
+  line-height: 1.4;
+  text-align: left;
+  justify-self: start;
+}
+
+/* Location Status Badges (Mint Green with Live Pulsing Radar Ping) */
+.statusOpenBadge {
+  grid-area: badge;
+  justify-self: start;
+  align-self: center;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 3px 10px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusOpenDotWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px;
+  height: 8px;
+}
+
+.statusOpenDot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+  z-index: 2;
+}
+
+.statusOpenDotPing {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.6);
+  animation: radarPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: 1;
+}
+
+.statusClosedBadge {
+  grid-area: badge;
+  justify-self: start;
+  align-self: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 3px 9px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.statusClosedDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.navodilaLink {
+  grid-area: navodila;
+  justify-self: end;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #ea580c;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.navodilaLink:hover {
+  color: #c2410c;
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   RIGHT: FOOD SHOWCASE & BALANCED DIAGONAL WARM ORGANIC BLOBS
+   ========================================================================== */
+.rightCol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* 1. Main Rich Warm Orange Organic Blob (Center) */
+.heroPlateBlob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 530px;
+  height: 570px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  opacity: 0.95;
+  filter: drop-shadow(0 18px 36px rgba(245, 158, 11, 0.22));
+  animation: morphBlob 16s ease-in-out infinite alternate;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 2. Secondary Shape - BOTTOM RIGHT Soft Warm Pastel */
+.heroPlateBlobSecondary {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-28%, -28%);
+  width: 410px;
+  height: 410px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 60%, #fde047 100%);
+  border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+  opacity: 0.62;
+  z-index: 1;
+  pointer-events: none;
+  animation: morphBlobSecondary 18s ease-in-out infinite alternate-reverse;
+}
+
+/* 3. Third Shape - TOP LEFT Soft Warm Pastel */
+.heroPlateBlobTopLeft {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-70%, -70%);
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 60%, #fde047 100%);
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  opacity: 0.62;
+  z-index: 1;
+  pointer-events: none;
+  animation: morphBlobTopLeft 18s ease-in-out infinite alternate;
+}
+
+.dotGridRight {
+  position: absolute;
+  bottom: -20px;
+  left: -15px;
+  width: 80px;
+  height: 80px;
+  background-image: radial-gradient(#ea580c 2px, transparent 2px);
+  background-size: 16px 16px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.plateWrapper {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.mainPlateImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid #ffffff;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18), 0 10px 25px rgba(234, 88, 12, 0.15);
+  animation: floatPlate 6s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 5;
+}
+
+.plateAura {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  animation: rotateAura 30s linear infinite;
+  z-index: 6;
+}
+
+/* 1. Top Right Badge: Halal Meso - 100% Sveže */
+.floatingBadgeHalal {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 0.75rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #fed7aa;
+  z-index: 15;
+  animation: floatSlow 5s ease-in-out infinite alternate;
+}
+
+.badgeHalalIcon {
+  width: 36px;
+  height: 36px;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.floatingBadgeHalalTitle {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #1c1917;
+}
+
+.floatingBadgeHalalSub {
+  font-size: 0.76rem;
+  color: #059669;
+  font-weight: 700;
+}
+
+/* 2. Bottom Left Badge: PREMIUM - Ljubljana #1 */
+.floatingBadgePremium {
+  position: absolute;
+  bottom: 8%;
+  left: -8%;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f2ede4;
+  z-index: 15;
+  animation: floatSlow 6s ease-in-out infinite alternate-reverse;
+}
+
+.premiumGoldTag {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.floatingBadgePremiumTitle {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #1c1917;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.floatingBadgePremiumSub {
+  font-size: 0.76rem;
+  color: #78716c;
+}
+
+.trophyCircle {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+}
+
+/* 3. Bottom Badge: Domač kruh po tajnem receptu */
+.floatingBadgeRecipe {
+  position: absolute;
+  bottom: -4%;
+  right: 8%;
+  background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+  color: #ffffff;
+  border-radius: 99px;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  font-size: 0.85rem;
+  font-weight: 700;
+  z-index: 15;
+}
+
+/* Floating garnishes */
+.leaf1 {
+  position: absolute;
+  top: 18%;
+  left: -20px;
+  font-size: 1.8rem;
+  z-index: 15;
+  animation: floatLeaf 4s ease-in-out infinite alternate;
+}
+
+.chili1 {
+  position: absolute;
+  top: 2%;
+  left: 20%;
+  font-size: 2rem;
+  transform: rotate(-25deg);
+  z-index: 15;
+}
+
+.chili2 {
+  position: absolute;
+  bottom: 25%;
+  right: -25px;
+  font-size: 2.2rem;
+  transform: rotate(35deg);
+  z-index: 15;
+  animation: floatLeaf 5s ease-in-out infinite alternate-reverse;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes floatPlate {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-12px) rotate(1.5deg); }
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+@keyframes floatLeaf {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(10deg); }
+}
+
+@keyframes rotateAura {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes morphBlob {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; }
+  100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+}
+
+@keyframes morphBlobSecondary {
+  0% { border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; }
+  50% { border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%; }
+  100% { border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; }
+}
+
+@keyframes morphBlobTopLeft {
+  0% { border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%; }
+  50% { border-radius: 50% 50% 60% 40% / 40% 50% 50% 60%; }
+  100% { border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%; }
+}
+
+@keyframes radarPing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.95;
+  }
+  80%, 100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (TABLET & MOBILE) -> STANDARD CLEAN NAVBAR AS BEFORE
+   ========================================================================== */
+@media (max-width: 1120px) {
+  .heroWrapper {
+    padding-top: 0;
+  }
+
+  /* Disable floating island on tablet: standard natural full-width navbar */
+  .navbarStickyWrapper {
+    position: relative;
+    padding: 0;
+  }
+
+  .navbarStickyWrapperScrolled {
+    padding: 0;
+  }
+
+  .navbarIsland,
+  .navbarFullWidth {
+    max-width: 100%;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 1.25rem 2rem;
+  }
+
+  .navLinks,
+  .navActions {
+    display: none !important;
+  }
+
+  .hamburgerBtn {
+    display: flex !important;
+  }
+
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+    padding-top: 0.5rem;
+  }
+
+  .leftCol {
+    align-items: center;
+    width: 100%;
+  }
+
+  .dotGridLeft {
+    display: none;
+  }
+
+  .description {
+    max-width: 600px;
+  }
+
+  .ctaRow {
+    justify-content: center;
+  }
+
+  .locationCardsRow {
+    justify-content: center;
+    max-width: 520px;
+    text-align: left;
+  }
+
+  .locationCard {
+    text-align: left;
+  }
+
+  .locationTitle {
+    text-align: left;
+    justify-self: start;
+  }
+
+  .locationAddress {
+    text-align: left;
+    justify-self: start;
+  }
+
+  /* Tablet */
+  .heroPlateBlob {
+    width: 390px;
+    height: 390px;
+  }
+
+  .heroPlateBlobSecondary {
+    width: 280px;
+    height: 280px;
+    transform: translate(-30%, -30%);
+    opacity: 0.6;
+  }
+
+  .heroPlateBlobTopLeft {
+    width: 275px;
+    height: 275px;
+    transform: translate(-74%, -74%);
+    opacity: 0.65;
+  }
+
+  .plateWrapper {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroWrapper {
+    padding-top: 0;
+  }
+
+  .navbarStickyWrapper {
+    position: relative;
+    padding: 0;
+  }
+
+  .navbarIsland,
+  .navbarFullWidth {
+    padding: 1rem 1.25rem;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .mobileDrawer {
+    padding: 1.25rem 1.3rem 1.6rem;
+  }
+
+  .editorialNavTitle {
+    font-size: 1.15rem;
+  }
+
+  .drawerActionsGrid {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .drawerLocationBtn,
+  .drawerLangBtn {
+    padding: 0.65rem 0.8rem;
+    border-radius: 14px;
+  }
+
+  .drawerActionLabel {
+    font-size: 0.64rem;
+  }
+
+  .drawerActionValue {
+    font-size: 0.82rem;
+  }
+
+  .drawerStatusFullCard {
+    padding: 0.65rem 0.85rem;
+    border-radius: 14px;
+    margin-bottom: 0.85rem;
+  }
+
+  .drawerStatusTitle {
+    font-size: 0.82rem;
+  }
+
+  .drawerStatusSub {
+    font-size: 0.68rem;
+  }
+
+  .heroContent {
+    padding: 0.5rem 1.25rem 3rem;
+    gap: 2.5rem;
+  }
+
+  .mainTitle {
+    font-size: 2.6rem;
+  }
+
+  .outlinedSubtitle {
+    font-size: 1.8rem;
+    letter-spacing: 0.025em;
+  }
+
+  /* Single Column Location Cards on Mobile (2 Rows: Row 1 = Title + Status, Row 2 = Address + Navodila) */
+  .locationCardsRow {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .locationCard {
+    padding: 1rem 1.25rem;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "title badge"
+      "address navodila";
+    row-gap: 0.4rem;
+    column-gap: 0.6rem;
+    align-items: center;
+    text-align: left;
+  }
+
+  .locationTitle {
+    grid-area: title;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .statusOpenBadge,
+  .statusClosedBadge {
+    grid-area: badge;
+    justify-self: end;
+    margin: 0;
+  }
+
+  .locationAddress {
+    grid-area: address;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .navodilaLink {
+    grid-area: navodila;
+    justify-self: end;
+    margin: 0;
+  }
+
+  /* Mobile Blobs */
+  .heroPlateBlob {
+    width: 285px;
+    height: 285px;
+    transform: translate(-50%, -50%);
+  }
+
+  .heroPlateBlobSecondary {
+    display: block !important;
+    width: 215px;
+    height: 215px;
+    transform: translate(-30%, -30%);
+    opacity: 0.62;
+  }
+
+  .heroPlateBlobTopLeft {
+    display: block !important;
+    width: 210px;
+    height: 210px;
+    transform: translate(-72%, -72%);
+    opacity: 0.68;
+  }
+
+  .plateWrapper {
+    width: 270px;
+    height: 270px;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryMenuBtn,
+  .phoneBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .floatingBadgeHalal {
+    right: -2%;
+    top: -5%;
+    padding: 0.55rem 0.9rem;
+  }
+
+  .floatingBadgePremium {
+    left: -2%;
+    bottom: -5%;
+    padding: 0.65rem 0.95rem;
+  }
+
+  .floatingBadgeRecipe {
+    display: none;
+  }
+}

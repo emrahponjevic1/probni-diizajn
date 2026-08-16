@@ -307,7 +307,7 @@
   gap: 0.75rem;
 }
 
-.v1RatingBadge {
+.v1CategoryBadge {
   font-size: 0.84rem;
   font-weight: 800;
   color: #ea580c;
@@ -315,12 +315,7 @@
   border: 1px solid #fed7aa;
   padding: 2px 8px;
   border-radius: 6px;
-}
-
-.v1TimeBadge {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #78716c;
+  text-transform: uppercase;
 }
 
 .v1HalalBadge {
@@ -901,6 +896,16 @@
   left: 14px;
   display: flex;
   gap: 0.5rem;
+}
+
+.v3HalalTag {
+  background: rgba(16, 185, 129, 0.9);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 99px;
 }
 
 .v3RatingTag {

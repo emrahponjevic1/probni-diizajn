@@ -10,11 +10,6 @@ interface Dish {
   category: string;
   price: string;
   oldPrice?: string;
-  rating: number;
-  reviewsCount: number;
-  time: string;
-  calories: string;
-  weight: string;
   badge?: string;
   badgeType?: "bestseller" | "recommended" | "vegi" | "special" | "platter";
   description: string;
@@ -47,11 +42,6 @@ export default function PopularPicks() {
       title: "Kraljevi Döner Kebab",
       category: "Kebabi & Plošče",
       price: "6,50 €",
-      rating: 4.9,
-      reviewsCount: 420,
-      time: "10-12 min",
-      calories: "580 kcal",
-      weight: "380 g",
       badge: "Bestseller",
       badgeType: "bestseller",
       description:
@@ -72,11 +62,6 @@ export default function PopularPicks() {
       title: "Šeherezada Dürüm Wrap",
       category: "Dürüm & Zvitki",
       price: "7,20 €",
-      rating: 4.9,
-      reviewsCount: 318,
-      time: "8-10 min",
-      calories: "540 kcal",
-      weight: "350 g",
       badge: "Priporočamo",
       badgeType: "recommended",
       description:
@@ -97,11 +82,6 @@ export default function PopularPicks() {
       title: "Tradicionalni Falafel Krožnik",
       category: "Falafel & Vegi",
       price: "7,80 €",
-      rating: 4.8,
-      reviewsCount: 265,
-      time: "12-15 min",
-      calories: "490 kcal",
-      weight: "420 g",
       badge: "100% Vegi",
       badgeType: "vegi",
       description:
@@ -123,11 +103,6 @@ export default function PopularPicks() {
       category: "Pice na kamnu",
       price: "8,90 €",
       oldPrice: "9,90 €",
-      rating: 4.9,
-      reviewsCount: 190,
-      time: "15 min",
-      calories: "780 kcal",
-      weight: "520 g",
       badge: "Hišna specialiteta",
       badgeType: "special",
       description:
@@ -150,11 +125,6 @@ export default function PopularPicks() {
       title: "Kraljevska Mešana Plošča",
       category: "Za 2 osebi",
       price: "13,90 €",
-      rating: 5.0,
-      reviewsCount: 512,
-      time: "15-18 min",
-      calories: "980 kcal",
-      weight: "750 g",
       badge: "Za 2 osebi",
       badgeType: "platter",
       description:
@@ -176,11 +146,6 @@ export default function PopularPicks() {
       title: "Dürüm Falafel Zvitek",
       category: "Dürüm & Zvitki",
       price: "6,80 €",
-      rating: 4.8,
-      reviewsCount: 140,
-      time: "8-10 min",
-      calories: "460 kcal",
-      weight: "320 g",
       badge: "Vegi hit",
       badgeType: "vegi",
       description:
@@ -307,8 +272,7 @@ export default function PopularPicks() {
 
                 <div className={styles.v1CardInfo}>
                   <div className={styles.v1MetaBadgesRow}>
-                    <span className={styles.v1RatingBadge}>★ {selectedDish.rating} ({selectedDish.reviewsCount})</span>
-                    <span className={styles.v1TimeBadge}>⏱ {selectedDish.time}</span>
+                    <span className={styles.v1CategoryBadge}>{selectedDish.category}</span>
                     <span className={styles.v1HalalBadge}>✓ 100% Halal</span>
                   </div>
 
@@ -376,7 +340,7 @@ export default function PopularPicks() {
                           <h4 className={styles.v1ItemTitle}>{dish.title}</h4>
                           {dish.badge && <span className={styles.v1MiniBadge}>{dish.badge}</span>}
                         </div>
-                        <span className={styles.v1ItemCategory}>{dish.category} · {dish.calories}</span>
+                        <span className={styles.v1ItemCategory}>{dish.category}</span>
                       </div>
                     </div>
 
@@ -428,10 +392,9 @@ export default function PopularPicks() {
 
                 <div className={styles.v2Content}>
                   <div className={styles.v2PillsRow}>
-                    <span className={styles.v2DarkPill}>★ {selectedDish.rating}</span>
-                    <span className={styles.v2DarkPill}>⏱ {selectedDish.time}</span>
-                    <span className={styles.v2DarkPill}>⚖️ {selectedDish.weight}</span>
-                    <span className={styles.v2DarkPill}>🔥 {selectedDish.calories}</span>
+                    <span className={styles.v2DarkPill}>{selectedDish.category}</span>
+                    <span className={styles.v2DarkPill}>✓ 100% Halal</span>
+                    <span className={styles.v2DarkPill}>🔥 Sveže na ognju</span>
                   </div>
 
                   <h3 className={styles.v2Title}>{selectedDish.title}</h3>
@@ -546,8 +509,7 @@ export default function PopularPicks() {
                     className={styles.v3PanoramaImage}
                   />
                   <div className={styles.v3PanoramaBadges}>
-                    <span className={styles.v3RatingTag}>★ {selectedDish.rating}</span>
-                    <span className={styles.v3TimeTag}>⏱ {selectedDish.time}</span>
+                    <span className={styles.v3HalalTag}>✓ 100% Halal</span>
                   </div>
                 </div>
 
@@ -557,8 +519,8 @@ export default function PopularPicks() {
                   
                   <div className={styles.v3DetailRow}>
                     <div><strong>Kategorija:</strong> {selectedDish.category}</div>
-                    <div><strong>Kalorije:</strong> {selectedDish.calories}</div>
                     <div><strong>Priprava:</strong> Sveže na ognju</div>
+                    <div><strong>Kakovost:</strong> 100% Halal</div>
                   </div>
 
                   <button
@@ -737,10 +699,8 @@ export default function PopularPicks() {
                 <div className={styles.modalTitleMeta}>
                   <h3 className={styles.modalDishTitle}>{modalDish.title}</h3>
                   <div className={styles.modalQuickBadges}>
-                    <span>★ {modalDish.rating} ({modalDish.reviewsCount} ocen)</span>
-                    <span>⏱ {modalDish.time}</span>
-                    <span>⚖️ {modalDish.weight}</span>
-                    <span>🔥 {modalDish.calories}</span>
+                    <span className={styles.modalCategoryBadge}>{modalDish.category}</span>
+                    <span className={styles.modalHalalBadge}>✓ 100% Halal</span>
                   </div>
                   <div className={styles.modalPriceText}>{modalDish.price}</div>
                 </div>

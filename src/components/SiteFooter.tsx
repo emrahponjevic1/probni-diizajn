@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import styles from "./SiteFooter.module.css";
 
 // Clean Vector SVG Social & Contact Icons
@@ -54,6 +57,13 @@ const ArrowRightSvg = ({ size = 14 }: { size?: number }) => (
   </svg>
 );
 
+const ArrowUpRightSvg = ({ size = 14 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M7 17 17 7" />
+    <path d="M7 7h10v10" />
+  </svg>
+);
+
 const daysData = [
   { day: "Ponedeljek", time: "10:00 – 05:00" },
   { day: "Torek", time: "10:00 – 05:00" },
@@ -65,158 +75,395 @@ const daysData = [
 ];
 
 export default function SiteFooter() {
+  const [activeStyle, setActiveStyle] = useState<1 | 2 | 3 | 4 | 5>(2);
+
   return (
     <footer className={styles.footerSection}>
       <div className={styles.bgWarmGlow} />
 
       <div className={styles.footerContainer}>
-        {/* Top Grand Brand Header Card */}
-        <div className={styles.grandBrandHeader}>
-          <span className={styles.grandWatermarkText}>LJUBLJANA 1998</span>
-
-          <div className={styles.grandLeftContent}>
-            <span className={styles.brandLogo}>
-              ŠEHEREZADA<span className={styles.logoDot}>.</span>
-            </span>
-
-            <p className={styles.brandBioText}>
-              Ljubljanski street food od leta 1998. Kebab, pica in falafel —
-              pripravljeni sveže, 100% halal, odprti do zgodnjih jutranjih ur.
-            </p>
-          </div>
-
-          <div className={styles.grandRightActions}>
-            <div className={styles.socialRow}>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className={styles.socialBtn}
-              >
-                <FacebookSvg size={18} />
-              </a>
-
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className={styles.socialBtn}
-              >
-                <InstagramSvg size={18} />
-              </a>
-
-              <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok"
-                className={styles.socialBtn}
-              >
-                <TikTokSvg size={18} />
-              </a>
-
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className={styles.socialBtn}
-              >
-                <YouTubeSvg size={18} />
-              </a>
-            </div>
-
-            <a
-              href="https://wolt.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.grandWoltBtn}
+        {/* Style Selector Tabs (5 Distinct Variations) */}
+        <div className={styles.styleSelectorWrapper}>
+          <span className={styles.styleSelectorLabel}>Primerjava 5 Različnih Dizajnov Footera</span>
+          <div className={styles.styleSwitcherTabs}>
+            <button
+              type="button"
+              onClick={() => setActiveStyle(1)}
+              className={`${styles.styleTabBtn} ${activeStyle === 1 ? styles.styleTabBtnActive : ""}`}
             >
-              <span>Naroči dostavo na Wolt &amp; Glovo</span>
-              <ArrowRightSvg size={14} />
-            </a>
+              Opcija 1: Minimalist Modernist White
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveStyle(2)}
+              className={`${styles.styleTabBtn} ${activeStyle === 2 ? styles.styleTabBtnActive : ""}`}
+            >
+              Opcija 2: Grand Brand Header + 3 Kolone
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveStyle(3)}
+              className={`${styles.styleTabBtn} ${activeStyle === 3 ? styles.styleTabBtnActive : ""}`}
+            >
+              Opcija 3: Editorial Split-Magazine (Wings)
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveStyle(4)}
+              className={`${styles.styleTabBtn} ${activeStyle === 4 ? styles.styleTabBtnActive : ""}`}
+            >
+              Opcija 4: Horizontal Linear Flow (Tiers)
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveStyle(5)}
+              className={`${styles.styleTabBtn} ${activeStyle === 5 ? styles.styleTabBtnActive : ""}`}
+            >
+              Opcija 5: Warm Amber Accent Luxury Card
+            </button>
           </div>
         </div>
 
-        {/* 3 Columns Below Grand Header */}
-        <div className={styles.triColumnsGrid}>
-          {/* Column 1: Lokaciji & Kontakt */}
-          <div className={styles.locContactCol}>
-            <span className={styles.colTitle}>LOKACIJI &amp; KONTAKT</span>
-
-            <div className={styles.locationCard}>
-              <div className={styles.locNameRow}>
-                <LocationPinSvg size={16} />
-                <span>Šeherezada Center</span>
+        {/* ==================================================================
+            OPCIJA 1: MINIMALIST MODERNIST WHITE
+            ================================================================== */}
+        {activeStyle === 1 && (
+          <div className={styles.minimalistGrid}>
+            {/* Column 1: Brand */}
+            <div className={styles.brandCol}>
+              <span className={styles.brandLogo} style={{ fontSize: "1.85rem" }}>
+                ŠEHEREZADA<span className={styles.logoDot}>.</span>
+              </span>
+              <p className={styles.brandBioText} style={{ fontSize: "0.9rem" }}>
+                Ljubljanski street food od leta 1998. Kebab, pica in falafel — pripravljeni sveže, 100% halal, odprti do zgodnjih jutranjih ur.
+              </p>
+              <div className={styles.socialRow}>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialBtn}><FacebookSvg size={16} /></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialBtn}><InstagramSvg size={16} /></a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={styles.socialBtn}><TikTokSvg size={16} /></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialBtn}><YouTubeSvg size={16} /></a>
               </div>
-              <span className={styles.locStreet}>Trubarjeva cesta 31, 1000 Ljubljana</span>
             </div>
 
-            <div className={styles.locationCard}>
-              <div className={styles.locNameRow}>
-                <LocationPinSvg size={16} />
-                <span>Šeherezada Bežigrad</span>
-              </div>
-              <span className={styles.locStreet}>Dunajska cesta 106, 1000 Ljubljana</span>
-            </div>
-
-            <div className={styles.contactLinksList}>
-              <a href="tel:+38614305240" className={styles.contactItemLink}>
-                <PhoneSvg size={15} />
-                <span>+386 (01) 430 52 40</span>
-              </a>
-
-              <a href="mailto:info@seherezada.si" className={styles.contactItemLink}>
-                <MailSvg size={15} />
-                <span>info@seherezada.si</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Column 2: Delovni Čas Day-by-Day */}
-          <div className={styles.hoursCol}>
-            <span className={styles.colTitle}>DELOVNI ČAS</span>
-
-            <div className={styles.hoursList}>
-              {daysData.map((d, i) => (
-                <div key={i} className={styles.hoursRow}>
-                  <span className={styles.dayName}>{d.day}</span>
-                  <span className={styles.dayTime}>{d.time}</span>
+            {/* Column 2: Lokaciji & Kontakt */}
+            <div className={styles.locContactCol}>
+              <span className={styles.colTitle}>LOKACIJI &amp; KONTAKT</span>
+              <div className={styles.locAddressesList}>
+                <div className={styles.locAddressItem}>
+                  <strong>Center:</strong> Trubarjeva cesta 31, 1000 LJ
                 </div>
-              ))}
+                <div className={styles.locAddressItem}>
+                  <strong>Bežigrad:</strong> Dunajska cesta 106, 1000 LJ
+                </div>
+              </div>
+              <div className={styles.contactLinksList}>
+                <a href="tel:+38614305240" className={styles.contactItemLink}><PhoneSvg size={15} /><span>+386 (01) 430 52 40</span></a>
+                <a href="mailto:info@seherezada.si" className={styles.contactItemLink}><MailSvg size={15} /><span>info@seherezada.si</span></a>
+              </div>
+            </div>
+
+            {/* Column 3: Delovni Čas */}
+            <div className={styles.hoursCol}>
+              <span className={styles.colTitle}>DELOVNI ČAS</span>
+              <div className={styles.hoursList}>
+                {daysData.map((d, i) => (
+                  <div key={i} className={styles.hoursRow} style={{ fontSize: "0.85rem" }}>
+                    <span className={styles.dayName}>{d.day}</span>
+                    <span className={styles.dayTime}>{d.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Column 4: Naročila & Info */}
+            <div className={styles.linksCol}>
+              <span className={styles.colTitle}>NAROČILA &amp; INFO</span>
+              <div className={styles.navLinksList}>
+                <a href="#meni" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Priljubljene izbire</span></a>
+                <a href="#boni" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Študentski boni</span></a>
+                <a href="#faq" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Pogosta vprašanja</span></a>
+              </div>
+              <a href="https://wolt.com" target="_blank" rel="noopener noreferrer" className={styles.deliveryBtnLink}>
+                <span>Dostava Wolt</span>
+                <ArrowUpRightSvg size={14} />
+              </a>
             </div>
           </div>
+        )}
 
-          {/* Column 3: Povezave & Informacije */}
-          <div className={styles.linksCol}>
-            <span className={styles.colTitle}>POVEZAVE &amp; INFO</span>
+        {/* ==================================================================
+            OPCIJA 2: GRAND BRAND HEADER + 3 COLUMNS
+            ================================================================== */}
+        {activeStyle === 2 && (
+          <div>
+            <div className={styles.grandBrandHeader}>
+              <span className={styles.grandWatermarkText}>LJUBLJANA 1998</span>
 
-            <div className={styles.navLinksList}>
-              <a href="#meni" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>Priljubljene izbire</span>
-              </a>
-              <a href="#zgodba" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>Naša zgodba &amp; tradicija</span>
-              </a>
-              <a href="#halal" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>100% Halal Certifikat</span>
-              </a>
-              <a href="#boni" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>Študentski boni</span>
-              </a>
-              <a href="#faq" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>Pogosta vprašanja</span>
-              </a>
+              <div className={styles.grandLeftContent}>
+                <span className={styles.brandLogo}>
+                  ŠEHEREZADA<span className={styles.logoDot}>.</span>
+                </span>
+                <p className={styles.brandBioText}>
+                  Ljubljanski street food od leta 1998. Kebab, pica in falafel — pripravljeni sveže, 100% halal, odprti do zgodnjih jutranjih ur.
+                </p>
+              </div>
+
+              <div className={styles.grandRightActions}>
+                <div className={styles.socialRow}>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialBtn}><FacebookSvg size={18} /></a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialBtn}><InstagramSvg size={18} /></a>
+                  <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={styles.socialBtn}><TikTokSvg size={18} /></a>
+                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialBtn}><YouTubeSvg size={18} /></a>
+                </div>
+
+                <a href="https://wolt.com" target="_blank" rel="noopener noreferrer" className={styles.grandWoltBtn}>
+                  <span>Naroči dostavo na Wolt &amp; Glovo</span>
+                  <ArrowRightSvg size={14} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.triColumnsGrid}>
+              <div className={styles.locContactCol}>
+                <span className={styles.colTitle}>LOKACIJI &amp; KONTAKT</span>
+                <div className={styles.locationCard}>
+                  <div className={styles.locNameRow}><LocationPinSvg size={16} /><span>Šeherezada Center</span></div>
+                  <span className={styles.locStreet}>Trubarjeva cesta 31, 1000 Ljubljana</span>
+                </div>
+                <div className={styles.locationCard}>
+                  <div className={styles.locNameRow}><LocationPinSvg size={16} /><span>Šeherezada Bežigrad</span></div>
+                  <span className={styles.locStreet}>Dunajska cesta 106, 1000 Ljubljana</span>
+                </div>
+                <div className={styles.contactLinksList}>
+                  <a href="tel:+38614305240" className={styles.contactItemLink}><PhoneSvg size={15} /><span>+386 (01) 430 52 40</span></a>
+                  <a href="mailto:info@seherezada.si" className={styles.contactItemLink}><MailSvg size={15} /><span>info@seherezada.si</span></a>
+                </div>
+              </div>
+
+              <div className={styles.hoursCol}>
+                <span className={styles.colTitle}>DELOVNI ČAS</span>
+                <div className={styles.hoursList}>
+                  {daysData.map((d, i) => (
+                    <div key={i} className={styles.hoursRow}>
+                      <span className={styles.dayName}>{d.day}</span>
+                      <span className={styles.dayTime}>{d.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.linksCol}>
+                <span className={styles.colTitle}>POVEZAVE &amp; INFO</span>
+                <div className={styles.navLinksList}>
+                  <a href="#meni" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Priljubljene izbire</span></a>
+                  <a href="#zgodba" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Naša zgodba &amp; tradicija</span></a>
+                  <a href="#halal" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>100% Halal Certifikat</span></a>
+                  <a href="#boni" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Študentski boni</span></a>
+                  <a href="#faq" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Pogosta vprašanja</span></a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 3: EDITORIAL SPLIT-MAGAZINE (TWO GRAND WINGS)
+            ================================================================== */}
+        {activeStyle === 3 && (
+          <div className={styles.splitMagazineGrid}>
+            {/* Left Wing: Heritage Story & Direct Wolt Order */}
+            <div className={styles.magazineBrandWing}>
+              <span className={styles.brandLogo} style={{ fontSize: "2.3rem" }}>
+                ŠEHEREZADA<span className={styles.logoDot}>.</span>
+              </span>
+
+              <p className={styles.brandBioText} style={{ fontSize: "1rem" }}>
+                Ljubljanski street food od leta 1998. Kebab, pica in falafel — pripravljeni sveže, 100% halal, odprti do zgodnjih jutranjih ur.
+              </p>
+
+              <div className={styles.socialRow}>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialBtn}><FacebookSvg size={18} /></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialBtn}><InstagramSvg size={18} /></a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={styles.socialBtn}><TikTokSvg size={18} /></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialBtn}><YouTubeSvg size={18} /></a>
+              </div>
+
+              <div style={{ paddingTop: "0.5rem" }}>
+                <a href="https://wolt.com" target="_blank" rel="noopener noreferrer" className={styles.deliveryBtnLink} style={{ background: "#ea580c", padding: "0.85rem 1.6rem", fontSize: "0.9rem" }}>
+                  <span>Naroči dostavo prek Wolt</span>
+                  <ArrowUpRightSvg size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Wing: 2 Informational Columns */}
+            <div className={styles.magazineLinksWing}>
+              <div className={styles.locContactCol}>
+                <span className={styles.colTitle}>LOKACIJI &amp; KONTAKT</span>
+                <div className={styles.locationCard}>
+                  <div className={styles.locNameRow}><LocationPinSvg size={16} /><span>Trubarjeva 31</span></div>
+                  <span className={styles.locStreet}>Center, Ljubljana</span>
+                </div>
+                <div className={styles.locationCard}>
+                  <div className={styles.locNameRow}><LocationPinSvg size={16} /><span>Dunajska 106</span></div>
+                  <span className={styles.locStreet}>Bežigrad, Ljubljana</span>
+                </div>
+                <div className={styles.contactLinksList}>
+                  <a href="tel:+38614305240" className={styles.contactItemLink}><PhoneSvg size={15} /><span>+386 (01) 430 52 40</span></a>
+                  <a href="mailto:info@seherezada.si" className={styles.contactItemLink}><MailSvg size={15} /><span>info@seherezada.si</span></a>
+                </div>
+              </div>
+
+              <div className={styles.hoursCol}>
+                <span className={styles.colTitle}>DELOVNI ČAS</span>
+                <div className={styles.hoursList}>
+                  {daysData.map((d, i) => (
+                    <div key={i} className={styles.hoursRow} style={{ fontSize: "0.84rem" }}>
+                      <span className={styles.dayName}>{d.day}</span>
+                      <span className={styles.dayTime}>{d.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 4: HORIZONTAL LINEAR FLOW (STRUCTURED TIERS)
+            ================================================================== */}
+        {activeStyle === 4 && (
+          <div>
+            {/* Top Tier: Brand Logo + Socials Row */}
+            <div className={styles.linearTierTop}>
+              <div>
+                <span className={styles.brandLogo} style={{ fontSize: "2.1rem" }}>
+                  ŠEHEREZADA<span className={styles.logoDot}>.</span>
+                </span>
+                <p className={styles.brandBioText} style={{ maxWidth: "520px", marginTop: "0.4rem" }}>
+                  Ljubljanski street food od leta 1998. Kebab, pica in falafel — sveže in 100% halal.
+                </p>
+              </div>
+
+              <div className={styles.socialRow}>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialBtn}><FacebookSvg size={18} /></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialBtn}><InstagramSvg size={18} /></a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={styles.socialBtn}><TikTokSvg size={18} /></a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialBtn}><YouTubeSvg size={18} /></a>
+              </div>
+            </div>
+
+            {/* Bottom Tier: 4 Columns */}
+            <div className={styles.linearTierColumns}>
+              <div className={styles.locContactCol}>
+                <span className={styles.colTitle}>LOKACIJI</span>
+                <div className={styles.locationCard}>
+                  <div className={styles.locNameRow}><LocationPinSvg size={16} /><span>Trubarjeva 31</span></div>
+                  <span className={styles.locStreet}>Center, Ljubljana</span>
+                </div>
+                <div className={styles.locationCard}>
+                  <div className={styles.locNameRow}><LocationPinSvg size={16} /><span>Dunajska 106</span></div>
+                  <span className={styles.locStreet}>Bežigrad, Ljubljana</span>
+                </div>
+              </div>
+
+              <div className={styles.locContactCol}>
+                <span className={styles.colTitle}>KONTAKT</span>
+                <div className={styles.contactLinksList}>
+                  <a href="tel:+38614305240" className={styles.contactItemLink}><PhoneSvg size={16} /><span>+386 (01) 430 52 40</span></a>
+                  <a href="mailto:info@seherezada.si" className={styles.contactItemLink}><MailSvg size={16} /><span>info@seherezada.si</span></a>
+                </div>
+              </div>
+
+              <div className={styles.hoursCol}>
+                <span className={styles.colTitle}>DELOVNI ČAS</span>
+                <div className={styles.hoursList}>
+                  {daysData.map((d, i) => (
+                    <div key={i} className={styles.hoursRow} style={{ fontSize: "0.82rem" }}>
+                      <span className={styles.dayName}>{d.day}</span>
+                      <span className={styles.dayTime}>{d.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.linksCol}>
+                <span className={styles.colTitle}>NAROČILA</span>
+                <div className={styles.navLinksList}>
+                  <a href="#meni" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Priljubljene izbire</span></a>
+                  <a href="#boni" className={styles.navLinkItem}><span className={styles.navLinkDot} /><span>Študentski boni</span></a>
+                </div>
+                <a href="https://wolt.com" target="_blank" rel="noopener noreferrer" className={styles.deliveryBtnLink} style={{ marginTop: "0.4rem" }}>
+                  <span>Dostava Wolt</span>
+                  <ArrowUpRightSvg size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 5: WARM AMBER ACCENT LUXURY CARD FOOTER
+            ================================================================== */}
+        {activeStyle === 5 && (
+          <div className={styles.luxuryEnclosedCard}>
+            <div className={styles.luxuryCardGrid}>
+              <div className={styles.brandCol}>
+                <span className={styles.brandLogo} style={{ fontSize: "2rem" }}>
+                  ŠEHEREZADA<span className={styles.logoDot}>.</span>
+                </span>
+                <p className={styles.brandBioText}>
+                  Ljubljanski street food od leta 1998. Kebab, pica in falafel — pripravljeni sveže, 100% halal, odprti do zgodnjih jutranjih ur.
+                </p>
+                <div className={styles.socialRow}>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialBtn}><FacebookSvg size={16} /></a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialBtn}><InstagramSvg size={16} /></a>
+                  <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={styles.socialBtn}><TikTokSvg size={16} /></a>
+                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialBtn}><YouTubeSvg size={16} /></a>
+                </div>
+              </div>
+
+              <div className={styles.locContactCol}>
+                <span className={styles.colTitle}>LOKACIJI &amp; KONTAKT</span>
+                <div className={styles.locationCard} style={{ background: "#ffffff" }}>
+                  <div className={styles.locNameRow}><LocationPinSvg size={16} /><span>Trubarjeva cesta 31</span></div>
+                  <span className={styles.locStreet}>Center, 1000 Ljubljana</span>
+                </div>
+                <div className={styles.locationCard} style={{ background: "#ffffff" }}>
+                  <div className={styles.locNameRow}><LocationPinSvg size={16} /><span>Dunajska cesta 106</span></div>
+                  <span className={styles.locStreet}>Bežigrad, 1000 Ljubljana</span>
+                </div>
+                <div className={styles.contactLinksList}>
+                  <a href="tel:+38614305240" className={styles.contactItemLink}><PhoneSvg size={15} /><span>+386 (01) 430 52 40</span></a>
+                  <a href="mailto:info@seherezada.si" className={styles.contactItemLink}><MailSvg size={15} /><span>info@seherezada.si</span></a>
+                </div>
+              </div>
+
+              <div className={styles.hoursCol}>
+                <span className={styles.colTitle}>DELOVNI ČAS</span>
+                <div className={styles.hoursList}>
+                  {daysData.map((d, i) => (
+                    <div key={i} className={styles.hoursRow} style={{ fontSize: "0.84rem" }}>
+                      <span className={styles.dayName}>{d.day}</span>
+                      <span className={styles.dayTime}>{d.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.linksCol}>
+                <span className={styles.colTitle}>SPLETNA NAROČILA</span>
+                <p style={{ fontSize: "0.86rem", color: "#57534e", lineHeight: "1.5", margin: 0 }}>
+                  Naročite svežo hrano naravnost na dom ali v pisarno.
+                </p>
+                <a href="https://wolt.com" target="_blank" rel="noopener noreferrer" className={styles.deliveryBtnLink} style={{ background: "#ea580c", padding: "0.75rem 1.3rem", fontSize: "0.88rem" }}>
+                  <span>Naroči na Wolt</span>
+                  <ArrowUpRightSvg size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Slim Bottom Sub-Footer Bar */}
         <div className={styles.subFooterBar}>

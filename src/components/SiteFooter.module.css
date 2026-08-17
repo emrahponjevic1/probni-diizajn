@@ -1,0 +1,419 @@
+/* ==========================================================================
+   ŠEHEREZADA - SITE FOOTER (LUXURY CLEAN WHITE THEME)
+   ========================================================================== */
+
+.footerSection {
+  background: #ffffff;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #f2ede4;
+  padding: 4.5rem 2rem 0;
+}
+
+.footerContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* Background Subtle Warm Glow */
+.bgWarmGlow {
+  position: absolute;
+  top: -10%;
+  right: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   MAIN 4-COLUMN FOOTER GRID
+   ========================================================================== */
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.35fr 1.05fr 1.25fr 1.05fr;
+  gap: 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Column 1: Brand & Bio & Socials */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.brandLogo {
+  font-size: 1.95rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  color: #1c1917;
+  text-transform: uppercase;
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.logoDot {
+  color: #ea580c;
+}
+
+.brandBioText {
+  font-size: 0.94rem;
+  color: #57534e;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 320px;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.4rem;
+}
+
+.socialBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fdfcf9;
+  border: 1px solid #f2ede4;
+  color: #1c1917;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.socialBtn:hover {
+  background: #ea580c;
+  border-color: #ea580c;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.25);
+}
+
+/* Common Column Styles */
+.colTitle {
+  font-size: 0.84rem;
+  font-weight: 900;
+  color: #1c1917;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 1.2rem 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.colTitle::after {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 2px;
+  background: #ea580c;
+  border-radius: 99px;
+}
+
+/* Column 2: Hours Day-By-Day List */
+.hoursCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.liveMintPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 99px;
+  margin-bottom: 1.1rem;
+  align-self: flex-start;
+}
+
+.hoursList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.hoursRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  border-bottom: 1px dashed #f2ede4;
+  padding-bottom: 0.35rem;
+}
+
+.dayName {
+  color: #57534e;
+  font-weight: 600;
+}
+
+.dayTime {
+  color: #1c1917;
+  font-weight: 800;
+}
+
+.todayRow {
+  background: #fff7ed;
+  border-radius: 8px;
+  padding: 4px 8px;
+  border-bottom: none;
+}
+
+.todayRow .dayName {
+  color: #ea580c;
+  font-weight: 800;
+}
+
+.todayRow .dayTime {
+  color: #ea580c;
+  font-weight: 900;
+}
+
+/* Column 3: Locations & Contact */
+.locContactCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.locationCard {
+  background: #fdfcf9;
+  border: 1px solid #f2ede4;
+  border-radius: 16px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: all 0.25s ease;
+}
+
+.locationCard:hover {
+  border-color: #fed7aa;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.08);
+}
+
+.locNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #1c1917;
+}
+
+.locStreet {
+  font-size: 0.82rem;
+  color: #78716c;
+  margin-left: 1.35rem;
+}
+
+.contactLinksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.3rem;
+}
+
+.contactItemLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1c1917;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactItemLink:hover {
+  color: #ea580c;
+}
+
+/* Column 4: Quick Links & Wolt Delivery */
+.linksCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.navLinksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.navLinkItem {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #57534e;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.navLinkItem:hover {
+  color: #ea580c;
+  transform: translateX(3px);
+}
+
+.navLinkDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fed7aa;
+  transition: background 0.2s ease;
+}
+
+.navLinkItem:hover .navLinkDot {
+  background: #ea580c;
+}
+
+/* Delivery Mini Card */
+.deliveryMiniCard {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 18px;
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.deliveryCardTitle {
+  font-size: 0.88rem;
+  font-weight: 900;
+  color: #1c1917;
+  margin: 0;
+}
+
+.deliveryCardSub {
+  font-size: 0.78rem;
+  color: #78716c;
+  margin: 0;
+}
+
+.deliveryBtnLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: #1c1917;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.55rem 1rem;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-top: 0.2rem;
+}
+
+.deliveryBtnLink:hover {
+  background: #ea580c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+}
+
+/* ==========================================================================
+   SLIM BOTTOM BAR (SUB-FOOTER)
+   ========================================================================== */
+.subFooterBar {
+  border-top: 1px solid #f2ede4;
+  padding: 1.4rem 0 1.6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyrightText {
+  font-size: 0.85rem;
+  color: #78716c;
+  margin: 0;
+}
+
+.legalLinksRow {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.legalLink {
+  font-size: 0.85rem;
+  color: #78716c;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+  color: #ea580c;
+}
+
+.legalSeparator {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #d6d3d1;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .footerSection {
+    padding: 3.5rem 1.5rem 0;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
+  }
+
+  .brandBioText {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .footerSection {
+    padding: 3rem 1.25rem 0;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .subFooterBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}

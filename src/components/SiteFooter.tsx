@@ -119,21 +119,7 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          {/* Column 2: Delovni Čas Day-by-Day */}
-          <div className={styles.hoursCol}>
-            <span className={styles.colTitle}>DELOVNI ČAS</span>
-
-            <div className={styles.hoursList}>
-              {daysData.map((d, i) => (
-                <div key={i} className={styles.hoursRow}>
-                  <span className={styles.dayName}>{d.day}</span>
-                  <span className={styles.dayTime}>{d.time}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Column 3: Lokaciji & Kontakt */}
+          {/* Column 2: Lokaciji & Kontakt */}
           <div className={styles.locContactCol}>
             <span className={styles.colTitle}>LOKACIJI &amp; KONTAKT</span>
 
@@ -156,6 +142,20 @@ export default function SiteFooter() {
                 <MailSvg size={15} />
                 <span>info@seherezada.si</span>
               </a>
+            </div>
+          </div>
+
+          {/* Column 3: Delovni Čas Day-by-Day */}
+          <div className={styles.hoursCol}>
+            <span className={styles.colTitle}>DELOVNI ČAS</span>
+
+            <div className={styles.hoursList}>
+              {daysData.map((d, i) => (
+                <div key={i} className={styles.hoursRow}>
+                  <span className={styles.dayName}>{d.day}</span>
+                  <span className={styles.dayTime}>{d.time}</span>
+                </div>
+              ))}
             </div>
           </div>
 

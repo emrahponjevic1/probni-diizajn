@@ -272,6 +272,33 @@
 }
 
 /* ==========================================================================
+   GIANT BACKGROUND WATERMARK ACROSS BOTTOM DIVIDER
+   ========================================================================== */
+.footerWatermarkContainer {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: -1rem;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.footerGiantWatermark {
+  display: inline-block;
+  font-size: clamp(3.6rem, 11vw, 9.8rem);
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.045;
+  letter-spacing: 0.08em;
+  line-height: 0.85;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
    SLIM BOTTOM BAR (SUB-FOOTER)
    ========================================================================== */
 .subFooterBar {

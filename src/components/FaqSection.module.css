@@ -111,10 +111,14 @@
   font-size: clamp(2.4rem, 4vw, 3.4rem);
   font-weight: 950;
   color: #1c1917;
-  line-height: 1.08;
+  line-height: 1.12;
   letter-spacing: -0.03em;
   margin: 0;
   text-transform: uppercase;
+}
+
+.desktopBr {
+  display: block;
 }
 
 .headingHighlight {
@@ -380,6 +384,15 @@
     padding: 4rem 1.5rem 4.5rem;
   }
 
+  .desktopBr {
+    display: none;
+  }
+
+  .leftMainHeading {
+    font-size: clamp(2rem, 4.5vw, 2.6rem);
+    line-height: 1.15;
+  }
+
   .userSplitGrid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -405,7 +418,8 @@
   }
 
   .leftMainHeading {
-    font-size: 2.1rem;
+    font-size: 1.85rem;
+    line-height: 1.2;
   }
 
   .accordionCard {

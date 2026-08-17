@@ -102,8 +102,9 @@ export default function FaqSection() {
             </div>
 
             <h2 className={styles.leftMainHeading}>
-              VSE, KAR <br />
-              <span className={styles.headingHighlight}>MORAŠ</span> <br />
+              VSE, KAR <br className={styles.desktopBr} />
+              <span className={styles.headingHighlight}>MORAŠ</span>{" "}
+              <br className={styles.desktopBr} />
               VEDETI.
             </h2>
 

@@ -71,12 +71,12 @@
 }
 
 .styleTabBtn {
-  padding: 0.7rem 1.4rem;
+  padding: 0.7rem 1.3rem;
   border-radius: 99px;
   border: none;
   background: transparent;
   color: #57534e;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -174,8 +174,108 @@
   margin: 0;
 }
 
+/* Common Stars Row */
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #f59e0b;
+}
+
+/* Common Review Card & Header */
+.reviewCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 22px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: all 0.25s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-3px);
+  border-color: #fed7aa;
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
+}
+
+.reviewCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.authorCol {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.authorAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fed7aa 0%, #ea580c 100%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0;
+}
+
+.authorTag {
+  font-size: 0.74rem;
+  color: #047857;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.reviewText {
+  font-size: 0.92rem;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.reviewFooterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #a8a29e;
+  border-top: 1px solid #f2ede4;
+  padding-top: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.favoriteDishTag {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #ea580c;
+  background: #fff7ed;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
 /* ==========================================================================
-   OPCIJA 1 (PREJŠNJA 3): FEATURED QUOTE HERO + DUAL COLUMN
+   OPCIJA 1: FEATURED QUOTE HERO + DUAL COLUMN (OHRANJENO)
    ========================================================================== */
 .featuredQuoteCard {
   background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
@@ -243,215 +343,8 @@
   gap: 1.5rem;
 }
 
-.reviewCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 22px;
-  padding: 1.6rem 1.8rem;
-  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  transition: all 0.25s ease;
-}
-
-.reviewCard:hover {
-  transform: translateY(-3px);
-  border-color: #fed7aa;
-  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
-}
-
-.reviewCardHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.authorCol {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.authorAvatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #fed7aa 0%, #ea580c 100%);
-  color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.authorInfo {
-  display: flex;
-  flex-direction: column;
-}
-
-.authorName {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #1c1917;
-  margin: 0;
-}
-
-.authorTag {
-  font-size: 0.74rem;
-  color: #047857;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.starsRow {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  color: #f59e0b;
-}
-
-.reviewText {
-  font-size: 0.92rem;
-  color: #57534e;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.reviewFooterRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.78rem;
-  color: #a8a29e;
-  border-top: 1px solid #f2ede4;
-  padding-top: 0.8rem;
-  margin-top: 0.3rem;
-}
-
-.favoriteDishTag {
-  font-size: 0.76rem;
-  font-weight: 800;
-  color: #ea580c;
-  background: #fff7ed;
-  padding: 2px 8px;
-  border-radius: 99px;
-}
-
 /* ==========================================================================
-   OPCIJA 2: LIVE PHOTO REVIEWS (RECENZIJE SA SLIKAMA JELA)
-   ========================================================================== */
-.photoReviewsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.photoReviewCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(28, 25, 23, 0.04);
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-}
-
-.photoReviewCard:hover {
-  transform: translateY(-4px);
-  border-color: #fed7aa;
-  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.1);
-}
-
-.photoReviewImgWrapper {
-  position: relative;
-  width: 100%;
-  height: 180px;
-}
-
-.photoReviewImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.photoDishBadge {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: rgba(28, 25, 23, 0.85);
-  backdrop-filter: blur(10px);
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 99px;
-}
-
-.photoReviewBody {
-  padding: 1.6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  flex: 1;
-  justify-content: space-between;
-}
-
-/* ==========================================================================
-   OPCIJA 3: GUEST PERSONA GRID (ŠTUDENT / TURIST / DOMAČIN)
-   ========================================================================== */
-.personaGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.6rem;
-}
-
-.personaCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 24px;
-  padding: 2.2rem 2rem;
-  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.04);
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.personaCard:hover {
-  transform: translateY(-4px);
-  border-color: #fed7aa;
-  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.1);
-}
-
-.personaCardHighlight {
-  background: linear-gradient(180deg, #fffdfa 0%, #fff7ed 100%);
-  border-color: #fed7aa;
-}
-
-.personaBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  color: #ea580c;
-  font-size: 0.75rem;
-  font-weight: 900;
-  padding: 3px 10px;
-  border-radius: 99px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  align-self: flex-start;
-}
-
-/* ==========================================================================
-   OPCIJA 4: GOOGLE STATS HUB + 3 HORIZONTALNE TRAKE
+   OPCIJA 2: GOOGLE STATS HUB + HORIZONTALNE TRAKE (OHRANJENO)
    ========================================================================== */
 .statsStripsGrid {
   display: grid;
@@ -522,6 +415,232 @@
 }
 
 /* ==========================================================================
+   OPCIJA 3 (NOVO): LUXURY GRAND BANNER CAROUSEL (INSPIRISANO SLIKOM)
+   ========================================================================== */
+.grandBannerCard {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  color: #ffffff;
+  border-radius: 32px;
+  padding: 4.5rem 3.5rem;
+  box-shadow: 0 20px 50px rgba(234, 88, 12, 0.25);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.grandBannerWatermark {
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  font-size: 11rem;
+  font-weight: 950;
+  color: #ffffff;
+  opacity: 0.08;
+  font-style: italic;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.grandStarsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fef08a;
+  position: relative;
+  z-index: 2;
+}
+
+.grandQuoteText {
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  font-weight: 950;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  max-width: 900px;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.grandAuthorMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  z-index: 2;
+}
+
+.grandAuthorName {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #fed7aa;
+}
+
+.grandDishTag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+
+.dotsRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+  margin-top: 0.5rem;
+}
+
+.dotBtn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.dotBtnActive {
+  width: 28px;
+  border-radius: 99px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   OPCIJA 4 (NOVO): IVORY & GOLD GLASS BANNER
+   ========================================================================== */
+.ivoryGlassCard {
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  border-radius: 32px;
+  padding: 4rem 3.5rem;
+  box-shadow: 0 16px 45px rgba(234, 88, 12, 0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ivoryBigQuotes {
+  font-size: 5rem;
+  line-height: 0.5;
+  color: #ea580c;
+  font-family: serif;
+  opacity: 0.4;
+}
+
+.ivoryQuoteText {
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #1c1917;
+  max-width: 860px;
+  margin: 0;
+}
+
+.ivoryAuthorRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ivoryAuthorName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ea580c;
+}
+
+.ivoryVerifiedPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+/* ==========================================================================
+   OPCIJA 5 (NOVO): SPLIT MASTER SHOWCASE (CITAT + FOTO JELA)
+   ========================================================================== */
+.splitShowcaseGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(28, 25, 23, 0.06);
+}
+
+.splitShowcaseContent {
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.8rem;
+}
+
+.splitShowcasePhotoWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+}
+
+.splitShowcasePhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.splitPhotoOverlayBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(28, 25, 23, 0.85);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.splitPhotoBadgeTitle {
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.splitPhotoBadgeSub {
+  font-size: 0.74rem;
+  color: #fed7aa;
+}
+
+/* ==========================================================================
    RESPONSIVENESS (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -529,16 +648,25 @@
     padding: 4rem 1.5rem 4.5rem;
   }
 
-  .photoReviewsGrid,
-  .personaGrid,
   .dualReviewsGrid,
-  .statsStripsGrid {
+  .statsStripsGrid,
+  .splitShowcaseGrid {
     grid-template-columns: 1fr;
     gap: 1.8rem;
   }
 
   .sectionTitle {
     font-size: 2.2rem;
+  }
+
+  .grandBannerCard,
+  .ivoryGlassCard {
+    padding: 3rem 2rem;
+  }
+
+  .splitShowcasePhotoWrapper {
+    min-height: 280px;
+    height: 300px;
   }
 }
 
@@ -562,11 +690,20 @@
     font-size: 1.95rem;
   }
 
-  .featuredQuoteCard {
-    padding: 1.8rem 1.3rem;
+  .grandBannerCard,
+  .ivoryGlassCard {
+    padding: 2.4rem 1.4rem;
   }
 
-  .quoteBigText {
-    font-size: 1.25rem;
+  .grandQuoteText {
+    font-size: 1.55rem;
+  }
+
+  .ivoryQuoteText {
+    font-size: 1.4rem;
+  }
+
+  .splitShowcaseContent {
+    padding: 2rem 1.4rem;
   }
 }

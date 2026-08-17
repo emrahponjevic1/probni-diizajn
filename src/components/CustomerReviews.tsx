@@ -34,15 +34,15 @@ interface ReviewItem {
 const mockReviews: ReviewItem[] = [
   {
     id: 1,
-    author: "Luka M.",
-    initials: "LM",
+    author: "Alen M.",
+    initials: "AM",
     source: "Preverjena Google ocena",
     stars: 5,
-    text: "Definitivno najboljši kebab v Ljubljani! Domača lepinja je še topla in hrustljava, meso pa neverjetno sočno in brez mastnih primesi. Še posebej priporočam hišno jogurtovo omako.",
+    text: "Fantastična hrana, domača sveža lepinja in neverjetno hitra postrežba. Najboljši kebab v celi Ljubljani, priporočam vsem!",
     dish: "Kraljevi Döner Kebab",
     img: "/images/doner-kebab.jpg",
     persona: "Lokalni Gurman",
-    timeAgo: "Pred 3 dnevi",
+    timeAgo: "Pred 2 dnevi",
   },
   {
     id: 2,
@@ -50,11 +50,11 @@ const mockReviews: ReviewItem[] = [
     initials: "SK",
     source: "Preverjena Google ocena",
     stars: 5,
-    text: "Kot študentka redno jem tukaj na bone. Porcija je ogromna, postrežba na Trubarjevi pa izjemno hitra tudi med največjo gnečo. Falafel krožnik z domačim humusom je vrhunski!",
+    text: "Kot študentka redno jem tukaj na bone. Porcija je ogromna, meso vedno sočno in sveže, ambient pa topel in prijeten.",
     dish: "Falafel Krožnik & Boni",
     img: "/images/falafel.jpg",
     persona: "Študentka (UL)",
-    timeAgo: "Pred 1 tednom",
+    timeAgo: "Pred 5 dnevi",
   },
   {
     id: 3,
@@ -62,16 +62,19 @@ const mockReviews: ReviewItem[] = [
     initials: "MV",
     source: "Preverjena Google ocena",
     stars: 5,
-    text: "Že več kot 10 let hodim v Šeherezado in kakovost je vedno na najvišjem nivoju. 100% Halal meso, prijazno osebje in res pristen okus orientalskega žara.",
+    text: "Že več kot 10 let hodim v Šeherezado in kakovost je vedno na vrhunskem nivoju. Pristen okus pravega orientalskega žara!",
     dish: "Dürüm Wrap Meni",
     img: "/images/durum-falafel.jpg",
     persona: "Stalni Gost od 2012",
-    timeAgo: "Pred 2 tednoma",
+    timeAgo: "Pred 1 tednom",
   },
 ];
 
 export default function CustomerReviews() {
-  const [activeStyle, setActiveStyle] = useState<1 | 2 | 3 | 4>(1);
+  const [activeStyle, setActiveStyle] = useState<1 | 2 | 3 | 4 | 5>(3);
+  const [activeQuoteIndex, setActiveQuoteIndex] = useState<number>(0);
+
+  const currentReview = mockReviews[activeQuoteIndex];
 
   return (
     <section className={styles.reviewsSection} id="ocene">
@@ -87,28 +90,35 @@ export default function CustomerReviews() {
               onClick={() => setActiveStyle(1)}
               className={`${styles.styleTabBtn} ${activeStyle === 1 ? styles.styleTabBtnActive : ""}`}
             >
-              Opcija 1: Istaknuti Citat + Dvojna Mreža (Ohranjeno)
+              Opcija 1: Istaknuti Citat (Ohranjeno)
             </button>
             <button
               type="button"
               onClick={() => setActiveStyle(2)}
               className={`${styles.styleTabBtn} ${activeStyle === 2 ? styles.styleTabBtnActive : ""}`}
             >
-              Opcija 2: Foto Recenzije Jedil (Live Photo Reviews)
+              Opcija 2: Google Analitika (Ohranjeno)
             </button>
             <button
               type="button"
               onClick={() => setActiveStyle(3)}
               className={`${styles.styleTabBtn} ${activeStyle === 3 ? styles.styleTabBtnActive : ""}`}
             >
-              Opcija 3: Profili Gostov (Študent / Turist / Domačin)
+              Opcija 3: Grand Banner Carousel (Vaš Stil 🔥)
             </button>
             <button
               type="button"
               onClick={() => setActiveStyle(4)}
               className={`${styles.styleTabBtn} ${activeStyle === 4 ? styles.styleTabBtnActive : ""}`}
             >
-              Opcija 4: Google Analitika + Horizontalne Trake
+              Opcija 4: Ivory &amp; Gold Elegant Banner
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveStyle(5)}
+              className={`${styles.styleTabBtn} ${activeStyle === 5 ? styles.styleTabBtnActive : ""}`}
+            >
+              Opcija 5: Split Master (Citat + Foto)
             </button>
           </div>
         </div>
@@ -200,107 +210,9 @@ export default function CustomerReviews() {
         )}
 
         {/* ==================================================================
-            OPCIJA 2 (NOVO): FOTO RECENZIJE JEDIL (LIVE PHOTO REVIEWS)
+            OPCIJA 2 (OHRANJENO): GOOGLE STATS HUB + HORIZONTALNE TRAKE
             ================================================================== */}
         {activeStyle === 2 && (
-          <div className={styles.photoReviewsGrid}>
-            {mockReviews.map((rev) => (
-              <div key={rev.id} className={styles.photoReviewCard}>
-                <div className={styles.photoReviewImgWrapper}>
-                  <Image
-                    src={rev.img}
-                    alt={rev.dish}
-                    width={400}
-                    height={180}
-                    className={styles.photoReviewImg}
-                  />
-                  <span className={styles.photoDishBadge}>{rev.dish}</span>
-                </div>
-
-                <div className={styles.photoReviewBody}>
-                  <div>
-                    <div className={styles.reviewCardHeader} style={{ marginBottom: "0.8rem" }}>
-                      <div className={styles.authorCol}>
-                        <div className={styles.authorAvatar}>{rev.initials}</div>
-                        <div className={styles.authorInfo}>
-                          <h4 className={styles.authorName}>{rev.author}</h4>
-                          <span className={styles.authorTag}>
-                            <CheckBadgeSvg size={14} /> {rev.source}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className={styles.starsRow}>
-                        {[...Array(rev.stars)].map((_, i) => (
-                          <StarFilledSvg key={i} size={15} />
-                        ))}
-                      </div>
-                    </div>
-
-                    <p className={styles.reviewText}>&ldquo;{rev.text}&rdquo;</p>
-                  </div>
-
-                  <div className={styles.reviewFooterRow}>
-                    <span>Preverjen obisk</span>
-                    <span>{rev.timeAgo}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* ==================================================================
-            OPCIJA 3 (NOVO): PROFILI GOSTOV (ŠTUDENT / TURIST / DOMAČIN)
-            ================================================================== */}
-        {activeStyle === 3 && (
-          <div className={styles.personaGrid}>
-            {mockReviews.map((rev, idx) => (
-              <div
-                key={rev.id}
-                className={`${styles.personaCard} ${idx === 0 ? styles.personaCardHighlight : ""}`}
-              >
-                <div className={styles.personaBadge}>
-                  <span>● Profil: {rev.persona}</span>
-                </div>
-
-                <div className={styles.starsRow}>
-                  {[...Array(rev.stars)].map((_, i) => (
-                    <StarFilledSvg key={i} size={18} />
-                  ))}
-                </div>
-
-                <p className={styles.reviewText} style={{ fontSize: "0.96rem", lineHeight: "1.65" }}>
-                  &ldquo;{rev.text}&rdquo;
-                </p>
-
-                <div style={{ marginTop: "auto" }}>
-                  <div className={styles.reviewCardHeader}>
-                    <div className={styles.authorCol}>
-                      <div className={styles.authorAvatar}>{rev.initials}</div>
-                      <div className={styles.authorInfo}>
-                        <h4 className={styles.authorName}>{rev.author}</h4>
-                        <span className={styles.authorTag}>
-                          <CheckBadgeSvg size={14} /> {rev.source}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.reviewFooterRow} style={{ marginTop: "1rem" }}>
-                    <span className={styles.favoriteDishTag}>{rev.dish}</span>
-                    <span>{rev.timeAgo}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* ==================================================================
-            OPCIJA 4 (NOVO): GOOGLE ANALITIKA + HORIZONTALNE TRAKE
-            ================================================================== */}
-        {activeStyle === 4 && (
           <div className={styles.statsStripsGrid}>
             {/* Left Stats Hub */}
             <div className={styles.statsHubCol}>
@@ -370,6 +282,144 @@ export default function CustomerReviews() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 3 (NOVO): LUXURY GRAND BANNER CAROUSEL (INSPIRISANO SLIKOM)
+            ================================================================== */}
+        {activeStyle === 3 && (
+          <div className={styles.grandBannerCard}>
+            <span className={styles.grandBannerWatermark}>GOSTI</span>
+
+            {/* 5 Golden Stars */}
+            <div className={styles.grandStarsRow}>
+              {[...Array(5)].map((_, i) => (
+                <StarFilledSvg key={i} size={28} />
+              ))}
+            </div>
+
+            {/* Large Impact Quote */}
+            <blockquote className={styles.grandQuoteText}>
+              &ldquo;{currentReview.text}&rdquo;
+            </blockquote>
+
+            {/* Author Meta */}
+            <div className={styles.grandAuthorMeta}>
+              <span className={styles.grandAuthorName}>— {currentReview.author}</span>
+              <span className={styles.grandDishTag}>{currentReview.dish}</span>
+            </div>
+
+            {/* Carousel Navigation Indicator Dots */}
+            <div className={styles.dotsRow}>
+              {mockReviews.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  aria-label={`Prikaži recenzijo ${idx + 1}`}
+                  onClick={() => setActiveQuoteIndex(idx)}
+                  className={`${styles.dotBtn} ${activeQuoteIndex === idx ? styles.dotBtnActive : ""}`}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 4 (NOVO): IVORY & GOLD ELEGANT BANNER
+            ================================================================== */}
+        {activeStyle === 4 && (
+          <div className={styles.ivoryGlassCard}>
+            <div className={styles.starsRow}>
+              {[...Array(5)].map((_, i) => (
+                <StarFilledSvg key={i} size={22} />
+              ))}
+            </div>
+
+            <span className={styles.ivoryBigQuotes}>“</span>
+
+            <blockquote className={styles.ivoryQuoteText}>
+              &ldquo;{currentReview.text}&rdquo;
+            </blockquote>
+
+            <div className={styles.ivoryAuthorRow}>
+              <span className={styles.ivoryAuthorName}>— {currentReview.author}</span>
+              <span className={styles.ivoryVerifiedPill}>
+                <CheckBadgeSvg size={14} /> Preverjena Google ocena
+              </span>
+            </div>
+
+            {/* Indicator Dots */}
+            <div className={styles.dotsRow}>
+              {mockReviews.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  aria-label={`Prikaži recenzijo ${idx + 1}`}
+                  onClick={() => setActiveQuoteIndex(idx)}
+                  className={`${styles.dotBtn} ${activeQuoteIndex === idx ? styles.dotBtnActive : ""}`}
+                  style={{
+                    background: activeQuoteIndex === idx ? "#ea580c" : "#fed7aa",
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 5 (NOVO): SPLIT MASTER (CITAT + FOTO JELA)
+            ================================================================== */}
+        {activeStyle === 5 && (
+          <div className={styles.splitShowcaseGrid}>
+            <div className={styles.splitShowcaseContent}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+                <div className={styles.starsRow}>
+                  {[...Array(5)].map((_, i) => (
+                    <StarFilledSvg key={i} size={22} />
+                  ))}
+                </div>
+
+                <blockquote className={styles.ivoryQuoteText} style={{ fontSize: "1.75rem" }}>
+                  &ldquo;{currentReview.text}&rdquo;
+                </blockquote>
+              </div>
+
+              <div>
+                <div className={styles.ivoryAuthorRow} style={{ marginBottom: "1rem" }}>
+                  <span className={styles.ivoryAuthorName}>— {currentReview.author}</span>
+                  <span className={styles.favoriteDishTag}>{currentReview.dish}</span>
+                </div>
+
+                <div className={styles.dotsRow}>
+                  {mockReviews.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      aria-label={`Prikaži recenzijo ${idx + 1}`}
+                      onClick={() => setActiveQuoteIndex(idx)}
+                      className={`${styles.dotBtn} ${activeQuoteIndex === idx ? styles.dotBtnActive : ""}`}
+                      style={{
+                        background: activeQuoteIndex === idx ? "#ea580c" : "#fed7aa",
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.splitShowcasePhotoWrapper}>
+              <Image
+                src={currentReview.img}
+                alt={currentReview.dish}
+                fill
+                className={styles.splitShowcasePhotoImg}
+              />
+              <div className={styles.splitPhotoOverlayBadge}>
+                <span className={styles.splitPhotoBadgeTitle}>{currentReview.dish}</span>
+                <span className={styles.splitPhotoBadgeSub}>Preverjena jed gosta</span>
+              </div>
             </div>
           </div>
         )}

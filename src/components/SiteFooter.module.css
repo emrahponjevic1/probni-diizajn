@@ -353,12 +353,14 @@
    ========================================================================== */
 @media (max-width: 1024px) {
   .footerSection {
+    /* Strict Universal Standards: Tablet 4rem top / 4.5rem bottom */
     padding: 3.5rem 1.5rem 0;
   }
 
   .minimalistGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.8rem 4.5rem;
+    align-items: start;
   }
 
   .brandBioText {

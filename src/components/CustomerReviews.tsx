@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./CustomerReviews.module.css";
 
 // Clean Vector SVG Star Icon
@@ -40,6 +40,18 @@ const reviewsData: ReviewItem[] = [
 
 export default function CustomerReviews() {
   const [activeQuoteIndex, setActiveQuoteIndex] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+
+  // Auto-rotate reviews every 5 seconds (5000ms)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveQuoteIndex((prev) => (prev + 1) % reviewsData.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [isPaused, activeQuoteIndex]);
 
   const currentReview = reviewsData[activeQuoteIndex];
 
@@ -72,7 +84,11 @@ export default function CustomerReviews() {
         </div>
 
         {/* Grand Testimonial Banner Card */}
-        <div className={styles.grandBannerCard}>
+        <div
+          className={styles.grandBannerCard}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <span className={styles.grandBannerWatermark}>GOSTI</span>
 
           {/* 5 Golden Stars */}

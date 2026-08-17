@@ -102,8 +102,12 @@
   font-weight: 950;
   color: #1c1917;
   letter-spacing: -0.03em;
-  line-height: 1.12;
+  line-height: 1.15;
   margin: 0;
+}
+
+.titleSecondLine {
+  display: block;
 }
 
 .titleEmphasis {

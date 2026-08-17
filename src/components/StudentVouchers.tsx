@@ -72,7 +72,8 @@ export default function StudentVouchers() {
           </div>
 
           <h2 className={styles.sectionTitle}>
-            Šeherezada: <span className={styles.titleEmphasis}>Bodi sit</span> med študijem!
+            Šeherezada: <span className={styles.titleEmphasis}>Bodi sit</span>
+            <span className={styles.titleSecondLine}>med študijem!</span>
           </h2>
 
           <p className={styles.sectionSubtitle}>

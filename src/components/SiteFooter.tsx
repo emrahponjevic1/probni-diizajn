@@ -27,6 +27,13 @@ const YouTubeSvg = ({ size = 18 }: { size?: number }) => (
   </svg>
 );
 
+const LocationPinSvg = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#ea580c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
+
 const PhoneSvg = ({ size = 15 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#ea580c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -40,10 +47,10 @@ const MailSvg = ({ size = 15 }: { size?: number }) => (
   </svg>
 );
 
-const ArrowUpRightSvg = ({ size = 14 }: { size?: number }) => (
+const ArrowRightSvg = ({ size = 14 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M7 17 17 7" />
-    <path d="M7 7h10v10" />
+    <path d="M5 12h14" />
+    <path d="m12 5 7 7-7 7" />
   </svg>
 );
 
@@ -63,10 +70,11 @@ export default function SiteFooter() {
       <div className={styles.bgWarmGlow} />
 
       <div className={styles.footerContainer}>
-        {/* Minimalist Modernist White Grid */}
-        <div className={styles.minimalistGrid}>
-          {/* Column 1: Brand & Bio & Socials */}
-          <div className={styles.brandCol}>
+        {/* Top Grand Brand Header Card */}
+        <div className={styles.grandBrandHeader}>
+          <span className={styles.grandWatermarkText}>LJUBLJANA 1998</span>
+
+          <div className={styles.grandLeftContent}>
             <span className={styles.brandLogo}>
               ŠEHEREZADA<span className={styles.logoDot}>.</span>
             </span>
@@ -75,7 +83,9 @@ export default function SiteFooter() {
               Ljubljanski street food od leta 1998. Kebab, pica in falafel —
               pripravljeni sveže, 100% halal, odprti do zgodnjih jutranjih ur.
             </p>
+          </div>
 
+          <div className={styles.grandRightActions}>
             <div className={styles.socialRow}>
               <a
                 href="https://facebook.com"
@@ -84,7 +94,7 @@ export default function SiteFooter() {
                 aria-label="Facebook"
                 className={styles.socialBtn}
               >
-                <FacebookSvg size={16} />
+                <FacebookSvg size={18} />
               </a>
 
               <a
@@ -94,7 +104,7 @@ export default function SiteFooter() {
                 aria-label="Instagram"
                 className={styles.socialBtn}
               >
-                <InstagramSvg size={16} />
+                <InstagramSvg size={18} />
               </a>
 
               <a
@@ -104,7 +114,7 @@ export default function SiteFooter() {
                 aria-label="TikTok"
                 className={styles.socialBtn}
               >
-                <TikTokSvg size={16} />
+                <TikTokSvg size={18} />
               </a>
 
               <a
@@ -114,22 +124,42 @@ export default function SiteFooter() {
                 aria-label="YouTube"
                 className={styles.socialBtn}
               >
-                <YouTubeSvg size={16} />
+                <YouTubeSvg size={18} />
               </a>
             </div>
-          </div>
 
-          {/* Column 2: Lokaciji & Kontakt */}
+            <a
+              href="https://wolt.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.grandWoltBtn}
+            >
+              <span>Naroči dostavo na Wolt &amp; Glovo</span>
+              <ArrowRightSvg size={14} />
+            </a>
+          </div>
+        </div>
+
+        {/* 3 Columns Below Grand Header */}
+        <div className={styles.triColumnsGrid}>
+          {/* Column 1: Lokaciji & Kontakt */}
           <div className={styles.locContactCol}>
             <span className={styles.colTitle}>LOKACIJI &amp; KONTAKT</span>
 
-            <div className={styles.locAddressesList}>
-              <div className={styles.locAddressItem}>
-                <strong>Center:</strong> Trubarjeva cesta 31, 1000 LJ
+            <div className={styles.locationCard}>
+              <div className={styles.locNameRow}>
+                <LocationPinSvg size={16} />
+                <span>Šeherezada Center</span>
               </div>
-              <div className={styles.locAddressItem}>
-                <strong>Bežigrad:</strong> Dunajska cesta 106, 1000 LJ
+              <span className={styles.locStreet}>Trubarjeva cesta 31, 1000 Ljubljana</span>
+            </div>
+
+            <div className={styles.locationCard}>
+              <div className={styles.locNameRow}>
+                <LocationPinSvg size={16} />
+                <span>Šeherezada Bežigrad</span>
               </div>
+              <span className={styles.locStreet}>Dunajska cesta 106, 1000 Ljubljana</span>
             </div>
 
             <div className={styles.contactLinksList}>
@@ -145,7 +175,7 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          {/* Column 3: Delovni Čas Day-by-Day */}
+          {/* Column 2: Delovni Čas Day-by-Day */}
           <div className={styles.hoursCol}>
             <span className={styles.colTitle}>DELOVNI ČAS</span>
 
@@ -159,9 +189,9 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          {/* Column 4: Naročila & Info */}
+          {/* Column 3: Povezave & Informacije */}
           <div className={styles.linksCol}>
-            <span className={styles.colTitle}>NAROČILA &amp; INFO</span>
+            <span className={styles.colTitle}>POVEZAVE &amp; INFO</span>
 
             <div className={styles.navLinksList}>
               <a href="#meni" className={styles.navLinkItem}>
@@ -185,16 +215,6 @@ export default function SiteFooter() {
                 <span>Pogosta vprašanja</span>
               </a>
             </div>
-
-            <a
-              href="https://wolt.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.deliveryBtnLink}
-            >
-              <span>Dostava Wolt</span>
-              <ArrowUpRightSvg size={14} />
-            </a>
           </div>
         </div>
 

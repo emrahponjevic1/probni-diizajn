@@ -1,5 +1,6 @@
 /* ==========================================================================
-   ŠEHEREZADA - SITE FOOTER (MINIMALIST MODERNIST WHITE THEME)
+   ŠEHEREZADA - SITE FOOTER (GRAND BRAND HEADER + 3 COLUMNS)
+   LUXURY WARM WHITE THEME
    ========================================================================== */
 
 .footerSection {
@@ -8,7 +9,8 @@
   position: relative;
   overflow: hidden;
   border-top: 1px solid #f2ede4;
-  padding: 4rem 2rem 0;
+  /* Universal Section Padding Standards */
+  padding: 4.5rem 2rem 0;
 }
 
 .footerContainer {
@@ -18,6 +20,8 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* Background Subtle Warm Glow */
@@ -27,32 +31,54 @@
   right: 5%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(254, 243, 199, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(254, 243, 199, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
   filter: blur(80px);
   pointer-events: none;
   z-index: 1;
 }
 
 /* ==========================================================================
-   MINIMALIST MODERNIST WHITE GRID
+   TOP GRAND BRAND HEADER CARD
    ========================================================================== */
-.minimalistGrid {
-  display: grid;
-  grid-template-columns: 1.35fr 1.25fr 1fr 1fr;
-  gap: 3.5rem;
+.grandBrandHeader {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 26px;
+  padding: 2.6rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.05);
+}
+
+.grandWatermarkText {
+  position: absolute;
+  right: -10px;
+  bottom: -25px;
+  font-size: 6.5rem;
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.038;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.grandLeftContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 620px;
   position: relative;
   z-index: 2;
 }
 
-/* Column 1: Brand & Bio & Socials */
-.brandCol {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
 .brandLogo {
-  font-size: 1.95rem;
+  font-size: 2.4rem;
   font-weight: 950;
   letter-spacing: -0.03em;
   color: #1c1917;
@@ -67,32 +93,41 @@
 }
 
 .brandBioText {
-  font-size: 0.92rem;
+  font-size: 0.96rem;
   color: #57534e;
   line-height: 1.65;
   margin: 0;
-  max-width: 320px;
+}
+
+.grandRightActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 .socialRow {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin-top: 0.2rem;
 }
 
 .socialBtn {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: #fdfcf9;
-  border: 1px solid #f2ede4;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #fed7aa;
   color: #1c1917;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .socialBtn:hover {
@@ -103,9 +138,39 @@
   box-shadow: 0 6px 16px rgba(234, 88, 12, 0.25);
 }
 
-/* Column Titles */
+.grandWoltBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #ea580c;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 0.75rem 1.4rem;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.25);
+}
+
+.grandWoltBtn:hover {
+  background: #c2410c;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(234, 88, 12, 0.35);
+}
+
+/* ==========================================================================
+   3-COLUMN GRID BELOW HEADER
+   ========================================================================== */
+.triColumnsGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 3.5rem;
+  padding: 0.5rem 0 1rem 0;
+}
+
 .colTitle {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 900;
   color: #1c1917;
   letter-spacing: 0.14em;
@@ -120,13 +185,74 @@
 .colTitle::after {
   content: "";
   display: block;
-  width: 12px;
+  width: 14px;
   height: 2px;
   background: #ea580c;
   border-radius: 99px;
 }
 
-/* Column 2: Hours Day-By-Day List */
+/* Column 1: Locations & Contact */
+.locContactCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.locationCard {
+  background: #fdfcf9;
+  border: 1px solid #f2ede4;
+  border-radius: 16px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: all 0.25s ease;
+}
+
+.locationCard:hover {
+  border-color: #fed7aa;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.08);
+}
+
+.locNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #1c1917;
+}
+
+.locStreet {
+  font-size: 0.82rem;
+  color: #78716c;
+  margin-left: 1.35rem;
+}
+
+.contactLinksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.2rem;
+}
+
+.contactItemLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1c1917;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactItemLink:hover {
+  color: #ea580c;
+}
+
+/* Column 2: Working Hours Day-by-Day */
 .hoursCol {
   display: flex;
   flex-direction: column;
@@ -135,14 +261,14 @@
 .hoursList {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .hoursRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   border-bottom: 1px dashed #f2ede4;
   padding-bottom: 0.35rem;
 }
@@ -157,56 +283,7 @@
   font-weight: 800;
 }
 
-/* Column 3: Locations & Contact */
-.locContactCol {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-}
-
-.locAddressesList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.locAddressItem {
-  font-size: 0.88rem;
-  color: #57534e;
-  line-height: 1.5;
-  background: #fdfcf9;
-  border: 1px solid #f2ede4;
-  padding: 0.6rem 0.85rem;
-  border-radius: 12px;
-}
-
-.locAddressItem strong {
-  color: #1c1917;
-  font-weight: 800;
-}
-
-.contactLinksList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.contactItemLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #1c1917;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.contactItemLink:hover {
-  color: #ea580c;
-}
-
-/* Column 4: Links & Wolt */
+/* Column 3: Quick Links */
 .linksCol {
   display: flex;
   flex-direction: column;
@@ -216,11 +293,11 @@
 .navLinksList {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .navLinkItem {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #57534e;
   text-decoration: none;
@@ -245,28 +322,6 @@
 
 .navLinkItem:hover .navLinkDot {
   background: #ea580c;
-}
-
-.deliveryBtnLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #1c1917;
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 800;
-  padding: 0.65rem 1.1rem;
-  border-radius: 99px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  align-self: flex-start;
-  margin-top: 0.3rem;
-}
-
-.deliveryBtnLink:hover {
-  background: #ea580c;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.25);
 }
 
 /* ==========================================================================
@@ -322,13 +377,22 @@
     padding: 3.5rem 1.5rem 0;
   }
 
-  .minimalistGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem 2rem;
+  .grandBrandHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.2rem 1.8rem;
+    gap: 1.6rem;
   }
 
-  .brandBioText {
-    max-width: 100%;
+  .grandRightActions {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .triColumnsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
   }
 }
 
@@ -337,10 +401,13 @@
     padding: 3rem 1.25rem 0;
   }
 
-  .minimalistGrid {
+  .brandLogo {
+    font-size: 2rem;
+  }
+
+  .triColumnsGrid {
     grid-template-columns: 1fr;
     gap: 2.2rem;
-    padding-top: 2rem;
   }
 
   .subFooterBar {

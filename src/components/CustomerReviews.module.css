@@ -135,7 +135,7 @@
 
 .grandBannerWatermark {
   position: absolute;
-  right: 35px;
+  right: 8px;
   bottom: -20px;
   font-size: 11rem;
   font-weight: 950;
@@ -253,7 +253,7 @@
 
   .grandBannerWatermark {
     font-size: 5.6rem;
-    right: 18px;
+    right: 4px;
     bottom: -15px;
   }
 }

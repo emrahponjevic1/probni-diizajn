@@ -1,0 +1,606 @@
+/* ==========================================================================
+   ŠEHEREZADA - POGOSTA VPRAŠANJA (FAQ SECTION)
+   WARM LIGHT LUXURY RESTAURANT AESTHETIC
+   ========================================================================== */
+
+.faqSection {
+  background: #fffcf8;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #f2ede4;
+  /* Strict Universal Section Margins & Padding Standards: Desktop 5rem top / 5.5rem bottom */
+  padding: 5rem 2rem 5.5rem;
+}
+
+.faqContainer {
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Background Warm Amber Glow */
+.bgWarmGlow {
+  position: absolute;
+  top: 15%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(254, 243, 199, 0.45) 0%, rgba(255, 252, 248, 0) 70%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   STYLE SELECTOR BAR (INTERACTIVE PROTOTYPE PREVIEW)
+   ========================================================================== */
+.styleSelectorWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.styleSelectorLabel {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #ea580c;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 4px 14px;
+  border-radius: 99px;
+}
+
+.styleSwitcherTabs {
+  display: inline-flex;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 99px;
+  padding: 5px;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.06);
+  gap: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.styleTabBtn {
+  padding: 0.7rem 1.3rem;
+  border-radius: 99px;
+  border: none;
+  background: transparent;
+  color: #57534e;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.styleTabBtn:hover {
+  color: #ea580c;
+}
+
+.styleTabBtnActive {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+}
+
+/* ==========================================================================
+   EDITORIAL SECTION HEADER (LEFT-ALIGNED LOCKUP WITH GHOST WATERMARK)
+   ========================================================================== */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 820px;
+  margin: 0 0 2.8rem 0;
+  gap: 0.85rem;
+}
+
+.chapterTagContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 0.5rem 0;
+}
+
+.tagGhostWatermark {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3.4rem;
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.055;
+  letter-spacing: 0.06em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.chapterIndexTag {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #ea580c;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.chapterDash {
+  width: 18px;
+  height: 1.5px;
+  background: #ea580c;
+  opacity: 0.6;
+}
+
+.chapterNumber {
+  color: #1c1917;
+  font-weight: 900;
+}
+
+.sectionTitle {
+  font-size: clamp(2.3rem, 4vw, 3.2rem);
+  font-weight: 950;
+  color: #1c1917;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.titleEmphasis {
+  color: #ea580c;
+  position: relative;
+  display: inline-block;
+}
+
+.titleUnderline {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #fed7aa;
+  border-radius: 99px;
+  z-index: -1;
+}
+
+.sectionSubtitle {
+  font-size: 1.05rem;
+  color: #57534e;
+  line-height: 1.65;
+  max-width: 680px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   OPCIJA 1: USER LAYOUT (NUMBERED FLOATING BADGES SPLIT-ACCORDION)
+   ========================================================================== */
+.userSplitGrid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/* Left Narrative Column */
+.userLeftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 100px;
+}
+
+.leftMainHeading {
+  font-size: clamp(2.4rem, 3.8vw, 3.2rem);
+  font-weight: 950;
+  color: #1c1917;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.headingHighlight {
+  color: #ea580c;
+  position: relative;
+  display: inline-block;
+}
+
+.headingHighlight::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: #fed7aa;
+  border-radius: 99px;
+  z-index: -1;
+}
+
+.leftLeadText {
+  font-size: 1.02rem;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.leftCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ea580c;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 0.95rem 1.8rem;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.25);
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.leftCtaBtn:hover {
+  background: #c2410c;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(234, 88, 12, 0.35);
+}
+
+/* Right Accordion Column */
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.accordionCard {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  box-shadow: 0 4px 18px rgba(28, 25, 23, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: visible;
+}
+
+.accordionCard:hover {
+  border-color: #fed7aa;
+  box-shadow: 0 8px 28px rgba(234, 88, 12, 0.08);
+}
+
+.accordionCardOpen {
+  border-color: #fed7aa;
+  box-shadow: 0 10px 32px rgba(234, 88, 12, 0.1);
+}
+
+/* Floating Numbered Badge on Top-Left */
+.floatingBadgeNum {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ea580c;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+  z-index: 3;
+}
+
+.floatingBadgeNumDark {
+  background: #1c1917;
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.25);
+}
+
+.accordionHeaderBtn {
+  width: 100%;
+  padding: 1.8rem 2rem 1.6rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: left;
+  gap: 1.2rem;
+  font-family: inherit;
+}
+
+.accordionHeaderMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.accordionCategoryTag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.accordionQuestionTitle {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #1c1917;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.chevronCircle {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 50%;
+  background: #fdfcf9;
+  border: 1px solid #f2ede4;
+  color: #1c1917;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.chevronCircleOpen {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #ea580c;
+  transform: rotate(180deg);
+}
+
+.accordionBody {
+  padding: 0 2rem 1.8rem;
+  color: #57534e;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   OPCIJA 2: 2-COLUMN BENTO FAQ GRID
+   ========================================================================== */
+.bentoGridFaq {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+
+.bentoFaqCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  padding: 2.2rem 2rem;
+  box-shadow: 0 4px 18px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.25s ease;
+}
+
+.bentoFaqCard:hover {
+  transform: translateY(-3px);
+  border-color: #fed7aa;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.09);
+}
+
+.bentoFaqIconRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bentoFaqIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bentoFaqQuestion {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #1c1917;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.bentoFaqAnswer {
+  font-size: 0.92rem;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   OPCIJA 3: CATEGORY TABS FILTERED ACCORDION
+   ========================================================================== */
+.categoryTabsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.catFilterBtn {
+  padding: 0.6rem 1.3rem;
+  border-radius: 99px;
+  border: 1px solid #f2ede4;
+  background: #ffffff;
+  color: #57534e;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.catFilterBtn:hover {
+  border-color: #fed7aa;
+  color: #ea580c;
+}
+
+.catFilterBtnActive {
+  background: #1c1917;
+  border-color: #1c1917;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(28, 25, 23, 0.2);
+}
+
+.centerAccordionList {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ==========================================================================
+   OPCIJA 4: EDITORIAL SPLIT HUB + DIRECT CONTACT CARD
+   ========================================================================== */
+.hubContactCard {
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  border-radius: 22px;
+  padding: 1.8rem;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.hubContactTitle {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #1c1917;
+  margin: 0;
+}
+
+.hubContactDesc {
+  font-size: 0.86rem;
+  color: #78716c;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.hubPhoneBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ea580c;
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .faqSection {
+    padding: 4rem 1.5rem 4.5rem;
+  }
+
+  .userSplitGrid {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+  }
+
+  .userLeftCol {
+    position: static;
+  }
+
+  .bentoGridFaq {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .faqSection {
+    padding: 3.5rem 1.25rem 4rem;
+  }
+
+  .styleSwitcherTabs {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .styleTabBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .leftMainHeading {
+    font-size: 2rem;
+  }
+
+  .accordionHeaderBtn {
+    padding: 1.6rem 1.3rem 1.3rem;
+  }
+
+  .accordionQuestionTitle {
+    font-size: 1rem;
+  }
+
+  .accordionBody {
+    padding: 0 1.3rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .floatingBadgeNum {
+    left: 14px;
+    top: -10px;
+    width: 28px;
+    height: 28px;
+    font-size: 0.72rem;
+  }
+}

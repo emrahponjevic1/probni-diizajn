@@ -4,6 +4,7 @@ import OurStory from "@/components/OurStory";
 import HalalCertificate from "@/components/HalalCertificate";
 import StudentVouchers from "@/components/StudentVouchers";
 import CustomerReviews from "@/components/CustomerReviews";
+import FaqSection from "@/components/FaqSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <HalalCertificate />
       <StudentVouchers />
       <CustomerReviews />
+      <FaqSection />
     </main>
   );
 }

@@ -272,28 +272,30 @@
 }
 
 /* ==========================================================================
-   GIANT BACKGROUND WATERMARK ACROSS BOTTOM DIVIDER
+   GIANT BACKGROUND WATERMARK ACROSS BOTTOM DIVIDER (ZERO LAYOUT IMPACT)
    ========================================================================== */
 .footerWatermarkContainer {
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+  right: 0;
   width: 100%;
   text-align: center;
   overflow: hidden;
-  position: relative;
-  margin-top: 2rem;
-  margin-bottom: -1rem;
   pointer-events: none;
   user-select: none;
-  z-index: 1;
+  z-index: 0;
+  line-height: 0.75;
 }
 
 .footerGiantWatermark {
   display: inline-block;
-  font-size: clamp(3.6rem, 11vw, 9.8rem);
+  font-size: clamp(4.5rem, 13vw, 11rem);
   font-weight: 950;
   color: #1c1917;
   opacity: 0.045;
-  letter-spacing: 0.08em;
-  line-height: 0.85;
+  letter-spacing: 0.06em;
+  line-height: 0.75;
   white-space: nowrap;
   text-transform: uppercase;
 }

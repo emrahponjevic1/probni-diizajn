@@ -1,21 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./CustomerReviews.module.css";
 
 // Clean Vector SVG Icons (No Emojis)
 const StarFilledSvg = ({ size = 18 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-  </svg>
-);
-
-const GoogleGIconSvg = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05" />
-    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335" />
   </svg>
 );
 
@@ -34,6 +26,8 @@ interface ReviewItem {
   stars: number;
   text: string;
   dish: string;
+  img: string;
+  persona: string;
   timeAgo: string;
 }
 
@@ -46,6 +40,8 @@ const mockReviews: ReviewItem[] = [
     stars: 5,
     text: "Definitivno najboljši kebab v Ljubljani! Domača lepinja je še topla in hrustljava, meso pa neverjetno sočno in brez mastnih primesi. Še posebej priporočam hišno jogurtovo omako.",
     dish: "Kraljevi Döner Kebab",
+    img: "/images/doner-kebab.jpg",
+    persona: "Lokalni Gurman",
     timeAgo: "Pred 3 dnevi",
   },
   {
@@ -56,6 +52,8 @@ const mockReviews: ReviewItem[] = [
     stars: 5,
     text: "Kot študentka redno jem tukaj na bone. Porcija je ogromna, postrežba na Trubarjevi pa izjemno hitra tudi med največjo gnečo. Falafel krožnik z domačim humusom je vrhunski!",
     dish: "Falafel Krožnik & Boni",
+    img: "/images/falafel.jpg",
+    persona: "Študentka (UL)",
     timeAgo: "Pred 1 tednom",
   },
   {
@@ -66,12 +64,14 @@ const mockReviews: ReviewItem[] = [
     stars: 5,
     text: "Že več kot 10 let hodim v Šeherezado in kakovost je vedno na najvišjem nivoju. 100% Halal meso, prijazno osebje in res pristen okus orientalskega žara.",
     dish: "Dürüm Wrap Meni",
+    img: "/images/durum-falafel.jpg",
+    persona: "Stalni Gost od 2012",
     timeAgo: "Pred 2 tednoma",
   },
 ];
 
 export default function CustomerReviews() {
-  const [activeStyle, setActiveStyle] = useState<1 | 2 | 3>(1);
+  const [activeStyle, setActiveStyle] = useState<1 | 2 | 3 | 4>(1);
 
   return (
     <section className={styles.reviewsSection} id="ocene">
@@ -87,21 +87,28 @@ export default function CustomerReviews() {
               onClick={() => setActiveStyle(1)}
               className={`${styles.styleTabBtn} ${activeStyle === 1 ? styles.styleTabBtnActive : ""}`}
             >
-              Opcija 1: Editorial Bento Social Proof (Priporočamo)
+              Opcija 1: Istaknuti Citat + Dvojna Mreža (Ohranjeno)
             </button>
             <button
               type="button"
               onClick={() => setActiveStyle(2)}
               className={`${styles.styleTabBtn} ${activeStyle === 2 ? styles.styleTabBtnActive : ""}`}
             >
-              Opcija 2: 3-Kolonske Kartice
+              Opcija 2: Foto Recenzije Jedil (Live Photo Reviews)
             </button>
             <button
               type="button"
               onClick={() => setActiveStyle(3)}
               className={`${styles.styleTabBtn} ${activeStyle === 3 ? styles.styleTabBtnActive : ""}`}
             >
-              Opcija 3: Istaknuti Citat + Dvojni Mreža
+              Opcija 3: Profili Gostov (Študent / Turist / Domačin)
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveStyle(4)}
+              className={`${styles.styleTabBtn} ${activeStyle === 4 ? styles.styleTabBtnActive : ""}`}
+            >
+              Opcija 4: Google Analitika + Horizontalne Trake
             </button>
           </div>
         </div>
@@ -130,129 +137,9 @@ export default function CustomerReviews() {
         </div>
 
         {/* ==================================================================
-            OPCIJA 1: EDITORIAL BENTO SOCIAL PROOF (RECOMMENDED)
+            OPCIJA 1 (OHRANJENO): FEATURED QUOTE HERO + DUAL COLUMN
             ================================================================== */}
         {activeStyle === 1 && (
-          <div className={styles.bentoReviewsGrid}>
-            {/* Left Hero Google Trust Card */}
-            <div className={styles.googleTrustHeroCard}>
-              <div className={styles.googleHeroTop}>
-                <div className={styles.googlePillBadge}>
-                  <span>Preverjene Ocene</span>
-                </div>
-
-                <div className={styles.scoreRow}>
-                  <span className={styles.bigScoreNum}>4.8</span>
-                  <span className={styles.maxScoreNum}>/ 5.0</span>
-                </div>
-
-                <div className={styles.starsRow}>
-                  <StarFilledSvg size={22} />
-                  <StarFilledSvg size={22} />
-                  <StarFilledSvg size={22} />
-                  <StarFilledSvg size={22} />
-                  <StarFilledSvg size={22} />
-                </div>
-
-                <span className={styles.totalReviewsCount}>
-                  Na podlagi več kot <strong>1.900+ resničnih ocen</strong> na Google Maps
-                </span>
-
-                <p className={styles.googleHeroQuote}>
-                  &ldquo;Najbolje ocenjena orientalska restavracija in kebab v
-                  Ljubljani z več kot 20-letno tradicijo.&rdquo;
-                </p>
-              </div>
-
-              <div className={styles.googleVerifiedFooter}>
-                <div className={styles.googleIconBox}>
-                  <GoogleGIconSvg size={20} />
-                </div>
-                <div className={styles.googleFooterMeta}>
-                  <span className={styles.googleFooterTitle}>Google Ocene Gostov</span>
-                  <span className={styles.googleFooterSub}>Trubarjeva 31 &amp; Dunajska 106</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: 3 Reviews Stack */}
-            <div className={styles.reviewsStackList}>
-              {mockReviews.map((rev) => (
-                <div key={rev.id} className={styles.reviewCard}>
-                  <div className={styles.reviewCardHeader}>
-                    <div className={styles.authorCol}>
-                      <div className={styles.authorAvatar}>{rev.initials}</div>
-                      <div className={styles.authorInfo}>
-                        <h4 className={styles.authorName}>{rev.author}</h4>
-                        <span className={styles.authorTag}>
-                          <CheckBadgeSvg size={14} /> {rev.source}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className={styles.starsRow}>
-                      {[...Array(rev.stars)].map((_, i) => (
-                        <StarFilledSvg key={i} size={16} />
-                      ))}
-                    </div>
-                  </div>
-
-                  <p className={styles.reviewText}>&ldquo;{rev.text}&rdquo;</p>
-
-                  <div className={styles.reviewFooterRow}>
-                    <span className={styles.favoriteDishTag}>
-                      Najljubša jed: {rev.dish}
-                    </span>
-                    <span>{rev.timeAgo}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ==================================================================
-            OPCIJA 2: 3-COLUMN EQUAL REVIEW CARDS
-            ================================================================== */}
-        {activeStyle === 2 && (
-          <div className={styles.equalCardsGrid}>
-            {mockReviews.map((rev) => (
-              <div key={rev.id} className={styles.equalReviewCard}>
-                <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                  <div className={styles.reviewCardHeader}>
-                    <div className={styles.authorCol}>
-                      <div className={styles.authorAvatar}>{rev.initials}</div>
-                      <div className={styles.authorInfo}>
-                        <h4 className={styles.authorName}>{rev.author}</h4>
-                        <span className={styles.authorTag}>
-                          <CheckBadgeSvg size={14} /> {rev.source}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.starsRow}>
-                    {[...Array(rev.stars)].map((_, i) => (
-                      <StarFilledSvg key={i} size={16} />
-                    ))}
-                  </div>
-
-                  <p className={styles.reviewText}>&ldquo;{rev.text}&rdquo;</p>
-                </div>
-
-                <div className={styles.reviewFooterRow}>
-                  <span className={styles.favoriteDishTag}>{rev.dish}</span>
-                  <span>{rev.timeAgo}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* ==================================================================
-            OPCIJA 3: FEATURED QUOTE HERO + DUAL COLUMN
-            ================================================================== */}
-        {activeStyle === 3 && (
           <div>
             <div className={styles.featuredQuoteCard}>
               <span className={styles.quoteWatermark}>OKUS</span>
@@ -301,8 +188,185 @@ export default function CustomerReviews() {
                   <p className={styles.reviewText}>&ldquo;{rev.text}&rdquo;</p>
 
                   <div className={styles.reviewFooterRow}>
+                    <span className={styles.favoriteDishTag}>
+                      Najljubša jed: {rev.dish}
+                    </span>
+                    <span>{rev.timeAgo}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 2 (NOVO): FOTO RECENZIJE JEDIL (LIVE PHOTO REVIEWS)
+            ================================================================== */}
+        {activeStyle === 2 && (
+          <div className={styles.photoReviewsGrid}>
+            {mockReviews.map((rev) => (
+              <div key={rev.id} className={styles.photoReviewCard}>
+                <div className={styles.photoReviewImgWrapper}>
+                  <Image
+                    src={rev.img}
+                    alt={rev.dish}
+                    width={400}
+                    height={180}
+                    className={styles.photoReviewImg}
+                  />
+                  <span className={styles.photoDishBadge}>{rev.dish}</span>
+                </div>
+
+                <div className={styles.photoReviewBody}>
+                  <div>
+                    <div className={styles.reviewCardHeader} style={{ marginBottom: "0.8rem" }}>
+                      <div className={styles.authorCol}>
+                        <div className={styles.authorAvatar}>{rev.initials}</div>
+                        <div className={styles.authorInfo}>
+                          <h4 className={styles.authorName}>{rev.author}</h4>
+                          <span className={styles.authorTag}>
+                            <CheckBadgeSvg size={14} /> {rev.source}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className={styles.starsRow}>
+                        {[...Array(rev.stars)].map((_, i) => (
+                          <StarFilledSvg key={i} size={15} />
+                        ))}
+                      </div>
+                    </div>
+
+                    <p className={styles.reviewText}>&ldquo;{rev.text}&rdquo;</p>
+                  </div>
+
+                  <div className={styles.reviewFooterRow}>
+                    <span>Preverjen obisk</span>
+                    <span>{rev.timeAgo}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 3 (NOVO): PROFILI GOSTOV (ŠTUDENT / TURIST / DOMAČIN)
+            ================================================================== */}
+        {activeStyle === 3 && (
+          <div className={styles.personaGrid}>
+            {mockReviews.map((rev, idx) => (
+              <div
+                key={rev.id}
+                className={`${styles.personaCard} ${idx === 0 ? styles.personaCardHighlight : ""}`}
+              >
+                <div className={styles.personaBadge}>
+                  <span>● Profil: {rev.persona}</span>
+                </div>
+
+                <div className={styles.starsRow}>
+                  {[...Array(rev.stars)].map((_, i) => (
+                    <StarFilledSvg key={i} size={18} />
+                  ))}
+                </div>
+
+                <p className={styles.reviewText} style={{ fontSize: "0.96rem", lineHeight: "1.65" }}>
+                  &ldquo;{rev.text}&rdquo;
+                </p>
+
+                <div style={{ marginTop: "auto" }}>
+                  <div className={styles.reviewCardHeader}>
+                    <div className={styles.authorCol}>
+                      <div className={styles.authorAvatar}>{rev.initials}</div>
+                      <div className={styles.authorInfo}>
+                        <h4 className={styles.authorName}>{rev.author}</h4>
+                        <span className={styles.authorTag}>
+                          <CheckBadgeSvg size={14} /> {rev.source}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className={styles.reviewFooterRow} style={{ marginTop: "1rem" }}>
                     <span className={styles.favoriteDishTag}>{rev.dish}</span>
                     <span>{rev.timeAgo}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ==================================================================
+            OPCIJA 4 (NOVO): GOOGLE ANALITIKA + HORIZONTALNE TRAKE
+            ================================================================== */}
+        {activeStyle === 4 && (
+          <div className={styles.statsStripsGrid}>
+            {/* Left Stats Hub */}
+            <div className={styles.statsHubCol}>
+              <div className={styles.statsHubCard}>
+                <div>
+                  <span style={{ fontSize: "0.78rem", fontWeight: 800, color: "#ea580c", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                    Uradna Google Statistika
+                  </span>
+                  <h3 style={{ fontSize: "1.6rem", fontWeight: 950, color: "#1c1917", margin: "0.3rem 0 0 0" }}>
+                    Najvišje zaupanje v mestu
+                  </h3>
+                </div>
+
+                <div className={styles.statItemRow}>
+                  <span className={styles.statLabelText}>Google Ocena</span>
+                  <span className={styles.statBigVal}>4.8 ★</span>
+                </div>
+
+                <div className={styles.statItemRow}>
+                  <span className={styles.statLabelText}>Skupaj Ocen</span>
+                  <span className={styles.statBigVal}>1.900+</span>
+                </div>
+
+                <div className={styles.statItemRow}>
+                  <span className={styles.statLabelText}>Zadovoljnih Gostov</span>
+                  <span className={styles.statBigVal}>99%</span>
+                </div>
+
+                <div className={styles.statItemRow} style={{ borderBottom: "none", paddingBottom: 0 }}>
+                  <span className={styles.statLabelText}>Tradicija v LJ</span>
+                  <span className={styles.statBigVal}>20+ Let</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Horizontal Strips */}
+            <div className={styles.horizontalStripsList}>
+              {mockReviews.map((rev) => (
+                <div key={rev.id} className={styles.horizontalStripCard}>
+                  <div className={styles.reviewCardHeader}>
+                    <div className={styles.authorCol}>
+                      <div className={styles.authorAvatar} style={{ width: "32px", height: "32px", fontSize: "0.75rem" }}>
+                        {rev.initials}
+                      </div>
+                      <div>
+                        <span style={{ fontSize: "0.92rem", fontWeight: 800, color: "#1c1917" }}>{rev.author}</span>
+                        <span style={{ fontSize: "0.72rem", color: "#78716c", marginLeft: "8px" }}>· {rev.timeAgo}</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.starsRow}>
+                      {[...Array(rev.stars)].map((_, i) => (
+                        <StarFilledSvg key={i} size={14} />
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className={styles.reviewText} style={{ fontSize: "0.88rem" }}>
+                    &ldquo;{rev.text}&rdquo;
+                  </p>
+
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "0.76rem" }}>
+                    <span className={styles.favoriteDishTag}>{rev.dish}</span>
+                    <span style={{ color: "#047857", fontWeight: 700, display: "flex", alignItems: "center", gap: "3px" }}>
+                      <CheckBadgeSvg size={12} /> Preverjeno
+                    </span>
                   </div>
                 </div>
               ))}

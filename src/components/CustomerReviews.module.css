@@ -175,252 +175,7 @@
 }
 
 /* ==========================================================================
-   OPCIJA 1: EDITORIAL BENTO SOCIAL PROOF (RECOMMENDED)
-   ========================================================================== */
-.bentoReviewsGrid {
-  display: grid;
-  grid-template-columns: 0.88fr 1.12fr;
-  gap: 2rem;
-  align-items: stretch;
-}
-
-/* Left Hero Google Trust Card */
-.googleTrustHeroCard {
-  background: linear-gradient(145deg, #ffffff 0%, #fffcf8 100%);
-  border: 1px solid #fed7aa;
-  border-radius: 28px;
-  padding: 3rem 2.5rem;
-  box-shadow: 0 16px 40px rgba(234, 88, 12, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.googleHeroTop {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.googlePillBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  padding: 5px 14px;
-  border-radius: 99px;
-  color: #ea580c;
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  align-self: flex-start;
-}
-
-.scoreRow {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-}
-
-.bigScoreNum {
-  font-size: 4.2rem;
-  font-weight: 950;
-  color: #1c1917;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-}
-
-.maxScoreNum {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #a8a29e;
-}
-
-.starsRow {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #f59e0b;
-}
-
-.totalReviewsCount {
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #78716c;
-}
-
-.googleHeroQuote {
-  font-size: 1.05rem;
-  color: #1c1917;
-  font-weight: 700;
-  line-height: 1.55;
-  font-style: italic;
-  margin: 0;
-}
-
-.googleVerifiedFooter {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid #f2ede4;
-}
-
-.googleIconBox {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.googleFooterMeta {
-  display: flex;
-  flex-direction: column;
-}
-
-.googleFooterTitle {
-  font-size: 0.88rem;
-  font-weight: 800;
-  color: #1c1917;
-}
-
-.googleFooterSub {
-  font-size: 0.74rem;
-  color: #78716c;
-}
-
-/* Right Column: 3 Reviews Stack */
-.reviewsStackList {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.reviewCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 22px;
-  padding: 1.6rem 1.8rem;
-  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  transition: all 0.25s ease;
-}
-
-.reviewCard:hover {
-  transform: translateX(4px);
-  border-color: #fed7aa;
-  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
-}
-
-.reviewCardHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.authorCol {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.authorAvatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #fed7aa 0%, #ea580c 100%);
-  color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.authorInfo {
-  display: flex;
-  flex-direction: column;
-}
-
-.authorName {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #1c1917;
-  margin: 0;
-}
-
-.authorTag {
-  font-size: 0.74rem;
-  color: #047857;
-  font-weight: 700;
-}
-
-.reviewText {
-  font-size: 0.92rem;
-  color: #57534e;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.reviewFooterRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.78rem;
-  color: #a8a29e;
-}
-
-.favoriteDishTag {
-  font-size: 0.76rem;
-  font-weight: 800;
-  color: #ea580c;
-  background: #fff7ed;
-  padding: 2px 8px;
-  border-radius: 99px;
-}
-
-/* ==========================================================================
-   OPCIJA 2: 3-COLUMN EQUAL REVIEW CARDS
-   ========================================================================== */
-.equalCardsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.equalReviewCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow: 0 4px 18px rgba(28, 25, 23, 0.04);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.4rem;
-  transition: all 0.3s ease;
-}
-
-.equalReviewCard:hover {
-  transform: translateY(-4px);
-  border-color: #fed7aa;
-  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.1);
-}
-
-/* ==========================================================================
-   OPCIJA 3: FEATURED QUOTE HERO + DUAL COLUMN
+   OPCIJA 1 (PREJŠNJA 3): FEATURED QUOTE HERO + DUAL COLUMN
    ========================================================================== */
 .featuredQuoteCard {
   background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
@@ -488,38 +243,307 @@
   gap: 1.5rem;
 }
 
+.reviewCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 22px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: all 0.25s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-3px);
+  border-color: #fed7aa;
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
+}
+
+.reviewCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.authorCol {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.authorAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fed7aa 0%, #ea580c 100%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0;
+}
+
+.authorTag {
+  font-size: 0.74rem;
+  color: #047857;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #f59e0b;
+}
+
+.reviewText {
+  font-size: 0.92rem;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.reviewFooterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #a8a29e;
+  border-top: 1px solid #f2ede4;
+  padding-top: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.favoriteDishTag {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #ea580c;
+  background: #fff7ed;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+/* ==========================================================================
+   OPCIJA 2: LIVE PHOTO REVIEWS (RECENZIJE SA SLIKAMA JELA)
+   ========================================================================== */
+.photoReviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.photoReviewCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.photoReviewCard:hover {
+  transform: translateY(-4px);
+  border-color: #fed7aa;
+  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.1);
+}
+
+.photoReviewImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+}
+
+.photoReviewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoDishBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(28, 25, 23, 0.85);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.photoReviewBody {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   OPCIJA 3: GUEST PERSONA GRID (ŠTUDENT / TURIST / DOMAČIN)
+   ========================================================================== */
+.personaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.personaCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  padding: 2.2rem 2rem;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.personaCard:hover {
+  transform: translateY(-4px);
+  border-color: #fed7aa;
+  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.1);
+}
+
+.personaCardHighlight {
+  background: linear-gradient(180deg, #fffdfa 0%, #fff7ed 100%);
+  border-color: #fed7aa;
+}
+
+.personaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   OPCIJA 4: GOOGLE STATS HUB + 3 HORIZONTALNE TRAKE
+   ========================================================================== */
+.statsStripsGrid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.statsHubCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.statsHubCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 28px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 24px rgba(28, 25, 23, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.statItemRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2ede4;
+  padding-bottom: 0.8rem;
+}
+
+.statBigVal {
+  font-size: 2rem;
+  font-weight: 950;
+  color: #ea580c;
+}
+
+.statLabelText {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #57534e;
+}
+
+.horizontalStripsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.horizontalStripCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 20px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: all 0.25s ease;
+}
+
+.horizontalStripCard:hover {
+  transform: translateX(4px);
+  border-color: #fed7aa;
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
+}
+
 /* ==========================================================================
    RESPONSIVENESS (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 1024px) {
   .reviewsSection {
-    /* Strict Universal Standards: Tablet 4rem top / 4.5rem bottom */
     padding: 4rem 1.5rem 4.5rem;
   }
 
-  .bentoReviewsGrid,
-  .dualReviewsGrid {
+  .photoReviewsGrid,
+  .personaGrid,
+  .dualReviewsGrid,
+  .statsStripsGrid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .equalCardsGrid {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
+    gap: 1.8rem;
   }
 
   .sectionTitle {
     font-size: 2.2rem;
   }
-
-  .featuredQuoteCard {
-    padding: 2.2rem 1.8rem;
-  }
 }
 
 @media (max-width: 640px) {
   .reviewsSection {
-    /* Strict Universal Standards: Mobile 3.5rem top / 4rem bottom */
     padding: 3.5rem 1.25rem 4rem;
   }
 
@@ -538,19 +562,11 @@
     font-size: 1.95rem;
   }
 
-  .googleTrustHeroCard {
-    padding: 2rem 1.4rem;
-  }
-
-  .bigScoreNum {
-    font-size: 3.4rem;
-  }
-
-  .reviewCard {
-    padding: 1.3rem 1.2rem;
-  }
-
   .featuredQuoteCard {
     padding: 1.8rem 1.3rem;
+  }
+
+  .quoteBigText {
+    font-size: 1.25rem;
   }
 }

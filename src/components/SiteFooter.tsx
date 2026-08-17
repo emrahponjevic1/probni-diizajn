@@ -198,11 +198,6 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        {/* Giant Background Watermark across bottom divider */}
-        <div className={styles.footerWatermarkContainer}>
-          <span className={styles.footerGiantWatermark}>ŠEHEREZADA</span>
-        </div>
-
         {/* Slim Bottom Sub-Footer Bar */}
         <div className={styles.subFooterBar}>
           <p className={styles.copyrightText}>

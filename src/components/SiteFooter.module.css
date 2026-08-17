@@ -8,7 +8,7 @@
   position: relative;
   overflow: hidden;
   border-top: 1px solid #f2ede4;
-  padding: 4.5rem 2rem 0;
+  padding: 4rem 2rem 0;
 }
 
 .footerContainer {
@@ -17,7 +17,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 3rem;
 }
 
 /* Background Subtle Warm Glow */
@@ -40,8 +40,6 @@
   display: grid;
   grid-template-columns: 1.35fr 1.25fr 1fr 1fr;
   gap: 3.5rem;
-  border-top: 2px solid #1c1917;
-  padding-top: 3rem;
   position: relative;
   z-index: 2;
 }
@@ -269,35 +267,6 @@
   background: #ea580c;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(234, 88, 12, 0.25);
-}
-
-/* ==========================================================================
-   GIANT BACKGROUND WATERMARK ACROSS BOTTOM DIVIDER (ZERO LAYOUT IMPACT)
-   ========================================================================== */
-.footerWatermarkContainer {
-  position: absolute;
-  bottom: 48px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-  line-height: 0.75;
-}
-
-.footerGiantWatermark {
-  display: inline-block;
-  font-size: clamp(4.5rem, 13vw, 11rem);
-  font-weight: 950;
-  color: #1c1917;
-  opacity: 0.045;
-  letter-spacing: 0.06em;
-  line-height: 0.75;
-  white-space: nowrap;
-  text-transform: uppercase;
 }
 
 /* ==========================================================================

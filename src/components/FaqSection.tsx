@@ -108,11 +108,12 @@ export default function FaqSection() {
               VEDETI.
             </h2>
 
-            <p className={styles.leftLeadText}>
-              Nisi prepričan glede bonov, delovnega časa ali dostave? Tu so odgovori, servirani vroči.
-            </p>
+            {/* Description & CTA Button Inline Row with Auto-Wrapping */}
+            <div className={styles.leadCtaRow}>
+              <p className={styles.leftLeadText}>
+                Nisi prepričan glede bonov, delovnega časa ali dostave? Tu so odgovori, servirani vroči.
+              </p>
 
-            <div>
               <a href="#meni" className={styles.leftCtaBtn}>
                 <span>Oglej Si Vsa Vprašanja (FAQ)</span>
                 <ArrowRightSvg size={16} />

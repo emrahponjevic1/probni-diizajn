@@ -38,7 +38,7 @@
    ========================================================================== */
 .minimalistGrid {
   display: grid;
-  grid-template-columns: 1.35fr 1.25fr 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 3.5rem;
   position: relative;
   z-index: 2;
@@ -90,7 +90,7 @@
   color: #57534e;
   line-height: 1.65;
   margin: 0;
-  max-width: 320px;
+  max-width: 100%;
 }
 
 .socialRow {

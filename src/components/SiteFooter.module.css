@@ -1,5 +1,6 @@
 /* ==========================================================================
    ŠEHEREZADA - SITE FOOTER (LUXURY CLEAN WHITE THEME)
+   4 DISTINCT DESIGN VARIATIONS
    ========================================================================== */
 
 .footerSection {
@@ -8,7 +9,7 @@
   position: relative;
   overflow: hidden;
   border-top: 1px solid #f2ede4;
-  padding: 4.5rem 2rem 0;
+  padding: 3rem 2rem 0;
 }
 
 .footerContainer {
@@ -17,7 +18,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 3rem;
 }
 
 /* Background Subtle Warm Glow */
@@ -34,23 +35,68 @@
 }
 
 /* ==========================================================================
-   MAIN 4-COLUMN FOOTER GRID
+   STYLE SELECTOR BAR (INTERACTIVE PROTOTYPE PREVIEW)
    ========================================================================== */
-.footerGrid {
-  display: grid;
-  grid-template-columns: 1.35fr 1.05fr 1.25fr 1.05fr;
-  gap: 3.5rem;
-  position: relative;
-  z-index: 2;
-}
-
-/* Column 1: Brand & Bio & Socials */
-.brandCol {
+.styleSelectorWrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 3;
 }
 
+.styleSelectorLabel {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #ea580c;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 4px 14px;
+  border-radius: 99px;
+}
+
+.styleSwitcherTabs {
+  display: inline-flex;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 99px;
+  padding: 5px;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.06);
+  gap: 4px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.styleTabBtn {
+  padding: 0.7rem 1.3rem;
+  border-radius: 99px;
+  border: none;
+  background: transparent;
+  color: #57534e;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.styleTabBtn:hover {
+  color: #ea580c;
+}
+
+.styleTabBtnActive {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+}
+
+/* Common Brand Typography */
 .brandLogo {
   font-size: 1.95rem;
   font-weight: 950;
@@ -78,7 +124,6 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin-top: 0.4rem;
 }
 
 .socialBtn {
@@ -103,7 +148,6 @@
   box-shadow: 0 6px 16px rgba(234, 88, 12, 0.25);
 }
 
-/* Common Column Styles */
 .colTitle {
   font-size: 0.84rem;
   font-weight: 900;
@@ -124,12 +168,6 @@
   height: 2px;
   background: #ea580c;
   border-radius: 99px;
-}
-
-/* Column 2: Hours Day-By-Day List */
-.hoursCol {
-  display: flex;
-  flex-direction: column;
 }
 
 .liveMintPill {
@@ -170,30 +208,6 @@
 .dayTime {
   color: #1c1917;
   font-weight: 800;
-}
-
-.todayRow {
-  background: #fff7ed;
-  border-radius: 8px;
-  padding: 4px 8px;
-  border-bottom: none;
-}
-
-.todayRow .dayName {
-  color: #ea580c;
-  font-weight: 800;
-}
-
-.todayRow .dayTime {
-  color: #ea580c;
-  font-weight: 900;
-}
-
-/* Column 3: Locations & Contact */
-.locContactCol {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .locationCard {
@@ -250,13 +264,6 @@
   color: #ea580c;
 }
 
-/* Column 4: Quick Links & Wolt Delivery */
-.linksCol {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
 .navLinksList {
   display: flex;
   flex-direction: column;
@@ -291,7 +298,6 @@
   background: #ea580c;
 }
 
-/* Delivery Mini Card */
 .deliveryMiniCard {
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 1px solid #fed7aa;
@@ -336,6 +342,120 @@
   background: #ea580c;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+}
+
+/* ==========================================================================
+   OPCIJA 1: EDITORIAL 4-COLUMN CLASSIC GRID
+   ========================================================================== */
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.35fr 1.05fr 1.25fr 1.05fr;
+  gap: 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.hoursCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.locContactCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.linksCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ==========================================================================
+   OPCIJA 2: BENTO CARDS FOOTER
+   ========================================================================== */
+.bentoFooterGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.6rem;
+}
+
+.bentoFooterCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  padding: 2.2rem;
+  box-shadow: 0 4px 18px rgba(28, 25, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.bentoDeliveryHighlight {
+  background: linear-gradient(135deg, #fff7ed 0%, #fffdfa 100%);
+  border-color: #fed7aa;
+}
+
+.bentoHours2Col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2rem;
+}
+
+/* ==========================================================================
+   OPCIJA 3: GRAND BANNER HEADER + 3 COLUMNS
+   ========================================================================== */
+.grandBrandHeader {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 28px;
+  padding: 2.8rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.06);
+}
+
+.grandWatermarkText {
+  position: absolute;
+  right: -10px;
+  bottom: -25px;
+  font-size: 6.5rem;
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.04;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.triColumnsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 0.95fr;
+  gap: 3.5rem;
+  padding: 1rem 0;
+}
+
+/* ==========================================================================
+   OPCIJA 4: MINIMALIST MODERNIST WHITE (FINE BORDERS & PILLS)
+   ========================================================================== */
+.minimalistGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr 1fr;
+  gap: 2.5rem;
+  border-top: 2px solid #1c1917;
+  padding-top: 2.5rem;
 }
 
 /* ==========================================================================
@@ -391,13 +511,18 @@
     padding: 3.5rem 1.5rem 0;
   }
 
-  .footerGrid {
+  .footerGrid,
+  .bentoFooterGrid,
+  .triColumnsGrid,
+  .minimalistGrid {
     grid-template-columns: 1fr 1fr;
     gap: 3rem 2rem;
   }
 
-  .brandBioText {
-    max-width: 100%;
+  .grandBrandHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.2rem 1.8rem;
   }
 }
 
@@ -406,9 +531,27 @@
     padding: 3rem 1.25rem 0;
   }
 
-  .footerGrid {
+  .styleSwitcherTabs {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .styleTabBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footerGrid,
+  .bentoFooterGrid,
+  .triColumnsGrid,
+  .minimalistGrid {
     grid-template-columns: 1fr;
     gap: 2.4rem;
+  }
+
+  .bentoHours2Col {
+    grid-template-columns: 1fr;
   }
 
   .subFooterBar {

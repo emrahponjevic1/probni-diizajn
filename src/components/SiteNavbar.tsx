@@ -1,45 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
-import styles from "./SeherezadaHero.module.css";
+import styles from "./SiteNavbar.module.css";
 
 // Clean Vector SVG Icons
-const UtensilsSvg = ({ size = 19, className }: { size?: number; className?: string }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M18 2v6a3 3 0 0 1-3 3 3 3 0 0 1-3-3V2" />
-    <path d="M15 2v18" />
-    <path d="M5 2v7a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V2" />
-    <path d="M8 12v8" />
-  </svg>
-);
-
-const PhoneSvg = ({ size = 17, className }: { size?: number; className?: string }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
-
 const PinSvg = ({ size = 16, className }: { size?: number; className?: string }) => (
   <svg
     width={size}
@@ -57,44 +21,11 @@ const PinSvg = ({ size = 16, className }: { size?: number; className?: string })
   </svg>
 );
 
-const TrophySvg = ({ size = 18, className }: { size?: number; className?: string }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-    <path d="M4 22h16" />
-    <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34" />
-    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-  </svg>
-);
+interface SiteNavbarProps {
+  activeRoute?: "home" | "meni" | "galerija" | "onas" | "faq" | "blog" | "kontakt";
+}
 
-const ArrowRightSvg = ({ size = 16, className }: { size?: number; className?: string }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.4"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <line x1="5" y1="12" x2="19" y2="12" />
-    <polyline points="12 5 19 12 12 19" />
-  </svg>
-);
-
-export default function SeherezadaHero() {
+export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(true);
@@ -125,7 +56,7 @@ export default function SeherezadaHero() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Bulletproof Lock body & html scroll when mobile drawer is open
+  // Lock body & html scroll when mobile drawer is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.documentElement.classList.add("drawerActive");
@@ -133,7 +64,6 @@ export default function SeherezadaHero() {
 
       const preventTouch = (e: TouchEvent) => {
         const target = e.target as HTMLElement;
-        // Allow scroll only inside drawer if drawer itself is scrollable
         if (!target.closest(`.${styles.mobileDrawer}`)) {
           e.preventDefault();
         }
@@ -154,7 +84,6 @@ export default function SeherezadaHero() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // If modal popup is active, freeze scroll calculations to prevent navbar jumps
       if (
         typeof document !== "undefined" &&
         (document.documentElement.classList.contains("modalActive") ||
@@ -172,10 +101,8 @@ export default function SeherezadaHero() {
       if (currentScrollY <= 60) {
         setIsMobileNavVisible(true);
       } else if (currentScrollY > lastScrollYRef.current + 8) {
-        // Scrolling down -> hide mobile navbar
         setIsMobileNavVisible(false);
       } else if (currentScrollY < lastScrollYRef.current - 8) {
-        // Scrolling up -> reveal mobile navbar
         setIsMobileNavVisible(true);
       }
 
@@ -189,13 +116,13 @@ export default function SeherezadaHero() {
   }, []);
 
   const navItems = [
-    { label: "Domov", href: "/", active: true },
-    { label: "Meni", href: "/meni", active: false },
-    { label: "Galerija", href: "/#galerija", active: false },
-    { label: "O nas", href: "/#onas", active: false },
-    { label: "Pogosta vprašanja", href: "/#faq", active: false },
-    { label: "Blog", href: "/#blog", active: false },
-    { label: "Kontakt", href: "/#kontakt", active: false },
+    { label: "Domov", href: "/", active: activeRoute === "home" },
+    { label: "Meni", href: "/meni", active: activeRoute === "meni" },
+    { label: "Galerija", href: "/#galerija", active: activeRoute === "galerija" },
+    { label: "O nas", href: "/#onas", active: activeRoute === "onas" },
+    { label: "Pogosta vprašanja", href: "/#faq", active: activeRoute === "faq" },
+    { label: "Blog", href: "/#blog", active: activeRoute === "blog" },
+    { label: "Kontakt", href: "/#kontakt", active: activeRoute === "kontakt" },
   ];
 
   const locationsList = [
@@ -213,12 +140,7 @@ export default function SeherezadaHero() {
   const currentLangObj = languagesList.find((l) => l.code === selectedLang) || languagesList[0];
 
   return (
-    <div className={styles.heroWrapper}>
-      {/* Background Soft Glow */}
-      <div className={styles.bgGraphics}>
-        <div className={styles.leftSoftGlow} />
-      </div>
-
+    <>
       {/* Floating Island at Top (Desktop) / Smart Sticky Hide-on-Scroll (Mobile <= 1120px) */}
       <div
         className={`${styles.navbarStickyWrapper} ${
@@ -251,7 +173,7 @@ export default function SeherezadaHero() {
               </ul>
             </nav>
 
-            {/* Desktop Action Utilities (Interactive Location & Language Dropdowns) */}
+            {/* Desktop Action Utilities */}
             <div className={styles.navActions} ref={desktopNavActionsRef}>
               {/* 1. Location Button */}
               <button
@@ -283,7 +205,7 @@ export default function SeherezadaHero() {
                 <span style={{ fontSize: "0.72rem", opacity: 0.6 }}>▾</span>
               </button>
 
-              {/* Location Dropdown - Exact width across both buttons */}
+              {/* Location Dropdown */}
               {isDesktopLocOpen && (
                 <div className={styles.desktopDropdownMenu}>
                   {locationsList.map((loc) => (
@@ -322,7 +244,7 @@ export default function SeherezadaHero() {
                 </div>
               )}
 
-              {/* Language Dropdown - Exact width across both buttons */}
+              {/* Language Dropdown */}
               {isDesktopLangOpen && (
                 <div className={`${styles.desktopDropdownMenu} ${styles.langDesktopDropdown}`}>
                   {languagesList.map((lang) => (
@@ -374,11 +296,8 @@ export default function SeherezadaHero() {
         }}
       />
 
-      {/* ====================================================================
-          SIDE DRAWER (EDITORIAL BOUTIQUE LUXURY RESTAURANT STYLE)
-          ==================================================================== */}
+      {/* Mobile Side Drawer */}
       <aside className={`${styles.mobileDrawer} ${isMobileMenuOpen ? styles.mobileDrawerOpen : ""}`}>
-        {/* Top Content Area */}
         <div>
           {/* Header */}
           <div className={styles.editorialHeader}>
@@ -418,9 +337,8 @@ export default function SeherezadaHero() {
           </ul>
         </div>
 
-        {/* Bottom Drawer Section (100% Width Mint Status Card + Divider + Buttons) */}
+        {/* Bottom Drawer Section */}
         <div className={styles.drawerBottomSection}>
-          {/* 100% Width Mint Live Status Card (Single Horizontal Row) */}
           <div className={styles.drawerStatusFullCard}>
             <div className={styles.drawerStatusLeft}>
               <span className={styles.statusOpenDotWrapper}>
@@ -432,9 +350,8 @@ export default function SeherezadaHero() {
             <span className={styles.drawerStatusTime}>09:00 – 05:00</span>
           </div>
 
-          {/* Editorial Footer: Location Selector & Language Selector Utility Buttons */}
+          {/* Drawer Footer Utilities */}
           <div className={styles.editorialFooter}>
-            {/* Popover 1: Mobile Drawer Location Picker (Opens Upwards) */}
             {isDrawerLocOpen && (
               <div className={styles.drawerDropdownMenu}>
                 {locationsList.map((loc) => (
@@ -473,7 +390,6 @@ export default function SeherezadaHero() {
               </div>
             )}
 
-            {/* Popover 2: Mobile Drawer Language Picker (Opens Upwards) */}
             {isDrawerLangOpen && (
               <div className={styles.drawerDropdownMenu}>
                 {languagesList.map((lang) => (
@@ -499,7 +415,6 @@ export default function SeherezadaHero() {
             )}
 
             <div className={styles.drawerActionsGrid}>
-              {/* Location Selector Button */}
               <button
                 type="button"
                 onClick={() => {
@@ -516,7 +431,6 @@ export default function SeherezadaHero() {
                 <span className={styles.drawerActionArrow}>{isDrawerLocOpen ? "▴" : "▾"}</span>
               </button>
 
-              {/* Language Selector Button */}
               <button
                 type="button"
                 onClick={() => {
@@ -537,184 +451,6 @@ export default function SeherezadaHero() {
           </div>
         </div>
       </aside>
-
-      {/* Main Hero Content Grid */}
-      <main className={styles.heroContent}>
-        {/* Left Column: Text & Locations */}
-        <div className={styles.leftCol}>
-          <div className={styles.dotGridLeft} />
-
-          {/* 1. Main Title */}
-          <h1 className={styles.mainTitle}>Šeherezada</h1>
-
-          {/* 2. Subtitle Tagline */}
-          <div className={styles.outlinedSubtitle}>Kebab · Pizza · Falafel</div>
-
-          {/* 3. Description */}
-          <p className={styles.description}>
-            Doživi avtentične turške okuse, sočno meso pečeno na pravem ognju in
-            domač kruh, pripravljen po tajnem receptu.
-          </p>
-
-          {/* 4. Google Reviews Rating Card */}
-          <div className={styles.reviewsBadge}>
-            <div className={styles.redStars}>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-            </div>
-            <span className={styles.ratingScore}>4.5</span>
-            <span className={styles.ratingCount}>(1.914+ Google ocen)</span>
-          </div>
-
-          {/* 5. Action Buttons */}
-          <div className={styles.ctaRow}>
-            <a href="/meni" className={styles.primaryMenuBtn}>
-              <UtensilsSvg size={19} />
-              <span>Prikaži Meni</span>
-              <ArrowRightSvg size={16} />
-            </a>
-            <a href="tel:+38669444812" className={styles.phoneBtn}>
-              <PhoneSvg size={17} className={styles.phoneRedIcon} />
-              <span>+386 69 444 812</span>
-            </a>
-          </div>
-
-          {/* 6. 2 Location Cards with Live Pulsing Indicator */}
-          <div className={styles.locationCardsRow}>
-            {/* Location 1 (Odprto) */}
-            <div
-              className={styles.locationCard}
-              style={{
-                borderColor: selectedLocation === "1" ? "#ea580c" : "#f2ede4",
-                boxShadow: selectedLocation === "1" ? "0 8px 24px rgba(234, 88, 12, 0.14)" : undefined,
-              }}
-            >
-              <div className={styles.locationTitle}>
-                <PinSvg size={16} />
-                <span>Šeherezada 1</span>
-              </div>
-
-              <div className={styles.locationAddress}>
-                Trubarjeva cesta 31, Ljubljana
-              </div>
-
-              <div className={styles.statusOpenBadge}>
-                <span className={styles.statusOpenDotWrapper}>
-                  <span className={styles.statusOpenDotPing} />
-                  <span className={styles.statusOpenDot} />
-                </span>
-                <span>Odprto</span>
-              </div>
-
-              <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Trubarjeva+cesta+31%2C+Ljubljana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.navodilaLink}
-              >
-                <span>Navodila</span>
-                <span>&rarr;</span>
-              </a>
-            </div>
-
-            {/* Location 2 (Zaprto) */}
-            <div
-              className={styles.locationCard}
-              style={{
-                borderColor: selectedLocation === "2" ? "#ea580c" : "#f2ede4",
-                boxShadow: selectedLocation === "2" ? "0 8px 24px rgba(234, 88, 12, 0.14)" : undefined,
-              }}
-            >
-              <div className={styles.locationTitle}>
-                <PinSvg size={16} />
-                <span>Šeherezada 2</span>
-              </div>
-
-              <div className={styles.locationAddress}>
-                Dunajska cesta 106, Ljubljana
-              </div>
-
-              <div className={styles.statusClosedBadge}>
-                <span className={styles.statusClosedDot} />
-                <span>Zaprto</span>
-              </div>
-
-              <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Dunajska+cesta+106%2C+Ljubljana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.navodilaLink}
-              >
-                <span>Navodila</span>
-                <span>&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: Food Showcase with Tri-Layered Balanced Organic Blobs */}
-        <div className={styles.rightCol}>
-          {/* Layer 1: Top-Left Soft Warm Pastel Shape */}
-          <div className={styles.heroPlateBlobTopLeft} />
-
-          {/* Layer 2: Main Rich Orange Organic Blob (Center) */}
-          <div className={styles.heroPlateBlob} />
-
-          {/* Layer 3: Bottom-Right Soft Warm Pastel Shape */}
-          <div className={styles.heroPlateBlobSecondary} />
-
-          <div className={styles.dotGridRight} />
-
-          <div className={styles.plateWrapper}>
-            <div className={styles.plateAura} />
-            <Image
-              src="/images/doner-kebab.jpg"
-              alt="Šeherezada Pravi Turški Döner Kebab"
-              width={480}
-              height={480}
-              priority
-              className={styles.mainPlateImage}
-            />
-
-            {/* Floating Badge 1: Halal Meso - 100% Sveže */}
-            <div className={styles.floatingBadgeHalal}>
-              <div className={styles.badgeHalalIcon}>✓</div>
-              <div>
-                <div className={styles.floatingBadgeHalalTitle}>Halal Meso</div>
-                <div className={styles.floatingBadgeHalalSub}>100% Sveže</div>
-              </div>
-            </div>
-
-            {/* Floating Badge 2: PREMIUM - Ljubljana #1 */}
-            <div className={styles.floatingBadgePremium}>
-              <div className={styles.trophyCircle}>
-                <TrophySvg size={18} />
-              </div>
-              <span className={styles.premiumGoldTag}>PREMIUM</span>
-              <div className={styles.floatingBadgePremiumTitle}>
-                Ljubljana #1
-              </div>
-              <div className={styles.floatingBadgePremiumSub}>
-                Najboljši Kebab &amp; Okusi
-              </div>
-            </div>
-
-            {/* Floating Badge 3: Domač kruh po tajnem receptu */}
-            <div className={styles.floatingBadgeRecipe}>
-              <span>✓</span>
-              <span>Domač kruh po tajnem receptu</span>
-            </div>
-
-            {/* Floating decorative leaf & chili accents */}
-            <span className={styles.leaf1}>🌿</span>
-            <span className={styles.chili1}>🌶️</span>
-            <span className={styles.chili2}>🌶️</span>
-          </div>
-        </div>
-      </main>
-    </div>
+    </>
   );
 }

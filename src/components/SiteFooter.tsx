@@ -67,7 +67,7 @@ export default function SiteFooter() {
         <div className={styles.minimalistGrid}>
           {/* Column 1: Brand & Bio & Socials */}
           <div className={styles.brandCol}>
-            <a href="#" className={styles.logoArea}>
+            <a href="/" className={styles.logoArea}>
               <div className={styles.logoIcon}>Š</div>
               <span className={styles.logoText}>
                 Šeherezada<span className={styles.logoAccent}>.</span>
@@ -174,23 +174,23 @@ export default function SiteFooter() {
             <span className={styles.colTitle}>NAROČILA &amp; INFO</span>
 
             <div className={styles.navLinksList}>
-              <a href="#meni" className={styles.navLinkItem}>
+              <a href="/meni" className={styles.navLinkItem}>
                 <span className={styles.navLinkDot} />
-                <span>Priljubljene izbire</span>
+                <span>Celotni meni &amp; cene</span>
               </a>
-              <a href="#zgodba" className={styles.navLinkItem}>
+              <a href="/#zgodba" className={styles.navLinkItem}>
                 <span className={styles.navLinkDot} />
                 <span>Naša zgodba &amp; tradicija</span>
               </a>
-              <a href="#halal" className={styles.navLinkItem}>
+              <a href="/#halal" className={styles.navLinkItem}>
                 <span className={styles.navLinkDot} />
                 <span>100% Halal Certifikat</span>
               </a>
-              <a href="#boni" className={styles.navLinkItem}>
+              <a href="/#boni" className={styles.navLinkItem}>
                 <span className={styles.navLinkDot} />
                 <span>Študentski boni</span>
               </a>
-              <a href="#faq" className={styles.navLinkItem}>
+              <a href="/#faq" className={styles.navLinkItem}>
                 <span className={styles.navLinkDot} />
                 <span>Pogosta vprašanja</span>
               </a>

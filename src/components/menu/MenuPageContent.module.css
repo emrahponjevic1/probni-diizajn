@@ -1,0 +1,1402 @@
+/* ==========================================================================
+   MENU PAGE - WARM LIGHT LUXURY RESTAURANT (ROASTLUX STYLE)
+   Strictly Plus Jakarta Sans Typography & 1360px Container Max-Width
+   ========================================================================== */
+
+.menuPageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  background: #fffdfa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6.5rem; /* Room for floating island navbar */
+  overflow-x: clip;
+  box-sizing: border-box;
+}
+
+/* Background Soft Glow */
+.bgGlow {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  max-width: 100%;
+  height: 500px;
+  background: radial-gradient(circle, rgba(254, 243, 199, 0.4) 0%, rgba(255, 253, 250, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   HERO / HEADER SECTION (100% WIDTH SECTION + 1360PX CENTERED INNER)
+   ========================================================================== */
+.headerSection {
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.heroHeader {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 2.2rem 0 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.badgePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 99px;
+  background: #fff7ed;
+  border: 1px solid #ffedd5;
+  color: #ea580c;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
+}
+
+.mainTitle {
+  font-size: clamp(2.5rem, 5.2vw, 3.8rem);
+  font-weight: 950;
+  color: #1c1917;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin: 0 0 0.85rem;
+}
+
+.titleHighlight {
+  color: #ea580c;
+}
+
+.subtitle {
+  font-size: clamp(0.98rem, 1.8vw, 1.15rem);
+  color: #57534e;
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 0 1.8rem;
+}
+
+/* ==========================================================================
+   MENU TYPE SUB-TAB SWITCHER (VSA PONUDBA / BONI / VEGI)
+   ========================================================================== */
+.typeTabsContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 99px;
+  box-shadow: 0 8px 30px rgba(28, 25, 23, 0.06);
+  max-width: 580px;
+  width: 100%;
+  margin-bottom: 1.6rem;
+  box-sizing: border-box;
+}
+
+.typeTabBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 99px;
+  border: none;
+  background: transparent;
+  color: #57534e;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.typeTabBtn:hover {
+  color: #1c1917;
+  background: #fff7ed;
+}
+
+.typeTabBtnActive {
+  background: #ea580c !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(234, 88, 12, 0.28);
+}
+
+/* ==========================================================================
+   SEARCH & LAYOUT CONTROLS BAR
+   ========================================================================== */
+.controlsBar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 580px;
+  width: 100%;
+  margin-bottom: 1.6rem;
+  box-sizing: border-box;
+}
+
+.searchBoxWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 52px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a8a29e;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 52px;
+  box-sizing: border-box;
+  padding: 0 2.8rem 0 2.85rem;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  font-size: 0.92rem;
+  color: #1c1917;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.searchInput::placeholder {
+  color: #a8a29e;
+  font-weight: 500;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #ea580c;
+  box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.1);
+}
+
+.clearSearchBtn {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: #f5f5f4;
+  color: #78716c;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.clearSearchBtn:hover {
+  background: #e7e5e4;
+  color: #1c1917;
+}
+
+/* Layout Switcher */
+.layoutToggleGroup {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  box-sizing: border-box;
+  gap: 0.25rem;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  padding: 5px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  flex-shrink: 0;
+}
+
+.layoutBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  border: none;
+  background: transparent;
+  color: #78716c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.layoutBtn:hover {
+  color: #1c1917;
+  background: #f5f5f4;
+}
+
+.layoutBtnActive {
+  background: #1c1917 !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(28, 25, 23, 0.15);
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA & CATEGORY FILTER (100% WIDTH SECTION + 1360PX INNER)
+   ========================================================================== */
+.contentSection {
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.mainContainer {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-bottom: 5.5rem;
+  box-sizing: border-box;
+}
+
+/* Student Hero Banner */
+.studentHeroBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
+  border-radius: 28px;
+  padding: 2.2rem 2.8rem;
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 12px 35px rgba(234, 88, 12, 0.22);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.studentBannerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.studentBannerTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  align-self: flex-start;
+}
+
+.studentBannerTitle {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.studentBannerDesc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.94);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 620px;
+}
+
+.studentBannerDesc strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.studentPriceBox {
+  background: #ffffff;
+  color: #1c1917;
+  padding: 1.2rem 1.8rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+  min-width: 170px;
+}
+
+.studentPriceLabel {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.studentPriceValue {
+  font-size: 2.2rem;
+  font-weight: 950;
+  color: #ea580c;
+  line-height: 1.1;
+  margin: 0.2rem 0;
+}
+
+.studentPriceSub {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #57534e;
+}
+
+/* ==========================================================================
+   STORY AVATARS CATEGORY FILTER (CIRCLES WITH DISH PHOTOS & GLOW RING)
+   ========================================================================== */
+.storyAvatarsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  box-sizing: border-box;
+}
+
+.storyAvatarsTrack {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+  overflow-x: auto;
+  padding: 0.4rem 0.2rem 0.6rem;
+  scrollbar-width: none;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1025px) {
+  .storyAvatarsTrack {
+    justify-content: center;
+  }
+}
+
+.storyAvatarsTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.storyAvatarBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 0.45rem;
+  padding: 0;
+  min-width: 78px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  scroll-snap-align: start;
+}
+
+.storyAvatarBtn:hover {
+  transform: translateY(-2px);
+}
+
+.storyAvatarRing {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  padding: 3px;
+  background: #e7e5e4;
+  transition: all 0.25s ease;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(28, 25, 23, 0.08);
+}
+
+.storyAvatarImgWrap {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #ffffff;
+}
+
+.storyAvatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.storyAvatarLabel {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: #57534e;
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.storyAvatarCount {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #a8a29e;
+}
+
+.storyAvatarBtnActive .storyAvatarRing {
+  background: linear-gradient(135deg, #ea580c, #f59e0b);
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.22), 0 8px 18px rgba(234, 88, 12, 0.3);
+  transform: scale(1.06);
+}
+
+.storyAvatarBtnActive .storyAvatarLabel {
+  color: #ea580c;
+  font-weight: 900;
+}
+
+.storyAvatarBtnActive .storyAvatarCount {
+  color: #ea580c;
+  font-weight: 700;
+}
+
+/* Mini Scroll Progress Bar */
+.storyScrollTrack {
+  width: 80px;
+  height: 3px;
+  background: #f2ede4;
+  border-radius: 99px;
+  margin: 0.85rem auto 0;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.storyScrollThumb {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #ea580c;
+  border-radius: 99px;
+  will-change: transform, width;
+}
+
+/* Items Count & Status Bar */
+.itemsStatusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 0 0.2rem;
+}
+
+.itemsCountText {
+  font-size: 0.9rem;
+  color: #78716c;
+  font-weight: 600;
+}
+
+.itemsCountBold {
+  color: #1c1917;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   1. GRID LAYOUT
+   ========================================================================== */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+
+.gridCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.gridCard:hover {
+  transform: translateY(-5px);
+  border-color: #fed7aa;
+  box-shadow: 0 16px 36px rgba(234, 88, 12, 0.12);
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff8f0;
+  margin-bottom: 1.1rem;
+  cursor: pointer;
+}
+
+.dishImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gridCard:hover .dishImage {
+  transform: scale(1.06);
+}
+
+.imageBadgesRow {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+.vegiBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 99px;
+  background: rgba(236, 253, 245, 0.94);
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  font-size: 0.72rem;
+  font-weight: 800;
+  backdrop-filter: blur(8px);
+}
+
+.studentBonBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 99px;
+  background: rgba(239, 246, 255, 0.94);
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-size: 0.72rem;
+  font-weight: 800;
+  backdrop-filter: blur(8px);
+}
+
+.infoQuickBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid #f2ede4;
+  color: #57534e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.infoQuickBtn:hover {
+  background: #ea580c;
+  color: #ffffff;
+  border-color: #ea580c;
+}
+
+.cardCategory {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #ea580c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0 0 0.5rem;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.cardTitle:hover {
+  color: #ea580c;
+}
+
+.cardDesc {
+  font-size: 0.84rem;
+  color: #78716c;
+  line-height: 1.5;
+  margin: 0 0 1.1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #f5f5f4;
+  margin-top: auto;
+}
+
+.priceCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.priceAmount {
+  font-size: 1.45rem;
+  font-weight: 950;
+  color: #1c1917;
+  line-height: 1;
+}
+
+.priceNote {
+  font-size: 0.72rem;
+  color: #a8a29e;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.studentBonActiveTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1d4ed8;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 0.4rem 0.8rem;
+  border-radius: 99px;
+}
+
+.cardActionBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
+}
+
+.cardActionBtn:hover {
+  background: #ea580c;
+  color: #ffffff;
+  border-color: #ea580c;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.28);
+}
+
+/* ==========================================================================
+   2. LIST / BENTO LAYOUT
+   ========================================================================== */
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.listCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 22px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  box-shadow: 0 2px 12px rgba(28, 25, 23, 0.03);
+  transition: all 0.25s ease;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.listCard:hover {
+  border-color: #fed7aa;
+  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.1);
+  transform: translateY(-2px);
+}
+
+.listLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.listImgWrapper {
+  width: 78px;
+  height: 78px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #fff8f0;
+  position: relative;
+  cursor: pointer;
+}
+
+.listImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.listCard:hover .listImg {
+  transform: scale(1.08);
+}
+
+.listMeta {
+  min-width: 0;
+  flex: 1;
+}
+
+.listTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.listTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.listTitle:hover {
+  color: #ea580c;
+}
+
+.listDesc {
+  font-size: 0.82rem;
+  color: #78716c;
+  line-height: 1.45;
+  margin: 0 0 0.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.listPrice {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ea580c;
+}
+
+.listRightActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emptyStateTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0;
+}
+
+.emptyStateSub {
+  font-size: 0.95rem;
+  color: #78716c;
+  max-width: 420px;
+  margin: 0;
+}
+
+.resetFilterBtn {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 99px;
+  border: none;
+  background: #ea580c;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+  transition: all 0.2s ease;
+}
+
+.resetFilterBtn:hover {
+  background: #c2410c;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   FOOD DETAIL MODAL / POPUP (PORTAL)
+   ========================================================================== */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 12, 10, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContainer {
+  background: #ffffff;
+  border-radius: 28px;
+  max-width: 580px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  border: 1px solid #f2ede4;
+  animation: popInModal 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes popInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modalHeaderRow {
+  position: relative;
+  padding: 1.8rem 1.8rem 1.2rem;
+  display: flex;
+  gap: 1.4rem;
+  border-bottom: 1px solid #f5f5f4;
+}
+
+.modalDishImgWrapper {
+  width: 110px;
+  height: 110px;
+  border-radius: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #fff8f0;
+}
+
+.modalDishImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalTitleMeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  flex: 1;
+}
+
+.modalCategoryBadge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #ea580c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+}
+
+.modalDishTitle {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #1c1917;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4rem;
+}
+
+.modalPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.modalPrice {
+  font-size: 1.5rem;
+  font-weight: 950;
+  color: #ea580c;
+}
+
+.modalCloseTopBtn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid #f2ede4;
+  background: #ffffff;
+  color: #78716c;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalCloseTopBtn:hover {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.modalBody {
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.modalSectionTitle {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #1c1917;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.6rem;
+}
+
+.modalDescText {
+  font-size: 0.94rem;
+  color: #57534e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ingredientsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredientItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: #1c1917;
+  font-weight: 600;
+}
+
+.ingredientCheck {
+  color: #059669;
+  font-weight: 900;
+  font-size: 0.95rem;
+}
+
+.allergensGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.allergenPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 99px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #c2410c;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.modalFooter {
+  padding: 1.2rem 1.8rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  border-top: 1px solid #f5f5f4;
+}
+
+.modalCloseBtn {
+  padding: 0.75rem 1.8rem;
+  border-radius: 99px;
+  background: #f5f5f4;
+  border: 1px solid #e7e5e4;
+  color: #1c1917;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  background: #1c1917;
+  color: #ffffff;
+  border-color: #1c1917;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (UNIVERSAL SECTION MARGINS & PADDING STANDARDS)
+   Desktop (> 1024px): 2rem (32px) horizontal, 5rem top / 5.5rem bottom
+   Tablet (640px - 1024px): 1.5rem (24px) horizontal, 4rem top / 4.5rem bottom
+   Mobile (<= 640px): 1.25rem (20px) horizontal, 3.5rem top / 4rem bottom
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .headerSection,
+  .contentSection {
+    padding: 0 1.5rem;
+  }
+
+  .heroHeader {
+    padding: 1.2rem 0 0.3rem;
+  }
+
+  .mainContainer {
+    padding-bottom: 4.5rem;
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .listContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .storyAvatarsTrack {
+    gap: 1.2rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+
+  .storyScrollTrack {
+    margin: 0.6rem auto 0;
+  }
+
+  .storyAvatarsContainer {
+    margin-bottom: 1.8rem;
+  }
+
+  .studentHeroBanner {
+    padding: 1.8rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .studentHeroBanner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 1.8rem 1.4rem;
+  }
+
+  .studentBannerLeft {
+    align-items: center;
+  }
+
+  .studentBannerTag {
+    align-self: center;
+  }
+
+  .studentPriceBox {
+    width: 100%;
+  }
+
+  .listContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .menuPageWrapper {
+    padding-top: 5.2rem;
+  }
+
+  .headerSection,
+  .contentSection {
+    padding: 0 1.25rem;
+  }
+
+  .heroHeader {
+    padding: 1.4rem 0 0.8rem;
+  }
+
+  .badgePill {
+    margin-bottom: 0.85rem;
+  }
+
+  .mainTitle {
+    margin-bottom: 0.75rem;
+  }
+
+  .subtitle {
+    margin-bottom: 1.4rem;
+  }
+
+  .mainContainer {
+    padding-bottom: 4rem;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .listContainer {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .listCard {
+    padding: 0.85rem 1rem;
+    gap: 0.8rem;
+    border-radius: 18px;
+  }
+
+  .listImgWrapper {
+    width: 68px;
+    height: 68px;
+    border-radius: 14px;
+  }
+
+  .listTitle {
+    font-size: 0.98rem;
+  }
+
+  .listDesc {
+    font-size: 0.78rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .listPrice {
+    font-size: 1.05rem;
+  }
+
+  .cardActionBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .typeTabsContainer {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 0.4rem;
+    gap: 0.4rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .typeTabBtn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  .controlsBar {
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .searchBoxWrapper {
+    height: 48px;
+  }
+
+  .searchInput {
+    height: 48px;
+    font-size: 0.86rem;
+    padding: 0 2.2rem 0 2.5rem;
+    border-radius: 14px;
+  }
+
+  .layoutToggleGroup {
+    height: 48px;
+    padding: 4px;
+    border-radius: 14px;
+  }
+
+  .layoutBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .storyAvatarsContainer {
+    margin-bottom: 1.6rem;
+  }
+
+  .storyAvatarsTrack {
+    gap: 0.95rem;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .storyAvatarRing {
+    width: 58px;
+    height: 58px;
+  }
+
+  .storyAvatarLabel {
+    font-size: 0.76rem;
+  }
+
+  .storyAvatarCount {
+    font-size: 0.66rem;
+  }
+
+  .storyScrollTrack {
+    display: block;
+    width: 80px;
+    height: 3px;
+    margin: 0.4rem auto 0;
+  }
+
+  .itemsStatusBar {
+    margin-bottom: 1.2rem;
+  }
+
+  .categoryPill {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.82rem;
+  }
+
+  .studentHeroBanner {
+    padding: 1.5rem 1.25rem;
+    border-radius: 22px;
+  }
+
+  .studentPriceBox {
+    width: 100%;
+  }
+
+  .modalHeaderRow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1.25rem 1rem;
+  }
+
+  .modalPriceRow {
+    justify-content: center;
+  }
+
+  .modalBody {
+    padding: 1.2rem 1.25rem;
+  }
+
+  .modalFooter {
+    padding: 1rem 1.25rem 1.4rem;
+    flex-direction: column;
+  }
+
+  .modalCloseBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

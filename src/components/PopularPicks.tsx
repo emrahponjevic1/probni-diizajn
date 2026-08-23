@@ -439,7 +439,7 @@ export default function PopularPicks() {
               Preverite našo celotno ponudbo kebabov, pic, prilog, pijač in sladic.
             </p>
           </div>
-          <a href="#celoten-meni" className={styles.bannerBtn}>
+          <a href="/meni" className={styles.bannerBtn}>
             <span>Odpri Celoten Meni</span>
             <span>&rarr;</span>
           </a>

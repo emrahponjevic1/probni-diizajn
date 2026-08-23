@@ -168,7 +168,7 @@ export default function SeherezadaHero() {
       // Desktop full-width threshold
       setIsScrolled(currentScrollY > 20);
 
-      // Mobile Smart Hide-on-Scroll Logic (<= 1120px)
+      // Mobile Smart Hide-on-Scroll Logic (<= 1220px)
       if (currentScrollY <= 60) {
         setIsMobileNavVisible(true);
       } else if (currentScrollY > lastScrollYRef.current + 8) {
@@ -191,16 +191,17 @@ export default function SeherezadaHero() {
   const navItems = [
     { label: "Domov", href: "/", active: true },
     { label: "Meni", href: "/meni", active: false },
-    { label: "Galerija", href: "/#galerija", active: false },
-    { label: "O nas", href: "/#onas", active: false },
-    { label: "Pogosta vprašanja", href: "/#faq", active: false },
-    { label: "Blog", href: "/#blog", active: false },
+    { label: "Galerija", href: "/galerija", active: false },
+    { label: "O nas", href: "/o-nas", active: false },
+    { label: "Pogosta vprašanja", href: "/faq", active: false },
+    { label: "Zaposlitev", href: "/zaposlitev", active: false },
+    { label: "Blog", href: "/blog", active: false },
     { label: "Kontakt", href: "/#kontakt", active: false },
   ];
 
   const locationsList = [
     { id: "1" as const, name: "Šeherezada 1", address: "Trubarjeva cesta 31", status: "Odprto", isOpen: true },
-    { id: "2" as const, name: "Šeherezada 2", address: "Dunajska cesta 106", status: "Zaprto", isOpen: false },
+    { id: "2" as const, name: "Šeherezada 2", address: "Slovenska cesta 55", status: "Odprto", isOpen: true },
   ];
 
   const languagesList = [
@@ -219,7 +220,7 @@ export default function SeherezadaHero() {
         <div className={styles.leftSoftGlow} />
       </div>
 
-      {/* Floating Island at Top (Desktop) / Smart Sticky Hide-on-Scroll (Mobile <= 1120px) */}
+      {/* Floating Island at Top (Desktop) / Smart Sticky Hide-on-Scroll (Mobile <= 1220px) */}
       <div
         className={`${styles.navbarStickyWrapper} ${
           isScrolled ? styles.navbarStickyWrapperScrolled : ""
@@ -429,7 +430,9 @@ export default function SeherezadaHero() {
               </span>
               <span className={styles.drawerStatusTitle}>Odprto zdaj</span>
             </div>
-            <span className={styles.drawerStatusTime}>09:00 – 05:00</span>
+            <span className={styles.drawerStatusTime}>
+              {selectedLocation === "2" ? "08:00 – 01:00" : "09:00 – 02:00"}
+            </span>
           </div>
 
           {/* Editorial Footer: Location Selector & Language Selector Utility Buttons */}
@@ -620,7 +623,7 @@ export default function SeherezadaHero() {
               </a>
             </div>
 
-            {/* Location 2 (Zaprto) */}
+            {/* Location 2 */}
             <div
               className={styles.locationCard}
               style={{
@@ -634,16 +637,19 @@ export default function SeherezadaHero() {
               </div>
 
               <div className={styles.locationAddress}>
-                Dunajska cesta 106, Ljubljana
+                Slovenska cesta 55, Ljubljana
               </div>
 
-              <div className={styles.statusClosedBadge}>
-                <span className={styles.statusClosedDot} />
-                <span>Zaprto</span>
+              <div className={styles.statusOpenBadge}>
+                <span className={styles.statusOpenDotWrapper}>
+                  <span className={styles.statusOpenDotPing} />
+                  <span className={styles.statusOpenDot} />
+                </span>
+                <span>Odprto</span>
               </div>
 
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Dunajska+cesta+106%2C+Ljubljana"
+                href="https://www.google.com/maps/dir/?api=1&destination=Slovenska+cesta+55%2C+Ljubljana"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.navodilaLink}

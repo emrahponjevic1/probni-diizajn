@@ -150,7 +150,7 @@
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: 1.15rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1224,9 +1224,9 @@
 }
 
 /* ==========================================================================
-   RESPONSIVENESS (TABLET & MOBILE) -> SMART STICKY HIDE-ON-SCROLL NAVBAR (<= 1120px)
+   RESPONSIVENESS (TABLET & MOBILE) -> SMART STICKY HIDE-ON-SCROLL NAVBAR (<= 1220px)
    ========================================================================== */
-@media (max-width: 1120px) {
+@media (max-width: 1220px) {
   .heroWrapper {
     padding-top: 4.8rem;
   }

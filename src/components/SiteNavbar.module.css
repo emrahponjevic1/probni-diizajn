@@ -115,7 +115,7 @@
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: 1.15rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -586,9 +586,9 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE BREAKPOINTS (<= 1120px)
+   RESPONSIVE BREAKPOINTS (<= 1220px)
    ========================================================================== */
-@media (max-width: 1120px) {
+@media (max-width: 1220px) {
   .navbarStickyWrapper {
     position: fixed;
     top: 0;

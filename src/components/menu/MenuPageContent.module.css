@@ -11,7 +11,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 6.5rem; /* Room for floating island navbar */
   overflow-x: clip;
   box-sizing: border-box;
 }
@@ -36,12 +35,24 @@
    ========================================================================== */
 .headerSection {
   width: 100%;
-  padding: 0 2rem;
+  padding: 8.75rem 2rem 2.2rem;
   display: flex;
   justify-content: center;
   position: relative;
   z-index: 2;
   box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .headerSection {
+    padding: 7.25rem 1.5rem 1.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerSection {
+    padding: 6.25rem 1.25rem 1.5rem;
+  }
 }
 
 .heroHeader {
@@ -50,7 +61,7 @@
   width: 100%;
   max-width: 1360px;
   margin: 0 auto;
-  padding: 2.2rem 0 1.2rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,21 +69,51 @@
   box-sizing: border-box;
 }
 
-.badgePill {
+/* Chapter Tag Container with Direct Ghost Watermark Behind */
+.chapterTagContainer {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1.1rem;
-  border-radius: 99px;
-  background: #fff7ed;
-  border: 1px solid #ffedd5;
-  color: #ea580c;
+  justify-content: center;
+  padding: 0.5rem 0;
+  margin-bottom: 0.35rem;
+}
+
+.tagGhostWatermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5rem;
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.055;
+  letter-spacing: 0.08em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.chapterIndexTag {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-size: 0.84rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  color: #ea580c;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 1.1rem;
-  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
+}
+
+.chapterDash {
+  width: 18px;
+  height: 1.5px;
+  background: #ea580c;
+  opacity: 0.6;
 }
 
 .mainTitle {
@@ -82,10 +123,6 @@
   letter-spacing: -0.03em;
   line-height: 1.12;
   margin: 0 0 0.85rem;
-}
-
-.titleHighlight {
-  color: #ea580c;
 }
 
 .subtitle {
@@ -337,9 +374,22 @@
 .studentBannerDesc {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.94);
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
   max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.studentBannerLead {
+  font-weight: 700;
+  opacity: 0.96;
+}
+
+.studentBannerItems {
+  font-weight: 500;
+  opacity: 0.95;
 }
 
 .studentBannerDesc strong {

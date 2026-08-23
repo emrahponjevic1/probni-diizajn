@@ -101,7 +101,7 @@ export default function StudentVouchers() {
               </div>
 
               <div className={styles.bannerBottomRow}>
-                <a href="#meni" className={styles.bannerCtaBtn}>
+                <a href="/studentski-boni" className={styles.bannerCtaBtn}>
                   <span>Več o Študentskih Bonih</span>
                   <ArrowRightSvg size={16} />
                 </a>
@@ -145,7 +145,7 @@ export default function StudentVouchers() {
                 <div className={styles.locItem}>
                   <div className={styles.locNameCol}>
                     <LocationPinSvg size={16} />
-                    <span>Šeherezada 2 <span className={styles.locAddress}>(Dunajska cesta 106)</span></span>
+                    <span>Šeherezada 2 <span className={styles.locAddress}>(Slovenska cesta 55)</span></span>
                   </div>
                   <span className={styles.liveOpenPill}>● Odprto</span>
                 </div>

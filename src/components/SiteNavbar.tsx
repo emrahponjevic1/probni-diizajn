@@ -22,7 +22,7 @@ const PinSvg = ({ size = 16, className }: { size?: number; className?: string })
 );
 
 interface SiteNavbarProps {
-  activeRoute?: "home" | "meni" | "galerija" | "onas" | "faq" | "blog" | "kontakt";
+  activeRoute?: "home" | "meni" | "galerija" | "o-nas" | "faq" | "zaposlitev" | "blog" | "kontakt";
 }
 
 export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
@@ -97,7 +97,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
       // Desktop full-width threshold
       setIsScrolled(currentScrollY > 20);
 
-      // Mobile Smart Hide-on-Scroll Logic (<= 1120px)
+      // Mobile Smart Hide-on-Scroll Logic (<= 1220px)
       if (currentScrollY <= 60) {
         setIsMobileNavVisible(true);
       } else if (currentScrollY > lastScrollYRef.current + 8) {
@@ -118,16 +118,17 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
   const navItems = [
     { label: "Domov", href: "/", active: activeRoute === "home" },
     { label: "Meni", href: "/meni", active: activeRoute === "meni" },
-    { label: "Galerija", href: "/#galerija", active: activeRoute === "galerija" },
-    { label: "O nas", href: "/#onas", active: activeRoute === "onas" },
-    { label: "Pogosta vprašanja", href: "/#faq", active: activeRoute === "faq" },
-    { label: "Blog", href: "/#blog", active: activeRoute === "blog" },
-    { label: "Kontakt", href: "/#kontakt", active: activeRoute === "kontakt" },
+    { label: "Galerija", href: "/galerija", active: activeRoute === "galerija" },
+    { label: "O nas", href: "/o-nas", active: activeRoute === "o-nas" },
+    { label: "Pogosta vprašanja", href: "/faq", active: activeRoute === "faq" },
+    { label: "Zaposlitev", href: "/zaposlitev", active: activeRoute === "zaposlitev" },
+    { label: "Blog", href: "/blog", active: activeRoute === "blog" },
+    { label: "Kontakt", href: "/kontakt", active: activeRoute === "kontakt" },
   ];
 
   const locationsList = [
     { id: "1" as const, name: "Šeherezada 1", address: "Trubarjeva cesta 31", status: "Odprto", isOpen: true },
-    { id: "2" as const, name: "Šeherezada 2", address: "Dunajska cesta 106", status: "Zaprto", isOpen: false },
+    { id: "2" as const, name: "Šeherezada 2", address: "Slovenska cesta 55", status: "Odprto", isOpen: true },
   ];
 
   const languagesList = [
@@ -141,7 +142,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
 
   return (
     <>
-      {/* Floating Island at Top (Desktop) / Smart Sticky Hide-on-Scroll (Mobile <= 1120px) */}
+      {/* Floating Island at Top (Desktop) / Smart Sticky Hide-on-Scroll (Mobile <= 1220px) */}
       <div
         className={`${styles.navbarStickyWrapper} ${
           isScrolled ? styles.navbarStickyWrapperScrolled : ""
@@ -347,7 +348,9 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
               </span>
               <span className={styles.drawerStatusTitle}>Odprto zdaj</span>
             </div>
-            <span className={styles.drawerStatusTime}>09:00 – 05:00</span>
+            <span className={styles.drawerStatusTime}>
+              {selectedLocation === "2" ? "08:00 – 01:00" : "09:00 – 02:00"}
+            </span>
           </div>
 
           {/* Drawer Footer Utilities */}

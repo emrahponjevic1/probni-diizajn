@@ -79,7 +79,7 @@ export default function CustomerReviews() {
 
           <p className={styles.sectionSubtitle}>
             Zaupanje tisočev zadovoljnih gostov je naša največja nagrada.
-            Odkrijte pristne izkušnje z naših lokacij na Trubarjevi in Dunajski.
+            Odkrijte pristne izkušnje z naših lokacij na Trubarjevi in Slovenski.
           </p>
         </div>
 

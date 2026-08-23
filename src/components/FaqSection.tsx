@@ -35,7 +35,7 @@ const faqs: FaqItem[] = [
     tag: "DELOVNI ČAS",
     question: "KAKŠEN JE DELOVNI ČAS ŠEHEREZADE?",
     answer:
-      "Odprti smo vsak dan pozno v noč! Naši lokaciji na Trubarjevi in Celovški delata vse do 05:00 zjutraj, Bežigrad (Dunajska 106) pa do 04:00.",
+      "Odprti smo vsak dan pozno v noč! Lokacija Šeherezada na Trubarjevi 31 je odprta od 09:00 do 02:00 (ob petkih do 03:00), Šeherezada 2 na Slovenski cesti 55 pa vsak dan od 08:00 do 01:00.",
     accent: "red",
     offsetClass: styles.offsetStart,
     shadowClass: styles.shadowRed,
@@ -114,7 +114,7 @@ export default function FaqSection() {
                 Nisi prepričan glede bonov, delovnega časa ali dostave? Tu so odgovori, servirani vroči.
               </p>
 
-              <a href="#meni" className={styles.leftCtaBtn}>
+              <a href="/faq" className={styles.leftCtaBtn}>
                 <span>Oglej Si Vsa Vprašanja (FAQ)</span>
                 <ArrowRightSvg size={16} />
               </a>

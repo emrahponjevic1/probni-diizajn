@@ -47,14 +47,24 @@ const ArrowUpRightSvg = ({ size = 14 }: { size?: number }) => (
   </svg>
 );
 
-const daysData = [
-  { day: "Ponedeljek", time: "10:00 – 05:00" },
-  { day: "Torek", time: "10:00 – 05:00" },
-  { day: "Sreda", time: "10:00 – 05:00" },
-  { day: "Četrtek", time: "10:00 – 05:00" },
-  { day: "Petek", time: "10:00 – 05:00" },
-  { day: "Sobota", time: "10:00 – 05:00" },
-  { day: "Nedelja", time: "11:00 – 05:00" },
+const trubarjevaHours = [
+  { day: "Ponedeljek", time: "09:00 – 02:00" },
+  { day: "Torek", time: "09:00 – 02:00" },
+  { day: "Sreda", time: "09:00 – 02:00" },
+  { day: "Četrtek", time: "09:00 – 02:00" },
+  { day: "Petek", time: "09:00 – 03:00" },
+  { day: "Sobota", time: "09:00 – 02:00" },
+  { day: "Nedelja", time: "09:00 – 02:00" },
+];
+
+const slovenskaHours = [
+  { day: "Ponedeljek", time: "08:00 – 01:00" },
+  { day: "Torek", time: "08:00 – 01:00" },
+  { day: "Sreda", time: "08:00 – 01:00" },
+  { day: "Četrtek", time: "08:00 – 01:00" },
+  { day: "Petek", time: "08:00 – 01:00" },
+  { day: "Sobota", time: "08:00 – 01:00" },
+  { day: "Nedelja", time: "08:00 – 01:00" },
 ];
 
 export default function SiteFooter() {
@@ -140,7 +150,7 @@ export default function SiteFooter() {
               {/* Location 2 */}
               <div className={styles.locBlock}>
                 <span className={styles.locName}>Šeherezada 2:</span>
-                <span className={styles.locStreetText}>Dunajska cesta 106, 1000 Ljubljana</span>
+                <span className={styles.locStreetText}>Slovenska cesta 55, 1000 Ljubljana</span>
                 <a href="tel:+38614305240" className={styles.locPhoneLink}>
                   <PhoneSvg size={14} />
                   <span>+386 (01) 430 52 40</span>
@@ -155,12 +165,12 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          {/* Column 3: Delovni Čas Day-by-Day */}
+          {/* Column 3: Šeherezada Hours (Trubarjeva) */}
           <div className={styles.hoursCol}>
-            <span className={styles.colTitle}>DELOVNI ČAS</span>
+            <span className={styles.colTitle}>ŠEHEREZADA</span>
 
             <div className={styles.hoursList}>
-              {daysData.map((d, i) => (
+              {trubarjevaHours.map((d, i) => (
                 <div key={i} className={styles.hoursRow}>
                   <span className={styles.dayName}>{d.day}</span>
                   <span className={styles.dayTime}>{d.time}</span>
@@ -169,42 +179,18 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          {/* Column 4: Naročila & Info */}
-          <div className={styles.linksCol}>
-            <span className={styles.colTitle}>NAROČILA &amp; INFO</span>
+          {/* Column 4: Šeherezada 2 Hours (Slovenska) */}
+          <div className={styles.hoursCol}>
+            <span className={styles.colTitle}>ŠEHEREZADA 2</span>
 
-            <div className={styles.navLinksList}>
-              <a href="/meni" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>Celotni meni &amp; cene</span>
-              </a>
-              <a href="/#zgodba" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>Naša zgodba &amp; tradicija</span>
-              </a>
-              <a href="/#halal" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>100% Halal Certifikat</span>
-              </a>
-              <a href="/#boni" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>Študentski boni</span>
-              </a>
-              <a href="/#faq" className={styles.navLinkItem}>
-                <span className={styles.navLinkDot} />
-                <span>Pogosta vprašanja</span>
-              </a>
+            <div className={styles.hoursList}>
+              {slovenskaHours.map((d, i) => (
+                <div key={i} className={styles.hoursRow}>
+                  <span className={styles.dayName}>{d.day}</span>
+                  <span className={styles.dayTime}>{d.time}</span>
+                </div>
+              ))}
             </div>
-
-            <a
-              href="https://wolt.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.deliveryBtnLink}
-            >
-              <span>Dostava Wolt</span>
-              <ArrowUpRightSvg size={14} />
-            </a>
           </div>
         </div>
 

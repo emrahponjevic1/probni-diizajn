@@ -142,9 +142,19 @@ export default function MenuPageContent() {
 
   useEffect(() => {
     setIsMounted(true);
-    // Default to List view on phones (<= 768px), and Grid view on desktop/tablets
-    if (typeof window !== "undefined" && window.innerWidth <= 768) {
-      setLayoutMode("list");
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const typeParam = params.get("type") || params.get("meni");
+      if (typeParam === "student" || typeParam === "boni") {
+        setMenuType("student");
+      } else if (typeParam === "vegi" || typeParam === "vegan") {
+        setMenuType("vegi");
+      }
+
+      // Default to List view on phones (<= 768px), and Grid view on desktop/tablets
+      if (window.innerWidth <= 768) {
+        setLayoutMode("list");
+      }
     }
     // Guarantee that initial scroll position starts strictly on the left (at the first category)
     if (avatarsTrackRef.current) {
@@ -206,14 +216,16 @@ export default function MenuPageContent() {
           ==================================================================== */}
       <section className={styles.headerSection}>
         <header className={styles.heroHeader}>
-          <div className={styles.badgePill}>
-            <SparklesSvg size={14} />
-            <span>Sveže &amp; Domače Pripravljeno</span>
+          <div className={styles.chapterTagContainer}>
+            <span className={styles.tagGhostWatermark}>MENI</span>
+            <div className={styles.chapterIndexTag}>
+              <span className={styles.chapterDash} />
+              <span>JEDILNI LIST &amp; PONUDBA</span>
+              <span className={styles.chapterDash} />
+            </div>
           </div>
 
-          <h1 className={styles.mainTitle}>
-            Odkrijte Našo <span className={styles.titleHighlight}>Ponudbo</span>
-          </h1>
+          <h1 className={styles.mainTitle}>Odkrijte Našo Ponudbo</h1>
 
           <p className={styles.subtitle}>
             Pristen okus hitre prehrane, pripravljen z izbranimi svežimi sestavinami, 100% Halal mesom in domačimi recepti.
@@ -314,7 +326,10 @@ export default function MenuPageContent() {
                 Izkoristi Študentske Bone v Šeherezadi
               </h2>
               <p className={styles.studentBannerDesc}>
-                Vsak študentski meni vsebuje: <strong>Glavno jed po izbiri</strong> + <strong>Dnevno juho</strong> + <strong>Svežo solato</strong> + <strong>Jabolko</strong> + <strong>Pijačo</strong>.
+                <span className={styles.studentBannerLead}>Vsak študentski meni vsebuje:</span>
+                <span className={styles.studentBannerItems}>
+                  <strong>Glavno jed po izbiri</strong> + <strong>Dnevno juho</strong> + <strong>Svežo solato</strong> + <strong>Jabolko</strong> + <strong>Pijačo</strong>.
+                </span>
               </p>
             </div>
 

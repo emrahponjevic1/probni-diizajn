@@ -1,0 +1,1379 @@
+/* ==========================================================================
+   ABOUT PAGE (O NAS) - OPEN EDITORIAL LUXURY DESIGN SYSTEM
+   NO repetitive boxed cards. Breathable, open, magazine-style layouts.
+   Theme: Warm Light Luxury Restaurant (Roastlux Aesthetic)
+   Typography: Single Universal Plus Jakarta Sans (var(--font-jakarta))
+   ========================================================================== */
+
+.aboutMainWrapper {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fffcf8;
+  font-family: inherit;
+  color: #1c1917;
+}
+
+/* ==========================================================================
+   UNIVERSAL SECTION CONTAINERS (STRICT 1360PX MAX-WIDTH)
+   ========================================================================== */
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+/* Background Warm Glow Elements */
+.bgGlowLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at 8% 4%, rgba(234, 88, 12, 0.045) 0%, transparent 45%),
+    radial-gradient(ellipse at 92% 20%, rgba(245, 158, 11, 0.045) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 60%, rgba(234, 88, 12, 0.035) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* ==========================================================================
+   COMMON EDITORIAL CHAPTER TAGS & HEADINGS
+   ========================================================================== */
+
+.chapterTagContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 0.4rem 0;
+  margin-bottom: 0.25rem;
+}
+
+.tagGhostWatermark {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3.2rem;
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.045;
+  letter-spacing: 0.06em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.chapterIndexTag {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ea580c;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chapterDash {
+  width: 18px;
+  height: 2px;
+  background: #ea580c;
+  opacity: 0.7;
+}
+
+.chapterNumber {
+  color: #1c1917;
+  font-weight: 900;
+}
+
+/* Common Section Header Lockup */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 0 3rem 0;
+  gap: 0.85rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 900;
+  color: #1c1917;
+  letter-spacing: -0.03em;
+  line-height: 1.16;
+  margin: 0;
+}
+
+.sectionTitleAccent {
+  color: #ea580c;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionSubtitle {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #57534e;
+  margin: 0;
+  max-width: 680px;
+}
+
+/* ==========================================================================
+   SECTION 1: HERO SECTION (TOP-LEVEL FIRST PAGE SECTION UNDER NAVBAR)
+   Padding Desktop: 7rem 2rem 5.5rem
+   ========================================================================== */
+
+.heroSection {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #fffcf8;
+  padding: 8.75rem 2rem 5.5rem;
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    padding: 7.25rem 1.5rem 4.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 6.25rem 1.25rem 4rem;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+/* Left: Asymmetrical Multi-Layered Photo Composition */
+.heroVisualComposition {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 480px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archMainCard {
+  width: 280px;
+  height: 440px;
+  border-radius: 140px 140px 28px 28px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 0 20px 44px rgba(28, 25, 23, 0.09);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.archMainCard:hover {
+  transform: translateY(-4px);
+}
+
+.archImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floatChefCircle {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 0 16px 36px rgba(28, 25, 23, 0.12);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.floatChefCircle:hover {
+  transform: scale(1.05);
+}
+
+.circleImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floatDishSquircle {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  width: 145px;
+  height: 145px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 0 16px 36px rgba(28, 25, 23, 0.12);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.floatDishSquircle:hover {
+  transform: scale(1.05);
+}
+
+.squircleImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroHeritageBadge {
+  position: absolute;
+  bottom: 35px;
+  right: -5px;
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  padding: 0.75rem 1.15rem;
+  border-radius: 99px;
+  box-shadow: 0 12px 28px rgba(234, 88, 12, 0.14);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  z-index: 3;
+}
+
+.heritageBadgeIcon {
+  font-size: 1.25rem;
+}
+
+.heritageBadgeTextCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.heritageBadgeNum {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #ea580c;
+  line-height: 1.1;
+}
+
+.heritageBadgeLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #78716c;
+  text-transform: uppercase;
+}
+
+/* Right: Hero Content Column */
+.heroContentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+/* Open Minimalist Feature Rows (No heavy boxed cards) */
+.heroFeatureList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 2rem;
+  margin-top: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f2ede4;
+}
+
+.heroFeatureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.heroFeatureIcon {
+  color: #ea580c;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.heroFeatureText {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroFeatureTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin-bottom: 0.15rem;
+}
+
+.heroFeatureDesc {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #78716c;
+  margin: 0;
+}
+
+/* Hero Action Buttons */
+.heroActionRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimaryOrange {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ea580c;
+  color: #ffffff;
+  padding: 0.9rem 1.85rem;
+  border-radius: 99px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.25);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btnPrimaryOrange:hover {
+  background: #c2410c;
+  transform: translateY(-2px);
+}
+
+.phoneOrderPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  padding: 0.65rem 1.25rem;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.phoneOrderPill:hover {
+  border-color: #fed7aa;
+}
+
+.phonePillIconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff7ed;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phonePillTextCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.phonePillLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #78716c;
+  text-transform: uppercase;
+}
+
+.phonePillNumber {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #1c1917;
+}
+
+/* ==========================================================================
+   SECTION 2: STATS COUNTER STRIP (OPEN EDITORIAL BAR - NO BOXED CARD)
+   Padding Desktop: 5rem 2rem 5.5rem
+   ========================================================================== */
+
+.statsSection {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #fffcf8;
+  border-top: 1px solid #f2ede4;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  text-align: left;
+}
+
+.statItemBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.statItemBox:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: #f2ede4;
+}
+
+.statIconBox {
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.statBigNumber {
+  font-size: clamp(2.6rem, 4vw, 3.4rem);
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #1c1917;
+}
+
+.statItemLabel {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ea580c;
+}
+
+.statItemSub {
+  font-size: 0.85rem;
+  color: #78716c;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SECTION 3: PHILOSOPHY & 4 STEBRI OBRTI (OPEN MAGAZINE STORYBOARD)
+   Padding Desktop: 5rem 2rem 5.5rem
+   ========================================================================== */
+
+.philosophySection {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #fffcf8;
+  border-top: 1px solid #f2ede4;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.philosophyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.philosophyLeftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.checkList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.checkListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1c1917;
+}
+
+.checkBullet {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ea580c;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* Open 4 Pillars Rows (No heavy boxes) */
+.pillarsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pillarRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #f2ede4;
+}
+
+.pillarRow:first-child {
+  padding-top: 0;
+}
+
+.pillarRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pillarNumCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.pillarNum {
+  font-size: 1.5rem;
+  font-weight: 950;
+  color: #fed7aa;
+  line-height: 1;
+}
+
+.pillarIcon {
+  color: #ea580c;
+}
+
+.pillarContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pillarTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0;
+}
+
+.pillarDesc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #57534e;
+  margin: 0;
+}
+
+/* ==========================================================================
+   SECTION 4: KULINARIČNI PROCES (OPEN TIMELINE SPLIT - NO BOXED CARD)
+   Padding Desktop: 5rem 2rem 5.5rem
+   ========================================================================== */
+
+.processSection {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #fffcf8;
+  border-top: 1px solid #f2ede4;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.processSplit {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.processLeftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.processTimelineList {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.processTimelineList::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: #fed7aa;
+  z-index: 1;
+}
+
+.timelineStepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timelineStepBadge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ea580c;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 900;
+  box-shadow: 0 0 0 6px #fffcf8;
+  flex-shrink: 0;
+}
+
+.timelineTextCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.timelineStepTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0;
+}
+
+.timelineStepDesc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #57534e;
+  margin: 0;
+}
+
+/* Process Right Image */
+.processVisualWrapper {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 0 20px 48px rgba(28, 25, 23, 0.08);
+}
+
+.processImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.processLiveBadge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid #fed7aa;
+  padding: 0.65rem 1.2rem;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 10px 24px rgba(28, 25, 23, 0.08);
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+}
+
+.liveBadgeText {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #1c1917;
+}
+
+/* ==========================================================================
+   SECTION 5: TESTIMONIALS (OPEN EDITORIAL SHOWCASE - NO BOXED CARD)
+   Padding Desktop: 5rem 2rem 5.5rem
+   ========================================================================== */
+
+.testimonialsSection {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #fffcf8;
+  border-top: 1px solid #f2ede4;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.testimonialsSplit {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.testimonialLeftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.testimonialQuoteMark {
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 900;
+  color: #fed7aa;
+  margin-bottom: -1.5rem;
+}
+
+.testimonialQuoteText {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 650;
+  line-height: 1.6;
+  color: #1c1917;
+  font-style: italic;
+  margin: 0;
+}
+
+.testimonialAuthorBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.25rem;
+}
+
+.authorName {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ea580c;
+}
+
+.authorRole {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #78716c;
+}
+
+/* Avatar Switcher Row */
+.avatarSwitcherRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.avatarBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  opacity: 0.55;
+  transition: opacity 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.avatarBtnActive {
+  opacity: 1;
+  border-color: #ea580c;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+}
+
+.avatarBtnImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonialPhotoWrapper {
+  width: 100%;
+  height: 420px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 0 20px 48px rgba(28, 25, 23, 0.08);
+}
+
+.testimonialPhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   SECTION 6: DUAL LOCATIONS (OPEN EDITORIAL PILLARS)
+   Padding Desktop: 5rem 2rem 5.5rem
+   ========================================================================== */
+
+.locationsSection {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #fffcf8;
+  border-top: 1px solid #f2ede4;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.locationsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+}
+
+.locationPillar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-right: 1rem;
+}
+
+.locationPillar:first-child {
+  border-right: 1px solid #f2ede4;
+  padding-right: 3.5rem;
+}
+
+.locationHeaderRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.locationName {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0 0 0.25rem;
+}
+
+.locationSubtitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ea580c;
+  text-transform: uppercase;
+}
+
+.locationVibePill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 0.35rem 0.8rem;
+  border-radius: 99px;
+}
+
+.locationAddressBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #44403c;
+}
+
+.locationDesc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #57534e;
+  margin: 0;
+}
+
+.locationFeaturesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.locationFeatureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #292524;
+}
+
+.featureDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ea580c;
+}
+
+.locationActionButtons {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.locationBtnPrimary {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #1c1917;
+  color: #ffffff;
+  padding: 0.85rem 1.25rem;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.locationBtnPrimary:hover {
+  background: #ea580c;
+}
+
+.locationBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+  padding: 0.85rem 1.15rem;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.locationBtnSecondary:hover {
+  background: #ffedd5;
+}
+
+/* ==========================================================================
+   SECTION 7: MARQUEE TICKER & FINAL INVITATION CTA
+   Padding Desktop: 5rem 2rem 5.5rem
+   ========================================================================== */
+
+.marqueeWrapper {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #f2ede4;
+  border-bottom: 1px solid #f2ede4;
+  padding: 1.15rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.marqueeTrack {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  animation: marqueeScroll 30s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #78716c;
+  text-transform: uppercase;
+}
+
+.marqueeDot {
+  color: #ea580c;
+  font-size: 0.85rem;
+}
+
+.ctaSection {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: #fffcf8;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.invitationArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.35rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.invitationHeading {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 900;
+  color: #1c1917;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.invitationText {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #57534e;
+  max-width: 640px;
+  margin: 0;
+}
+
+.invitationBtnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.btnCtaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ffffff;
+  color: #1c1917;
+  border: 1px solid #f2ede4;
+  padding: 0.9rem 1.75rem;
+  border-radius: 99px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.btnCtaSecondary:hover {
+  border-color: #fed7aa;
+  background: #fffcf8;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+   ========================================================================== */
+
+/* Tablet (640px - 1024px) */
+@media (max-width: 1024px) {
+  .heroSection {
+    padding: 6rem 1.5rem 4.5rem;
+  }
+
+  .statsSection,
+  .philosophySection,
+  .processSection,
+  .testimonialsSection,
+  .locationsSection,
+  .ctaSection {
+    padding: 4rem 1.5rem 4.5rem;
+  }
+
+  .heroGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .heroContentCol {
+    order: 1;
+    width: 100%;
+  }
+
+  .heroVisualComposition {
+    order: 2;
+    max-width: 420px;
+    height: 420px;
+    margin: 0 auto;
+  }
+
+  .archMainCard {
+    width: 250px;
+    height: 380px;
+  }
+
+  .floatChefCircle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .floatDishSquircle {
+    width: 130px;
+    height: 130px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .statItemBox:nth-child(2)::after {
+    display: none;
+  }
+
+  .philosophyGrid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .processSplit {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .processVisualWrapper {
+    height: 340px;
+  }
+
+  .testimonialsSplit {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .testimonialPhotoWrapper {
+    height: 320px;
+  }
+
+  .locationsGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .locationPillar:first-child {
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid #f2ede4;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Mobile (<= 640px) */
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 5.25rem 1.25rem 4rem;
+  }
+
+  .statsSection,
+  .philosophySection,
+  .processSection,
+  .testimonialsSection,
+  .locationsSection,
+  .ctaSection {
+    padding: 3.5rem 1.25rem 4rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .heroGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .heroContentCol {
+    order: 1;
+    width: 100%;
+  }
+
+  .heroVisualComposition {
+    order: 2;
+    max-width: 320px;
+    height: 300px;
+    margin: 0 auto;
+  }
+
+  .archMainCard {
+    width: 180px;
+    height: 280px;
+    border-radius: 90px 90px 20px 20px;
+  }
+
+  .floatChefCircle {
+    width: 105px;
+    height: 105px;
+    top: 15px;
+  }
+
+  .floatDishSquircle {
+    width: 95px;
+    height: 95px;
+    bottom: 15px;
+    left: 10px;
+    border-radius: 18px;
+  }
+
+  .heroHeritageBadge {
+    bottom: 10px;
+    right: -5px;
+    padding: 0.45rem 0.8rem;
+  }
+
+  .heroHeritageBadge .heritageBadgeNum {
+    font-size: 0.9rem;
+  }
+
+  .heroHeritageBadge .heritageBadgeLabel {
+    font-size: 0.65rem;
+  }
+
+  .heroFeatureList {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .heroActionRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .btnPrimaryOrange,
+  .phoneOrderPill {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.25rem;
+  }
+
+  .statItemBox::after {
+    display: none !important;
+  }
+
+  .statBigNumber {
+    font-size: 2.2rem;
+  }
+
+  .pillarRow {
+    gap: 1rem;
+    padding: 1.25rem 0;
+  }
+
+  .processSplit {
+    gap: 2.5rem;
+  }
+
+  .processTimelineList::before {
+    left: 17px;
+  }
+
+  .timelineStepBadge {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .processVisualWrapper {
+    height: 240px;
+  }
+
+  .testimonialsSplit {
+    gap: 2.5rem;
+  }
+
+  .testimonialQuoteText {
+    font-size: 1.1rem;
+    line-height: 1.55;
+  }
+
+  .testimonialPhotoWrapper {
+    height: 240px;
+  }
+
+  .locationsGrid {
+    gap: 2.5rem;
+  }
+
+  .locationPillar:first-child {
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid #f2ede4;
+    padding-bottom: 2.5rem;
+  }
+
+  .locationActionButtons {
+    flex-direction: column;
+  }
+
+  .invitationBtnGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btnCtaSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

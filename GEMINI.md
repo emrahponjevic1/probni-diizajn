@@ -17,18 +17,37 @@
 - **Border Radii**: Cards (`18px` - `28px`), Buttons (`99px` / `14px`), Utility Buttons (`16px`), Squircles (`12px`).
 
 ## 3. Universal Section Margins & Padding Standards (STRICT UNIVERSAL RULE)
-All sections on the website MUST adhere to these exact margin and padding values:
-- **Container Max Width**: `max-width: 1360px; margin: 0 auto; width: 100%;`
-- **Horizontal Section Padding**:
-  - **Desktop (`> 1024px`)**: `2rem` (`32px`) on left and right (`padding: ... 2rem ...`).
-  - **Tablet (`640px - 1024px`)**: `1.5rem` (`24px`) on left and right (`padding: ... 1.5rem ...`).
-  - **Mobile (`<= 640px`)**: `1.25rem` (`20px`) on left and right (`padding: ... 1.25rem ...`).
-- **Vertical Section Padding**:
-  - **Desktop (`> 1024px`)**: `5rem` top, `5.5rem` bottom.
-  - **Tablet (`640px - 1024px`)**: `4rem` top, `4.5rem` bottom.
-  - **Mobile (`<= 640px`)**: `3.5rem` top, `4rem` bottom.
+All sections on the website MUST adhere to this exact two-tier architecture:
+- **Outer Element — Section (`width: 100%`)**:
+  - `width: 100%; box-sizing: border-box; position: relative;`
+  - **Horizontal Section Padding** (Applied on Section):
+    - **Desktop (`> 1024px`)**: `2rem` (`32px`) left and right.
+    - **Tablet (`640px - 1024px`)**: `1.5rem` (`24px`) left and right.
+    - **Mobile (`<= 640px`)**: `1.25rem` (`20px`) left and right.
+  - **Vertical Section Padding & Island Navbar Clearance**:
+    - **Top-Level / First Subpage Section (under Floating Island Navbar)**:
+      - **Desktop (`> 1024px`)**: `8.75rem` top, `5.5rem` bottom (`padding: 8.75rem 2rem 5.5rem;`).
+      - **Tablet (`640px - 1024px`)**: `7.25rem` top, `4.5rem` bottom (`padding: 7.25rem 1.5rem 4.5rem;`).
+      - **Mobile (`<= 640px`)**: `6.25rem` top, `4rem` bottom (`padding: 6.25rem 1.25rem 4rem;`).
+    - **Subsequent Body Sections**:
+      - **Desktop (`> 1024px`)**: `5rem` top, `5.5rem` bottom (`padding: 5rem 2rem 5.5rem;`).
+      - **Tablet (`640px - 1024px`)**: `4rem` top, `4.5rem` bottom (`padding: 4rem 1.5rem 4.5rem;`).
+      - **Mobile (`<= 640px`)**: `3.5rem` top, `4rem` bottom (`padding: 3.5rem 1.25rem 4rem;`).
+- **Inner Element — Container (`max-width: 1360px`)**:
+  - `max-width: 1360px; margin: 0 auto; width: 100%; box-sizing: border-box;`
+  - (Never place content directly outside the container; padding is handled on the section).
 
 ## 4. Food & Menu Item Presentation Rules
 - **No Numerical Noise**: Do NOT display ratings (`★ 4.9`), preparation times (`⏱ 10-12 min`), calorie counts (`🔥 580 kcal`), or gram weights (`⚖️ 380 g`) on food items.
 - **Clean Luxury Presentation**: Feature clean dish photography, category tag, title, description, and price.
 - **Detailed Information**: Detailed ingredients and allergen warnings are accessible via the dedicated interactive Food Detail Modal popup.
+
+## 5. Universal Section Header & Typography Architecture (STRICT UNIVERSAL RULE)
+- **STRICT PROHIBITION**: Generic rounded pill badges (`border-radius: 9999px` with emoji/sparkle icons like `✦ Sveže`, `❓ Center Pomoči`) and artificial split-colored titles (e.g. `Frequently Asked <span class="orange">Questions</span>` or `Vizualna <span class="orange">Zgodba</span>`) are STRICTLY FORBIDDEN.
+- **MANDATORY EDITORIAL STANDARD**: Every section header across all pages MUST use the editorial chapter watermark architecture established in *Priljubljene izbire*:
+  - **`chapterTagContainer`**: Relative container holding the watermark and the tag.
+  - **`tagGhostWatermark`**: Large subtle uppercase watermark text directly behind the tag (`font-size: 3.2rem - 3.5rem; font-weight: 950; color: #1c1917; opacity: 0.055; letter-spacing: 0.06em; text-transform: uppercase; user-select: none; pointer-events: none; line-height: 1;`).
+  - **`chapterIndexTag`**: Uppercase letter-spaced tag (`font-size: 0.82rem - 0.85rem; font-weight: 800; color: #ea580c; letter-spacing: 0.14em;`) flanked by horizontal dash lines (`chapterDash`: `width: 18px; height: 1.5px; background: #ea580c; opacity: 0.6;`).
+  - **`sectionTitle` / `heroTitle`**: Clean, solid luxury charcoal title (`#1c1917`, `font-weight: 950`, `letter-spacing: -0.03em`, `line-height: 1.1`).
+  - **`sectionSubtitle` / `heroSubtitle`**: Elegant muted subtitle (`#57534e`, `font-size: 1.05rem - 1.1rem`, `line-height: 1.6`).
+

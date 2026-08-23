@@ -39,3 +39,10 @@ a {
 button {
   font-family: inherit;
 }
+
+/* Prevent iOS Safari auto-zoom on form input focus */
+input,
+textarea,
+select {
+  font-size: 16px;
+}

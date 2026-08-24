@@ -4,9 +4,9 @@ import FaqPageContent from "@/components/faq/FaqPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Pogosta Vprašanja (FAQ) | Šeherezada Ljubljana",
+  title: "Pogosta vprašanja — halal, boni, delovni čas | Šeherezada",
   description:
-    "Vse, kar morate vedeti o naši hrani, 100% Halal certifikatu, študentskih bonih z doplačilom 3,00 € ter naročanju za osebni prevzem v restavraciji Šeherezada.",
+    "Odgovori o halal certifikatu, študentskih bonih z doplačilom 3,00 €, veganski ponudbi in delovnem času obeh lokacij v Ljubljani.",
 };
 
 export default function FaqPage() {

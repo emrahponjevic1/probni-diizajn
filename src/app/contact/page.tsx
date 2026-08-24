@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "Contact & Locations · Trubarjeva & Slovenska | Šeherezada Ljubljana",
   description:
-    "Visit Šeherezada at Trubarjeva 31 or Slovenska 55 in Ljubljana. Call +386 (01) 430 52 40 or submit inquiries for catering and group orders.",
+    "Visit Šeherezada at Trubarjeva 31 or Slovenska 55 in Ljubljana. Call +386 69 314 316 or submit inquiries for catering and group orders.",
 };
 
 export default function ContactPage() {

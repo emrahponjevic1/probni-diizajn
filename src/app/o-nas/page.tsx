@@ -4,22 +4,22 @@ import AboutPageContent from "@/components/about/AboutPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "O nas · Naša Zgodba & Tradicija Žara | Šeherezada Ljubljana",
+  title: "O nas — halal kebab v Ljubljani od leta 1998 | Šeherezada",
   description:
-    "Več kot 25 let pristne orientalske kulinarične tradicije v Ljubljani. 24-urna marinada mesa, ročno zamešene lepinje iz krušne peči, 100% Halal certifikat ter dve lokaciji na Trubarjevi 31 in Slovenski 55.",
+    "Halal restavracija v središču Ljubljane od leta 1998. Sveže pečene lepinje, žar na ognju in dve lokaciji — Trubarjeva 31 in Slovenska 55.",
   keywords: [
     "Šeherezada Ljubljana",
     "O nas Šeherezada",
     "kebab tradicija Ljubljana",
-    "peka lepinj krušna peč",
+    "sveže pečene lepinje Ljubljana",
     "halal restavracija Ljubljana",
     "Trubarjeva kebab",
     "Slovenska orientalska hrana",
   ],
   openGraph: {
-    title: "O nas · Naša Zgodba & Tradicija Žara | Šeherezada Ljubljana",
+    title: "O nas — halal kebab v Ljubljani od leta 1998 | Šeherezada",
     description:
-      "Več kot 25 let pristne kulinarične dediščine, pravega ognja in domačega kruha v Ljubljani.",
+      "Od leta 1998 pristna kulinarična dediščina, pravi ogenj in domač kruh v Ljubljani.",
     type: "website",
     locale: "sl_SI",
   },

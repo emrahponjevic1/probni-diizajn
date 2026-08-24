@@ -4,9 +4,9 @@ import BlogPageContent from "@/components/blog/BlogPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Kulinarični Blog & Zgodbe Žara | Šeherezada Ljubljana",
+  title: "Blog — hrana, halal in boni v Ljubljani | Šeherezada",
   description:
-    "Odkrijte skrivnosti 24-urne marinade, sveže pečene lepinje, domačih falaflov in pristne orientalske kulinarične tradicije v restavraciji Šeherezada Ljubljana.",
+    "Nasveti in zgodbe o halal ponudbi, veganskih jedeh in študentskih bonih v Šeherezadi — restavraciji v središču Ljubljane.",
   keywords: [
     "Šeherezada blog",
     "kulinarične zgodbe",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "študentski boni hrana",
   ],
   openGraph: {
-    title: "Kulinarični Blog & Zgodbe Žara | Šeherezada Ljubljana",
+    title: "Blog — hrana, halal in boni v Ljubljani | Šeherezada",
     description:
       "Spoznajte umetnost orientalske kulinarične tradicije, skrivnosti priprave svežih jedi in zgodbe naših mojstrov peke in žara.",
     type: "website",

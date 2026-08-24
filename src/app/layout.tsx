@@ -14,9 +14,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Šeherezada | Kebab · Pizza · Falafel",
+  title: "Šeherezada – halal kebab, pizza in falafel v Ljubljani",
   description:
-    "Doživi avtentične turške okuse, sočno meso pečeno na pravem ognju in domač kruh, pripravljen po tajnem receptu.",
+    "Halal kebab, jufka, falafel in pizza v središču Ljubljane. Dve lokaciji — Trubarjeva 31 in Slovenska 55. Študentski boni z doplačilom 3,00 €.",
 };
 
 export default function RootLayout({

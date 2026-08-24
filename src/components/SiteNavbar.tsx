@@ -135,7 +135,6 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
     id: l.id,
     name: l.name,
     address: l.street,
-    hours: l.hoursShort,
     href: `/lokacije/${LOCATION_SLUG[l.id]}`,
   }));
 
@@ -228,9 +227,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                           <PinSvg size={13} />
                           <span>{loc.name}</span>
                         </span>
-                        <span className={styles.dropdownItemSub}>
-                          {loc.address} · {loc.hours}
-                        </span>
+                        <span className={styles.dropdownItemSub}>{loc.address}</span>
                       </div>
                       <span className={styles.dropdownItemCheck}>→</span>
                     </Link>
@@ -362,9 +359,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                         <PinSvg size={13} />
                         <span>{loc.name}</span>
                       </span>
-                      <span className={styles.dropdownItemSub}>
-                        {loc.address} · {loc.hours}
-                      </span>
+                      <span className={styles.dropdownItemSub}>{loc.address}</span>
                     </div>
                     <span className={styles.dropdownItemCheck}>→</span>
                   </Link>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./SeherezadaHero.module.css";
-import { LOCATIONS, PHONE } from "@/data/locations";
+import { LOCATIONS, LOCATION_SLUG, PHONE } from "@/data/locations";
 
 // Clean Vector SVG Icons
 const UtensilsSvg = ({ size = 19, className }: { size?: number; className?: string }) => (
@@ -159,63 +159,41 @@ export default function SeherezadaHero() {
             </a>
           </div>
 
-          {/* 6. 2 Location Cards with Live Pulsing Indicator */}
+          {/* 6. Kartici poslovalnic
+                Ime vodi na stran lokala, "Poglej lokacijo" pa naravnost
+                v Google Zemljevide — gost, ki hoče pot, je ne rabi iskati. */}
           <div className={styles.locationCardsRow}>
-            {/* Location 1 (Odprto) */}
-            <div className={styles.locationCard}>
-              <div className={styles.locationTitle}>
-                <PinSvg size={16} />
-                <span>{LOCATIONS[0].name}</span>
+            {LOCATIONS.map((loc) => (
+              <div key={loc.id} className={styles.locationCard}>
+                <Link
+                  href={`/lokacije/${LOCATION_SLUG[loc.id]}`}
+                  className={styles.locationTitle}
+                >
+                  <PinSvg size={16} />
+                  <span>{loc.name}</span>
+                </Link>
+
+                <div className={styles.locationAddress}>{loc.fullAddress}</div>
+
+                <div className={styles.statusOpenBadge}>
+                  <span className={styles.statusOpenDotWrapper}>
+                    <span className={styles.statusOpenDotPing} />
+                    <span className={styles.statusOpenDot} />
+                  </span>
+                  <span>Odprto</span>
+                </div>
+
+                <a
+                  href={loc.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.navodilaLink}
+                >
+                  <span>Poglej lokacijo</span>
+                  <span>&rarr;</span>
+                </a>
               </div>
-
-              <div className={styles.locationAddress}>
-                {LOCATIONS[0].fullAddress}
-              </div>
-
-              <div className={styles.statusOpenBadge}>
-                <span className={styles.statusOpenDotWrapper}>
-                  <span className={styles.statusOpenDotPing} />
-                  <span className={styles.statusOpenDot} />
-                </span>
-                <span>Odprto</span>
-              </div>
-
-              <a
-                href="/lokacije/trubarjeva-31"
-                className={styles.navodilaLink}
-              >
-                <span>Poglej lokacijo</span>
-                <span>&rarr;</span>
-              </a>
-            </div>
-
-            {/* Location 2 */}
-            <div className={styles.locationCard}>
-              <div className={styles.locationTitle}>
-                <PinSvg size={16} />
-                <span>{LOCATIONS[1].name}</span>
-              </div>
-
-              <div className={styles.locationAddress}>
-                {LOCATIONS[1].fullAddress}
-              </div>
-
-              <div className={styles.statusOpenBadge}>
-                <span className={styles.statusOpenDotWrapper}>
-                  <span className={styles.statusOpenDotPing} />
-                  <span className={styles.statusOpenDot} />
-                </span>
-                <span>Odprto</span>
-              </div>
-
-              <a
-                href="/lokacije/slovenska-55"
-                className={styles.navodilaLink}
-              >
-                <span>Poglej lokacijo</span>
-                <span>&rarr;</span>
-              </a>
-            </div>
+            ))}
           </div>
         </div>
 

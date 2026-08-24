@@ -293,6 +293,22 @@
   gap: 0.4rem;
   text-align: left;
   justify-self: start;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.locationTitle svg {
+  color: #ea580c;
+  flex-shrink: 0;
+}
+
+.locationTitle:hover {
+  color: #ea580c;
+}
+
+.locationTitle:hover span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .locationAddress {

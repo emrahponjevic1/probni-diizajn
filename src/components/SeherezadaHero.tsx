@@ -161,8 +161,8 @@ export default function SeherezadaHero() {
           </div>
 
           {/* 6. Kartici poslovalnic
-                Ime vodi na stran lokala, "Poglej lokacijo" pa naravnost
-                v Google Zemljevide — gost, ki hoče pot, je ne rabi iskati. */}
+                Ime vodi na stran lokala, "Lokacija" pa naravnost v Google
+                Zemljevide — gost, ki hoče pot, je ne rabi iskati. */}
           <div className={styles.locationCardsRow}>
             {LOCATIONS.map((loc) => (
               <div key={loc.id} className={styles.locationCard}>
@@ -184,7 +184,7 @@ export default function SeherezadaHero() {
                   rel="noopener noreferrer"
                   className={styles.navodilaLink}
                 >
-                  <span>Poglej lokacijo</span>
+                  <span>Lokacija</span>
                   <span>&rarr;</span>
                 </a>
               </div>

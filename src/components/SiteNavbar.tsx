@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "./SiteNavbar.module.css";
-import { LOCATIONS } from "@/data/locations";
+import { LOCATIONS, LOCATION_SLUG } from "@/data/locations";
 
 // Clean Vector SVG Icons
 const PinSvg = ({ size = 16, className }: { size?: number; className?: string }) => (
@@ -34,7 +34,6 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
   const lastScrollYRef = useRef(0);
 
   // Interactive Location & Language state
-  const [selectedLocation, setSelectedLocation] = useState<"1" | "2">("1");
   const [selectedLang, setSelectedLang] = useState<"SLO" | "ENG" | "BHS">("SLO");
 
   // Dropdown Open States (Desktop & Mobile Drawer)
@@ -130,12 +129,14 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
 
   // Poslovalnice beremo iz src/data/locations.ts — prej je bil tu drug seznam,
   // ki se je lahko razhajal s tistim v nogi in na strani Kontakt.
-  const locationsList = LOCATIONS.map((l, i) => ({
-    id: String(i + 1) as "1" | "2",
+  // Poslovalnici nista izbira, ampak dve strani. Spustni seznam zato vodi na
+  // /lokacije/<slug> — gost, ki hoče podrobnosti, gre tja; ostali ga ne rabijo.
+  const locationsList = LOCATIONS.map((l) => ({
+    id: l.id,
     name: l.name,
     address: l.street,
-    status: "Odprto",
-    isOpen: true,
+    hours: l.hoursShort,
+    href: `/lokacije/${LOCATION_SLUG[l.id]}`,
   }));
 
   const languagesList = [
@@ -144,7 +145,6 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
     { code: "BHS" as const, name: "Bos / Hrv / Srp" },
   ];
 
-  const currentLocObj = locationsList.find((l) => l.id === selectedLocation) || locationsList[0];
   const currentLangObj = languagesList.find((l) => l.code === selectedLang) || languagesList[0];
 
   return (
@@ -194,7 +194,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                 aria-expanded={isDesktopLocOpen}
               >
                 <PinSvg size={15} />
-                <span>{currentLocObj.name}</span>
+                <span>Lokaciji</span>
                 <span style={{ fontSize: "0.72rem", opacity: 0.6 }}>▾</span>
               </button>
 
@@ -217,37 +217,23 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
               {isDesktopLocOpen && (
                 <div className={styles.desktopDropdownMenu}>
                   {locationsList.map((loc) => (
-                    <button
+                    <Link
                       key={loc.id}
-                      type="button"
-                      onClick={() => {
-                        setSelectedLocation(loc.id);
-                        setIsDesktopLocOpen(false);
-                      }}
-                      className={`${styles.dropdownOptionItem} ${
-                        selectedLocation === loc.id ? styles.dropdownOptionItemActive : ""
-                      }`}
+                      href={loc.href}
+                      onClick={() => setIsDesktopLocOpen(false)}
+                      className={styles.dropdownOptionItem}
                     >
                       <div className={styles.dropdownItemMeta}>
                         <span style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-                          <span>📍 {loc.name}</span>
-                          <span
-                            style={{
-                              fontSize: "0.68rem",
-                              fontWeight: 800,
-                              color: loc.isOpen ? "#059669" : "#dc2626",
-                              background: loc.isOpen ? "#ecfdf5" : "#fef2f2",
-                              padding: "1px 6px",
-                              borderRadius: "6px",
-                            }}
-                          >
-                            {loc.status}
-                          </span>
+                          <PinSvg size={13} />
+                          <span>{loc.name}</span>
                         </span>
-                        <span className={styles.dropdownItemSub}>{loc.address}</span>
+                        <span className={styles.dropdownItemSub}>
+                          {loc.address} · {loc.hours}
+                        </span>
                       </div>
-                      {selectedLocation === loc.id && <span className={styles.dropdownItemCheck}>✓</span>}
-                    </button>
+                      <span className={styles.dropdownItemCheck}>→</span>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -347,55 +333,41 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
 
         {/* Bottom Drawer Section */}
         <div className={styles.drawerBottomSection}>
-          <div className={styles.drawerStatusFullCard}>
-            <div className={styles.drawerStatusLeft}>
-              <span className={styles.statusOpenDotWrapper}>
-                <span className={styles.statusOpenDotPing} />
-                <span className={styles.statusOpenDot} />
-              </span>
-              <span className={styles.drawerStatusTitle}>Odprto zdaj</span>
+          {LOCATIONS.map((l) => (
+            <div key={l.id} className={styles.drawerStatusFullCard}>
+              <div className={styles.drawerStatusLeft}>
+                <PinSvg size={14} />
+                <span className={styles.drawerStatusTitle}>{l.name}</span>
+              </div>
+              <span className={styles.drawerStatusTime}>{l.hoursShort}</span>
             </div>
-            <span className={styles.drawerStatusTime}>
-              {selectedLocation === "2" ? "08:00 – 01:00" : "09:00 – 02:00"}
-            </span>
-          </div>
+          ))}
 
           {/* Drawer Footer Utilities */}
           <div className={styles.editorialFooter}>
             {isDrawerLocOpen && (
               <div className={styles.drawerDropdownMenu}>
                 {locationsList.map((loc) => (
-                  <button
+                  <Link
                     key={loc.id}
-                    type="button"
+                    href={loc.href}
                     onClick={() => {
-                      setSelectedLocation(loc.id);
                       setIsDrawerLocOpen(false);
+                      setIsMobileMenuOpen(false);
                     }}
-                    className={`${styles.dropdownOptionItem} ${
-                      selectedLocation === loc.id ? styles.dropdownOptionItemActive : ""
-                    }`}
+                    className={styles.dropdownOptionItem}
                   >
                     <div className={styles.dropdownItemMeta}>
                       <span style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-                        <span>📍 {loc.name}</span>
-                        <span
-                          style={{
-                            fontSize: "0.68rem",
-                            fontWeight: 800,
-                            color: loc.isOpen ? "#059669" : "#dc2626",
-                            background: loc.isOpen ? "#ecfdf5" : "#fef2f2",
-                            padding: "1px 6px",
-                            borderRadius: "6px",
-                          }}
-                        >
-                          {loc.status}
-                        </span>
+                        <PinSvg size={13} />
+                        <span>{loc.name}</span>
                       </span>
-                      <span className={styles.dropdownItemSub}>{loc.address}</span>
+                      <span className={styles.dropdownItemSub}>
+                        {loc.address} · {loc.hours}
+                      </span>
                     </div>
-                    {selectedLocation === loc.id && <span className={styles.dropdownItemCheck}>✓</span>}
-                  </button>
+                    <span className={styles.dropdownItemCheck}>→</span>
+                  </Link>
                 ))}
               </div>
             )}
@@ -435,8 +407,8 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
               >
                 <PinSvg size={18} className={styles.drawerActionIcon} />
                 <div className={styles.drawerActionTextCol}>
-                  <span className={styles.drawerActionLabel}>Lokal</span>
-                  <span className={styles.drawerActionValue}>{currentLocObj.name}</span>
+                  <span className={styles.drawerActionLabel}>Lokaciji</span>
+                  <span className={styles.drawerActionValue}>Trubarjeva · Slovenska</span>
                 </div>
                 <span className={styles.drawerActionArrow}>{isDrawerLocOpen ? "▴" : "▾"}</span>
               </button>

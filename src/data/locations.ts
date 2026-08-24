@@ -33,6 +33,11 @@ export interface LocationCore {
 
   /** Kratka oznaka nad naslovom na strani lokala. */
   badge: string;
+  /**
+   * Naslov H1 na strani lokala. Nosi ime, ključno besedo in ulico hkrati —
+   * ljudje iščejo "kebab Trubarjeva", ne samo imena lokala.
+   */
+  h1: string;
   /** Ena vrstica o značaju lokala. */
   subtitle: string;
   /** Dva do trije stavki — po čem se ta lokal razlikuje od drugega. */
@@ -44,6 +49,15 @@ export interface LocationCore {
   /** Vgrajen Google zemljevid. */
   mapEmbed: string;
   email: string;
+
+  /**
+   * Fotografije lokala. Dokler je polje prazno, stran prikaže lepo ogrado
+   * namesto slike — nič ni pokvarjeno. Ko imaš fotografije, jih daj v
+   * public/images/ in tu vpiši pot, npr.:
+   *   { src: "/images/trubarjeva-notranjost.jpg", alt: "Notranjost lokala" }
+   * Alt naj opiše, kaj je na sliki — to bere Google in bralnik zaslona.
+   */
+  photos: { src: string; alt: string }[];
 }
 
 export const LOCATIONS: LocationCore[] = [
@@ -68,6 +82,7 @@ export const LOCATIONS: LocationCore[] = [
     ],
     hoursShort: "09:00 – 02:00, pet in sob do 03:00",
     badge: "Mestno jedro · Naša prva poslovalnica",
+    h1: "Šeherezada — halal kebab na Trubarjevi 31",
     subtitle: "Bohemski mestni vrvež in nočna postojanka",
     vibeText:
       "Naša izvirna lokacija v samem osrčju stare Ljubljane. Popolna točka za hitro kosilo, nočni prigrizek ali sproščeno posedanje v bohemskem ritmu Trubarjeve ulice.",
@@ -86,6 +101,11 @@ export const LOCATIONS: LocationCore[] = [
     mapEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.1128405021235!2d14.5097223!3d46.0522222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47653282245b0a7d%3A0x6fb26227b2a6f23!2sTrubarjeva%20cesta%2031%2C%201000%20Ljubljana!5e0!3m2!1ssl!2ssi!4v1700000000000!5m2!1ssl!2ssi",
     email: "info@seherezada.net",
+    photos: [
+      { src: "", alt: "Notranjost lokala na Trubarjevi cesti 31" },
+      { src: "", alt: "Priprava döner kebaba na ražnju" },
+      { src: "", alt: "Vhod v lokal s Trubarjeve ceste" },
+    ],
   },
   {
     id: "slovenska",
@@ -108,6 +128,7 @@ export const LOCATIONS: LocationCore[] = [
     ],
     hoursShort: "08:00 – 01:00, vsak dan",
     badge: "Center · Bavarski dvor",
+    h1: "Šeherezada 2 — halal kebab na Slovenski 55",
     subtitle: "Prostorna restavracija ob glavni mestni aveniji",
     vibeText:
       "Sodobna restavracija ob Slovenski cesti, tik ob Bavarskem dvoru. Idealna za jutranje malice, poslovna kosila, študentske obede in večerne prigrizke.",
@@ -126,6 +147,11 @@ export const LOCATIONS: LocationCore[] = [
     mapEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.0!2d14.504!3d46.054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765329ebc0e9eb7%3A0x1!2sSlovenska%20cesta%2055%2C%201000%20Ljubljana!5e0!3m2!1ssl!2ssi!4v1700000000000!5m2!1ssl!2ssi",
     email: "info@seherezada.net",
+    photos: [
+      { src: "", alt: "Notranjost lokala na Slovenski cesti 55" },
+      { src: "", alt: "Pult in ponudba jedi" },
+      { src: "", alt: "Vhod v lokal pri Bavarskem dvoru" },
+    ],
   },
 ];
 

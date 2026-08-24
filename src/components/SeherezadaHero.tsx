@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./SeherezadaHero.module.css";
@@ -102,7 +99,6 @@ export default function SeherezadaHero() {
   // in lokacijo, ki se je lahko razhajalo s tistim v navigaciji.
 
   /** Katera poslovalnica je poudarjena med karticama pod naslovom. */
-  const [selectedLocation] = useState<"1" | "2">("1");
 
   return (
     <div className={styles.heroWrapper}>
@@ -166,13 +162,7 @@ export default function SeherezadaHero() {
           {/* 6. 2 Location Cards with Live Pulsing Indicator */}
           <div className={styles.locationCardsRow}>
             {/* Location 1 (Odprto) */}
-            <div
-              className={styles.locationCard}
-              style={{
-                borderColor: selectedLocation === "1" ? "#ea580c" : "#f2ede4",
-                boxShadow: selectedLocation === "1" ? "0 8px 24px rgba(234, 88, 12, 0.14)" : undefined,
-              }}
-            >
+            <div className={styles.locationCard}>
               <div className={styles.locationTitle}>
                 <PinSvg size={16} />
                 <span>{LOCATIONS[0].name}</span>
@@ -200,13 +190,7 @@ export default function SeherezadaHero() {
             </div>
 
             {/* Location 2 */}
-            <div
-              className={styles.locationCard}
-              style={{
-                borderColor: selectedLocation === "2" ? "#ea580c" : "#f2ede4",
-                boxShadow: selectedLocation === "2" ? "0 8px 24px rgba(234, 88, 12, 0.14)" : undefined,
-              }}
-            >
+            <div className={styles.locationCard}>
               <div className={styles.locationTitle}>
                 <PinSvg size={16} />
                 <span>{LOCATIONS[1].name}</span>

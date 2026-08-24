@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { PHONE } from "@/data/locations";
+import Link from "next/link";
+import { PHONE, LOCATION_SLUG, type LocationId } from "@/data/locations";
 import styles from "./ContactPageContent.module.css";
 import WorldMapPattern from "./WorldMapPattern";
 import {
@@ -726,6 +727,16 @@ export default function ContactPageContent() {
                   <CompassSvg size={16} />
                   <span>Apple Maps</span>
                 </a>
+
+                {/* Podrobnosti o posamezni poslovalnici imajo svojo stran —
+                    tja vodi tudi Google Business Profile. */}
+                <Link
+                  href={`/lokacije/${LOCATION_SLUG[activeMapLocationData.id as LocationId]}`}
+                  className={styles.mapSecondaryNavBtn}
+                >
+                  <NavigationSvg size={16} />
+                  <span>Vse o tej poslovalnici</span>
+                </Link>
               </div>
             </div>
           </div>

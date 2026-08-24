@@ -506,7 +506,11 @@ export default function AboutPageContent() {
                 <div>
                   <div className={styles.locationHeaderRow}>
                     <div>
-                      <h3 className={styles.locationName}>{loc.name}</h3>
+                      <h3 className={styles.locationName}>
+                        <Link href={`/lokacije/${LOCATION_SLUG[loc.id]}`}>
+                          {loc.name}
+                        </Link>
+                      </h3>
                       <span className={styles.locationSubtitle}>{loc.subtitle}</span>
                     </div>
                   </div>
@@ -533,20 +537,22 @@ export default function AboutPageContent() {
                 {/* Namesto telefona (ta je v nogi in na strani Kontakt) sta tu
                     obe navigaciji — gost na tem mestu išče pot, ne klica. */}
                 <div className={styles.locationActionButtons}>
-                  <Link
-                    href={`/lokacije/${LOCATION_SLUG[loc.id]}`}
-                    className={styles.locationBtnPrimary}
-                  >
-                    <PinSvg size={15} />
-                    <span>Poglej lokacijo</span>
-                  </Link>
                   <a
                     href={loc.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className={styles.locationBtnPrimary}
+                  >
+                    <PinSvg size={15} />
+                    <span>Google Maps</span>
+                  </a>
+                  <a
+                    href={loc.appleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={styles.locationBtnSecondary}
                   >
-                    <span>Zemljevid ↗</span>
+                    <span>Apple Maps ↗</span>
                   </a>
                 </div>
               </article>

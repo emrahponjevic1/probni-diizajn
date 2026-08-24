@@ -30,7 +30,33 @@
   .heroSection {
     padding: 6.25rem 1.25rem 4rem;
   }
-}.heroContainer {
+}
+
+.heroGlowBlob {
+  position: absolute;
+  top: -60px;
+  right: 8%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, rgba(245, 158, 11, 0.04) 50%, transparent 70%);
+  filter: blur(55px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroGlowBlobLeft {
+  position: absolute;
+  bottom: 20px;
+  left: 2%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.06) 0%, transparent 65%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroContainer {
   max-width: 1360px;
   margin: 0 auto;
   width: 100%;
@@ -714,7 +740,51 @@
   gap: 1.15rem;
   max-width: 760px;
   margin: 0 auto 2.25rem;
-}.locationSelectCard:hover .locationSelectIconWrap {
+}
+
+.locationSelectCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffff;
+  border: 1.5px solid #f0eae1;
+  border-radius: 20px;
+  padding: 1.05rem 1.35rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+  position: relative;
+  font-family: inherit;
+  box-shadow: 0 4px 14px -3px rgba(28, 25, 23, 0.04);
+}
+
+.locationSelectCard:hover {
+  transform: translateY(-2px);
+  border-color: #fed7aa;
+  box-shadow: 0 8px 20px -4px rgba(234, 88, 12, 0.1);
+}
+
+.locationSelectCardActive {
+  background: #fffcf8;
+  border-color: #ea580c;
+  box-shadow: 0 8px 24px -4px rgba(234, 88, 12, 0.16);
+}
+
+.locationSelectIconWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #faf7f2;
+  border: 1px solid #f0eae1;
+  color: #78716c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.locationSelectCard:hover .locationSelectIconWrap {
   background: #fff7ed;
   border-color: #fed7aa;
   color: #ea580c;
@@ -725,11 +795,62 @@
   border-color: #ea580c;
   color: #ffffff;
   box-shadow: 0 4px 12px -2px rgba(234, 88, 12, 0.35);
-}.locationSelectCardActive .locationSelectTag {
+}
+
+.locationSelectTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.locationSelectTag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #78716c;
+  transition: color 0.2s ease;
+}
+
+.locationSelectCardActive .locationSelectTag {
   color: #ea580c;
-}.locationSelectCardActive .locationSelectRadio {
+}
+
+.locationSelectTitle {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #1c1917;
+  letter-spacing: -0.01em;
+}
+
+.locationSelectRadio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #d6cebf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.locationSelectCardActive .locationSelectRadio {
   border-color: #ea580c;
-}.locationSelectCardActive .locationSelectRadioInner {
+}
+
+.locationSelectRadioInner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ea580c;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.locationSelectCardActive .locationSelectRadioInner {
   opacity: 1;
   transform: scale(1);
 }
@@ -757,7 +878,17 @@
   overflow: hidden;
   border: 1px solid #ede5d8;
   box-shadow: 0 4px 18px rgba(28, 25, 23, 0.06);
-}/* Right: Store Details Side */
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border: 0;
+  display: block;
+}
+
+/* Right: Store Details Side */
 .mapDetailsSide {
   display: flex;
   flex-direction: column;
@@ -765,7 +896,23 @@
   gap: 1.5rem;
   background: #ffffff;
   padding: 0.5rem 0.5rem 0.5rem 0;
-}/* Interactive Address Card with Copy */
+}
+
+.mapSideTop {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.mapSideTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1c1917;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Interactive Address Card with Copy */
 .mapAddressCard {
   display: flex;
   align-items: center;
@@ -775,20 +922,216 @@
   border: 1px solid #fed7aa;
   border-radius: 16px;
   padding: 0.85rem 1.15rem;
-}/* Transit Guides List */
+}
+
+.mapAddressLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.mapAddressIconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mapAddressTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.mapAddressStreet {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1c1917;
+}
+
+.mapAddressCity {
+  font-size: 0.8rem;
+  color: #78716c;
+}
+
+.mapCopyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+  padding: 0.45rem 0.85rem;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+
+.mapCopyBtn:hover {
+  background: #ea580c;
+  color: #ffffff;
+}
+
+.mapCopyBtnDone {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+
+.mapSideVibe {
+  font-size: 0.92rem;
+  color: #57534e;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Transit Guides List */
 .transitGuidesList {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin-top: 0.25rem;
-}/* Action Buttons */
+}
+
+.transitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: #faf7f2;
+  border: 1px solid #f0eae1;
+  border-radius: 16px;
+  padding: 0.85rem 1.05rem;
+  transition: all 0.2s ease;
+}
+
+.transitItem:hover {
+  background: #fff9f0;
+  border-color: #fed7aa;
+  transform: translateX(3px);
+}
+
+.transitIconBadge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(234, 88, 12, 0.08);
+}
+
+.transitContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.transitLabel {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #1c1917;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.transitValue {
+  font-size: 0.86rem;
+  color: #57534e;
+  line-height: 1.4;
+}
+
+/* Action Buttons */
 .mapSideActions {
   display: grid;
   grid-template-columns: 1.25fr 1fr;
   gap: 0.75rem;
   padding-top: 1.25rem;
   border-top: 1px solid #f2ede4;
-}/* --------------------------------------------------------------------------
+}
+
+/* Povezava na stran poslovalnice je v svoji vrstici čez celo širino —
+   ne tekmuje z obema navigacijama nad njo. */
+.mapDetailBtn {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1c1917;
+  background: #fffdfa;
+  border: 1px solid #f2ede4;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mapDetailBtn:hover {
+  border-color: #fed7aa;
+  color: #ea580c;
+  background: #fff7ed;
+}
+
+.mapPrimaryNavBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #ea580c 0%, #d97706 100%);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 0.85rem 1.15rem;
+  border-radius: 99px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px -2px rgba(234, 88, 12, 0.35);
+  transition: all 0.25s ease;
+}
+
+.mapPrimaryNavBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -3px rgba(234, 88, 12, 0.5);
+}
+
+.mapSecondaryNavBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: #ffffff;
+  border: 1px solid #e7ded0;
+  color: #1c1917;
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 0.85rem 1.1rem;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mapSecondaryNavBtn:hover {
+  border-color: #fed7aa;
+  background: #fffdfa;
+  color: #ea580c;
+}
+
+/* --------------------------------------------------------------------------
    5. RESPONSIVE BREAKPOINTS (STRICT UNIVERSAL PADDING STANDARDS)
    Desktop: > 1024px
    Tablet:  640px - 1024px
@@ -931,155 +1274,6 @@
   .mapSecondaryNavBtn {
     width: 100%;
     min-width: 100%;
-  }
-}
-
-/* ==========================================================================
-   POVZETEK POSLOVALNIC
-   Podrobnosti so na /lokacije/<slug>; tu je le toliko, da gost izbere.
-   ========================================================================== */
-.locSummaryGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.4rem;
-}
-
-.locSummaryCard {
-  background: #ffffff;
-  border: 1px solid #f2ede4;
-  border-radius: 24px;
-  padding: 1.8rem 1.8rem 1.9rem;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
-}
-
-.locSummaryCard:hover {
-  border-color: #fed7aa;
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px -24px rgba(28, 25, 23, 0.3);
-}
-
-.locSummaryTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.1rem;
-  flex-wrap: wrap;
-}
-
-.locSummaryBadge {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #ea580c;
-}
-
-.locSummaryTitle {
-  font-size: clamp(1.3rem, 2.3vw, 1.65rem);
-  font-weight: 900;
-  letter-spacing: -0.022em;
-  color: #1c1917;
-  margin: 0 0 0.7rem;
-}
-
-.locSummaryTitle a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.locSummaryTitle a:hover {
-  color: #ea580c;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.locSummaryAddress {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.98rem;
-  font-weight: 600;
-  color: #57534e;
-  margin: 0 0 0.4rem;
-}
-
-.locSummaryAddress svg {
-  color: #ea580c;
-  flex-shrink: 0;
-}
-
-.locSummaryHours {
-  font-size: 0.93rem;
-  color: #78716c;
-  margin: 0 0 1.5rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.locSummaryActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: auto;
-}
-
-.locSummaryPrimary,
-.locSummaryGhost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.72rem 1.3rem;
-  border-radius: 99px;
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.locSummaryPrimary {
-  background: #1c1917;
-  color: #ffffff;
-  border: 1px solid #1c1917;
-}
-
-.locSummaryPrimary:hover {
-  background: #ea580c;
-  border-color: #ea580c;
-}
-
-.locSummaryGhost {
-  background: #fffdfa;
-  color: #1c1917;
-  border: 1px solid #f2ede4;
-}
-
-.locSummaryGhost:hover {
-  border-color: #fed7aa;
-  color: #ea580c;
-}
-
-@media (max-width: 1024px) {
-  .locSummaryGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .locSummaryCard {
-    padding: 1.5rem 1.35rem 1.6rem;
-    border-radius: 20px;
-  }
-
-  .locSummaryActions {
-    flex-direction: column;
-  }
-
-  .locSummaryPrimary,
-  .locSummaryGhost {
-    width: 100%;
   }
 }
 

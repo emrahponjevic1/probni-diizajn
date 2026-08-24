@@ -52,7 +52,7 @@ export default function HalalCertificate() {
             </div>
 
             <h2 className={styles.halalHeading}>
-              100% Halal. Brez kompromisov pri čistosti in izvoru.
+              100 % halal hrana v Ljubljani — na obeh lokacijah
             </h2>
 
             <div className={styles.trustPillsRow}>
@@ -71,10 +71,10 @@ export default function HalalCertificate() {
             </div>
 
             <p className={styles.halalLeadText}>
-              Pri Šeherezadi spoštujemo vaše zaupanje in kulinarično tradicijo.
-              Vsak kos mesa, vsaka omaka in vsaka sestavina v naših dveh
-              restavracijah v Ljubljani ustreza najvišjim halal standardom in
-              strogemu nadzoru kakovosti.
+              Vse meso v Šeherezadi je 100 % halal certificirano. V naših kuhinjah
+              na Trubarjevi 31 in Slovenski 55 ni svinjine, svinjskih derivatov
+              ne alkohola — brez izjem. Na meniju je tudi 7 popolnoma
+              rastlinskih jedi.
             </p>
 
             <div className={styles.numberedStripsList}>

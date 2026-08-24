@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./AboutPageContent.module.css";
+import { initials } from "@/data/reviews";
 import {
   HERO_MICRO_ITEMS,
   STATS_BANNER_ITEMS,
@@ -207,13 +208,13 @@ export default function AboutPageContent() {
               </div>
 
               <h1 className={styles.sectionTitle}>
-                Okus pravega ognja, ročno pečen kruh in{" "}
-                <span className={styles.sectionTitleAccent}>25 let tradicije.</span>
+                Halal kebab in žar v Ljubljani —{" "}
+                <span className={styles.sectionTitleAccent}>od leta 1998.</span>
               </h1>
 
               <p className={styles.sectionSubtitle}>
                 Že od leta 1998 na Trubarjevi in Slovenski ohranjamo spoštovanje do pravega žara,
-                24-urne marinade ter vsak dan sveže zamešanega testa v krušni peči. Brez industrijskih
+                24-urne marinade ter vsak dan sveže zamešanega testa. Brez industrijskih
                 bližnjic, zmeraj z istim spoštovanjem do gosta.
               </p>
 
@@ -239,13 +240,13 @@ export default function AboutPageContent() {
                   <ArrowRightSvg size={16} />
                 </a>
 
-                <a href="tel:+38614305240" className={styles.phoneOrderPill}>
+                <a href="tel:+38669314316" className={styles.phoneOrderPill}>
                   <div className={styles.phonePillIconBox}>
                     <PhoneSvg size={16} />
                   </div>
                   <div className={styles.phonePillTextCol}>
                     <span className={styles.phonePillLabel}>Naročila &amp; Prevzem</span>
-                    <span className={styles.phonePillNumber}>+386 (01) 430 52 40</span>
+                    <span className={styles.phonePillNumber}>+386 69 314 316</span>
                   </div>
                 </a>
               </div>
@@ -374,7 +375,7 @@ export default function AboutPageContent() {
                 </div>
               </div>
 
-              <h2 className={styles.sectionTitle}>Kako Ustvarjamo Pristne Okuse</h2>
+              <h2 className={styles.sectionTitle}>Kako nastane vsaka jed</h2>
 
               <div className={styles.processTimelineList}>
                 {PROCESS_STEPS.map((step) => (
@@ -450,13 +451,8 @@ export default function AboutPageContent() {
                     }`}
                     aria-label={`Prikaži mnenje: ${t.author}`}
                   >
-                    <Image
-                      src={t.avatar}
-                      alt={t.author}
-                      width={52}
-                      height={52}
-                      className={styles.avatarBtnImg}
-                    />
+                    {/* Začetnice namesto naključne fotografije neke osebe s spleta */}
+                    <span className={styles.avatarInitials}>{initials(t.author)}</span>
                   </button>
                 ))}
               </div>
@@ -494,7 +490,7 @@ export default function AboutPageContent() {
               </div>
             </div>
 
-            <h2 className={styles.sectionTitle}>Dva Ambienta, Ena Vrhunska Kakovost</h2>
+            <h2 className={styles.sectionTitle}>Dve lokaciji v središču Ljubljane</h2>
             <p className={styles.sectionSubtitle}>
               Izberite lokacijo, ki vam je najbližje — na bohemski Trubarjevi ali ob
               osrednji Slovenski cesti.
@@ -531,18 +527,27 @@ export default function AboutPageContent() {
                   </ul>
                 </div>
 
+                {/* Namesto telefona (ta je v nogi in na strani Kontakt) sta tu
+                    obe navigaciji — gost na tem mestu išče pot, ne klica. */}
                 <div className={styles.locationActionButtons}>
-                  <a href={`tel:${loc.phone.replace(/\s+/g, "")}`} className={styles.locationBtnPrimary}>
-                    <PhoneSvg size={15} />
-                    <span>Pokliči ({loc.phone})</span>
+                  <a
+                    href={loc.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.locationBtnPrimary}
+                    aria-label={`Odpri ${loc.name} v Google Zemljevidih`}
+                  >
+                    <PinSvg size={15} />
+                    <span>Google Zemljevidi</span>
                   </a>
                   <a
-                    href={loc.mapLink}
+                    href={loc.appleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.locationBtnSecondary}
+                    aria-label={`Odpri ${loc.name} v Apple Maps`}
                   >
-                    <span>Navodila ↗</span>
+                    <span>Apple Maps ↗</span>
                   </a>
                 </div>
               </article>

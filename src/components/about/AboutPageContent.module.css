@@ -840,6 +840,20 @@
   object-fit: cover;
 }
 
+/* Začetnice namesto fotografije — mnenja so resnična, fotografij pa nimamo */
+.avatarInitials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #ea580c;
+  background: #fff7ed;
+}
+
 .testimonialPhotoWrapper {
   width: 100%;
   height: 420px;

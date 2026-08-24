@@ -85,13 +85,13 @@ interface FaqCategory {
 const FAQ_SECTIONS: FaqCategory[] = [
   {
     id: "seherezada",
-    title: "Šeherezada",
+    title: "Naša hrana in priprava",
     items: [
       {
         id: "seh-1",
         question: "Kaj dela Šeherezada kebab poseben?",
         answer:
-          "Naše meso je 100% Halal, marinirano 24 ur v avtorskih orientalskih začimbah in pečeno na vročem odprtem žaru brez industrijskih dodatkov.",
+          "Naše meso je 100 % halal, marinirano 24 ur v avtorskih orientalskih začimbah in pečeno na vročem odprtem žaru brez industrijskih dodatkov.",
       },
       {
         id: "seh-2",
@@ -103,19 +103,19 @@ const FAQ_SECTIONS: FaqCategory[] = [
         id: "seh-3",
         question: "Kje se nahajate in kakšen je delovni čas?",
         answer:
-          "Nahajamo se na odlični lokaciji v centru Ljubljane. Odprti smo vsak dan od 09:00 dopoldne pa vse do 02:00 ponoči.",
+          "Imamo dve lokaciji v središču Ljubljane. Šeherezada na Trubarjevi 31 je odprta vsak dan od 09:00 do 02:00, ob petkih in sobotah pa do 03:00. Šeherezada 2 na Slovenski 55 je odprta vsak dan od 08:00 do 01:00.",
       },
     ],
   },
   {
     id: "difference",
-    title: "The Šeherezada difference",
+    title: "Halal, vegansko in plačilo",
     items: [
       {
         id: "diff-1",
         question: "Ali je celotno meso 100% Halal certificirano?",
         answer:
-          "Da, vsi naši dobavitelji imajo uradne Halal certifikate s popolno sledljivostjo izvora mesa ter strogim higienskim nadzorom.",
+          "Da, vsi naši dobavitelji imajo uradne halal certifikate s popolno sledljivostjo izvora mesa ter strogim higienskim nadzorom.",
       },
       {
         id: "diff-2",
@@ -139,19 +139,19 @@ const FAQ_SECTIONS: FaqCategory[] = [
   },
   {
     id: "boni",
-    title: "Študentska prehrana & Naročila",
+    title: "Študentski boni in naročila",
     items: [
       {
         id: "boni-1",
         question: "Koliko znaša doplačilo in kaj vsebuje študentski meni?",
         answer:
-          "Doplačilo z veljavnim bonom je 3,00 €. Meni vključuje glavno jed po izbiri (kebab, pico, burger, falafel) + toplo dnevno juho + svežo solato + sadje + pijačo.",
+          "Doplačilo z veljavnim bonom je 3,00 €. Meni vključuje glavno jed po izbiri (kebab, pizzo, burger, falafel) + svežo solato + jabolko + pijačo.",
       },
       {
         id: "boni-2",
         question: "Ali lahko naročim vnaprej po telefonu za prevzem?",
         answer:
-          "Seveda! Pokličite nas na 069 444 812 in vaše naročilo vas bo čakalo sveže in toplo pripravljeno ob dogovorjenem času brez čakanja v vrsti.",
+          "Seveda! Pokličite nas na +386 69 314 316 in vaše naročilo vas bo čakalo sveže in toplo pripravljeno ob dogovorjenem času brez čakanja v vrsti.",
       },
     ],
   },
@@ -213,11 +213,11 @@ export default function FaqPageContent() {
             </div>
           </div>
 
-          <h1 className={styles.heroTitle}>Pogosta Vprašanja</h1>
+          <h1 className={styles.heroTitle}>Pogosta vprašanja — halal, boni in delovni čas</h1>
 
           <p className={styles.heroSubtitle}>
-            Vse, kar morate vedeti o naši hrani, 100% Halal certifikatu,
-            študentskih bonih z doplačilom 3,00 € ter naročanju za osebni prevzem.
+            Vse o 100 % halal ponudbi, veganskih jedeh, študentskih bonih z
+            doplačilom 3,00 € in delovnem času obeh lokacij v Ljubljani.
           </p>
         </header>
 
@@ -279,9 +279,9 @@ export default function FaqPageContent() {
             </div>
 
             <div className={styles.ctaActionsGroup}>
-              <a href="tel:+38669444812" className={styles.ctaCallBtn}>
+              <a href="tel:+38669314316" className={styles.ctaCallBtn}>
                 <PhoneIcon />
-                <span>069 444 812</span>
+                <span>+386 69 314 316</span>
               </a>
               <a href="/meni" className={styles.ctaOrderBtn}>
                 <BagIcon />

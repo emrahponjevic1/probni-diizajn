@@ -72,13 +72,14 @@ export default function StudentVouchers() {
           </div>
 
           <h2 className={styles.sectionTitle}>
-            Šeherezada: <span className={styles.titleEmphasis}>Bodi sit</span>
+            Šeherezada: <span className={styles.titleEmphasis}>Bodi sit</span>{" "}
             <span className={styles.titleSecondLine}>med študijem!</span>
           </h2>
 
           <p className={styles.sectionSubtitle}>
-            Ugodni, sveži in nasitni topli obroki na študentske bone. Izkoristite
-            subvencionirano prehrano na obeh naših lokacijah v Ljubljani.
+            19 od 29 jedi na našem meniju je na voljo na študentski bon. Za
+            doplačilo 3,00 € dobiš glavno jed, solato, jabolko in pijačo — na
+            obeh lokacijah v središču Ljubljane.
           </p>
         </div>
 
@@ -107,7 +108,8 @@ export default function StudentVouchers() {
                 </a>
 
                 <p className={styles.bannerLeadText}>
-                  Najboljši kebab in falafel v mestu zdaj še ugodneje za študente.
+                  Döner kebab, jufka, falafel in pizza
+                  <br />— vse na bon.
                 </p>
               </div>
             </div>
@@ -137,7 +139,7 @@ export default function StudentVouchers() {
                 <div className={styles.locItem}>
                   <div className={styles.locNameCol}>
                     <LocationPinSvg size={16} />
-                    <span>Šeherezada 1 <span className={styles.locAddress}>(Trubarjeva cesta 31)</span></span>
+                    <span>Šeherezada <span className={styles.locAddress}>(Trubarjeva cesta 31)</span></span>
                   </div>
                   <span className={styles.liveOpenPill}>● Odprto</span>
                 </div>
@@ -159,10 +161,9 @@ export default function StudentVouchers() {
             {/* Card 2: Doplačilo */}
             <div className={styles.bentoPriceCard}>
               <span className={styles.priceCardLabel}>DOPLAČILO</span>
-              <span className={styles.priceMinHighlight}>MIN.</span>
+              <span className={styles.priceMinHighlight}>3,00 €</span>
               <p className={styles.priceCardDesc}>
-                Najnižje možno doplačilo v Ljubljani za celoten topel obrok,
-                juho/solato, pijačo in sadje.
+                Glavna jed, solata, jabolko in pijača.
               </p>
             </div>
 
@@ -183,7 +184,7 @@ export default function StudentVouchers() {
                 <div className={styles.bentoFoodIconCircle} title="Glavna jed (Kebab)">
                   <UtensilsSvg size={16} />
                 </div>
-                <div className={styles.bentoFoodIconCircle} title="Sveža solata / Juha">
+                <div className={styles.bentoFoodIconCircle} title="Sveža solata">
                   <SoupSvg size={16} />
                 </div>
                 <div className={styles.bentoFoodIconCircle} title="Sveže sadje (Jabolko)">

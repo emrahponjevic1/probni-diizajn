@@ -48,17 +48,17 @@ export const CONTACT_LOCATIONS: LocationDetail[] = [
     subtitle: "Bohemski mestni vrvež in nočna kulinarična legenda",
     address: "Trubarjeva cesta 31",
     city: "1000 Ljubljana",
-    phone: "+386 (01) 430 52 40",
-    phoneRaw: "+38614305240",
-    email: "info@seherezada.si",
+    phone: "+386 69 314 316",
+    phoneRaw: "+38669314316",
+    email: "info@seherezada.net",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Šeherezada+Trubarjeva+cesta+31+Ljubljana",
     appleMapsUrl: "https://maps.apple.com/?q=Šeherezada+Trubarjeva+cesta+31+Ljubljana",
     googleMapsEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.1128405021235!2d14.5097223!3d46.0522222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47653282245b0a7d%3A0x6fb26227b2a6f23!2sTrubarjeva%20cesta%2031%2C%201000%20Ljubljana!5e0!3m2!1ssl!2ssi!4v1700000000000!5m2!1ssl!2ssi",
     hours: {
-      weekdays: "09:00 – 02:00 (petek do 03:00)",
+      weekdays: "09:00 – 02:00 (petek in sobota do 03:00)",
       sunday: "09:00 – 02:00",
-      note: "Kuhinja in žar odprta od 09:00 do 02:00 (ob petkih do 03:00)",
+      note: "Kuhinja in žar odprta od 09:00 do 02:00, ob petkih in sobotah do 03:00",
     },
     schedule: [
       { day: "Ponedeljek", hours: "09:00 – 02:00", isOpen: true },
@@ -66,7 +66,7 @@ export const CONTACT_LOCATIONS: LocationDetail[] = [
       { day: "Sreda", hours: "09:00 – 02:00", isOpen: true },
       { day: "Četrtek", hours: "09:00 – 02:00", isOpen: true },
       { day: "Petek", hours: "09:00 – 03:00", isOpen: true },
-      { day: "Sobota", hours: "09:00 – 02:00", isOpen: true },
+      { day: "Sobota", hours: "09:00 – 03:00", isOpen: true },
       { day: "Nedelja", hours: "09:00 – 02:00", isOpen: true },
     ],
     transport: {
@@ -77,8 +77,8 @@ export const CONTACT_LOCATIONS: LocationDetail[] = [
     highlights: [
       "Nočna postojanka — odprto do 02:00 (petek do 03:00)",
       "Študentski boni (doplačilo 3,00 €)",
-      "Peka domačih lepinj v krušni peči sproti",
-      "Hitri osebni prevzem & Wolt / Glovo dostava",
+      "Peka domačih lepinj sproti, tik pred postrežbo",
+      "Hitri osebni prevzem & dostava prek Wolta",
     ],
     vibeText:
       "Naša izvirna lokacija v samem osrčju stare Ljubljane. Popolna točka za hitro kosilo, nočni prigrizek ali sproščeno posedanje v bohemskem ritmu Trubarjeve ulice.",
@@ -90,9 +90,9 @@ export const CONTACT_LOCATIONS: LocationDetail[] = [
     subtitle: "Prostorna restavracija v srcu prestolnice",
     address: "Slovenska cesta 55",
     city: "1000 Ljubljana",
-    phone: "+386 (01) 430 52 40",
-    phoneRaw: "+38614305240",
-    email: "info@seherezada.si",
+    phone: "+386 69 314 316",
+    phoneRaw: "+38669314316",
+    email: "info@seherezada.net",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Šeherezada+Slovenska+cesta+55+Ljubljana",
     appleMapsUrl: "https://maps.apple.com/?q=Šeherezada+Slovenska+cesta+55+Ljubljana",
     googleMapsEmbed:
@@ -120,7 +120,7 @@ export const CONTACT_LOCATIONS: LocationDetail[] = [
       "Odprto vsak dan od 08:00 do 01:00",
       "Zajtrki in dopoldanske malice od 08:00 naprej",
       "Študentski boni (doplačilo 3,00 €)",
-      "Hitri osebni prevzem & Wolt / Glovo dostava",
+      "Hitri osebni prevzem & dostava prek Wolta",
     ],
     vibeText:
       "Sodobna restavracija ob glavni mestni aveniji, idealna za jutranje malice, poslovna kosila, študentske obede ter večerne prigrizke.",
@@ -160,14 +160,14 @@ export const CONTACT_FAQS: ContactFaqItem[] = [
     category: "splosno",
     question: "Ali je za obisk restavracije potrebna predhodna rezervacija?",
     answer:
-      "Za posameznike in manjše skupine rezervacija ni potrebna — preprosto se oglasite pri nas! Za večje skupine (8 oseb ali več) ali poslovna kosila na Slovenski cesti pa priporočamo, da nam pošljete povpraševanje ali nas predhodno pokličete na +386 (01) 430 52 40, da vam pravočasno pripravimo mizo.",
+      "Za posameznike in manjše skupine rezervacija ni potrebna — preprosto se oglasite pri nas! Za večje skupine (8 oseb ali več) ali poslovna kosila na Slovenski cesti pa priporočamo, da nam pošljete povpraševanje ali nas predhodno pokličete na +386 69 314 316, da vam pravočasno pripravimo mizo.",
   },
   {
     id: "faq-catering",
     category: "catering",
     question: "Kako poteka naročilo cateringa za podjetja ali praznovanja?",
     answer:
-      "Catering naročila pripravljamo za skupine od 10 do 200+ oseb. Ponudba vključuje bogate plošče mariniranega mesa na žaru, sveže pečene lepinje neposredno iz krušne peči, hrustljavi falafel, domače orientalske omake, humus in sveže solate. Pišite nam prek obrazca vsaj 24–48 ur vnaprej s predvidenim številom oseb in datumom.",
+      "Catering naročila pripravljamo za skupine od 10 do 200+ oseb. Ponudba vključuje bogate plošče mariniranega mesa na žaru, sveže pečene lepinje, hrustljavi falafel, domače orientalske omake, humus in sveže solate. Pišite nam prek obrazca vsaj 24–48 ur vnaprej s predvidenim številom oseb in datumom.",
   },
   {
     id: "faq-urnik-noc",
@@ -181,7 +181,7 @@ export const CONTACT_FAQS: ContactFaqItem[] = [
     category: "splosno",
     question: "Ali lahko hrano naročim za osebni prevzem (Take-away)?",
     answer:
-      "Seveda! Pokličite nas na +386 (01) 430 52 40, oddajte svoje naročilo in vaša hrana bo sveže pečena ter skrbno zapakirana čakala na prevzem v roku 10–15 minut.",
+      "Seveda! Pokličite nas na +386 69 314 316, oddajte svoje naročilo in vaša hrana bo sveže pečena ter skrbno zapakirana čakala na prevzem v roku 10–15 minut.",
   },
   {
     id: "faq-placila",
@@ -203,39 +203,31 @@ export const DIRECT_CHANNELS = [
   {
     name: "Telefonski klic",
     desc: "Za takojšnja naročila za prevzem in vprašanja",
-    actionText: "+386 (01) 430 52 40",
-    href: "tel:+38614305240",
+    actionText: "+386 69 314 316",
+    href: "tel:+38669314316",
     icon: "phone",
     highlight: "Priporočeno za hitra naročila",
   },
   {
     name: "E-poštni predal",
     desc: "Za vprašanja, rezervacije in splošne informacije",
-    actionText: "info@seherezada.si",
-    href: "mailto:info@seherezada.si",
+    actionText: "info@seherezada.net",
+    href: "mailto:info@seherezada.net",
     icon: "mail",
     highlight: "Odgovor v 24 urah",
   },
   {
-    name: "Wolt Dostava",
-    desc: "Dostava na dom ali v pisarno v 30 min",
-    actionText: "Naroči na Wolt",
-    href: "https://wolt.com/sl/svn/ljubljana/restaurant/seherezada",
-    icon: "wolt",
-    highlight: "Hitra dostava v Ljubljani",
-  },
-  {
     name: "Instagram & Sporočila",
     desc: "Spremljajte nas in nam pišite v DM",
-    actionText: "@seherezada_ljubljana",
-    href: "https://instagram.com/",
+    actionText: "@seherezada_si",
+    href: "https://instagram.com/seherezada_si",
     icon: "instagram",
     highlight: "Dnevne kulinarične zgodbe",
   },
   {
     name: "Facebook stran",
     desc: "Novosti, odpiralni časi in sporočila",
-    actionText: "Šeherezada Ljubljana",
+    actionText: "Obišči stran",
     href: "https://facebook.com/",
     icon: "facebook",
     highlight: "Skupnost gostov",
@@ -243,7 +235,7 @@ export const DIRECT_CHANNELS = [
   {
     name: "TikTok profil",
     desc: "Peka domačih lepinj in utrinki iz žara",
-    actionText: "@seherezada_ljubljana",
+    actionText: "Obišči profil",
     href: "https://tiktok.com/",
     icon: "tiktok",
     highlight: "Video vsebine",

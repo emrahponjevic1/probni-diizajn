@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import styles from "./PopularPicks.module.css";
+import { FEATURED_ITEMS } from "./menu/MenuData";
 
 // Clean, borderless SVG Info / Exclamation Icon
 const InfoCircleSvg = ({ size = 20, className }: { size?: number; className?: string }) => (
@@ -29,18 +30,19 @@ interface Dish {
   title: string;
   category: string;
   price: string;
+  /** Cena velike velikosti (samo pice). Prikazana samo v modalnem oknu s podrobnostmi. */
+  priceLarge?: string;
   oldPrice?: string;
   badge?: string;
   badgeType?: "bestseller" | "recommended" | "vegi" | "special" | "platter";
   description: string;
   image: string;
-  ingredients: string;
   ingredientsList: string[];
   allergensList: string[];
 }
 
 export default function PopularPicks() {
-  const [activeDishId, setActiveDishId] = useState<number>(1);
+  const [activeDishId, setActiveDishId] = useState<number>(FEATURED_ITEMS[0]?.id ?? 1);
 
   // Carousel scroll index tracker
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
@@ -54,132 +56,54 @@ export default function PopularPicks() {
   // Modal / Popup State for Dish Details (Ingredients, Allergens, Description)
   const [modalDish, setModalDish] = useState<Dish | null>(null);
 
-  const dishes: Dish[] = [
-    {
-      id: 1,
-      title: "Kraljevi Döner Kebab",
-      category: "Kebabi & Plošče",
-      price: "6,50 €",
-      badge: "Bestseller",
-      badgeType: "bestseller",
-      description:
-        "Hišna posebnost – sočno telečje in piščančje meso pečeno na pravem ognju, domač lepinji kruh po tajnem receptu, hrustljava zelenjava in hišna jogurtova omaka.",
-      ingredients: "Telečje meso · Domač lepinja kruh · Sveža solata · Jogurtov preliv",
-      ingredientsList: [
-        "Domač lepinja kruh (sveže pečen)",
-        "Telečje & piščančje meso (100% Halal)",
-        "Sveža hrustljava solata & paradižnik",
-        "Rdeča čebula & rdeče zelje",
-        "Hišna kremasta jogurtova omaka",
-      ],
-      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)", "Sezam"],
-      image: "/images/doner-kebab.jpg",
-    },
-    {
-      id: 2,
-      title: "Šeherezada Dürüm Wrap",
-      category: "Dürüm & Zvitki",
-      price: "7,20 €",
-      badge: "Priporočamo",
-      badgeType: "recommended",
-      description:
-        "Domač tanek lavaš zvit z bogatim slojem mariniranega mesa, sveže solate, paradižnika in pristnih orientalskih začimb.",
-      ingredients: "Tanek lavaš kruh · Mariniran döner · Paradižnik · Začimbe",
-      ingredientsList: [
-        "Tanek domač lavaš kruh",
-        "Marinirano döner meso na ognju",
-        "Sveži paradižniki & kumare",
-        "Zeliščna jogurtova omaka",
-        "Pristne orientalske začimbe",
-      ],
-      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)"],
-      image: "/images/durum-falafel.jpg",
-    },
-    {
-      id: 3,
-      title: "Tradicionalni Falafel Krožnik",
-      category: "Falafel & Vegi",
-      price: "7,80 €",
-      badge: "100% Vegi",
-      badgeType: "vegi",
-      description:
-        "Zlato ocvrti čičerikini polpeti z orientalskimi zelišči, kremast domač humus, sveža mešana solata, tahini preliv in topel kruh.",
-      ingredients: "Hrustljava čičerika · Domač humus · Tahini · Solata",
-      ingredientsList: [
-        "Zlati čičerikini polpeti z zelišči",
-        "Domač kremast humus s sezamom",
-        "Tahini sezamov preliv",
-        "Mešana sveža solata z oljčnim oljem",
-        "Topel domač kruh",
-      ],
-      allergensList: ["Sezam", "Gluten (pšenica)"],
-      image: "/images/falafel.jpg",
-    },
-    {
-      id: 4,
-      title: "Kebab Pizza",
-      category: "Pice na kamnu",
-      price: "8,90 €",
-      oldPrice: "9,90 €",
-      badge: "Hišna specialiteta",
-      badgeType: "special",
-      description:
-        "Hišna posebnost – pica pečena na kamnu z domačim paradižnikovim sugojem, mozzarello, sočnim kebab mesom in jogurtovim prelivom.",
-      ingredients: "Pelati · Mozzarella · Kebab meso · Čebula · Jogurtov preliv",
-      ingredientsList: [
-        "Domače testo pečeno na kamnu",
-        "Pelati (paradižnikov sugo)",
-        "Mozzarella",
-        "Kebab meso",
-        "Čebula",
-        "Jogurtov preliv",
-        "Origano",
-      ],
-      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)"],
-      image: "/images/pizza.jpg",
-    },
-    {
-      id: 5,
-      title: "Kraljevska Mešana Plošča",
-      category: "Za 2 osebi",
-      price: "13,90 €",
-      badge: "Za 2 osebi",
-      badgeType: "platter",
-      description:
-        "Vrhunski kulinarični izbor: döner meso, domači falafli, aromatični orientalski riž, zlati pomfri, pečen paradižnik in 3 hišne omake.",
-      ingredients: "Döner meso · Falaflji · Riž · Pomfri · 3 hišne omake",
-      ingredientsList: [
-        "Telečji in piščančji döner",
-        "Domači hrustljavi falaflji",
-        "Aromatični orientalski riž",
-        "Zlato ocvrt pomfri",
-        "Pečen paradižnik & paprika",
-        "3 hišne omake (jogurtova, čilijeva, tahini)",
-      ],
-      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)", "Sezam"],
-      image: "/images/hero-platter.jpg",
-    },
-    {
-      id: 6,
-      title: "Dürüm Falafel Zvitek",
-      category: "Dürüm & Zvitki",
-      price: "6,80 €",
-      badge: "Vegi hit",
-      badgeType: "vegi",
-      description:
-        "Hrustljav domač falafel v toplem lavaš kruhu s svežo kumaro, paradižnikom, metinim jogurtom in blagim sezamovim prelivom.",
-      ingredients: "Falafel polpeti · Lavaš · Metin jogurt · Sezam",
-      ingredientsList: [
-        "Domači čičerikini falaflji",
-        "Tanek topel lavaš kruh",
-        "Sveže kumare in paradižnik",
-        "Osvežilen metin jogurt",
-        "Sezamov tahini preliv",
-      ],
-      allergensList: ["Gluten (pšenica)", "Laktoza (mleko)", "Sezam"],
-      image: "/images/durum-falafel.jpg",
-    },
-  ];
+  // Priljubljene izbire se izpeljejo neposredno iz MENU_ITEMS.
+  // Jed dodaš ali odstraniš s poljem `featured` v MenuData.ts — nikoli tukaj.
+  // Tako se cene in imena na naslovnici ne morejo razhajati z menijem.
+  const dishes: Dish[] = useMemo(
+    () =>
+      FEATURED_ITEMS.map((item) => {
+        const base = `${item.price.toFixed(2).replace(".", ",")} €`;
+
+        const badge =
+          item.featured === 1
+            ? "Najbolj prodajano"
+            : item.diet === "vegan"
+              ? "Vegansko"
+              : item.diet === "vegetarian"
+                ? "Vegetarijansko"
+                : item.student
+                  ? "Na bon"
+                  : undefined;
+
+        const badgeType: Dish["badgeType"] =
+          item.featured === 1
+            ? "bestseller"
+            : item.diet
+              ? "vegi"
+              : item.category === "pizza"
+                ? "special"
+                : "recommended";
+
+        return {
+          id: item.id,
+          title: item.name,
+          category: item.categoryLabel,
+          // Na karticah in v seznamu prikažemo samo osnovno ceno, da se ne lomi.
+          // Cena velike velikosti gre v modalno okno s podrobnostmi.
+          price: base,
+          priceLarge: item.priceLarge
+            ? `${item.priceLarge.toFixed(2).replace(".", ",")} €`
+            : undefined,
+          badge,
+          badgeType,
+          description: item.desc,
+          image: item.image,
+          ingredientsList: item.ingredientsList,
+          allergensList: item.allergensList,
+        };
+      }),
+    []
+  );
 
   const selectedDish = dishes.find((d) => d.id === activeDishId) || dishes[0];
 
@@ -266,8 +190,9 @@ export default function PopularPicks() {
           <h2 className={styles.sectionTitle}>Priljubljene izbire</h2>
 
           <p className={styles.sectionSubtitle}>
-            Okusi, ki so osvojili Ljubljano. Pripravljeno sveže vsak dan iz
-            skrbno izbranih sestavin in domačega kruha.
+            Šest jedi, ki jih gostje najpogosteje naročijo. Vse pripravljene
+            sveže, iz 100 % halal sestavin. Večina je na voljo tudi na
+            študentski bon.
           </p>
         </div>
 
@@ -343,7 +268,7 @@ export default function PopularPicks() {
                       <h4 className={styles.lineTitle}>{dish.title}</h4>
                       {dish.badge && <span className={styles.lineMiniBadge}>{dish.badge}</span>}
                     </div>
-                    <p className={styles.lineIngredients}>{dish.ingredients}</p>
+                    <p className={styles.lineIngredients}>{dish.description}</p>
                   </div>
 
                   <div className={styles.lineEnd}>
@@ -434,9 +359,10 @@ export default function PopularPicks() {
             ================================================================== */}
         <div className={styles.bottomBanner}>
           <div className={styles.bannerText}>
-            <h4 className={styles.bannerTitle}>Želite pogledati celoten meni?</h4>
+            <h4 className={styles.bannerTitle}>Celoten meni: 29 jedi</h4>
             <p className={styles.bannerSubtitle}>
-              Preverite našo celotno ponudbo kebabov, pic, prilog, pijač in sladic.
+              Kebabi, jufke, falafel, burgerji, krožniki in pizze. 19 jedi je na
+              voljo na študentski bon.
             </p>
           </div>
           <a href="/meni" className={styles.bannerBtn}>
@@ -488,7 +414,14 @@ export default function PopularPicks() {
                       <span className={styles.modalCategoryBadge}>{modalDish.category}</span>
                       <span className={styles.modalHalalBadge}>✓ 100% Halal</span>
                     </div>
-                    <div className={styles.modalPriceText}>{modalDish.price}</div>
+                    <div className={styles.modalPriceText}>
+                      {modalDish.price}
+                      {modalDish.priceLarge && (
+                        <span className={styles.modalPriceSize}>
+                          velika {modalDish.priceLarge}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 

@@ -124,15 +124,9 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: 18,
-    title: "Pica s suho salamo",
+    title: "Pizza s suho salamo",
     category: "hrana",
     src: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=900&auto=format&fit=crop&q=80",
-  },
-  {
-    id: 19,
-    title: "Topla orientalska juha",
-    category: "hrana",
-    src: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=900&auto=format&fit=crop&q=80",
   },
   {
     id: 20,

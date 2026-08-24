@@ -1,3 +1,6 @@
+import { GOOGLE_REVIEWS } from "@/data/reviews";
+import { locationById } from "@/data/locations";
+
 export interface HeroMicroItem {
   id: string;
   title: string;
@@ -31,7 +34,6 @@ export interface TestimonialItem {
   quote: string;
   author: string;
   role: string;
-  avatar: string;
 }
 
 export interface LocationProfile {
@@ -44,7 +46,8 @@ export interface LocationProfile {
   phone: string;
   vibeTag: string;
   features: string[];
-  mapLink: string;
+  googleMapsUrl: string;
+  appleMapsUrl: string;
 }
 
 export const HERO_MICRO_ITEMS: HeroMicroItem[] = [
@@ -56,14 +59,14 @@ export const HERO_MICRO_ITEMS: HeroMicroItem[] = [
   },
   {
     id: "bread",
-    title: "Krušna peč vsak dan",
+    title: "Sveže pečeno vsak dan",
     desc: "Vsako jutro ročno zamesimo sveže testo za lepinje.",
     iconType: "bread",
   },
   {
     id: "halal",
     title: "100% Halal certifikat",
-    desc: "Preverjeno poreklo in najvišji standardi kakovosti.",
+    desc: "Preverjeno poreklo in redno nadzorovana kakovost.",
     iconType: "halal",
   },
   {
@@ -82,7 +85,7 @@ export const STATS_BANNER_ITEMS: StatsBannerItem[] = [
     iconType: "calendar",
   },
   {
-    value: "25+ Let",
+    value: "Od 1998",
     label: "Neprekinjene tradicije",
     subtext: "Pristne družinske recepture",
     iconType: "fire",
@@ -112,7 +115,7 @@ export const FLOATING_PHILOSOPHY_CARDS: PhilosophyCard[] = [
   {
     id: "bread",
     number: "02",
-    title: "Krušna peč & domač kruh",
+    title: "Domač kruh, pečen sproti",
     description: "Vsako lepinjo zamesimo in spečemo sproti tik pred postrežbo. Toplina in hrustljavost, ki ju začutite takoj.",
     iconType: "bread",
   },
@@ -120,7 +123,7 @@ export const FLOATING_PHILOSOPHY_CARDS: PhilosophyCard[] = [
     id: "hours",
     number: "03",
     title: "Mestna nočna postojanka",
-    description: "Ko se mesto umiri, naši žari še gorijo. Na Trubarjevi vam toplo hrano strežemo do 02:00 (v petek do 03:00).",
+    description: "Ko se mesto umiri, naši žari še gorijo. Na Trubarjevi vam toplo hrano strežemo do 02:00, ob petkih in sobotah pa do 03:00.",
     iconType: "clock",
   },
   {
@@ -145,8 +148,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     stepNumber: "03",
-    title: "Peka v krušni peči in žar na ognju",
-    description: "Lepinje položimo na razbeljen šamotni kamen pri več kot 300°C, meso na žaru pa počasi pečemo do hrustljavosti.",
+    title: "Peka lepinj in žar na ognju",
+    description: "Lepinje pečemo sproti, tik pred postrežbo, meso na žaru pa počasi do hrustljavosti.",
   },
   {
     stepNumber: "04",
@@ -155,29 +158,16 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
 ];
 
-export const TESTIMONIALS: TestimonialItem[] = [
-  {
-    id: "1",
-    quote: "Ko ob dveh zjutraj v Ljubljani potrebuješ pravi, sočen in vroč kebab v domači lepinji, je Šeherezada edina prava izbira. Tradicija, ki traja že od mojih študentskih let.",
-    author: "Luka M.",
-    role: "Lokalni gost že od leta 2012",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-  },
-  {
-    id: "2",
-    quote: "Domači falafel v sveže pečeni lepinji je daleč najboljši v celem mestu. Hrustljav zunaj, sočen znotraj in vedno z obilico sveže zelenjave.",
-    author: "Ana K.",
-    role: "Redna obiskovalka (Vegi navdušenka)",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-  },
-  {
-    id: "3",
-    quote: "Kot študent sem tukaj pojedel nešteto toplih obrokov na bone. Hitra postrežba, odlična juha in solata ter vedno prijazna ekipa za pultom.",
-    author: "Timotej B.",
-    role: "Študent Univerze v Ljubljani",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
-  },
-];
+/**
+ * Mnenja izhajajo iz src/data/reviews.ts — samo resnične ocene z Googla.
+ * Prej so bila tukaj izmišljena mnenja z naključnimi fotografijami s spleta.
+ */
+export const TESTIMONIALS: TestimonialItem[] = GOOGLE_REVIEWS.map((r) => ({
+  id: String(r.id),
+  quote: r.text,
+  author: r.author,
+  role: [r.context, "Google · " + r.when].filter(Boolean).join(" · "),
+}));
 
 export const LOCATIONS_PROFILES: LocationProfile[] = [
   {
@@ -186,17 +176,18 @@ export const LOCATIONS_PROFILES: LocationProfile[] = [
     subtitle: "Zgodovinski začetek · Mestno jedro",
     address: "Trubarjeva cesta 31, 1000 Ljubljana",
     description:
-      "Naša prva in najbolj prepoznavna poslovalnica v starem mestnem jedru. Prostor, kjer se prepletajo nočno življenje, študentski vrvež in več kot 25 let pristne orientalske tradicije.",
+      "Naša prva poslovalnica v starem mestnem jedru. Prostor, kjer se prepletajo nočno življenje, študentski vrvež in več kot četrt stoletja pristne orientalske tradicije.",
     hours: "Pon – Čet & Sob – Ned: 09:00 – 02:00, Pet: 09:00 – 03:00",
-    phone: "+386 (01) 430 52 40",
+    phone: "+386 69 314 316",
     vibeTag: "Bohemski mestni utrip & nočna legenda",
     features: [
       "Center mesta (Trubarjeva ulica)",
-      "Odprto vsak dan do 02:00 (petek do 03:00)",
+      "Odprto vsak dan do 02:00, petek in sobota do 03:00",
       "Študentski boni (doplačilo 3,00 €)",
-      "Hitri prevzem & Wolt dostava",
+      "Hitri prevzem & dostava prek Wolta",
     ],
-    mapLink: "https://maps.google.com/?q=Trubarjeva+cesta+31+Ljubljana",
+    googleMapsUrl: locationById("trubarjeva").googleMapsUrl,
+    appleMapsUrl: locationById("trubarjeva").appleMapsUrl,
   },
   {
     id: "slovenska",
@@ -206,15 +197,16 @@ export const LOCATIONS_PROFILES: LocationProfile[] = [
     description:
       "Prostorna in sodobna restavracija ob osrednji Slovenski cesti v Ljubljani. Idealna za jutranje malice, poslovna kosila, študentske obede ter večerne prigrizke v prijetnem ambientu.",
     hours: "Ponedeljek – Nedelja: 08:00 – 01:00",
-    phone: "+386 (01) 430 52 40",
+    phone: "+386 69 314 316",
     vibeTag: "Sodobna restavracija & mestni utrip",
     features: [
       "Center mesta (Slovenska cesta 55)",
       "Odprto vsak dan od 08:00 do 01:00",
       "Študentski boni & dnevne malice",
-      "Hitri osebni prevzem & dostava",
+      "Hitri prevzem & dostava prek Wolta",
     ],
-    mapLink: "https://maps.google.com/?q=Slovenska+cesta+55+Ljubljana",
+    googleMapsUrl: locationById("slovenska").googleMapsUrl,
+    appleMapsUrl: locationById("slovenska").appleMapsUrl,
   },
 ];
 

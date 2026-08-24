@@ -35,7 +35,7 @@ const faqs: FaqItem[] = [
     tag: "DELOVNI ČAS",
     question: "KAKŠEN JE DELOVNI ČAS ŠEHEREZADE?",
     answer:
-      "Odprti smo vsak dan pozno v noč! Lokacija Šeherezada na Trubarjevi 31 je odprta od 09:00 do 02:00 (ob petkih do 03:00), Šeherezada 2 na Slovenski cesti 55 pa vsak dan od 08:00 do 01:00.",
+      "Šeherezada na Trubarjevi 31 je odprta vsak dan od 09:00 do 02:00, ob petkih in sobotah pa do 03:00. Šeherezada 2 na Slovenski 55 je odprta vsak dan od 08:00 do 01:00.",
     accent: "red",
     offsetClass: styles.offsetStart,
     shadowClass: styles.shadowRed,
@@ -46,7 +46,7 @@ const faqs: FaqItem[] = [
     tag: "KAKOVOST & HALAL",
     question: "ALI JE VSE MESO 100% HALAL CERTIFICIRANO?",
     answer:
-      "Da, vso meso v naši ponudbi je 100% certificirano Halal, pripravljeno po najvišjih higienskih standardih, s popolno sledljivostjo in z 0% svinjine.",
+      "Da, vse meso v naši ponudbi je 100 % certificirano halal, pripravljeno po strogih higienskih standardih, s popolno sledljivostjo in z 0 % svinjine.",
     accent: "orange",
     offsetClass: styles.offsetEnd,
     shadowClass: styles.shadowOrange,
@@ -57,7 +57,7 @@ const faqs: FaqItem[] = [
     tag: "ŠTUDENTSKI BONI",
     question: "KAKO DELUJEJO ŠTUDENTSKI BONI V ŠEHEREZADI?",
     answer:
-      "Študenti se ob naročilu identificirate s študentsko izkaznico ali aplikacijo ŠTUDENTSKA PREHRANA. Meni vključuje glavno jed, juho/solato, sadje in pijačo z minimalnim doplačilom.",
+      "Študenti se ob naročilu identificirate s študentsko izkaznico ali aplikacijo ŠTUDENTSKA PREHRANA. Doplačilo je 3,00 €, meni pa vključuje glavno jed, solato, jabolko in pijačo.",
     accent: "dark",
     offsetClass: styles.offsetMid,
     shadowClass: styles.shadowDark,
@@ -68,7 +68,7 @@ const faqs: FaqItem[] = [
     tag: "DOSTAVA & PREVZEM",
     question: "ALI NUDITE DOSTAVO HRANE NA DOM?",
     answer:
-      "Da! Naše jedi dostavljamo prek partnerjev Wolt in Glovo, ali pa izberite hitri osebni prevzem na katerikoli naši lokaciji po predhodnem klicu.",
+      "Da! Naše jedi dostavljamo prek Wolta, lahko pa izberete tudi hitri osebni prevzem na katerikoli naši lokaciji po predhodnem klicu.",
     accent: "orange",
     offsetClass: styles.offsetEnd,
     shadowClass: styles.shadowOrange,

@@ -45,14 +45,14 @@ export default function OurStory() {
             </div>
 
             <h2 className={styles.magHeading}>
-              Od pravega ognja do popolnega okusa.
+              Od leta 1998 v središču Ljubljane
             </h2>
 
             <p className={styles.magLeadText}>
-              V restavraciji Šeherezada že več kot dve desetletji ohranjamo
-              pristno kulinarično dediščino. Naša skrivnost ni v zapletenosti,
-              temveč v potrpežljivosti, izbranih sestavinah in spoštovanju
-              tradicionalnih receptur.
+              Šeherezada v Ljubljani deluje od leta 1998 — več kot 25 let. Danes
+              imamo dve lokaciji: na Trubarjevi 31 v starem mestnem jedru in na
+              Slovenski 55 pri Bavarskem dvoru. Recepti in način priprave so
+              ostali enaki.
             </p>
 
             <div className={styles.pillarsList}>
@@ -78,8 +78,7 @@ export default function OurStory() {
                 <div className={styles.pillarContent}>
                   <h3 className={styles.pillarTitle}>Domač kruh po tajnem receptu</h3>
                   <p className={styles.pillarDesc}>
-                    Vsako jutro ročno zamesimo in v krušni peči sveže spečemo
-                    hrustljave lepinje in tanek lavaš kruh.
+                    Vsako jutro ročno zamesimo testo, lepinje in tanek lavaš pa pečemo sproti — nikoli vnaprej.
                   </p>
                 </div>
               </div>
@@ -126,9 +125,11 @@ export default function OurStory() {
 
             {/* Floating Experience Glass Badge */}
             <div className={styles.floatingExperienceBadge}>
-              <span className={styles.experienceBadgeNum}>20+</span>
+              {/* Letnica namesto števila let — ne zastara in je ne bo treba
+                  posodabljati vsako leto. */}
+              <span className={styles.experienceBadgeNum}>1998</span>
               <span className={styles.experienceBadgeText}>
-                Let tradicije v Ljubljani
+                Leto, ko smo odprli prva vrata
               </span>
             </div>
           </div>

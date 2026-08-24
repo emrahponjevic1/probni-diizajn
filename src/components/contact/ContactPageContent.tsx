@@ -213,7 +213,7 @@ export default function ContactPageContent() {
               </div>
 
               <h1 className={styles.heroTitle}>
-                Dve lokaciji v Ljubljani. Enaka strast do pristnih okusov.
+                Kontakt in obe lokaciji v središču Ljubljane
               </h1>
 
               <p className={styles.heroSubtitle}>
@@ -227,9 +227,9 @@ export default function ContactPageContent() {
                 <div className={styles.heroCardItem}>
                   <div className={styles.heroCardHeading}>Šeherezada</div>
                   <div className={styles.heroCardSubtext}>Trubarjeva cesta 31</div>
-                  <a href="tel:+38614305240" className={styles.heroCardPhoneLink}>
+                  <a href="tel:+38669314316" className={styles.heroCardPhoneLink}>
                     <PhoneSvg size={14} />
-                    <span>+386 (01) 430 52 40</span>
+                    <span>+386 69 314 316</span>
                   </a>
                 </div>
 
@@ -237,23 +237,23 @@ export default function ContactPageContent() {
                 <div className={styles.heroCardItem}>
                   <div className={styles.heroCardHeading}>Šeherezada 2</div>
                   <div className={styles.heroCardSubtext}>Slovenska cesta 55</div>
-                  <a href="tel:+38614305240" className={styles.heroCardPhoneLink}>
+                  <a href="tel:+38669314316" className={styles.heroCardPhoneLink}>
                     <PhoneSvg size={14} />
-                    <span>+386 (01) 430 52 40</span>
+                    <span>+386 69 314 316</span>
                   </a>
                 </div>
 
                 {/* Card 3: E-pošta */}
                 <a
-                  href="mailto:info@seherezada.si"
+                  href="mailto:info@seherezada.net"
                   className={`${styles.heroCardItem} ${styles.heroCardItemLink}`}
-                  title="Pošljite e-poštno sporočilo na info@seherezada.si"
+                  title="Pošljite e-poštno sporočilo na info@seherezada.net"
                 >
                   <div className={styles.heroCardHeading}>E-poštni predal</div>
                   <div className={styles.heroCardSubtext}>Vprašanja &amp; rezervacije</div>
                   <div className={styles.heroCardEmailAlt}>
                     <MailSvg size={14} />
-                    <span>info@seherezada.si</span>
+                    <span>info@seherezada.net</span>
                   </div>
                 </a>
               </div>
@@ -329,7 +329,7 @@ export default function ContactPageContent() {
                   </div>
                   <div className={styles.directChannelText}>
                     <span className={styles.directChannelLabel}>Instagram &amp; Sporočila</span>
-                    <span className={styles.directChannelVal}>@seherezada_ljubljana</span>
+                    <span className={styles.directChannelVal}>@seherezada_si</span>
                   </div>
                 </a>
 
@@ -359,7 +359,7 @@ export default function ContactPageContent() {
                   </div>
                   <div className={styles.directChannelText}>
                     <span className={styles.directChannelLabel}>TikTok profil</span>
-                    <span className={styles.directChannelVal}>@seherezada_ljubljana</span>
+                    <span className={styles.directChannelVal}>@seherezada_si</span>
                   </div>
                 </a>
               </div>
@@ -544,9 +544,9 @@ export default function ContactPageContent() {
                     <button type="button" onClick={handleReset} className={styles.resetFormBtn}>
                       Pošlji novo sporočilo
                     </button>
-                    <a href="tel:+38614305240" className={styles.callLocationBtn}>
+                    <a href="tel:+38669314316" className={styles.callLocationBtn}>
                       <PhoneSvg size={16} />
-                      <span>Hitri klic: +386 (01) 430 52 40</span>
+                      <span>Hitri klic: +386 69 314 316</span>
                     </a>
                   </div>
                 </div>

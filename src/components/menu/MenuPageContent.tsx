@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { MENU_ITEMS, MENU_CATEGORIES, MenuItem } from "./MenuData";
+import { MENU_ITEMS, MENU_CATEGORIES, MenuItem, WOLT_URL } from "./MenuData";
 import styles from "./MenuPageContent.module.css";
 
 // Clean Vector SVG Icons
@@ -82,6 +82,17 @@ const InfoSvg = ({ size = 15, className }: { size?: number; className?: string }
 const PhoneSvg = ({ size = 16, className }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+  </svg>
+);
+
+const ScooterSvg = ({ size = 18, className }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <circle cx="5.5" cy="17.5" r="3" />
+    <circle cx="18.5" cy="17.5" r="3" />
+    <path d="M8.5 17.5h7" />
+    <path d="M15.5 17.5V7a2 2 0 0 1 2-2h1" />
+    <path d="M6 14.5V11a2 2 0 0 1 2-2h5" />
+    <path d="M13 5h4v4h-4z" />
   </svg>
 );
 
@@ -196,7 +207,7 @@ export default function MenuPageContent() {
 
       // 2. Menu Type Filter
       if (menuType === "student" && !item.student) return false;
-      if (menuType === "vegi" && !item.vegi) return false;
+      if (menuType === "vegi" && item.diet === null) return false;
 
       // 3. Category Filter (only applicable in regular mode or when sub-selected)
       if (selectedCategory !== "all" && item.category !== selectedCategory) {
@@ -328,7 +339,7 @@ export default function MenuPageContent() {
               <p className={styles.studentBannerDesc}>
                 <span className={styles.studentBannerLead}>Vsak študentski meni vsebuje:</span>
                 <span className={styles.studentBannerItems}>
-                  <strong>Glavno jed po izbiri</strong> + <strong>Dnevno juho</strong> + <strong>Svežo solato</strong> + <strong>Jabolko</strong> + <strong>Pijačo</strong>.
+                  <strong>Glavno jed po izbiri</strong> + <strong>Svežo solato</strong> + <strong>Jabolko</strong> + <strong>Pijačo</strong>.
                 </span>
               </p>
             </div>
@@ -392,9 +403,12 @@ export default function MenuPageContent() {
 
         {/* Items Status Bar */}
         <div className={styles.itemsStatusBar}>
-          <span className={styles.itemsCountText}>
+          {/* Naslov razdelka z jedmi. <h2> namesto <span> zaradi strukture
+              dokumenta — videz je enak, ker .itemsCountText eksplicitno
+              nastavi font-size in font-weight. */}
+          <h2 className={styles.itemsCountText}>
             Prikazanih <span className={styles.itemsCountBold}>{filteredItems.length}</span> jedi
-          </span>
+          </h2>
         </div>
 
         {/* ==================================================================
@@ -439,10 +453,10 @@ export default function MenuPageContent() {
 
                     {/* Quick Badges on Image */}
                     <div className={styles.imageBadgesRow}>
-                      {item.vegi && (
+                      {item.diet && (
                         <span className={styles.vegiBadge}>
                           <LeafSvg size={11} />
-                          <span>Vegi</span>
+                          <span>{item.diet === "vegan" ? "Vegansko" : "Vegetarijansko"}</span>
                         </span>
                       )}
                       {item.student && menuType !== "student" && (
@@ -471,19 +485,38 @@ export default function MenuPageContent() {
                       <span className={styles.priceAmount}>
                         {item.price.toFixed(2).replace(".", ",")} €
                       </span>
+                      {item.priceLarge && (
+                        <span className={styles.priceNote}>
+                          velika {item.priceLarge.toFixed(2).replace(".", ",")} €
+                        </span>
+                      )}
                       {item.note && <span className={styles.priceNote}>{item.note}</span>}
                     </div>
                   )}
 
-                  <button
-                    type="button"
-                    onClick={() => setModalDish(item)}
-                    className={styles.cardActionBtn}
-                    title="Podrobnosti o jedi (sestavine & alergeni)"
-                    aria-label={`Podrobnosti o jedi ${item.name}`}
-                  >
-                    <InfoSvg size={18} />
-                  </button>
+                  <div className={styles.cardActions}>
+                    {WOLT_URL && (
+                      <a
+                        href={WOLT_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.cardActionBtn}
+                        title="Naroči prek Wolta"
+                        aria-label={`Naroči prek Wolta`}
+                      >
+                        <ScooterSvg size={18} />
+                      </a>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setModalDish(item)}
+                      className={styles.cardActionBtn}
+                      title="Podrobnosti o jedi (sestavine & alergeni)"
+                      aria-label={`Podrobnosti o jedi ${item.name}`}
+                    >
+                      <InfoSvg size={18} />
+                    </button>
+                  </div>
                 </div>
               </article>
             ))}
@@ -513,9 +546,9 @@ export default function MenuPageContent() {
                       <h3 className={styles.listTitle} onClick={() => setModalDish(item)}>
                         {item.name}
                       </h3>
-                      {item.vegi && (
+                      {item.diet && (
                         <span className={styles.vegiBadge} style={{ padding: "2px 7px", fontSize: "0.68rem" }}>
-                          Vegi
+                          {item.diet === "vegan" ? "Vegansko" : "Vegi"}
                         </span>
                       )}
                       {item.student && menuType !== "student" && (
@@ -529,13 +562,27 @@ export default function MenuPageContent() {
 
                     <div className={styles.listPrice}>
                       {menuType === "student"
-                        ? "Na Bon (3,00 €)"
-                        : `${item.price.toFixed(2).replace(".", ",")} € ${item.note ? `(${item.note})` : ""}`}
+                        ? "Na bon (doplačilo 3,00 €)"
+                        : `${item.price.toFixed(2).replace(".", ",")} €${
+                            item.priceLarge ? ` · velika ${item.priceLarge.toFixed(2).replace(".", ",")} €` : ""
+                          }`}
                     </div>
                   </div>
                 </div>
 
                 <div className={styles.listRightActions}>
+                  {WOLT_URL && (
+                    <a
+                      href={WOLT_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.cardActionBtn}
+                      title="Naroči prek Wolta"
+                      aria-label="Naroči prek Wolta"
+                    >
+                      <ScooterSvg size={18} />
+                    </a>
+                  )}
                   <button
                     type="button"
                     onClick={() => setModalDish(item)}

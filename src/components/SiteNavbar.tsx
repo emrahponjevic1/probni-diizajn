@@ -127,7 +127,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
   ];
 
   const locationsList = [
-    { id: "1" as const, name: "Šeherezada 1", address: "Trubarjeva cesta 31", status: "Odprto", isOpen: true },
+    { id: "1" as const, name: "Šeherezada", address: "Trubarjeva cesta 31", status: "Odprto", isOpen: true },
     { id: "2" as const, name: "Šeherezada 2", address: "Slovenska cesta 55", status: "Odprto", isOpen: true },
   ];
 

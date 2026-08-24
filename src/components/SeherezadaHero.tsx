@@ -200,7 +200,7 @@ export default function SeherezadaHero() {
   ];
 
   const locationsList = [
-    { id: "1" as const, name: "Šeherezada 1", address: "Trubarjeva cesta 31", status: "Odprto", isOpen: true },
+    { id: "1" as const, name: "Šeherezada", address: "Trubarjeva cesta 31", status: "Odprto", isOpen: true },
     { id: "2" as const, name: "Šeherezada 2", address: "Slovenska cesta 55", status: "Odprto", isOpen: true },
   ];
 
@@ -547,16 +547,23 @@ export default function SeherezadaHero() {
         <div className={styles.leftCol}>
           <div className={styles.dotGridLeft} />
 
-          {/* 1. Main Title */}
-          <h1 className={styles.mainTitle}>Šeherezada</h1>
+          {/* 1. Main Title — nosi glavne iskalne pojme, ne blagovne znamke.
+              Ime "Šeherezada" je že v navbaru, <title> tagu in nogi. */}
+          <h1 className={styles.mainTitle}>Kebab, pizza in falafel v središču Ljubljane</h1>
 
-          {/* 2. Subtitle Tagline */}
-          <div className={styles.outlinedSubtitle}>Kebab · Pizza · Falafel</div>
+          {/* 2. Slogan pod naslovom — namenoma <p>, ne <h2>.
+              Ne uvaja nobenega razdelka, zato ne sme biti naslov: sicer bi se v
+              strukturi dokumenta postavil ob bok pravim razdelkom (Priljubljene
+              izbire, Naša zgodba …) in zavajal bralnike zaslona.
+              Ključna beseda "študentski boni" dobi svoj H2 nižje, v razdelku o bonih. */}
+          <p className={styles.outlinedSubtitle}>
+            Študentski&nbsp;boni&nbsp;· odprto&nbsp;pozno
+          </p>
 
           {/* 3. Description */}
           <p className={styles.description}>
-            Doživi avtentične turške okuse, sočno meso pečeno na pravem ognju in
-            domač kruh, pripravljen po tajnem receptu.
+            100 % sveže pečeno halal meso in hrustljav domač falafel.
+            Najdete nas na Trubarjevi 31 in Slovenski 55.
           </p>
 
           {/* 4. Google Reviews Rating Card */}
@@ -568,20 +575,20 @@ export default function SeherezadaHero() {
               <span>★</span>
               <span>★</span>
             </div>
-            <span className={styles.ratingScore}>4.5</span>
-            <span className={styles.ratingCount}>(1.914+ Google ocen)</span>
+            <span className={styles.ratingScore}>4,5</span>
+            <span className={styles.ratingCount}>(1.972 Google ocen)</span>
           </div>
 
           {/* 5. Action Buttons */}
           <div className={styles.ctaRow}>
             <a href="/meni" className={styles.primaryMenuBtn}>
               <UtensilsSvg size={19} />
-              <span>Prikaži Meni</span>
+              <span>Poglej meni in cene</span>
               <ArrowRightSvg size={16} />
             </a>
-            <a href="tel:+38669444812" className={styles.phoneBtn}>
+            <a href="tel:+38669314316" className={styles.phoneBtn}>
               <PhoneSvg size={17} className={styles.phoneRedIcon} />
-              <span>+386 69 444 812</span>
+              <span>+386 69 314 316</span>
             </a>
           </div>
 
@@ -597,11 +604,11 @@ export default function SeherezadaHero() {
             >
               <div className={styles.locationTitle}>
                 <PinSvg size={16} />
-                <span>Šeherezada 1</span>
+                <span>Šeherezada</span>
               </div>
 
               <div className={styles.locationAddress}>
-                Trubarjeva cesta 31, Ljubljana
+                Trubarjeva cesta 31, 1000 Ljubljana
               </div>
 
               <div className={styles.statusOpenBadge}>
@@ -637,7 +644,7 @@ export default function SeherezadaHero() {
               </div>
 
               <div className={styles.locationAddress}>
-                Slovenska cesta 55, Ljubljana
+                Slovenska cesta 55, 1000 Ljubljana
               </div>
 
               <div className={styles.statusOpenBadge}>
@@ -694,17 +701,19 @@ export default function SeherezadaHero() {
               </div>
             </div>
 
-            {/* Floating Badge 2: PREMIUM - Ljubljana #1 */}
+            {/* Floating Badge 2: preverljivo dejstvo namesto nedokazljivega superlativa.
+                "Ljubljana #1 / Najboljši kebab" je odstranjeno — nedokazljive trditve
+                so po ZVPot in direktivi EU o nepoštenih praksah zavajajoče oglaševanje. */}
             <div className={styles.floatingBadgePremium}>
               <div className={styles.trophyCircle}>
                 <TrophySvg size={18} />
               </div>
-              <span className={styles.premiumGoldTag}>PREMIUM</span>
+              <span className={styles.premiumGoldTag}>OD 1998</span>
               <div className={styles.floatingBadgePremiumTitle}>
-                Ljubljana #1
+                Dve lokaciji
               </div>
               <div className={styles.floatingBadgePremiumSub}>
-                Najboljši Kebab &amp; Okusi
+                Trubarjeva &amp; Slovenska
               </div>
             </div>
 

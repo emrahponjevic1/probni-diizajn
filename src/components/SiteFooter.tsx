@@ -21,11 +21,6 @@ const TikTokSvg = ({ size = 18 }: { size?: number }) => (
   </svg>
 );
 
-const YouTubeSvg = ({ size = 18 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-  </svg>
-);
 
 const PhoneSvg = ({ size = 15 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#ea580c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -53,7 +48,7 @@ const trubarjevaHours = [
   { day: "Sreda", time: "09:00 – 02:00" },
   { day: "Četrtek", time: "09:00 – 02:00" },
   { day: "Petek", time: "09:00 – 03:00" },
-  { day: "Sobota", time: "09:00 – 02:00" },
+  { day: "Sobota", time: "09:00 – 03:00" },
   { day: "Nedelja", time: "09:00 – 02:00" },
 ];
 
@@ -85,8 +80,8 @@ export default function SiteFooter() {
             </a>
 
             <p className={styles.brandBioText}>
-              Ljubljanski street food od leta 1998. Kebab, pica in falafel —
-              pripravljeni sveže, 100% halal, odprti do zgodnjih jutranjih ur.
+              Ljubljanski street food od leta 1998. Halal kebab, jufka, falafel in
+              pizza na dveh lokacijah — Trubarjeva 31 in Slovenska 55.
             </p>
 
             <div className={styles.socialRow}>
@@ -101,7 +96,7 @@ export default function SiteFooter() {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/seherezada_si"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -120,15 +115,6 @@ export default function SiteFooter() {
                 <TikTokSvg size={16} />
               </a>
 
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className={styles.socialBtn}
-              >
-                <YouTubeSvg size={16} />
-              </a>
             </div>
           </div>
 
@@ -141,9 +127,9 @@ export default function SiteFooter() {
               <div className={styles.locBlock}>
                 <span className={styles.locName}>Šeherezada:</span>
                 <span className={styles.locStreetText}>Trubarjeva cesta 31, 1000 Ljubljana</span>
-                <a href="tel:+38614305240" className={styles.locPhoneLink}>
+                <a href="tel:+38669314316" className={styles.locPhoneLink}>
                   <PhoneSvg size={14} />
-                  <span>+386 (01) 430 52 40</span>
+                  <span>+386 69 314 316</span>
                 </a>
               </div>
 
@@ -151,16 +137,16 @@ export default function SiteFooter() {
               <div className={styles.locBlock}>
                 <span className={styles.locName}>Šeherezada 2:</span>
                 <span className={styles.locStreetText}>Slovenska cesta 55, 1000 Ljubljana</span>
-                <a href="tel:+38614305240" className={styles.locPhoneLink}>
+                <a href="tel:+38669314316" className={styles.locPhoneLink}>
                   <PhoneSvg size={14} />
-                  <span>+386 (01) 430 52 40</span>
+                  <span>+386 69 314 316</span>
                 </a>
               </div>
 
               {/* Email */}
-              <a href="mailto:info@seherezada.si" className={styles.locEmailLink}>
+              <a href="mailto:info@seherezada.net" className={styles.locEmailLink}>
                 <MailSvg size={14} />
-                <span>info@seherezada.si</span>
+                <span>info@seherezada.net</span>
               </a>
             </div>
           </div>

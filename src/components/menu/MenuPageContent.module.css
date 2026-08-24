@@ -776,6 +776,14 @@
   border-radius: 99px;
 }
 
+/* Gumbi na kartici (Wolt + podrobnosti) — v mreži drug ob drugem */
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 .cardActionBtn {
   width: 42px;
   height: 42px;
@@ -909,8 +917,10 @@
   color: #ea580c;
 }
 
+/* V seznamu sta gumba drug pod drugim — vrstica je nizka in ozka */
 .listRightActions {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;

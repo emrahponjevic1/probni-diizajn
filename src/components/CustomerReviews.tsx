@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./CustomerReviews.module.css";
+import { GOOGLE_REVIEWS } from "@/data/reviews";
 
 // Clean Vector SVG Star Icon
 const StarFilledSvg = ({ size = 26 }: { size?: number }) => (
@@ -10,33 +11,7 @@ const StarFilledSvg = ({ size = 26 }: { size?: number }) => (
   </svg>
 );
 
-interface ReviewItem {
-  id: number;
-  author: string;
-  stars: number;
-  text: string;
-}
-
-const reviewsData: ReviewItem[] = [
-  {
-    id: 1,
-    author: "Alen M.",
-    stars: 5,
-    text: "Fantastična hrana, domača sveža lepinja in neverjetno hitra postrežba. Najboljši kebab v celi Ljubljani, priporočam vsem!",
-  },
-  {
-    id: 2,
-    author: "Sara K.",
-    stars: 5,
-    text: "Kot študentka redno jem tukaj na bone. Porcija je ogromna, meso vedno sočno in sveže, ambient pa topel in prijeten.",
-  },
-  {
-    id: 3,
-    author: "Marko V.",
-    stars: 5,
-    text: "Že več kot 10 let hodim v Šeherezado in kakovost je vedno na vrhunskem nivoju. Pristen okus pravega orientalskega žara!",
-  },
-];
+// Mnenja prihajajo iz src/data/reviews.ts — samo resnične ocene z Googla.
 
 export default function CustomerReviews() {
   const [activeQuoteIndex, setActiveQuoteIndex] = useState<number>(0);
@@ -47,13 +22,13 @@ export default function CustomerReviews() {
     if (isPaused) return;
 
     const timer = setInterval(() => {
-      setActiveQuoteIndex((prev) => (prev + 1) % reviewsData.length);
+      setActiveQuoteIndex((prev) => (prev + 1) % GOOGLE_REVIEWS.length);
     }, 5000);
 
     return () => clearInterval(timer);
   }, [isPaused, activeQuoteIndex]);
 
-  const currentReview = reviewsData[activeQuoteIndex];
+  const currentReview = GOOGLE_REVIEWS[activeQuoteIndex];
 
   return (
     <section className={styles.reviewsSection} id="ocene">
@@ -105,12 +80,14 @@ export default function CustomerReviews() {
 
           {/* Author Signature without dish badge */}
           <div className={styles.grandAuthorMeta}>
-            <span className={styles.grandAuthorName}>— {currentReview.author}</span>
+            <span className={styles.grandAuthorName}>
+              — {currentReview.author} · Google · {currentReview.when}
+            </span>
           </div>
 
           {/* Carousel Navigation Indicator Dots */}
           <div className={styles.dotsRow}>
-            {reviewsData.map((_, idx) => (
+            {GOOGLE_REVIEWS.map((_, idx) => (
               <button
                 key={idx}
                 type="button"

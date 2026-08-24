@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./SeherezadaHero.module.css";
 import { LOCATIONS, LOCATION_SLUG, PHONE } from "@/data/locations";
+import StatusBadge from "./locations/StatusBadge";
 
 // Clean Vector SVG Icons
 const UtensilsSvg = ({ size = 19, className }: { size?: number; className?: string }) => (
@@ -175,13 +176,7 @@ export default function SeherezadaHero() {
 
                 <div className={styles.locationAddress}>{loc.fullAddress}</div>
 
-                <div className={styles.statusOpenBadge}>
-                  <span className={styles.statusOpenDotWrapper}>
-                    <span className={styles.statusOpenDotPing} />
-                    <span className={styles.statusOpenDot} />
-                  </span>
-                  <span>Odprto</span>
-                </div>
+                <StatusBadge hours={loc.hours} className={styles.statusBadgeArea} />
 
                 <a
                   href={loc.googleMapsUrl}

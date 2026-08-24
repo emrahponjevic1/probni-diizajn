@@ -1,0 +1,103 @@
+/* ==========================================================================
+   ZNAČKA ODPRTO / ZAPRTO
+   Dve stanji, brez dodatnega besedila. Značka ima fiksno mero, zato se
+   postavitev ob preklopu ali ob nalaganju ne premakne.
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+/* "Odprto" je v tej pisavi nekaj pikslov širši od "Zaprto". Brez fiksne
+   mere bi se kartica ob preklopu in ob nalaganju rahlo premaknila. */
+.label {
+  min-width: 3.3rem;
+  text-align: left;
+}
+
+.open {
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}
+
+.closed {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+/* Pred izračunom v brskalniku značko skrijemo, a ji pustimo prostor —
+   tako ne pride do poskoka postavitve in ne pokažemo napačnega stanja. */
+.pending {
+  visibility: hidden;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}
+
+.dotWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+.dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+  z-index: 2;
+}
+
+.ping {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.6);
+  animation: radarPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: 1;
+}
+
+/* Ista zunanja mera kot pri odprtem stanju, da značka ob preklopu
+   ne spremeni širine. */
+.dotClosed {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  z-index: 2;
+}
+
+@keyframes radarPing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.85;
+  }
+  70%,
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ping {
+    animation: none;
+    opacity: 0.35;
+  }
+}

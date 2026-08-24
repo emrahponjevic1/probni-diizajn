@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./AboutPageContent.module.css";
 import { initials } from "@/data/reviews";
+import { LOCATION_SLUG } from "@/data/locations";
 import {
   HERO_MICRO_ITEMS,
   STATS_BANNER_ITEMS,
@@ -532,24 +533,20 @@ export default function AboutPageContent() {
                 {/* Namesto telefona (ta je v nogi in na strani Kontakt) sta tu
                     obe navigaciji — gost na tem mestu išče pot, ne klica. */}
                 <div className={styles.locationActionButtons}>
+                  <Link
+                    href={`/lokacije/${LOCATION_SLUG[loc.id]}`}
+                    className={styles.locationBtnPrimary}
+                  >
+                    <PinSvg size={15} />
+                    <span>Poglej lokacijo</span>
+                  </Link>
                   <a
                     href={loc.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.locationBtnPrimary}
-                    aria-label={`Odpri ${loc.name} v Google Zemljevidih`}
-                  >
-                    <PinSvg size={15} />
-                    <span>Google Zemljevidi</span>
-                  </a>
-                  <a
-                    href={loc.appleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className={styles.locationBtnSecondary}
-                    aria-label={`Odpri ${loc.name} v Apple Maps`}
                   >
-                    <span>Apple Maps ↗</span>
+                    <span>Zemljevid ↗</span>
                   </a>
                 </div>
               </article>

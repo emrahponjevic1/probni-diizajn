@@ -1,0 +1,393 @@
+/* ==========================================================================
+   STRAN POSLOVALNICE
+   Razmiki sledijo pravilom iz CLAUDE.md: 2rem / 1.5rem / 1.25rem vodoravno,
+   prva sekcija ima prostor za plavajočo navigacijo.
+   ========================================================================== */
+
+.section,
+.sectionAlt {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding: 5rem 2rem 5.5rem;
+}
+
+.section:first-of-type {
+  padding-top: 8.75rem;
+}
+
+.sectionAlt {
+  background: #fffdfa;
+  border-top: 1px solid #f5f1ea;
+  border-bottom: 1px solid #f5f1ea;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------- glava ---------- */
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+  color: #78716c;
+  margin-bottom: 1.6rem;
+  flex-wrap: wrap;
+}
+
+.crumbs a {
+  color: #78716c;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.crumbs a:hover {
+  color: #ea580c;
+  border-bottom-color: #ea580c;
+}
+
+.sep {
+  color: #d6d3d1;
+}
+
+.crumbCurrent {
+  color: #1c1917;
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ea580c;
+  margin-bottom: 0.9rem;
+}
+
+.title {
+  font-size: clamp(2.1rem, 4.6vw, 3.3rem);
+  font-weight: 950;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #1c1917;
+  text-wrap: balance;
+  margin-bottom: 0.7rem;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2.1vw, 1.4rem);
+  font-weight: 700;
+  color: #ea580c;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.3rem;
+}
+
+.addressRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #57534e;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 99px;
+  padding: 0.55rem 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.addressRow svg {
+  color: #ea580c;
+  flex-shrink: 0;
+}
+
+.vibe {
+  font-size: 1.08rem;
+  line-height: 1.68;
+  color: #57534e;
+  max-width: 62ch;
+  margin-bottom: 1.9rem;
+}
+
+/* ---------- gumbi ---------- */
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.6rem;
+  border-radius: 99px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btnPrimary {
+  background: #1c1917;
+  color: #ffffff;
+  border: 1px solid #1c1917;
+}
+
+.btnPrimary:hover {
+  background: #ea580c;
+  border-color: #ea580c;
+  transform: translateY(-1px);
+}
+
+.btnGhost {
+  background: #ffffff;
+  color: #1c1917;
+  border: 1px solid #f2ede4;
+}
+
+.btnGhost:hover {
+  border-color: #fed7aa;
+  color: #ea580c;
+}
+
+/* ---------- naslovi sekcij ---------- */
+.h2 {
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #1c1917;
+  margin-bottom: 1.2rem;
+  text-wrap: balance;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* ---------- delovni čas ---------- */
+.hoursList {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.hoursRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.2rem;
+  border-bottom: 1px solid #f7f4ef;
+}
+
+.hoursRow:last-child {
+  border-bottom: none;
+}
+
+.day {
+  font-size: 0.95rem;
+  color: #57534e;
+}
+
+.time {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1c1917;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- kaj tu dobiš ---------- */
+.highlights {
+  list-style: none;
+  margin: 0 0 1.4rem;
+  padding: 0;
+}
+
+.highlights li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #57534e;
+}
+
+.highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ea580c;
+}
+
+.menuNote {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #57534e;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.3rem;
+}
+
+/* ---------- kako priti ---------- */
+.transportGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 2.2rem;
+}
+
+.transportCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 18px;
+  padding: 1.4rem 1.4rem 1.5rem;
+}
+
+.transportCard svg {
+  color: #ea580c;
+  margin-bottom: 0.7rem;
+}
+
+.transportLabel {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #78716c;
+  margin-bottom: 0.45rem;
+}
+
+.transportCard p {
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: #57534e;
+  margin: 0;
+}
+
+/* ---------- zemljevid ---------- */
+.mapWrap {
+  width: 100%;
+  height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #f2ede4;
+}
+
+.mapWrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ---------- druga poslovalnica ---------- */
+.otherBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  padding: 1.9rem 2rem;
+}
+
+.otherLabel {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ea580c;
+  margin-bottom: 0.45rem;
+}
+
+.otherTitle {
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #1c1917;
+  margin: 0;
+}
+
+/* ==========================================================================
+   TABLICA
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .section,
+  .sectionAlt {
+    padding: 4rem 1.5rem 4.5rem;
+  }
+
+  .section:first-of-type {
+    padding-top: 7.25rem;
+  }
+
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 2.6rem;
+  }
+
+  .transportGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .mapWrap {
+    height: 340px;
+  }
+}
+
+/* ==========================================================================
+   TELEFON
+   ========================================================================== */
+@media (max-width: 640px) {
+  .section,
+  .sectionAlt {
+    padding: 3.5rem 1.25rem 4rem;
+  }
+
+  .section:first-of-type {
+    padding-top: 6.25rem;
+  }
+
+  .ctaRow {
+    width: 100%;
+  }
+
+  .btnPrimary,
+  .btnGhost {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .mapWrap {
+    height: 280px;
+    border-radius: 18px;
+  }
+
+  .otherBox {
+    padding: 1.4rem 1.25rem 1.6rem;
+  }
+}

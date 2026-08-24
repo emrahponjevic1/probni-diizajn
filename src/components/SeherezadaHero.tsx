@@ -191,12 +191,10 @@ export default function SeherezadaHero() {
               </div>
 
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Trubarjeva+cesta+31%2C+Ljubljana"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/lokacije/trubarjeva-31"
                 className={styles.navodilaLink}
               >
-                <span>Navodila</span>
+                <span>Poglej lokacijo</span>
                 <span>&rarr;</span>
               </a>
             </div>
@@ -227,12 +225,10 @@ export default function SeherezadaHero() {
               </div>
 
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Slovenska+cesta+55%2C+Ljubljana"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/lokacije/slovenska-55"
                 className={styles.navodilaLink}
               >
-                <span>Navodila</span>
+                <span>Poglej lokacijo</span>
                 <span>&rarr;</span>
               </a>
             </div>

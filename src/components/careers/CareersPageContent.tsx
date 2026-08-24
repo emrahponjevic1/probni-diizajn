@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { PHONE } from "@/data/locations";
 import Link from "next/link";
 import styles from "./CareersPageContent.module.css";
 import { JOBS_DATA, HAS_OPEN_POSITIONS, JobPosition } from "./CareersData";
@@ -684,17 +685,17 @@ export default function CareersPageContent() {
               <div className={styles.hrItem}>
                 <span className={styles.hrLabel}>Neposredni kontakt za življenjepise: </span>
                 <a
-                  href="mailto:zaposlitev@seherezada.si"
+                  href="mailto:info@seherezada.net"
                   className={styles.hrLink}
                 >
-                  zaposlitev@seherezada.si
+                  info@seherezada.net
                 </a>
               </div>
 
               <div className={styles.hrItem}>
                 <span className={styles.hrLabel}>Kadrovska služba: </span>
                 <a
-                  href="tel:+38664183155"
+                  href={`tel:${PHONE.hr.e164}`}
                   className={styles.hrPhoneLink}
                 >
                   +386 64 183 155
@@ -707,7 +708,7 @@ export default function CareersPageContent() {
               <span className={styles.mobileHrOverline}>KONTAKT ZA KANDIDATE &amp; VPRAŠANJA</span>
               <div className={styles.mobilePillsRow}>
                 <a
-                  href="mailto:zaposlitev@seherezada.si"
+                  href="mailto:info@seherezada.net"
                   className={styles.mobilePillBtn}
                 >
                   <div className={styles.mobilePillIcon}>
@@ -717,7 +718,7 @@ export default function CareersPageContent() {
                 </a>
 
                 <a
-                  href="tel:+38664183155"
+                  href={`tel:${PHONE.hr.e164}`}
                   className={styles.mobilePillBtn}
                 >
                   <div className={styles.mobilePillIcon}>

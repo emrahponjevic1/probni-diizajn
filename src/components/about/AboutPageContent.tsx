@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { PHONE } from "@/data/locations";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./AboutPageContent.module.css";
 import { initials } from "@/data/reviews";
@@ -235,18 +237,18 @@ export default function AboutPageContent() {
 
               {/* Action Buttons */}
               <div className={styles.heroActionRow}>
-                <a href="/meni" className={styles.btnPrimaryOrange}>
+                <Link href="/meni" className={styles.btnPrimaryOrange}>
                   <span>Raziščite Meni</span>
                   <ArrowRightSvg size={16} />
-                </a>
+                </Link>
 
-                <a href="tel:+38669314316" className={styles.phoneOrderPill}>
+                <a href={`tel:${PHONE.restaurant.e164}`} className={styles.phoneOrderPill}>
                   <div className={styles.phonePillIconBox}>
                     <PhoneSvg size={16} />
                   </div>
                   <div className={styles.phonePillTextCol}>
                     <span className={styles.phonePillLabel}>Naročila &amp; Prevzem</span>
-                    <span className={styles.phonePillNumber}>+386 69 314 316</span>
+                    <span className={styles.phonePillNumber}>{PHONE.restaurant.display}</span>
                   </div>
                 </a>
               </div>
@@ -583,16 +585,16 @@ export default function AboutPageContent() {
             </p>
 
             <div className={styles.invitationBtnGroup}>
-              <a href="/meni" className={styles.btnPrimaryOrange}>
+              <Link href="/meni" className={styles.btnPrimaryOrange}>
                 <span>Raziščite Celotni Meni</span>
                 <ArrowRightSvg size={16} />
-              </a>
-              <a href="/galerija" className={styles.btnCtaSecondary}>
+              </Link>
+              <Link href="/galerija" className={styles.btnCtaSecondary}>
                 <span>Foto Galerija</span>
-              </a>
-              <a href="/zaposlitev" className={styles.btnCtaSecondary}>
+              </Link>
+              <Link href="/zaposlitev" className={styles.btnCtaSecondary}>
                 <span>Postanite Del Ekipe</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { PHONE } from "@/data/locations";
 import styles from "./ContactPageContent.module.css";
 import WorldMapPattern from "./WorldMapPattern";
 import {
@@ -227,9 +228,9 @@ export default function ContactPageContent() {
                 <div className={styles.heroCardItem}>
                   <div className={styles.heroCardHeading}>Šeherezada</div>
                   <div className={styles.heroCardSubtext}>Trubarjeva cesta 31</div>
-                  <a href="tel:+38669314316" className={styles.heroCardPhoneLink}>
+                  <a href={`tel:${PHONE.restaurant.e164}`} className={styles.heroCardPhoneLink}>
                     <PhoneSvg size={14} />
-                    <span>+386 69 314 316</span>
+                    <span>{PHONE.restaurant.display}</span>
                   </a>
                 </div>
 
@@ -237,9 +238,9 @@ export default function ContactPageContent() {
                 <div className={styles.heroCardItem}>
                   <div className={styles.heroCardHeading}>Šeherezada 2</div>
                   <div className={styles.heroCardSubtext}>Slovenska cesta 55</div>
-                  <a href="tel:+38669314316" className={styles.heroCardPhoneLink}>
+                  <a href={`tel:${PHONE.restaurant.e164}`} className={styles.heroCardPhoneLink}>
                     <PhoneSvg size={14} />
-                    <span>+386 69 314 316</span>
+                    <span>{PHONE.restaurant.display}</span>
                   </a>
                 </div>
 
@@ -544,9 +545,9 @@ export default function ContactPageContent() {
                     <button type="button" onClick={handleReset} className={styles.resetFormBtn}>
                       Pošlji novo sporočilo
                     </button>
-                    <a href="tel:+38669314316" className={styles.callLocationBtn}>
+                    <a href={`tel:${PHONE.restaurant.e164}`} className={styles.callLocationBtn}>
                       <PhoneSvg size={16} />
-                      <span>Hitri klic: +386 69 314 316</span>
+                      <span>Hitri klic: {PHONE.restaurant.display}</span>
                     </a>
                   </div>
                 </div>

@@ -1,4 +1,6 @@
 import styles from "./SiteFooter.module.css";
+import { LOCATIONS, PHONE } from "@/data/locations";
+import Link from "next/link";
 
 // Clean Vector SVG Social & Contact Icons
 const FacebookSvg = ({ size = 18 }: { size?: number }) => (
@@ -42,25 +44,9 @@ const ArrowUpRightSvg = ({ size = 14 }: { size?: number }) => (
   </svg>
 );
 
-const trubarjevaHours = [
-  { day: "Ponedeljek", time: "09:00 – 02:00" },
-  { day: "Torek", time: "09:00 – 02:00" },
-  { day: "Sreda", time: "09:00 – 02:00" },
-  { day: "Četrtek", time: "09:00 – 02:00" },
-  { day: "Petek", time: "09:00 – 03:00" },
-  { day: "Sobota", time: "09:00 – 03:00" },
-  { day: "Nedelja", time: "09:00 – 02:00" },
-];
-
-const slovenskaHours = [
-  { day: "Ponedeljek", time: "08:00 – 01:00" },
-  { day: "Torek", time: "08:00 – 01:00" },
-  { day: "Sreda", time: "08:00 – 01:00" },
-  { day: "Četrtek", time: "08:00 – 01:00" },
-  { day: "Petek", time: "08:00 – 01:00" },
-  { day: "Sobota", time: "08:00 – 01:00" },
-  { day: "Nedelja", time: "08:00 – 01:00" },
-];
+// Naslovi, telefon in delovni čas prihajajo iz src/data/locations.ts.
+// Prej so bili prepisani na roko — sobota je bila zato dolgo napačna.
+const [trubarjeva, slovenska] = LOCATIONS;
 
 export default function SiteFooter() {
   return (
@@ -72,12 +58,12 @@ export default function SiteFooter() {
         <div className={styles.minimalistGrid}>
           {/* Column 1: Brand & Bio & Socials */}
           <div className={styles.brandCol}>
-            <a href="/" className={styles.logoArea}>
+            <Link href="/" className={styles.logoArea}>
               <div className={styles.logoIcon}>Š</div>
               <span className={styles.logoText}>
                 Šeherezada<span className={styles.logoAccent}>.</span>
               </span>
-            </a>
+            </Link>
 
             <p className={styles.brandBioText}>
               Ljubljanski street food od leta 1998. Halal kebab, jufka, falafel in
@@ -126,20 +112,20 @@ export default function SiteFooter() {
               {/* Location 1 */}
               <div className={styles.locBlock}>
                 <span className={styles.locName}>Šeherezada:</span>
-                <span className={styles.locStreetText}>Trubarjeva cesta 31, 1000 Ljubljana</span>
-                <a href="tel:+38669314316" className={styles.locPhoneLink}>
+                <span className={styles.locStreetText}>{trubarjeva.fullAddress}</span>
+                <a href={`tel:${PHONE.restaurant.e164}`} className={styles.locPhoneLink}>
                   <PhoneSvg size={14} />
-                  <span>+386 69 314 316</span>
+                  <span>{PHONE.restaurant.display}</span>
                 </a>
               </div>
 
               {/* Location 2 */}
               <div className={styles.locBlock}>
                 <span className={styles.locName}>Šeherezada 2:</span>
-                <span className={styles.locStreetText}>Slovenska cesta 55, 1000 Ljubljana</span>
-                <a href="tel:+38669314316" className={styles.locPhoneLink}>
+                <span className={styles.locStreetText}>{slovenska.fullAddress}</span>
+                <a href={`tel:${PHONE.restaurant.e164}`} className={styles.locPhoneLink}>
                   <PhoneSvg size={14} />
-                  <span>+386 69 314 316</span>
+                  <span>{PHONE.restaurant.display}</span>
                 </a>
               </div>
 
@@ -153,10 +139,10 @@ export default function SiteFooter() {
 
           {/* Column 3: Šeherezada Hours (Trubarjeva) */}
           <div className={styles.hoursCol}>
-            <span className={styles.colTitle}>ŠEHEREZADA</span>
+            <span className={styles.colTitle}>{trubarjeva.name.toUpperCase()}</span>
 
             <div className={styles.hoursList}>
-              {trubarjevaHours.map((d, i) => (
+              {trubarjeva.hours.map((d, i) => (
                 <div key={i} className={styles.hoursRow}>
                   <span className={styles.dayName}>{d.day}</span>
                   <span className={styles.dayTime}>{d.time}</span>
@@ -167,10 +153,10 @@ export default function SiteFooter() {
 
           {/* Column 4: Šeherezada 2 Hours (Slovenska) */}
           <div className={styles.hoursCol}>
-            <span className={styles.colTitle}>ŠEHEREZADA 2</span>
+            <span className={styles.colTitle}>{slovenska.name.toUpperCase()}</span>
 
             <div className={styles.hoursList}>
-              {slovenskaHours.map((d, i) => (
+              {slovenska.hours.map((d, i) => (
                 <div key={i} className={styles.hoursRow}>
                   <span className={styles.dayName}>{d.day}</span>
                   <span className={styles.dayTime}>{d.time}</span>

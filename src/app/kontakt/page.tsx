@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PHONE } from "@/data/locations";
 import SiteNavbar from "@/components/SiteNavbar";
 import ContactPageContent from "@/components/contact/ContactPageContent";
 import SiteFooter from "@/components/SiteFooter";
@@ -6,7 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "Kontakt — dve lokaciji v središču Ljubljane | Šeherezada",
   description:
-    "Šeherezada na Trubarjevi 31 in Slovenski 55 v Ljubljani. Telefon +386 69 314 316, navodila za prihod ter obrazec za catering in rezervacije.",
+    `Šeherezada na Trubarjevi 31 in Slovenski 55 v Ljubljani. Telefon ${PHONE.restaurant.display}, navodila za prihod ter obrazec za catering in rezervacije.`,
   keywords: [
     "Kontakt Šeherezada",
     "Šeherezada Trubarjeva delovni čas",

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./SeherezadaHero.module.css";
+import { LOCATIONS, PHONE } from "@/data/locations";
 
 // Clean Vector SVG Icons
 const UtensilsSvg = ({ size = 19, className }: { size?: number; className?: string }) => (
@@ -150,14 +152,14 @@ export default function SeherezadaHero() {
 
           {/* 5. Action Buttons */}
           <div className={styles.ctaRow}>
-            <a href="/meni" className={styles.primaryMenuBtn}>
+            <Link href="/meni" className={styles.primaryMenuBtn}>
               <UtensilsSvg size={19} />
               <span>Poglej meni in cene</span>
               <ArrowRightSvg size={16} />
-            </a>
-            <a href="tel:+38669314316" className={styles.phoneBtn}>
+            </Link>
+            <a href={`tel:${PHONE.restaurant.e164}`} className={styles.phoneBtn}>
               <PhoneSvg size={17} className={styles.phoneRedIcon} />
-              <span>+386 69 314 316</span>
+              <span>{PHONE.restaurant.display}</span>
             </a>
           </div>
 
@@ -173,11 +175,11 @@ export default function SeherezadaHero() {
             >
               <div className={styles.locationTitle}>
                 <PinSvg size={16} />
-                <span>Šeherezada</span>
+                <span>{LOCATIONS[0].name}</span>
               </div>
 
               <div className={styles.locationAddress}>
-                Trubarjeva cesta 31, 1000 Ljubljana
+                {LOCATIONS[0].fullAddress}
               </div>
 
               <div className={styles.statusOpenBadge}>
@@ -209,11 +211,11 @@ export default function SeherezadaHero() {
             >
               <div className={styles.locationTitle}>
                 <PinSvg size={16} />
-                <span>Šeherezada 2</span>
+                <span>{LOCATIONS[1].name}</span>
               </div>
 
               <div className={styles.locationAddress}>
-                Slovenska cesta 55, 1000 Ljubljana
+                {LOCATIONS[1].fullAddress}
               </div>
 
               <div className={styles.statusOpenBadge}>

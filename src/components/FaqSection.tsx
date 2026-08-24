@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import styles from "./FaqSection.module.css";
 
 // Clean Vector SVG Chevron
@@ -114,10 +115,10 @@ export default function FaqSection() {
                 Nisi prepričan glede bonov, delovnega časa ali dostave? Tu so odgovori, servirani vroči.
               </p>
 
-              <a href="/faq" className={styles.leftCtaBtn}>
+              <Link href="/faq" className={styles.leftCtaBtn}>
                 <span>Oglej Si Vsa Vprašanja (FAQ)</span>
                 <ArrowRightSvg size={16} />
-              </a>
+              </Link>
             </div>
           </div>
 

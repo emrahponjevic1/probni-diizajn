@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo } from "react";
+import Link from "next/link";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import styles from "./PopularPicks.module.css";
@@ -365,10 +366,10 @@ export default function PopularPicks() {
               voljo na študentski bon.
             </p>
           </div>
-          <a href="/meni" className={styles.bannerBtn}>
+          <Link href="/meni" className={styles.bannerBtn}>
             <span>Odpri Celoten Meni</span>
             <span>&rarr;</span>
-          </a>
+          </Link>
         </div>
       </div>
 

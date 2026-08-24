@@ -26,6 +26,10 @@ export interface LocationCore {
   /** Iskanje po imenu + naslovu da natančnejši zadetek kot samo naslov. */
   googleMapsUrl: string;
   appleMapsUrl: string;
+  /** Delovni čas po dnevih, po uradnem PDF-ju. */
+  hours: { day: string; time: string }[];
+  /** Kratek povzetek za značke in kartice. */
+  hoursShort: string;
 }
 
 export const LOCATIONS: LocationCore[] = [
@@ -39,6 +43,16 @@ export const LOCATIONS: LocationCore[] = [
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Šeherezada+Trubarjeva+cesta+31+Ljubljana",
     appleMapsUrl: "https://maps.apple.com/?q=Šeherezada+Trubarjeva+cesta+31+Ljubljana",
+    hours: [
+      { day: "Ponedeljek", time: "09:00 – 02:00" },
+      { day: "Torek", time: "09:00 – 02:00" },
+      { day: "Sreda", time: "09:00 – 02:00" },
+      { day: "Četrtek", time: "09:00 – 02:00" },
+      { day: "Petek", time: "09:00 – 03:00" },
+      { day: "Sobota", time: "09:00 – 03:00" },
+      { day: "Nedelja", time: "09:00 – 02:00" },
+    ],
+    hoursShort: "09:00 – 02:00, pet in sob do 03:00",
   },
   {
     id: "slovenska",
@@ -50,6 +64,16 @@ export const LOCATIONS: LocationCore[] = [
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Šeherezada+Slovenska+cesta+55+Ljubljana",
     appleMapsUrl: "https://maps.apple.com/?q=Šeherezada+Slovenska+cesta+55+Ljubljana",
+    hours: [
+      { day: "Ponedeljek", time: "08:00 – 01:00" },
+      { day: "Torek", time: "08:00 – 01:00" },
+      { day: "Sreda", time: "08:00 – 01:00" },
+      { day: "Četrtek", time: "08:00 – 01:00" },
+      { day: "Petek", time: "08:00 – 01:00" },
+      { day: "Sobota", time: "08:00 – 01:00" },
+      { day: "Nedelja", time: "08:00 – 01:00" },
+    ],
+    hoursShort: "08:00 – 01:00, vsak dan",
   },
 ];
 

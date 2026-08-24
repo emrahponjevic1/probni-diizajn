@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./StudentVouchers.module.css";
 
 // Clean Vector SVG Icons (No Emojis)
@@ -102,10 +103,10 @@ export default function StudentVouchers() {
               </div>
 
               <div className={styles.bannerBottomRow}>
-                <a href="/studentski-boni" className={styles.bannerCtaBtn}>
+                <Link href="/studentski-boni" className={styles.bannerCtaBtn}>
                   <span>Več o Študentskih Bonih</span>
                   <ArrowRightSvg size={16} />
-                </a>
+                </Link>
 
                 <p className={styles.bannerLeadText}>
                   Döner kebab, jufka, falafel in pizza

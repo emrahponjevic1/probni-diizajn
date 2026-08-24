@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { PHONE } from "@/data/locations";
+import Link from "next/link";
 import styles from "./FaqPageContent.module.css";
 
 // Clean Vector SVG Icons
@@ -151,7 +153,7 @@ const FAQ_SECTIONS: FaqCategory[] = [
         id: "boni-2",
         question: "Ali lahko naročim vnaprej po telefonu za prevzem?",
         answer:
-          "Seveda! Pokličite nas na +386 69 314 316 in vaše naročilo vas bo čakalo sveže in toplo pripravljeno ob dogovorjenem času brez čakanja v vrsti.",
+          `Seveda! Pokličite nas na ${PHONE.restaurant.display} in vaše naročilo vas bo čakalo sveže in toplo pripravljeno ob dogovorjenem času brez čakanja v vrsti.`,
       },
     ],
   },
@@ -279,14 +281,14 @@ export default function FaqPageContent() {
             </div>
 
             <div className={styles.ctaActionsGroup}>
-              <a href="tel:+38669314316" className={styles.ctaCallBtn}>
+              <a href={`tel:${PHONE.restaurant.e164}`} className={styles.ctaCallBtn}>
                 <PhoneIcon />
-                <span>+386 69 314 316</span>
+                <span>{PHONE.restaurant.display}</span>
               </a>
-              <a href="/meni" className={styles.ctaOrderBtn}>
+              <Link href="/meni" className={styles.ctaOrderBtn}>
                 <BagIcon />
                 <span>Oglejte si meni</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

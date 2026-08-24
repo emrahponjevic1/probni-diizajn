@@ -1,3 +1,5 @@
+import { PHONE } from "@/data/locations";
+
 export interface LocationDetail {
   id: "trubarjeva" | "slovenska";
   name: string;
@@ -48,8 +50,8 @@ export const CONTACT_LOCATIONS: LocationDetail[] = [
     subtitle: "Bohemski mestni vrvež in nočna kulinarična legenda",
     address: "Trubarjeva cesta 31",
     city: "1000 Ljubljana",
-    phone: "+386 69 314 316",
-    phoneRaw: "+38669314316",
+    phone: PHONE.restaurant.display,
+    phoneRaw: PHONE.restaurant.e164,
     email: "info@seherezada.net",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Šeherezada+Trubarjeva+cesta+31+Ljubljana",
     appleMapsUrl: "https://maps.apple.com/?q=Šeherezada+Trubarjeva+cesta+31+Ljubljana",
@@ -90,8 +92,8 @@ export const CONTACT_LOCATIONS: LocationDetail[] = [
     subtitle: "Prostorna restavracija v srcu prestolnice",
     address: "Slovenska cesta 55",
     city: "1000 Ljubljana",
-    phone: "+386 69 314 316",
-    phoneRaw: "+38669314316",
+    phone: PHONE.restaurant.display,
+    phoneRaw: PHONE.restaurant.e164,
     email: "info@seherezada.net",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Šeherezada+Slovenska+cesta+55+Ljubljana",
     appleMapsUrl: "https://maps.apple.com/?q=Šeherezada+Slovenska+cesta+55+Ljubljana",
@@ -160,7 +162,7 @@ export const CONTACT_FAQS: ContactFaqItem[] = [
     category: "splosno",
     question: "Ali je za obisk restavracije potrebna predhodna rezervacija?",
     answer:
-      "Za posameznike in manjše skupine rezervacija ni potrebna — preprosto se oglasite pri nas! Za večje skupine (8 oseb ali več) ali poslovna kosila na Slovenski cesti pa priporočamo, da nam pošljete povpraševanje ali nas predhodno pokličete na +386 69 314 316, da vam pravočasno pripravimo mizo.",
+      `Za posameznike in manjše skupine rezervacija ni potrebna — preprosto se oglasite pri nas! Za večje skupine (8 oseb ali več) ali poslovna kosila na Slovenski cesti pa priporočamo, da nam pošljete povpraševanje ali nas predhodno pokličete na ${PHONE.restaurant.display}, da vam pravočasno pripravimo mizo.`,
   },
   {
     id: "faq-catering",
@@ -181,7 +183,7 @@ export const CONTACT_FAQS: ContactFaqItem[] = [
     category: "splosno",
     question: "Ali lahko hrano naročim za osebni prevzem (Take-away)?",
     answer:
-      "Seveda! Pokličite nas na +386 69 314 316, oddajte svoje naročilo in vaša hrana bo sveže pečena ter skrbno zapakirana čakala na prevzem v roku 10–15 minut.",
+      `Seveda! Pokličite nas na ${PHONE.restaurant.display}, oddajte svoje naročilo in vaša hrana bo sveže pečena ter skrbno zapakirana čakala na prevzem v roku 10–15 minut.`,
   },
   {
     id: "faq-placila",
@@ -203,8 +205,8 @@ export const DIRECT_CHANNELS = [
   {
     name: "Telefonski klic",
     desc: "Za takojšnja naročila za prevzem in vprašanja",
-    actionText: "+386 69 314 316",
-    href: "tel:+38669314316",
+    actionText: PHONE.restaurant.display,
+    href: `tel:${PHONE.restaurant.e164}`,
     icon: "phone",
     highlight: "Priporočeno za hitra naročila",
   },

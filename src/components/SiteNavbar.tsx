@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import styles from "./SiteNavbar.module.css";
+import { LOCATIONS } from "@/data/locations";
 
 // Clean Vector SVG Icons
 const PinSvg = ({ size = 16, className }: { size?: number; className?: string }) => (
@@ -126,10 +128,15 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
     { label: "Kontakt", href: "/kontakt", active: activeRoute === "kontakt" },
   ];
 
-  const locationsList = [
-    { id: "1" as const, name: "Šeherezada", address: "Trubarjeva cesta 31", status: "Odprto", isOpen: true },
-    { id: "2" as const, name: "Šeherezada 2", address: "Slovenska cesta 55", status: "Odprto", isOpen: true },
-  ];
+  // Poslovalnice beremo iz src/data/locations.ts — prej je bil tu drug seznam,
+  // ki se je lahko razhajal s tistim v nogi in na strani Kontakt.
+  const locationsList = LOCATIONS.map((l, i) => ({
+    id: String(i + 1) as "1" | "2",
+    name: l.name,
+    address: l.street,
+    status: "Odprto",
+    isOpen: true,
+  }));
 
   const languagesList = [
     { code: "SLO" as const, name: "Slovenščina" },
@@ -151,24 +158,24 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
         <header className={`${styles.navbarIsland} ${isScrolled ? styles.navbarFullWidth : ""}`}>
           <div className={styles.navbarInnerContainer}>
             {/* Brand Logo */}
-            <a href="/" className={styles.logoArea}>
+            <Link href="/" className={styles.logoArea}>
               <div className={styles.logoIcon}>Š</div>
               <span className={styles.logoText}>
                 Šeherezada<span className={styles.logoAccent}>.</span>
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Navigation Links */}
             <nav>
               <ul className={styles.navLinks}>
                 {navItems.map((item) => (
                   <li key={item.label}>
-                    <a
+                    <Link
                       href={item.href}
                       className={`${styles.navLink} ${item.active ? styles.navLinkActive : ""}`}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -302,12 +309,12 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
         <div>
           {/* Header */}
           <div className={styles.editorialHeader}>
-            <a href="/" className={styles.logoArea} onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/" className={styles.logoArea} onClick={() => setIsMobileMenuOpen(false)}>
               <div className={styles.logoIcon}>Š</div>
               <span className={styles.logoText}>
                 Šeherezada<span className={styles.logoAccent}>.</span>
               </span>
-            </a>
+            </Link>
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
@@ -325,14 +332,14 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
           <ul className={styles.editorialNavList}>
             {navItems.map((item, idx) => (
               <li key={item.label}>
-                <a
+                <Link
                   href={item.href}
                   className={`${styles.editorialNavItem} ${item.active ? styles.editorialNavItemActive : ""}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <span className={styles.editorialNavTitle}>{item.label}</span>
                   <span className={styles.editorialNavNum}>0{idx + 1} ➔</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

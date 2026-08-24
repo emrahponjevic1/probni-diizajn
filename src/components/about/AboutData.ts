@@ -1,5 +1,5 @@
 import { GOOGLE_REVIEWS } from "@/data/reviews";
-import { locationById } from "@/data/locations";
+import { locationById, PHONE } from "@/data/locations";
 
 export interface HeroMicroItem {
   id: string;
@@ -178,7 +178,7 @@ export const LOCATIONS_PROFILES: LocationProfile[] = [
     description:
       "Naša prva poslovalnica v starem mestnem jedru. Prostor, kjer se prepletajo nočno življenje, študentski vrvež in več kot četrt stoletja pristne orientalske tradicije.",
     hours: "Pon – Čet & Sob – Ned: 09:00 – 02:00, Pet: 09:00 – 03:00",
-    phone: "+386 69 314 316",
+    phone: PHONE.restaurant.display,
     vibeTag: "Bohemski mestni utrip & nočna legenda",
     features: [
       "Center mesta (Trubarjeva ulica)",
@@ -197,7 +197,7 @@ export const LOCATIONS_PROFILES: LocationProfile[] = [
     description:
       "Prostorna in sodobna restavracija ob osrednji Slovenski cesti v Ljubljani. Idealna za jutranje malice, poslovna kosila, študentske obede ter večerne prigrizke v prijetnem ambientu.",
     hours: "Ponedeljek – Nedelja: 08:00 – 01:00",
-    phone: "+386 69 314 316",
+    phone: PHONE.restaurant.display,
     vibeTag: "Sodobna restavracija & mestni utrip",
     features: [
       "Center mesta (Slovenska cesta 55)",

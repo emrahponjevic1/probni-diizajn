@@ -122,6 +122,9 @@
   color: #1c1917;
   letter-spacing: -0.03em;
   line-height: 1.12;
+  /* Naslov je zdaj daljši od ene besede — brez tega ostane osamljena
+     beseda v drugi vrstici. */
+  text-wrap: balance;
   margin: 0 0 0.85rem;
 }
 

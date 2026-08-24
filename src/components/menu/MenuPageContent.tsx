@@ -236,10 +236,12 @@ export default function MenuPageContent() {
             </div>
           </div>
 
-          <h1 className={styles.mainTitle}>Odkrijte Našo Ponudbo</h1>
+          <h1 className={styles.mainTitle}>Meni in cene — kebab, falafel in pizza v&nbsp;Ljubljani</h1>
 
           <p className={styles.subtitle}>
-            Pristen okus hitre prehrane, pripravljen z izbranimi svežimi sestavinami, 100% Halal mesom in domačimi recepti.
+            29 jedi: kebab, jufka, falafel, burgerji in pizze, pečene po
+            naročilu. 19 jedi je na voljo na študentski bon z doplačilom
+            3,00 €, sedem jedi je veganskih.
           </p>
 
           {/* Sub-tab Bar: Menu Type Switcher */}

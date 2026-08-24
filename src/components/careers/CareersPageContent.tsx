@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import styles from "./CareersPageContent.module.css";
-import { JOBS_DATA, JobPosition } from "./CareersData";
+import { JOBS_DATA, HAS_OPEN_POSITIONS, JobPosition } from "./CareersData";
 
 // Clean Lucide-style SVG Icons
 const ArrowDownSvg = ({ className }: { className?: string }) => (
@@ -187,7 +188,7 @@ export default function CareersPageContent() {
         urlParams.get("posao") ||
         window.location.hash.replace("#", "");
 
-      if (queryJob && JOBS_DATA.some((j) => j.id === queryJob)) {
+      if (queryJob && JOBS_DATA.some((j) => j.slug === queryJob)) {
         setSelectedJobId(queryJob);
       }
 
@@ -290,7 +291,7 @@ export default function CareersPageContent() {
     setSingleSubmitted(true);
   };
 
-  const currentSingleJob = JOBS_DATA.find((j) => j.id === selectedJobId);
+  const currentSingleJob = JOBS_DATA.find((j) => j.slug === selectedJobId);
 
   return (
     <section className={styles.careersSection}>
@@ -316,7 +317,7 @@ export default function CareersPageContent() {
                     </div>
                   </div>
 
-                  <h1 className={styles.mainTitle}>Kariera v Šeherezadi</h1>
+                  <h1 className={styles.mainTitle}>Delo in zaposlitev v Šeherezadi, Ljubljana</h1>
 
                   <p className={styles.subtitle}>
                     Pridružite se naši ekipi v centru Ljubljane in soustvarjajte
@@ -328,23 +329,40 @@ export default function CareersPageContent() {
 
               {/* Table / Accordion Section */}
               <div className={styles.tableSection}>
+                {/* Ko ni odprtih mest, prazna tabela z glavo izgleda pokvarjeno.
+                    Namesto tega povemo, kako je, in povabimo k oddaji ponudbe. */}
+                {!HAS_OPEN_POSITIONS && (
+                  <div className={styles.noOpeningsBox}>
+                    <h3 className={styles.noOpeningsTitle}>
+                      Trenutno nimamo odprtih delovnih mest
+                    </h3>
+                    <p className={styles.noOpeningsText}>
+                      Kljub temu z veseljem prejmemo vašo ponudbo. Pišite nam prek
+                      obrazca spodaj ali pošljite življenjepis na e-pošto — ko se
+                      odpre mesto, najprej pogledamo prijave, ki jih že imamo.
+                    </p>
+                  </div>
+                )}
+
                 {/* Desktop Column Headers (Hidden on Tablet / Mobile) */}
-                <div className={styles.tableHeaderRow}>
-                  <span>DELOVNO MESTO</span>
-                  <span>LOKACIJA</span>
-                  <span className={styles.tableHeaderRight}>TIP ZAPOSLITVE</span>
-                </div>
+                {HAS_OPEN_POSITIONS && (
+                  <div className={styles.tableHeaderRow}>
+                    <span>DELOVNO MESTO</span>
+                    <span>LOKACIJA</span>
+                    <span className={styles.tableHeaderRight}>TIP ZAPOSLITVE</span>
+                  </div>
+                )}
 
                 {/* Job Accordion List */}
                 <div className={styles.jobsList}>
                   {JOBS_DATA.map((job) => {
-                    const isActive = activeAccordionId === job.id;
-                    const isCopied = copiedId === job.id;
+                    const isActive = activeAccordionId === job.slug;
+                    const isCopied = copiedId === job.slug;
 
                     return (
                       <div
-                        key={job.id}
-                        id={job.id}
+                        key={job.slug}
+                        id={job.slug}
                         className={`${styles.jobRow} ${isActive ? styles.jobRowActive : ""}`}
                       >
                         {/* =======================================================
@@ -352,7 +370,7 @@ export default function CareersPageContent() {
                             ======================================================= */}
                         <div
                           className={styles.desktopRowHeader}
-                          onClick={() => handleToggleAccordion(job.id)}
+                          onClick={() => handleToggleAccordion(job.slug)}
                           role="button"
                           tabIndex={0}
                           aria-expanded={isActive}
@@ -385,7 +403,7 @@ export default function CareersPageContent() {
                             ======================================================= */}
                         <div
                           className={styles.mobileCardHeader}
-                          onClick={() => handleToggleAccordion(job.id)}
+                          onClick={() => handleToggleAccordion(job.slug)}
                           role="button"
                           tabIndex={0}
                           aria-expanded={isActive}
@@ -429,6 +447,14 @@ export default function CareersPageContent() {
                           <div className={styles.jobExpandedContent}>
                             <p className={styles.jobDesc}>{job.desc}</p>
 
+                            {/* Vsak oglas ima tudi svojo stran — tam je
+                                JobPosting oznaka za Google for Jobs. */}
+                            <p className={styles.jobFullPageLink}>
+                              <Link href={`/zaposlitev/${job.slug}`}>
+                                Odpri celoten oglas &rarr;
+                              </Link>
+                            </p>
+
                             <div className={styles.jobSectionBlock}>
                               <span className={styles.jobSectionTitle}>
                                 • Odgovornosti in ključne naloge:
@@ -466,7 +492,7 @@ export default function CareersPageContent() {
 
                               <button
                                 type="button"
-                                onClick={() => handleOpenSingleJob(job.id)}
+                                onClick={() => handleOpenSingleJob(job.slug)}
                                 className={styles.btnDetails}
                               >
                                 <span>Celoten oglas &amp; deljenje</span>
@@ -475,7 +501,7 @@ export default function CareersPageContent() {
 
                               <button
                                 type="button"
-                                onClick={() => handleCopyLink(job.id)}
+                                onClick={() => handleCopyLink(job.slug)}
                                 className={`${styles.btnCopy} ${
                                   isCopied ? styles.btnCopySuccess : ""
                                 }`}
@@ -668,10 +694,10 @@ export default function CareersPageContent() {
               <div className={styles.hrItem}>
                 <span className={styles.hrLabel}>Kadrovska služba: </span>
                 <a
-                  href="tel:+38669444812"
+                  href="tel:+38664183155"
                   className={styles.hrPhoneLink}
                 >
-                  069 444 812
+                  +386 64 183 155
                 </a>
               </div>
             </div>
@@ -691,7 +717,7 @@ export default function CareersPageContent() {
                 </a>
 
                 <a
-                  href="tel:+38669444812"
+                  href="tel:+38664183155"
                   className={styles.mobilePillBtn}
                 >
                   <div className={styles.mobilePillIcon}>

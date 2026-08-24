@@ -1,0 +1,140 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import SiteNavbar from "@/components/SiteNavbar";
+import SiteFooter from "@/components/SiteFooter";
+import { BLOG_POSTS, postBySlug } from "@/data/blog";
+import styles from "@/components/blog/BlogPageContent.module.css";
+
+const BASE = "https://seherezada.net";
+
+/**
+ * Vsaka objava dobi svojo statično stran. Slug pride iz src/data/blog.ts —
+ * nova objava tam pomeni novo stran tukaj, brez dodatnega dela.
+ */
+export function generateStaticParams() {
+  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+}
+
+/** Slug, ki ga ni med objavami, vrne 404 namesto prazne strani. */
+export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = postBySlug(slug);
+
+  if (!post) {
+    return { title: "Objava ni najdena | Šeherezada" };
+  }
+
+  const url = `${BASE}/blog/${post.slug}`;
+
+  return {
+    title: `${post.title} | Šeherezada Ljubljana`,
+    description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url,
+      type: "article",
+      publishedTime: post.isoDate,
+      authors: [post.author.name],
+      locale: "sl_SI",
+      images: [{ url: `${BASE}${post.coverImage}`, width: 1200, height: 630, alt: post.title }],
+    },
+  };
+}
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = postBySlug(slug);
+
+  if (!post) notFound();
+
+  const related = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
+
+  return (
+    <main>
+      <SiteNavbar activeRoute="blog" />
+
+      <article className={styles.blogSection}>
+        <div className={styles.container}>
+          <div className={styles.singleArticleWrapper}>
+            <nav aria-label="Drobtice" className={styles.breadcrumbNav}>
+              <Link href="/" className={styles.breadcrumbLink}>
+                Domov
+              </Link>
+              <span className={styles.breadcrumbSeparator}>/</span>
+              <Link href="/blog" className={styles.breadcrumbLink}>
+                Blog
+              </Link>
+              <span className={styles.breadcrumbSeparator}>/</span>
+              <span className={styles.breadcrumbCurrent}>{post.title}</span>
+            </nav>
+
+            <span className={styles.singleCategoryPill}>{post.category}</span>
+
+            <h1 className={styles.singleTitle}>{post.title}</h1>
+            <p className={styles.singleExcerpt}>{post.excerpt}</p>
+
+            <div className={styles.singleAuthorBar}>
+              <div className={styles.singleAuthorLeft}>
+                <div>
+                  <span className={styles.singleAuthorName}>{post.author.name}</span>
+                  <span className={styles.singleAuthorRole}>{post.author.role}</span>
+                </div>
+              </div>
+
+              <div className={styles.singleMetaRight}>
+                <span className={styles.singleMetaItem}>
+                  <time dateTime={post.isoDate}>{post.date}</time>
+                </span>
+                <span className={styles.metaDot} />
+                <span className={styles.singleMetaItem}>{post.readTime}</span>
+              </div>
+            </div>
+
+            <figure className={styles.singleCoverContainer}>
+              <Image
+                src={post.coverImage}
+                alt={post.imageCaption || post.title}
+                width={1200}
+                height={630}
+                priority
+                className={styles.singleCoverImg}
+              />
+              {post.imageCaption && (
+                <figcaption className={styles.singleCaption}>{post.imageCaption}</figcaption>
+              )}
+            </figure>
+
+            <div
+              className={styles.singleBodyHtml}
+              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            />
+
+            {related.length > 0 && (
+              <div className={styles.singleActionFooter}>
+                <Link href="/blog" className={styles.breadcrumbLink}>
+                  &larr; Vse objave
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      </article>
+
+      <SiteFooter />
+    </main>
+  );
+}

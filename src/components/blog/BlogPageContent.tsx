@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useMemo } from "react";
+import Link from "next/link";
 import styles from "./BlogPageContent.module.css";
 import {
   BLOG_POSTS,
@@ -141,293 +142,28 @@ const SparklesIcon = () => (
 );
 
 export default function BlogPageContent() {
-  const [activePostId, setActivePostId] = useState<string | null>(null);
-  const [copiedLink, setCopiedLink] = useState(false);
+  // Vsaka objava ima svojo stran na /blog/<slug>, zato tukaj ni več
+  // stanja za odpiranje objave v oknu — kartice so navadne povezave.
 
-  // Sync state with URL parameter (e.g., /blog?post=marinada-orientalski-zar)
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  /** Objava, prikazana veliko na vrhu arhiva. */
+  const featuredPost = useMemo(
+    () => BLOG_POSTS.find((p) => p.isFeatured) ?? BLOG_POSTS[0],
+    []
+  );
 
-    const params = new URLSearchParams(window.location.search);
-    const postParam = params.get("post");
-
-    if (postParam && BLOG_POSTS.some((p) => p.id === postParam)) {
-      setActivePostId(postParam);
-    }
-
-    const handlePopState = () => {
-      const currentParams = new URLSearchParams(window.location.search);
-      const curPost = currentParams.get("post");
-      if (curPost && BLOG_POSTS.some((p) => p.id === curPost)) {
-        setActivePostId(curPost);
-      } else {
-        setActivePostId(null);
-      }
-    };
-
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
-
-  // Featured Post (for archive view)
-  const featuredPost = useMemo(() => {
-    return BLOG_POSTS.find((p) => p.isFeatured) || BLOG_POSTS[0];
-  }, []);
-
-  // Grid Posts (all posts except featured)
-  const gridPosts = useMemo(() => {
-    return BLOG_POSTS.filter((p) => p.id !== featuredPost.id);
-  }, [featuredPost]);
-
-  // Active Post Data (for single post view)
-  const activePost = useMemo(() => {
-    if (!activePostId) return null;
-    return BLOG_POSTS.find((p) => p.id === activePostId) || null;
-  }, [activePostId]);
-
-  // Related Posts (for single post view bottom section)
-  const relatedPosts = useMemo(() => {
-    if (!activePost) return [];
-    return BLOG_POSTS.filter((p) => p.id !== activePost.id).slice(0, 3);
-  }, [activePost]);
-
-  // Navigate to single post
-  const openSinglePost = (postId: string) => {
-    setActivePostId(postId);
-    if (typeof window !== "undefined") {
-      const url = new URL(window.location.href);
-      url.searchParams.set("post", postId);
-      window.history.pushState({ postId }, "", url.toString());
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  // Navigate back to archive
-  const backToArchive = () => {
-    setActivePostId(null);
-    if (typeof window !== "undefined") {
-      const url = new URL(window.location.href);
-      url.searchParams.delete("post");
-      window.history.pushState({}, "", url.pathname);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  // Copy link share action
-  const handleCopyLink = () => {
-    if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        setCopiedLink(true);
-        setTimeout(() => setCopiedLink(false), 2500);
-      });
-    }
-  };
+  /** Vse ostale objave. */
+  const gridPosts = useMemo(
+    () => BLOG_POSTS.filter((p) => p.slug !== featuredPost?.slug),
+    [featuredPost]
+  );
 
 
   return (
     <div className={styles.blogPageRoot}>
       <div className={styles.ambientGlowTop} />
 
-      {/* =========================================================================
-          VIEW 1: SINGLE POST READING MODE
-          ========================================================================= */}
-      {activePost ? (
-        <article className={styles.blogSection}>
-          <div className={styles.container}>
-            <div className={styles.singleArticleWrapper}>
-              {/* Breadcrumb Navigation */}
-              <nav aria-label="Drobtice" className={styles.breadcrumbNav}>
-                <button
-                  type="button"
-                  onClick={backToArchive}
-                  className={styles.breadcrumbLink}
-                >
-                  Domov
-                </button>
-                <span className={styles.breadcrumbSeparator}>/</span>
-                <button
-                  type="button"
-                  onClick={backToArchive}
-                  className={styles.breadcrumbLink}
-                >
-                  Blog
-                </button>
-                <span className={styles.breadcrumbSeparator}>/</span>
-                <span className={styles.breadcrumbCurrent}>
-                  {activePost.category}
-                </span>
-              </nav>
-
-              {/* Category Badge */}
-              <div>
-                <span className={styles.singleCategoryPill}>
-                  <SparklesIcon />
-                  <span>{activePost.category}</span>
-                </span>
-              </div>
-
-              {/* Title & Excerpt */}
-              <h1 className={styles.singleTitle}>{activePost.title}</h1>
-              <p className={styles.singleExcerpt}>{activePost.excerpt}</p>
-
-              {/* Author & Meta Row */}
-              <div className={styles.singleAuthorBar}>
-                <div className={styles.singleAuthorLeft}>
-                  <img
-                    src={activePost.author.image}
-                    alt={activePost.author.name}
-                    className={styles.singleAuthorImg}
-                  />
-                  <div>
-                    <div className={styles.singleAuthorName}>
-                      {activePost.author.name}
-                    </div>
-                    <div className={styles.singleAuthorRole}>
-                      {activePost.author.role}
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.singleMetaRight}>
-                  <div className={styles.singleMetaItem}>
-                    <span className={styles.singleMetaIcon}>
-                      <CalendarIcon />
-                    </span>
-                    <span>{activePost.date}</span>
-                  </div>
-                  <span className={styles.metaDot}>•</span>
-                  <div className={styles.singleMetaItem}>
-                    <span className={styles.singleMetaIcon}>
-                      <ClockIcon />
-                    </span>
-                    <span>{activePost.readTime}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Main Cover Image */}
-              <div className={styles.singleCoverContainer}>
-                <img
-                  src={activePost.coverImage}
-                  alt={activePost.title}
-                  className={styles.singleCoverImg}
-                />
-              </div>
-              <p className={styles.singleCaption}>{activePost.imageCaption}</p>
-
-              {/* Rich Body Content */}
-              <div
-                className={styles.singleBodyHtml}
-                dangerouslySetInnerHTML={{ __html: activePost.contentHtml }}
-              />
-
-              {/* Bottom Action Bar */}
-              <div className={styles.singleActionFooter}>
-                <button
-                  type="button"
-                  onClick={backToArchive}
-                  className={styles.backToArchiveBtn}
-                >
-                  <ArrowLeftIcon />
-                  <span>Nazaj na vse kulinarične objave</span>
-                </button>
-
-                <div className={styles.shareButtonGroup}>
-                  <span className={styles.shareLabel}>Deli članek:</span>
-                  <button
-                    type="button"
-                    onClick={handleCopyLink}
-                    className={styles.shareIconBtn}
-                    title="Kopiraj povezavo do članka"
-                    aria-label="Kopiraj povezavo"
-                  >
-                    {copiedLink ? <CheckIcon /> : <ShareIcon />}
-                  </button>
-                  {copiedLink && (
-                    <span className={styles.toastCopied}>Povezava kopirana!</span>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Related Articles Section */}
-          <div className={styles.relatedSection}>
-            <div className={styles.relatedContainer}>
-              <div className={styles.relatedHeader}>
-                <div>
-                  <span className={styles.gridSectionKicker}>
-                    Nadaljujte z branjem
-                  </span>
-                  <h3 className={styles.relatedTitle}>Podobne Kulinarične Zgodbe</h3>
-                </div>
-                <button
-                  type="button"
-                  onClick={backToArchive}
-                  className={styles.viewAllStoriesLink}
-                >
-                  <span>Vse objave</span>
-                  <ArrowRightIcon />
-                </button>
-              </div>
-
-              <div className={styles.postsGrid}>
-                {relatedPosts.map((post) => (
-                  <article
-                    key={post.id}
-                    className={styles.postCard}
-                    onClick={() => openSinglePost(post.id)}
-                  >
-                    <div>
-                      <div className={styles.cardImageWrapper}>
-                        <img
-                          src={post.coverImage}
-                          alt={post.title}
-                          className={styles.cardImg}
-                        />
-                        <span className={styles.categoryTagFloating}>
-                          {post.category}
-                        </span>
-                      </div>
-
-                      <div className={styles.cardContent}>
-                        <div className={styles.cardMetaRow}>
-                          <span>{post.date}</span>
-                          <span>•</span>
-                          <span>{post.readTime}</span>
-                        </div>
-                        <h4 className={styles.cardTitle}>{post.title}</h4>
-                        <p className={styles.cardExcerpt}>{post.excerpt}</p>
-                      </div>
-                    </div>
-
-                    <div className={styles.cardFooter}>
-                      <div className={styles.cardAuthorMini}>
-                        <img
-                          src={post.author.image}
-                          alt={post.author.name}
-                          className={styles.cardAuthorAvatar}
-                        />
-                        <span className={styles.cardAuthorName}>
-                          {post.author.name}
-                        </span>
-                      </div>
-                      <span className={styles.cardActionLink}>
-                        <span>Preberi</span>
-                        <ArrowRightIcon />
-                      </span>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </article>
-      ) : (
-        /* =========================================================================
-            VIEW 2: ARCHIVE BLOG LISTING (HERO + CATEGORIES + 3-GRID)
-            ========================================================================= */
-        <section className={styles.blogSection}>
+      {/* Arhiv objav. Posamezna objava ima svojo stran: /blog/<slug> */}
+      <section className={styles.blogSection}>
           <div className={styles.container}>
             {/* Header / Intro */}
             <div className={styles.blogHeader}>
@@ -441,20 +177,40 @@ export default function BlogPageContent() {
               </div>
 
               <h1 className={styles.pageTitle}>
-                Zgodbe iz Naše Kuhinje, Skrivnosti Žara &amp; Tradicije
+                Blog — hrana, halal in študentski boni v Ljubljani
               </h1>
 
               <p className={styles.pageSubtitle}>
-                Spoznajte umetnost orientalske kulinarične tradicije, skrivnosti
-                priprave svežih jedi in zgodbe naših mojstrov peke in žara.
+                Nasveti in zgodbe o naši hrani, halal ponudbi, veganskih jedeh
+                in študentskih bonih — ter o tem, kje in kdaj jesti v Ljubljani.
               </p>
             </div>
 
+            {/* Ko ni objav, prazen arhiv izgleda pokvarjeno. Povemo, kako je. */}
+            {!featuredPost && (
+              <div className={styles.noPostsBox}>
+                <h2 className={styles.noPostsTitle}>Objave pripravljamo</h2>
+                <p className={styles.noPostsText}>
+                  Tu bodo kmalu nasveti o halal ponudbi, študentskih bonih in
+                  najboljših kombinacijah z našega menija. Do takrat si oglejte
+                  celoten meni ali nas obiščite na eni od dveh lokacij.
+                </p>
+                <div className={styles.noPostsActions}>
+                  <Link href="/meni" className={styles.noPostsBtn}>
+                    Poglej meni
+                  </Link>
+                  <Link href="/kontakt" className={styles.noPostsBtnGhost}>
+                    Kje smo
+                  </Link>
+                </div>
+              </div>
+            )}
+
             {/* Featured Hero Story */}
             {featuredPost && (
-              <div
+              <Link
                 className={styles.featuredCard}
-                onClick={() => openSinglePost(featuredPost.id)}
+                href={`/blog/${featuredPost.slug}`}
               >
                 <div className={styles.featuredImageContainer}>
                   <img
@@ -481,7 +237,7 @@ export default function BlogPageContent() {
                   <div className={styles.featuredFooter}>
                     <div className={styles.authorSnippet}>
                       <img
-                        src={featuredPost.author.image}
+                        src={featuredPost.coverImage}
                         alt={featuredPost.author.name}
                         className={styles.authorImgMini}
                       />
@@ -501,7 +257,7 @@ export default function BlogPageContent() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             )}
 
             {/* Grid Header & Articles Grid */}
@@ -514,10 +270,10 @@ export default function BlogPageContent() {
 
             <div className={styles.postsGrid}>
               {gridPosts.map((post) => (
-                <article
-                  key={post.id}
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
                   className={styles.postCard}
-                  onClick={() => openSinglePost(post.id)}
                 >
                   <div>
                     <div className={styles.cardImageWrapper}>
@@ -545,7 +301,7 @@ export default function BlogPageContent() {
                   <div className={styles.cardFooter}>
                     <div className={styles.cardAuthorMini}>
                       <img
-                        src={post.author.image}
+                        src={post.coverImage}
                         alt={post.author.name}
                         className={styles.cardAuthorAvatar}
                       />
@@ -558,12 +314,12 @@ export default function BlogPageContent() {
                       <ArrowRightIcon />
                     </span>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           </div>
         </section>
-      )}
+
     </div>
   );
 }

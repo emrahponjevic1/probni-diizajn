@@ -981,3 +981,76 @@
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   PRAZNO STANJE — ko ni objav
+   ========================================================================== */
+.noPostsBox {
+  background: #fffdfa;
+  border: 1px solid #f2ede4;
+  border-radius: 22px;
+  padding: 2.6rem 2rem 2.8rem;
+  text-align: center;
+}
+
+.noPostsTitle {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #1c1917;
+  margin-bottom: 0.7rem;
+}
+
+.noPostsText {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #57534e;
+  max-width: 54ch;
+  margin: 0 auto 1.6rem;
+}
+
+.noPostsActions {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.noPostsBtn,
+.noPostsBtnGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 99px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.noPostsBtn {
+  background: #ea580c;
+  color: #ffffff;
+  border: 1px solid #ea580c;
+}
+
+.noPostsBtn:hover {
+  background: #d9500b;
+  transform: translateY(-1px);
+}
+
+.noPostsBtnGhost {
+  background: #ffffff;
+  color: #1c1917;
+  border: 1px solid #f2ede4;
+}
+
+.noPostsBtnGhost:hover {
+  border-color: #fed7aa;
+}
+
+@media (max-width: 640px) {
+  .noPostsBox {
+    padding: 2rem 1.25rem 2.2rem;
+  }
+}

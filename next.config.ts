@@ -1,14 +1,21 @@
 import type { NextConfig } from "next";
 
-const isGithubActions = process.env.GITHUB_ACTIONS === "true";
-const repoName = "probni-diizajn";
-
 const nextConfig: NextConfig = {
-  output: "export",
-  basePath: isGithubActions ? `/${repoName}` : "",
+  // GitHub Pages je opuščen: ni več workflowa, basePath in statičnega izvoza.
+  //
+  // output: "export" je odstranjen.
+  //
+  // Statični izvoz zahteva, da ima vsaka dinamična pot vsaj eno stran.
+  // Ker trenutno ni nobene objave, /blog/[slug] ne more obstajati.
+  // Prav tako izvoz ne podpira middleware, preusmeritev in optimizacije slik —
+  // torej natanko tega, kar potrebujemo za večjezičnost in hitrost.
+  //
+  // Naslednji korak: gostovanje na Vercelu (glej Fazo 3 v načrtu).
   allowedDevOrigins: ["192.168.1.88", "localhost:3001", "192.168.1.88:3001"],
   images: {
-    unoptimized: true,
+    // unoptimized je bil potreben samo zaradi statičnega izvoza.
+    // Zdaj Next slike sam pretvori v AVIF/WebP in jih postreže v pravi velikosti.
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",

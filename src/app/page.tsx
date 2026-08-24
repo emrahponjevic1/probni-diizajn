@@ -1,3 +1,4 @@
+import SiteNavbar from "@/components/SiteNavbar";
 import SeherezadaHero from "@/components/SeherezadaHero";
 import PopularPicks from "@/components/PopularPicks";
 import OurStory from "@/components/OurStory";
@@ -10,6 +11,7 @@ import SiteFooter from "@/components/SiteFooter";
 export default function Home() {
   return (
     <main>
+      <SiteNavbar activeRoute="home" />
       <SeherezadaHero />
       <PopularPicks />
       <OurStory />

@@ -1,15 +1,11 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { PHONE, LOCATION_SLUG, type LocationId } from "@/data/locations";
+import { LOCATIONS, LOCATION_SLUG, PHONE } from "@/data/locations";
+import StatusBadge from "@/components/locations/StatusBadge";
 import styles from "./ContactPageContent.module.css";
 import WorldMapPattern from "./WorldMapPattern";
-import {
-  CONTACT_LOCATIONS,
-  DIRECT_CHANNELS,
-  LocationDetail,
-} from "./ContactData";
 
 // Clean Vector SVG Icons
 interface SvgProps {
@@ -141,18 +137,6 @@ const CompassSvg = ({ size = 16, className, style }: SvgProps) => (
 );
 
 export default function ContactPageContent() {
-  // Active map location state
-  const [selectedMapLoc, setSelectedMapLoc] = useState<"trubarjeva" | "slovenska">("trubarjeva");
-
-  // Map copy feedback state
-  const [mapCopied, setMapCopied] = useState(false);
-
-  const handleMapCopy = (address: string) => {
-    navigator.clipboard.writeText(address);
-    setMapCopied(true);
-    setTimeout(() => setMapCopied(false), 2400);
-  };
-
   // Form State
   const [formData, setFormData] = useState({
     name: "",
@@ -188,9 +172,6 @@ export default function ContactPageContent() {
     });
   };
 
-  const activeMapLocationData = useMemo(() => {
-    return CONTACT_LOCATIONS.find((loc) => loc.id === selectedMapLoc) || CONTACT_LOCATIONS[0];
-  }, [selectedMapLoc]);
 
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
@@ -225,25 +206,24 @@ export default function ContactPageContent() {
 
               {/* 3 Floating Cards Row (Matching Locations & Email) */}
               <div className={styles.heroThreeCardsRow}>
-                {/* Card 1: Šeherezada */}
-                <div className={styles.heroCardItem}>
-                  <div className={styles.heroCardHeading}>Šeherezada</div>
-                  <div className={styles.heroCardSubtext}>Trubarjeva cesta 31</div>
-                  <a href={`tel:${PHONE.restaurant.e164}`} className={styles.heroCardPhoneLink}>
-                    <PhoneSvg size={14} />
-                    <span>{PHONE.restaurant.display}</span>
-                  </a>
-                </div>
-
-                {/* Card 2: Šeherezada 2 */}
-                <div className={styles.heroCardItem}>
-                  <div className={styles.heroCardHeading}>Šeherezada 2</div>
-                  <div className={styles.heroCardSubtext}>Slovenska cesta 55</div>
-                  <a href={`tel:${PHONE.restaurant.e164}`} className={styles.heroCardPhoneLink}>
-                    <PhoneSvg size={14} />
-                    <span>{PHONE.restaurant.display}</span>
-                  </a>
-                </div>
+                {/* Poslovalnici — ime vodi na stran s podrobnostmi */}
+                {LOCATIONS.map((loc) => (
+                  <div key={loc.id} className={styles.heroCardItem}>
+                    <div className={styles.heroCardHeading}>
+                      <Link href={`/lokacije/${LOCATION_SLUG[loc.id]}`}>
+                        {loc.name}
+                      </Link>
+                    </div>
+                    <div className={styles.heroCardSubtext}>{loc.street}</div>
+                    <a
+                      href={`tel:${PHONE.restaurant.e164}`}
+                      className={styles.heroCardPhoneLink}
+                    >
+                      <PhoneSvg size={14} />
+                      <span>{PHONE.restaurant.display}</span>
+                    </a>
+                  </div>
+                ))}
 
                 {/* Card 3: E-pošta */}
                 <a
@@ -282,7 +262,7 @@ export default function ContactPageContent() {
                 {/* Floating Live Status Pill */}
                 <div className={styles.heroFloatingPill}>
                   <span className={styles.heroFloatingPillPulse} />
-                  <span>Odprti za klice &amp; naročila</span>
+                  <span>Kličite za naročilo za prevzem</span>
                 </div>
               </div>
             </div>
@@ -470,8 +450,11 @@ export default function ContactPageContent() {
                         className={styles.formSelect}
                       >
                         <option value="vseeno">Vseeno / Obe lokaciji</option>
-                        <option value="trubarjeva">Šeherezada Trubarjeva 31 (Center)</option>
-                        <option value="slovenska">Šeherezada Slovenska 55 (Center)</option>
+                        {LOCATIONS.map((loc) => (
+                          <option key={loc.id} value={loc.id}>
+                            {loc.name} — {loc.street}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -559,186 +542,73 @@ export default function ContactPageContent() {
       </section>
 
       {/* ==================================================================
-          3. INTERACTIVE MAP & TRANSIT GUIDE SECTION (LUXURY REDESIGN)
-          Desktop: padding: 5rem 2rem 5.5rem;
+          3. OBE POSLOVALNICI — POVZETEK
+          Podroben delovni čas, prevoz, parkiranje in zemljevid so na strani
+          posamezne poslovalnice. Tu je samo toliko, da gost izbere, kam gre.
           ================================================================== */}
       <section className={styles.mapSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>VODNIK</span>
+              <span className={styles.tagGhostWatermarkCenter}>LOKACIJI</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>INTERAKTIVNI VODNIK &amp; DOSTOP</span>
+                <span>KJE NAS NAJDETE</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Kako do nas v Ljubljani</h2>
+            <h2 className={styles.sectionTitle}>Obe poslovalnici v središču Ljubljane</h2>
             <p className={styles.sectionDesc}>
-              Izberite poslovalnico za ogled točne lokacije na zemljevidu, navodil za prihod z LPP avtobusom ter možnosti parkiranja.
+              Izberite poslovalnico za delovni čas po dnevih, navodila za prihod
+              z avtobusom, parkiranje in zemljevid.
             </p>
           </div>
 
-          {/* Dual Interactive Location Switcher Cards */}
-          <div className={styles.mapCardsSelectorRow}>
-            <button
-              type="button"
-              onClick={() => setSelectedMapLoc("trubarjeva")}
-              className={`${styles.locationSelectCard} ${
-                selectedMapLoc === "trubarjeva" ? styles.locationSelectCardActive : ""
-              }`}
-            >
-              <div className={styles.locationSelectIconWrap}>
-                <MapPinSvg size={18} />
-              </div>
-              <div className={styles.locationSelectTextGroup}>
-                <span className={styles.locationSelectTag}>01 · Mestno Jedro</span>
-                <span className={styles.locationSelectTitle}>Trubarjeva cesta 31</span>
-              </div>
-              <div className={styles.locationSelectRadio}>
-                <span className={styles.locationSelectRadioInner} />
-              </div>
-            </button>
+          <div className={styles.locSummaryGrid}>
+            {LOCATIONS.map((loc) => (
+              <article key={loc.id} className={styles.locSummaryCard}>
+                <div className={styles.locSummaryTop}>
+                  <span className={styles.locSummaryBadge}>{loc.badge}</span>
+                  <StatusBadge hours={loc.hours} />
+                </div>
 
-            <button
-              type="button"
-              onClick={() => setSelectedMapLoc("slovenska")}
-              className={`${styles.locationSelectCard} ${
-                selectedMapLoc === "slovenska" ? styles.locationSelectCardActive : ""
-              }`}
-            >
-              <div className={styles.locationSelectIconWrap}>
-                <MapPinSvg size={18} />
-              </div>
-              <div className={styles.locationSelectTextGroup}>
-                <span className={styles.locationSelectTag}>02 · Center</span>
-                <span className={styles.locationSelectTitle}>Slovenska cesta 55</span>
-              </div>
-              <div className={styles.locationSelectRadio}>
-                <span className={styles.locationSelectRadioInner} />
-              </div>
-            </button>
-          </div>
+                <h3 className={styles.locSummaryTitle}>
+                  <Link href={`/lokacije/${LOCATION_SLUG[loc.id]}`}>{loc.name}</Link>
+                </h3>
 
-          {/* Redesigned Clean Map Showcase Card */}
-          <div className={styles.mapWrapperCard}>
-            {/* Left: Clean Map Frame */}
-            <div className={styles.mapFrameContainer}>
-              <iframe
-                title={activeMapLocationData.name}
-                src={activeMapLocationData.googleMapsEmbed}
-                className={styles.mapIframe}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+                <p className={styles.locSummaryAddress}>
+                  <MapPinSvg size={15} />
+                  <span>{loc.fullAddress}</span>
+                </p>
 
-            {/* Right: Store Details & Transit Cards */}
-            <div className={styles.mapDetailsSide}>
-              <div className={styles.mapSideTop}>
-                <h3 className={styles.mapSideTitle}>{activeMapLocationData.name}</h3>
+                <p className={styles.locSummaryHours}>{loc.hoursShort}</p>
 
-                {/* Interactive Address Box with One-Click Copy */}
-                <div className={styles.mapAddressCard}>
-                  <div className={styles.mapAddressLeft}>
-                    <div className={styles.mapAddressIconWrap}>
-                      <MapPinSvg size={18} />
-                    </div>
-                    <div className={styles.mapAddressTextGroup}>
-                      <span className={styles.mapAddressStreet}>{activeMapLocationData.address}</span>
-                      <span className={styles.mapAddressCity}>{activeMapLocationData.city} · Slovenija</span>
-                    </div>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => handleMapCopy(`${activeMapLocationData.address}, ${activeMapLocationData.city}`)}
-                    className={`${styles.mapCopyBtn} ${mapCopied ? styles.mapCopyBtnDone : ""}`}
-                    title="Kopiraj točen naslov za navigacijo"
+                <div className={styles.locSummaryActions}>
+                  <Link
+                    href={`/lokacije/${LOCATION_SLUG[loc.id]}`}
+                    className={styles.locSummaryPrimary}
                   >
-                    {mapCopied ? (
-                      <>
-                        <CheckSvg size={13} />
-                        <span>Kopirano!</span>
-                      </>
-                    ) : (
-                      <>
-                        <CopySvg size={13} />
-                        <span>Kopiraj</span>
-                      </>
-                    )}
-                  </button>
+                    Vse o poslovalnici
+                  </Link>
+                  <a
+                    href={loc.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.locSummaryGhost}
+                  >
+                    Google Maps ↗
+                  </a>
+                  <a
+                    href={loc.appleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.locSummaryGhost}
+                  >
+                    Apple Maps ↗
+                  </a>
                 </div>
-
-                <p className={styles.mapSideVibe}>{activeMapLocationData.vibeText}</p>
-
-                {/* Refined Modern Transit Cards */}
-                <div className={styles.transitGuidesList}>
-                  <div className={styles.transitItem}>
-                    <div className={styles.transitIconBadge}>
-                      <BusSvg size={18} />
-                    </div>
-                    <div className={styles.transitContent}>
-                      <div className={styles.transitLabel}>LPP Avtobusni Prihod</div>
-                      <div className={styles.transitValue}>{activeMapLocationData.transport.lpp}</div>
-                    </div>
-                  </div>
-
-                  <div className={styles.transitItem}>
-                    <div className={styles.transitIconBadge}>
-                      <CarParkingSvg size={18} />
-                    </div>
-                    <div className={styles.transitContent}>
-                      <div className={styles.transitLabel}>Parkiranje &amp; Garaže</div>
-                      <div className={styles.transitValue}>{activeMapLocationData.transport.parking}</div>
-                    </div>
-                  </div>
-
-                  <div className={styles.transitItem}>
-                    <div className={styles.transitIconBadge}>
-                      <FootWalkSvg size={18} />
-                    </div>
-                    <div className={styles.transitContent}>
-                      <div className={styles.transitLabel}>Dostop Peš &amp; BicikeLJ</div>
-                      <div className={styles.transitValue}>{activeMapLocationData.transport.walking}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons Row */}
-              <div className={styles.mapSideActions}>
-                <a
-                  href={activeMapLocationData.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.mapPrimaryNavBtn}
-                >
-                  <NavigationSvg size={16} />
-                  <span>Google Maps</span>
-                </a>
-
-                <a
-                  href={activeMapLocationData.appleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.mapSecondaryNavBtn}
-                >
-                  <CompassSvg size={16} />
-                  <span>Apple Maps</span>
-                </a>
-
-                {/* Podrobnosti o posamezni poslovalnici imajo svojo stran —
-                    tja vodi tudi Google Business Profile. */}
-                <Link
-                  href={`/lokacije/${LOCATION_SLUG[activeMapLocationData.id as LocationId]}`}
-                  className={styles.mapSecondaryNavBtn}
-                >
-                  <NavigationSvg size={16} />
-                  <span>Vse o tej poslovalnici</span>
-                </Link>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import { GOOGLE_REVIEWS } from "@/data/reviews";
-import { locationById, PHONE } from "@/data/locations";
+import { locationById } from "@/data/locations";
 
 export interface HeroMicroItem {
   id: string;
@@ -42,9 +42,6 @@ export interface LocationProfile {
   subtitle: string;
   address: string;
   description: string;
-  hours: string;
-  phone: string;
-  vibeTag: string;
   features: string[];
   googleMapsUrl: string;
   appleMapsUrl: string;
@@ -172,14 +169,11 @@ export const TESTIMONIALS: TestimonialItem[] = GOOGLE_REVIEWS.map((r) => ({
 export const LOCATIONS_PROFILES: LocationProfile[] = [
   {
     id: "trubarjeva",
-    name: "Šeherezada Trubarjeva",
+    name: locationById("trubarjeva").name,
     subtitle: "Zgodovinski začetek · Mestno jedro",
-    address: "Trubarjeva cesta 31, 1000 Ljubljana",
+    address: locationById("trubarjeva").fullAddress,
     description:
       "Naša prva poslovalnica v starem mestnem jedru. Prostor, kjer se prepletajo nočno življenje, študentski vrvež in več kot četrt stoletja pristne orientalske tradicije.",
-    hours: "Pon – Čet & Sob – Ned: 09:00 – 02:00, Pet: 09:00 – 03:00",
-    phone: PHONE.restaurant.display,
-    vibeTag: "Bohemski mestni utrip & nočna legenda",
     features: [
       "Center mesta (Trubarjeva ulica)",
       "Odprto vsak dan do 02:00, petek in sobota do 03:00",
@@ -191,14 +185,11 @@ export const LOCATIONS_PROFILES: LocationProfile[] = [
   },
   {
     id: "slovenska",
-    name: "Šeherezada Slovenska",
+    name: locationById("slovenska").name,
     subtitle: "Druga lokacija · Center prestolnice",
-    address: "Slovenska cesta 55, 1000 Ljubljana",
+    address: locationById("slovenska").fullAddress,
     description:
       "Prostorna in sodobna restavracija ob osrednji Slovenski cesti v Ljubljani. Idealna za jutranje malice, poslovna kosila, študentske obede ter večerne prigrizke v prijetnem ambientu.",
-    hours: "Ponedeljek – Nedelja: 08:00 – 01:00",
-    phone: PHONE.restaurant.display,
-    vibeTag: "Sodobna restavracija & mestni utrip",
     features: [
       "Center mesta (Slovenska cesta 55)",
       "Odprto vsak dan od 08:00 do 01:00",

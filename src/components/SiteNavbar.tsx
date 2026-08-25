@@ -24,7 +24,7 @@ const PinSvg = ({ size = 16, className }: { size?: number; className?: string })
 );
 
 interface SiteNavbarProps {
-  activeRoute?: "home" | "meni" | "galerija" | "o-nas" | "faq" | "zaposlitev" | "blog" | "kontakt";
+  activeRoute?: "home" | "meni" | "galerija" | "o-nas" | "pogosta-vprasanja" | "zaposlitev" | "blog" | "kontakt" | "studentski-boni" | "halal";
 }
 
 export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
@@ -121,7 +121,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
     { label: "Meni", href: "/meni", active: activeRoute === "meni" },
     { label: "Galerija", href: "/galerija", active: activeRoute === "galerija" },
     { label: "O nas", href: "/o-nas", active: activeRoute === "o-nas" },
-    { label: "Pogosta vprašanja", href: "/faq", active: activeRoute === "faq" },
+    { label: "Pogosta vprašanja", href: "/pogosta-vprasanja", active: activeRoute === "pogosta-vprasanja" },
     { label: "Zaposlitev", href: "/zaposlitev", active: activeRoute === "zaposlitev" },
     { label: "Blog", href: "/blog", active: activeRoute === "blog" },
     { label: "Kontakt", href: "/kontakt", active: activeRoute === "kontakt" },

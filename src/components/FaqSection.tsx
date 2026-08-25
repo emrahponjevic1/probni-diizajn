@@ -115,7 +115,7 @@ export default function FaqSection() {
                 Nisi prepričan glede bonov, delovnega časa ali dostave? Tu so odgovori, servirani vroči.
               </p>
 
-              <Link href="/faq" className={styles.leftCtaBtn}>
+              <Link href="/pogosta-vprasanja" className={styles.leftCtaBtn}>
                 <span>Oglej Si Vsa Vprašanja (FAQ)</span>
                 <ArrowRightSvg size={16} />
               </Link>

@@ -208,7 +208,7 @@ export default function SeherezadaHero() {
           <div className={styles.plateWrapper}>
             <div className={styles.plateAura} />
             <Image
-              src="/images/doner-kebab.jpg"
+              src="/images/seherezada-hero-doner-kebab.avif"
               alt="Šeherezada Pravi Turški Döner Kebab"
               width={480}
               height={480}

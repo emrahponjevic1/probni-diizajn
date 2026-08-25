@@ -267,7 +267,7 @@ export default function ContactPageContent() {
                 {/* Foreground Photo (Sitting in front of the rotated card) */}
                 <div className={styles.heroImgContainer}>
                   <img
-                    src="/images/contact-call-hero.png"
+                    src="/images/seherezada-contact-call-hero.avif"
                     alt="Stopite v stik s Šeherezado"
                     className={styles.heroCallImg}
                     loading="eager"

@@ -155,7 +155,7 @@ export default function AboutPageContent() {
               {/* Main Arch Pill Photo */}
               <div className={styles.archMainCard}>
                 <Image
-                  src="/images/about-chef-lamps.jpg"
+                  src="/images/seherezada-about-chef-lamps.avif"
                   alt="Šeherezada mojster žara pri pripravi svežega mesa"
                   width={300}
                   height={480}
@@ -167,7 +167,7 @@ export default function AboutPageContent() {
               {/* Floating Top-Left Chef Plating Circle */}
               <div className={styles.floatChefCircle}>
                 <Image
-                  src="/images/about-chef-plating.jpg"
+                  src="/images/seherezada-about-chef-plating.avif"
                   alt="Mojster pri dekoraciji krožnika"
                   width={180}
                   height={180}
@@ -179,11 +179,12 @@ export default function AboutPageContent() {
               {/* Floating Bottom-Left Fresh Dish Squircle */}
               <div className={styles.floatDishSquircle}>
                 <Image
-                  src="/images/about-dish-orange.jpg"
+                  src="/images/seherezada-about-dish-orange.avif"
                   alt="Sveže pripravljena orientalska jed Šeherezada"
                   width={160}
                   height={160}
                   className={styles.squircleImg}
+                  loading="eager"
                 />
               </div>
 
@@ -396,7 +397,7 @@ export default function AboutPageContent() {
             {/* Right Photo */}
             <div className={styles.processVisualWrapper}>
               <Image
-                src="/images/student-kitchen.jpg"
+                src="/images/seherezada-student-kitchen.avif"
                 alt="Kuhinjski utrip in priprava sveže hrane v Šeherezadi"
                 width={550}
                 height={460}
@@ -464,7 +465,7 @@ export default function AboutPageContent() {
             {/* Right: Free-Standing Photo of Guests / Food */}
             <div className={styles.testimonialPhotoWrapper}>
               <Image
-                src="/images/student-meal.jpg"
+                src="/images/seherezada-student-meal.avif"
                 alt="Zadovoljni gostje v restavraciji Šeherezada"
                 width={550}
                 height={420}

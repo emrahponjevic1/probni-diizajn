@@ -104,7 +104,7 @@ export default function OurStory() {
             {/* Main Photo: Master Grill Chef */}
             <div className={styles.mainPhotoWrapper}>
               <Image
-                src="/images/story-chef.jpg"
+                src="/images/seherezada-story-chef.avif"
                 alt="Šeherezada žar mojster priprava kebaba"
                 width={600}
                 height={500}
@@ -115,7 +115,7 @@ export default function OurStory() {
             {/* Overlapping Secondary Photo: Fresh Baked Bread in Oven */}
             <div className={styles.overlappingPhotoCard}>
               <Image
-                src="/images/story-oven.jpg"
+                src="/images/seherezada-story-oven.avif"
                 alt="Sveže pečen domač lepinja kruh v peči"
                 width={220}
                 height={160}

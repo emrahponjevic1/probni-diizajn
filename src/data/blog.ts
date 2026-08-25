@@ -91,7 +91,7 @@ export const BLOG_CATEGORIES: BlogCategoryFilter[] = [
     isoDate: "2026-09-01",
     readTime: "4 min branja",
     author: { name: "Ekipa Šeherezada", role: "Šeherezada Ljubljana" },
-    coverImage: "/images/student-meal.jpg",
+    coverImage: "/images/seherezada-student-meal.avif",
     imageCaption: "Študentski meni z doplačilom 3,00 €.",
     contentHtml: `
       <p>Prvi odstavek objave.</p>

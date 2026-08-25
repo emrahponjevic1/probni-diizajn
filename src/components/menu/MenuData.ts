@@ -48,12 +48,48 @@ export interface MenuCategoryMeta {
 }
 
 export const MENU_CATEGORIES: MenuCategoryMeta[] = [
-  { id: "all", label: "Vse jedi", shortLabel: "Vse", icon: "✨", image: "/images/hero-platter.jpg" },
-  { id: "kebab", label: "Kebab & jufke", shortLabel: "Kebab", icon: "🌯", image: "/images/doner-kebab.jpg" },
-  { id: "falafel", label: "Falafel & priloge", shortLabel: "Falafel", icon: "🧆", image: "/images/falafel.jpg" },
-  { id: "kroznik", label: "Krožniki & piščanec", shortLabel: "Krožniki", icon: "🍗", image: "/images/chicken-platter.jpg" },
-  { id: "burger", label: "Burgerji", shortLabel: "Burgerji", icon: "🍔", image: "/images/burger.jpg" },
-  { id: "pizza", label: "Pizze", shortLabel: "Pizze", icon: "🍕", image: "/images/pizza.jpg" },
+  {
+    id: "all",
+    label: "Vse jedi",
+    shortLabel: "Vse",
+    icon: "✨",
+    image: "/images/seherezada-kebab-na-krozniku.avif",
+  },
+  {
+    id: "kebab",
+    label: "Kebab & jufke",
+    shortLabel: "Kebab",
+    icon: "🌯",
+    image: "/images/seherezada-doner-kebab.avif",
+  },
+  {
+    id: "falafel",
+    label: "Falafel & priloge",
+    shortLabel: "Falafel",
+    icon: "🧆",
+    image: "/images/seherezada-falafel.avif",
+  },
+  {
+    id: "kroznik",
+    label: "Krožniki & piščanec",
+    shortLabel: "Krožniki",
+    icon: "🍗",
+    image: "/images/seherezada-kebab-na-krozniku.avif",
+  },
+  {
+    id: "burger",
+    label: "Burgerji",
+    shortLabel: "Burgerji",
+    icon: "🍔",
+    image: "/images/seherezada-hamburger.avif",
+  },
+  {
+    id: "pizza",
+    label: "Pizze",
+    shortLabel: "Pizze",
+    icon: "🍕",
+    image: "/images/seherezada-pizza-classic.avif",
+  },
 ];
 
 const BOTH: LocationId[] = ["trubarjeva", "slovenska"];
@@ -70,7 +106,7 @@ export const MENU_ITEMS: MenuItem[] = [
     diet: null,
     locations: BOTH,
     featured: 1,
-    image: "/images/doner-kebab.jpg",
+    image: "/images/seherezada-doner-kebab.avif",
     icon: "🥪",
     desc: "Sveže pečeno meso, domača lepinja po hišnem receptu, mešana solata in izbrane omake. Naša najbolj prodajana jed.",
     ingredientsList: [
@@ -91,7 +127,7 @@ export const MENU_ITEMS: MenuItem[] = [
     diet: null,
     locations: BOTH,
     featured: 2,
-    image: "/images/durum-falafel.jpg",
+    image: "/images/seherezada-jufka-kebab.avif",
     icon: "🌯",
     desc: "Meso po izbiri, zavito v tanko jufko, s svežo zelenjavo in domačimi omakami.",
     ingredientsList: [
@@ -112,7 +148,7 @@ export const MENU_ITEMS: MenuItem[] = [
     diet: null,
     locations: BOTH,
     featured: 5,
-    image: "/images/chicken-platter.jpg",
+    image: "/images/seherezada-kebab-na-krozniku.avif",
     icon: "🍽️",
     desc: "Bogat krožnik kebab mesa, hrustljav pomfri, sveža mešana solata in hišni prelivi. Za pravo lakoto.",
     ingredientsList: [
@@ -132,7 +168,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: null,
     locations: BOTH,
-    image: "/images/doner-kebab.jpg",
+    image: "/images/seherezada-doner-kebab-box.avif",
     icon: "🍱",
     desc: "Praktična porcija sočnega kebab mesa s hrustljavim pomfrijem in izbranimi omakami.",
     ingredientsList: [
@@ -151,7 +187,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: "vegetarian",
     locations: BOTH,
-    image: "/images/durum-falafel.jpg",
+    image: "/images/seherezada-vegi-jufka.avif",
     icon: "🌯",
     desc: "Sveža sezonska zelenjava in izbrane omake, zavite v toplo tanko jufko.",
     ingredientsList: [
@@ -171,7 +207,7 @@ export const MENU_ITEMS: MenuItem[] = [
     diet: "vegetarian",
     locations: BOTH,
     featured: 6,
-    image: "/images/falafel.jpg",
+    image: "/images/seherezada-zelenjavni-kebab.avif",
     icon: "🥬",
     desc: "Sveža zelenjava, sir in aromatični zeliščni prelivi v topli lepinji. Najugodnejša jed na našem meniju.",
     ingredientsList: [
@@ -194,7 +230,7 @@ export const MENU_ITEMS: MenuItem[] = [
     diet: "vegan",
     locations: BOTH,
     featured: 3,
-    image: "/images/falafel.jpg",
+    image: "/images/seherezada-falafel.avif",
     icon: "🧆",
     desc: "Hrustljavi čičerikini polpeti po orientalskem receptu, v topli lepinji s solato in tahinijem. 100 % rastlinsko.",
     ingredientsList: [
@@ -214,7 +250,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: "vegan",
     locations: BOTH,
-    image: "/images/falafel.jpg",
+    image: "/images/seherezada-falafel.avif",
     icon: "🧆",
     desc: "Večja porcija hrustljavih falaflov z dodatno svežo zelenjavo in kremastim humusom.",
     ingredientsList: [
@@ -233,7 +269,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: "vegan",
     locations: BOTH,
-    image: "/images/falafel.jpg",
+    image: "/images/seherezada-falafel-kroznik.avif",
     icon: "🍽️",
     desc: "Falafel kroglice, zlati pomfri, sveža mešana solata, pita kruhek in orientalske omake.",
     ingredientsList: [
@@ -253,7 +289,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: "vegan",
     locations: BOTH,
-    image: "/images/falafel.jpg",
+    image: "/images/seherezada-falafel-humus.avif",
     icon: "🧆",
     desc: "Kombinacija hrustljavih falaflov in domačega kremastega humusa z oljčnim oljem.",
     ingredientsList: [
@@ -272,7 +308,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: "vegan",
     locations: BOTH,
-    image: "/images/falafel.jpg",
+    image: "/images/seherezada-falafel-1kos.avif",
     icon: "🧆",
     desc: "Posamezen hrustljav ocvrt falafel po pristnem tradicionalnem receptu.",
     ingredientsList: ["Čičerika, česen, peteršilj, orientalske začimbe"],
@@ -287,7 +323,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: "vegan",
     locations: BOTH,
-    image: "/images/falafel.jpg",
+    image: "/images/seherezada-humus.avif",
     icon: "🥣",
     desc: "Kremast tradicionalni namaz iz čičerike z deviškim oljčnim oljem in začimbami.",
     ingredientsList: ["Čičerika, tahini, limonin sok, česen, oljčno olje"],
@@ -304,7 +340,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/chicken-platter.jpg",
+    image: "/images/seherezada-kebab-na-krozniku.avif",
     icon: "🍚",
     desc: "Sočni kosi mariniranega piščanca z aromatičnim rumenim rižem in svežo solato.",
     ingredientsList: [
@@ -324,7 +360,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/chicken-platter.jpg",
+    image: "/images/seherezada-kebab-na-krozniku.avif",
     icon: "🍟",
     desc: "Hrustljavo pečen piščanec v kombinaciji z zlatim pomfrijem in hišnimi prelivi.",
     ingredientsList: [
@@ -344,7 +380,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/durum-falafel.jpg",
+    image: "/images/seherezada-chicken-crispy.avif",
     icon: "🌯",
     desc: "Hrustljavo paniran piščančji zrezek, sveža solata in blaga majonezna omaka v jufki.",
     ingredientsList: [
@@ -363,7 +399,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/burger.jpg",
+    image: "/images/seherezada-chicken-crispy.avif",
     icon: "🍔",
     desc: "Hrustljav paniran piščančji file, sveža solata, paradižnik in hišna burger omaka v mehkem kruhku.",
     ingredientsList: [
@@ -383,7 +419,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: null,
     locations: BOTH,
-    image: "/images/chicken-platter.jpg",
+    image: "/images/seherezada-chicken-crispy.avif",
     icon: "🍗",
     desc: "Panirani hrustljavi piščančji medaljoni s pomfrijem, solato in hišno pomako.",
     ingredientsList: [
@@ -403,7 +439,7 @@ export const MENU_ITEMS: MenuItem[] = [
     diet: null,
     // Na voljo samo na Trubarjevi 31 (vir: PDF).
     locations: ["trubarjeva"],
-    image: "/images/chicken-platter.jpg",
+    image: "/images/seherezada-kebab-na-krozniku.avif",
     icon: "🍗",
     desc: "Sveže pečen sočen piščanec z izbranimi začimbami in domačimi prilogami.",
     note: "Na voljo samo na Trubarjevi 31.",
@@ -423,7 +459,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/burger.jpg",
+    image: "/images/seherezada-hamburger.avif",
     icon: "🍔",
     desc: "Klasična sočna goveja polpeta, kumarice, rdeča čebula, sveža solata in hišna BBQ omaka.",
     ingredientsList: [
@@ -443,7 +479,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/burger.jpg",
+    image: "/images/seherezada-piscancji-burger.avif",
     icon: "🍔",
     desc: "Nežen na žaru pečen piščančji file z osvežilnimi dodatki v mehkem sezamovem kruhku.",
     ingredientsList: [
@@ -462,7 +498,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/burger.jpg",
+    image: "/images/seherezada-cheese-burger.avif",
     icon: "🍔",
     desc: "Klasičen burger z izdatno rezino stopljenega sira cheddar, sočnim govejim mesom in omako.",
     ingredientsList: [
@@ -482,7 +518,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: null,
     locations: BOTH,
-    image: "/images/hero-platter.jpg",
+    image: "/images/seherezada-cevapcici.avif",
     icon: "🥙",
     desc: "100 % goveji čevapčiči po tradicionalnem receptu v topli lepinji s čebulo in kajmakom.",
     ingredientsList: [
@@ -504,7 +540,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: false,
     diet: "vegan",
     locations: BOTH,
-    image: "/images/chicken-platter.jpg",
+    image: "/images/seherezada-pomfri.avif",
     icon: "🍟",
     desc: "Zlato ocvrt, hrustljav in soljen krompirček, pripravljen sproti ob naročilu.",
     ingredientsList: ["Krompir, rastlinsko olje, morska sol"],
@@ -522,7 +558,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: "vegetarian",
     locations: BOTH,
-    image: "/images/pizza.jpg",
+    image: "/images/seherezada-pizza-zelenjavna.avif",
     icon: "🍕",
     desc: "Pelati, sir, sveža paprika, sladka koruza, šampinjoni, paradižnik in olive.",
     ingredientsList: [
@@ -543,7 +579,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/pizza.jpg",
+    image: "/images/seherezada-pizza-salami.avif",
     icon: "🍕",
     desc: "Pelati, mocarela sir in pikantna goveja salama z začimbami.",
     ingredientsList: [
@@ -564,7 +600,7 @@ export const MENU_ITEMS: MenuItem[] = [
     diet: null,
     locations: BOTH,
     featured: 4,
-    image: "/images/pizza.jpg",
+    image: "/images/seherezada-pizza-kebab.avif",
     icon: "🍕",
     desc: "Pizza z domačo paradižnikovo osnovo, mocarelo, kebab mesom in jogurtovim prelivom. Na voljo v dveh velikostih.",
     ingredientsList: [
@@ -585,7 +621,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/pizza.jpg",
+    image: "/images/seherezada-pizza-classic.avif",
     icon: "🍕",
     desc: "Paradižnikovi pelati, mocarela sir, puranja šunka (halal) in sveži šampinjoni.",
     ingredientsList: [
@@ -606,7 +642,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: null,
     locations: BOTH,
-    image: "/images/pizza.jpg",
+    image: "/images/seherezada-pizza-tuna.avif",
     icon: "🍕",
     desc: "Paradižnikovi pelati, mocarela sir, izbrani koščki tune, rdeča čebula in olive.",
     ingredientsList: [
@@ -627,7 +663,7 @@ export const MENU_ITEMS: MenuItem[] = [
     student: true,
     diet: "vegetarian",
     locations: BOTH,
-    image: "/images/pizza.jpg",
+    image: "/images/seherezada-pizza-margarita.avif",
     icon: "🍕",
     desc: "Domača paradižnikova omaka, kakovostna mocarela, oljčno olje in dišeč origano.",
     ingredientsList: [

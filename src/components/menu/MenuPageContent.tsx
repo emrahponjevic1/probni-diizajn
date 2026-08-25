@@ -437,7 +437,7 @@ export default function MenuPageContent() {
         ) : layoutMode === "grid" ? (
           /* 1. GRID LAYOUT */
           <div className={styles.gridContainer}>
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, i) => (
               <article key={item.id} className={styles.gridCard}>
                 <div className={styles.cardTop}>
                   <div
@@ -445,12 +445,19 @@ export default function MenuPageContent() {
                     onClick={() => setModalDish(item)}
                     title="Klikni za podrobnosti o sestavinah in alergenih"
                   >
+                    {/* Prvih šest kartic je vidnih brez drsenja. Če jih
+                        brskalnik odloži, gost gleda prazna polja — zato prvo
+                        naložimo prednostno, naslednje tri takoj, vse ostale pa
+                        šele ob približevanju vidnemu polju. Štiri zato, ker jih
+                        je na telefonu vidnih dve, na namizju šest. */}
                     <Image
                       src={item.image}
                       alt={item.name}
                       width={380}
                       height={260}
                       className={styles.dishImage}
+                      priority={i === 0}
+                      loading={i > 0 && i < 4 ? "eager" : undefined}
                     />
 
                     {/* Quick Badges on Image */}
@@ -526,7 +533,7 @@ export default function MenuPageContent() {
         ) : (
           /* 2. LIST / BENTO LAYOUT */
           <div className={styles.listContainer}>
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, i) => (
               <article key={item.id} className={styles.listCard}>
                 <div className={styles.listLeft}>
                   <div
@@ -534,12 +541,14 @@ export default function MenuPageContent() {
                     onClick={() => setModalDish(item)}
                     title="Klikni za podrobnosti o sestavinah"
                   >
+                    {/* Isto pravilo kot pri mreži: vidno se ne odlaga. */}
                     <Image
                       src={item.image}
                       alt={item.name}
                       width={160}
                       height={160}
                       className={styles.listImg}
+                      loading={i < 4 ? "eager" : undefined}
                     />
                   </div>
 

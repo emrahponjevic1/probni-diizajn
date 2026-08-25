@@ -210,7 +210,6 @@ export default function PopularPicks() {
                   alt={selectedDish.title}
                   width={420}
                   height={420}
-                  priority
                   className={styles.magazinePlate}
                 />
                 <div className={styles.watermarkNum}>0{selectedDish.id}</div>

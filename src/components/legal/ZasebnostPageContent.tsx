@@ -308,9 +308,42 @@ export default function ZasebnostPageContent() {
           </p>
         </section>
 
+        {/* 5a. Komu podatki gredo — brez tega bi bilo besedilo nepopolno */}
+        <section className={styles.legalSection}>
+          <h2 className={styles.sectionTitle}>
+            6. Komu podatke posredujemo
+          </h2>
+          <p className={styles.sectionText}>
+            Vaših osebnih podatkov ne prodajamo in jih ne posredujemo naprej za
+            oglaševanje. Za delovanje spletnega mesta pa sodelujemo z izvajalcem,
+            ki podatke obdeluje po naših navodilih:
+          </p>
+          <div className={styles.highlightBox}>
+            <p className={styles.sectionText} style={{ marginBottom: "0.5rem" }}>
+              • <strong>Vercel Inc.</strong> — gostovanje spletnega mesta. Ob
+              vsakem obisku strežnik zabeleži tehnične podatke, ki so za
+              dostavo strani nujni (IP naslov, vrsta brskalnika, čas zahteve).
+            </p>
+            <p className={styles.sectionText} style={{ marginBottom: 0 }}>
+              • <strong>Vercel Speed Insights</strong> — merjenje hitrosti
+              nalaganja strani. Deluje <strong>brez piškotkov</strong> in brez
+              podatkov, po katerih bi vas bilo mogoče prepoznati; zbira le, kako
+              hitro se je stran narisala. Podrobneje v{" "}
+              <Link href="/piskotki" className={styles.controllerLink}>
+                politiki piškotkov
+              </Link>
+              .
+            </p>
+          </div>
+          <p className={styles.sectionText}>
+            Poleg tega podatke razkrijemo le, če to od nas zahteva zakon ali
+            pristojni državni organ.
+          </p>
+        </section>
+
         {/* 6. Pritožba pri nadzornem organu */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>6. Nadzorni organ v Republiki Sloveniji</h2>
+          <h2 className={styles.sectionTitle}>7. Nadzorni organ v Republiki Sloveniji</h2>
           <p className={styles.sectionText}>
             Če menite, da obdelava vaših osebnih podatkov krši veljavno zakonodajo,
             imate pravico vložiti pritožbo pri pristojnem nadzornem organu:

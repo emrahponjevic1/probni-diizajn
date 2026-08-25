@@ -43,3 +43,6 @@ next-env.d.ts
 # scratch scripts
 /scratch/
 
+
+# Lokalne nastavitve za razvojna orodja (ni del projekta)
+/.claude/

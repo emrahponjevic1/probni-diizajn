@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LOCATIONS } from "@/data/locations";
+import StatusBadge from "./locations/StatusBadge";
 import styles from "./StudentVouchers.module.css";
 
 // Clean Vector SVG Icons (No Emojis)
@@ -118,7 +120,7 @@ export default function StudentVouchers() {
             {/* Right Photo Card */}
             <div className={styles.bentoRightPhotoCard}>
               <Image
-                src="/images/student-kitchen.jpg"
+                src="/images/seherezada-student-kitchen.avif"
                 alt="Prijazna ekipa Šeherezade pripravlja sveže študentske obroke"
                 width={500}
                 height={380}
@@ -137,21 +139,18 @@ export default function StudentVouchers() {
               </div>
 
               <div className={styles.locList}>
-                <div className={styles.locItem}>
-                  <div className={styles.locNameCol}>
-                    <LocationPinSvg size={16} />
-                    <span>Šeherezada <span className={styles.locAddress}>(Trubarjeva cesta 31)</span></span>
+                {LOCATIONS.map((loc) => (
+                  <div key={loc.id} className={styles.locItem}>
+                    <div className={styles.locNameCol}>
+                      <LocationPinSvg size={16} />
+                      <span>
+                        {loc.name}{" "}
+                        <span className={styles.locAddress}>({loc.street})</span>
+                      </span>
+                    </div>
+                    <StatusBadge hours={loc.hours} />
                   </div>
-                  <span className={styles.liveOpenPill}>● Odprto</span>
-                </div>
-
-                <div className={styles.locItem}>
-                  <div className={styles.locNameCol}>
-                    <LocationPinSvg size={16} />
-                    <span>Šeherezada 2 <span className={styles.locAddress}>(Slovenska cesta 55)</span></span>
-                  </div>
-                  <span className={styles.liveOpenPill}>● Odprto</span>
-                </div>
+                ))}
               </div>
 
               <div className={styles.locBottomAccentBar}>
@@ -171,7 +170,7 @@ export default function StudentVouchers() {
             {/* Card 3: Food Preview Card */}
             <div className={styles.bentoFoodPreviewCard}>
               <Image
-                src="/images/student-meal.jpg"
+                src="/images/seherezada-student-meal.avif"
                 alt="Kebab študentski meni"
                 width={300}
                 height={200}

@@ -1,0 +1,140 @@
+/* ==========================================================================
+   PASICA ZA PRIVOLITEV V PIŠKOTKE
+   Warm Light Luxury — Plus Jakarta Sans, topla paleta, 1360px container
+   ========================================================================== */
+
+.wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  padding: 0 2rem 1.5rem;
+  font-family: inherit;
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .wrap {
+    padding: 0 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 1.25rem 1rem;
+  }
+}
+
+.card {
+  max-width: 1360px;
+  margin: 0 auto;
+  pointer-events: auto;
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(28, 25, 23, 0.14);
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.2rem 1.25rem;
+    gap: 1.1rem;
+  }
+}
+
+.textCol {
+  flex: 1 1 24rem;
+  min-width: 0;
+}
+
+.title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1c1917;
+  margin-bottom: 0.35rem;
+}
+
+.text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: #57534e;
+  max-width: 54rem;
+}
+
+.link {
+  color: #ea580c;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.link:hover {
+  color: #b45309;
+}
+
+.btnRow {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .btnRow {
+    width: 100%;
+  }
+
+  .btnRow > * {
+    flex: 1 1 0;
+  }
+}
+
+/* Zavrnitev in sprejem sta enako dostopna — en klik, enaka velikost.
+   Razlikuje ju le barva, ne teža ali dosegljivost. */
+.btnGhost {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1c1917;
+  background: #ffffff;
+  border: 1.5px solid #f2ede4;
+  border-radius: 99px;
+  padding: 0.8rem 1.4rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.btnGhost:hover {
+  border-color: #fed7aa;
+  color: #ea580c;
+}
+
+.btnPrimary {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #ea580c;
+  border: 1.5px solid #ea580c;
+  border-radius: 99px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: #c2410c;
+  border-color: #c2410c;
+}

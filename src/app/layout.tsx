@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import CookieBanner from "@/components/legal/CookieBanner";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -26,7 +27,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sl" className={plusJakartaSans.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Pasica se pokaže samo, dokler gost ni izbral. Skripte za analitiko
+            se sme naložiti šele, ko privolitev to dovoli — glej src/lib/consent.ts */}
+        <CookieBanner />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,596 @@
+/* ==========================================================================
+   ŠEHEREZADA — LEGAL PAGES (PIŠKOTKI & POLITIKA ZASEBNOSTI)
+   WARM LIGHT LUXURY RESTAURANT AESTHETIC (ROASTLUX STYLE)
+   Strictly Plus Jakarta Sans Typography & 1360px Container Max-Width
+   Universal Section Padding Standards
+   ========================================================================== */
+
+.page {
+  background-color: #fffdfa;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: #1c1917;
+  /* Desktop >1024px: 8.75rem top (island navbar clearance), 5.5rem bottom, 2rem horizontal */
+  padding: 8.75rem 2rem 5.5rem;
+}
+
+@media (max-width: 1024px) {
+  .page {
+    /* Tablet 640px–1024px: 7.25rem top, 4.5rem bottom, 1.5rem horizontal */
+    padding: 7.25rem 1.5rem 4.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    /* Mobile <=640px: 6.25rem top, 4rem bottom, 1.25rem horizontal */
+    padding: 6.25rem 1.25rem 4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .page {
+    padding: 5.75rem 1rem 3.5rem;
+  }
+}
+
+/* Background Warm Ambient Glow */
+.bgWarmGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1400px;
+  height: 650px;
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(234, 88, 12, 0.04) 0%,
+    rgba(245, 158, 11, 0.02) 45%,
+    rgba(255, 253, 250, 0) 75%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1080px; /* Optimal reading line length for legal editorial documentation */
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   EDITORIAL CHAPTER WATERMARK ARCHITECTURE (UNIVERSAL STANDARD)
+   ========================================================================== */
+
+.chapterTagContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 0;
+  margin-bottom: 0.85rem;
+}
+
+.tagGhostWatermark {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-weight: 950;
+  color: #1c1917;
+  opacity: 0.055;
+  letter-spacing: 0.06em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.chapterIndexTag {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: clamp(0.76rem, 1.4vw, 0.84rem);
+  font-weight: 800;
+  color: #ea580c;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.chapterDash {
+  width: 18px;
+  height: 1.5px;
+  background: #ea580c;
+  opacity: 0.6;
+}
+
+/* Header Typography */
+.heroHeader {
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 640px) {
+  .heroHeader {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.pageTitle {
+  font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+  font-weight: 950;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: #1c1917;
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+}
+
+.pageLead {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.74;
+  color: #57534e;
+  margin: 0 0 1.5rem;
+}
+
+.metaUpdatedBar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fffbf5;
+  border: 1px solid #fed7aa;
+  border-radius: 99px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ea580c;
+}
+
+/* ==========================================================================
+   LEGAL SECTIONS & CARDS ARCHITECTURE
+   ========================================================================== */
+
+.legalSection {
+  margin-bottom: 3.8rem;
+}
+
+@media (max-width: 640px) {
+  .legalSection {
+    margin-bottom: 2.8rem;
+  }
+}
+
+.sectionTitle {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #1c1917;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.sectionText {
+  font-size: 0.98rem;
+  line-height: 1.72;
+  color: #57534e;
+  margin: 0 0 1.2rem;
+}
+
+.sectionText strong {
+  color: #1c1917;
+  font-weight: 800;
+}
+
+/* Info Box / Highlight Card */
+.highlightBox {
+  background: #ffffff;
+  border: 1.5px solid #f2ede4;
+  border-radius: 22px;
+  padding: 1.8rem 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.025);
+}
+
+@media (max-width: 640px) {
+  .highlightBox {
+    padding: 1.4rem 1.2rem;
+    border-radius: 18px;
+  }
+}
+
+.highlightBoxGreen {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  border-color: #a7f3d0;
+}
+
+.highlightBoxOrange {
+  background: linear-gradient(135deg, #fffbf5 0%, #ffffff 100%);
+  border-color: #fed7aa;
+}
+
+.highlightTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: #1c1917;
+  margin: 0 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Bento Grid of Cards */
+.bentoGrid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3rem;
+  margin: 1.6rem 0;
+}
+
+@media (max-width: 900px) {
+  .bentoGrid3 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.bentoGrid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem;
+  margin: 1.6rem 0;
+}
+
+@media (max-width: 768px) {
+  .bentoGrid2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.bentoCard {
+  background: #ffffff;
+  border: 1px solid #f2ede4;
+  border-radius: 20px;
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+@media (max-width: 480px) {
+  .bentoCard {
+    padding: 1.3rem 1.1rem;
+    border-radius: 16px;
+  }
+}
+
+.bentoCard:hover {
+  transform: translateY(-2px);
+  border-color: #fed7aa;
+}
+
+.bentoIconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #ea580c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.bentoCardTitle {
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: #1c1917;
+  margin: 0 0 0.5rem;
+}
+
+.bentoCardText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #78716c;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   COOKIE TABLE ARCHITECTURE
+   ========================================================================== */
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid #f2ede4;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.02);
+}
+
+.cookieTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+  min-width: 600px;
+}
+
+.cookieTable th {
+  background: #fffcf8;
+  padding: 1rem 1.2rem;
+  font-weight: 800;
+  color: #1c1917;
+  border-bottom: 1.5px solid #f2ede4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.cookieTable td {
+  padding: 1.1rem 1.2rem;
+  border-bottom: 1px solid #f8f6f2;
+  color: #57534e;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.cookieTable tr:last-child td {
+  border-bottom: none;
+}
+
+.cookieCode {
+  font-family: monospace;
+  font-weight: 700;
+  color: #ea580c;
+  background: #fff7ed;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+
+.cookieBadgeEssential {
+  display: inline-block;
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+}
+
+.cookieBadgeAnalytics {
+  display: inline-block;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+}
+
+/* ==========================================================================
+   CONTROLLER DETAILS & CONTACT CARD
+   ========================================================================== */
+
+.controllerCard {
+  background: #ffffff;
+  border: 1.5px solid #fed7aa;
+  border-radius: 24px;
+  padding: 2.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.05);
+}
+
+@media (max-width: 768px) {
+  .controllerCard {
+    grid-template-columns: 1fr;
+    padding: 1.6rem 1.3rem;
+    gap: 1.5rem;
+    border-radius: 20px;
+  }
+}
+
+.controllerTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #1c1917;
+  margin: 0 0 0.6rem;
+}
+
+.controllerMetaList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+}
+
+.controllerMetaItem {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  color: #57534e;
+}
+
+.controllerMetaItem strong {
+  color: #1c1917;
+  min-width: 90px;
+}
+
+.controllerLink {
+  color: #ea580c;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* ==========================================================================
+   NAVIGATION QUICK STRIP
+   ========================================================================== */
+
+.legalNavRow {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #f2ede4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .legalNavRow {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+}
+
+.legalNavBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1.5px solid #f2ede4;
+  color: #1c1917;
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 0.8rem 1.4rem;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 640px) {
+  .legalNavBtn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.legalNavBtn:hover {
+  border-color: #fed7aa;
+  color: #ea580c;
+  transform: translateY(-2px);
+}
+
+.legalNavBtnPrimary {
+  background: #ea580c;
+  color: #ffffff;
+  border-color: #ea580c;
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.25);
+}
+
+.legalNavBtnPrimary:hover {
+  background: #c2410c;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   NADZOR PRIVOLITVE — pravi gumbi, ne okras
+   Zavrnitev in sprejem sta enako vidna in enako dosegljiva (zahteva GDPR).
+   ========================================================================== */
+
+.consentBtnRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.consentBtnGhost {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1c1917;
+  background: #ffffff;
+  border: 1.5px solid #f2ede4;
+  border-radius: 99px;
+  padding: 0.75rem 1.35rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.consentBtnGhost:hover {
+  border-color: #fed7aa;
+  color: #ea580c;
+}
+
+.consentBtnPrimary {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #ea580c;
+  border: 1.5px solid #ea580c;
+  border-radius: 99px;
+  padding: 0.75rem 1.45rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.consentBtnPrimary:hover {
+  background: #c2410c;
+  border-color: #c2410c;
+}
+
+/* Sporočilo ima svojo višino vedno, da postavitev ob potrditvi ne poskoči. */
+.consentSavedMsg {
+  margin: 0.75rem 0 0;
+  min-height: 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #047857;
+}
+
+/* Stanje piškotka: ali je res v uporabi ali le pripravljen. */
+.cookieStateOn {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 99px;
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+}
+
+.cookieStateOff {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #78716c;
+  background: #fafaf9;
+  border: 1px solid #e7e5e4;
+  border-radius: 99px;
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+}

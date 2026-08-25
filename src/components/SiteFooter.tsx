@@ -173,13 +173,13 @@ export default function SiteFooter() {
           </p>
 
           <div className={styles.legalLinksRow}>
-            <a href="#piskotki" className={styles.legalLink}>
+            <Link href="/piskotki" className={styles.legalLink}>
               Piškotki
-            </a>
+            </Link>
             <span className={styles.legalSeparator} />
-            <a href="#zasebnost" className={styles.legalLink}>
+            <Link href="/politika-zasebnosti" className={styles.legalLink}>
               Politika zasebnosti
-            </a>
+            </Link>
           </div>
         </div>
       </div>

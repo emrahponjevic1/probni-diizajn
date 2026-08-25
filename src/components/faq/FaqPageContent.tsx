@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { PHONE } from "@/data/locations";
 import Link from "next/link";
+import { FAQ_SECTIONS } from "./faqSections";
 import styles from "./FaqPageContent.module.css";
 
 // Clean Vector SVG Icons
@@ -72,92 +73,21 @@ const BagIcon = () => (
   </svg>
 );
 
-interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
-}
-
-interface FaqCategory {
-  id: string;
-  title: string;
-  items: FaqItem[];
-}
-
-const FAQ_SECTIONS: FaqCategory[] = [
-  {
-    id: "seherezada",
-    title: "Naša hrana in priprava",
-    items: [
-      {
-        id: "seh-1",
-        question: "Kaj dela Šeherezada kebab poseben?",
-        answer:
-          "Naše meso je 100 % halal, marinirano 24 ur v avtorskih orientalskih začimbah in pečeno na vročem odprtem žaru brez industrijskih dodatkov.",
-      },
-      {
-        id: "seh-2",
-        question: "Ali lepinje pečete sami?",
-        answer:
-          "Da! Testo zamesimo vsako jutro, vsako lepinjo pa spečemo sproti v naši peči tik preden vam postrežemo hrano, zato je vedno topla in hrustljava.",
-      },
-      {
-        id: "seh-3",
-        question: "Kje se nahajate in kakšen je delovni čas?",
-        answer:
-          "Imamo dve lokaciji v središču Ljubljane. Šeherezada na Trubarjevi 31 je odprta vsak dan od 09:00 do 02:00, ob petkih in sobotah pa do 03:00. Šeherezada 2 na Slovenski 55 je odprta vsak dan od 08:00 do 01:00.",
-      },
-    ],
-  },
-  {
-    id: "difference",
-    title: "Halal, vegansko in plačilo",
-    items: [
-      {
-        id: "diff-1",
-        question: "Ali je celotno meso 100% Halal certificirano?",
-        answer:
-          "Da, vsi naši dobavitelji imajo uradne halal certifikate s popolno sledljivostjo izvora mesa ter strogim higienskim nadzorom.",
-      },
-      {
-        id: "diff-2",
-        question: "Ali imate vegetarijanske in veganske jedi?",
-        answer:
-          "Seveda! Sami pripravljamo sveže falaflje iz čičerike in zelišč, kremast domači humus ter zelenjavne pice in jufke.",
-      },
-      {
-        id: "diff-3",
-        question: "Kakšne omake in prelive ponujate?",
-        answer:
-          "Izbirate lahko med blago jogurtovo omako s svežimi zelišči, hišno pikantno čili omako ter sezamovo tahini omako.",
-      },
-      {
-        id: "diff-4",
-        question: "Ali sprejemate kartice in gotovino?",
-        answer:
-          "Sprejemamo gotovino, plačilne kartice (Visa, Mastercard, Maestro) ter študentske bone preko mobilne aplikacije ali kartice.",
-      },
-    ],
-  },
-  {
-    id: "boni",
-    title: "Študentski boni in naročila",
-    items: [
-      {
-        id: "boni-1",
-        question: "Koliko znaša doplačilo in kaj vsebuje študentski meni?",
-        answer:
-          "Doplačilo z veljavnim bonom je 3,00 €. Meni vključuje glavno jed po izbiri (kebab, pizzo, burger, falafel) + svežo solato + jabolko + pijačo.",
-      },
-      {
-        id: "boni-2",
-        question: "Ali lahko naročim vnaprej po telefonu za prevzem?",
-        answer:
-          `Seveda! Pokličite nas na ${PHONE.restaurant.display} in vaše naročilo vas bo čakalo sveže in toplo pripravljeno ob dogovorjenem času brez čakanja v vrsti.`,
-      },
-    ],
-  },
-];
+const ArrowRightIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M5 12h14" />
+    <path d="m12 5 7 7-7 7" />
+  </svg>
+);
 
 export default function FaqPageContent() {
   // Only one accordion item can be active at a time
@@ -261,6 +191,15 @@ export default function FaqPageContent() {
                         <div className={styles.faqAnswerInner}>
                           <div className={styles.faqAnswerContent}>
                             {item.answer}
+                            {item.more && (
+                              <Link
+                                href={item.more.href}
+                                className={styles.faqAnswerLink}
+                              >
+                                {item.more.label}
+                                <ArrowRightIcon />
+                              </Link>
+                            )}
                           </div>
                         </div>
                       </div>

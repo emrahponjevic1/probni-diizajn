@@ -1217,6 +1217,15 @@
     padding: 1.25rem 1.15rem;
   }
 
+  /* Kartica je navpičen flex, zato text-align vrstice s telefonom in
+     e-naslovom ne premakne — ta vrstica je flex element in se razteza čez
+     vso širino, njena vsebina pa ostane ob robu. Na sredino jo postavi
+     šele justify-content znotraj same vrstice. */
+  .heroCardPhoneLink,
+  .heroCardEmailAlt {
+    justify-content: center;
+  }
+
   .heroRightCol {
     max-width: 320px;
     margin: 0 auto;

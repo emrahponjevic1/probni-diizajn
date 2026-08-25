@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "./SiteNavbar.module.css";
+import StatusBadge from "./locations/StatusBadge";
 import { LOCATIONS, LOCATION_SLUG } from "@/data/locations";
 
 // Clean Vector SVG Icons
@@ -336,7 +337,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                 <PinSvg size={14} />
                 <span className={styles.drawerStatusTitle}>{l.name}</span>
               </div>
-              <span className={styles.drawerStatusTime}>{l.hoursShort}</span>
+              <StatusBadge hours={l.hours} />
             </div>
           ))}
 
@@ -403,7 +404,6 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                 <PinSvg size={18} className={styles.drawerActionIcon} />
                 <div className={styles.drawerActionTextCol}>
                   <span className={styles.drawerActionLabel}>Lokaciji</span>
-                  <span className={styles.drawerActionValue}>Trubarjeva · Slovenska</span>
                 </div>
                 <span className={styles.drawerActionArrow}>{isDrawerLocOpen ? "▴" : "▾"}</span>
               </button>

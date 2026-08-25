@@ -1,5 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
+import { HALAL_OZNAKA } from "@/data/halal";
 import styles from "./HalalCertificate.module.css";
+
+const ArrowRightSvg = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 12h14" />
+    <path d="m12 5 7 7-7 7" />
+  </svg>
+);
 
 // Clean Vector SVG Icons (No Emojis)
 const ShieldCheckSvg = ({ size = 20 }: { size?: number }) => (
@@ -19,12 +28,14 @@ export default function HalalCertificate() {
           {/* Left: Certificate Visual Frame */}
           <div className={styles.certVisualWrapper}>
             <div className={styles.certCardFrame}>
+              {/* Oznaka, ne dokument. Fotografija pravega certifikata je
+                  na strani /halal — tam, kjer je zanjo pravo mesto. */}
               <Image
-                src="/images/halal-certificate.jpg"
-                alt="Uradni Halal Certifikat Šeherezada Ljubljana"
-                width={480}
-                height={540}
-                className={styles.certImg}
+                src={HALAL_OZNAKA.src}
+                alt={HALAL_OZNAKA.alt}
+                width={HALAL_OZNAKA.width}
+                height={HALAL_OZNAKA.height}
+                className={styles.certSeal}
               />
               <div className={styles.certFloatingVerifiedPill}>
                 <div className={styles.certPillIcon}>
@@ -116,6 +127,11 @@ export default function HalalCertificate() {
                 </div>
               </div>
             </div>
+
+            <Link href="/halal" className={styles.halalMoreLink}>
+              <span>Kaj halal pomeni in kako se certificira</span>
+              <ArrowRightSvg size={16} />
+            </Link>
           </div>
         </div>
       </div>

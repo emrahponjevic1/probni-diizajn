@@ -184,8 +184,9 @@ Sajt je **živ na Vercelu**. Vercel Speed Insights instaliran (radi bez kolači�
 
 JSON-LD trenutno imaju samo: `/halal`, `/pogosta-vprasanja`, `/lokacije/[slug]`, `/zaposlitev/[slug]`. Naslovnica, `/meni`, `/kontakt`, `/o-nas` nemaju ništa.
 
-### Faza 4 — ostatak
-- [ ] `/meni/vegan` — 7 veganskih jela
+### Faza 4 — završena
+Nema više ničega. **`/meni/vegan` je odbačen odlukom vlasnika** — ne pravi se.
+Veganska jela su označena na `/meni` i pominju se na `/halal`; zasebna stranica se ne radi.
 
 ### Faza 3 — ostatak
 - [ ] DNS za `seherezada.net` na Vercel

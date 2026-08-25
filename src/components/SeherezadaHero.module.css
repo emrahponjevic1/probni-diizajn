@@ -963,3 +963,43 @@
     display: none;
   }
 }
+/* ==========================================================================
+   ZMOGLJIVOST NA TELEFONU
+   ==========================================================================
+   Tri okrasne lise v ozadju animirajo border-radius. Te lastnosti grafična
+   kartica ne zna risati sama, zato mora procesor ob vsaki sličici na novo
+   izračunati postavitev cele strani — in to neprekinjeno, tudi medtem ko se
+   stran šele nalaga.
+
+   Na namizju to ni opazno. Na telefonu srednjega razreda pa je procesor
+   zaseden prav v trenutku, ko bi moral izrisati prvi odstavek — Lighthouse
+   je izmeril 2,5 s zakasnitve izrisa, čeprav so podatki prispeli takoj.
+
+   Na ozkih zaslonih zato animacijo ustavimo. Lise ostanejo — vsaka ima
+   border-radius zapisan tudi v svojem pravilu — samo mirujejo. Na telefonu
+   so pod vsebino in komaj vidne, zato izgleda ne spremeni.
+
+   Namizje ostane nedotaknjeno: pravilo velja samo do 768px.
+
+   Animacije, ki premikajo transform (floatPlate, floatSlow, floatLeaf,
+   rotateAura), pustimo — te grafična kartica izriše sama in nič ne stanejo.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .heroPlateBlob,
+  .heroPlateBlobSecondary,
+  .heroPlateBlobTopLeft {
+    animation: none;
+  }
+}
+
+/* Kdor ima v sistemu izklopljene animacije, jih tu ne dobi — pri lisah gre
+   za neprekinjeno gibanje, ki nekaterim povzroča slabost. */
+@media (prefers-reduced-motion: reduce) {
+  .heroPlateBlob,
+  .heroPlateBlobSecondary,
+  .heroPlateBlobTopLeft,
+  .mainPlateImage,
+  .plateAura {
+    animation: none;
+  }
+}

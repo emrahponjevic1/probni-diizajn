@@ -4,6 +4,7 @@ import BlogPageContent from "@/components/blog/BlogPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog — hrana, halal in boni v Ljubljani | Šeherezada",
   description:
     "Nasveti in zgodbe o halal ponudbi, veganskih jedeh in študentskih bonih v Šeherezadi — restavraciji v središču Ljubljane.",

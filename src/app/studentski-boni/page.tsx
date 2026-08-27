@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import { STUDENT_BON, MENU_STATS } from "@/components/menu/MenuData";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/studentski-boni" },
   title:
     "Študentski boni v Ljubljani — doplačilo 3,00 € | Šeherezada",
   description:

@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 // Opis namenoma ne obljublja odprtih mest — teh trenutno ni, seznam pa se
 // spreminja. Besedilo drži tudi takrat, ko je kakšno mesto odprto.
 export const metadata: Metadata = {
+  alternates: { canonical: "/zaposlitev" },
   title: "Zaposlitev in delo v Ljubljani | Šeherezada",
   description:
     "Delo v Šeherezadi, restavraciji v središču Ljubljane. Oglej si trenutne priložnosti ali nam pošlji svojo ponudbo — dve lokaciji, Trubarjeva 31 in Slovenska 55.",

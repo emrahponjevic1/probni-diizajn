@@ -5,6 +5,7 @@ import ContactPageContent from "@/components/contact/ContactPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/kontakt" },
   title: "Kontakt — dve lokaciji v središču Ljubljane | Šeherezada",
   description:
     `Šeherezada na Trubarjevi 31 in Slovenski 55 v Ljubljani. Telefon ${PHONE.restaurant.display}, e-pošta in obrazec za povpraševanja, catering in rezervacije.`,

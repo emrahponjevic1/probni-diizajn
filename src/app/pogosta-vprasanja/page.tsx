@@ -6,6 +6,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pogosta-vprasanja" },
   title: "Pogosta vprašanja — halal, boni, delovni čas | Šeherezada",
   description:
     "Odgovori o halal certifikatu, študentskih bonih z doplačilom 3,00 €, veganski ponudbi in delovnem času obeh lokacij v Ljubljani.",

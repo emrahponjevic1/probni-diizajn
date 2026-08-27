@@ -6,6 +6,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/halal" },
   title: "Halal hrana v Ljubljani — kaj to pomeni pri nas | Šeherezada",
   description:
     "Kaj pomeni halal, kako se v Sloveniji certificira in kaj to pomeni na našem meniju: brez svinjine, brez alkohola, halal meso na obeh lokacijah v Ljubljani.",

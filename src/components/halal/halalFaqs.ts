@@ -22,7 +22,7 @@ export const HALAL_FAQS: HalalFaq[] = [
   {
     id: "hfaq-2",
     q: "Kakšno šunko uporabljate na picah in v drugih jedeh?",
-    a: "Na vseh naših picah (npr. Pizza Klasika) uporabljamo izključno 100 % halal puranjo šunko. Nobena jed na meniju ne vsebuje svinjskega mesa, pršuta ali svinjske slanine.",
+    a: "Na vseh naših picah (npr. Pizza Klasik) uporabljamo izključno 100 % halal puranjo šunko. Nobena jed na meniju ne vsebuje svinjskega mesa, pršuta ali svinjske slanine.",
   },
   {
     id: "hfaq-3",

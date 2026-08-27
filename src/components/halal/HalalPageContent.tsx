@@ -394,7 +394,7 @@ export default function HalalPageContent() {
                   <span className={styles.matrixCheckIcon}><CheckIcon /></span>
                   <div>
                     <strong>Puranja šunka na picah</strong>
-                    <p>Za vse pice z nadevom (npr. Pizza Klasika) uporabljamo izključno certificirano puranjo šunko.</p>
+                    <p>Za vse pice z nadevom (npr. Pizza Klasik) uporabljamo izključno certificirano puranjo šunko.</p>
                   </div>
                 </li>
                 <li className={styles.matrixItem}>
@@ -407,8 +407,8 @@ export default function HalalPageContent() {
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCheckIcon}><CheckIcon /></span>
                   <div>
-                    <strong>100 % brezalkoholni napitki</strong>
-                    <p>Tradicionalni turški čaj, kava, ayran, 100 % sokovi in gazirane ter negazirane vode.</p>
+                    <strong>Ponudba brez alkohola</strong>
+                    <p>Alkohola ne točimo in ga ne uporabljamo pri pripravi jedi.</p>
                   </div>
                 </li>
               </ul>
@@ -449,8 +449,8 @@ export default function HalalPageContent() {
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCrossIcon}><CrossIcon /></span>
                   <div>
-                    <strong>0 % Svinjske želatine ali spornih emulgatorjev</strong>
-                    <p>Vsi dodatki in prelivi so skrbno pregledani in ustrezajo strogim predpisom.</p>
+                    <strong>0 % Svinjske želatine</strong>
+                    <p>Sestavine in prelive kupujemo pri dobaviteljih s halal certifikatom.</p>
                   </div>
                 </li>
               </ul>

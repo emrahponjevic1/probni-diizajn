@@ -585,7 +585,7 @@ export const MENU_ITEMS: MenuItem[] = [
     ingredientsList: [
       "Hrustljavo testo",
       "Paradižnikova osnova & sir",
-      "Goveja salama / kulen",
+      "Goveja salama / goveji kulen",
     ],
     allergensList: ["Gluten (pšenica)", "Laktoza (mleko)"],
   },

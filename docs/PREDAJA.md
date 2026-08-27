@@ -223,18 +223,21 @@ U kodu nema šta da se mijenja — `SITE_URL` već pokazuje na pravu domenu i ne
 
 ### 🔴 Kontakt forma ništa ne šalje
 `ContactPageContent.tsx:165` — `handleSubmit` čeka 900 ms i prikaže „poslano". Nema slanja, nema mejla. **Gost misli da je poruka stigla, a nije.**
-Politika zasebnosti se poziva na obradu podataka iz te forme. Vlasnik je rekao da to rješava sam.
 
-### 🔴 Šest neprovjerenih tvrdnji na `/halal`
-Vjerovatno su tačne, ali ih niko nije potvrdio:
-- pića (turški čaj, kava, ayran, sokovi) — **pića uopšte nisu u `MenuData.ts`**
-- „Ločeni delovni prostori, namenska oprema"
-- „priznane evropske klavnice z mednarodnimi certifikati"
-- „redni in nenapovedani pregledi"
-- „0 % svinjske želatine, vsi dodatki pregledani"
-- **„Pizza Klasika"** — u meniju se zove **Pizza Klasik**
+**Odluka vlasnika:** forma ostaje na sajtu. Spaja se kad zakupi poslovni mail; tad daje SMTP podatke.
+**Lozinka ne ide u kod ni u razgovor** — u varijablu okoline koju vlasnik sam upiše kod hostinga.
+**Prije objave forma mora biti spojena ili poštena** — sad laže gostu da je poruka poslana.
 
-Plus: Pizza Salami ima opis „goveja salama", a u sastojcima **„Goveja salama / kulen"**. Kulen je tradicionalno svinjski. Provjeriti u PDF-u.
+### ✅ Tvrdnje na `/halal` — provjerene 27. 8. 2026
+Vlasnik je prošao kroz svih sedam. **Slovenački sadržaj je time zaključan** — uslov da se krene sa prevodima.
+
+Potvrđeno i ostaje: odvojeni radni prostori i oprema, meso iz evropskih klaonica sa certifikatima, nenajavljene kontrole Zavoda Halal.
+
+Ispravljeno:
+- spisak pića (turški čaj, ayran, sokovi) **obrisan** — pića nisu u `MenuData.ts`, dodaju se kasnije
+- „vsi dodatki so skrbno pregledani" → **„Sestavine kupujemo pri dobaviteljih s halal certifikatom"**; deklaracije niko nije prolazio, oslanja se na certifikat dobavljača
+- „Pizza Klasika" → **„Pizza Klasik"** po meniju
+- „kulen" → **„goveji kulen"** u sastojcima Pizza Salami
 
 ### 🟡 Slike se mogu još smanjiti — 220 KB
 Next ih ne mijenja (vidi sekciju 5), pa treba prekomprimovati izvorne fajlove:

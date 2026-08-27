@@ -2,7 +2,7 @@
 
 **Zalijepi ovaj fajl u novi chat da nastaviš odakle smo stali.**
 
-Datum: 25. 8. 2026 · Grana: `main` · Sajt je **živ na Vercelu**: `seherezadav2.vercel.app`
+Datum: 27. 8. 2026 · Grana: `main` · Sajt **nije objavljen** — radi samo lokalno
 
 ---
 
@@ -13,7 +13,7 @@ Cilj vlasnika (Emrah): biti prvi na Google pretrazi za kebab u Ljubljani.
 
 **Tehnologija:** Next.js 16.3.1 (App Router, Turbopack), React 19.2.8, TypeScript strict, CSS Modules.
 **Pravno lice:** ADL d.o.o., Trubarjeva cesta 31, 1000 Ljubljana · matična 3999521000
-**Domena:** `seherezada.net` (kupljena, **DNS još nije prebačen na Vercel**).
+**Domena:** `seherezada.net` (kupljena). Kod je već postavljen na nju — pri prvom deployu ide odmah na pravu domenu, ne na privremenu adresu.
 **Jezici:** slovenački sada; planirano BS, EN, DE, IT, TR.
 
 Dizajnerska pravila su u `CLAUDE.md` u korijenu — font Plus Jakarta Sans, topla svijetla paleta, tačni razmaci sekcija. **Ne odstupaj od njih.**
@@ -131,8 +131,9 @@ Obrisano 1.909 linija mrtvog koda, navigacija spojena u `SiteNavbar`, `Seherezad
 ### ✅ Faza 2 — slovenački tekst i SEO na stranici
 Naslovnica i `/meni` prepisani, 29 jela sa opisima i alergenima, uklonjene netačne tvrdnje, meta naslovi svugdje.
 
-### ✅ Faza 3 — hosting (dio)
-Sajt je **živ na Vercelu**. Vercel Speed Insights instaliran (radi bez kolačića). **DNS za `seherezada.net` još nije prebačen.**
+### ⬜ Faza 3 — hosting (nije počela)
+Raniji Vercel projekat je **obrisan**, sa njim i Speed Insights. Sajt trenutno radi samo lokalno.
+**Odluka vlasnika:** pri sljedećem deployu ide odmah na `seherezada.net`, bez privremene adrese. Zato u kodu nema nikakvog prekidača za indeksiranje — sve je spremno da radi od prve sekunde.
 
 ### ✅ Faza 4 — rute
 - `/lokacije/trubarjeva-31` i `/lokacije/slovenska-55` — mapa u vrhu, živi bedž, `Restaurant` JSON-LD
@@ -147,7 +148,7 @@ Sajt je **živ na Vercelu**. Vercel Speed Insights instaliran (radi bez kolači�
 - Politika kolačića opisuje **stvarno stanje** — jedan kolačić, plus red za GA označen „Ni v uporabi"
 - `ANALYTICS_ENABLED` u `consent.ts` je **jedan prekidač** koji pomjera tabelu, uvod, sekciju o izboru i tekst banera
 - Pravno lice (ADL d.o.o.) u oba teksta; DPO i newsletter obrisani jer ne postoje
-- Sekcija o Vercelu kao obrađivaču (hosting + Speed Insights)
+- Sekcija „Komu podatke posredujemo" — imenuje ponuđača hostinga, bez imena firme dok se ne zna konačno
 
 ### ✅ Slike — riješen najveći problem
 ```
@@ -170,28 +171,27 @@ Sajt je **živ na Vercelu**. Vercel Speed Insights instaliran (radi bez kolači�
 
 ## 6. Šta slijedi
 
-### Faza 6 — SEO infrastruktura ← **PRVO OVO**
-- [ ] `metadataBase` u `layout.tsx`
-- [ ] Kanonski URL na svakoj stranici (sad ga imaju samo `[slug]` rute)
-- [ ] `src/app/sitemap.ts` — neka **sam čita rute**, ne ručni spisak
-- [ ] `src/app/robots.ts`
-- [ ] `Menu` schema na `/meni` — 29 jela, cijene, `VeganDiet`
-- [ ] `Organization` schema u `layout.tsx`
-- [ ] `BreadcrumbList` gdje ima drobtina
-- [ ] `public/llms.txt` (neobavezno, nije standard, ne utiče na Google)
+### ✅ Faza 6 — SEO infrastruktura (gotova)
+- `metadataBase`, kanonski URL na svih 12 stranica
+- `src/app/sitemap.ts` — 14 adresa, čita lokacije, blog i oglase iz istih fajlova koje stranica prikazuje
+- `src/app/robots.ts` — pokazuje na sitemap
+- `Organization` schema (znamka + ADL d.o.o. + obje poslovalnice), `Menu` schema (29 jela sa cijenama)
+- **`src/data/site.ts`** — adresa i spisak jezika na jednom mjestu. Spisak danas ima jedan red; u Fazi 5 se dopisuju redovi i sitemap, canonical i `hreflang` se sami prošire.
 
-**Ovo blokira sve ostalo.** Sve traži jednu odluku: **koja je konačna adresa?** Sad je `seherezadav2.vercel.app`, treba `seherezada.net`. Ako se sitemap napravi sa Vercel adresom, Google indeksira nju i to se poslije teško ispravlja.
+**Nema prekidača za indeksiranje.** Sajt je spreman da bude indeksiran čim se objavi.
 
-JSON-LD trenutno imaju samo: `/halal`, `/pogosta-vprasanja`, `/lokacije/[slug]`, `/zaposlitev/[slug]`. Naslovnica, `/meni`, `/kontakt`, `/o-nas` nemaju ništa.
+Ostaje neurađeno: `BreadcrumbList`, `llms.txt` (neobavezan, nije standard).
 
 ### Faza 4 — završena
 Nema više ničega. **`/meni/vegan` je odbačen odlukom vlasnika** — ne pravi se.
 Veganska jela su označena na `/meni` i pominju se na `/halal`; zasebna stranica se ne radi.
 
-### Faza 3 — ostatak
-- [ ] DNS za `seherezada.net` na Vercel
+### Faza 3 — hosting ← **SLJEDEĆE**
+- [ ] Objaviti sajt **odmah na `seherezada.net`**, ne na privremenoj adresi
+- [ ] DNS zapisi kod registrara
 - [ ] HTTPS i preusmjerenje `www → bez www`
-- [ ] Uključiti Speed Insights u Vercel tabli (kod je unutra, prikupljanje nije upaljeno)
+
+U kodu nema šta da se mijenja — `SITE_URL` već pokazuje na pravu domenu i nema prekidača koji bi se mogao zaboraviti.
 
 ### Faza 5 — šest jezika
 - [ ] `next-intl`, `localePrefix: "as-needed"` (slovenački bez prefiksa)

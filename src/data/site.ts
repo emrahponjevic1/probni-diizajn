@@ -13,25 +13,6 @@ export const SITE_URL = "https://seherezada.net";
 export const SITE_NAME = "Šeherezada";
 
 /**
- * ALI SME ISKALNIK INDEKSIRATI STRAN
- *
- * Dokler domena seherezada.net ne kaže na Vercel, stran živi na začasnem
- * naslovu *.vercel.app. Če bi Google indeksiral tega, bi si dva naslova z
- * isto vsebino konkurirala — in pozneje bi bilo to težko popraviti.
- *
- * Zato je indeksiranje privzeto IZKLOPLJENO. Vklopi se z okoljsko
- * spremenljivko na Vercelu:
- *
- *     NEXT_PUBLIC_SITE_LIVE = true
- *
- * ⚠ POZOR — TO JE NAJNEVARNEJŠA VRSTICA V PROJEKTU.
- * Če po preusmeritvi domene ostane izklopljena, strani NE BO v iskalniku in
- * tega nihče ne opazi mesece. Po objavi na pravi domeni odpri stran, poglej
- * izvorno kodo (Ctrl+U) in preveri, da noindex NI več tam.
- */
-export const IS_LIVE = process.env.NEXT_PUBLIC_SITE_LIVE === "true";
-
-/**
  * Jeziki spletnega mesta.
  *
  * `prefix: ""` pomeni, da jezik nima predpone v naslovu: slovenščina je

@@ -319,20 +319,11 @@ export default function ZasebnostPageContent() {
             ki podatke obdeluje po naših navodilih:
           </p>
           <div className={styles.highlightBox}>
-            <p className={styles.sectionText} style={{ marginBottom: "0.5rem" }}>
-              • <strong>Vercel Inc.</strong> — gostovanje spletnega mesta. Ob
-              vsakem obisku strežnik zabeleži tehnične podatke, ki so za
-              dostavo strani nujni (IP naslov, vrsta brskalnika, čas zahteve).
-            </p>
             <p className={styles.sectionText} style={{ marginBottom: 0 }}>
-              • <strong>Vercel Speed Insights</strong> — merjenje hitrosti
-              nalaganja strani. Deluje <strong>brez piškotkov</strong> in brez
-              podatkov, po katerih bi vas bilo mogoče prepoznati; zbira le, kako
-              hitro se je stran narisala. Podrobneje v{" "}
-              <Link href="/piskotki" className={styles.controllerLink}>
-                politiki piškotkov
-              </Link>
-              .
+              • <strong>Ponudnik gostovanja</strong> — strežnik ob vsakem
+              obisku zabeleži tehnične podatke, ki so za dostavo strani nujni
+              (IP naslov, vrsta brskalnika, čas zahteve). Teh podatkov ne
+              uporabljamo za analizo obiska.
             </p>
           </div>
           <p className={styles.sectionText}>

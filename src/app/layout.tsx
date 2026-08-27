@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import CookieBanner from "@/components/legal/CookieBanner";
 import OrganizationJsonLd from "@/components/seo/OrganizationJsonLd";
-import { IS_LIVE, SITE_NAME, SITE_URL } from "@/data/site";
+import { SITE_NAME, SITE_URL } from "@/data/site";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -28,20 +27,6 @@ export const metadata: Metadata = {
     "Halal kebab, jufka, falafel in pizza v središču Ljubljane. Dve lokaciji — Trubarjeva 31 in Slovenska 55. Študentski boni z doplačilom 3,00 €.",
   alternates: { canonical: "/" },
 
-  /**
-   * ⚠ Dokler stran ni na pravi domeni, je indeksiranje izklopljeno.
-   *
-   * robots.txt prepove branje, a to samo po sebi ne prepreči, da bi bil
-   * naslov naveden — če nanj kaže povezava od drugod. Ta oznaka je dokončna
-   * in Google je ne obide.
-   *
-   * Vklopi se z NEXT_PUBLIC_SITE_LIVE=true na Vercelu. Po objavi na pravi
-   * domeni PREVERI, da noindex v izvorni kodi strani NI več — sicer strani
-   * ne bo v iskalniku in tega nihče ne opazi mesece.
-   */
-  robots: IS_LIVE
-    ? { index: true, follow: true }
-    : { index: false, follow: false },
 
   openGraph: {
     type: "website",
@@ -64,7 +49,6 @@ export default function RootLayout({
             se sme naložiti šele, ko privolitev to dovoli — glej src/lib/consent.ts */}
         <OrganizationJsonLd />
         <CookieBanner />
-        <SpeedInsights />
       </body>
     </html>
   );

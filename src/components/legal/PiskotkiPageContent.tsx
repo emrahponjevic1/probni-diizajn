@@ -169,9 +169,7 @@ export default function PiskotkiPageContent() {
                 ki si zapomni vašo izbiro. Analitika je pripravljena, a še ni
                 vklopljena; ko bo, se bo naložila izključno gostom, ki so v
                 pasici izbrali „Sprejmi vse“. Oglaševalskih piškotkov ne
-                uporabljamo in vašega vedenja ne sledimo. Merimo pa hitrost
-                nalaganja strani — brez piškotkov in brez podatkov, po katerih
-                bi vas bilo mogoče prepoznati.
+                uporabljamo in vašega vedenja ne sledimo.
               </>
             )}
           </p>
@@ -305,29 +303,9 @@ export default function PiskotkiPageContent() {
           </div>
         </section>
 
-        {/* 3a. Merjenje hitrosti — brez piškotkov, a vseeno je treba povedati */}
-        <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>
-            4. Merjenje hitrosti strani brez piškotkov
-          </h2>
-          <p className={styles.sectionText}>
-            Da vemo, ali se stran nalaga dovolj hitro, merimo čas nalaganja
-            posameznih podstrani. Meritev opravlja orodje Speed Insights našega
-            gostitelja, družbe Vercel Inc.
-          </p>
-          <p className={styles.sectionText}>
-            Za to <strong>ne uporabljamo piškotkov</strong> in ne shranjujemo
-            ničesar na vašo napravo — zato tega orodja tudi ni v zgornji
-            preglednici in za to ne potrebujemo vaše privolitve. Zbrani podatki
-            so tehnični: kako dolgo se je stran risala, katera podstran je bila
-            odprta, kakšna je bila vrsta naprave in povezave. Po njih vas ni
-            mogoče prepoznati, prav tako ne beležimo, kaj ste na strani počeli.
-          </p>
-        </section>
-
         {/* 3b. Vaša izbira — pravi nadzor, ne okras */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>5. Vaša trenutna izbira</h2>
+          <h2 className={styles.sectionTitle}>4. Vaša trenutna izbira</h2>
           <p className={styles.sectionText}>
             Tu lahko svojo izbiro kadarkoli spremenite. Sprememba začne veljati
             takoj in se zapiše v piškotek{" "}
@@ -386,7 +364,7 @@ export default function PiskotkiPageContent() {
 
         {/* 4. Nadzor in izbris piškotkov v brskalniku */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>6. Kako lahko upravljate ali izbrišete piškotke v brskalniku</h2>
+          <h2 className={styles.sectionTitle}>5. Kako lahko upravljate ali izbrišete piškotke v brskalniku</h2>
           <p className={styles.sectionText}>
             Nastavitve za piškotke lahko kadarkoli spremenite tudi v vašem spletnem
             brskalniku. Večina brskalnikov vam omogoča, da zavrnete ali sprejmete vse
@@ -420,7 +398,7 @@ export default function PiskotkiPageContent() {
 
         {/* 5. Upravljavec & Kontakt */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>7. Upravljavec podatkov in vprašanja</h2>
+          <h2 className={styles.sectionTitle}>6. Upravljavec podatkov in vprašanja</h2>
           <p className={styles.sectionText}>
             Upravljavec spletnega mesta in podatkov, zbranih prek piškotkov, je:
           </p>

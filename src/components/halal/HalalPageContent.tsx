@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { MENU_STATS, MENU_ITEMS } from "@/components/menu/MenuData";
@@ -158,6 +159,9 @@ const DocumentCertificateIcon = () => (
 // ---------------------------------------------------------------------------
 
 export default function HalalPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "halalStran".
+  const t = useTranslations("halalStran");
+
   const [openFaqId, setOpenFaqId] = useState<string | null>("hfaq-1");
 
   return (
@@ -173,65 +177,61 @@ export default function HalalPageContent() {
             {/* Left Column: Editorial Header & Trust Metrics */}
             <div className={styles.heroLeftCol}>
               <div className={styles.chapterTagContainer}>
-                <span className={styles.tagGhostWatermark}>HALAL</span>
+                <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
                 <div className={styles.chapterIndexTag}>
                   <span className={styles.chapterDash} />
-                  <span>100 % HALAL CERTIFICIRANO · LJUBLJANA</span>
+                  <span>{t("oznaka")}</span>
                   <span className={styles.chapterDash} />
                 </div>
               </div>
 
               <h1 className={styles.heroH1}>
-                100 % halal hrana v Ljubljani —{" "}
-                <span className={styles.heroH1Accent}>brez kompromisov</span>
+                {t.rich("naslov", {
+                  poudarek: (chunks) => <span className={styles.heroH1Accent}>{chunks}</span>,
+                })}
               </h1>
 
-              <p className={styles.heroLead}>
-                V Šeherezadi halal ni marketinški izraz, temveč neomajna zaveza
-                čistosti, sledljivosti in spoštovanju tradicije. Vse telečje in
-                piščančje meso prihaja iz preverjenih virov z veljavnim
-                certifikatom. V naših kuhinjah ni svinjine niti alkohola.
-              </p>
+              <p className={styles.heroLead}>{t("uvod")}</p>
 
               {/* Bento Trust Metric Badges */}
               <div className={styles.heroFactGrid}>
                 <div className={`${styles.heroFactCard} ${styles.heroFactCardHighlight}`}>
-                  <span className={styles.heroFactLabel}>Halal meso</span>
+                  <span className={styles.heroFactLabel}>{t("factMeso")}</span>
                   <span className={`${styles.heroFactValue} ${styles.heroFactValueAccent}`}>
-                    100 %
+                    {t("factMesoVrednost")}
                   </span>
-                  <span className={styles.heroFactSubtitle}>telečje & piščančje</span>
+                  <span className={styles.heroFactSubtitle}>{t("factMesoPod")}</span>
                 </div>
 
                 <div className={styles.heroFactCard}>
-                  <span className={styles.heroFactLabel}>Svinjina & alkohol</span>
-                  <span className={styles.heroFactValue}>0 %</span>
-                  <span className={styles.heroFactSubtitle}>brez izjem v nobeni jedi</span>
+                  <span className={styles.heroFactLabel}>{t("factSvinjina")}</span>
+                  <span className={styles.heroFactValue}>{t("factSvinjinaVrednost")}</span>
+                  <span className={styles.heroFactSubtitle}>{t("factSvinjinaPod")}</span>
                 </div>
 
                 <div className={styles.heroFactCard}>
-                  <span className={styles.heroFactLabel}>Lokaciji v LJ</span>
-                  <span className={styles.heroFactValue}>2</span>
-                  <span className={styles.heroFactSubtitle}>Trubarjeva & Slovenska</span>
+                  <span className={styles.heroFactLabel}>{t("factLokacije")}</span>
+                  <span className={styles.heroFactValue}>{LOCATIONS.length}</span>
+                  <span className={styles.heroFactSubtitle}>{t("factLokacijePod")}</span>
                 </div>
 
                 <div className={styles.heroFactCard}>
-                  <span className={styles.heroFactLabel}>Brezmesne jedi</span>
+                  <span className={styles.heroFactLabel}>{t("factBrezmesne")}</span>
                   <span className={styles.heroFactValue}>
                     {MENU_STATS.vegan + MENU_STATS.vegetarian}
                   </span>
-                  <span className={styles.heroFactSubtitle}>vegansko & vegetarijansko</span>
+                  <span className={styles.heroFactSubtitle}>{t("factBrezmesnePod")}</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className={styles.heroActionsRow}>
                 <Link href="/meni" className={styles.btnPrimary}>
-                  <span>Poglej celoten meni</span>
+                  <span>{t("gumbMeni")}</span>
                   <ArrowRightIcon />
                 </Link>
                 <a href="#certifikat-in-nadzor" className={styles.btnSecondary}>
-                  <span>Preveri certifikat & standarde</span>
+                  <span>{t("gumbCertifikat")}</span>
                 </a>
               </div>
             </div>
@@ -253,21 +253,15 @@ export default function HalalPageContent() {
                     <ShieldCheckIcon />
                   </div>
                   <div className={styles.certPillMeta}>
-                    <span className={styles.certPillTitle}>
-                      100 % Halal Certificirano
-                    </span>
-                    <span className={styles.certPillSub}>
-                      0 % Svinjine · 0 % Alkohola · Nadzorovano poreklo
-                    </span>
+                    <span className={styles.certPillTitle}>{t("certZnackaNaslov")}</span>
+                    <span className={styles.certPillSub}>{t("certZnackaPod")}</span>
                   </div>
                 </div>
               </div>
 
               <div className={styles.certLocationNoticeStrip}>
                 <DocumentCertificateIcon />
-                <span>
-                  Originalni dokument certifikata je fizično izobešen v obeh lokalih.
-                </span>
+                <span>{t("certObvestilo")}</span>
               </div>
             </div>
           </div>
@@ -279,20 +273,15 @@ export default function HalalPageContent() {
         <section className={styles.pillarsSection} id="stebri-standarda">
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>STEBRI</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("stebriVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>V KAJ VERJAMEMO</span>
+                <span>{t("stebriOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>
-              Trije neomajni stebri halal varnosti
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Halal pri nas pomeni celovit sistem odgovornosti — od izvora
-              posamezne surovine do načina priprave na vašem krožniku.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("stebriNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("stebriPodnaslov")}</p>
           </div>
 
           <div className={styles.pillarsGrid}>
@@ -300,16 +289,12 @@ export default function HalalPageContent() {
               <div className={styles.pillarIconBox}>
                 <NoPorkIcon />
               </div>
-              <span className={styles.pillarIndex}>01 / Čiste sestavine</span>
-              <h3 className={styles.pillarTitle}>Brez prepovedanih sestavin</h3>
-              <p className={styles.pillarDesc}>
-                V naših prostorih ni svinjskega mesa, svinjske maščobe, želatine
-                niti kapljice alkohola. Tudi v omakah, testu za jufke in marinadah
-                uporabljamo izključno 100 % čiste sestavine.
-              </p>
+              <span className={styles.pillarIndex}>{t("steber1Oznaka")}</span>
+              <h3 className={styles.pillarTitle}>{t("steber1Naslov")}</h3>
+              <p className={styles.pillarDesc}>{t("steber1Opis")}</p>
               <div className={styles.pillarFeatureTag}>
                 <CheckIcon />
-                <span>Puranja šunka & brezalkoholna kuhinja</span>
+                <span>{t("steber1Znacka")}</span>
               </div>
             </div>
 
@@ -317,16 +302,12 @@ export default function HalalPageContent() {
               <div className={styles.pillarIconBox}>
                 <TraceabilityIcon />
               </div>
-              <span className={styles.pillarIndex}>02 / Popolna sledljivost</span>
-              <h3 className={styles.pillarTitle}>100 % preverjeno poreklo</h3>
-              <p className={styles.pillarDesc}>
-                Uporabljamo izključno kakovostno telečje in piščančje meso iz
-                priznanih evropskih klavnic z veljavnimi mednarodnimi halal
-                certifikati in natančno sledljivostjo vsake serije.
-              </p>
+              <span className={styles.pillarIndex}>{t("steber2Oznaka")}</span>
+              <h3 className={styles.pillarTitle}>{t("steber2Naslov")}</h3>
+              <p className={styles.pillarDesc}>{t("steber2Opis")}</p>
               <div className={styles.pillarFeatureTag}>
                 <CheckIcon />
-                <span>Mednarodno akreditirani dobavitelji</span>
+                <span>{t("steber2Znacka")}</span>
               </div>
             </div>
 
@@ -334,16 +315,12 @@ export default function HalalPageContent() {
               <div className={styles.pillarIconBox}>
                 <KitchenCleanIcon />
               </div>
-              <span className={styles.pillarIndex}>03 / Strogi protokoli</span>
-              <h3 className={styles.pillarTitle}>Higiensko ravnanje v kuhinji</h3>
-              <p className={styles.pillarDesc}>
-                Ločeni delovni prostori, namenska oprema in redno usposabljanje
-                kuhinjskega osebja preprečujejo kakršnokoli navzkrižno onesnaženje.
-                Za nas je higiena del verske in kulinarične odgovornosti.
-              </p>
+              <span className={styles.pillarIndex}>{t("steber3Oznaka")}</span>
+              <h3 className={styles.pillarTitle}>{t("steber3Naslov")}</h3>
+              <p className={styles.pillarDesc}>{t("steber3Opis")}</p>
               <div className={styles.pillarFeatureTag}>
                 <CheckIcon />
-                <span>Redni in nenapovedani pregledi</span>
+                <span>{t("steber3Znacka")}</span>
               </div>
             </div>
           </div>
@@ -355,20 +332,15 @@ export default function HalalPageContent() {
         <section className={styles.matrixSection} id="preglednost-menija">
           <div className={styles.sectionHeaderLeft}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>MENI</span>
+              <span className={styles.tagGhostWatermark}>{t("meniVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>POPOLNA TRANSPARENTNOST</span>
+                <span>{t("meniOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>
-              Kaj je na našem meniju in česa pri nas nikoli ne boste našli
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Transparentnost do vsakega gosta: jasen pregled sestavin, ki jih
-              s ponosom uporabljamo, ter tistih, ki so v Šeherezadi strogo prepovedane.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("meniNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("meniPodnaslov")}</p>
           </div>
 
           <div className={styles.matrixGrid}>
@@ -377,38 +349,38 @@ export default function HalalPageContent() {
               <div className={styles.matrixCardHeader}>
                 <div className={styles.matrixBadgeAllowed}>
                   <CheckIcon />
-                  <span>Vedno uporabljamo (100 % Halal)</span>
+                  <span>{t("dovoljenoZnacka")}</span>
                 </div>
-                <h3 className={styles.matrixCardTitle}>Dovoljeno & Certificirano</h3>
+                <h3 className={styles.matrixCardTitle}>{t("dovoljenoNaslov")}</h3>
               </div>
 
               <ul className={styles.matrixItemsList}>
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCheckIcon}><CheckIcon /></span>
                   <div>
-                    <strong>100 % Halal telečje in piščančje meso</strong>
-                    <p>Sočni döner kebab, zrezki na žaru, ražnjiči in plošče.</p>
+                    <strong>{t("dovoljeno1Naslov")}</strong>
+                    <p>{t("dovoljeno1Opis")}</p>
                   </div>
                 </li>
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCheckIcon}><CheckIcon /></span>
                   <div>
-                    <strong>Puranja šunka na picah</strong>
-                    <p>Za vse pice z nadevom (npr. Pizza Klasik) uporabljamo izključno certificirano puranjo šunko.</p>
+                    <strong>{t("dovoljeno2Naslov")}</strong>
+                    <p>{t("dovoljeno2Opis")}</p>
                   </div>
                 </li>
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCheckIcon}><CheckIcon /></span>
                   <div>
-                    <strong>Dnevno sveže rastlinske sestavine</strong>
-                    <p>Ročno pripravljeni falafli iz čičerike, sveža zelenjava, domače omake in sezamov kruh.</p>
+                    <strong>{t("dovoljeno3Naslov")}</strong>
+                    <p>{t("dovoljeno3Opis")}</p>
                   </div>
                 </li>
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCheckIcon}><CheckIcon /></span>
                   <div>
-                    <strong>Ponudba brez alkohola</strong>
-                    <p>Alkohola ne točimo in ga ne uporabljamo pri pripravi jedi.</p>
+                    <strong>{t("dovoljeno4Naslov")}</strong>
+                    <p>{t("dovoljeno4Opis")}</p>
                   </div>
                 </li>
               </ul>
@@ -419,38 +391,38 @@ export default function HalalPageContent() {
               <div className={styles.matrixCardHeader}>
                 <div className={styles.matrixBadgeForbidden}>
                   <CrossIcon />
-                  <span>Strogo prepovedano (0 % Prisotnosti)</span>
+                  <span>{t("prepovedanoZnacka")}</span>
                 </div>
-                <h3 className={styles.matrixCardTitle}>Brez kompromisov</h3>
+                <h3 className={styles.matrixCardTitle}>{t("prepovedanoNaslov")}</h3>
               </div>
 
               <ul className={styles.matrixItemsList}>
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCrossIcon}><CrossIcon /></span>
                   <div>
-                    <strong>0 % Svinjskega mesa</strong>
-                    <p>Nobena od naših 29 jedi ne vsebuje svinjine, slanine, pršuta ali svinjske masti.</p>
+                    <strong>{t("prepovedano1Naslov")}</strong>
+                    <p>{t("prepovedano1Opis", { vseh: MENU_STATS.total })}</p>
                   </div>
                 </li>
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCrossIcon}><CrossIcon /></span>
                   <div>
-                    <strong>0 % Alkohola v kuhi ali pijači</strong>
-                    <p>Ne točimo piva ali vina, alkohola pa ni niti v marinadah, omakah, sladicah ali testu.</p>
+                    <strong>{t("prepovedano2Naslov")}</strong>
+                    <p>{t("prepovedano2Opis")}</p>
                   </div>
                 </li>
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCrossIcon}><CrossIcon /></span>
                   <div>
-                    <strong>0 % Necertificiranih mesnih izdelkov</strong>
-                    <p>Vse meso prihaja izključno iz preverjenih verig s polno sledljivostjo in nadzorom.</p>
+                    <strong>{t("prepovedano3Naslov")}</strong>
+                    <p>{t("prepovedano3Opis")}</p>
                   </div>
                 </li>
                 <li className={styles.matrixItem}>
                   <span className={styles.matrixCrossIcon}><CrossIcon /></span>
                   <div>
-                    <strong>0 % Svinjske želatine</strong>
-                    <p>Sestavine in prelive kupujemo pri dobaviteljih s halal certifikatom.</p>
+                    <strong>{t("prepovedano4Naslov")}</strong>
+                    <p>{t("prepovedano4Opis")}</p>
                   </div>
                 </li>
               </ul>
@@ -464,20 +436,15 @@ export default function HalalPageContent() {
         <section className={styles.certDetailSection} id="certifikat-in-nadzor">
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>NADZOR</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("nadzorVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>URADNI DOKUMENT & ZAVOD</span>
+                <span>{t("nadzorOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>
-              Kako se v Sloveniji uradno certificira halal
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Halal certifikat ni le enkratna listina na steni, ampak stalen
-              inšpekcijski nadzor, ki zagotavlja najvišji nivo zaupanja.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("nadzorNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("nadzorPodnaslov")}</p>
           </div>
 
           <div className={styles.certShowcaseBox}>
@@ -495,43 +462,35 @@ export default function HalalPageContent() {
               <div className={styles.certStatusCard}>
                 <span className={styles.certStatusBadge}>
                   <CheckIcon />
-                  <span>Veljaven status</span>
+                  <span>{t("statusZnacka")}</span>
                 </span>
-                <h3 className={styles.certStatusTitle}>Halal certifikat Šeherezada</h3>
-                <p className={styles.certStatusText}>
-                  Restavracija Šeherezada ima uraden halal certifikat za pripravo
-                  in strežbo hrane. Dokument je fizično izobešen na steni v obeh
-                  naših poslovalnicah v Ljubljani.
-                </p>
+                <h3 className={styles.certStatusTitle}>{t("statusNaslov")}</h3>
+                <p className={styles.certStatusText}>{t("statusOpis")}</p>
               </div>
             </div>
 
             <div className={styles.certShowcaseRight}>
-              <h3 className={styles.issuerTitle}>Uradni izdajatelj v Sloveniji</h3>
+              <h3 className={styles.issuerTitle}>{t("izdajateljNaslov")}</h3>
               <div className={styles.issuerCard}>
                 <div className={styles.issuerRow}>
-                  <span className={styles.issuerLabel}>Izdajatelj:</span>
+                  <span className={styles.issuerLabel}>{t("oznakaIzdajatelj")}</span>
                   <span className={styles.issuerValue}>{ZAVOD_HALAL.name}</span>
                 </div>
                 <div className={styles.issuerRow}>
-                  <span className={styles.issuerLabel}>Ustanova:</span>
+                  <span className={styles.issuerLabel}>{t("oznakaUstanova")}</span>
                   <span className={styles.issuerValue}>{ZAVOD_HALAL.underAuspicesOf}</span>
                 </div>
                 <div className={styles.issuerRow}>
-                  <span className={styles.issuerLabel}>Sedež:</span>
+                  <span className={styles.issuerLabel}>{t("oznakaSedez")}</span>
                   <span className={styles.issuerValue}>{ZAVOD_HALAL.address}</span>
                 </div>
                 <div className={styles.issuerRow}>
-                  <span className={styles.issuerLabel}>Standard:</span>
+                  <span className={styles.issuerLabel}>{t("oznakaStandard")}</span>
                   <span className={styles.issuerValueCode}>{ZAVOD_HALAL.accreditation}</span>
                 </div>
               </div>
 
-              <p className={styles.issuerDesc}>
-                Zavod Halal izvaja strokovne preglede dobaviteljev, analizira
-                vse sestavine in redno preverja kuhinjske pogoje. Certifikat se
-                izda le ob izpolnjevanju vseh strogih mednarodnih kriterijev.
-              </p>
+              <p className={styles.issuerDesc}>{t("izdajateljOpis")}</p>
 
               <a
                 href={ZAVOD_HALAL.url}
@@ -539,7 +498,7 @@ export default function HalalPageContent() {
                 rel="noopener noreferrer"
                 className={styles.issuerLink}
               >
-                <span>Uradna stran Zavoda Halal ({ZAVOD_HALAL.url.replace("https://", "")})</span>
+                <span>{t("uradnaStran", { naslov: ZAVOD_HALAL.url.replace("https://", "") })}</span>
                 <ArrowRightIcon />
               </a>
             </div>
@@ -548,7 +507,7 @@ export default function HalalPageContent() {
           {/* 4-Step Certification Process */}
           <div className={styles.processSection}>
             <h3 className={styles.processHeading}>
-              4 koraki uradnega postopka certificiranja:
+              {t("postopekNaslov", { stevilo: POSTOPEK.length })}
             </h3>
 
             <div className={styles.processStepsGrid}>
@@ -576,35 +535,29 @@ export default function HalalPageContent() {
 
             <div className={styles.plantContent}>
               <div className={styles.plantHeaderRow}>
-                <span className={styles.plantBadge}>Rastlinska izbira</span>
+                <span className={styles.plantBadge}>{t("rastlinskaZnacka")}</span>
                 <h3 className={styles.plantTitle}>
-                  {MENU_STATS.vegan} veganskih in {MENU_STATS.vegetarian} vegetarijanskih jedi
+                  {t("rastlinskaNaslov", { vegan: MENU_STATS.vegan, vegetarijanskih: MENU_STATS.vegetarian })}
                 </h3>
               </div>
-              <p className={styles.plantText}>
-                Halal in rastlinska prehrana se čudovito dopolnjujeta. Kdor mesa
-                ne uživa, ima pri nas polno izbiro: hrustljav domač falafel iz
-                čičerike, sveže mešane solate z oljčnim oljem, ocvrte priloge ter
-                bogate brezmesne pice — jasno označene na meniju, da naročate z
-                lahkotnim srcem.
-              </p>
+              <p className={styles.plantText}>{t("rastlinskaOpis")}</p>
 
               <div className={styles.plantTagsRow}>
                 <span className={styles.plantPill}>
                   <SproutIcon />
-                  <span>100 % veganski falafel</span>
+                  <span>{t("rastlinska1")}</span>
                 </span>
                 <span className={styles.plantPill}>
                   <SaladBowlIcon />
-                  <span>Dnevno sveže solate</span>
+                  <span>{t("rastlinska2")}</span>
                 </span>
                 <span className={styles.plantPill}>
                   <PizzaIcon />
-                  <span>Brezmesne pice</span>
+                  <span>{t("rastlinska3")}</span>
                 </span>
                 <span className={styles.plantPill}>
                   <CheckIcon />
-                  <span>Ločena priprava</span>
+                  <span>{t("rastlinska4")}</span>
                 </span>
               </div>
             </div>
@@ -617,18 +570,15 @@ export default function HalalPageContent() {
         <section className={styles.faqSection} id="halal-faq">
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>FAQ</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("faqVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>POGOSTA VPRAŠANJA O HALAL HRANI</span>
+                <span>{t("faqOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Vse, kar vas najpogosteje zanima</h2>
-            <p className={styles.sectionSubtitle}>
-              Hitri in transparentni odgovori na vsa vprašanja glede halal
-              priprave, certifikata in sestavin v Šeherezadi.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("faqNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("faqPodnaslov")}</p>
           </div>
 
           <div className={styles.faqContainerBox}>
@@ -670,20 +620,15 @@ export default function HalalPageContent() {
         <section className={styles.locationsSection} id="kjer-nas-najdete">
           <div className={styles.sectionHeaderLeft}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>LOKACIJI</span>
+              <span className={styles.tagGhostWatermark}>{t("lokacijeVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>KJE NAS NAJDETE</span>
+                <span>{t("lokacijeOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>
-              Obiščite nas na obeh lokacijah v središču Ljubljane
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              V obeh poslovalnicah vas čaka enaka sveža 100 % halal ponudba,
-              vrhunska prijaznost ter prijeten ambient.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("lokacijeNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("lokacijePodnaslov")}</p>
           </div>
 
           <div className={styles.locGrid}>
@@ -694,14 +639,14 @@ export default function HalalPageContent() {
                     <h3 className={styles.locCardName}>{loc.name}</h3>
                     <div className={styles.locCardAddress}>
                       <PinIcon />
-                      <span>{loc.street}, 1000 Ljubljana</span>
+                      <span>{loc.fullAddress}</span>
                     </div>
                   </div>
                   <StatusBadge hours={loc.hours} />
                 </div>
 
                 <div className={styles.locTimesBox}>
-                  <span className={styles.locTimeLabel}>Delovni čas lokala:</span>
+                  <span className={styles.locTimeLabel}>{t("delovniCas")}</span>
                   <span className={styles.locTimeVal}>{loc.hoursShort}</span>
                 </div>
 
@@ -710,7 +655,7 @@ export default function HalalPageContent() {
                     href={{ pathname: "/lokacije/[slug]", params: { slug: LOCATION_SLUG[loc.id] } }}
                     className={`${styles.locBtn} ${styles.locBtnPrimary}`}
                   >
-                    <span>Podrobnosti poslovalnice</span>
+                    <span>{t("podrobnostiPoslovalnice")}</span>
                     <ArrowRightIcon />
                   </Link>
                   <a
@@ -731,22 +676,17 @@ export default function HalalPageContent() {
         =============================================================== */}
         <section className={styles.ctaBox}>
           <div>
-            <h2 className={styles.ctaTitle}>
-              Privoščite si pristno in varno halal kulinarično izkušnjo
-            </h2>
-            <p className={styles.ctaText}>
-              Od sočnega telečjega kebaba in hrustljavih pic s puranjo šunko do
-              domačih falaflov — okusite razliko, ki jo ustvarjata svežina in spoštovanje standardov.
-            </p>
+            <h2 className={styles.ctaTitle}>{t("ctaNaslov")}</h2>
+            <p className={styles.ctaText}>{t("ctaOpis")}</p>
           </div>
 
           <div className={styles.ctaBtnGroup}>
             <Link href="/meni" className={styles.btnPrimary}>
-              <span>Razišči meni ({MENU_STATS.total} jedi)</span>
+              <span>{t("ctaMeni", { stevilo: MENU_STATS.total })}</span>
               <ArrowRightIcon />
             </Link>
             <Link href="/kontakt" className={styles.btnSecondary}>
-              <span>Kontakt & Rezervacije</span>
+              <span>{t("ctaKontakt")}</span>
             </Link>
           </div>
         </section>

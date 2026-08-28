@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import { useTranslations } from "next-intl";
 import { COMPANY } from "@/data/company";
+import { PHONE } from "@/data/locations";
 import { Link } from "@/i18n/navigation";
 import styles from "./LegalPage.module.css";
 
@@ -55,6 +57,9 @@ const ArrowRightIcon = () => (
 );
 
 export default function ZasebnostPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "zasebnost".
+  const t = useTranslations("zasebnost");
+
   return (
     <div className={styles.page}>
       <div className={styles.bgWarmGlow} />
@@ -63,66 +68,56 @@ export default function ZasebnostPageContent() {
         {/* Editorial Chapter Watermark Header */}
         <header className={styles.heroHeader}>
           <div className={styles.chapterTagContainer}>
-            <span className={styles.tagGhostWatermark}>ZASEBNOST</span>
+            <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
             <div className={styles.chapterIndexTag}>
               <span className={styles.chapterDash} />
-              <span>VARSTVO OSEBNIH PODATKOV · GDPR & ZVOP-2</span>
+              <span>{t("oznaka")}</span>
               <span className={styles.chapterDash} />
             </div>
           </div>
 
-          <h1 className={styles.pageTitle}>
-            Politika varstva osebnih podatkov in zasebnosti
-          </h1>
+          <h1 className={styles.pageTitle}>{t("naslov")}</h1>
 
-          <p className={styles.pageLead}>
-            V restavraciji Šeherezada visoko cenimo vaše zaupanje. Vaše osebne
-            podatke obdelujemo skladno z Uredbo (EU) 2016/679 (Splošna uredba o
-            varstvu podatkov – GDPR), Zakonom o varstvu osebnih podatkov
-            (ZVOP-2) in veljavno slovensko zakonodajo.
-          </p>
+          <p className={styles.pageLead}>{t("uvod")}</p>
 
           <div className={styles.metaUpdatedBar}>
-            <span>Zadnja posodobitev: 25. avgust 2026</span>
+            <span>{t("posodobitev")}</span>
           </div>
         </header>
 
         {/* 1. Upravljavec osebnih podatkov */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>1. Upravljavec osebnih podatkov</h2>
-          <p className={styles.sectionText}>
-            Upravljavec vaših osebnih podatkov, zbranih prek tega spletnega mesta
-            ali v okviru naših gostinskih storitev, je:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek1")}</h2>
+          <p className={styles.sectionText}>{t("razdelek1Uvod")}</p>
 
           <div className={styles.controllerCard}>
             <div>
               <h3 className={styles.controllerTitle}>{COMPANY.legalName}</h3>
               <ul className={styles.controllerMetaList}>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Blagovna znamka:</strong>
+                  <strong>{t("oznakaZnamka")}</strong>
                   <span>{COMPANY.brandName}</span>
                 </li>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Sedež:</strong>
+                  <strong>{t("oznakaSedez")}</strong>
                   <span>{COMPANY.address}</span>
                 </li>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Matična številka:</strong>
+                  <strong>{t("oznakaMaticna")}</strong>
                   <span>{COMPANY.registrationNumber}</span>
                 </li>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Poslovalnici:</strong>
-                  <span>Trubarjeva cesta 31 in Slovenska cesta 55, Ljubljana</span>
+                  <strong>{t("oznakaPoslovalnici")}</strong>
+                  <span>{t("poslovalnici")}</span>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className={styles.controllerTitle}>Kontaktna točka za zasebnost</h3>
+              <h3 className={styles.controllerTitle}>{t("kontaktnaTocka")}</h3>
               <ul className={styles.controllerMetaList}>
                 <li className={styles.controllerMetaItem}>
-                  <strong>E-pošta:</strong>
+                  <strong>{t("oznakaEposta")}</strong>
                   <a
                     href={`mailto:${COMPANY.privacyEmail}`}
                     className={styles.controllerLink}
@@ -131,14 +126,14 @@ export default function ZasebnostPageContent() {
                   </a>
                 </li>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Telefon:</strong>
-                  <a href="tel:+38669314316" className={styles.controllerLink}>
-                    +386 69 314 316
+                  <strong>{t("oznakaTelefon")}</strong>
+                  <a href={`tel:${PHONE.restaurant.e164}`} className={styles.controllerLink}>
+                    {PHONE.restaurant.display}
                   </a>
                 </li>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Vprašanja o zasebnosti:</strong>
-                  <span>naslovite na zgornji e-naslov ali telefon</span>
+                  <strong>{t("oznakaVprasanja")}</strong>
+                  <span>{t("vprasanjaOdgovor")}</span>
                 </li>
               </ul>
             </div>
@@ -147,11 +142,8 @@ export default function ZasebnostPageContent() {
 
         {/* 2. Katere podatke zbiramo in zakaj */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>2. Katere osebne podatke zbiramo in nameni obdelave</h2>
-          <p className={styles.sectionText}>
-            Osebne podatke zbiramo in obdelujemo izključno v obsegu, ki je nujno
-            potreben za izpolnitev posameznega namena:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek2")}</h2>
+          <p className={styles.sectionText}>{t("razdelek2Uvod")}</p>
 
           <div className={styles.bentoGrid2}>
             {/* Box 1 */}
@@ -159,13 +151,8 @@ export default function ZasebnostPageContent() {
               <div className={styles.bentoIconWrapper}>
                 <FileTextIcon />
               </div>
-              <h3 className={styles.bentoCardTitle}>Kontaktni obrazec in povpraševanja</h3>
-              <p className={styles.bentoCardText}>
-                Kadar nam pošljete sporočilo prek spletnega obrazca, zbiramo vaše
-                ime, e-poštni naslov, telefonsko številko in vsebino sporočila.
-                Podatke uporabljamo izključno za pripravo odgovora ali potrditev
-                vašega povpraševanja.
-              </p>
+              <h3 className={styles.bentoCardTitle}>{t("obrazecNaslov")}</h3>
+              <p className={styles.bentoCardText}>{t("obrazecOpis")}</p>
             </div>
 
             {/* Box 2 */}
@@ -173,12 +160,8 @@ export default function ZasebnostPageContent() {
               <div className={styles.bentoIconWrapper}>
                 <UserCheckIcon />
               </div>
-              <h3 className={styles.bentoCardTitle}>Prijave na prosta delovna mesta</h3>
-              <p className={styles.bentoCardText}>
-                Ob prijavi na zaposlitev obdelujemo vaše kontaktne podatke, življenjepis
-                in delovne izkušnje. Te podatke hranimo izključno za čas trajanja
-                izbirnega postopka oziroma z vašim soglasjem za prihodnje priložnosti.
-              </p>
+              <h3 className={styles.bentoCardTitle}>{t("prijaveNaslov")}</h3>
+              <p className={styles.bentoCardText}>{t("prijaveOpis")}</p>
             </div>
 
             {/* Box 3 */}
@@ -186,12 +169,8 @@ export default function ZasebnostPageContent() {
               <div className={styles.bentoIconWrapper}>
                 <ShieldLockIcon />
               </div>
-              <h3 className={styles.bentoCardTitle}>Tehnični dnevniki strežnika</h3>
-              <p className={styles.bentoCardText}>
-                Ob obisku spletnega mesta spletni strežnik samodejno beleži tehnične
-                podatke (IP naslov, tip brskalnika, datum in čas dostopa). Ti podatki
-                služijo zagotavljanju varnosti in nemotenega delovanja omrežja.
-              </p>
+              <h3 className={styles.bentoCardTitle}>{t("dnevnikiNaslov")}</h3>
+              <p className={styles.bentoCardText}>{t("dnevnikiOpis")}</p>
             </div>
 
             {/* Box 4 */}
@@ -199,159 +178,107 @@ export default function ZasebnostPageContent() {
               <div className={styles.bentoIconWrapper}>
                 <TrashIcon />
               </div>
-              <h3 className={styles.bentoCardTitle}>Študentska prehrana (Boni)</h3>
-              <p className={styles.bentoCardText}>
-                Pri unovčevanju študentskih bonov se postopek validacije izvede
-                prek uradnega državnega terminala ŠOS. Šeherezada ne shranjuje vaših
-                osebnih študentskih podatkov v lastnih bazah.
-              </p>
+              <h3 className={styles.bentoCardTitle}>{t("boniNaslov")}</h3>
+              <p className={styles.bentoCardText}>{t("boniOpis")}</p>
             </div>
           </div>
         </section>
 
         {/* 3. Pravne podlage za obdelavo */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>3. Pravne podlage za obdelavo podatkov</h2>
-          <p className={styles.sectionText}>
-            Vaše osebne podatke obdelujemo na podlagi naslednjih pravnih temeljev
-            iz 6. člena GDPR:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek3")}</h2>
+          <p className={styles.sectionText}>{t("razdelek3Uvod")}</p>
           <div className={styles.highlightBox}>
             <p className={styles.sectionText} style={{ marginBottom: "0.6rem" }}>
-              • <strong>Izvajanje pogodbe ali predpogodbenih ukrepov (člen 6(1)(b) GDPR):</strong> Obdelava naročil hrane, rezervacij in odgovorov na povpraševanja.
+              {t.rich("podlaga1", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
             <p className={styles.sectionText} style={{ marginBottom: "0.6rem" }}>
-              • <strong>Izrecna privolitev (člen 6(1)(a) GDPR):</strong> Za neobvezne piškotke in za hranjenje življenjepisa za prihodnja delovna mesta. Novic po e-pošti ne pošiljamo.
+              {t.rich("podlaga2", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
             <p className={styles.sectionText} style={{ marginBottom: 0 }}>
-              • <strong>Zakoniti interesi (člen 6(1)(f) GDPR):</strong> Za zagotavljanje varnosti IT sistemov, preprečevanje zlorab in optimizacijo delovanja spletne strani.
+              {t.rich("podlaga3", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
           </div>
         </section>
 
         {/* 4. Vaše pravice po GDPR */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>4. Vaše pravice glede osebnih podatkov</h2>
-          <p className={styles.sectionText}>
-            V skladu s Splošno uredbo GDPR imate kadarkoli naslednje pravice:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek4")}</h2>
+          <p className={styles.sectionText}>{t("razdelek4Uvod")}</p>
 
           <div className={styles.bentoGrid3}>
             <div className={styles.bentoCard}>
-              <h4 className={styles.bentoCardTitle}>Pravica do dostopa</h4>
-              <p className={styles.bentoCardText}>
-                Pravico imate dobiti potrditev, ali obdelujemo vaše podatke, in
-                zahtevati brezplačen vpogled v njih.
-              </p>
+              <h4 className={styles.bentoCardTitle}>{t("pravicaDostopNaslov")}</h4>
+              <p className={styles.bentoCardText}>{t("pravicaDostopOpis")}</p>
             </div>
 
             <div className={styles.bentoCard}>
-              <h4 className={styles.bentoCardTitle}>Pravica do popravka</h4>
-              <p className={styles.bentoCardText}>
-                Zahtevate lahko takojšen popravek netočnih ali dopolnitev nepopolnih
-                osebnih podatkov.
-              </p>
+              <h4 className={styles.bentoCardTitle}>{t("pravicaPopravekNaslov")}</h4>
+              <p className={styles.bentoCardText}>{t("pravicaPopravekOpis")}</p>
             </div>
 
             <div className={styles.bentoCard}>
-              <h4 className={styles.bentoCardTitle}>Pravica do izbrisa</h4>
-              <p className={styles.bentoCardText}>
-                Zahtevate lahko izbris svojih podatkov (&quot;pravica do pozabe&quot;),
-                če ni več zakonskega razloga za njihovo hrambo.
-              </p>
+              <h4 className={styles.bentoCardTitle}>{t("pravicaIzbrisNaslov")}</h4>
+              <p className={styles.bentoCardText}>{t("pravicaIzbrisOpis")}</p>
             </div>
 
             <div className={styles.bentoCard}>
-              <h4 className={styles.bentoCardTitle}>Omejitev obdelave</h4>
-              <p className={styles.bentoCardText}>
-                Pravico imate zahtevati začasno omejitev obdelave vaših podatkov
-                v primeru ugovora ali preverjanja točnosti.
-              </p>
+              <h4 className={styles.bentoCardTitle}>{t("pravicaOmejitevNaslov")}</h4>
+              <p className={styles.bentoCardText}>{t("pravicaOmejitevOpis")}</p>
             </div>
 
             <div className={styles.bentoCard}>
-              <h4 className={styles.bentoCardTitle}>Prenosljivost podatkov</h4>
-              <p className={styles.bentoCardText}>
-                Podatke, ki ste nam jih posredovali, lahko prejmete v strukturirani,
-                splošno uporabljani in strojno berljivi obliki.
-              </p>
+              <h4 className={styles.bentoCardTitle}>{t("pravicaPrenosNaslov")}</h4>
+              <p className={styles.bentoCardText}>{t("pravicaPrenosOpis")}</p>
             </div>
 
             <div className={styles.bentoCard}>
-              <h4 className={styles.bentoCardTitle}>Pravica do ugovora</h4>
-              <p className={styles.bentoCardText}>
-                Kadarkoli lahko ugovarjate obdelavi, ki temelji na zakonitem interesu,
-                ali prekličete dano privolitev.
-              </p>
+              <h4 className={styles.bentoCardTitle}>{t("pravicaUgovorNaslov")}</h4>
+              <p className={styles.bentoCardText}>{t("pravicaUgovorOpis")}</p>
             </div>
           </div>
 
           <p className={styles.sectionText}>
-            Vse zgoraj navedene pravice lahko uveljavljate z enostavnim pisnim
-            sporočilom na naslov <strong>info@seherezada.net</strong>. Na vašo zahtevo
-            bomo odgovorili brez nepotrebnega odlašanja, najkasneje pa v 30 dneh.
+            {t.rich("uveljavljanje", { eposta: COMPANY.privacyEmail, b: (chunks) => <strong>{chunks}</strong> })}
           </p>
         </section>
 
         {/* 5. Varnost podatkov in čas hrambe */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>5. Varnost podatkov in čas hrambe</h2>
-          <p className={styles.sectionText}>
-            Za varovanje vaših podatkov uporabljamo napredne tehnične in organizacijske
-            ukrepe, vključno s šifriranjem povezav (SSL/TLS certifikat), varnimi
-            strežniškimi protokoli in omejenim dostopom pooblaščenih oseb.
-          </p>
-          <p className={styles.sectionText}>
-            Podatke hranimo le toliko časa, kolikor je potrebno za dosego namena,
-            zaradi katerega so bili zbrani, oziroma do preklica vaše privolitve ali
-            izteka zakonsko določenih rokov za hrambo poslovne dokumentacije.
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek5")}</h2>
+          <p className={styles.sectionText}>{t("varnost1")}</p>
+          <p className={styles.sectionText}>{t("varnost2")}</p>
         </section>
 
         {/* 5a. Komu podatki gredo — brez tega bi bilo besedilo nepopolno */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>
-            6. Komu podatke posredujemo
-          </h2>
-          <p className={styles.sectionText}>
-            Vaših osebnih podatkov ne prodajamo in jih ne posredujemo naprej za
-            oglaševanje. Za delovanje spletnega mesta pa sodelujemo z izvajalcem,
-            ki podatke obdeluje po naših navodilih:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek6")}</h2>
+          <p className={styles.sectionText}>{t("razdelek6Uvod")}</p>
           <div className={styles.highlightBox}>
             <p className={styles.sectionText} style={{ marginBottom: 0 }}>
-              • <strong>Ponudnik gostovanja</strong> — strežnik ob vsakem
-              obisku zabeleži tehnične podatke, ki so za dostavo strani nujni
-              (IP naslov, vrsta brskalnika, čas zahteve). Teh podatkov ne
-              uporabljamo za analizo obiska.
+              {t.rich("gostovanje", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
           </div>
-          <p className={styles.sectionText}>
-            Poleg tega podatke razkrijemo le, če to od nas zahteva zakon ali
-            pristojni državni organ.
-          </p>
+          <p className={styles.sectionText}>{t("razkritje")}</p>
         </section>
 
         {/* 6. Pritožba pri nadzornem organu */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>7. Nadzorni organ v Republiki Sloveniji</h2>
-          <p className={styles.sectionText}>
-            Če menite, da obdelava vaših osebnih podatkov krši veljavno zakonodajo,
-            imate pravico vložiti pritožbo pri pristojnem nadzornem organu:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek7")}</h2>
+          <p className={styles.sectionText}>{t("razdelek7Uvod")}</p>
 
           <div className={styles.highlightBoxOrange}>
             <h3 className={styles.highlightTitle}>
-              <span>Informacijski pooblaščenec Republike Slovenije</span>
+              <span>{t("nadzorniOrgan")}</span>
             </h3>
             <p className={styles.sectionText} style={{ marginBottom: "0.4rem" }}>
-              Naslov: Dunajska cesta 22, 1000 Ljubljana
+              {t("nadzorniNaslov")}
             </p>
             <p className={styles.sectionText} style={{ marginBottom: "0.4rem" }}>
-              E-pošta: gp.ip@ip-rs.si | Telefon: +386 1 230 97 30
+              {t("nadzorniKontakt")}
             </p>
             <p className={styles.sectionText} style={{ marginBottom: 0 }}>
-              Spletna stran:{" "}
+              {t("nadzorniSpletna")}{" "}
               <a
                 href="https://www.ip-rs.si"
                 target="_blank"
@@ -367,14 +294,14 @@ export default function ZasebnostPageContent() {
         {/* Bottom Legal Navigation Bar */}
         <div className={styles.legalNavRow}>
           <Link href="/piskotki" className={styles.legalNavBtnPrimary}>
-            <span>Preberi Politiko piškotkov</span>
+            <span>{t("gumbPiskotki")}</span>
             <ArrowRightIcon />
           </Link>
           <Link href="/meni" className={styles.legalNavBtn}>
-            <span>Nazaj na Meni</span>
+            <span>{t("gumbMeni")}</span>
           </Link>
           <Link href="/kontakt" className={styles.legalNavBtn}>
-            <span>Kontakt</span>
+            <span>{t("gumbKontakt")}</span>
           </Link>
         </div>
       </div>

@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { COMPANY } from "@/data/company";
+import { PHONE } from "@/data/locations";
 import {
   ANALYTICS_ENABLED,
   CONSENT_COOKIE,
@@ -89,30 +91,33 @@ interface CookieRecord {
  *
  * Vklop je ena vrstica — ANALYTICS_ENABLED v src/lib/consent.ts.
  */
-const COOKIE_LIST: CookieRecord[] = [
-  {
-    name: CONSENT_COOKIE,
-    category: "essential",
-    categoryLabel: "Nujni",
-    purpose:
-      "Shrani vašo izbiro glede piškotkov, da vas pasica ne vpraša znova ob vsakem obisku.",
-    duration: "1 leto",
-    issuer: `${COMPANY.brandName} (1. oseba)`,
-    active: true,
-  },
-  {
-    name: "_ga, _ga_*",
-    category: "analytics",
-    categoryLabel: "Analitični",
-    purpose:
-      "Anonimizirano štetje obiskov in ogledov podstrani, da vemo, kateri deli strani so gostom koristni. Naloži se izključno, če v pasici izberete „Sprejmi vse“.",
-    duration: "2 leti",
-    issuer: "Google Analytics (Google Ireland Ltd.)",
-    active: ANALYTICS_ENABLED,
-  },
-];
-
 export default function PiskotkiPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "piskotkiStran".
+  const t = useTranslations("piskotkiStran");
+
+  // Seznam je znotraj komponente, ker zunaj nje prevodi niso dosegljivi.
+  // Imena piškotkov, trajanje in izdajatelj ostajajo dejstva, ne prevod;
+  // prevaja se samo tisto, kar gost bere kot poved.
+  const COOKIE_LIST: CookieRecord[] = [
+    {
+      name: CONSENT_COOKIE,
+      category: "essential",
+      categoryLabel: t("kategorijaNujni"),
+      purpose: t("namenNujni"),
+      duration: t("trajanjeLeto"),
+      issuer: t("izdajateljPrvaOseba", { znamka: COMPANY.brandName }),
+      active: true,
+    },
+    {
+      name: "_ga, _ga_*",
+      category: "analytics",
+      categoryLabel: t("kategorijaAnaliticni"),
+      purpose: t("namenAnaliticni"),
+      duration: t("trajanjeDveLeti"),
+      issuer: "Google Analytics (Google Ireland Ltd.)",
+      active: ANALYTICS_ENABLED,
+    },
+  ];
 
   // Trenutna izbira gosta. null = še ni izbral (pasica je še vidna).
   const [analytics, setAnalytics] = useState<boolean | null>(null);
@@ -144,66 +149,41 @@ export default function PiskotkiPageContent() {
         {/* Editorial Chapter Watermark Header */}
         <header className={styles.heroHeader}>
           <div className={styles.chapterTagContainer}>
-            <span className={styles.tagGhostWatermark}>PIŠKOTKI</span>
+            <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
             <div className={styles.chapterIndexTag}>
               <span className={styles.chapterDash} />
-              <span>PRAVNO OBVESTILO · ZEKOM-2 & GDPR</span>
+              <span>{t("oznaka")}</span>
               <span className={styles.chapterDash} />
             </div>
           </div>
 
-          <h1 className={styles.pageTitle}>Politika uporabe spletnih piškotkov</h1>
+          <h1 className={styles.pageTitle}>{t("naslov")}</h1>
 
           <p className={styles.pageLead}>
-            Na spletnem mestu restavracije Šeherezada spoštujemo vašo zasebnost.
-            {ANALYTICS_ENABLED ? (
-              <>
-                Uporabljamo nujni piškotek, ki si zapomni vašo izbiro, in
-                analitične piškotke za anonimno statistiko obiska. Analitični se
-                naložijo <strong>samo, če v to privolite</strong>. Oglaševalskih
-                piškotkov ne uporabljamo.
-              </>
-            ) : (
-              <>
-                Trenutno uporabljamo <strong>en sam piškotek</strong> — tistega,
-                ki si zapomni vašo izbiro. Analitika je pripravljena, a še ni
-                vklopljena; ko bo, se bo naložila izključno gostom, ki so v
-                pasici izbrali „Sprejmi vse“. Oglaševalskih piškotkov ne
-                uporabljamo in vašega vedenja ne sledimo.
-              </>
-            )}
+            {t("uvodZacetek")}
+            {ANALYTICS_ENABLED
+              ? t.rich("uvodZAnalitiko", { b: (chunks) => <strong>{chunks}</strong> })
+              : t.rich("uvodBrezAnalitike", { b: (chunks) => <strong>{chunks}</strong> })}
           </p>
 
           <div className={styles.metaUpdatedBar}>
-            <span>Zadnja posodobitev: 25. avgust 2026</span>
+            <span>{t("posodobitev")}</span>
           </div>
         </header>
 
         {/* 1. Kaj so piškotki */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>1. Kaj so piškotki in zakaj jih potrebujemo</h2>
+          <h2 className={styles.sectionTitle}>{t("razdelek1")}</h2>
           <p className={styles.sectionText}>
-            Piškotki (angl. <em>cookies</em>) so majhne besedilne datoteke, ki jih
-            spletno mesto shrani v vaš spletni brskalnik ob obisku strani. Ob vsakem
-            ponovnem obisku spletno mesto prepozna piškotek in prilagodi vsebino
-            ali ohrani vaše nastavitve (npr. izbrani jezik, privolitve ali
-            priljubljeno poslovalnico).
+            {t.rich("kajSo1", { em: (chunks) => <em>{chunks}</em> })}
           </p>
-          <p className={styles.sectionText}>
-            Piškotki sami po sebi ne vsebujejo programov in ne morejo poškodovati
-            vaše naprave. Ne zbirajo vaših osebnih podatkov brez vaše izrecne
-            privolitve.
-          </p>
+          <p className={styles.sectionText}>{t("kajSo2")}</p>
         </section>
 
         {/* 2. Vrste piškotkov (Bento Grid) */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>2. Vrste piškotkov, ki jih uporabljamo</h2>
-          <p className={styles.sectionText}>
-            V skladu z Zakonom o elektronskih komunikacijah (ZEKom-2) in Splošno
-            uredbo o varstvu podatkov (GDPR) piškotke delimo v tri osnovne
-            kategorije:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek2")}</h2>
+          <p className={styles.sectionText}>{t("razdelek2Uvod")}</p>
 
           <div className={styles.bentoGrid3}>
             {/* Card 1 */}
@@ -211,12 +191,8 @@ export default function PiskotkiPageContent() {
               <div className={styles.bentoIconWrapper}>
                 <ShieldCheckIcon />
               </div>
-              <h3 className={styles.bentoCardTitle}>Nujno potrebni piškotki</h3>
-              <p className={styles.bentoCardText}>
-                Ti piškotki so nujni za osnovno delovanje spletne strani (varnost,
-                navigacija, shranjevanje vaše privolitve). Za njihovo namestitev
-                po zakonu privolitev ni potrebna, saj spletna stran brez njih ne more delovati.
-              </p>
+              <h3 className={styles.bentoCardTitle}>{t("nujniNaslov")}</h3>
+              <p className={styles.bentoCardText}>{t("nujniOpis")}</p>
             </div>
 
             {/* Card 2 */}
@@ -224,12 +200,8 @@ export default function PiskotkiPageContent() {
               <div className={styles.bentoIconWrapper}>
                 <SlidersIcon />
               </div>
-              <h3 className={styles.bentoCardTitle}>Funkcionalni piškotki</h3>
-              <p className={styles.bentoCardText}>
-                Omogočajo naprednejše funkcije in shranjevanje vaših osebnih
-                nastavitev (npr. izbira poslovalnice Trubarjeva ali Slovenska),
-                da vam ob naslednjem obisku ni treba ponovno izbirati.
-              </p>
+              <h3 className={styles.bentoCardTitle}>{t("funkcionalniNaslov")}</h3>
+              <p className={styles.bentoCardText}>{t("funkcionalniOpis")}</p>
             </div>
 
             {/* Card 3 */}
@@ -237,36 +209,27 @@ export default function PiskotkiPageContent() {
               <div className={styles.bentoIconWrapper}>
                 <CookieIcon />
               </div>
-              <h3 className={styles.bentoCardTitle}>Analitični piškotki</h3>
-              <p className={styles.bentoCardText}>
-                Uporabljamo jih za anonimno spremljanje obiskanosti strani
-                (število ogledov, priljubljenost jedi na meniju). IP naslovi so
-                anonimizirani, podatki pa se uporabljajo izključno v zbirni obliki.
-              </p>
+              <h3 className={styles.bentoCardTitle}>{t("analiticniNaslov")}</h3>
+              <p className={styles.bentoCardText}>{t("analiticniOpis")}</p>
             </div>
           </div>
         </section>
 
         {/* 3. Tabela piškotkov */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>3. Seznam piškotkov na spletnem mestu</h2>
-          <p className={styles.sectionText}>
-            Spodnja tabela prikazuje vse piškotke, ki se lahko namestijo na vašo
-            napravo. Stolpec „Stanje“ pove, ali je piškotek trenutno dejansko v
-            uporabi — tako veste, kaj se na vaši napravi dogaja zdaj, in kaj
-            šele načrtujemo:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek3")}</h2>
+          <p className={styles.sectionText}>{t("razdelek3Uvod")}</p>
 
           <div className={styles.tableWrapper}>
             <table className={styles.cookieTable}>
               <thead>
                 <tr>
-                  <th>Ime piškotka</th>
-                  <th>Kategorija</th>
-                  <th>Namen piškotka</th>
-                  <th>Čas hrambe</th>
-                  <th>Izdajatelj</th>
-                  <th>Stanje</th>
+                  <th>{t("stolpecIme")}</th>
+                  <th>{t("stolpecKategorija")}</th>
+                  <th>{t("stolpecNamen")}</th>
+                  <th>{t("stolpecHramba")}</th>
+                  <th>{t("stolpecIzdajatelj")}</th>
+                  <th>{t("stolpecStanje")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -291,9 +254,9 @@ export default function PiskotkiPageContent() {
                     <td>{c.issuer}</td>
                     <td>
                       {c.active ? (
-                        <span className={styles.cookieStateOn}>V uporabi</span>
+                        <span className={styles.cookieStateOn}>{t("vUporabi")}</span>
                       ) : (
-                        <span className={styles.cookieStateOff}>Ni v uporabi</span>
+                        <span className={styles.cookieStateOff}>{t("niVUporabi")}</span>
                       )}
                     </td>
                   </tr>
@@ -305,31 +268,29 @@ export default function PiskotkiPageContent() {
 
         {/* 3b. Vaša izbira — pravi nadzor, ne okras */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>4. Vaša trenutna izbira</h2>
+          <h2 className={styles.sectionTitle}>{t("razdelek4")}</h2>
           <p className={styles.sectionText}>
-            Tu lahko svojo izbiro kadarkoli spremenite. Sprememba začne veljati
-            takoj in se zapiše v piškotek{" "}
+            {t("razdelek4Uvod")}{" "}
             <span className={styles.cookieCode}>{CONSENT_COOKIE}</span>.
           </p>
 
           <div className={styles.highlightBox}>
             <h3 className={styles.highlightTitle}>
               <span>
-                Stanje:{" "}
+                {t("stanjeOznaka")}{" "}
                 {analytics === null
-                  ? "še niste izbrali"
+                  ? t("stanjeNiIzbral")
                   : analytics
-                  ? "sprejeli ste vse piškotke"
-                  : "sprejeli ste samo nujne piškotke"}
+                  ? t("stanjeVse")
+                  : t("stanjeSamoNujni")}
               </span>
             </h3>
 
             <p className={styles.sectionText}>
-              Nujni piškotek je vedno vklopljen — brez njega si strani ne bi
-              zapomnili vaše izbire.{" "}
+              {t("nujniVednoVklopljen")}{" "}
               {ANALYTICS_ENABLED
-                ? "Analitični piškotki se naložijo samo, če ste izbrali „Sprejmi vse“. Če izberete „Samo nujni“, se ne naložijo in obstoječi se ne uporabljajo."
-                : "Analitika še ni vklopljena, zato vaša izbira zaenkrat ne spremeni ničesar, kar se naloži. Šteje pa vnaprej: ko analitiko uvedemo, se bo naložila izključno gostom, ki so tu izbrali „Sprejmi vse“."}
+                ? t("razlagaZAnalitiko")
+                : t("razlagaBrezAnalitike")}
             </p>
 
             <div className={styles.consentBtnRow}>
@@ -338,95 +299,85 @@ export default function PiskotkiPageContent() {
                 onClick={() => shrani(false)}
                 className={styles.consentBtnGhost}
               >
-                Samo nujni
+                {t("gumbSamoNujni")}
               </button>
               <button
                 type="button"
                 onClick={() => shrani(true)}
                 className={styles.consentBtnPrimary}
               >
-                Sprejmi vse
+                {t("gumbSprejmiVse")}
               </button>
               <button
                 type="button"
                 onClick={ponastavi}
                 className={styles.consentBtnGhost}
               >
-                Ponastavi izbiro
+                {t("gumbPonastavi")}
               </button>
             </div>
 
             <p className={styles.consentSavedMsg} aria-live="polite">
-              {potrjeno ? "Izbira je shranjena." : " "}
+              {potrjeno ? t("izbiraShranjena") : " "}
             </p>
           </div>
         </section>
 
         {/* 4. Nadzor in izbris piškotkov v brskalniku */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>5. Kako lahko upravljate ali izbrišete piškotke v brskalniku</h2>
-          <p className={styles.sectionText}>
-            Nastavitve za piškotke lahko kadarkoli spremenite tudi v vašem spletnem
-            brskalniku. Večina brskalnikov vam omogoča, da zavrnete ali sprejmete vse
-            piškotke, sprejmete le določene vrste piškotkov ali pa vas opozorijo,
-            ko spletno mesto želi shraniti piškotek.
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek5")}</h2>
+          <p className={styles.sectionText}>{t("razdelek5Uvod")}</p>
 
           <div className={styles.highlightBox}>
             <h3 className={styles.highlightTitle}>
-              <span>Navodila za urejanje piškotkov v priljubljenih brskalnikih:</span>
+              <span>{t("navodilaNaslov")}</span>
             </h3>
             <p className={styles.sectionText} style={{ marginBottom: "0.5rem" }}>
-              • <strong>Google Chrome:</strong> Nastavitve → Zasebnost in varnost → Piškotki in drugi podatki spletnih mest.
+              {t.rich("navodilaChrome", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
             <p className={styles.sectionText} style={{ marginBottom: "0.5rem" }}>
-              • <strong>Mozilla Firefox:</strong> Možnosti → Zasebnost in varnost → Piškotki in podatki strani.
+              {t.rich("navodilaFirefox", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
             <p className={styles.sectionText} style={{ marginBottom: "0.5rem" }}>
-              • <strong>Apple Safari:</strong> Nastavitve → Zasebnost → Upravljanje podatkov spletnih mest.
+              {t.rich("navodilaSafari", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
             <p className={styles.sectionText} style={{ marginBottom: 0 }}>
-              • <strong>Microsoft Edge:</strong> Nastavitve → Dovoljenja za spletna mesta → Piškotki in podatki spletnih mest.
+              {t.rich("navodilaEdge", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
           </div>
 
-          <p className={styles.sectionText}>
-            Opozorilo: Če v celoti onemogočite piškotke, nekatere funkcionalnosti
-            spletnega mesta morda ne bodo delovale optimalno.
-          </p>
+          <p className={styles.sectionText}>{t("opozorilo")}</p>
         </section>
 
         {/* 5. Upravljavec & Kontakt */}
         <section className={styles.legalSection}>
-          <h2 className={styles.sectionTitle}>6. Upravljavec podatkov in vprašanja</h2>
-          <p className={styles.sectionText}>
-            Upravljavec spletnega mesta in podatkov, zbranih prek piškotkov, je:
-          </p>
+          <h2 className={styles.sectionTitle}>{t("razdelek6")}</h2>
+          <p className={styles.sectionText}>{t("razdelek6Uvod")}</p>
 
           <div className={styles.controllerCard}>
             <div>
               <h3 className={styles.controllerTitle}>{COMPANY.legalName}</h3>
               <ul className={styles.controllerMetaList}>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Blagovna znamka:</strong>
+                  <strong>{t("oznakaZnamka")}</strong>
                   <span>{COMPANY.brandName}</span>
                 </li>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Sedež:</strong>
+                  <strong>{t("oznakaSedez")}</strong>
                   <span>{COMPANY.address}</span>
                 </li>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Matična številka:</strong>
+                  <strong>{t("oznakaMaticna")}</strong>
                   <span>{COMPANY.registrationNumber}</span>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className={styles.controllerTitle}>Kontakt za zasebnost</h3>
+              <h3 className={styles.controllerTitle}>{t("kontaktZaZasebnost")}</h3>
               <ul className={styles.controllerMetaList}>
                 <li className={styles.controllerMetaItem}>
-                  <strong>E-pošta:</strong>
+                  <strong>{t("oznakaEposta")}</strong>
                   <a
                     href={`mailto:${COMPANY.privacyEmail}`}
                     className={styles.controllerLink}
@@ -435,9 +386,9 @@ export default function PiskotkiPageContent() {
                   </a>
                 </li>
                 <li className={styles.controllerMetaItem}>
-                  <strong>Telefon:</strong>
-                  <a href="tel:+38669314316" className={styles.controllerLink}>
-                    +386 69 314 316
+                  <strong>{t("oznakaTelefon")}</strong>
+                  <a href={`tel:${PHONE.restaurant.e164}`} className={styles.controllerLink}>
+                    {PHONE.restaurant.display}
                   </a>
                 </li>
               </ul>
@@ -448,14 +399,14 @@ export default function PiskotkiPageContent() {
         {/* Bottom Legal Navigation Bar */}
         <div className={styles.legalNavRow}>
           <Link href="/politika-zasebnosti" className={styles.legalNavBtnPrimary}>
-            <span>Preberi Politiko zasebnosti</span>
+            <span>{t("gumbZasebnost")}</span>
             <ArrowRightIcon />
           </Link>
           <Link href="/meni" className={styles.legalNavBtn}>
-            <span>Nazaj na Meni</span>
+            <span>{t("gumbMeni")}</span>
           </Link>
           <Link href="/kontakt" className={styles.legalNavBtn}>
-            <span>Kontakt</span>
+            <span>{t("gumbKontakt")}</span>
           </Link>
         </div>
       </div>

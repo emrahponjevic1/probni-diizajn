@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { PHONE } from "@/data/locations";
 import { Link } from "@/i18n/navigation";
-import { FAQ_SECTIONS } from "./faqSections";
+import { useFaqSections } from "./faqSections";
+import { STUDENT_BON } from "@/components/menu/MenuData";
 import styles from "./FaqPageContent.module.css";
 
 // Clean Vector SVG Icons
@@ -90,6 +92,10 @@ const ArrowRightIcon = () => (
 );
 
 export default function FaqPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "faqStran".
+  const t = useTranslations("faqStran");
+  const sklopi = useFaqSections();
+
   // Only one accordion item can be active at a time
   const [openItemId, setOpenItemId] = useState<string | null>("seh-1");
 
@@ -137,25 +143,24 @@ export default function FaqPageContent() {
         {/* HERO HEADER */}
         <header className={styles.heroHeader}>
           <div className={styles.chapterTagContainer}>
-            <span className={styles.tagGhostWatermark}>POMOČ</span>
+            <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
             <div className={styles.chapterIndexTag}>
               <span className={styles.chapterDash} />
-              <span>CENTER POMOČI &amp; ODGOVORI</span>
+              <span>{t("oznaka")}</span>
               <span className={styles.chapterDash} />
             </div>
           </div>
 
-          <h1 className={styles.heroTitle}>Pogosta vprašanja — halal, boni in delovni čas</h1>
+          <h1 className={styles.heroTitle}>{t("naslov")}</h1>
 
           <p className={styles.heroSubtitle}>
-            Vse o 100 % halal ponudbi, veganskih jedeh, študentskih bonih z
-            doplačilom 3,00 € in delovnem času obeh lokacij v Ljubljani.
+            {t("podnaslov", { doplacilo: `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €` })}
           </p>
         </header>
 
         {/* FAQ CONTENT - 3 CATEGORIES */}
         <div className={styles.faqContentWrapper}>
-          {FAQ_SECTIONS.map((category) => (
+          {sklopi.map((category) => (
             <section key={category.id} className={styles.faqCategorySection}>
               <div className={styles.categoryHeading}>
                 <span className={styles.categoryDot} />
@@ -213,10 +218,8 @@ export default function FaqPageContent() {
           {/* SUPPORT & QUICK ACTIONS CTA CARD */}
           <div className={styles.supportCtaCard}>
             <div className={styles.ctaTextGroup}>
-              <h3 className={styles.ctaTitle}>Imate še kakšno vprašanje?</h3>
-              <p className={styles.ctaSubtitle}>
-                Naša ekipa vam z veseljem priskoči na pomoč.
-              </p>
+              <h3 className={styles.ctaTitle}>{t("ctaNaslov")}</h3>
+              <p className={styles.ctaSubtitle}>{t("ctaPodnaslov")}</p>
             </div>
 
             <div className={styles.ctaActionsGroup}>
@@ -226,7 +229,7 @@ export default function FaqPageContent() {
               </a>
               <Link href="/meni" className={styles.ctaOrderBtn}>
                 <BagIcon />
-                <span>Oglejte si meni</span>
+                <span>{t("ctaMeni")}</span>
               </Link>
             </div>
           </div>

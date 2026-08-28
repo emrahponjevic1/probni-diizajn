@@ -106,7 +106,12 @@ export default async function LocationPage({
         loc={loc}
         slug={slug}
         dishCount={dishes.length}
-        other={{ name: other.name, slug: LOCATION_SLUG[other.id], street: other.street }}
+        other={{
+          name: other.name,
+          slug: LOCATION_SLUG[other.id],
+          street: other.street,
+          city: other.city,
+        }}
       />
       <SiteFooter />
     </main>

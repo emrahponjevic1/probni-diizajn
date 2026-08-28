@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SiteNavbar from "@/components/SiteNavbar";
 import FaqPageContent from "@/components/faq/FaqPageContent";
-import { FAQ_SECTIONS } from "@/components/faq/faqSections";
+import { useFaqSections } from "@/components/faq/faqSections";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -13,11 +13,14 @@ export const metadata: Metadata = {
 };
 
 export default function FaqPage() {
+  // Isti seznam, ki ga prikaže harmonika — schema in stran se ne moreta razhajati.
+  const sklopi = useFaqSections();
+
   return (
     <main>
       {/* Vsa vprašanja iz vseh treh sklopov, v istem vrstnem redu kot na strani. */}
       <FaqJsonLd
-        items={FAQ_SECTIONS.flatMap((sekcija) =>
+        items={sklopi.flatMap((sekcija) =>
           sekcija.items.map((item) => ({
             question: item.question,
             answer: item.answer,

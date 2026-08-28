@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { PHONE, type LocationCore } from "@/data/locations";
@@ -62,8 +63,11 @@ export default function LocationPageContent({
   loc: LocationCore;
   slug: string;
   dishCount: number;
-  other: { name: string; slug: string; street: string };
+  other: { name: string; slug: string; street: string; city: string };
 }) {
+  // Besedila so v messages/<jezik>.json pod ključem "lokacijaStran".
+  const t = useTranslations("lokacijaStran");
+
   const imaFotografije = loc.photos.some((f) => f.src);
 
   return (
@@ -104,13 +108,13 @@ export default function LocationPageContent({
                   rel="noopener noreferrer"
                   className={styles.btnPrimary}
                 >
-                  {Ikona.pin(16)} Navodila za pot
+                  {Ikona.pin(16)} {t("navodilaZaPot")}
                 </a>
                 <a href={`tel:${PHONE.restaurant.e164}`} className={styles.btnGhost}>
                   {Ikona.phone(15)} {PHONE.restaurant.display}
                 </a>
                 <Link href="/meni" className={styles.btnGhost}>
-                  Meni in cene
+                  {t("meniInCene")}
                 </Link>
               </div>
             </div>
@@ -119,12 +123,12 @@ export default function LocationPageContent({
               <div className={styles.mapCard}>
                 <LazyMap
                   src={loc.mapEmbed}
-                  title={`Zemljevid — ${loc.name}, ${loc.fullAddress}`}
+                  title={t("zemljevidNaslov", { ime: loc.name, naslov: loc.fullAddress })}
                   className={styles.mapFrame}
                 />
                 <div className={styles.mapFoot}>
                   <div>
-                    <span className={styles.mapFootLabel}>Najdeš nas na</span>
+                    <span className={styles.mapFootLabel}>{t("najdesNasNa")}</span>
                     <strong className={styles.mapFootValue}>{loc.fullAddress}</strong>
                   </div>
                   <a
@@ -133,7 +137,7 @@ export default function LocationPageContent({
                     rel="noopener noreferrer"
                     className={styles.mapFootLink}
                   >
-                    Apple Maps {Ikona.arrow(14)}
+                    {t("appleMaps")} {Ikona.arrow(14)}
                   </a>
                 </div>
               </div>
@@ -166,10 +170,7 @@ export default function LocationPageContent({
             )}
           </div>
           {!imaFotografije && (
-            <p className={styles.galleryNote}>
-              Fotografije lokala pripravljamo. Do takrat si nas lahko ogledaš na
-              Google Zemljevidih.
-            </p>
+            <p className={styles.galleryNote}>{t("fotografijeOpomba")}</p>
           )}
         </div>
       </section>
@@ -179,16 +180,13 @@ export default function LocationPageContent({
         <div className={styles.container}>
           <div className={styles.twoCol}>
             <div>
-              <h2 className={styles.h2}>Delovni čas</h2>
+              <h2 className={styles.h2}>{t("delovniCas")}</h2>
               <HoursTable hours={loc.hours} />
-              <p className={styles.hoursNote}>
-                Kuhinja dela do zaprtja — zadnje naročilo sprejmemo nekaj minut
-                prej.
-              </p>
+              <p className={styles.hoursNote}>{t("urnikOpomba")}</p>
             </div>
 
             <div>
-              <h2 className={styles.h2}>Kaj tu dobiš</h2>
+              <h2 className={styles.h2}>{t("kajTuDobis")}</h2>
               <ul className={styles.highlights}>
                 {loc.highlights.map((h, i) => (
                   <li key={i}>{h}</li>
@@ -196,17 +194,16 @@ export default function LocationPageContent({
               </ul>
 
               <div className={styles.bonCard}>
-                <span className={styles.bonLabel}>Študentski boni</span>
+                <span className={styles.bonLabel}>{t("boniOznaka")}</span>
                 <p>
-                  Na tej lokaciji je na voljo <strong>{dishCount} jedi</strong> z
-                  našega menija. Za doplačilo{" "}
-                  <strong>
-                    {STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €
-                  </strong>{" "}
-                  dobiš glavno jed, solato, jabolko in pijačo.
+                  {t.rich("boniOpis", {
+                    stevilo: dishCount,
+                    doplacilo: `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €`,
+                    b: (chunks) => <strong>{chunks}</strong>,
+                  })}
                 </p>
                 <Link href="/meni" className={styles.bonLink}>
-                  Poglej celoten meni {Ikona.arrow(14)}
+                  {t("poglejMeni")} {Ikona.arrow(14)}
                 </Link>
               </div>
             </div>
@@ -217,22 +214,19 @@ export default function LocationPageContent({
       {/* ================= KAKO PRITI ================= */}
       <section className={styles.section}>
         <div className={styles.container}>
-          <h2 className={styles.h2}>Kako prideš do nas</h2>
-          <p className={styles.sectionLead}>
-            Lokal je v središču mesta, zato je pot najhitrejša peš ali z mestnim
-            avtobusom.
-          </p>
+          <h2 className={styles.h2}>{t("kakoPrides")}</h2>
+          <p className={styles.sectionLead}>{t("kakoPridesUvod")}</p>
 
           <div className={styles.transportGrid}>
             {[
-              { ikona: Ikona.bus(20), oznaka: "Z avtobusom", besedilo: loc.transport.lpp },
-              { ikona: Ikona.car(20), oznaka: "Parkiranje", besedilo: loc.transport.parking },
-              { ikona: Ikona.walk(20), oznaka: "Peš", besedilo: loc.transport.walking },
-            ].map((t) => (
-              <div key={t.oznaka} className={styles.transportCard}>
-                <span className={styles.transportIcon}>{t.ikona}</span>
-                <span className={styles.transportLabel}>{t.oznaka}</span>
-                <p>{t.besedilo}</p>
+              { ikona: Ikona.bus(20), oznaka: t("prevozAvtobus"), besedilo: loc.transport.lpp },
+              { ikona: Ikona.car(20), oznaka: t("prevozParkiranje"), besedilo: loc.transport.parking },
+              { ikona: Ikona.walk(20), oznaka: t("prevozPes"), besedilo: loc.transport.walking },
+            ].map((nacin) => (
+              <div key={nacin.oznaka} className={styles.transportCard}>
+                <span className={styles.transportIcon}>{nacin.ikona}</span>
+                <span className={styles.transportLabel}>{nacin.oznaka}</span>
+                <p>{nacin.besedilo}</p>
               </div>
             ))}
           </div>
@@ -244,9 +238,9 @@ export default function LocationPageContent({
         <div className={styles.container}>
           <Link href={{ pathname: "/lokacije/[slug]", params: { slug: other.slug } }} className={styles.otherBox}>
             <div>
-              <span className={styles.otherLabel}>Naša druga poslovalnica</span>
+              <span className={styles.otherLabel}>{t("drugaPoslovalnica")}</span>
               <span className={styles.otherTitle}>{other.name}</span>
-              <span className={styles.otherStreet}>{other.street}, Ljubljana</span>
+              <span className={styles.otherStreet}>{other.street}, {other.city}</span>
             </div>
             <span className={styles.otherArrow}>{Ikona.arrow(18)}</span>
           </Link>

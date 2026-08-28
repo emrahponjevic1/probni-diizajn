@@ -452,5 +452,84 @@
     "gumbZasebnost": "Preberi Politiko zasebnosti",
     "gumbMeni": "Nazaj na Meni",
     "gumbKontakt": "Kontakt"
+  },
+  "faqStran": {
+    "vodniZnak": "POMOČ",
+    "oznaka": "CENTER POMOČI & ODGOVORI",
+    "naslov": "Pogosta vprašanja — halal, boni in delovni čas",
+    "podnaslov": "Vse o 100 % halal ponudbi, veganskih jedeh, študentskih bonih z doplačilom {doplacilo} in delovnem času obeh lokacij v Ljubljani.",
+    "ctaNaslov": "Imate še kakšno vprašanje?",
+    "ctaPodnaslov": "Naša ekipa vam z veseljem priskoči na pomoč.",
+    "ctaMeni": "Oglejte si meni",
+    "sklopi": {
+      "seherezada": "Naša hrana in priprava",
+      "difference": "Halal, vegansko in plačilo",
+      "boni": "Študentski boni in naročila"
+    },
+    "vprasanja": {
+      "seh-1": {
+        "vprasanje": "Kaj dela Šeherezada kebab poseben?",
+        "odgovor": "Naše meso je 100 % halal, marinirano 24 ur v avtorskih orientalskih začimbah in pečeno na vročem odprtem žaru brez industrijskih dodatkov."
+      },
+      "seh-2": {
+        "vprasanje": "Ali lepinje pečete sami?",
+        "odgovor": "Da! Testo zamesimo vsako jutro, vsako lepinjo pa spečemo sproti v naši peči tik preden vam postrežemo hrano, zato je vedno topla in hrustljava."
+      },
+      "seh-3": {
+        "vprasanje": "Kje se nahajate in kakšen je delovni čas?",
+        "odgovor": "Imamo dve lokaciji v središču Ljubljane. {ime1} na Trubarjevi 31 je odprta vsak dan od {od1} do {do1}, ob petkih in sobotah pa do {vikend1}. {ime2} na Slovenski 55 je odprta vsak dan od {od2} do {do2}."
+      },
+      "diff-1": {
+        "vprasanje": "Ali je celotno meso 100% Halal certificirano?",
+        "odgovor": "Da, vsi naši dobavitelji imajo uradne halal certifikate s popolno sledljivostjo izvora mesa ter strogim higienskim nadzorom.",
+        "vec": "Kaj halal pomeni in kako se certificira"
+      },
+      "diff-2": {
+        "vprasanje": "Ali imate vegetarijanske in veganske jedi?",
+        "odgovor": "Seveda! Sami pripravljamo sveže falaflje iz čičerike in zelišč, kremast domači humus ter zelenjavne pice in jufke."
+      },
+      "diff-3": {
+        "vprasanje": "Kakšne omake in prelive ponujate?",
+        "odgovor": "Izbirate lahko med blago jogurtovo omako s svežimi zelišči, hišno pikantno čili omako ter sezamovo tahini omako."
+      },
+      "diff-4": {
+        "vprasanje": "Ali sprejemate kartice in gotovino?",
+        "odgovor": "Sprejemamo gotovino, plačilne kartice (Visa, Mastercard, Maestro) ter študentske bone preko mobilne aplikacije ali kartice."
+      },
+      "boni-1": {
+        "vprasanje": "Koliko znaša doplačilo in kaj vsebuje študentski meni?",
+        "odgovor": "Doplačilo z veljavnim bonom je {doplacilo}. Meni vključuje glavno jed po izbiri (kebab, pizzo, burger, falafel) + svežo solato + jabolko + pijačo.",
+        "vec": "Vse o študentskih bonih pri nas"
+      },
+      "boni-3": {
+        "vprasanje": "Do katere ure lahko unovčim študentski bon?",
+        "odgovor": "Sistem študentske prehrane sprejema bone med {oknoOd} in {oknoDo}. Ker oba lokala zapirata šele po polnoči, bon pri nas velja do {oknoDo} — na Trubarjevi od {od1}, na Slovenski od {od2}. Če prideš pozneje, te postrežemo po redni ceni z menija.",
+        "vec": "Preveri, kdaj bon velja na posamezni lokaciji"
+      },
+      "boni-2": {
+        "vprasanje": "Ali lahko naročim vnaprej po telefonu za prevzem?",
+        "odgovor": "Seveda! Pokličite nas na {telefon} in vaše naročilo vas bo čakalo sveže in toplo pripravljeno ob dogovorjenem času brez čakanja v vrsti."
+      }
+    }
+  },
+  "lokacijaStran": {
+    "navodilaZaPot": "Navodila za pot",
+    "meniInCene": "Meni in cene",
+    "zemljevidNaslov": "Zemljevid — {ime}, {naslov}",
+    "najdesNasNa": "Najdeš nas na",
+    "appleMaps": "Apple Maps",
+    "fotografijeOpomba": "Fotografije lokala pripravljamo. Do takrat si nas lahko ogledaš na Google Zemljevidih.",
+    "delovniCas": "Delovni čas",
+    "urnikOpomba": "Kuhinja dela do zaprtja — zadnje naročilo sprejmemo nekaj minut prej.",
+    "kajTuDobis": "Kaj tu dobiš",
+    "boniOznaka": "Študentski boni",
+    "boniOpis": "Na tej lokaciji je na voljo <b>{stevilo} jedi</b> z našega menija. Za doplačilo <b>{doplacilo}</b> dobiš glavno jed, solato, jabolko in pijačo.",
+    "poglejMeni": "Poglej celoten meni",
+    "kakoPrides": "Kako prideš do nas",
+    "kakoPridesUvod": "Lokal je v središču mesta, zato je pot najhitrejša peš ali z mestnim avtobusom.",
+    "prevozAvtobus": "Z avtobusom",
+    "prevozParkiranje": "Parkiranje",
+    "prevozPes": "Peš",
+    "drugaPoslovalnica": "Naša druga poslovalnica"
   }
 }

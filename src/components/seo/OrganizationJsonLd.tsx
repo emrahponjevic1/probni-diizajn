@@ -1,6 +1,6 @@
 import { LOCATIONS, LOCATION_SLUG, PHONE } from "@/data/locations";
 import { COMPANY } from "@/data/company";
-import { SITE_NAME, SITE_URL, absoluteUrl } from "@/data/site";
+import { LOGO, SHARE_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from "@/data/site";
 
 /**
  * ORGANIZATION — kdo smo, za iskalnik
@@ -23,6 +23,14 @@ export default function OrganizationJsonLd() {
     name: SITE_NAME,
     legalName: COMPANY.legalName,
     url: SITE_URL,
+    // Google od tod vzame logotip za znamko ob zadetku.
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}${LOGO.src}`,
+      width: LOGO.width,
+      height: LOGO.height,
+    },
+    image: `${SITE_URL}${SHARE_IMAGE.src}`,
     telephone: PHONE.restaurant.e164,
     email: COMPANY.privacyEmail,
     servesCuisine: ["Kebab", "Turkish", "Falafel", "Pizza", "Halal"],

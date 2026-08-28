@@ -12,6 +12,36 @@ export const SITE_URL = "https://seherezada.net";
 /** Ime, kot ga uporabljamo v strukturiranih podatkih in naslovih strani. */
 export const SITE_NAME = "Šeherezada";
 
+/** Barva znamke, vzeta iz datoteke logotipa. */
+export const BRAND_COLOR = "#a41023";
+
+/**
+ * LOGOTIP — celoten, z napisom.
+ * Google ga vzame od tod za znamko ob zadetku. Prikazan je velik, zato je
+ * napis berljiv.
+ */
+export const LOGO = {
+  src: "/images/seherezada-logo.png",
+  width: 1024,
+  height: 1024,
+} as const;
+
+/**
+ * SLIKA ZA DELJENJE POVEZAVE
+ *
+ * To se pokaže, ko kdo pošlje povezavo v WhatsApp, Viber ali na Facebook.
+ * Razmerje 1200 × 630 je tisto, ki ga te aplikacije pričakujejo.
+ *
+ * Namenoma JPEG in ne PNG: gre za fotografijo, pri kateri PNG ničesar ne
+ * stisne. In namenoma ne AVIF — teh aplikacij AVIF ne zna prebrati in
+ * predogleda sploh ne bi pokazale.
+ */
+export const SHARE_IMAGE = {
+  src: "/images/seherezada-share.jpg",
+  width: 1200,
+  height: 630,
+} as const;
+
 /**
  * Jeziki spletnega mesta.
  *

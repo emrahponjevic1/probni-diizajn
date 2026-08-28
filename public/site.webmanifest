@@ -1,0 +1,14 @@
+{
+  "name": "Šeherezada — halal kebab v Ljubljani",
+  "short_name": "Šeherezada",
+  "description": "Halal kebab, jufka, falafel in pizza na dveh lokacijah v središču Ljubljane.",
+  "lang": "sl",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#a41023",
+  "background_color": "#a41023",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

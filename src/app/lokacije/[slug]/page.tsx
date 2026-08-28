@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteNavbar from "@/components/SiteNavbar";
 import SiteFooter from "@/components/SiteFooter";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import LocationPageContent from "@/components/locations/LocationPageContent";
 import {
   LOCATIONS,
@@ -91,6 +92,10 @@ export default async function LocationPage({
 
   return (
     <main>
+      {/* Samo dva člena: poti /lokacije ni, obstajata le strani poslovalnic. */}
+      <BreadcrumbJsonLd
+        items={[{ name: "Domov", path: "/" }, { name: loc.name }]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

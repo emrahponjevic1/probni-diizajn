@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteNavbar from "@/components/SiteNavbar";
 import SiteFooter from "@/components/SiteFooter";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { BLOG_POSTS, postBySlug } from "@/data/blog";
 import styles from "@/components/blog/BlogPageContent.module.css";
 
@@ -65,6 +66,14 @@ export default async function BlogPostPage({
 
   return (
     <main>
+      {/* Isti členi, kot jih gost vidi v drobtinah nad naslovom. */}
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Domov", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title },
+        ]}
+      />
       <SiteNavbar activeRoute="blog" />
 
       <article className={styles.blogSection}>

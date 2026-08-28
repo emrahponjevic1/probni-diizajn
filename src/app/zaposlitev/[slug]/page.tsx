@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteNavbar from "@/components/SiteNavbar";
 import SiteFooter from "@/components/SiteFooter";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { OPEN_POSITIONS, jobBySlug } from "@/data/jobs";
 import { LOCATIONS } from "@/data/locations";
 import styles from "@/components/careers/CareersPageContent.module.css";
@@ -92,6 +93,13 @@ export default async function JobPage({
 
   return (
     <main>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Domov", path: "/" },
+          { name: "Zaposlitev", path: "/zaposlitev" },
+          { name: job.title },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

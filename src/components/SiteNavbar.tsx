@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styles from "./SiteNavbar.module.css";
 import StatusBadge from "./locations/StatusBadge";
 import { LOCATIONS, LOCATION_SLUG } from "@/data/locations";
@@ -126,7 +126,9 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
     { label: "Zaposlitev", href: "/zaposlitev", active: activeRoute === "zaposlitev" },
     { label: "Blog", href: "/blog", active: activeRoute === "blog" },
     { label: "Kontakt", href: "/kontakt", active: activeRoute === "kontakt" },
-  ];
+    // as const: brez tega bi bil href navaden string in prevajalnik ne bi
+    // ujel poti, ki ne obstaja.
+  ] as const;
 
   // Poslovalnice beremo iz src/data/locations.ts — prej je bil tu drug seznam,
   // ki se je lahko razhajal s tistim v nogi in na strani Kontakt.
@@ -136,7 +138,10 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
     id: l.id,
     name: l.name,
     address: l.street,
-    href: `/lokacije/${LOCATION_SLUG[l.id]}`,
+    href: {
+      pathname: "/lokacije/[slug]" as const,
+      params: { slug: LOCATION_SLUG[l.id] },
+    },
   }));
 
   const languagesList = [

@@ -1,3 +1,5 @@
+import type { StaticPathname } from "@/i18n/routing";
+
 // ---------------------------------------------------------------------------
 // POGOSTA VPRAŠANJA — VSEBINA
 //
@@ -16,7 +18,9 @@ export interface FaqItem {
   question: string;
   answer: string;
   /** Neobvezna povezava na stran, ki odgovor razloži do konca. */
-  more?: { href: string; label: string };
+  // Pot je tipizirana, ne navaden string: tako se v odgovor ne more
+  // priplaziti naslov, ki ne obstaja.
+  more?: { href: StaticPathname; label: string };
 }
 
 export interface FaqCategory {

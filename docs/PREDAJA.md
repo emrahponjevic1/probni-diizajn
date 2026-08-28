@@ -4,7 +4,8 @@
 
 Datum: 28. 8. 2026 · Grana: `main` · Sajt **nije objavljen** — radi samo lokalno
 
-**Faze 1, 2, 4 i 6 su gotove. Ostaju 3 (objava), 7 (Google) i 5 (jezici).**
+**Faze 1, 2, 4 i 6 su gotove. Faza 5 je u toku — korak 5A je gotov.**
+**Ostaju 3 (objava) i 7 (Google).**
 
 ---
 
@@ -103,7 +104,11 @@ Google od 2019. ignoriše ocjene koje firma objavi sama o sebi. Recenzije na saj
 | `src/data/blog.ts` | blog postovi — **prazno**, sa šablonom |
 | `src/lib/hours.ts` | računa da li je sad otvoreno |
 | `src/lib/consent.ts` | pristanak na kolačiće + prekidač `ANALYTICS_ENABLED` |
-| `src/data/site.ts` | **adresa sajta, spisak jezika, logo, share slika, brend boja** |
+| `src/data/site.ts` | **adresa sajta, spisak svih 6 jezika, logo, share slika, brend boja** |
+| `src/i18n/routing.ts` | **prevedene adrese stranica po jezicima** + tipovi putanja |
+| `src/i18n/navigation.ts` | `Link` koji pamti jezik — uvozi se odavde, ne iz `next/link` |
+| `src/i18n/urls.ts` | računa punu adresu stranice u bilo kom jeziku |
+| `messages/<jezik>.json` | prevodi — šest fajlova, još prazni (puni se u 5B/5C) |
 
 **Pravilo:** ako mijenjaš podatak o lokalu, mijenjaš ga **samo** u `locations.ts`. Dokazano: promjena telefona na jednom mjestu ažurirala je 40 mjesta na sajtu.
 
@@ -208,20 +213,79 @@ Veganska jela su označena na `/meni` i pominju se na `/halal`; zasebna stranica
 
 U kodu nema šta da se mijenja — `SITE_URL` već pokazuje na pravu domenu i nema prekidača koji bi se mogao zaboraviti.
 
-### Faza 5 — jezici ← **SLJEDEĆE, jedino što se može bez objave**
+### Faza 5 — jezici ← **U TOKU**
 
-**Preduslov je ispunjen:** slovenački sadržaj je zaključan 27. 8. — sve tvrdnje na `/halal` su provjerene sa vlasnikom. Prevod se zato radi jednom.
+**Odluka vlasnika 28. 8. 2026: idu svih šest jezika odjednom.** Preporuka je bila
+SL + EN prvo; vlasnik je odlučio drugačije i to je njegov poziv.
 
-**Čeka se odluka vlasnika:** svih šest jezika odjednom, ili SL + EN pa dopunjavanje.
-Preporuka data vlasniku: **SL + EN prvo.** 14 stranica × 6 = 84 stranice, a svaka buduća ispravka se množi. Za cilj „kebab Ljubljana" radi samo slovenački; ostali su za turiste i strane studente.
+Faza je podijeljena na pet koraka. **Poslije svakog sajt radi** — nijedan korak
+ne ostavlja sajt slomljen.
 
-- [ ] `next-intl`, `localePrefix: "as-needed"` (slovenački bez prefiksa)
-- [ ] Prevedeni slugovi preko `pathnames` mape
-- [ ] `hreflang` — svaka verzija mora pokazivati na sebe **i** na sve ostale
+| | Korak | Šta se dobije |
+|---|---|---|
+| ✅ | **5A** Temelj | `next-intl`, adrese u 6 jezika. Slovenački izgleda identično |
+| ⬜ | **5B** Izvlačenje teksta | tekst iz koda u `messages/sl.json`. Vizuelno ništa |
+| ⬜ | **5C** Prevodi | EN, DE, IT, BS, TR — pet JSON fajlova |
+| ⬜ | **5D** Google sloj | `hreflang`, canonical po jeziku, **pravi** prekidač jezika |
+| ⬜ | **5E** Provjera | svih 84 adresa, meta naslovi, JSON-LD po jeziku |
 
-**Ne prepisuj Fazu 6.** `src/data/site.ts` već ima spisak jezika sa jednim redom. Dopišeš redove i sitemap, canonical i `hreflang` se sami prošire.
+#### ✅ 5A — gotov 28. 8. 2026
 
-**Ključno pravilo:** kanonski URL svake jezičke verzije pokazuje **na samu sebe**, nikad na slovenačku. Ako pokaže na slovenačku, prevedena stranica nestaje iz Google-a.
+- `next-intl@4.14.1` (zvanično podržava Next 16)
+- `LOCALES` u `site.ts` ima **6 redova**: sl, en, de, it, bs, tr
+- `src/i18n/routing.ts` — tabela prevedenih adresa iz ove predaje, plus adrese
+  koje u tabeli nisu postojale: `/blog` (ostaje `blog` u svim jezicima),
+  `/piskotki`, `/politika-zasebnosti`
+- Sve stranice premještene u `src/app/[locale]/`. Van njega ostaju samo
+  `sitemap.ts`, `robots.ts`, `llms.txt/` i `globals.css` — oni nemaju jezik
+- `src/proxy.ts` — preusmjeravanje. **U Next 16 se zove `proxy.ts`, ne
+  `middleware.ts`**; staro ime radi ali javlja upozorenje
+- Svih 22 fajla više ne uvoze `next/link` nego `Link` iz `@/i18n/navigation`
+- Sitemap računa **prave prevedene adrese** — `/de/speisekarte`, ne `/de/meni`
+
+**Provjereno na pravom serveru (`next start`), ne na pretpostavci:**
+
+```
+17 slovenačkih ruta            svih 17 vraća 200
+84 adrese iz sitemapa          svih 84 vraća 200, nijedna nije preusmjerenje
+/asdf, /en/nepostojece         404 sa NAŠOM stranicom
+<html lang>                    sl, en, de, it, bs, tr — tačno po jeziku
+linkovi na /de stranici        svi ostaju u /de/... adresama
+naslovnica                     sadržaj netaknut, bedž Odprto radi
+```
+
+#### Odluke donesene u 5A — ne mijenjaj bez razloga
+
+**Nema automatskog prepoznavanja jezika** (`localeDetection: false`).
+Da Next sam preusmjerava po jeziku preglednika, Googlov robot — koji se
+predstavlja kao engleski — bi na `/` završio na `/en` i slovenačku naslovnicu
+ne bi ni vidio. A slovenački je jedini koji nam treba za „kebab Ljubljana".
+Jezik bira gost, prekidačem.
+
+**`absoluteUrl()` više ne prima jezik.** Prima samo slovenačke adrese.
+Za druge jezike ide `localizedUrl()` iz `src/i18n/urls.ts`. Razlog: adrese se
+prevode, a `site.ts` tabelu prevoda ne poznaje — primio bi jezik i tiho vratio
+`/de/meni`, adresu koja postoji samo kao preusmjerenje.
+
+**`src/app/[locale]/[...rest]/page.tsx`** hvata nepostojeće adrese.
+Bez njega `/asdf` pada mimo jezičke grane i Next pokaže svoju golu 404 bez
+navigacije. Provjereno: prije njega je `/asdf` davao Next-ovu stranicu.
+
+#### Šta ostaje za 5B
+
+- [ ] Izvući ~800–1000 komada teksta iz 31 komponente u `messages/sl.json`
+- [ ] Najgušći fajlovi: `MenuData.ts`, `/studentski-boni`, `/piskotki`,
+      `/politika-zasebnosti`, `/halal`
+- [ ] Meta naslovi na 16 mjesta (`generateMetadata` umjesto `metadata`)
+
+**Ključno pravilo za 5D:** kanonski URL svake jezičke verzije pokazuje **na
+samu sebe**, nikad na slovenačku. Ako pokaže na slovenačku, prevedena stranica
+nestaje iz Google-a.
+
+#### Tabela prevedenih adresa — sada živi u kodu
+
+Tabela je preseljena u `src/i18n/routing.ts` i **odatle se stvarno koristi**.
+Ovdje je ostavljena samo za čitanje; ako se raziđu, kod je istina.
 
 | SL | EN | DE | IT | BS | TR |
 |---|---|---|---|---|---|
@@ -229,11 +293,14 @@ Preporuka data vlasniku: **SL + EN prvo.** 14 stranica × 6 = 84 stranice, a sva
 | `/kontakt` | `/contact` | `/kontakt` | `/contatti` | `/kontakt` | `/iletisim` |
 | `/o-nas` | `/about` | `/ueber-uns` | `/chi-siamo` | `/o-nama` | `/hakkimizda` |
 | `/pogosta-vprasanja` | `/faq` | `/haeufige-fragen` | `/domande-frequenti` | `/cesta-pitanja` | `/sss` |
-| `/lokacije` | `/locations` | `/standorte` | `/sedi` | `/lokacije` | `/subeler` |
+| `/lokacije/…` | `/locations/…` | `/standorte/…` | `/sedi/…` | `/lokacije/…` | `/subeler/…` |
 | `/zaposlitev` | `/careers` | `/karriere` | `/lavora-con-noi` | `/posao` | `/kariyer` |
 | `/galerija` | `/gallery` | `/galerie` | `/galleria` | `/galerija` | `/galeri` |
 | `/halal` | `/halal` | `/halal` | `/halal` | `/halal` | `/helal` |
 | `/studentski-boni` | `/student-vouchers` | `/studentenbons` | `/buoni-studenti` | `/studentski-boni` | `/ogrenci-fisleri` |
+| `/piskotki` | `/cookies` | `/cookie-richtlinie` | `/cookie` | `/kolacici` | `/cerezler` |
+| `/politika-zasebnosti` | `/privacy-policy` | `/datenschutz` | `/privacy` | `/politika-privatnosti` | `/gizlilik-politikasi` |
+| `/blog` | `/blog` | `/blog` | `/blog` | `/blog` | `/blog` |
 
 ### Faza 7 — poslije lansiranja
 - [ ] Google Search Console, poslati sitemap
@@ -252,6 +319,15 @@ Preporuka data vlasniku: **SL + EN prvo.** 14 stranica × 6 = 84 stranice, a sva
 **Odluka vlasnika:** forma ostaje na sajtu. Spaja se kad zakupi poslovni mail; tad daje SMTP podatke.
 **Lozinka ne ide u kod ni u razgovor** — u varijablu okoline koju vlasnik sam upiše kod hostinga.
 **Prije objave forma mora biti spojena ili poštena** — sad laže gostu da je poruka poslana.
+
+### 🔴 Prekidač za jezik u navigaciji ništa ne radi
+`SiteNavbar.tsx:38` — dugme nudi tri jezika (Slovenščina, English, Bos/Hrv/Srp).
+Klik samo pomjeri kvačicu. Nema prevoda, nema promjene stranice.
+
+Isti problem kao kontakt forma: **gost misli da je prebacio jezik, a nije.**
+Uz to nudi tri jezika, a dogovoreno je šest.
+
+Spaja se u koraku **5D**. Do tada stoji — sajt nije objavljen, pa niko ne strada.
 
 ### ✅ Tvrdnje na `/halal` — provjerene 27. 8. 2026
 Vlasnik je prošao kroz svih sedam. **Slovenački sadržaj je time zaključan** — uslov da se krene sa prevodima.
@@ -329,6 +405,21 @@ Postoji na nekim stranicama. Google ga ignoriše od 2009.
 
 11. **Jedno Lighthouse mjerenje ne znači ništa.** Desktop je pao sa 100 na 56 bez ijedne izmjene koja bi to mogla izazvati — TBT je najnestabilnija mjera. Mjeri 3–5 puta i uzmi srednju vrijednost.
 
+12. **`sed` je pojeo kosu crtu u regexu.** Iz `"...\..*"` je ispalo `".....*"`.
+    U JavaScriptu je `"."` isto što i `"."` — dakle „bilo koji znak" umjesto „tačka".
+    Vzorec za preusmjeravanje bi tiho prestao da lovi bilo šta, a **build to ne prijavi**.
+    Zato je u `src/proxy.ts` sada `[^.]*`, bez ijedne kose crte.
+    **Ne mijenjaj tekst sa `sed` ako sadrži ``** — koristi `node` ili alat za izmjene.
+
+13. **Dev server drži foldere zaključane na Windowsu.** `git mv src/app/blog` je
+    padao sa „Permission denied" dok je `npm run dev` radio. Ugasi dev server
+    prije premještanja foldera. Isto važi i za `next start` — `pkill` ga ne hvata
+    pouzdano, gasi ga preko PID-a koji drži port.
+
+14. **Ne vjeruj testu dok ne provjeriš da server servira NOVI build.** Testirao sam
+    404 i dobio Next-ovu stranicu; ispalo je da je odgovarao stari server koji nije
+    ugašen, a novi je pao jer je port bio zauzet. Provjeri da je proces stvarno nov.
+
 ---
 
 ## 10. Kako provjeriti da je sve u redu
@@ -359,6 +450,26 @@ Provjeri i ovo troje, jer se ne vidi iz builda:
 - **baner za kolačiće** — pojavi se, klik ga skloni, ne vraća se
 - **bedž Odprto/Zaprto** — mora odgovarati stvarnom vremenu
 - **`/asdf`** — mora dati našu 404, ne Vercelovu
+
+### Otkad ima jezika — provjeri svih 84 adrese
+
+Sitemap sam nabraja sve stranice u svih šest jezika. Ako ijedna vrati nešto
+drugo od 200, adresa u sitemapu ne odgovara stvarnoj adresi stranice — a to je
+tačno ona greška koju Google kažnjava.
+
+Ugasi dev server, pa:
+
+```bash
+npm run build && npx next start -p 3100
+```
+
+U drugom prozoru:
+
+```bash
+for u in $(curl -s localhost:3100/sitemap.xml | grep -o '<loc>[^<]*</loc>' | sed 's/<[^>]*>//g'); do p=$(echo "$u" | sed 's|https://seherezada.net||'); [ -z "$p" ] && p=/; c=$(curl -s -o /dev/null -w '%{http_code}' "localhost:3100$p"); [ "$c" != 200 ] && echo "$c $p"; done; echo gotovo
+```
+
+Ne smije ispisati nijedan red prije „gotovo".
 
 ---
 

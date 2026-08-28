@@ -2,7 +2,7 @@
 
 import React from "react";
 import { COMPANY } from "@/data/company";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styles from "./LegalPage.module.css";
 
 const stroke = {

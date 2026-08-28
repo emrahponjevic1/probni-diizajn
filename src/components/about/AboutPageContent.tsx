@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PHONE } from "@/data/locations";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import styles from "./AboutPageContent.module.css";
 import { initials } from "@/data/reviews";
@@ -508,7 +508,7 @@ export default function AboutPageContent() {
                   <div className={styles.locationHeaderRow}>
                     <div>
                       <h3 className={styles.locationName}>
-                        <Link href={`/lokacije/${LOCATION_SLUG[loc.id]}`}>
+                        <Link href={{ pathname: "/lokacije/[slug]", params: { slug: LOCATION_SLUG[loc.id] } }}>
                           {loc.name}
                         </Link>
                       </h3>

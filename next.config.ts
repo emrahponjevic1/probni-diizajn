@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   // GitHub Pages je opuščen: ni več workflowa, basePath in statičnega izvoza.
@@ -25,4 +26,8 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Vklopi next-intl. Brez tega ovoja Next ne najde src/i18n/request.ts
+// in besedila se ne naložijo.
+const withNextIntl = createNextIntlPlugin();
+
+export default withNextIntl(nextConfig);

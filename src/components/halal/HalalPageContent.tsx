@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { MENU_STATS, MENU_ITEMS } from "@/components/menu/MenuData";
 import {
   HALAL_OZNAKA,
@@ -707,7 +707,7 @@ export default function HalalPageContent() {
 
                 <div className={styles.locActionRow}>
                   <Link
-                    href={`/lokacije/${LOCATION_SLUG[loc.id]}`}
+                    href={{ pathname: "/lokacije/[slug]", params: { slug: LOCATION_SLUG[loc.id] } }}
                     className={`${styles.locBtn} ${styles.locBtnPrimary}`}
                   >
                     <span>Podrobnosti poslovalnice</span>

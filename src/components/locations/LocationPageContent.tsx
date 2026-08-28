@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { PHONE, type LocationCore } from "@/data/locations";
 import { STUDENT_BON } from "@/components/menu/MenuData";
@@ -242,7 +242,7 @@ export default function LocationPageContent({
       {/* ================= DRUGA POSLOVALNICA ================= */}
       <section className={styles.sectionAlt}>
         <div className={styles.container}>
-          <Link href={`/lokacije/${other.slug}`} className={styles.otherBox}>
+          <Link href={{ pathname: "/lokacije/[slug]", params: { slug: other.slug } }} className={styles.otherBox}>
             <div>
               <span className={styles.otherLabel}>Naša druga poslovalnica</span>
               <span className={styles.otherTitle}>{other.name}</span>

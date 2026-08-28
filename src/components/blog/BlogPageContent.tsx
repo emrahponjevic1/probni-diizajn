@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styles from "./BlogPageContent.module.css";
 import {
   BLOG_POSTS,
@@ -210,7 +210,7 @@ export default function BlogPageContent() {
             {featuredPost && (
               <Link
                 className={styles.featuredCard}
-                href={`/blog/${featuredPost.slug}`}
+                href={{ pathname: "/blog/[slug]", params: { slug: featuredPost.slug } }}
               >
                 <div className={styles.featuredImageContainer}>
                   <img
@@ -272,7 +272,7 @@ export default function BlogPageContent() {
               {gridPosts.map((post) => (
                 <Link
                   key={post.slug}
-                  href={`/blog/${post.slug}`}
+                  href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }}
                   className={styles.postCard}
                 >
                   <div>

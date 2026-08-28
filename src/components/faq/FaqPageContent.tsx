@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PHONE } from "@/data/locations";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { FAQ_SECTIONS } from "./faqSections";
 import styles from "./FaqPageContent.module.css";
 

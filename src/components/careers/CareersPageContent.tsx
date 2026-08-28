@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { PHONE } from "@/data/locations";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styles from "./CareersPageContent.module.css";
 import { JOBS_DATA, HAS_OPEN_POSITIONS, JobPosition } from "./CareersData";
 
@@ -451,7 +451,7 @@ export default function CareersPageContent() {
                             {/* Vsak oglas ima tudi svojo stran — tam je
                                 JobPosting oznaka za Google for Jobs. */}
                             <p className={styles.jobFullPageLink}>
-                              <Link href={`/zaposlitev/${job.slug}`}>
+                              <Link href={{ pathname: "/zaposlitev/[slug]", params: { slug: job.slug } }}>
                                 Odpri celoten oglas &rarr;
                               </Link>
                             </p>

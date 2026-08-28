@@ -10,7 +10,7 @@ import {
   readConsent,
   writeConsent,
 } from "@/lib/consent";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styles from "./LegalPage.module.css";
 
 const stroke = {

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import styles from "./SeherezadaHero.module.css";
 import { LOCATIONS, LOCATION_SLUG, PHONE } from "@/data/locations";
@@ -167,7 +167,7 @@ export default function SeherezadaHero() {
             {LOCATIONS.map((loc) => (
               <div key={loc.id} className={styles.locationCard}>
                 <Link
-                  href={`/lokacije/${LOCATION_SLUG[loc.id]}`}
+                  href={{ pathname: "/lokacije/[slug]", params: { slug: LOCATION_SLUG[loc.id] } }}
                   className={styles.locationTitle}
                 >
                   <PinSvg size={16} />

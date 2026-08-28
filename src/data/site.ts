@@ -48,21 +48,50 @@ export const SHARE_IMAGE = {
  * `prefix: ""` pomeni, da jezik nima predpone v naslovu: slovenščina je
  * /meni, ne /sl/meni.
  *
- * Danes je vrstica ena. Struktura je vseeno seznam, ker sitemap in kanonični
- * naslovi že zdaj berejo od tod — ob dodajanju jezikov (faza 5) se dopiše
- * vrstica in nič drugega se ne prepisuje. Isti seznam bo bral tudi hreflang.
+ * Ta seznam je edini vir resnice o jezikih. Iz njega izhajajo sitemap,
+ * kanonični naslovi, hreflang in usmerjanje (next-intl). Jezika ni nikjer
+ * drugje zapisanega — dodajanje jezika je vrstica tukaj in nova datoteka
+ * s prevodi, nič drugega.
+ *
+ * Vrstni red ni naključen: prvi je privzeti jezik.
  */
 export const LOCALES = [
+  // Slovenščina nima predpone: /meni, ne /sl/meni.
   { code: "sl", prefix: "", hreflang: "sl-SI", default: true },
+  { code: "en", prefix: "/en", hreflang: "en", default: false },
+  { code: "de", prefix: "/de", hreflang: "de", default: false },
+  { code: "it", prefix: "/it", hreflang: "it", default: false },
+  { code: "bs", prefix: "/bs", hreflang: "bs", default: false },
+  { code: "tr", prefix: "/tr", hreflang: "tr", default: false },
 ] as const;
 
 export type Locale = (typeof LOCALES)[number];
 
+
 export const DEFAULT_LOCALE: Locale =
   LOCALES.find((l) => l.default) ?? LOCALES[0];
 
-/** Sestavi cel naslov iz poti: "/meni" -> "https://seherezada.net/meni" */
-export function absoluteUrl(path: string, locale: Locale = DEFAULT_LOCALE) {
+/** Samo oznake jezikov: ["sl", "en", "de", "it", "bs", "tr"]. next-intl dela z njimi. */
+export const LOCALE_CODES = LOCALES.map((l) => l.code);
+
+export type LocaleCode = (typeof LOCALES)[number]["code"];
+
+/** Iz oznake ("de") dobi cel zapis jezika. Neznana oznaka pade na privzeti jezik. */
+export function localeByCode(code: string): Locale {
+  return LOCALES.find((l) => l.code === code) ?? DEFAULT_LOCALE;
+}
+
+/**
+ * Sestavi cel naslov v SLOVENŠČINI: "/meni" -> "https://seherezada.net/meni"
+ *
+ * Namenoma ne sprejme jezika. V drugih jezikih se poti tudi prevajajo
+ * (/meni -> /en/menu), tega pa ta datoteka ne ve — tabela prevodov je v
+ * src/i18n/routing.ts. Če bi tu dodali jezik, bi tiho vrnil /en/meni,
+ * torej naslov, ki obstaja samo kot preusmeritev.
+ *
+ * Za naslove v drugih jezikih uporabi localizedUrl() iz src/i18n/urls.ts.
+ */
+export function absoluteUrl(path: string) {
   const clean = path === "/" ? "" : path;
-  return `${SITE_URL}${locale.prefix}${clean}`;
+  return `${SITE_URL}${clean}`;
 }

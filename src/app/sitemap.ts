@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
-import { LOCALES, absoluteUrl } from "@/data/site";
+import { LOCALES } from "@/data/site";
+import { localizedSlugUrl, localizedUrl } from "@/i18n/urls";
+import type { StaticPathname } from "@/i18n/urls";
 import { LOCATIONS, LOCATION_SLUG } from "@/data/locations";
 import { BLOG_POSTS } from "@/data/blog";
 import { OPEN_POSITIONS } from "@/data/jobs";
@@ -14,16 +16,20 @@ import { OPEN_POSITIONS } from "@/data/jobs";
 // istih datotek, ki jih prikazuje stran — zato se sitemap ne more razhajati
 // z resnico. Ko dodaš objavo, se pojavi tu sama od sebe.
 //
-// KO PRIDEJO JEZIKI (faza 5)
-// V src/data/site.ts dopiši vrstico v LOCALES. Spodnja zanka bo vsak naslov
-// izpisala v vseh jezikih; tu ni treba spreminjati ničesar.
+// JEZIKI
+// Spodaj so poti zapisane v notranji obliki ("/meni"). Pravi naslov za vsak
+// jezik izračuna localizedUrl() iz tabele prevodov — /de/speisekarte, ne
+// /de/meni. Naslova se ne sme sestavljati z lepljenjem predpone in poti:
+// tako bi Googlu oddali naslove, ki obstajajo samo kot preusmeritev.
+//
+// Nov jezik: dopiši vrstico v LOCALES (src/data/site.ts). Tu ni ničesar.
 // ---------------------------------------------------------------------------
 
 /**
  * `priority` ni obljuba Googlu, ampak namig, katera stran je za nas
  * pomembnejša. Naslovnica in meni sta tisto, po čemer nas gost išče.
  */
-const STATIC_PAGES: { path: string; priority: number }[] = [
+const STATIC_PAGES: { path: StaticPathname; priority: number }[] = [
   { path: "/", priority: 1.0 },
   { path: "/meni", priority: 0.9 },
   { path: "/kontakt", priority: 0.8 },
@@ -43,29 +49,34 @@ const STATIC_PAGES: { path: string; priority: number }[] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const paths: { path: string; priority: number }[] = [
-    ...STATIC_PAGES,
-
-    // Strani poslovalnic — nanje kažeta Google profila, zato visoko.
-    ...LOCATIONS.map((loc) => ({
-      path: `/lokacije/${LOCATION_SLUG[loc.id]}`,
-      priority: 0.9,
-    })),
-
-    // Objave in oglasi. Dokler sta seznama prazna, teh vrstic preprosto ni.
-    ...BLOG_POSTS.map((post) => ({ path: `/blog/${post.slug}`, priority: 0.6 })),
-    ...OPEN_POSITIONS.map((job) => ({
-      path: `/zaposlitev/${job.slug}`,
-      priority: 0.6,
-    })),
-  ];
-
-  return paths.flatMap(({ path, priority }) =>
-    LOCALES.map((locale) => ({
-      url: absoluteUrl(path, locale),
+  return LOCALES.flatMap((locale) => {
+    const entry = (url: string, priority: number) => ({
+      url,
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority,
-    }))
-  );
+    });
+
+    return [
+      ...STATIC_PAGES.map(({ path, priority }) =>
+        entry(localizedUrl(path, locale.code), priority)
+      ),
+
+      // Strani poslovalnic — nanje kažeta Google profila, zato visoko.
+      ...LOCATIONS.map((loc) =>
+        entry(
+          localizedSlugUrl("/lokacije/[slug]", LOCATION_SLUG[loc.id], locale.code),
+          0.9
+        )
+      ),
+
+      // Objave in oglasi. Dokler sta seznama prazna, teh vrstic preprosto ni.
+      ...BLOG_POSTS.map((post) =>
+        entry(localizedSlugUrl("/blog/[slug]", post.slug, locale.code), 0.6)
+      ),
+      ...OPEN_POSITIONS.map((job) =>
+        entry(localizedSlugUrl("/zaposlitev/[slug]", job.slug, locale.code), 0.6)
+      ),
+    ];
+  });
 }

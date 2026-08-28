@@ -1,15 +1,27 @@
 import type { Metadata, Viewport } from "next";
+import { notFound } from "next/navigation";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import CookieBanner from "@/components/legal/CookieBanner";
 import OrganizationJsonLd from "@/components/seo/OrganizationJsonLd";
+import { routing } from "@/i18n/routing";
 import { BRAND_COLOR, SHARE_IMAGE, SITE_NAME, SITE_URL } from "@/data/site";
-import "./globals.css";
+import "../globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-jakarta",
 });
+
+/**
+ * Pove Nextu, da naj strani zgradi vnaprej za vsak jezik. Brez tega bi se
+ * vsaka stran sestavljala ob obisku — počasneje in po nepotrebnem.
+ */
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -65,19 +77,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
+  // Naslov tipa /xy/meni ne sme pokazati slovenske strani pod tujo oznako —
+  // to bi bila ista vsebina na dveh naslovih. Raje 404.
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  // Brez te vrstice bi se stran sestavljala ob vsakem obisku namesto vnaprej.
+  setRequestLocale(locale);
+
   return (
-    <html lang="sl" className={plusJakartaSans.variable}>
+    <html lang={locale} className={plusJakartaSans.variable}>
       <body>
-        {children}
-        {/* Pasica se pokaže samo, dokler gost ni izbral. Skripte za analitiko
-            se sme naložiti šele, ko privolitev to dovoli — glej src/lib/consent.ts */}
-        <OrganizationJsonLd />
-        <CookieBanner />
+        <NextIntlClientProvider>
+          {children}
+          {/* Pasica se pokaže samo, dokler gost ni izbral. Skripte za analitiko
+              se sme naložiti šele, ko privolitev to dovoli — glej src/lib/consent.ts */}
+          <OrganizationJsonLd />
+          <CookieBanner />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

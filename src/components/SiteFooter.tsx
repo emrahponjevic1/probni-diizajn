@@ -1,6 +1,6 @@
 import styles from "./SiteFooter.module.css";
 import { LOCATIONS, PHONE } from "@/data/locations";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 // Clean Vector SVG Social & Contact Icons
 const FacebookSvg = ({ size = 18 }: { size?: number }) => (

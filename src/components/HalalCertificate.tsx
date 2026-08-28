@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { HALAL_OZNAKA } from "@/data/halal";
 import styles from "./HalalCertificate.module.css";
 

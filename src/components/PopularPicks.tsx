@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import styles from "./PopularPicks.module.css";

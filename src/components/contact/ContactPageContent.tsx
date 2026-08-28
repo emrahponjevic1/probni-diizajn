@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { PHONE, LOCATION_SLUG } from "@/data/locations";
 import styles from "./ContactPageContent.module.css";
 import WorldMapPattern from "./WorldMapPattern";
@@ -225,7 +225,7 @@ export default function ContactPageContent() {
                 {CONTACT_LOCATIONS.map((loc) => (
                   <div key={loc.id} className={styles.heroCardItem}>
                     <div className={styles.heroCardHeading}>
-                      <Link href={`/lokacije/${LOCATION_SLUG[loc.id]}`}>
+                      <Link href={{ pathname: "/lokacije/[slug]", params: { slug: LOCATION_SLUG[loc.id] } }}>
                         {loc.name}
                       </Link>
                     </div>
@@ -729,7 +729,7 @@ export default function ContactPageContent() {
                 {/* Podrobnosti o posamezni poslovalnici imajo svojo stran —
                     tja vodi tudi Google Business Profile. */}
                 <Link
-                  href={`/lokacije/${LOCATION_SLUG[activeMapLocationData.id]}`}
+                  href={{ pathname: "/lokacije/[slug]", params: { slug: LOCATION_SLUG[activeMapLocationData.id] } }}
                   className={styles.mapDetailBtn}
                 >
                   <NavigationSvg size={16} />

@@ -163,7 +163,7 @@
     "vprasanja": {
       "hoursTag": "DELOVNI ČAS",
       "hoursVprasanje": "KAKŠEN JE DELOVNI ČAS ŠEHEREZADE?",
-      "hoursOdgovor": "Šeherezada na Trubarjevi 31 je odprta vsak dan od 09:00 do 02:00, ob petkih in sobotah pa do 03:00. Šeherezada 2 na Slovenski 55 je odprta vsak dan od 08:00 do 01:00.",
+      "hoursOdgovor": "{ime1} na Trubarjevi 31 je odprta vsak dan od {od1} do {do1}, ob petkih in sobotah pa do {vikend1}. {ime2} na Slovenski 55 je odprta vsak dan od {od2} do {do2}.",
       "halalTag": "KAKOVOST & HALAL",
       "halalVprasanje": "ALI JE VSE MESO 100% HALAL CERTIFICIRANO?",
       "halalOdgovor": "Da, vse meso v naši ponudbi je 100 % certificirano halal, pripravljeno po strogih higienskih standardih, s popolno sledljivostjo in z 0 % svinjine.",

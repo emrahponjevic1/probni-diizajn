@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { STUDENT_BON } from "./menu/MenuData";
+import { LOCATIONS } from "@/data/locations";
+import { hoursSummary } from "@/lib/hours";
 import { Link } from "@/i18n/navigation";
 import styles from "./FaqSection.module.css";
 
@@ -39,13 +41,27 @@ export default function FaqSection() {
 
   const doplacilo = `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €`;
 
+  // Ure se ne tipkajo v odgovoru — izluščijo se iz istega urnika, ki ga
+  // kaže značka Odprto/Zaprto. Ob spremembi urnika se odgovor popravi sam.
+  const [prva, druga] = LOCATIONS;
+  const urnikPrva = hoursSummary(prva.hours);
+  const urnikDruga = hoursSummary(druga.hours);
+
   const faqs: FaqItem[] = [
     {
       id: "hours",
       num: "01",
       tag: t("vprasanja.hoursTag"),
       question: t("vprasanja.hoursVprasanje"),
-      answer: t("vprasanja.hoursOdgovor"),
+      answer: t("vprasanja.hoursOdgovor", {
+        ime1: prva.name,
+        od1: urnikPrva.opens,
+        do1: urnikPrva.closes,
+        vikend1: urnikPrva.weekendCloses ?? urnikPrva.closes,
+        ime2: druga.name,
+        od2: urnikDruga.opens,
+        do2: urnikDruga.closes,
+      }),
       accent: "red",
       offsetClass: styles.offsetStart,
       shadowClass: styles.shadowRed,

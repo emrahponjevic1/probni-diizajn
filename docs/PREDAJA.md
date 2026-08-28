@@ -2,7 +2,9 @@
 
 **Zalijepi ovaj fajl u novi chat da nastaviš odakle smo stali.**
 
-Datum: 27. 8. 2026 · Grana: `main` · Sajt **nije objavljen** — radi samo lokalno
+Datum: 28. 8. 2026 · Grana: `main` · Sajt **nije objavljen** — radi samo lokalno
+
+**Faze 1, 2, 4 i 6 su gotove. Ostaju 3 (objava), 7 (Google) i 5 (jezici).**
 
 ---
 
@@ -101,6 +103,7 @@ Google od 2019. ignoriše ocjene koje firma objavi sama o sebi. Recenzije na saj
 | `src/data/blog.ts` | blog postovi — **prazno**, sa šablonom |
 | `src/lib/hours.ts` | računa da li je sad otvoreno |
 | `src/lib/consent.ts` | pristanak na kolačiće + prekidač `ANALYTICS_ENABLED` |
+| `src/data/site.ts` | **adresa sajta, spisak jezika, logo, share slika, brend boja** |
 
 **Pravilo:** ako mijenjaš podatak o lokalu, mijenjaš ga **samo** u `locations.ts`. Dokazano: promjena telefona na jednom mjestu ažurirala je 40 mjesta na sajtu.
 
@@ -164,6 +167,13 @@ Raniji Vercel projekat je **obrisan**, sa njim i Speed Insights. Sajt trenutno r
 
 **Izmjereno na Vercelu:** desktop LCP 0,6 s / CLS 0 · mobilni LCP ~4,1 s / CLS 0
 
+### ✅ Logo i ikone
+- Ikone izvezao vlasnik iz logotipa: 16, 32, 180, 192, 512 px + `favicon.ico`
+- **Vlasnik je odlučio da natpis ostaje i na ikoni** — upozoren je da se na 16 px slije; njegova odluka
+- `site.webmanifest` je iz generatora došao praznog imena i sa bijelom bojom — popravljeno, boja `#a41023` uzeta iz samog fajla logotipa
+- Slika za dijeljenje 1200×630 — **namjerno JPEG, ne AVIF**: WhatsApp, Viber i Facebook AVIF ne čitaju i preview se ne bi prikazao
+- Obrisane Next-ove podrazumijevane datoteke: `favicon.ico`, `file/globe/next/vercel/window.svg`
+
 ### ✅ SEO na stranici
 `FAQPage` schema na `/halal` (6 pitanja) i `/pogosta-vprasanja` (10 pitanja). Podaci su izdvojeni u `halalFaqs.ts` i `faqSections.ts` — **serverska komponenta ne može čitati izvoze iz `"use client"` fajla**, build pukne.
 
@@ -180,23 +190,38 @@ Raniji Vercel projekat je **obrisan**, sa njim i Speed Insights. Sajt trenutno r
 
 **Nema prekidača za indeksiranje.** Sajt je spreman da bude indeksiran čim se objavi.
 
-Ostaje neurađeno: `BreadcrumbList`, `llms.txt` (neobavezan, nije standard).
+- `BreadcrumbList` na `/blog/<slug>`, `/zaposlitev/<slug>` i `/lokacije/<slug>`
+- `llms.txt` — generiše se iz podataka, ne piše se rukom
+
+**Faza 6 je u cijelosti gotova.**
+
+⚠️ Drobtine na lokacijskim stranicama imaju **namjerno samo dva člana** — `/lokacije` kao stranica ne postoji, pa bi član „Lokacije" vodio u 404.
 
 ### Faza 4 — završena
 Nema više ničega. **`/meni/vegan` je odbačen odlukom vlasnika** — ne pravi se.
 Veganska jela su označena na `/meni` i pominju se na `/halal`; zasebna stranica se ne radi.
 
-### Faza 3 — hosting ← **SLJEDEĆE**
+### Faza 3 — hosting *(parkirana odlukom vlasnika: čeka se)*
 - [ ] Objaviti sajt **odmah na `seherezada.net`**, ne na privremenoj adresi
 - [ ] DNS zapisi kod registrara
 - [ ] HTTPS i preusmjerenje `www → bez www`
 
 U kodu nema šta da se mijenja — `SITE_URL` već pokazuje na pravu domenu i nema prekidača koji bi se mogao zaboraviti.
 
-### Faza 5 — šest jezika
+### Faza 5 — jezici ← **SLJEDEĆE, jedino što se može bez objave**
+
+**Preduslov je ispunjen:** slovenački sadržaj je zaključan 27. 8. — sve tvrdnje na `/halal` su provjerene sa vlasnikom. Prevod se zato radi jednom.
+
+**Čeka se odluka vlasnika:** svih šest jezika odjednom, ili SL + EN pa dopunjavanje.
+Preporuka data vlasniku: **SL + EN prvo.** 14 stranica × 6 = 84 stranice, a svaka buduća ispravka se množi. Za cilj „kebab Ljubljana" radi samo slovenački; ostali su za turiste i strane studente.
+
 - [ ] `next-intl`, `localePrefix: "as-needed"` (slovenački bez prefiksa)
 - [ ] Prevedeni slugovi preko `pathnames` mape
 - [ ] `hreflang` — svaka verzija mora pokazivati na sebe **i** na sve ostale
+
+**Ne prepisuj Fazu 6.** `src/data/site.ts` već ima spisak jezika sa jednim redom. Dopišeš redove i sitemap, canonical i `hreflang` se sami prošire.
+
+**Ključno pravilo:** kanonski URL svake jezičke verzije pokazuje **na samu sebe**, nikad na slovenačku. Ako pokaže na slovenačku, prevedena stranica nestaje iz Google-a.
 
 | SL | EN | DE | IT | BS | TR |
 |---|---|---|---|---|---|
@@ -248,8 +273,8 @@ seherezada-story-chef.avif    1110×896 → 900×726
 ```
 Hero mora ostati ~1024 px zbog gustih ekrana; 600 px bi bilo mutno.
 
-### 🟡 Kontrast — pristupačnost 96/100
-Narandžasta `#ea580c` na krem pozadini i presvijetli sivi tekst, na dvadesetak mjesta. **Mijenja izgled**, pa treba odluka vlasnika.
+### ⬜ Kontrast — **odbačeno odlukom vlasnika**
+Pristupačnost je 96/100 zbog narandžaste na krem pozadini. Vlasnik je odlučio da se **ne dira** — dizajn ostaje kakav jeste. Ne otvaraj ponovo.
 
 ### 🟡 CSS blokira crtanje — ~450 ms
 Naslovnica ima ~112 KB CSS-a (18 KB preneseno). Minifikacija i Brotli su **već uključeni** — nema šta da se dobije stiskanjem. Jedini put je manje CSS-a, a to je rizično (vidi grešku 1).
@@ -298,7 +323,11 @@ Postoji na nekim stranicama. Google ga ignoriše od 2009.
 
 8. **Ne vjeruj izvještaju drugog agenta.** Vercelov agent je javio da je instalirao Speed Insights — na disku nije bilo ničega, radio je na grani u oblaku. Uvijek provjeri `git status` i sam fajl.
 
-9. **Jedno Lighthouse mjerenje ne znači ništa.** Desktop je pao sa 100 na 56 bez ijedne izmjene koja bi to mogla izazvati — TBT je najnestabilnija mjera. Mjeri 3–5 puta i uzmi srednju vrijednost.
+9. **Ne donosi odluke o brendu umjesto vlasnika.** Kad se pokazalo da se logo ne čita na 16 px, nacrtana je pojednostavljena oznaka bez pitanja. Vlasnik je to odbio i tražio da se vrati. **Pokaži problem, ponudi opcije, čekaj odluku.**
+
+10. **Favicon i share slika su izuzetak od AVIF pravila.** Ostatak sajta je AVIF, ali ikone i `og:image` čitaju Google-ov robot, iOS i WhatsApp — oni AVIF ne podržavaju. Tu ide PNG (ikone) i JPEG (fotografija za dijeljenje).
+
+11. **Jedno Lighthouse mjerenje ne znači ništa.** Desktop je pao sa 100 na 56 bez ijedne izmjene koja bi to mogla izazvati — TBT je najnestabilnija mjera. Mjeri 3–5 puta i uzmi srednju vrijednost.
 
 ---
 
@@ -319,6 +348,11 @@ npm run build
 /halal  /studentski-boni  /piskotki  /politika-zasebnosti
 /blog  /blog/[slug]  /zaposlitev  /zaposlitev/[slug]
 /lokacije/trubarjeva-31  /lokacije/slovenska-55
+```
+
+Plus tri koje ne izgledaju kao stranice:
+```
+/sitemap.xml   /robots.txt   /llms.txt
 ```
 
 Provjeri i ovo troje, jer se ne vidi iz builda:

@@ -226,7 +226,9 @@ export default function PopularPicks() {
 
           <h2 className={styles.sectionTitle}>{t("naslov")}</h2>
 
-          <p className={styles.sectionSubtitle}>{t("podnaslov")}</p>
+          <p className={styles.sectionSubtitle}>
+            {t("podnaslov", { stevilo: dishes.length })}
+          </p>
         </div>
 
         {/* ==================================================================

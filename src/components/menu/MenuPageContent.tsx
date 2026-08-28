@@ -255,6 +255,7 @@ export default function MenuPageContent() {
             {t("podnaslov", {
               vseh: MENU_STATS.total,
               naBon: MENU_STATS.student,
+              veganskih: MENU_STATS.vegan,
               doplacilo,
             })}
           </p>

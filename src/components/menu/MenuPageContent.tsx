@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { MENU_ITEMS, MENU_CATEGORIES, MenuItem, WOLT_URL } from "./MenuData";
+import { MENU_ITEMS, MENU_CATEGORIES, MENU_STATS, STUDENT_BON, MenuItem, WOLT_URL } from "./MenuData";
+import { useMenuText, useCategoryText } from "@/i18n/menuText";
 import styles from "./MenuPageContent.module.css";
 
 // Clean Vector SVG Icons
@@ -97,6 +99,17 @@ const ScooterSvg = ({ size = 18, className }: { size?: number; className?: strin
 );
 
 export default function MenuPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "meniStran".
+  const t = useTranslations("meniStran");
+
+  // Imena in opisi jedi ostanejo v MenuData.ts (to je PDF); prevod se vzame,
+  // kadar obstaja. Prevesti je treba PRED filtriranjem, sicer iskanje ne bi
+  // našlo jedi, ki jo gost vtipka v svojem jeziku.
+  const prevediJed = useMenuText();
+  const prevediKategorijo = useCategoryText();
+
+  const doplacilo = `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €`;
+
   const [menuType, setMenuType] = useState<"regular" | "student" | "vegi">("regular");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [layoutMode, setLayoutMode] = useState<"grid" | "list">("grid");
@@ -193,7 +206,7 @@ export default function MenuPageContent() {
   };
 
   const filteredItems = useMemo(() => {
-    return MENU_ITEMS.filter((item) => {
+    return MENU_ITEMS.map(prevediJed).filter((item) => {
       // 1. Search Query Filter
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase().trim();
@@ -228,20 +241,22 @@ export default function MenuPageContent() {
       <section className={styles.headerSection}>
         <header className={styles.heroHeader}>
           <div className={styles.chapterTagContainer}>
-            <span className={styles.tagGhostWatermark}>MENI</span>
+            <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
             <div className={styles.chapterIndexTag}>
               <span className={styles.chapterDash} />
-              <span>JEDILNI LIST &amp; PONUDBA</span>
+              <span>{t("oznakaPoglavja")}</span>
               <span className={styles.chapterDash} />
             </div>
           </div>
 
-          <h1 className={styles.mainTitle}>Meni in cene — kebab, falafel in pizza v&nbsp;Ljubljani</h1>
+          <h1 className={styles.mainTitle}>{t("naslov")}</h1>
 
           <p className={styles.subtitle}>
-            29 jedi: kebab, jufka, falafel, burgerji in pizze, pečene po
-            naročilu. 19 jedi je na voljo na študentski bon z doplačilom
-            3,00 €, sedem jedi je veganskih.
+            {t("podnaslov", {
+              vseh: MENU_STATS.total,
+              naBon: MENU_STATS.student,
+              doplacilo,
+            })}
           </p>
 
           {/* Sub-tab Bar: Menu Type Switcher */}
@@ -252,7 +267,7 @@ export default function MenuPageContent() {
               className={`${styles.typeTabBtn} ${menuType === "regular" ? styles.typeTabBtnActive : ""}`}
             >
               <UtensilsSvg size={16} />
-              <span>Vsa Ponudba</span>
+              <span>{t("zavihekVse")}</span>
             </button>
 
             <button
@@ -261,7 +276,7 @@ export default function MenuPageContent() {
               className={`${styles.typeTabBtn} ${menuType === "student" ? styles.typeTabBtnActive : ""}`}
             >
               <GraduationCapSvg size={16} />
-              <span>Študentski Boni</span>
+              <span>{t("zavihekBoni")}</span>
             </button>
 
             <button
@@ -270,7 +285,7 @@ export default function MenuPageContent() {
               className={`${styles.typeTabBtn} ${menuType === "vegi" ? styles.typeTabBtnActive : ""}`}
             >
               <LeafSvg size={16} />
-              <span>Vegi &amp; Vegan</span>
+              <span>{t("zavihekVegi")}</span>
             </button>
           </div>
 
@@ -282,7 +297,7 @@ export default function MenuPageContent() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Išči po jedeh (kebab, burger, pizza, falafel)..."
+                placeholder={t("iskanje")}
                 className={styles.searchInput}
               />
               {searchQuery && (
@@ -290,7 +305,7 @@ export default function MenuPageContent() {
                   type="button"
                   onClick={() => setSearchQuery("")}
                   className={styles.clearSearchBtn}
-                  aria-label="Počisti iskanje"
+                  aria-label={t("pocistiIskanje")}
                 >
                   ✕
                 </button>
@@ -302,8 +317,8 @@ export default function MenuPageContent() {
                 type="button"
                 onClick={() => setLayoutMode("grid")}
                 className={`${styles.layoutBtn} ${layoutMode === "grid" ? styles.layoutBtnActive : ""}`}
-                title="Mreža kartic"
-                aria-label="Prikaz v mreži"
+                title={t("mrezaNaslov")}
+                aria-label={t("mrezaOznaka")}
               >
                 <LayoutGridSvg size={17} />
               </button>
@@ -312,8 +327,8 @@ export default function MenuPageContent() {
                 type="button"
                 onClick={() => setLayoutMode("list")}
                 className={`${styles.layoutBtn} ${layoutMode === "list" ? styles.layoutBtnActive : ""}`}
-                title="Seznam"
-                aria-label="Prikaz v seznamu"
+                title={t("seznamNaslov")}
+                aria-label={t("seznamOznaka")}
               >
                 <RowsSvg size={17} />
               </button>
@@ -333,23 +348,21 @@ export default function MenuPageContent() {
             <div className={styles.studentBannerLeft}>
               <div className={styles.studentBannerTag}>
                 <GraduationCapSvg size={14} />
-                <span>Študentska Prehrana</span>
+                <span>{t("bannerZnacka")}</span>
               </div>
-              <h2 className={styles.studentBannerTitle}>
-                Izkoristi Študentske Bone v Šeherezadi
-              </h2>
+              <h2 className={styles.studentBannerTitle}>{t("bannerNaslov")}</h2>
               <p className={styles.studentBannerDesc}>
-                <span className={styles.studentBannerLead}>Vsak študentski meni vsebuje:</span>
+                <span className={styles.studentBannerLead}>{t("bannerUvod")}</span>
                 <span className={styles.studentBannerItems}>
-                  <strong>Glavno jed po izbiri</strong> + <strong>Svežo solato</strong> + <strong>Jabolko</strong> + <strong>Pijačo</strong>.
+                  {t.rich("bannerVsebina", { b: (chunks) => <strong>{chunks}</strong> })}
                 </span>
               </p>
             </div>
 
             <div className={styles.studentPriceBox}>
-              <div className={styles.studentPriceLabel}>Doplačilo</div>
-              <div className={styles.studentPriceValue}>3,00 €</div>
-              <div className={styles.studentPriceSub}>z veljavnim bonom</div>
+              <div className={styles.studentPriceLabel}>{t("doplaciloOznaka")}</div>
+              <div className={styles.studentPriceValue}>{doplacilo}</div>
+              <div className={styles.studentPriceSub}>{t("zVeljavnimBonom")}</div>
             </div>
           </div>
         )}
@@ -362,7 +375,7 @@ export default function MenuPageContent() {
               onScroll={updateScrollIndicator}
               className={`${styles.storyAvatarsTrack} ${canScroll ? styles.storyAvatarsTrackScrollable : ""}`}
             >
-              {MENU_CATEGORIES.map((cat) => {
+              {MENU_CATEGORIES.map(prevediKategorijo).map((cat) => {
                 const isActive = selectedCategory === cat.id;
                 const count = getCategoryCount(cat.id);
                 return (
@@ -371,7 +384,7 @@ export default function MenuPageContent() {
                     type="button"
                     onClick={(e) => handleCategorySelect(cat.id, e)}
                     className={`${styles.storyAvatarBtn} ${isActive ? styles.storyAvatarBtnActive : ""}`}
-                    aria-label={`Kategorija ${cat.label}`}
+                    aria-label={t("kategorijaOznaka", { ime: cat.label })}
                   >
                     <div className={styles.storyAvatarRing}>
                       <div className={styles.storyAvatarImgWrap}>
@@ -385,7 +398,7 @@ export default function MenuPageContent() {
                       </div>
                     </div>
                     <span className={styles.storyAvatarLabel}>{cat.shortLabel || cat.label}</span>
-                    <span className={styles.storyAvatarCount}>{count} jedi</span>
+                    <span className={styles.storyAvatarCount}>{t("steviloJedi", { stevilo: count })}</span>
                   </button>
                 );
               })}
@@ -418,10 +431,8 @@ export default function MenuPageContent() {
             ================================================================== */}
         {filteredItems.length === 0 ? (
           <div className={styles.emptyState}>
-            <h3 className={styles.emptyStateTitle}>Ni najdenih jedi</h3>
-            <p className={styles.emptyStateSub}>
-              Za izbrano iskanje ali filter trenutno ni zadetkov. Poskusite z drugim iskalnim pojmom ali ponastavite filtre.
-            </p>
+            <h3 className={styles.emptyStateTitle}>{t("niZadetkov")}</h3>
+            <p className={styles.emptyStateSub}>{t("niZadetkovOpis")}</p>
             <button
               type="button"
               onClick={() => {
@@ -431,7 +442,7 @@ export default function MenuPageContent() {
               }}
               className={styles.resetFilterBtn}
             >
-              Ponastavi filtre
+              {t("ponastaviFiltre")}
             </button>
           </div>
         ) : layoutMode === "grid" ? (
@@ -443,7 +454,7 @@ export default function MenuPageContent() {
                   <div
                     className={styles.imageWrapper}
                     onClick={() => setModalDish(item)}
-                    title="Klikni za podrobnosti o sestavinah in alergenih"
+                    title={t("klikniSestavineAlergeni")}
                   >
                     {/* Prvih šest kartic je vidnih brez drsenja. Če jih
                         brskalnik odloži, gost gleda prazna polja — zato prvo
@@ -465,13 +476,13 @@ export default function MenuPageContent() {
                       {item.diet && (
                         <span className={styles.vegiBadge}>
                           <LeafSvg size={11} />
-                          <span>{item.diet === "vegan" ? "Vegansko" : "Vegetarijansko"}</span>
+                          <span>{item.diet === "vegan" ? t("znackaVegansko") : t("znackaVegetarijansko")}</span>
                         </span>
                       )}
                       {item.student && menuType !== "student" && (
                         <span className={styles.studentBonBadge}>
                           <GraduationCapSvg size={11} />
-                          <span>Na Bon</span>
+                          <span>{t("znackaNaBon")}</span>
                         </span>
                       )}
                     </div>
@@ -487,7 +498,7 @@ export default function MenuPageContent() {
                 <div className={styles.cardBottom}>
                   {menuType === "student" ? (
                     <div className={styles.studentBonActiveTag}>
-                      <span>✓ Na Študentski Bon (3,00 €)</span>
+                      <span>{t("naStudentskiBon", { doplacilo })}</span>
                     </div>
                   ) : (
                     <div className={styles.priceCol}>
@@ -496,7 +507,7 @@ export default function MenuPageContent() {
                       </span>
                       {item.priceLarge && (
                         <span className={styles.priceNote}>
-                          velika {item.priceLarge.toFixed(2).replace(".", ",")} €
+                          {t("velika", { cena: `${item.priceLarge.toFixed(2).replace(".", ",")} €` })}
                         </span>
                       )}
                       {item.note && <span className={styles.priceNote}>{item.note}</span>}
@@ -510,8 +521,8 @@ export default function MenuPageContent() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.cardActionBtn}
-                        title="Naroči prek Wolta"
-                        aria-label={`Naroči prek Wolta`}
+                        title={t("narociWolt")}
+                        aria-label={t("narociWolt")}
                       >
                         <ScooterSvg size={18} />
                       </a>
@@ -539,7 +550,7 @@ export default function MenuPageContent() {
                   <div
                     className={styles.listImgWrapper}
                     onClick={() => setModalDish(item)}
-                    title="Klikni za podrobnosti o sestavinah"
+                    title={t("klikniSestavine")}
                   >
                     {/* Isto pravilo kot pri mreži: vidno se ne odlaga. */}
                     <Image
@@ -559,12 +570,12 @@ export default function MenuPageContent() {
                       </h3>
                       {item.diet && (
                         <span className={styles.vegiBadge} style={{ padding: "2px 7px", fontSize: "0.68rem" }}>
-                          {item.diet === "vegan" ? "Vegansko" : "Vegi"}
+                          {item.diet === "vegan" ? t("znackaVegansko") : t("znackaVegi")}
                         </span>
                       )}
                       {item.student && menuType !== "student" && (
                         <span className={styles.studentBonBadge} style={{ padding: "2px 7px", fontSize: "0.68rem" }}>
-                          Bon
+                          {t("znackaBon")}
                         </span>
                       )}
                     </div>
@@ -573,7 +584,7 @@ export default function MenuPageContent() {
 
                     <div className={styles.listPrice}>
                       {menuType === "student"
-                        ? "Na bon (doplačilo 3,00 €)"
+                        ? t("naBonSDoplacilom", { doplacilo })
                         : `${item.price.toFixed(2).replace(".", ",")} €${
                             item.priceLarge ? ` · velika ${item.priceLarge.toFixed(2).replace(".", ",")} €` : ""
                           }`}
@@ -588,8 +599,8 @@ export default function MenuPageContent() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.cardActionBtn}
-                      title="Naroči prek Wolta"
-                      aria-label="Naroči prek Wolta"
+                      title={t("narociWolt")}
+                      aria-label={t("narociWolt")}
                     >
                       <ScooterSvg size={18} />
                     </a>
@@ -655,7 +666,7 @@ export default function MenuPageContent() {
                     {modalDish.note && <span className={styles.priceNote}>{modalDish.note}</span>}
                     {modalDish.student && (
                       <span className={styles.studentBonBadge} style={{ marginLeft: "0.4rem" }}>
-                        Študentski Bon (3,00 €)
+                        {t("studentskiBonZnacka", { doplacilo })}
                       </span>
                     )}
                   </div>
@@ -665,7 +676,7 @@ export default function MenuPageContent() {
                   type="button"
                   onClick={() => setModalDish(null)}
                   className={styles.modalCloseTopBtn}
-                  aria-label="Zapri okno"
+                  aria-label={t("zapriOkno")}
                 >
                   ✕
                 </button>
@@ -675,13 +686,13 @@ export default function MenuPageContent() {
               <div className={styles.modalBody}>
                 {/* 1. Opis */}
                 <div>
-                  <h4 className={styles.modalSectionTitle}>Opis Jedi</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("opisJedi")}</h4>
                   <p className={styles.modalDescText}>{modalDish.desc}</p>
                 </div>
 
                 {/* 2. Sestavine */}
                 <div>
-                  <h4 className={styles.modalSectionTitle}>Sestavine</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("sestavine")}</h4>
                   <ul className={styles.ingredientsList}>
                     {modalDish.ingredientsList.map((ingredient, idx) => (
                       <li key={idx} className={styles.ingredientItem}>
@@ -694,7 +705,7 @@ export default function MenuPageContent() {
 
                 {/* 3. Alergeni */}
                 <div>
-                  <h4 className={styles.modalSectionTitle}>Alergeni</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("alergeni")}</h4>
                   {modalDish.allergensList.length > 0 ? (
                     <div className={styles.allergensGrid}>
                       {modalDish.allergensList.map((allergen, idx) => (
@@ -706,7 +717,7 @@ export default function MenuPageContent() {
                     </div>
                   ) : (
                     <p className={styles.modalDescText} style={{ color: "#059669", fontWeight: 700 }}>
-                      Brez znanih alergenov.
+                      {t("brezAlergenov")}
                     </p>
                   )}
                 </div>
@@ -719,7 +730,7 @@ export default function MenuPageContent() {
                   onClick={() => setModalDish(null)}
                   className={styles.modalCloseBtn}
                 >
-                  Zapri okno
+                  {t("zapriOkno")}
                 </button>
               </div>
             </div>

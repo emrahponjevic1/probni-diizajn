@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from "react";
 import { useTranslations } from "next-intl";
+import { useMenuText } from "@/i18n/menuText";
 import { Link } from "@/i18n/navigation";
 import { createPortal } from "react-dom";
 import Image from "next/image";
@@ -71,12 +72,17 @@ export default function PopularPicks() {
   // Besedila so v messages/<jezik>.json pod ključem "priljubljene".
   const t = useTranslations("priljubljene");
 
+  // Imena in opisi jedi ostanejo v MenuData.ts (to je PDF). Ta funkcija
+  // vrne prevod, kadar zanj obstaja — sicer slovensko besedilo.
+  const prevediJed = useMenuText();
+
   // Priljubljene izbire se izpeljejo neposredno iz MENU_ITEMS.
   // Jed dodaš ali odstraniš s poljem `featured` v MenuData.ts — nikoli tukaj.
   // Tako se cene in imena na naslovnici ne morejo razhajati z menijem.
   const dishes: Dish[] = useMemo(
     () =>
-      FEATURED_ITEMS.map((item) => {
+      FEATURED_ITEMS.map((surovaJed) => {
+        const item = prevediJed(surovaJed);
         const base = `${item.price.toFixed(2).replace(".", ",")} €`;
 
         const badge =

@@ -1,5 +1,9 @@
 import { MENU_ITEMS, type MenuItem } from "@/components/menu/MenuData";
-import { SITE_NAME, absoluteUrl } from "@/data/site";
+import { useLocale } from "next-intl";
+import { SITE_NAME } from "@/data/site";
+import { localizedUrl } from "@/i18n/urls";
+import type { AppLocale } from "@/i18n/urls";
+import { useMenuText } from "@/i18n/menuText";
 
 /**
  * MENU — jedilnik, kot ga prebere iskalnik
@@ -49,9 +53,16 @@ function toMenuItem(item: MenuItem) {
 }
 
 export default function MenuJsonLd() {
+  // Strukturirani podatki morajo biti v jeziku strani: na /de/speisekarte
+  // Google ne sme prebrati slovenskih imen jedi.
+  const locale = useLocale() as AppLocale;
+  const prevediJed = useMenuText();
+
+  // Imena razdelkov so imena kategorij. Ker jedi prevedemo PRED razvrščanjem,
+  // je categoryLabel že preveden in razdelki dobijo pravo ime sami.
   // Jedi razvrstimo po razdelkih, kot so razvrščene na strani.
   const sections = Array.from(
-    MENU_ITEMS.reduce((acc, item) => {
+    MENU_ITEMS.map(prevediJed).reduce((acc, item) => {
       const list = acc.get(item.categoryLabel) ?? [];
       list.push(item);
       acc.set(item.categoryLabel, list);
@@ -62,10 +73,10 @@ export default function MenuJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Menu",
-    "@id": `${absoluteUrl("/meni")}#menu`,
+    "@id": `${localizedUrl("/meni", locale)}#menu`,
     name: `Meni — ${SITE_NAME}`,
-    url: absoluteUrl("/meni"),
-    inLanguage: "sl",
+    url: localizedUrl("/meni", locale),
+    inLanguage: locale,
     hasMenuSection: sections.map(([label, items]) => ({
       "@type": "MenuSection",
       name: label,

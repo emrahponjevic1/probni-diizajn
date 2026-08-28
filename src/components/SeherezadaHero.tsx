@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import styles from "./SeherezadaHero.module.css";
@@ -101,6 +102,9 @@ export default function SeherezadaHero() {
 
   /** Katera poslovalnica je poudarjena med karticama pod naslovom. */
 
+  // Besedila so v messages/<jezik>.json pod ključem "hero".
+  const t = useTranslations("hero");
+
   return (
     <div className={styles.heroWrapper}>
       {/* Background Soft Glow */}
@@ -117,22 +121,17 @@ export default function SeherezadaHero() {
 
           {/* 1. Main Title — nosi glavne iskalne pojme, ne blagovne znamke.
               Ime "Šeherezada" je že v navbaru, <title> tagu in nogi. */}
-          <h1 className={styles.mainTitle}>Kebab, pizza in falafel v središču Ljubljane</h1>
+          <h1 className={styles.mainTitle}>{t("naslov")}</h1>
 
           {/* 2. Slogan pod naslovom — namenoma <p>, ne <h2>.
               Ne uvaja nobenega razdelka, zato ne sme biti naslov: sicer bi se v
               strukturi dokumenta postavil ob bok pravim razdelkom (Priljubljene
               izbire, Naša zgodba …) in zavajal bralnike zaslona.
               Ključna beseda "študentski boni" dobi svoj H2 nižje, v razdelku o bonih. */}
-          <p className={styles.outlinedSubtitle}>
-            Študentski&nbsp;boni&nbsp;· odprto&nbsp;pozno
-          </p>
+          <p className={styles.outlinedSubtitle}>{t("podnaslov")}</p>
 
           {/* 3. Description */}
-          <p className={styles.description}>
-            100 % sveže pečeno halal meso in hrustljav domač falafel.
-            Najdete nas na Trubarjevi 31 in Slovenski 55.
-          </p>
+          <p className={styles.description}>{t("opis")}</p>
 
           {/* 4. Google Reviews Rating Card */}
           <div className={styles.reviewsBadge}>
@@ -143,15 +142,15 @@ export default function SeherezadaHero() {
               <span>★</span>
               <span>★</span>
             </div>
-            <span className={styles.ratingScore}>4,5</span>
-            <span className={styles.ratingCount}>(1.972 Google ocen)</span>
+            <span className={styles.ratingScore}>{t("ocena")}</span>
+            <span className={styles.ratingCount}>{t("steviloOcen")}</span>
           </div>
 
           {/* 5. Action Buttons */}
           <div className={styles.ctaRow}>
             <Link href="/meni" className={styles.primaryMenuBtn}>
               <UtensilsSvg size={19} />
-              <span>Poglej meni in cene</span>
+              <span>{t("poglejMeni")}</span>
               <ArrowRightSvg size={16} />
             </Link>
             <a href={`tel:${PHONE.restaurant.e164}`} className={styles.phoneBtn}>
@@ -184,7 +183,7 @@ export default function SeherezadaHero() {
                   rel="noopener noreferrer"
                   className={styles.navodilaLink}
                 >
-                  <span>Lokacija</span>
+                  <span>{t("lokacija")}</span>
                   <span>&rarr;</span>
                 </a>
               </div>
@@ -209,7 +208,7 @@ export default function SeherezadaHero() {
             <div className={styles.plateAura} />
             <Image
               src="/images/seherezada-hero-doner-kebab.avif"
-              alt="Šeherezada Pravi Turški Döner Kebab"
+              alt={t("altKebab")}
               width={480}
               height={480}
               priority
@@ -220,8 +219,8 @@ export default function SeherezadaHero() {
             <div className={styles.floatingBadgeHalal}>
               <div className={styles.badgeHalalIcon}>✓</div>
               <div>
-                <div className={styles.floatingBadgeHalalTitle}>Halal Meso</div>
-                <div className={styles.floatingBadgeHalalSub}>100% Sveže</div>
+                <div className={styles.floatingBadgeHalalTitle}>{t("halalMeso")}</div>
+                <div className={styles.floatingBadgeHalalSub}>{t("stoOdstotkovSveze")}</div>
               </div>
             </div>
 
@@ -232,19 +231,15 @@ export default function SeherezadaHero() {
               <div className={styles.trophyCircle}>
                 <TrophySvg size={18} />
               </div>
-              <span className={styles.premiumGoldTag}>OD 1998</span>
-              <div className={styles.floatingBadgePremiumTitle}>
-                Dve lokaciji
-              </div>
-              <div className={styles.floatingBadgePremiumSub}>
-                Trubarjeva &amp; Slovenska
-              </div>
+              <span className={styles.premiumGoldTag}>{t("od1998")}</span>
+              <div className={styles.floatingBadgePremiumTitle}>{t("dveLokaciji")}</div>
+              <div className={styles.floatingBadgePremiumSub}>{t("trubarjevaInSlovenska")}</div>
             </div>
 
             {/* Floating Badge 3: Domač kruh po tajnem receptu */}
             <div className={styles.floatingBadgeRecipe}>
               <span>✓</span>
-              <span>Domač kruh po tajnem receptu</span>
+              <span>{t("domacKruh")}</span>
             </div>
 
             {/* Floating decorative leaf & chili accents */}

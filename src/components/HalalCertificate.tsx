@@ -1,6 +1,8 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { HALAL_OZNAKA } from "@/data/halal";
+import { MENU_STATS } from "./menu/MenuData";
 import styles from "./HalalCertificate.module.css";
 
 const ArrowRightSvg = ({ size = 16 }: { size?: number }) => (
@@ -19,6 +21,9 @@ const ShieldCheckSvg = ({ size = 20 }: { size?: number }) => (
 );
 
 export default function HalalCertificate() {
+  // Besedila so v messages/<jezik>.json pod ključem "halalZnak".
+  const t = useTranslations("halalZnak");
+
   return (
     <section className={styles.halalSection} id="halal">
       <div className={styles.bgWarmGlow} />
@@ -42,8 +47,8 @@ export default function HalalCertificate() {
                   <ShieldCheckSvg size={20} />
                 </div>
                 <div className={styles.certPillMeta}>
-                  <span className={styles.certPillTitle}>100% Halal Certificirano</span>
-                  <span className={styles.certPillSub}>0% Svinjskega mesa · Brez kompromisov</span>
+                  <span className={styles.certPillTitle}>{t("certificirano")}</span>
+                  <span className={styles.certPillSub}>{t("brezSvinjine")}</span>
                 </div>
               </div>
             </div>
@@ -52,52 +57,42 @@ export default function HalalCertificate() {
           {/* Right: Story & 3 Numbered Strips */}
           <div className={styles.halalRightCol}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>HALAL</span>
+              <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
                 <span>
-                  <span className={styles.chapterNumber}>03</span> / GARANCIJA KAKOVOSTI
+                  <span className={styles.chapterNumber}>03</span> / {t("oznakaPoglavja")}
                 </span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
 
-            <h2 className={styles.halalHeading}>
-              100 % halal hrana v Ljubljani — na obeh lokacijah
-            </h2>
+            <h2 className={styles.halalHeading}>{t("naslov")}</h2>
 
             <div className={styles.trustPillsRow}>
               <span className={`${styles.trustPillTag} ${styles.trustPillTagHighlight}`}>
                 <span>✓</span>
-                <span>100% Halal Meso</span>
+                <span>{t("znackaMeso")}</span>
               </span>
               <span className={`${styles.trustPillTag} ${styles.trustPillTagHighlight}`}>
                 <span>✓</span>
-                <span>0% Svinjskega Mesa</span>
+                <span>{t("znackaSvinjina")}</span>
               </span>
               <span className={styles.trustPillTag}>
                 <span>✓</span>
-                <span>100% Brez Alkohola</span>
+                <span>{t("znackaAlkohol")}</span>
               </span>
             </div>
 
-            <p className={styles.halalLeadText}>
-              Vse meso v Šeherezadi je 100 % halal certificirano. V naših kuhinjah
-              na Trubarjevi 31 in Slovenski 55 ni svinjine, svinjskih derivatov
-              ne alkohola — brez izjem. Na meniju je tudi 7 popolnoma
-              rastlinskih jedi.
-            </p>
+            <p className={styles.halalLeadText}>{t("uvod", { stevilo: MENU_STATS.vegan })}</p>
 
             <div className={styles.numberedStripsList}>
               {/* Strip 1 */}
               <div className={styles.stripCard}>
                 <div className={styles.stripNumberBadge}>01</div>
                 <div className={styles.stripContent}>
-                  <h3 className={styles.stripTitle}>Preverjeno in Certificirano Poreklo</h3>
-                  <p className={styles.stripDesc}>
-                    Uporabljamo izključno telečje in piščančje meso iz nadzorovanih
-                    evropskih virov z veljavnim mednarodnim certifikatom in sledljivostjo.
-                  </p>
+                  <h3 className={styles.stripTitle}>{t("poreklaNaslov")}</h3>
+                  <p className={styles.stripDesc}>{t("poreklaOpis")}</p>
                 </div>
               </div>
 
@@ -106,12 +101,9 @@ export default function HalalCertificate() {
                 <div className={styles.stripNumberBadge}>02</div>
                 <div className={styles.stripContent}>
                   <h3 className={styles.stripTitle} style={{ color: "#ea580c" }}>
-                    0% Svinjskega Mesa &amp; Brez Alkohola
+                    {t("prepovedNaslov")}
                   </h3>
-                  <p className={styles.stripDesc}>
-                    V naših kuhinjah velja stroga prepoved svinjine, svinjskih derivatov,
-                    alkohola ali kakršnihkoli skritih živalskih maščob.
-                  </p>
+                  <p className={styles.stripDesc}>{t("prepovedOpis")}</p>
                 </div>
               </div>
 
@@ -119,17 +111,14 @@ export default function HalalCertificate() {
               <div className={styles.stripCard}>
                 <div className={styles.stripNumberBadge}>03</div>
                 <div className={styles.stripContent}>
-                  <h3 className={styles.stripTitle}>Dnevno Sveže Pripravljeno</h3>
-                  <p className={styles.stripDesc}>
-                    Vsako jutro sveže pečene domače lepinje, marinada po tajnem
-                    receptu in lokalno pridelana sveža zelenjava.
-                  </p>
+                  <h3 className={styles.stripTitle}>{t("svezeNaslov")}</h3>
+                  <p className={styles.stripDesc}>{t("svezeOpis")}</p>
                 </div>
               </div>
             </div>
 
             <Link href="/halal" className={styles.halalMoreLink}>
-              <span>Kaj halal pomeni in kako se certificira</span>
+              <span>{t("vecOHalalu")}</span>
               <ArrowRightSvg size={16} />
             </Link>
           </div>

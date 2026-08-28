@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import styles from "./SiteFooter.module.css";
 import { LOCATIONS, PHONE } from "@/data/locations";
 import { Link } from "@/i18n/navigation";
@@ -49,6 +50,9 @@ const ArrowUpRightSvg = ({ size = 14 }: { size?: number }) => (
 const [trubarjeva, slovenska] = LOCATIONS;
 
 export default function SiteFooter() {
+  // Besedila so v messages/<jezik>.json pod ključem "noga".
+  const t = useTranslations("noga");
+
   return (
     <footer className={styles.footerSection}>
       <div className={styles.bgWarmGlow} />
@@ -65,10 +69,7 @@ export default function SiteFooter() {
               </span>
             </Link>
 
-            <p className={styles.brandBioText}>
-              Ljubljanski street food od leta 1998. Halal kebab, jufka, falafel in
-              pizza na dveh lokacijah — Trubarjeva 31 in Slovenska 55.
-            </p>
+            <p className={styles.brandBioText}>{t("opis")}</p>
 
             <div className={styles.socialRow}>
               <a
@@ -106,12 +107,12 @@ export default function SiteFooter() {
 
           {/* Column 2: Lokaciji & Kontakt */}
           <div className={styles.locContactCol}>
-            <span className={styles.colTitle}>LOKACIJI &amp; KONTAKT</span>
+            <span className={styles.colTitle}>{t("lokacijiInKontakt")}</span>
 
             <div className={styles.locBlocksList}>
               {/* Location 1 */}
               <div className={styles.locBlock}>
-                <span className={styles.locName}>Šeherezada:</span>
+                <span className={styles.locName}>{trubarjeva.name}:</span>
                 <span className={styles.locStreetText}>{trubarjeva.fullAddress}</span>
                 <a href={`tel:${PHONE.restaurant.e164}`} className={styles.locPhoneLink}>
                   <PhoneSvg size={14} />
@@ -121,7 +122,7 @@ export default function SiteFooter() {
 
               {/* Location 2 */}
               <div className={styles.locBlock}>
-                <span className={styles.locName}>Šeherezada 2:</span>
+                <span className={styles.locName}>{slovenska.name}:</span>
                 <span className={styles.locStreetText}>{slovenska.fullAddress}</span>
                 <a href={`tel:${PHONE.restaurant.e164}`} className={styles.locPhoneLink}>
                   <PhoneSvg size={14} />
@@ -168,17 +169,15 @@ export default function SiteFooter() {
 
         {/* Slim Bottom Sub-Footer Bar */}
         <div className={styles.subFooterBar}>
-          <p className={styles.copyrightText}>
-            © 2026 Šeherezada Ljubljana. Vse pravice pridržane.
-          </p>
+          <p className={styles.copyrightText}>{t("avtorskePravice")}</p>
 
           <div className={styles.legalLinksRow}>
             <Link href="/piskotki" className={styles.legalLink}>
-              Piškotki
+              {t("piskotki")}
             </Link>
             <span className={styles.legalSeparator} />
             <Link href="/politika-zasebnosti" className={styles.legalLink}>
-              Politika zasebnosti
+              {t("politikaZasebnosti")}
             </Link>
           </div>
         </div>

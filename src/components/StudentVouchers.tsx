@@ -1,6 +1,8 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { LOCATIONS } from "@/data/locations";
+import { MENU_STATS, STUDENT_BON } from "./menu/MenuData";
 import StatusBadge from "./locations/StatusBadge";
 import styles from "./StudentVouchers.module.css";
 
@@ -56,6 +58,12 @@ const ArrowRightSvg = ({ size = 16 }: { size?: number }) => (
 );
 
 export default function StudentVouchers() {
+  // Besedila so v messages/<jezik>.json pod ključem "boniOdsek".
+  const t = useTranslations("boniOdsek");
+
+  // Doplačilo se ne prepisuje: pride iz STUDENT_BON v MenuData.ts.
+  const doplacilo = `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €`;
+
   return (
     <section className={styles.studentSection} id="boni">
       <div className={styles.bgWarmGlow} />
@@ -64,25 +72,29 @@ export default function StudentVouchers() {
         {/* Section Header with Editorial Chapter Lockup */}
         <div className={styles.sectionHeader}>
           <div className={styles.chapterTagContainer}>
-            <span className={styles.tagGhostWatermark}>BONI</span>
+            <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
             <div className={styles.chapterIndexTag}>
               <span className={styles.chapterDash} />
               <span>
-                <span className={styles.chapterNumber}>04</span> / ŠTUDENTSKA PREHRANA
+                <span className={styles.chapterNumber}>04</span> / {t("oznakaPoglavja")}
               </span>
               <span className={styles.chapterDash} />
             </div>
           </div>
 
           <h2 className={styles.sectionTitle}>
-            Šeherezada: <span className={styles.titleEmphasis}>Bodi sit</span>{" "}
-            <span className={styles.titleSecondLine}>med študijem!</span>
+            {t.rich("naslov", {
+              poudarek: (chunks) => <span className={styles.titleEmphasis}>{chunks}</span>,
+              druga: (chunks) => <span className={styles.titleSecondLine}>{chunks}</span>,
+            })}
           </h2>
 
           <p className={styles.sectionSubtitle}>
-            19 od 29 jedi na našem meniju je na voljo na študentski bon. Za
-            doplačilo 3,00 € dobiš glavno jed, solato, jabolko in pijačo — na
-            obeh lokacijah v središču Ljubljane.
+            {t("podnaslov", {
+              naBon: MENU_STATS.student,
+              vseh: MENU_STATS.total,
+              doplacilo: doplacilo,
+            })}
           </p>
         </div>
 
@@ -92,27 +104,25 @@ export default function StudentVouchers() {
           <div className={styles.bentoTopRow}>
             {/* Left Large Card */}
             <div className={styles.bentoHeroBanner}>
-              <span className={styles.bannerGhostWatermark}>BONI</span>
+              <span className={styles.bannerGhostWatermark}>{t("vodniZnak")}</span>
 
               <div>
                 <div className={styles.bannerTopBadge}>
-                  <span>Študentski Boni Sprejeti</span>
+                  <span>{t("znacka")}</span>
                 </div>
 
-                <h3 className={styles.bannerMainHeading}>
-                  Izkoristi študentske bone v Šeherezadi
-                </h3>
+                <h3 className={styles.bannerMainHeading}>{t("bannerNaslov")}</h3>
               </div>
 
               <div className={styles.bannerBottomRow}>
                 <Link href="/studentski-boni" className={styles.bannerCtaBtn}>
-                  <span>Več o Študentskih Bonih</span>
+                  <span>{t("bannerGumb")}</span>
                   <ArrowRightSvg size={16} />
                 </Link>
 
                 <p className={styles.bannerLeadText}>
-                  Döner kebab, jufka, falafel in pizza
-                  <br />— vse na bon.
+                  {t("bannerVrstica1")}
+                  <br />{t("bannerVrstica2")}
                 </p>
               </div>
             </div>
@@ -121,7 +131,7 @@ export default function StudentVouchers() {
             <div className={styles.bentoRightPhotoCard}>
               <Image
                 src="/images/seherezada-student-kitchen.avif"
-                alt="Prijazna ekipa Šeherezade pripravlja sveže študentske obroke"
+                alt={t("altEkipa")}
                 width={500}
                 height={380}
                 className={styles.bentoRightPhotoImg}
@@ -134,8 +144,8 @@ export default function StudentVouchers() {
             {/* Card 1: Locations */}
             <div className={styles.bentoLocCard}>
               <div className={styles.locCardHeader}>
-                <h4 className={styles.locCardTitle}>Na vseh lokacijah</h4>
-                <span className={styles.locCountBadge}>2 Lokaciji v LJ</span>
+                <h4 className={styles.locCardTitle}>{t("naVsehLokacijah")}</h4>
+                <span className={styles.locCountBadge}>{t("steviloLokacij", { stevilo: LOCATIONS.length })}</span>
               </div>
 
               <div className={styles.locList}>
@@ -160,37 +170,35 @@ export default function StudentVouchers() {
 
             {/* Card 2: Doplačilo */}
             <div className={styles.bentoPriceCard}>
-              <span className={styles.priceCardLabel}>DOPLAČILO</span>
-              <span className={styles.priceMinHighlight}>3,00 €</span>
-              <p className={styles.priceCardDesc}>
-                Glavna jed, solata, jabolko in pijača.
-              </p>
+              <span className={styles.priceCardLabel}>{t("doplaciloOznaka")}</span>
+              <span className={styles.priceMinHighlight}>{doplacilo}</span>
+              <p className={styles.priceCardDesc}>{t("doplaciloOpis")}</p>
             </div>
 
             {/* Card 3: Food Preview Card */}
             <div className={styles.bentoFoodPreviewCard}>
               <Image
                 src="/images/seherezada-student-meal.avif"
-                alt="Kebab študentski meni"
+                alt={t("altObrok")}
                 width={300}
                 height={200}
                 className={styles.bentoFoodBgImg}
               />
               <div className={styles.bentoFoodOverlay} />
 
-              <h4 className={styles.bentoFoodTitle}>Kebab Meni</h4>
+              <h4 className={styles.bentoFoodTitle}>{t("kebabMeni")}</h4>
 
               <div className={styles.bentoFoodIconsRow}>
-                <div className={styles.bentoFoodIconCircle} title="Glavna jed (Kebab)">
+                <div className={styles.bentoFoodIconCircle} title={t("ikonaGlavnaJed")}>
                   <UtensilsSvg size={16} />
                 </div>
-                <div className={styles.bentoFoodIconCircle} title="Sveža solata">
+                <div className={styles.bentoFoodIconCircle} title={t("ikonaSolata")}>
                   <SoupSvg size={16} />
                 </div>
-                <div className={styles.bentoFoodIconCircle} title="Sveže sadje (Jabolko)">
+                <div className={styles.bentoFoodIconCircle} title={t("ikonaSadje")}>
                   <AppleSvg size={16} />
                 </div>
-                <div className={styles.bentoFoodIconCircle} title="Voda / Pijača">
+                <div className={styles.bentoFoodIconCircle} title={t("ikonaPijaca")}>
                   <DrinkSvg size={16} />
                 </div>
               </div>

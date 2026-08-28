@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import styles from "./SiteNavbar.module.css";
 import StatusBadge from "./locations/StatusBadge";
@@ -29,6 +30,9 @@ interface SiteNavbarProps {
 }
 
 export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
+  // Besedila so v messages/<jezik>.json pod ključem "navigacija".
+  const t = useTranslations("navigacija");
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(true);
@@ -118,14 +122,14 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
   }, []);
 
   const navItems = [
-    { label: "Domov", href: "/", active: activeRoute === "home" },
-    { label: "Meni", href: "/meni", active: activeRoute === "meni" },
-    { label: "Galerija", href: "/galerija", active: activeRoute === "galerija" },
-    { label: "O nas", href: "/o-nas", active: activeRoute === "o-nas" },
-    { label: "Pogosta vprašanja", href: "/pogosta-vprasanja", active: activeRoute === "pogosta-vprasanja" },
-    { label: "Zaposlitev", href: "/zaposlitev", active: activeRoute === "zaposlitev" },
-    { label: "Blog", href: "/blog", active: activeRoute === "blog" },
-    { label: "Kontakt", href: "/kontakt", active: activeRoute === "kontakt" },
+    { label: t("domov"), href: "/", active: activeRoute === "home" },
+    { label: t("meni"), href: "/meni", active: activeRoute === "meni" },
+    { label: t("galerija"), href: "/galerija", active: activeRoute === "galerija" },
+    { label: t("oNas"), href: "/o-nas", active: activeRoute === "o-nas" },
+    { label: t("pogostaVprasanja"), href: "/pogosta-vprasanja", active: activeRoute === "pogosta-vprasanja" },
+    { label: t("zaposlitev"), href: "/zaposlitev", active: activeRoute === "zaposlitev" },
+    { label: t("blog"), href: "/blog", active: activeRoute === "blog" },
+    { label: t("kontakt"), href: "/kontakt", active: activeRoute === "kontakt" },
     // as const: brez tega bi bil href navaden string in prevajalnik ne bi
     // ujel poti, ki ne obstaja.
   ] as const;
@@ -199,7 +203,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                 aria-expanded={isDesktopLocOpen}
               >
                 <PinSvg size={15} />
-                <span>Lokaciji</span>
+                <span>{t("lokaciji")}</span>
                 <span style={{ fontSize: "0.72rem", opacity: 0.6 }}>▾</span>
               </button>
 
@@ -211,7 +215,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                   setIsDesktopLocOpen(false);
                 }}
                 className={`${styles.langPillBtn} ${isDesktopLangOpen ? styles.langPillBtnActive : ""}`}
-                aria-label="Izbira jezika"
+                aria-label={t("izbiraJezika")}
                 aria-expanded={isDesktopLangOpen}
               >
                 <span style={{ fontWeight: 800 }}>{currentLangObj.code}</span>
@@ -271,7 +275,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               className={styles.hamburgerBtn}
-              aria-label="Odpri navigacijski meni"
+              aria-label={t("odpriMeni")}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="4" y1="6" x2="20" y2="6" />
@@ -311,7 +315,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                 setIsDrawerLangOpen(false);
               }}
               className={styles.closeDrawerBtn}
-              aria-label="Zapri meni"
+              aria-label={t("zapriMeni")}
             >
               ✕
             </button>
@@ -408,7 +412,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
               >
                 <PinSvg size={18} className={styles.drawerActionIcon} />
                 <div className={styles.drawerActionTextCol}>
-                  <span className={styles.drawerActionLabel}>Lokaciji</span>
+                  <span className={styles.drawerActionLabel}>{t("lokaciji")}</span>
                 </div>
                 <span className={styles.drawerActionArrow}>{isDrawerLocOpen ? "▴" : "▾"}</span>
               </button>
@@ -420,11 +424,11 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                   setIsDrawerLocOpen(false);
                 }}
                 className={`${styles.drawerLangBtn} ${isDrawerLangOpen ? styles.drawerBtnActive : ""}`}
-                aria-label="Izbira jezika"
+                aria-label={t("izbiraJezika")}
               >
                 <span className={styles.drawerActionIcon} style={{ fontSize: "0.92rem", fontWeight: 800 }}>文A</span>
                 <div className={styles.drawerActionTextCol}>
-                  <span className={styles.drawerActionLabel}>Jezik</span>
+                  <span className={styles.drawerActionLabel}>{t("jezik")}</span>
                   <span className={styles.drawerActionValue}>{currentLangObj.code}</span>
                 </div>
                 <span className={styles.drawerActionArrow}>{isDrawerLangOpen ? "▴" : "▾"}</span>

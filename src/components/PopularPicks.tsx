@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import styles from "./PopularPicks.module.css";
-import { FEATURED_ITEMS } from "./menu/MenuData";
+import { FEATURED_ITEMS, MENU_STATS } from "./menu/MenuData";
 
 // Clean, borderless SVG Info / Exclamation Icon
 const InfoCircleSvg = ({ size = 20, className }: { size?: number; className?: string }) => (
@@ -67,6 +68,9 @@ export default function PopularPicks() {
   // Modal / Popup State for Dish Details (Ingredients, Allergens, Description)
   const [modalDish, setModalDish] = useState<Dish | null>(null);
 
+  // Besedila so v messages/<jezik>.json pod ključem "priljubljene".
+  const t = useTranslations("priljubljene");
+
   // Priljubljene izbire se izpeljejo neposredno iz MENU_ITEMS.
   // Jed dodaš ali odstraniš s poljem `featured` v MenuData.ts — nikoli tukaj.
   // Tako se cene in imena na naslovnici ne morejo razhajati z menijem.
@@ -77,13 +81,13 @@ export default function PopularPicks() {
 
         const badge =
           item.featured === 1
-            ? "Najbolj prodajano"
+            ? t("znackaNajbolj")
             : item.diet === "vegan"
-              ? "Vegansko"
+              ? t("znackaVegansko")
               : item.diet === "vegetarian"
-                ? "Vegetarijansko"
+                ? t("znackaVegetarijansko")
                 : item.student
-                  ? "Na bon"
+                  ? t("znackaNaBon")
                   : undefined;
 
         const badgeType: Dish["badgeType"] =
@@ -204,23 +208,19 @@ export default function PopularPicks() {
             ================================================================== */}
         <div className={styles.sectionHeader}>
           <div className={styles.chapterTagContainer}>
-            <span className={styles.tagGhostWatermark}>IZBOR</span>
+            <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
             <div className={styles.chapterIndexTag}>
               <span className={styles.chapterDash} />
               <span>
-                <span className={styles.chapterNumber}>01</span> / PRILJUBLJENE IZBIRE
+                <span className={styles.chapterNumber}>01</span> / {t("oznakaPoglavja")}
               </span>
               <span className={styles.chapterDash} />
             </div>
           </div>
 
-          <h2 className={styles.sectionTitle}>Priljubljene izbire</h2>
+          <h2 className={styles.sectionTitle}>{t("naslov")}</h2>
 
-          <p className={styles.sectionSubtitle}>
-            Šest jedi, ki jih gostje najpogosteje naročijo. Vse pripravljene
-            sveže, iz 100 % halal sestavin. Večina je na voljo tudi na
-            študentski bon.
-          </p>
+          <p className={styles.sectionSubtitle}>{t("podnaslov")}</p>
         </div>
 
         {/* ==================================================================
@@ -253,7 +253,7 @@ export default function PopularPicks() {
                 {/* Unified Bottom Row: Price + Sestavine & Alergeni Button */}
                 <div className={styles.showcaseBottomRow}>
                   <div className={styles.showcasePriceBox}>
-                    <span className={styles.showcasePriceLabel}>Cena</span>
+                    <span className={styles.showcasePriceLabel}>{t("cena")}</span>
                     <span className={styles.showcasePriceValue}>{selectedDish.price}</span>
                   </div>
 
@@ -263,7 +263,7 @@ export default function PopularPicks() {
                     className={styles.detailsModalTriggerBtn}
                   >
                     <InfoCircleSvg size={18} />
-                    <span>Poglej podrobnosti</span>
+                    <span>{t("poglejPodrobnosti")}</span>
                     <span>&rarr;</span>
                   </button>
                 </div>
@@ -274,8 +274,8 @@ export default function PopularPicks() {
           {/* Right: Editorial Typography Lines List */}
           <div className={styles.magazineListCol}>
             <div className={styles.listHeaderRow}>
-              <span className={styles.listHeaderText}>Izberite jed za prikaz:</span>
-              <span className={styles.listCountBadge}>{dishes.length} specialitet</span>
+              <span className={styles.listHeaderText}>{t("izberiteJed")}</span>
+              <span className={styles.listCountBadge}>{t("steviloSpecialitet", { stevilo: dishes.length })}</span>
             </div>
 
             <div className={styles.linesList}>
@@ -313,7 +313,7 @@ export default function PopularPicks() {
           <div className={styles.mobileSwipeContainer}>
             {/* Top Counter and Swipe Hint */}
             <div className={styles.swipeTopInfo}>
-              <span className={styles.swipeHintText}>Povlecite za več specialitet</span>
+              <span className={styles.swipeHintText}>{t("povlecite")}</span>
               <span className={styles.swipeCounterBadge}>
                 0{currentSlideIndex + 1} / 0{dishes.length}
               </span>
@@ -385,14 +385,11 @@ export default function PopularPicks() {
             ================================================================== */}
         <div className={styles.bottomBanner}>
           <div className={styles.bannerText}>
-            <h4 className={styles.bannerTitle}>Celoten meni: 29 jedi</h4>
-            <p className={styles.bannerSubtitle}>
-              Kebabi, jufke, falafel, burgerji, krožniki in pizze. 19 jedi je na
-              voljo na študentski bon.
-            </p>
+            <h4 className={styles.bannerTitle}>{t("celotenMeni", { stevilo: MENU_STATS.total })}</h4>
+            <p className={styles.bannerSubtitle}>{t("celotenMeniOpis", { stevilo: MENU_STATS.student })}</p>
           </div>
           <Link href="/meni" className={styles.bannerBtn}>
-            <span>Odpri Celoten Meni</span>
+            <span>{t("odpriMeni")}</span>
             <span>&rarr;</span>
           </Link>
         </div>
@@ -438,13 +435,13 @@ export default function PopularPicks() {
                     <h3 className={styles.modalDishTitle}>{modalDish.title}</h3>
                     <div className={styles.modalQuickBadges}>
                       <span className={styles.modalCategoryBadge}>{modalDish.category}</span>
-                      <span className={styles.modalHalalBadge}>✓ 100% Halal</span>
+                      <span className={styles.modalHalalBadge}>{t("halalZnacka")}</span>
                     </div>
                     <div className={styles.modalPriceText}>
                       {modalDish.price}
                       {modalDish.priceLarge && (
                         <span className={styles.modalPriceSize}>
-                          velika {modalDish.priceLarge}
+                          {t("velika", { cena: modalDish.priceLarge })}
                         </span>
                       )}
                     </div>
@@ -453,13 +450,13 @@ export default function PopularPicks() {
 
                 {/* 1. Opis Jedi */}
                 <div className={styles.modalSectionBox}>
-                  <h4 className={styles.modalSectionTitle}>Opis Jedi</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("opisJedi")}</h4>
                   <p className={styles.modalDescText}>{modalDish.description}</p>
                 </div>
 
                 {/* 2. Sestavine (Ingredients Checklist) */}
                 <div className={styles.modalSectionBox}>
-                  <h4 className={styles.modalSectionTitle}>Sestavine</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("sestavine")}</h4>
                   <ul className={styles.modalIngredientsList}>
                     {modalDish.ingredientsList.map((item, idx) => (
                       <li key={idx} className={styles.modalIngredientItem}>
@@ -472,7 +469,7 @@ export default function PopularPicks() {
 
                 {/* 3. Alergeni (Allergens Pills) */}
                 <div className={styles.modalSectionBox}>
-                  <h4 className={styles.modalSectionTitle}>Alergeni</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("alergeni")}</h4>
                   <div className={styles.modalAllergensGrid}>
                     {modalDish.allergensList.map((allergen, idx) => (
                       <span key={idx} className={styles.modalAllergenPill}>
@@ -491,7 +488,7 @@ export default function PopularPicks() {
                   onClick={() => setModalDish(null)}
                   className={styles.modalCloseWindowBtn}
                 >
-                  Zapri okno
+                  {t("zapriOkno")}
                 </button>
               </div>
             </div>

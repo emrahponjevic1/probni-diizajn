@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   ANALYTICS_ENABLED,
@@ -24,8 +25,12 @@ import styles from "./CookieBanner.module.css";
  *
  * Pasica ne blokira strani in nima gumba, ki bi gosta prisilil v "da".
  * Zavrnitev je en klik, enako kot sprejem — to zahteva GDPR.
+ *
+ * Besedila so v messages/<jezik>.json pod ključem "piskotki".
  */
 export default function CookieBanner() {
+  const t = useTranslations("piskotki");
+
   // null = še ne vemo (strežniško izrisovanje), true/false = ali kažemo pasico
   const [visible, setVisible] = useState<boolean | null>(null);
 
@@ -44,19 +49,21 @@ export default function CookieBanner() {
   };
 
   return (
-    <div className={styles.wrap} role="dialog" aria-live="polite" aria-label="Privolitev v piškotke">
+    <div className={styles.wrap} role="dialog" aria-live="polite" aria-label={t("oznaka")}>
       <div className={styles.card}>
         <div className={styles.textCol}>
-          <strong className={styles.title}>Piškotki na tej strani</strong>
+          <strong className={styles.title}>{t("naslov")}</strong>
           <p className={styles.text}>
             {ANALYTICS_ENABLED
-              ? "Nujni piškotek si zapomni to izbiro. Analitične naložimo samo, če izberete „Sprejmi vse“."
-              : "Uporabljamo samo piškotek, ki si zapomni to izbiro. Analitika še ni vklopljena — ko bo, se bo naložila le, če tu izberete „Sprejmi vse“."}{" "}
-            Več v{" "}
-            <Link href="/piskotki" className={styles.link}>
-              politiki piškotkov
-            </Link>
-            .
+              ? t("besediloZAnalitiko")
+              : t("besediloBrezAnalitike")}{" "}
+            {t.rich("vec", {
+              povezava: (chunks) => (
+                <Link href="/piskotki" className={styles.link}>
+                  {chunks}
+                </Link>
+              ),
+            })}
           </p>
         </div>
 
@@ -66,14 +73,14 @@ export default function CookieBanner() {
             onClick={() => izberi(false)}
             className={styles.btnGhost}
           >
-            Samo nujni
+            {t("samoNujni")}
           </button>
           <button
             type="button"
             onClick={() => izberi(true)}
             className={styles.btnPrimary}
           >
-            Sprejmi vse
+            {t("sprejmiVse")}
           </button>
         </div>
       </div>

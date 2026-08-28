@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import styles from "./OurStory.module.css";
 
@@ -25,6 +26,9 @@ const HalalShieldSvg = ({ size = 22 }: { size?: number }) => (
 );
 
 export default function OurStory() {
+  // Besedila so v messages/<jezik>.json pod ključem "zgodba".
+  const t = useTranslations("zgodba");
+
   return (
     <section className={styles.storySection} id="onas">
       <div className={styles.bgGlow} />
@@ -34,26 +38,19 @@ export default function OurStory() {
           {/* Left Column: Storytelling & 3 Quality Pillars */}
           <div className={styles.magLeftCol}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>ZGODBA</span>
+              <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
                 <span>
-                  <span className={styles.chapterNumber}>02</span> / NAŠA ZGODBA &amp; TRADICIJA
+                  <span className={styles.chapterNumber}>02</span> / {t("oznakaPoglavja")}
                 </span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
 
-            <h2 className={styles.magHeading}>
-              Od leta 1998 v središču Ljubljane
-            </h2>
+            <h2 className={styles.magHeading}>{t("naslov")}</h2>
 
-            <p className={styles.magLeadText}>
-              Šeherezada v Ljubljani deluje od leta 1998 — več kot 25 let. Danes
-              imamo dve lokaciji: na Trubarjevi 31 v starem mestnem jedru in na
-              Slovenski 55 pri Bavarskem dvoru. Recepti in način priprave so
-              ostali enaki.
-            </p>
+            <p className={styles.magLeadText}>{t("uvod")}</p>
 
             <div className={styles.pillarsList}>
               {/* Pillar 1 */}
@@ -62,11 +59,8 @@ export default function OurStory() {
                   <FlameSvg size={22} />
                 </div>
                 <div className={styles.pillarContent}>
-                  <h3 className={styles.pillarTitle}>Pravi ogenj &amp; 24h marinada</h3>
-                  <p className={styles.pillarDesc}>
-                    Meso mariniramo 24 ur v mešanici pristnih orientalskih začimb
-                    in ga pečemo na vročem žaru za neustavljivo sočnost.
-                  </p>
+                  <h3 className={styles.pillarTitle}>{t("stebri.ogenjNaslov")}</h3>
+                  <p className={styles.pillarDesc}>{t("stebri.ogenjOpis")}</p>
                 </div>
               </div>
 
@@ -76,10 +70,8 @@ export default function OurStory() {
                   <BreadSvg size={22} />
                 </div>
                 <div className={styles.pillarContent}>
-                  <h3 className={styles.pillarTitle}>Domač kruh po tajnem receptu</h3>
-                  <p className={styles.pillarDesc}>
-                    Vsako jutro ročno zamesimo testo, lepinje in tanek lavaš pa pečemo sproti — nikoli vnaprej.
-                  </p>
+                  <h3 className={styles.pillarTitle}>{t("stebri.kruhNaslov")}</h3>
+                  <p className={styles.pillarDesc}>{t("stebri.kruhOpis")}</p>
                 </div>
               </div>
 
@@ -89,11 +81,8 @@ export default function OurStory() {
                   <HalalShieldSvg size={22} />
                 </div>
                 <div className={styles.pillarContent}>
-                  <h3 className={styles.pillarTitle}>100% Halal &amp; dnevna svežina</h3>
-                  <p className={styles.pillarDesc}>
-                    Uporabljamo izključno certificirano kakovostno telečje in
-                    piščančje meso ter lokalno pridelano svežo zelenjavo.
-                  </p>
+                  <h3 className={styles.pillarTitle}>{t("stebri.halalNaslov")}</h3>
+                  <p className={styles.pillarDesc}>{t("stebri.halalOpis")}</p>
                 </div>
               </div>
             </div>
@@ -105,7 +94,7 @@ export default function OurStory() {
             <div className={styles.mainPhotoWrapper}>
               <Image
                 src="/images/seherezada-story-chef.avif"
-                alt="Šeherezada žar mojster priprava kebaba"
+                alt={t("altMojster")}
                 width={600}
                 height={500}
                 className={styles.mainPhotoImg}
@@ -116,7 +105,7 @@ export default function OurStory() {
             <div className={styles.overlappingPhotoCard}>
               <Image
                 src="/images/seherezada-story-oven.avif"
-                alt="Sveže pečen domač lepinja kruh v peči"
+                alt={t("altKruh")}
                 width={220}
                 height={160}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -128,9 +117,7 @@ export default function OurStory() {
               {/* Letnica namesto števila let — ne zastara in je ne bo treba
                   posodabljati vsako leto. */}
               <span className={styles.experienceBadgeNum}>1998</span>
-              <span className={styles.experienceBadgeText}>
-                Leto, ko smo odprli prva vrata
-              </span>
+              <span className={styles.experienceBadgeText}>{t("letoOdprtja")}</span>
             </div>
           </div>
         </div>

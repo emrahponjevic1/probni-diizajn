@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import styles from "./NotFoundContent.module.css";
 
@@ -57,6 +58,9 @@ const ArrowRightIcon = () => (
 );
 
 export default function NotFoundContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "stran404".
+  const t = useTranslations("stran404");
+
   return (
     <section className={styles.notFoundSection}>
       <div className={styles.bgGlow} />
@@ -67,41 +71,37 @@ export default function NotFoundContent() {
           <span className={styles.tagGhostWatermark}>404</span>
           <div className={styles.chapterIndexTag}>
             <span className={styles.chapterDash} />
-            <span>NAPAKA 404 · STRAN NE OBSTAJA</span>
+            <span>{t("oznaka")}</span>
             <span className={styles.chapterDash} />
           </div>
         </div>
 
         {/* Visual Pill */}
         <div className={styles.visual404Badge}>
-          <span>🔍 Izgubljeni na meniju?</span>
+          <span>{t("znacka")}</span>
         </div>
 
         {/* Solid Charcoal Title */}
-        <h1 className={styles.title}>Ups! Ta stran je izginila z našega menija</h1>
+        <h1 className={styles.title}>{t("naslov")}</h1>
 
         {/* Subtitle */}
-        <p className={styles.subtitle}>
-          Povezava, ki ste ji sledili, ne obstaja ali pa je bila premaknjena.
-          Brez skrbi — sveže pečen döner kebab, hrustljavi falafli in tople pizze
-          vas še vedno čakajo na naših lokacijah!
-        </p>
+        <p className={styles.subtitle}>{t("podnaslov")}</p>
 
         {/* Action Buttons */}
         <div className={styles.actionsRow}>
           <Link href="/" className={styles.btnPrimary}>
             <HomeIcon />
-            <span>Nazaj na prvo stran</span>
+            <span>{t("nazajNaPrvo")}</span>
           </Link>
           <Link href="/meni" className={styles.btnSecondary}>
-            <span>Oglej si celoten meni</span>
+            <span>{t("oglejSiMeni")}</span>
             <ArrowRightIcon />
           </Link>
         </div>
 
         {/* Shortcuts Bento Grid */}
         <div className={styles.shortcutsSection}>
-          <p className={styles.shortcutsHeader}>Morda ste iskali eno od teh strani:</p>
+          <p className={styles.shortcutsHeader}>{t("morda")}</p>
 
           <div className={styles.shortcutsGrid}>
             {/* Card 1: Meni */}
@@ -114,10 +114,8 @@ export default function NotFoundContent() {
                   <ArrowRightIcon />
                 </span>
               </div>
-              <h3 className={styles.shortcutCardTitle}>Celoten meni</h3>
-              <p className={styles.shortcutCardDesc}>
-                29 svežih jedi: döner kebab, jufke, pizze, burgerji in falafli.
-              </p>
+              <h3 className={styles.shortcutCardTitle}>{t("meniNaslov")}</h3>
+              <p className={styles.shortcutCardDesc}>{t("meniOpis")}</p>
             </Link>
 
             {/* Card 2: Boni */}
@@ -130,10 +128,8 @@ export default function NotFoundContent() {
                   <ArrowRightIcon />
                 </span>
               </div>
-              <h3 className={styles.shortcutCardTitle}>Študentski boni</h3>
-              <p className={styles.shortcutCardDesc}>
-                19 jedi na bon z enotnim doplačilom 3,00 € in prilogami.
-              </p>
+              <h3 className={styles.shortcutCardTitle}>{t("boniNaslov")}</h3>
+              <p className={styles.shortcutCardDesc}>{t("boniOpis")}</p>
             </Link>
 
             {/* Card 3: Halal */}
@@ -146,10 +142,8 @@ export default function NotFoundContent() {
                   <ArrowRightIcon />
                 </span>
               </div>
-              <h3 className={styles.shortcutCardTitle}>100 % Halal certifikat</h3>
-              <p className={styles.shortcutCardDesc}>
-                Strogi standardi čistosti, brez svinjine in alkohola od leta 1998.
-              </p>
+              <h3 className={styles.shortcutCardTitle}>{t("halalNaslov")}</h3>
+              <p className={styles.shortcutCardDesc}>{t("halalOpis")}</p>
             </Link>
 
             {/* Card 4: Lokaciji */}
@@ -162,10 +156,8 @@ export default function NotFoundContent() {
                   <ArrowRightIcon />
                 </span>
               </div>
-              <h3 className={styles.shortcutCardTitle}>Lokaciji &amp; Kontakt</h3>
-              <p className={styles.shortcutCardDesc}>
-                Trubarjeva 31 in Slovenska 55. Odprto vsak dan do poznih ur.
-              </p>
+              <h3 className={styles.shortcutCardTitle}>{t("kontaktNaslov")}</h3>
+              <p className={styles.shortcutCardDesc}>{t("kontaktOpis")}</p>
             </Link>
           </div>
         </div>

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { STUDENT_BON } from "./menu/MenuData";
 import { Link } from "@/i18n/navigation";
 import styles from "./FaqSection.module.css";
 
@@ -29,54 +31,57 @@ interface FaqItem {
   shadowClass: string;
 }
 
-const faqs: FaqItem[] = [
-  {
-    id: "hours",
-    num: "01",
-    tag: "DELOVNI ČAS",
-    question: "KAKŠEN JE DELOVNI ČAS ŠEHEREZADE?",
-    answer:
-      "Šeherezada na Trubarjevi 31 je odprta vsak dan od 09:00 do 02:00, ob petkih in sobotah pa do 03:00. Šeherezada 2 na Slovenski 55 je odprta vsak dan od 08:00 do 01:00.",
-    accent: "red",
-    offsetClass: styles.offsetStart,
-    shadowClass: styles.shadowRed,
-  },
-  {
-    id: "halal",
-    num: "02",
-    tag: "KAKOVOST & HALAL",
-    question: "ALI JE VSE MESO 100% HALAL CERTIFICIRANO?",
-    answer:
-      "Da, vse meso v naši ponudbi je 100 % certificirano halal, pripravljeno po strogih higienskih standardih, s popolno sledljivostjo in z 0 % svinjine.",
-    accent: "orange",
-    offsetClass: styles.offsetEnd,
-    shadowClass: styles.shadowOrange,
-  },
-  {
-    id: "boni",
-    num: "03",
-    tag: "ŠTUDENTSKI BONI",
-    question: "KAKO DELUJEJO ŠTUDENTSKI BONI V ŠEHEREZADI?",
-    answer:
-      "Študenti se ob naročilu identificirate s študentsko izkaznico ali aplikacijo ŠTUDENTSKA PREHRANA. Doplačilo je 3,00 €, meni pa vključuje glavno jed, solato, jabolko in pijačo.",
-    accent: "dark",
-    offsetClass: styles.offsetMid,
-    shadowClass: styles.shadowDark,
-  },
-  {
-    id: "delivery",
-    num: "04",
-    tag: "DOSTAVA & PREVZEM",
-    question: "ALI NUDITE DOSTAVO HRANE NA DOM?",
-    answer:
-      "Da! Naše jedi dostavljamo prek Wolta, lahko pa izberete tudi hitri osebni prevzem na katerikoli naši lokaciji po predhodnem klicu.",
-    accent: "orange",
-    offsetClass: styles.offsetEnd,
-    shadowClass: styles.shadowOrange,
-  },
-];
-
 export default function FaqSection() {
+  // Besedila so v messages/<jezik>.json pod ključem "faqOdsek".
+  // Seznam je znotraj komponente in ne nad njo, ker zunaj ni dostopa
+  // do prevodov — barve in zamiki ostajajo tu, besedilo pride iz prevoda.
+  const t = useTranslations("faqOdsek");
+
+  const doplacilo = `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €`;
+
+  const faqs: FaqItem[] = [
+    {
+      id: "hours",
+      num: "01",
+      tag: t("vprasanja.hoursTag"),
+      question: t("vprasanja.hoursVprasanje"),
+      answer: t("vprasanja.hoursOdgovor"),
+      accent: "red",
+      offsetClass: styles.offsetStart,
+      shadowClass: styles.shadowRed,
+    },
+    {
+      id: "halal",
+      num: "02",
+      tag: t("vprasanja.halalTag"),
+      question: t("vprasanja.halalVprasanje"),
+      answer: t("vprasanja.halalOdgovor"),
+      accent: "orange",
+      offsetClass: styles.offsetEnd,
+      shadowClass: styles.shadowOrange,
+    },
+    {
+      id: "boni",
+      num: "03",
+      tag: t("vprasanja.boniTag"),
+      question: t("vprasanja.boniVprasanje"),
+      answer: t("vprasanja.boniOdgovor", { doplacilo }),
+      accent: "dark",
+      offsetClass: styles.offsetMid,
+      shadowClass: styles.shadowDark,
+    },
+    {
+      id: "delivery",
+      num: "04",
+      tag: t("vprasanja.deliveryTag"),
+      question: t("vprasanja.deliveryVprasanje"),
+      answer: t("vprasanja.deliveryOdgovor"),
+      accent: "orange",
+      offsetClass: styles.offsetEnd,
+      shadowClass: styles.shadowOrange,
+    },
+  ];
+
   const [openId, setOpenId] = useState<string | null>("hours");
 
   const toggle = (id: string) => {
@@ -92,31 +97,29 @@ export default function FaqSection() {
           {/* Left Column: Sticky Header & Lockup */}
           <div className={styles.userLeftCol}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>VPRAŠANJA</span>
+              <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
                 <span>
-                  <span className={styles.chapterNumber}>06</span> / POGOSTA VPRAŠANJA
+                  <span className={styles.chapterNumber}>06</span> / {t("oznakaPoglavja")}
                 </span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
 
             <h2 className={styles.leftMainHeading}>
-              VSE, KAR <br className={styles.desktopBr} />
-              <span className={styles.headingHighlight}>MORAŠ</span>{" "}
+              {t("naslovPrvaVrstica")} <br className={styles.desktopBr} />
+              <span className={styles.headingHighlight}>{t("naslovPoudarek")}</span>{" "}
               <br className={styles.desktopBr} />
-              VEDETI.
+              {t("naslovTretjaVrstica")}
             </h2>
 
             {/* Description & CTA Button Inline Row with Auto-Wrapping */}
             <div className={styles.leadCtaRow}>
-              <p className={styles.leftLeadText}>
-                Nisi prepričan glede bonov, delovnega časa ali dostave? Tu so odgovori, servirani vroči.
-              </p>
+              <p className={styles.leftLeadText}>{t("uvod")}</p>
 
               <Link href="/pogosta-vprasanja" className={styles.leftCtaBtn}>
-                <span>Oglej Si Vsa Vprašanja (FAQ)</span>
+                <span>{t("gumb")}</span>
                 <ArrowRightSvg size={16} />
               </Link>
             </div>

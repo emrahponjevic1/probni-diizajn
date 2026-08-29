@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
+import { useTranslations } from "next-intl";
+import { hoursSummary } from "@/lib/hours";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { createPortal } from "react-dom";
@@ -270,44 +272,38 @@ interface StudentFaq {
   a: string;
 }
 
-const STUDENT_FAQS: StudentFaq[] = [
-  {
-    id: "faq-1",
-    q: "Ali lahko študentski meni vzamem s seboj (takeaway)?",
-    a: "Po pravilih sistema subvencionirane študentske prehrane je subvencioniran obrok namenjen zaužitju v lokalu. Embalažo za s seboj lahko pri nas seveda naročite po veljavnem ceniku embalaže.",
-  },
-  {
-    id: "faq-2",
-    q: "Kaj storiti, če terminal ne zazna mojega telefona?",
-    a: "Najprej preverite, ali imate vklopljen NFC čip v nastavitvah telefona in ali ste telefon prislonili točno ob spodnji rob terminala (kjer je senzor). Če NFC ne deluje, lahko v aplikaciji 'Študentska prehrana' izberete možnost 'Ročni vnos kode' in osebju preprosto sporočite izpisano kodo.",
-  },
-  {
-    id: "faq-3",
-    q: "Ali boni veljajo med vikendi, prazniki in počitnicami?",
-    a: "Da! Študentski boni so na voljo za vsak koledarski dan v letu, vključno s soboto, nedeljo, državnimi prazniki ter med poletnimi in zimskimi počitnicami.",
-  },
-  {
-    id: "faq-4",
-    q: "Koliko časa mora miniti med dvema bonoma istega dne?",
-    a: "Po pravilih sistema mora med prvim in drugim bonom preteči najmanj 4 ure. Sistem pred iztekom tega časovnega razmika ne dovoli potrditve novega obroka.",
-  },
-  {
-    id: "faq-5",
-    q: "Ali so vse študentske jedi 100 % halal certificirane?",
-    a: "Da, vse meso v Šeherezadi je 100 % halal certificirano, brez prisotnosti svinjine ali alkohola. Pripravljamo tudi 7 brezmesnih (vegetarijanskih in veganskih) jedi na bon, vključno s falafli in zelenjavnimi picami.",
-  },
-  {
-    id: "faq-6",
-    q: "Kaj če sem porabil vse bone za tekoči mesec?",
-    a: "Vse naše jedi lahko naročite po rednih ugodnih cenah z menija. Število dodeljenih bonov se samodejno ponastavi vsak prvi dan v novem mesecu.",
-  },
-];
-
 // ---------------------------------------------------------------------------
 // GLAVNA KOMPONENTA
 // ---------------------------------------------------------------------------
 
 export default function StudentBoniPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "boniStran".
+  const t = useTranslations("boniStran");
+
+  // Urnik se ne prepisuje v besedilo — izlušči se iz locations.ts.
+  const [prvaLok, drugaLok] = LOCATIONS;
+  const urnikPrva = hoursSummary(prvaLok.hours);
+  const urnikDruga = hoursSummary(drugaLok.hours);
+
+  const STUDENT_FAQS: StudentFaq[] = [
+    { id: "faq-1", q: t("vprasanja.faq-1.q"), a: t("vprasanja.faq-1.a") },
+    { id: "faq-2", q: t("vprasanja.faq-2.q"), a: t("vprasanja.faq-2.a") },
+    { id: "faq-3", q: t("vprasanja.faq-3.q"), a: t("vprasanja.faq-3.a") },
+    {
+      id: "faq-4",
+      q: t("vprasanja.faq-4.q"),
+      a: t("vprasanja.faq-4.a", { razmik: BON_RULES.gapHours }),
+    },
+    {
+      id: "faq-5",
+      q: t("vprasanja.faq-5.q"),
+      a: t("vprasanja.faq-5.a", {
+        brezmesnih: MENU_STATS.vegan + MENU_STATS.vegetarian,
+      }),
+    },
+    { id: "faq-6", q: t("vprasanja.faq-6.q"), a: t("vprasanja.faq-6.a") },
+  ];
+
   const [isMounted, setIsMounted] = useState(false);
   const [modalDish, setModalDish] = useState<MenuItem | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -328,30 +324,30 @@ export default function StudentBoniPageContent() {
   // Kategorije za filtre z ličnimi kratkimi oznakami
   const filterCategories = useMemo(
     () => [
-      { id: "all", label: "Vse jedi", count: studentItems.length },
+      { id: "all", label: t("filterVse"), count: studentItems.length },
       {
         id: "kebab",
-        label: "Kebab & Jufke",
+        label: t("filterKebab"),
         count: studentItems.filter((i) => i.category === "kebab").length,
       },
       {
         id: "pizza",
-        label: "Pizze",
+        label: t("filterPizza"),
         count: studentItems.filter((i) => i.category === "pizza").length,
       },
       {
         id: "kroznik",
-        label: "Krožniki",
+        label: t("filterKroznik"),
         count: studentItems.filter((i) => i.category === "kroznik").length,
       },
       {
         id: "falafel",
-        label: "Falafel",
+        label: t("filterFalafel"),
         count: studentItems.filter((i) => i.category === "falafel").length,
       },
       {
         id: "vegi",
-        label: "Brezmesno",
+        label: t("filterBrezmesno"),
         count: studentItems.filter(
           (i) => i.diet === "vegan" || i.diet === "vegetarian"
         ).length,
@@ -385,40 +381,37 @@ export default function StudentBoniPageContent() {
             {/* Left Column: Editorial Header & Metrics */}
             <div className={styles.heroLeftCol}>
               <div className={styles.chapterTagContainer}>
-                <span className={styles.tagGhostWatermark}>BONI</span>
+                <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
                 <div className={styles.chapterIndexTag}>
                   <span className={styles.chapterDash} />
-                  <span>ŠTUDENTSKA PREHRANA · LJUBLJANA</span>
+                  <span>{t("oznaka")}</span>
                   <span className={styles.chapterDash} />
                 </div>
               </div>
 
               <h1 className={styles.heroH1}>
-                Študentski boni v Šeherezadi —{" "}
-                <span className={styles.heroH1Accent}>
-                  doplačilo {eur(STUDENT_BON.surcharge)}
-                </span>
+                {t.rich("naslov", {
+                  doplacilo: eur(STUDENT_BON.surcharge),
+                  poudarek: (chunks) => <span className={styles.heroH1Accent}>{chunks}</span>,
+                })}
               </h1>
 
               <p className={styles.heroLead}>
-                {MENU_STATS.student} od {MENU_STATS.total} jedi z našega menija
-                je na voljo na študentski bon na obeh lokacijah v središču
-                Ljubljane. Za enotno doplačilo dobiš celoten 4-delni obrok: glavno
-                jed, svežo solato, jabolko in pijačo.
+                {t("uvod", { naBon: MENU_STATS.student, vseh: MENU_STATS.total })}
               </p>
 
               {/* Bento Fact Grid */}
               <div className={styles.heroFactGrid}>
                 <div className={`${styles.heroFactCard} ${styles.heroFactCardHighlight}`}>
-                  <span className={styles.heroFactLabel}>Doplačilo</span>
+                  <span className={styles.heroFactLabel}>{t("factDoplacilo")}</span>
                   <span className={`${styles.heroFactValue} ${styles.heroFactValueAccent}`}>
                     {eur(STUDENT_BON.surcharge)}
                   </span>
-                  <span className={styles.heroFactSubtitle}>celoten meni</span>
+                  <span className={styles.heroFactSubtitle}>{t("factDoplaciloPod")}</span>
                 </div>
 
                 <div className={styles.heroFactCard}>
-                  <span className={styles.heroFactLabel}>Jedi na bon</span>
+                  <span className={styles.heroFactLabel}>{t("factJedi")}</span>
                   <span className={styles.heroFactValue}>
                     {MENU_STATS.student}{" "}
                     <span style={{ fontSize: "0.85rem", color: "#a8a29e" }}>
@@ -426,31 +419,31 @@ export default function StudentBoniPageContent() {
                     </span>
                   </span>
                   <span className={styles.heroFactSubtitle}>
-                    {MENU_STATS.vegan + MENU_STATS.vegetarian} brezmesnih
+                    {t("factJediPod", { stevilo: MENU_STATS.vegan + MENU_STATS.vegetarian })}
                   </span>
                 </div>
 
                 <div className={styles.heroFactCard}>
-                  <span className={styles.heroFactLabel}>Dnevna kvota</span>
-                  <span className={styles.heroFactValue}>{BON_RULES.perDay} bona</span>
-                  <span className={styles.heroFactSubtitle}>tudi med vikendi</span>
+                  <span className={styles.heroFactLabel}>{t("factKvota")}</span>
+                  <span className={styles.heroFactValue}>{t("factKvotaVrednost", { stevilo: BON_RULES.perDay })}</span>
+                  <span className={styles.heroFactSubtitle}>{t("factKvotaPod")}</span>
                 </div>
 
                 <div className={styles.heroFactCard}>
-                  <span className={styles.heroFactLabel}>Lokaciji</span>
-                  <span className={styles.heroFactValue}>2 v LJ</span>
-                  <span className={styles.heroFactSubtitle}>center mesta</span>
+                  <span className={styles.heroFactLabel}>{t("factLokaciji")}</span>
+                  <span className={styles.heroFactValue}>{t("factLokacijiVrednost", { stevilo: LOCATIONS.length })}</span>
+                  <span className={styles.heroFactSubtitle}>{t("factLokacijiPod")}</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className={styles.heroActionsRow}>
                 <a href="#jedi-na-bon" className={styles.btnPrimary}>
-                  <span>Poglej jedi na bon ({MENU_STATS.student})</span>
+                  <span>{t("gumbJedi", { stevilo: MENU_STATS.student })}</span>
                   <ArrowRightIcon />
                 </a>
                 <a href="#kako-unovciti" className={styles.btnSecondary}>
-                  <span>Kako unovčiti bon</span>
+                  <span>{t("gumbKakoUnovciti")}</span>
                 </a>
               </div>
             </div>
@@ -460,7 +453,7 @@ export default function StudentBoniPageContent() {
               <div className={styles.heroVisualMediaBox}>
                 <Image
                   src="/images/seherezada-student-meal.avif"
-                  alt="Celovit študentski meni v Šeherezadi — döner kebab, solata, jabolko in pijača"
+                  alt={t("altObrok")}
                   width={600}
                   height={450}
                   priority
@@ -468,16 +461,16 @@ export default function StudentBoniPageContent() {
                 />
                 <div className={styles.heroVisualBadgeFloating}>
                   <UtensilsIcon />
-                  <span>4-delni študentski paket</span>
+                  <span>{t("znackaPaket")}</span>
                 </div>
               </div>
 
               <div className={styles.heroVisualFooterStrip}>
                 <div className={styles.heroVisualFooterText}>
-                  Polna vrednost obroka: <strong>{eur(MEAL_VALUE)}</strong>
-                  <span>Država subvencionira {eur(STUDENT_SUBSIDY.subsidy)}</span>
+                  {t("polnaVrednost")} <strong>{eur(MEAL_VALUE)}</strong>
+                  <span>{t("drzavaSubvencionira", { znesek: eur(STUDENT_SUBSIDY.subsidy) })}</span>
                 </div>
-                <span className={styles.heroVisualTagPill}>Plačaš le 3,00 €</span>
+                <span className={styles.heroVisualTagPill}>{t("placasLe", { znesek: eur(STUDENT_BON.surcharge) })}</span>
               </div>
             </div>
           </div>
@@ -489,60 +482,53 @@ export default function StudentBoniPageContent() {
         <section className={styles.calcSection} id="izracun-prihranka">
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>IZRAČUN</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("izracunVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>SUBVENCIJA & DOPLAČILO</span>
+                <span>{t("izracunOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Pregleden izračun: koliko dejansko plačaš</h2>
+            <h2 className={styles.sectionTitle}>{t("izracunNaslov")}</h2>
             <p className={styles.sectionSubtitle}>
-              Vsak subvencioniran obrok je sestavljen iz prispevka države in
-              tvojega fiksnega doplačila. Pri nas vedno doplačaš točno{" "}
-              {eur(STUDENT_BON.surcharge)}.
+              {t("izracunPodnaslov", { doplacilo: eur(STUDENT_BON.surcharge) })}
             </p>
           </div>
 
           {/* Math Equation Formula */}
           <div className={styles.mathEquationGrid}>
             <div className={styles.mathCard}>
-              <span className={styles.mathCardLabel}>Subvencija države</span>
+              <span className={styles.mathCardLabel}>{t("subvencijaDrzave")}</span>
               <span className={styles.mathCardValue}>
                 {eur(STUDENT_SUBSIDY.subsidy)}
               </span>
-              <p className={styles.mathCardDesc}>Krije Ministrstvo za delo</p>
+              <p className={styles.mathCardDesc}>{t("subvencijaOpis")}</p>
             </div>
 
             <div className={styles.mathOperatorSign}>+</div>
 
             <div className={`${styles.mathCard} ${styles.mathCardUser}`}>
-              <span className={styles.mathCardLabel}>Tvoje doplačilo</span>
+              <span className={styles.mathCardLabel}>{t("tvojeDoplacilo")}</span>
               <span className={styles.mathCardValue}>
                 {eur(STUDENT_BON.surcharge)}
               </span>
-              <p className={styles.mathCardDesc}>Plačaš na naši blagajni</p>
+              <p className={styles.mathCardDesc}>{t("doplaciloOpis")}</p>
             </div>
 
             <div className={styles.mathOperatorSign}>=</div>
 
             <div className={`${styles.mathCard} ${styles.mathCardTotal}`}>
-              <span className={styles.mathCardLabel}>Vrednost obroka</span>
+              <span className={styles.mathCardLabel}>{t("vrednostObroka")}</span>
               <span className={styles.mathCardValue}>{eur(MEAL_VALUE)}</span>
-              <p className={styles.mathCardDesc}>Toliko hrane dobiš na krožnik</p>
+              <p className={styles.mathCardDesc}>{t("vrednostOpis")}</p>
             </div>
           </div>
 
           {/* Interactive Savings Calculator */}
           <div className={styles.savingsInteractiveBox}>
             <div>
-              <h3 className={styles.savingsControlsTitle}>
-                Kalkulator študentskega prihranka
-              </h3>
-              <p className={styles.savingsControlsDesc}>
-                Izberi, kolikokrat na teden načrtuješ jesti v Šeherezadi na
-                študentski bon:
-              </p>
+              <h3 className={styles.savingsControlsTitle}>{t("kalkulatorNaslov")}</h3>
+              <p className={styles.savingsControlsDesc}>{t("kalkulatorOpis")}</p>
 
               <div className={styles.mealsSelectorRow}>
                 {[2, 4, 6, 8, 10].map((num) => (
@@ -554,19 +540,19 @@ export default function StudentBoniPageContent() {
                       mealsPerWeek === num ? styles.mealChoiceBtnActive : ""
                     }`}
                   >
-                    {num} obrokov / teden
+                    {t("obrokovNaTeden", { stevilo: num })}
                   </button>
                 ))}
               </div>
             </div>
 
             <div className={styles.savingsResultCard}>
-              <span className={styles.savingsResultLabel}>Tvoj mesečni prihranek</span>
+              <span className={styles.savingsResultLabel}>{t("mesecniPrihranek")}</span>
               <span className={styles.savingsResultAmount}>
                 ~{Math.round(monthlySavings)} €
               </span>
               <p className={styles.savingsResultNote}>
-                v primerjavi z rednimi cenami ob {mealsPerWeek * 4} toplih obrokih na mesec.
+                {t("prihranekOpomba", { stevilo: mealsPerWeek * 4 })}
               </p>
             </div>
           </div>
@@ -578,18 +564,16 @@ export default function StudentBoniPageContent() {
         <section className={styles.includesSection} id="kaj-dobis">
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>PAKET</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("paketVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>VSEBINA OBROKA</span>
+                <span>{t("paketOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Kaj vsebuje vsak študentski meni</h2>
+            <h2 className={styles.sectionTitle}>{t("paketNaslov")}</h2>
             <p className={styles.sectionSubtitle}>
-              Celoten polnovreden obrok, ne le glavna jed. Vse 4 sestavine so
-              vedno vključene v doplačilo {eur(STUDENT_BON.surcharge)} brez
-              skritih doplačil.
+              {t("paketPodnaslov", { doplacilo: eur(STUDENT_BON.surcharge) })}
             </p>
           </div>
 
@@ -598,15 +582,14 @@ export default function StudentBoniPageContent() {
               <div className={styles.packageIconWrapper}>
                 <UtensilsIcon />
               </div>
-              <span className={styles.packageIndexTag}>01 / Glavna jed</span>
-              <h3 className={styles.packageTitle}>Glavna jed po izbiri</h3>
+              <span className={styles.packageIndexTag}>{t("paket1Oznaka")}</span>
+              <h3 className={styles.packageTitle}>{t("paket1Naslov")}</h3>
               <p className={styles.packageDesc}>
-                Izbira med 19 jedmi: sočni döner kebab, hrustljava jufka,
-                falafel, 6 vrst pic ali piščančji zrezki na žaru.
+                {t("paket1Opis", { stevilo: MENU_STATS.student })}
               </p>
               <div className={styles.packageHighlightBadge}>
                 <CheckIcon />
-                <span>100 % Halal meso</span>
+                <span>{t("paket1Znacka")}</span>
               </div>
             </div>
 
@@ -614,15 +597,12 @@ export default function StudentBoniPageContent() {
               <div className={styles.packageIconWrapper}>
                 <SaladIcon />
               </div>
-              <span className={styles.packageIndexTag}>02 / Solata</span>
-              <h3 className={styles.packageTitle}>Dnevno sveža solata</h3>
-              <p className={styles.packageDesc}>
-                Sveže narezana mešana solata (zelje, paradižnik, kumarice, zelena
-                solata), pripravljena sproti skozi ves dan.
-              </p>
+              <span className={styles.packageIndexTag}>{t("paket2Oznaka")}</span>
+              <h3 className={styles.packageTitle}>{t("paket2Naslov")}</h3>
+              <p className={styles.packageDesc}>{t("paket2Opis")}</p>
               <div className={styles.packageHighlightBadge}>
                 <CheckIcon />
-                <span>Sveže pripravljeno sproti</span>
+                <span>{t("paket2Znacka")}</span>
               </div>
             </div>
 
@@ -630,15 +610,12 @@ export default function StudentBoniPageContent() {
               <div className={styles.packageIconWrapper}>
                 <AppleIcon />
               </div>
-              <span className={styles.packageIndexTag}>03 / Sadje</span>
-              <h3 className={styles.packageTitle}>Sveže sadje (Jabolko)</h3>
-              <p className={styles.packageDesc}>
-                Naraven vir vitaminov ob vsakem obroku. Sočno jabolko prejmete
-                neposredno ob prevzemu hrane.
-              </p>
+              <span className={styles.packageIndexTag}>{t("paket3Oznaka")}</span>
+              <h3 className={styles.packageTitle}>{t("paket3Naslov")}</h3>
+              <p className={styles.packageDesc}>{t("paket3Opis")}</p>
               <div className={styles.packageHighlightBadge}>
                 <CheckIcon />
-                <span>Vitaminsko bogato</span>
+                <span>{t("paket3Znacka")}</span>
               </div>
             </div>
 
@@ -646,15 +623,12 @@ export default function StudentBoniPageContent() {
               <div className={styles.packageIconWrapper}>
                 <DrinkIcon />
               </div>
-              <span className={styles.packageIndexTag}>04 / Pijača</span>
-              <h3 className={styles.packageTitle}>Osvežilna pijača</h3>
-              <p className={styles.packageDesc}>
-                Voda ali osvežilna pijača je vključena v meni in je ni potrebno
-                posebej doplačevati.
-              </p>
+              <span className={styles.packageIndexTag}>{t("paket4Oznaka")}</span>
+              <h3 className={styles.packageTitle}>{t("paket4Naslov")}</h3>
+              <p className={styles.packageDesc}>{t("paket4Opis")}</p>
               <div className={styles.packageHighlightBadge}>
                 <CheckIcon />
-                <span>Vključeno brez doplačila</span>
+                <span>{t("paket4Znacka")}</span>
               </div>
             </div>
           </div>
@@ -666,18 +640,19 @@ export default function StudentBoniPageContent() {
         <section className={styles.dishShowcaseSection} id="jedi-na-bon">
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>IZBIRA</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("izbiraVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>19 JEDI NA BON</span>
+                <span>{t("izbiraOznaka", { stevilo: MENU_STATS.student })}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Izberi svojo najljubšo jed na bon</h2>
+            <h2 className={styles.sectionTitle}>{t("izbiraNaslov")}</h2>
             <p className={styles.sectionSubtitle}>
-              Oglej si vseh {MENU_STATS.student} jedi, ki jih lahko naročiš za
-              enotno doplačilo {eur(STUDENT_BON.surcharge)}. Klikni na posamezno
-              jed za podrobnosti o sestavinah in alergenih.
+              {t("izbiraPodnaslov", {
+                stevilo: MENU_STATS.student,
+                doplacilo: eur(STUDENT_BON.surcharge),
+              })}
             </p>
           </div>
 
@@ -721,10 +696,10 @@ export default function StudentBoniPageContent() {
                   <div className={styles.dishCardTopBadges}>
                     <span className={styles.badgeCategory}>{dish.categoryLabel}</span>
                     {dish.diet === "vegan" && (
-                      <span className={styles.badgeDietVegi}>Vegansko</span>
+                      <span className={styles.badgeDietVegi}>{t("znackaVegansko")}</span>
                     )}
                     {dish.diet === "vegetarian" && (
-                      <span className={styles.badgeDietVegi}>Vegetarijansko</span>
+                      <span className={styles.badgeDietVegi}>{t("znackaVegetarijansko")}</span>
                     )}
                   </div>
                 </div>
@@ -739,10 +714,10 @@ export default function StudentBoniPageContent() {
                     </h3>
                     <div className={styles.dishCardMobileBadges}>
                       {dish.diet === "vegan" && (
-                        <span className={styles.mobileDietBadge}>Vegansko</span>
+                        <span className={styles.mobileDietBadge}>{t("znackaVegansko")}</span>
                       )}
                       {dish.diet === "vegetarian" && (
-                        <span className={styles.mobileDietBadge}>Vegi</span>
+                        <span className={styles.mobileDietBadge}>{t("znackaVegi")}</span>
                       )}
                     </div>
                   </div>
@@ -758,7 +733,7 @@ export default function StudentBoniPageContent() {
                         <span className={styles.priceSurcharge}>
                           {eur(STUDENT_BON.surcharge)}
                         </span>
-                        <span className={styles.priceSubtext}>na bon</span>
+                        <span className={styles.priceSubtext}>{t("naBon")}</span>
                       </div>
                     </div>
 
@@ -766,10 +741,10 @@ export default function StudentBoniPageContent() {
                       type="button"
                       onClick={() => setModalDish(dish)}
                       className={styles.btnDetailModal}
-                      aria-label={`Podrobnosti o jedi ${dish.name}`}
+                      aria-label={t("podrobnostiOznaka", { ime: dish.name })}
                     >
                       <InfoIcon />
-                      <span>Sestavine</span>
+                      <span>{t("gumbSestavine")}</span>
                     </button>
                   </div>
                 </div>
@@ -784,18 +759,16 @@ export default function StudentBoniPageContent() {
         <section className={styles.locationsSection} id="veljavnost-in-lokacije">
           <div className={styles.sectionHeaderLeft}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>LOKACIJE</span>
+              <span className={styles.tagGhostWatermark}>{t("lokacijeVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>ČASOVNO OKNO & LOKACIJI</span>
+                <span>{t("lokacijeOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Do kdaj lahko bon unovčiš pri nas</h2>
+            <h2 className={styles.sectionTitle}>{t("lokacijeNaslov")}</h2>
             <p className={styles.sectionSubtitle}>
-              Sistem študentske prehrane po vsej državi sprejema bone med{" "}
-              {BON_RULES.windowFrom} in {BON_RULES.windowTo}. Preveri delovni čas
-              in časovno okno za unovčevanje na obeh naših lokacijah.
+              {t("lokacijePodnaslov", { od: BON_RULES.windowFrom, do: BON_RULES.windowTo })}
             </p>
           </div>
 
@@ -809,7 +782,7 @@ export default function StudentBoniPageContent() {
                       <h3 className={styles.locCardName}>{loc.name}</h3>
                       <div className={styles.locCardAddress}>
                         <PinIcon />
-                        <span>{loc.street}, 1000 Ljubljana</span>
+                        <span>{loc.fullAddress}</span>
                       </div>
                     </div>
                     <StatusBadge hours={loc.hours} />
@@ -819,14 +792,14 @@ export default function StudentBoniPageContent() {
                     <div className={styles.locTimeRow}>
                       <span className={styles.locTimeLabel}>
                         <ClockIcon />
-                        <span>Odpiralni čas lokala</span>
+                        <span>{t("odpiralniCas")}</span>
                       </span>
                       <span className={styles.locTimeVal}>{loc.hoursShort}</span>
                     </div>
                     <div className={styles.locTimeRow}>
                       <span className={styles.locTimeLabel}>
                         <UtensilsIcon />
-                        <span>Bon velja (časovno okno)</span>
+                        <span>{t("bonVelja")}</span>
                       </span>
                       <span className={styles.locTimeValVoucher}>
                         {win.from} – {win.to}
@@ -839,7 +812,7 @@ export default function StudentBoniPageContent() {
                       href={{ pathname: "/lokacije/[slug]", params: { slug: LOCATION_SLUG[loc.id] } }}
                       className={`${styles.locBtn} ${styles.locBtnPrimary}`}
                     >
-                      <span>Podrobnosti poslovalnice</span>
+                      <span>{t("podrobnostiPoslovalnice")}</span>
                       <ArrowRightIcon />
                     </Link>
                     <a
@@ -861,14 +834,14 @@ export default function StudentBoniPageContent() {
               <AlertIcon />
             </div>
             <div>
-              <h4 className={styles.nightWarnTitle}>
-                Po polnoči smo odprti, bon pa po zakonu ne velja več
-              </h4>
+              <h4 className={styles.nightWarnTitle}>{t("polnocNaslov")}</h4>
               <p className={styles.nightWarnText}>
-                Oba naša lokala v središču Ljubljane ostajata odprta dolgo v noč
-                (do 01:00 oz. 02:00 / 03:00 ob vikendih). Državni sistem bonov se
-                ob 24:00 samodejno ustavi. Če pridete po polnoči, vas z veseljem
-                postrežemo z enakimi svežimi jedmi po rednih cenah z menija.
+                {t("polnocOpis", {
+                  do2: urnikDruga.closes,
+                  do1: urnikPrva.closes,
+                  vikend1: urnikPrva.weekendCloses ?? urnikPrva.closes,
+                  oknoDo: BON_RULES.windowTo,
+                })}
               </p>
             </div>
           </div>
@@ -880,18 +853,15 @@ export default function StudentBoniPageContent() {
         <section className={styles.terminalSection} id="kako-unovciti">
           <div className={styles.sectionHeaderLeft}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>NAVODILA</span>
+              <span className={styles.tagGhostWatermark}>{t("navodilaVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>TERMINAL & PRAVILA</span>
+                <span>{t("navodilaOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Kako enostavno unovčiš bon</h2>
-            <p className={styles.sectionSubtitle}>
-              Bon unovčiš z mobilno aplikacijo prek NFC čipa ali s študentsko čip
-              kartico. Poglej pravilno mesto prislona na terminalu.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("navodilaNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("navodilaPodnaslov")}</p>
           </div>
 
           <div className={styles.terminalMasterGrid}>
@@ -905,7 +875,7 @@ export default function StudentBoniPageContent() {
                     activeDeviceTab === "phone" ? styles.deviceTabBtnActive : ""
                   }`}
                 >
-                  <span>Mobilni telefon (Aplikacija)</span>
+                  <span>{t("zavihekTelefon")}</span>
                 </button>
                 <button
                   type="button"
@@ -914,7 +884,7 @@ export default function StudentBoniPageContent() {
                     activeDeviceTab === "card" ? styles.deviceTabBtnActive : ""
                   }`}
                 >
-                  <span>Študentska čip kartica</span>
+                  <span>{t("zavihekKartica")}</span>
                 </button>
               </div>
 
@@ -924,46 +894,39 @@ export default function StudentBoniPageContent() {
 
               {activeDeviceTab === "phone" ? (
                 <div>
-                  <h3 className={styles.deviceInstructionTitle}>
-                    Mobilni telefon (NFC / aplikacija)
-                  </h3>
+                  <h3 className={styles.deviceInstructionTitle}>{t("telefonNaslov")}</h3>
                   <p className={styles.deviceInstructionText}>
-                    Telefon prislonite na <strong>spodnji rob terminala</strong> s
-                    sprednje strani.
+                    {t.rich("telefonOpis", { b: (chunks) => <strong>{chunks}</strong> })}
                   </p>
                   <ul className={styles.deviceTipsList}>
                     <li className={styles.deviceTipItem}>
                       <span className={styles.deviceTipIcon}>•</span>
                       <span>
-                        V nastavitvah telefona imejte vklopljen <strong>NFC</strong>.
+                        {t.rich("telefonNasvet1", { b: (chunks) => <strong>{chunks}</strong> })}
                       </span>
                     </li>
                     <li className={styles.deviceTipItem}>
                       <span className={styles.deviceTipIcon}>•</span>
                       <span>
-                        Če terminal ne zazna telefona, lahko v aplikaciji izberete
-                        <strong> Ročni vnos kode</strong>.
+                        {t.rich("telefonNasvet2", { b: (chunks) => <strong>{chunks}</strong> })}
                       </span>
                     </li>
                   </ul>
                 </div>
               ) : (
                 <div>
-                  <h3 className={styles.deviceInstructionTitle}>
-                    Brezkontaktna čip kartica
-                  </h3>
+                  <h3 className={styles.deviceInstructionTitle}>{t("karticaNaslov")}</h3>
                   <p className={styles.deviceInstructionText}>
-                    Študentsko kartico prislonite na{" "}
-                    <strong>zgornji rob terminala</strong> s strani.
+                    {t.rich("karticaOpis", { b: (chunks) => <strong>{chunks}</strong> })}
                   </p>
                   <ul className={styles.deviceTipsList}>
                     <li className={styles.deviceTipItem}>
                       <span className={styles.deviceTipIcon}>•</span>
-                      <span>Kartico pridobite ob registraciji na info točki.</span>
+                      <span>{t("karticaNasvet1")}</span>
                     </li>
                     <li className={styles.deviceTipItem}>
                       <span className={styles.deviceTipIcon}>•</span>
-                      <span>Kartica deluje brez baterije ali mobilnega signala.</span>
+                      <span>{t("karticaNasvet2")}</span>
                     </li>
                   </ul>
                 </div>
@@ -978,11 +941,10 @@ export default function StudentBoniPageContent() {
                 </div>
                 <div>
                   <h4 className={styles.ruleHeading}>
-                    {BON_RULES.perDay} bona na koledarski dan
+                    {t("pravilo1Naslov", { stevilo: BON_RULES.perDay })}
                   </h4>
                   <p className={styles.ruleDesc}>
-                    Vsak študent ima pravico do 2 subvencij dnevno za vse dni v
-                    letu, vključno z vikendi in počitnicami.
+                    {t("pravilo1Opis", { stevilo: BON_RULES.perDay })}
                   </p>
                 </div>
               </div>
@@ -993,11 +955,10 @@ export default function StudentBoniPageContent() {
                 </div>
                 <div>
                   <h4 className={styles.ruleHeading}>
-                    Najmanj {BON_RULES.gapHours} ure razmika
+                    {t("pravilo2Naslov", { stevilo: BON_RULES.gapHours })}
                   </h4>
                   <p className={styles.ruleDesc}>
-                    Med prvim in drugim bonom istega dne morajo miniti vsaj 4
-                    ure, preden sistem dovoli novo potrditev.
+                    {t("pravilo2Opis", { stevilo: BON_RULES.gapHours })}
                   </p>
                 </div>
               </div>
@@ -1008,11 +969,10 @@ export default function StudentBoniPageContent() {
                 </div>
                 <div>
                   <h4 className={styles.ruleHeading}>
-                    Časovno okno {BON_RULES.windowFrom} – {BON_RULES.windowTo}
+                    {t("pravilo3Naslov", { od: BON_RULES.windowFrom, do: BON_RULES.windowTo })}
                   </h4>
                   <p className={styles.ruleDesc}>
-                    Vsi študentski boni v Sloveniji se lahko unovčijo med 07:00 zjutraj
-                    in polnočjo (24:00).
+                    {t("pravilo3Opis", { od: BON_RULES.windowFrom, do: BON_RULES.windowTo })}
                   </p>
                 </div>
               </div>
@@ -1022,11 +982,8 @@ export default function StudentBoniPageContent() {
                   <IdIcon />
                 </div>
                 <div>
-                  <h4 className={styles.ruleHeading}>Osebni dokument ob prevzemu</h4>
-                  <p className={styles.ruleDesc}>
-                    Ob unovčitvi bona je potrebno na zahtevo osebja pokazati osebni
-                    dokument ali veljavno študentsko izkaznico.
-                  </p>
+                  <h4 className={styles.ruleHeading}>{t("pravilo4Naslov")}</h4>
+                  <p className={styles.ruleDesc}>{t("pravilo4Opis")}</p>
                 </div>
               </div>
             </div>
@@ -1039,59 +996,45 @@ export default function StudentBoniPageContent() {
         <section className={styles.onboardingSection} id="prvi-vpis">
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>BRUCI</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("bruciVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>PRVA REGISTRACIJA</span>
+                <span>{t("bruciOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>
-              Prvič uporabljaš bone? Enostaven vpis v 3 korakih
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Postopek opraviš le enkrat ob vpisu na fakulteto ali višjo šolo,
-              nato pa status vsako študijsko leto enostavno podaljšaš prek aplikacije.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("bruciNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("bruciPodnaslov")}</p>
           </div>
 
           <div className={styles.stepsGrid}>
             <div className={styles.stepCard}>
               <div className={styles.stepNumberBadge}>1</div>
-              <h3 className={styles.stepTitle}>Spletna prijava</h3>
-              <p className={styles.stepBody}>
-                Izpolnite spletno prijavnico na uradnem portalu Študentske prehrane.
-                Ob oddaji si zapišite številko prijavnice.
-              </p>
+              <h3 className={styles.stepTitle}>{t("korak1Naslov")}</h3>
+              <p className={styles.stepBody}>{t("korak1Opis")}</p>
               <a
                 href={STUDENT_SUBSIDY.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.stepExternalLink}
               >
-                Pojdi na studentska-prehrana.si →
+                {t("korak1Povezava", { vir: STUDENT_SUBSIDY.sourceName })}
               </a>
             </div>
 
             <div className={styles.stepCard}>
               <div className={styles.stepNumberBadge}>2</div>
-              <h3 className={styles.stepTitle}>Aktivacija na info točki</h3>
-              <p className={styles.stepBody}>
-                S številko prijavnice, osebnim dokumentom in dokazilom o vpisu
-                obiščite katerokoli info točko (npr. ŠOU Ljubljana ali Kampus).
-              </p>
+              <h3 className={styles.stepTitle}>{t("korak2Naslov")}</h3>
+              <p className={styles.stepBody}>{t("korak2Opis")}</p>
               <span style={{ fontSize: "0.85rem", color: "#047857", fontWeight: 700 }}>
-                ✓ Aktivacija opravljena v 3 minutah
+                {t("korak2Opomba")}
               </span>
             </div>
 
             <div className={styles.stepCard}>
               <div className={styles.stepNumberBadge}>3</div>
-              <h3 className={styles.stepTitle}>Namesti uradno aplikacijo</h3>
-              <p className={styles.stepBody}>
-                Prenesi aplikacijo Študentska prehrana za hitro unovčevanje bonov,
-                pregled stanja kvote in iskanje restavracij.
-              </p>
+              <h3 className={styles.stepTitle}>{t("korak3Naslov")}</h3>
+              <p className={styles.stepBody}>{t("korak3Opis")}</p>
               <div className={styles.appLinksRow}>
                 <a
                   href={BON_APPS.ios}
@@ -1120,18 +1063,15 @@ export default function StudentBoniPageContent() {
         <section className={styles.faqSection} id="student-faq">
           <div className={styles.sectionHeaderCenter}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>FAQ</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("faqVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>POGOSTA VPRAŠANJA ŠTUDENTOV</span>
+                <span>{t("faqOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Vse, kar vas najpogosteje zanima</h2>
-            <p className={styles.sectionSubtitle}>
-              Hitri odgovori na najpogostejša vprašanja glede unovčevanja bonov v
-              Šeherezadi.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("faqNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("faqPodnaslov")}</p>
           </div>
 
           <div className={styles.faqContainerBox}>
@@ -1173,36 +1113,34 @@ export default function StudentBoniPageContent() {
         <section className={styles.ctaBox}>
           <div>
             <h2 className={styles.ctaTitle}>
-              {MENU_STATS.student} svežih jedi čaka na tvoj bon
+              {t("ctaNaslov", { stevilo: MENU_STATS.student })}
             </h2>
             <p className={styles.ctaText}>
-              Od {MENU_STATS.total} jedi na našem meniju jih je {MENU_STATS.student}{" "}
-              na voljo na študentski bon — med njimi {MENU_STATS.vegan} veganskih
-              in {MENU_STATS.vegetarian} vegetarijanskih. Obišči nas na Trubarjevi
-              ali Slovenski!
+              {t("ctaOpis", {
+                vseh: MENU_STATS.total,
+                naBon: MENU_STATS.student,
+                vegan: MENU_STATS.vegan,
+                vegetarijanskih: MENU_STATS.vegetarian,
+              })}
             </p>
           </div>
 
           <div className={styles.ctaBtnGroup}>
             <Link href="/meni" className={styles.btnPrimary}>
-              <span>Celoten meni</span>
+              <span>{t("ctaMeni")}</span>
               <ArrowRightIcon />
             </Link>
             <Link href="/kontakt" className={styles.btnSecondary}>
-              <span>Kje smo</span>
+              <span>{t("ctaKjeSmo")}</span>
             </Link>
           </div>
         </section>
 
         {/* Legal Transparency Note */}
         <footer className={styles.sourceLegalBox}>
-          <span className={styles.sourceLegalLabel}>
-            Uradni vir podatkov o subvencionirani prehrani
-          </span>
+          <span className={styles.sourceLegalLabel}>{t("virOznaka")}</span>
           <p className={styles.sourceLegalText}>
-            Podatki o višini subvencije ({eur(STUDENT_SUBSIDY.subsidy)}), pravilih
-            unovčevanja in postopku vpisa povzemajo uradne informacije sistema
-            študentske prehrane ŠOS, dostopne na{" "}
+            {t("virZacetek", { znesek: eur(STUDENT_SUBSIDY.subsidy) })}{" "}
             <a
               href={STUDENT_SUBSIDY.sourceUrl}
               target="_blank"
@@ -1211,9 +1149,10 @@ export default function StudentBoniPageContent() {
             >
               {STUDENT_SUBSIDY.sourceName}
             </a>
-            . Nazadnje preverjeno {STUDENT_SUBSIDY.checkedOn}. Podatki o ponudbi
-            jedi, delovnem času lokalov in enotnem doplačilu {eur(STUDENT_BON.surcharge)}{" "}
-            so neposredno določeni s strani restavracije Šeherezada.
+            {t("virKonec", {
+              datum: STUDENT_SUBSIDY.checkedOn,
+              doplacilo: eur(STUDENT_BON.surcharge),
+            })}
           </p>
         </footer>
       </div>
@@ -1260,15 +1199,15 @@ export default function StudentBoniPageContent() {
                       {modalDish.diet && (
                         <span className={styles.modalHalalBadge}>
                           {modalDish.diet === "vegan"
-                            ? "Vegansko"
-                            : "Vegetarijansko"}
+                            ? t("znackaVegansko")
+                            : t("znackaVegetarijansko")}
                         </span>
                       )}
                     </div>
                     <div className={styles.modalPriceText}>
-                      Doplačilo na bon: {eur(STUDENT_BON.surcharge)}{" "}
+                      {t("modalDoplacilo", { doplacilo: eur(STUDENT_BON.surcharge) })}{" "}
                       <span style={{ fontSize: "0.82rem", color: "#8a817b" }}>
-                        (redna cena {eur(modalDish.price)})
+                        {t("modalRednaCena", { cena: eur(modalDish.price) })}
                       </span>
                     </div>
                   </div>
@@ -1276,13 +1215,13 @@ export default function StudentBoniPageContent() {
 
                 {/* 1. Opis */}
                 <div className={styles.modalSectionBox}>
-                  <h4 className={styles.modalSectionTitle}>Opis Jedi</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("opisJedi")}</h4>
                   <p className={styles.modalDescText}>{modalDish.desc}</p>
                 </div>
 
                 {/* 2. Sestavine */}
                 <div className={styles.modalSectionBox}>
-                  <h4 className={styles.modalSectionTitle}>Sestavine</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("sestavine")}</h4>
                   <ul className={styles.modalIngredientsList}>
                     {modalDish.ingredientsList.map((ing, idx) => (
                       <li key={idx} className={styles.modalIngredientItem}>
@@ -1295,7 +1234,7 @@ export default function StudentBoniPageContent() {
 
                 {/* 3. Alergeni */}
                 <div className={styles.modalSectionBox}>
-                  <h4 className={styles.modalSectionTitle}>Alergeni</h4>
+                  <h4 className={styles.modalSectionTitle}>{t("alergeni")}</h4>
                   <div className={styles.modalAllergensGrid}>
                     {modalDish.allergensList.length > 0 ? (
                       modalDish.allergensList.map((alg, idx) => (
@@ -1305,7 +1244,7 @@ export default function StudentBoniPageContent() {
                       ))
                     ) : (
                       <span className={styles.modalAllergenPill}>
-                        Brez deklariranih alergenov
+                        {t("brezAlergenov")}
                       </span>
                     )}
                   </div>

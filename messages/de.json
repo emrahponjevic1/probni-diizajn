@@ -1,1 +1,1617 @@
-{}
+{
+  "meta": {
+    "naslovnicaNaslov": "Halal Döner, Falafel & Pizza in Ljubljana | Šeherezada",
+    "naslovnicaOpis": "Halal Döner, Jufka-Wraps, Falafel und Pizza im Zentrum von Ljubljana. Zwei Standorte — Trubarjeva 31 und Slovenska 55. Studentenbons mit {doplacilo} Zuzahlung.",
+    "ogSlikaOpis": "Šeherezada — Halal Döner, Falafel und Hummus in Ljubljana",
+    "meniNaslov": "Günstig essen in Ljubljana — Speisekarte | Šeherezada",
+    "meniOpis": "{vseh} Gerichte im Zentrum von Ljubljana: Döner, Jufka, Falafel, Burger und Pizza, frisch zubereitet. {naBon} Gerichte auf Studentenbon, {vegan} vegan. Gutes Preis-Leistungs-Verhältnis, ab 1,00 €.",
+    "kontaktNaslov": "Kontakt — zwei Standorte in Ljubljana | Šeherezada",
+    "kontaktOpis": "Šeherezada in der Trubarjeva 31 und Slovenska 55 in Ljubljana. Telefon {telefon}, E-Mail und Formular für Anfragen, Catering und Reservierungen.",
+    "kontaktOgOpis": "Zwei Standorte in Ljubljana — Trubarjeva 31 und Slovenska 55. Telefon, E-Mail und Anfrageformular.",
+    "oNasNaslov": "Über uns — Halal Döner in Ljubljana seit 1998 | Šeherezada",
+    "oNasOpis": "Halal-Restaurant im Zentrum von Ljubljana seit 1998. Täglich frisch gebackenes Fladenbrot, Fleisch vom Feuer und zwei Standorte — Trubarjeva 31 und Slovenska 55.",
+    "oNasOgOpis": "Seit 1998: echte kulinarische Tradition, offenes Feuer und hausgemachtes Brot in Ljubljana.",
+    "faqNaslov": "Häufige Fragen — Halal, Bons, Öffnungszeiten | Šeherezada",
+    "faqOpis": "Antworten zum Halal-Zertifikat, zu Studentenbons mit {doplacilo} Zuzahlung, zum veganen Angebot und zu den Öffnungszeiten beider Standorte in Ljubljana.",
+    "galerijaNaslov": "Galerie — Fotos aus unserer Küche | Šeherezada Ljubljana",
+    "galerijaOpis": "Sehen Sie, wie Ihre Lieblingsgerichte entstehen — frisch gegrilltes Fleisch und hausgemachtes Brot bei Šeherezada in Ljubljana. Fotos aus Küche und Gastraum.",
+    "halalNaslov": "Halal Restaurant in Ljubljana — zertifiziert | Šeherezada",
+    "halalOpis": "Was halal bedeutet, wie es in Slowenien zertifiziert wird und was das auf unserer Speisekarte heißt: kein Schweinefleisch, kein Alkohol, zertifiziertes Halal-Fleisch an beiden Standorten in Ljubljana.",
+    "boniNaslov": "Studentenessen in Ljubljana — {doplacilo} Zuzahlung | Šeherezada",
+    "boniOpis": "Studentenbon bei Šeherezada: {doplacilo} Zuzahlung für Hauptgericht, Salat, einen Apfel und ein Getränk. {naBon} Gerichte auf Bon, zwei Standorte im Zentrum von Ljubljana. Bis wann der Bon gilt und wie du ihn einlöst.",
+    "piskotkiNaslov": "Cookie-Richtlinie | Šeherezada Ljubljana",
+    "piskotkiOpis": "Wie Cookies auf der Website von Šeherezada Ljubljana verwendet werden, im Einklang mit ZEKom-2 und der DSGVO. Arten von Cookies und wie Sie sie verwalten.",
+    "zasebnostNaslov": "Datenschutzerklärung | Šeherezada Ljubljana",
+    "zasebnostOpis": "Schutz personenbezogener Daten und Datenschutz bei Šeherezada Ljubljana, im Einklang mit der DSGVO und ZVOP-2. Transparenz, Ihre Rechte und Datensicherheit.",
+    "blogNaslov": "Blog — Essen, Halal und Studentenbons in Ljubljana | Šeherezada",
+    "blogOpis": "Tipps und Geschichten rund um unser Halal-Angebot, vegane Gerichte und Studentenbons bei Šeherezada — einem Restaurant im Zentrum von Ljubljana.",
+    "blogOgOpis": "Das Handwerk hinter unserer orientalischen Küche, wie wir frische Gerichte zubereiten, und Geschichten unserer Bäcker und Grillmeister.",
+    "zaposlitevNaslov": "Jobs in Ljubljana — Arbeiten bei Šeherezada",
+    "zaposlitevOpis": "Arbeiten bei Šeherezada, einem Restaurant im Zentrum von Ljubljana. Sehen Sie sich unsere offenen Stellen an oder senden Sie uns Ihre Bewerbung — zwei Standorte, Trubarjeva 31 und Slovenska 55.",
+    "zaposlitevOgOpis": "Arbeiten bei Šeherezada, einem Restaurant im Zentrum von Ljubljana. Offene Stellen ansehen oder Bewerbung senden.",
+    "stran404Naslov": "Seite nicht gefunden (404) | Šeherezada Ljubljana",
+    "stran404Opis": "Die gesuchte Seite gibt es nicht. Sehen Sie sich unsere Speisekarte mit {vseh} Gerichten an oder finden Sie den nächsten Standort.",
+    "lokacijaNiNajdena": "Standort nicht gefunden | Šeherezada",
+    "lokacijaNaslov": "{ime}, {ulica} — Halal Döner in Ljubljana",
+    "lokacijaOpis": "{ime} in der {naslov}. Geöffnet {urnik}. Anfahrt, Parken und die ganze Speisekarte mit Studentenbons.",
+    "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
+    "oglasNiNajden": "Stelle nicht gefunden | Šeherezada",
+    "oglasNaslov": "{mesto} — Job in Ljubljana | Šeherezada",
+    "oglasOgNaslov": "{mesto} — Šeherezada Ljubljana",
+    "objavaNiNajdena": "Beitrag nicht gefunden | Šeherezada",
+    "objavaNaslov": "{naslov} | Šeherezada Ljubljana"
+  },
+  "navigacija": {
+    "domov": "Start",
+    "meni": "Speisekarte",
+    "galerija": "Galerie",
+    "oNas": "Über uns",
+    "pogostaVprasanja": "FAQ",
+    "zaposlitev": "Jobs",
+    "blog": "Blog",
+    "kontakt": "Kontakt",
+    "lokaciji": "Standorte",
+    "jezik": "Sprache",
+    "izbiraJezika": "Sprache wählen",
+    "odpriMeni": "Navigationsmenü öffnen",
+    "zapriMeni": "Menü schließen"
+  },
+  "noga": {
+    "opis": "Ljubljanas Street Food seit 1998. Halal Döner, Jufka, Falafel und Pizza an zwei Standorten — Trubarjeva 31 und Slovenska 55.",
+    "lokacijiInKontakt": "STANDORTE & KONTAKT",
+    "avtorskePravice": "© 2026 Šeherezada Ljubljana. Alle Rechte vorbehalten.",
+    "piskotki": "Cookies",
+    "politikaZasebnosti": "Datenschutz"
+  },
+  "piskotki": {
+    "oznaka": "Cookie-Einwilligung",
+    "naslov": "Cookies auf dieser Seite",
+    "besediloZAnalitiko": "Ein notwendiges Cookie merkt sich diese Auswahl. Analyse-Cookies werden nur geladen, wenn Sie „Alle akzeptieren“ wählen.",
+    "besediloBrezAnalitike": "Wir verwenden nur ein Cookie, das sich diese Auswahl merkt. Die Analyse ist noch nicht aktiviert — sobald sie es ist, wird sie nur für Gäste geladen, die hier „Alle akzeptieren“ wählen.",
+    "vec": "Mehr in unserer <povezava>Cookie-Richtlinie</povezava>.",
+    "samoNujni": "Nur notwendige",
+    "sprejmiVse": "Alle akzeptieren"
+  },
+  "znacka": {
+    "preverjamo": "Öffnungszeiten werden geprüft …",
+    "odprtoZdaj": "Jetzt geöffnet",
+    "doUre": "· bis {ura}",
+    "trenutnoZaprto": "Derzeit geschlossen",
+    "odUre": "· {kdaj} ab {ura}",
+    "jutri": "morgen",
+    "danes": "heute",
+    "odprto": "Geöffnet",
+    "zaprto": "Geschlossen",
+    "danesOznaka": "heute"
+  },
+  "stran404": {
+    "oznaka": "FEHLER 404 · SEITE NICHT GEFUNDEN",
+    "znacka": "🔍 In der Speisekarte verirrt?",
+    "naslov": "Hoppla! Diese Seite ist von unserer Karte verschwunden",
+    "podnaslov": "Der Link, dem Sie gefolgt sind, existiert nicht oder wurde verschoben. Keine Sorge — frisch gegrillter Döner, knuspriges Falafel und heiße Pizza warten weiterhin an beiden Standorten auf Sie!",
+    "nazajNaPrvo": "Zurück zur Startseite",
+    "oglejSiMeni": "Ganze Speisekarte ansehen",
+    "morda": "Vielleicht haben Sie gesucht:",
+    "meniNaslov": "Ganze Speisekarte",
+    "meniOpis": "29 frische Gerichte: Döner, Jufka, Pizza, Burger und Falafel.",
+    "boniNaslov": "Studentenbons",
+    "boniOpis": "19 Gerichte auf Bon mit einheitlicher Zuzahlung von 3,00 € und Beilagen.",
+    "halalNaslov": "100 % Halal-Zertifikat",
+    "halalOpis": "Strenge Hygienestandards, kein Schweinefleisch und kein Alkohol seit 1998.",
+    "kontaktNaslov": "Standorte & Kontakt",
+    "kontaktOpis": "Trubarjeva 31 und Slovenska 55. Täglich bis spät geöffnet."
+  },
+  "hero": {
+    "naslov": "Halal Döner, Pizza und Falafel im Zentrum von Ljubljana",
+    "podnaslov": "Studentenbons · lange geöffnet",
+    "opis": "100 % frisch gegrilltes Halal-Fleisch und knuspriges hausgemachtes Falafel. Sie finden uns in der Trubarjeva 31 und Slovenska 55.",
+    "ocena": "4,5",
+    "steviloOcen": "(1.972 Google-Bewertungen)",
+    "poglejMeni": "Speisekarte und Preise ansehen",
+    "lokacija": "Standort",
+    "altKebab": "Šeherezada echter türkischer Döner Kebab",
+    "halalMeso": "Halal-Fleisch",
+    "stoOdstotkovSveze": "100% frisch",
+    "od1998": "SEIT 1998",
+    "dveLokaciji": "Zwei Standorte",
+    "trubarjevaInSlovenska": "Trubarjeva & Slovenska",
+    "domacKruh": "Hausgemachtes Brot nach Geheimrezept"
+  },
+  "ocene": {
+    "vodniZnak": "BEWERTUNGEN",
+    "oznakaPoglavja": "GÄSTEBEWERTUNGEN & VERTRAUEN",
+    "naslov": "Worte derer, die immer wiederkommen.",
+    "podnaslov": "Das Vertrauen tausender zufriedener Gäste ist unsere größte Auszeichnung. Entdecken Sie echte Erfahrungen von unseren Standorten in der Trubarjeva und Slovenska.",
+    "vodniZnakGosti": "GÄSTE",
+    "prikaziRecenzijo": "Bewertung {stevilka} anzeigen"
+  },
+  "ocenePodatki": {
+    "1": {
+      "kdaj": "vor 9 Monaten",
+      "kontekst": "Urlaub · Familie"
+    },
+    "2": {
+      "kdaj": "vor 6 Monaten",
+      "kontekst": "Urlaub · Freunde"
+    },
+    "3": {
+      "kdaj": "vor einem Jahr",
+      "kontekst": "Familie"
+    }
+  },
+  "priljubljene": {
+    "vodniZnak": "AUSWAHL",
+    "oznakaPoglavja": "BELIEBTESTE GERICHTE",
+    "naslov": "Beliebteste Gerichte",
+    "podnaslov": "{stevilo} Gerichte, die unsere Gäste am häufigsten bestellen. Alle frisch zubereitet, aus 100 % Halal-Zutaten. Die meisten gibt es auch auf den Studentenbon.",
+    "cena": "Preis",
+    "poglejPodrobnosti": "Details ansehen",
+    "izberiteJed": "Gericht zum Anzeigen wählen:",
+    "steviloSpecialitet": "{stevilo} Spezialitäten",
+    "povlecite": "Wischen für mehr Gerichte",
+    "znackaNajbolj": "Bestseller",
+    "znackaVegansko": "Vegan",
+    "znackaVegetarijansko": "Vegetarisch",
+    "znackaNaBon": "Auf Bon",
+    "celotenMeni": "Ganze Speisekarte: {stevilo} Gerichte",
+    "celotenMeniOpis": "Döner, Jufka, Falafel, Burger, Teller und Pizza. {stevilo} Gerichte gibt es auf den Studentenbon.",
+    "odpriMeni": "Ganze Speisekarte öffnen",
+    "halalZnacka": "✓ 100% Halal",
+    "velika": "groß {cena}",
+    "opisJedi": "Beschreibung",
+    "sestavine": "Zutaten",
+    "alergeni": "Allergene",
+    "zapriOkno": "Schließen"
+  },
+  "zgodba": {
+    "vodniZnak": "GESCHICHTE",
+    "oznakaPoglavja": "UNSERE GESCHICHTE & TRADITION",
+    "naslov": "Seit 1998 im Zentrum von Ljubljana",
+    "uvod": "Šeherezada gehört seit 1998 zu Ljubljana — seit mehr als 25 Jahren. Heute haben wir zwei Standorte: Trubarjeva 31 in der Altstadt und Slovenska 55 am Bavarski dvor. Die Rezepte und die Art zu kochen sind dieselben geblieben.",
+    "stebri": {
+      "ogenjNaslov": "Echtes Feuer & 24-Stunden-Marinade",
+      "ogenjOpis": "Wir marinieren das Fleisch 24 Stunden lang in einer Mischung echter orientalischer Gewürze und grillen es über heißem Feuer — für unwiderstehliche Saftigkeit.",
+      "kruhNaslov": "Hausgemachtes Brot nach Geheimrezept",
+      "kruhOpis": "Jeden Morgen kneten wir den Teig von Hand, und Fladenbrot und dünnes Lavaš backen wir frisch — nie im Voraus.",
+      "halalNaslov": "100% Halal & täglich frisch",
+      "halalOpis": "Wir verwenden ausschließlich zertifiziertes Kalb- und Hähnchenfleisch in guter Qualität sowie regional angebautes frisches Gemüse."
+    },
+    "altMojster": "Šeherezada Grillmeister bei der Zubereitung von Döner",
+    "altKruh": "Frisch gebackenes hausgemachtes Fladenbrot im Ofen",
+    "letoOdprtja": "Das Jahr, in dem wir zum ersten Mal öffneten"
+  },
+  "halalZnak": {
+    "certificirano": "100% Halal-zertifiziert",
+    "brezSvinjine": "0% Schweinefleisch · Keine Kompromisse",
+    "vodniZnak": "HALAL",
+    "oznakaPoglavja": "QUALITÄTSGARANTIE",
+    "naslov": "100 % Halal-Essen in Ljubljana — an beiden Standorten",
+    "znackaMeso": "100% Halal-Fleisch",
+    "znackaSvinjina": "0% Schweinefleisch",
+    "znackaAlkohol": "100% alkoholfrei",
+    "uvod": "Das gesamte Fleisch bei Šeherezada ist 100 % halal-zertifiziert. In unseren Küchen in der Trubarjeva 31 und Slovenska 55 gibt es weder Schweinefleisch noch Schweinederivate oder Alkohol — ohne Ausnahme. Auf der Karte stehen außerdem {stevilo} rein pflanzliche Gerichte.",
+    "poreklaNaslov": "Geprüfte und zertifizierte Herkunft",
+    "poreklaOpis": "Wir verwenden ausschließlich Kalb- und Hähnchenfleisch guter Qualität aus kontrollierten europäischen Quellen mit gültigem internationalem Zertifikat und lückenloser Rückverfolgbarkeit.",
+    "prepovedNaslov": "0% Schweinefleisch & alkoholfrei",
+    "prepovedOpis": "In unseren Küchen sind Schweinefleisch, Schweinederivate, Alkohol und versteckte tierische Fette streng verboten.",
+    "svezeNaslov": "Täglich frisch zubereitet",
+    "svezeOpis": "Jeden Morgen frisch gebackenes hausgemachtes Fladenbrot, eine Marinade nach Geheimrezept und regional angebautes frisches Gemüse.",
+    "vecOHalalu": "Was halal bedeutet und wie es zertifiziert wird"
+  },
+  "boniOdsek": {
+    "vodniZnak": "BONS",
+    "oznakaPoglavja": "STUDENTENESSEN",
+    "naslov": "Šeherezada: <poudarek>Iss dich satt</poudarek> <druga>im Studium!</druga>",
+    "podnaslov": "{naBon} von {vseh} Gerichten auf unserer Karte gibt es auf den Studentenbon. Für eine Zuzahlung von {doplacilo} bekommst du ein Hauptgericht, Salat, einen Apfel und ein Getränk — an beiden Standorten im Zentrum von Ljubljana.",
+    "znacka": "Studentenbons akzeptiert",
+    "bannerNaslov": "Löse deine Studentenbons bei Šeherezada ein",
+    "bannerGumb": "Mehr über Studentenbons",
+    "bannerVrstica1": "Döner, Jufka, Falafel und Pizza",
+    "bannerVrstica2": "— alles auf Bon.",
+    "altEkipa": "Das Šeherezada-Team bereitet frische Studentenmenüs zu",
+    "naVsehLokacijah": "An allen Standorten",
+    "steviloLokacij": "{stevilo} Standorte in LJ",
+    "doplaciloOznaka": "ZUZAHLUNG",
+    "doplaciloOpis": "Hauptgericht, Salat, ein Apfel und ein Getränk.",
+    "altObrok": "Döner-Studentenmenü",
+    "kebabMeni": "Döner-Menü",
+    "ikonaGlavnaJed": "Hauptgericht (Döner)",
+    "ikonaSolata": "Frischer Salat",
+    "ikonaSadje": "Frisches Obst (Apfel)",
+    "ikonaPijaca": "Wasser / Getränk"
+  },
+  "faqOdsek": {
+    "vodniZnak": "FRAGEN",
+    "oznakaPoglavja": "HÄUFIGE FRAGEN",
+    "naslovPrvaVrstica": "ALLES, WAS",
+    "naslovPoudarek": "SIE WISSEN",
+    "naslovTretjaVrstica": "MÜSSEN.",
+    "uvod": "Unsicher wegen Bons, Öffnungszeiten oder Lieferung? Hier sind die Antworten, heiß serviert.",
+    "gumb": "Alle Fragen ansehen (FAQ)",
+    "vprasanja": {
+      "hoursTag": "ÖFFNUNGSZEITEN",
+      "hoursVprasanje": "WIE SIND DIE ÖFFNUNGSZEITEN VON ŠEHEREZADA?",
+      "hoursOdgovor": "{ime1} in der Trubarjeva 31 ist täglich von {od1} bis {do1} geöffnet, freitags und samstags bis {vikend1}. {ime2} in der Slovenska 55 ist täglich von {od2} bis {do2} geöffnet.",
+      "halalTag": "QUALITÄT & HALAL",
+      "halalVprasanje": "IST DAS GESAMTE FLEISCH 100% HALAL-ZERTIFIZIERT?",
+      "halalOdgovor": "Ja, unser gesamtes Fleisch ist 100 % halal-zertifiziert, nach strengen Hygienestandards zubereitet, lückenlos rückverfolgbar und mit 0 % Schweinefleisch.",
+      "boniTag": "STUDENTENBONS",
+      "boniVprasanje": "WIE FUNKTIONIEREN STUDENTENBONS BEI ŠEHEREZADA?",
+      "boniOdgovor": "Studierende weisen sich beim Bestellen mit dem Studentenausweis oder der App ŠTUDENTSKA PREHRANA aus. Die Zuzahlung beträgt {doplacilo}, das Menü umfasst ein Hauptgericht, Salat, einen Apfel und ein Getränk.",
+      "deliveryTag": "LIEFERUNG & ABHOLUNG",
+      "deliveryVprasanje": "LIEFERN SIE AUCH?",
+      "deliveryOdgovor": "Ja! Wir liefern über Wolt, oder Sie holen Ihre Bestellung nach einem kurzen Anruf schnell selbst an einem unserer Standorte ab."
+    }
+  },
+  "meniStran": {
+    "vodniZnak": "KARTE",
+    "oznakaPoglavja": "SPEISEKARTE & ANGEBOT",
+    "naslov": "Speisekarte und Preise — preiswertes Halal-Essen in Ljubljana",
+    "podnaslov": "{vseh} Gerichte: Döner, Jufka, Falafel, Burger und Pizza, frisch zubereitet. {naBon} Gerichte gibt es auf den Studentenbon mit {doplacilo} Zuzahlung, {veganskih} sind vegan — mit gutem Preis-Leistungs-Verhältnis im Stadtzentrum.",
+    "zavihekVse": "Alle Gerichte",
+    "zavihekBoni": "Studentenbons",
+    "zavihekVegi": "Vegi & vegan",
+    "iskanje": "Gerichte suchen (Döner, Burger, Pizza, Falafel)...",
+    "pocistiIskanje": "Suche löschen",
+    "mrezaNaslov": "Kartenraster",
+    "mrezaOznaka": "Rasteransicht",
+    "seznamNaslov": "Liste",
+    "seznamOznaka": "Listenansicht",
+    "bannerZnacka": "Studentenessen",
+    "bannerNaslov": "Löse deine Studentenbons bei Šeherezada ein",
+    "bannerUvod": "Jedes Studentenmenü enthält:",
+    "bannerVsebina": "<b>Ein Hauptgericht nach Wahl</b> + <b>frischen Salat</b> + <b>einen Apfel</b> + <b>ein Getränk</b>.",
+    "doplaciloOznaka": "Zuzahlung",
+    "zVeljavnimBonom": "mit gültigem Bon",
+    "kategorijaOznaka": "Kategorie {ime}",
+    "steviloJedi": "{stevilo} Gerichte",
+    "prikazanih": "Angezeigt: <b>{stevilo}</b> Gerichte",
+    "niZadetkov": "Keine Gerichte gefunden",
+    "niZadetkovOpis": "Für diese Suche oder diesen Filter gibt es keine Treffer. Versuchen Sie einen anderen Suchbegriff oder setzen Sie die Filter zurück.",
+    "ponastaviFiltre": "Filter zurücksetzen",
+    "klikniSestavineAlergeni": "Für Zutaten und Allergene klicken",
+    "klikniSestavine": "Für Zutaten klicken",
+    "znackaVegansko": "Vegan",
+    "znackaVegetarijansko": "Vegetarisch",
+    "znackaVegi": "Vegi",
+    "znackaNaBon": "Auf Bon",
+    "znackaBon": "Bon",
+    "naStudentskiBon": "✓ Auf Studentenbon ({doplacilo})",
+    "naBonSDoplacilom": "Auf Bon ({doplacilo} Zuzahlung)",
+    "studentskiBonZnacka": "Studentenbon ({doplacilo})",
+    "velika": "groß {cena}",
+    "narociWolt": "Über Wolt bestellen",
+    "podrobnostiNaslov": "Details zum Gericht (Zutaten & Allergene)",
+    "podrobnostiOznaka": "Details zu {ime}",
+    "zapriOkno": "Schließen",
+    "opisJedi": "Beschreibung",
+    "sestavine": "Zutaten",
+    "alergeni": "Allergene",
+    "brezAlergenov": "Keine bekannten Allergene.",
+    "schemaIme": "Speisekarte — {znamka}",
+    "schemaVelika": "Groß"
+  },
+  "lokacijaStran": {
+    "navodilaZaPot": "Wegbeschreibung",
+    "meniInCene": "Speisekarte und Preise",
+    "zemljevidNaslov": "Karte — {ime}, {naslov}",
+    "najdesNasNa": "Sie finden uns in der",
+    "appleMaps": "Apple Maps",
+    "fotografijeOpomba": "Fotos dieses Standorts folgen in Kürze. Bis dahin sehen Sie uns auf Google Maps.",
+    "delovniCas": "Öffnungszeiten",
+    "urnikOpomba": "Die Küche arbeitet bis Ladenschluss — die letzte Bestellung nehmen wir wenige Minuten davor an.",
+    "kajTuDobis": "Was es hier gibt",
+    "boniOznaka": "Studentenbons",
+    "boniOpis": "An diesem Standort gibt es <b>{stevilo} Gerichte</b> von unserer Karte. Für eine Zuzahlung von <b>{doplacilo}</b> bekommst du ein Hauptgericht, Salat, einen Apfel und ein Getränk.",
+    "poglejMeni": "Ganze Speisekarte ansehen",
+    "kakoPrides": "So finden Sie uns",
+    "kakoPridesUvod": "Wir sind im Stadtzentrum, am schnellsten kommen Sie zu Fuß oder mit dem Stadtbus.",
+    "prevozAvtobus": "Mit dem Bus",
+    "prevozParkiranje": "Parken",
+    "prevozPes": "Zu Fuß",
+    "drugaPoslovalnica": "Unser anderer Standort",
+    "drobtineOznaka": "Brotkrumen"
+  },
+  "lokacijePodatki": {
+    "dnevi": {
+      "0": "Montag",
+      "1": "Dienstag",
+      "2": "Mittwoch",
+      "3": "Donnerstag",
+      "4": "Freitag",
+      "5": "Samstag",
+      "6": "Sonntag"
+    },
+    "trubarjeva": {
+      "hoursShort": "09:00 – 02:00, Fr und Sa bis 03:00",
+      "badge": "Altstadt · Unser erster Standort",
+      "h1": "Šeherezada — Halal Döner in der Trubarjeva 31",
+      "subtitle": "Bohemisches Treiben und eine Anlaufstelle bis spät in die Nacht",
+      "vibeText": "Unser erster Standort mitten in der Altstadt von Ljubljana. Der perfekte Ort für ein schnelles Mittagessen, einen späten Snack oder entspanntes Sitzen im bohemischen Rhythmus der Trubarjeva.",
+      "highlights": {
+        "0": "Geöffnet bis 02:00, freitags und samstags bis 03:00",
+        "1": "Studentenbons — 3,00 € Zuzahlung",
+        "2": "Hausgemachtes Fladenbrot, frisch vor dem Servieren gebacken",
+        "3": "Schnelle Abholung und Lieferung über Wolt",
+        "4": "Alle 29 Gerichte der Karte, einschließlich Brathähnchen"
+      },
+      "transport": {
+        "lpp": "Haltestelle Zmajski most (Linien 2, 13, 20) — 2 Min. zu Fuß",
+        "parking": "Parkhaus Kapitelj / Komenskega oder Petkovškovo nabrežje",
+        "walking": "3 Min. vom Prešeren-Platz und der Drei Brücken"
+      },
+      "photos": {
+        "0": "Innenraum des Lokals in der Trubarjeva cesta 31",
+        "1": "Döner am Spieß",
+        "2": "Eingang von der Trubarjeva cesta"
+      }
+    },
+    "slovenska": {
+      "hoursShort": "08:00 – 01:00, täglich",
+      "badge": "Zentrum · Bavarski dvor",
+      "h1": "Šeherezada 2 — Halal Döner in der Slovenska 55",
+      "subtitle": "Ein großzügiges Restaurant an der Hauptachse der Stadt",
+      "vibeText": "Ein modernes Restaurant an der Slovenska cesta, direkt am Bavarski dvor. Ideal für ein Frühstück, ein Geschäftsessen, ein Studentenmenü oder einen Snack am Abend.",
+      "highlights": {
+        "0": "Täglich von 08:00 bis 01:00 geöffnet",
+        "1": "Frühstück und Vormittagssnacks ab 08:00",
+        "2": "Studentenbons — 3,00 € Zuzahlung",
+        "3": "Schnelle Abholung und Lieferung über Wolt",
+        "4": "28 Gerichte der Karte — ohne Brathähnchen"
+      },
+      "transport": {
+        "lpp": "Haltestelle Bavarski dvor / Pošta (zentraler Knotenpunkt) — 1–2 Min. zu Fuß",
+        "parking": "Parkhäuser Kozolec / Trg republike / Kongresni trg",
+        "walking": "Direkt am Bavarski dvor und an der Ajdovščina"
+      },
+      "photos": {
+        "0": "Innenraum des Lokals in der Slovenska cesta 55",
+        "1": "Theke und Tagesangebot",
+        "2": "Eingang am Bavarski dvor"
+      }
+    }
+  },
+  "halalStran": {
+    "vodniZnak": "HALAL",
+    "oznaka": "100 % HALAL-ZERTIFIZIERT · LJUBLJANA",
+    "naslov": "Halal Restaurant in Ljubljana — <poudarek>ohne Kompromisse</poudarek>",
+    "uvod": "Bei Šeherezada ist halal kein Werbewort, sondern ein festes Versprechen von Reinheit, Rückverfolgbarkeit und Respekt vor der Tradition. Unser gesamtes Kalb- und Hähnchenfleisch stammt aus geprüften Quellen mit gültigem Zertifikat. In unseren Küchen gibt es weder Schweinefleisch noch Alkohol.",
+    "factMeso": "Halal-Fleisch",
+    "factMesoVrednost": "100 %",
+    "factMesoPod": "Kalb & Hähnchen",
+    "factSvinjina": "Schwein & Alkohol",
+    "factSvinjinaVrednost": "0 %",
+    "factSvinjinaPod": "ohne Ausnahme, in keinem Gericht",
+    "factLokacije": "Standorte in LJ",
+    "factLokacijePod": "Trubarjeva & Slovenska",
+    "factBrezmesne": "Fleischlose Gerichte",
+    "factBrezmesnePod": "vegan & vegetarisch",
+    "gumbMeni": "Ganze Speisekarte ansehen",
+    "gumbCertifikat": "Zertifikat & Standards prüfen",
+    "certZnackaNaslov": "100 % Halal-zertifiziert",
+    "certZnackaPod": "0 % Schweinefleisch · 0 % Alkohol · Kontrollierte Herkunft",
+    "certObvestilo": "Das Originalzertifikat hängt an beiden Standorten an der Wand.",
+    "stebriVodniZnak": "SÄULEN",
+    "stebriOznaka": "WORAN WIR GLAUBEN",
+    "stebriNaslov": "Drei feste Säulen der Halal-Sicherheit",
+    "stebriPodnaslov": "Halal bedeutet für uns ein vollständiges System der Verantwortung — von der Herkunft jeder Zutat bis zur Zubereitung auf Ihrem Teller.",
+    "steber1Oznaka": "01 / Reine Zutaten",
+    "steber1Naslov": "Keine verbotenen Zutaten",
+    "steber1Opis": "In unseren Räumen gibt es kein Schweinefleisch, kein Schweinefett, keine Gelatine und keinen Tropfen Alkohol. Auch in Saucen, Jufka-Teig und Marinaden verwenden wir ausschließlich 100 % reine Zutaten.",
+    "steber1Znacka": "Putenschinken & alkoholfreie Küche",
+    "steber2Oznaka": "02 / Lückenlose Rückverfolgbarkeit",
+    "steber2Naslov": "100 % geprüfte Herkunft",
+    "steber2Opis": "Wir verwenden ausschließlich Kalb- und Hähnchenfleisch guter Qualität aus anerkannten europäischen Schlachthöfen mit gültigen internationalen Halal-Zertifikaten und genauer Rückverfolgbarkeit jeder Charge.",
+    "steber2Znacka": "International akkreditierte Lieferanten",
+    "steber3Oznaka": "03 / Strenge Abläufe",
+    "steber3Naslov": "Sorgfältige Hygiene in der Küche",
+    "steber3Opis": "Getrennte Arbeitsbereiche, eigene Geräte und regelmäßige Schulungen des Küchenpersonals verhindern jede Kreuzkontamination. Hygiene ist für uns Teil religiöser wie kulinarischer Verantwortung.",
+    "steber3Znacka": "Regelmäßige und unangekündigte Kontrollen",
+    "meniVodniZnak": "KARTE",
+    "meniOznaka": "VOLLE TRANSPARENZ",
+    "meniNaslov": "Was auf unserer Karte steht und was Sie hier nie finden werden",
+    "meniPodnaslov": "Transparenz für jeden Gast: eine klare Übersicht der Zutaten, die wir mit Stolz verwenden, und jener, die bei Šeherezada streng verboten sind.",
+    "dovoljenoZnacka": "Immer verwendet (100 % Halal)",
+    "dovoljenoNaslov": "Erlaubt & zertifiziert",
+    "dovoljeno1Naslov": "100 % Halal Kalb- und Hähnchenfleisch",
+    "dovoljeno1Opis": "Saftiger Döner, gegrillte Steaks, Spieße und Teller.",
+    "dovoljeno2Naslov": "Putenschinken auf Pizzen",
+    "dovoljeno2Opis": "Auf allen belegten Pizzen (etwa Pizza Klasik) verwenden wir ausschließlich zertifizierten Putenschinken.",
+    "dovoljeno3Naslov": "Täglich frische pflanzliche Zutaten",
+    "dovoljeno3Opis": "Handgemachtes Kichererbsen-Falafel, frisches Gemüse, hausgemachte Saucen und Sesambrot.",
+    "dovoljeno4Naslov": "Alkoholfreies Angebot",
+    "dovoljeno4Opis": "Wir schenken keinen Alkohol aus und verwenden ihn auch nicht bei der Zubereitung.",
+    "prepovedanoZnacka": "Streng verboten (0 % vorhanden)",
+    "prepovedanoNaslov": "Keine Kompromisse",
+    "prepovedano1Naslov": "0 % Schweinefleisch",
+    "prepovedano1Opis": "Keines unserer {vseh} Gerichte enthält Schweinefleisch, Speck, Rohschinken oder Schmalz.",
+    "prepovedano2Naslov": "0 % Alkohol beim Kochen oder im Ausschank",
+    "prepovedano2Opis": "Wir schenken weder Bier noch Wein aus, und in Marinaden, Saucen, Desserts oder Teig ist kein Alkohol enthalten.",
+    "prepovedano3Naslov": "0 % nicht zertifizierte Fleischprodukte",
+    "prepovedano3Opis": "Unser gesamtes Fleisch stammt ausschließlich aus geprüften Lieferketten mit lückenloser Rückverfolgbarkeit und Kontrolle.",
+    "prepovedano4Naslov": "0 % Schweinegelatine",
+    "prepovedano4Opis": "Unsere Zutaten und Dressings kaufen wir bei Lieferanten mit Halal-Zertifikat.",
+    "nadzorVodniZnak": "KONTROLLE",
+    "nadzorOznaka": "OFFIZIELLES DOKUMENT & ZERTIFIZIERUNGSSTELLE",
+    "nadzorNaslov": "Wie halal in Slowenien offiziell zertifiziert wird",
+    "nadzorPodnaslov": "Ein Halal-Zertifikat ist kein einmaliges Papier an der Wand, sondern laufende Kontrolle, die höchstes Vertrauen sichert.",
+    "statusZnacka": "Gültiger Status",
+    "statusNaslov": "Halal-Zertifikat von Šeherezada",
+    "statusOpis": "Šeherezada besitzt ein offizielles Halal-Zertifikat für die Zubereitung und den Ausschank von Speisen. Das Dokument hängt an beiden Standorten in Ljubljana an der Wand.",
+    "izdajateljNaslov": "Die offizielle Zertifizierungsstelle in Slowenien",
+    "oznakaIzdajatelj": "Ausgestellt von:",
+    "oznakaUstanova": "Institution:",
+    "oznakaSedez": "Sitz:",
+    "oznakaStandard": "Standard:",
+    "izdajateljOpis": "Zavod Halal prüft Lieferanten fachlich, analysiert alle Zutaten und kontrolliert regelmäßig die Küchenbedingungen. Ein Zertifikat wird nur bei Erfüllung aller strengen internationalen Kriterien ausgestellt.",
+    "uradnaStran": "Offizielle Website von Zavod Halal ({naslov})",
+    "postopekNaslov": "{stevilo} Schritte des offiziellen Zertifizierungsverfahrens:",
+    "rastlinskaZnacka": "Pflanzliche Auswahl",
+    "rastlinskaNaslov": "{vegan} vegane und {vegetarijanskih} vegetarische Gerichte",
+    "rastlinskaOpis": "Halal und pflanzliche Ernährung ergänzen einander wunderbar. Wer kein Fleisch isst, hat bei uns reichlich Auswahl: knuspriges hausgemachtes Kichererbsen-Falafel, frische gemischte Salate mit Olivenöl, frittierte Beilagen und reichhaltige fleischlose Pizzen — alle klar auf der Karte gekennzeichnet, damit Sie unbeschwert bestellen können.",
+    "rastlinska1": "100 % veganes Falafel",
+    "rastlinska2": "Täglich frische Salate",
+    "rastlinska3": "Fleischlose Pizzen",
+    "rastlinska4": "Getrennte Zubereitung",
+    "faqVodniZnak": "FAQ",
+    "faqOznaka": "HÄUFIGE FRAGEN ZU HALAL-ESSEN",
+    "faqNaslov": "Was Gäste uns am häufigsten fragen",
+    "faqPodnaslov": "Schnelle, transparente Antworten auf alle Fragen zur Halal-Zubereitung, zu unserem Zertifikat und zu den Zutaten bei Šeherezada.",
+    "lokacijeVodniZnak": "STANDORTE",
+    "lokacijeOznaka": "WO SIE UNS FINDEN",
+    "lokacijeNaslov": "Besuchen Sie uns an beiden Standorten im Zentrum von Ljubljana",
+    "lokacijePodnaslov": "An beiden Standorten erwartet Sie dasselbe frische 100 % Halal-Angebot, dieselbe Freundlichkeit und dieselbe angenehme Atmosphäre.",
+    "delovniCas": "Öffnungszeiten:",
+    "podrobnostiPoslovalnice": "Details zum Standort",
+    "ctaNaslov": "Gönnen Sie sich ein echtes und sicheres Halal-Erlebnis",
+    "ctaOpis": "Vom saftigen Kalbsdöner über knusprige Pizzen mit Putenschinken bis zum hausgemachten Falafel — schmecken Sie den Unterschied, den Frische und eingehaltene Standards machen.",
+    "ctaMeni": "Speisekarte entdecken ({stevilo} Gerichte)",
+    "ctaKontakt": "Kontakt & Reservierungen"
+  },
+  "halalPodatki": {
+    "certifikatOpisSlike": "Halal-Zertifikat von Šeherezada, Ljubljana",
+    "oznakaOpisSlike": "Halal-Kennzeichen — Essen ohne Schweinefleisch und Alkohol",
+    "zavodUstanova": "Islamische Gemeinschaft in der Republik Slowenien",
+    "postopek": {
+      "korak1Naslov": "Antrag und Prüfung der Unterlagen",
+      "korak1Opis": "Prüfung aller Rohstoffe, Zusätze und Lieferanten — woher jede Zutat stammt.",
+      "korak2Naslov": "Inspektion vor Ort",
+      "korak2Opis": "Besichtigung des gesamten Zubereitungsprozesses und der Hygienebedingungen in der Küche.",
+      "korak3Naslov": "Schulung des Personals",
+      "korak3Opis": "Die Mitarbeitenden lernen den Umgang, der eine Kreuzkontamination mit ungeeigneten Lebensmitteln verhindert.",
+      "korak4Naslov": "Ausstellung und Erneuerung",
+      "korak4Opis": "Das Zertifikat wird befristet ausgestellt, danach folgen regelmäßige und unangekündigte Kontrollen."
+    }
+  },
+  "halalVprasanja": {
+    "hfaq-1": {
+      "q": "Ist bei Šeherezada wirklich das gesamte Fleisch 100 % halal?",
+      "a": "Ja, ohne Ausnahme. Das gesamte Kalb- und Hähnchenfleisch für Döner, Jufka, Teller und Platten stammt ausschließlich aus kontrollierten europäischen Quellen mit gültigen internationalen Halal-Zertifikaten. In unseren Küchen gibt es kein nicht zertifiziertes Fleisch."
+    },
+    "hfaq-2": {
+      "q": "Welchen Schinken verwenden Sie auf Pizzen und in anderen Gerichten?",
+      "a": "Auf allen unseren Pizzen (etwa Pizza Klasik) verwenden wir ausschließlich 100 % Halal-Putenschinken. Kein Gericht auf der Karte enthält Schweinefleisch, Rohschinken oder Speck."
+    },
+    "hfaq-3": {
+      "q": "Schenken Sie Alkohol aus oder verwenden Sie ihn beim Kochen?",
+      "a": "Nein. Šeherezada schenkt keine alkoholischen Getränke aus und verwendet weder Alkohol noch Wein oder Alkoholextrakte in Marinaden, Saucen oder Teig."
+    },
+    "hfaq-4": {
+      "q": "Sind auch die Gerichte auf Studentenbon 100 % halal?",
+      "a": "Alle {naBon} Gerichte auf dem Studentenbon werden nach denselben strengen Halal-Standards zubereitet, aus demselben frischen zertifizierten Fleisch oder denselben pflanzlichen Zutaten wie die Gerichte der regulären Karte."
+    },
+    "hfaq-5": {
+      "q": "Wo kann ich das Original-Halal-Zertifikat sehen?",
+      "a": "Das offizielle Halal-Zertifikat hängt dauerhaft gut sichtbar neben der Bestelltheke an beiden Standorten — Trubarjeva cesta 31 und Slovenska cesta 55 in Ljubljana."
+    },
+    "hfaq-6": {
+      "q": "Werden Falafel und vegetarische Gerichte getrennt vom Fleisch zubereitet?",
+      "a": "Ja. Falafel und pflanzliche Gerichte werden nach strengen Hygieneabläufen mit sauberem Gerät zubereitet, was Kreuzkontakt verhindert und Halal-, veganen und vegetarischen Gästen volle Sicherheit gibt."
+    }
+  },
+  "faqStran": {
+    "vodniZnak": "HILFE",
+    "oznaka": "HILFE-CENTER & ANTWORTEN",
+    "naslov": "Häufige Fragen — Halal, Bons und Öffnungszeiten",
+    "podnaslov": "Alles über unser 100 % Halal-Angebot, vegane Gerichte, Studentenbons mit {doplacilo} Zuzahlung und die Öffnungszeiten beider Standorte in Ljubljana.",
+    "ctaNaslov": "Noch eine Frage?",
+    "ctaPodnaslov": "Unser Team hilft Ihnen gerne weiter.",
+    "ctaMeni": "Speisekarte ansehen",
+    "sklopi": {
+      "seherezada": "Unser Essen und wie wir es zubereiten",
+      "difference": "Halal, vegan und Bezahlung",
+      "boni": "Studentenbons und Bestellungen"
+    },
+    "vprasanja": {
+      "seh-1": {
+        "vprasanje": "Was macht den Döner bei Šeherezada besonders?",
+        "odgovor": "Unser Fleisch ist 100 % halal, 24 Stunden in einer eigenen Mischung orientalischer Gewürze mariniert und über heißem offenem Feuer gegrillt, ohne industrielle Zusätze."
+      },
+      "seh-2": {
+        "vprasanje": "Backen Sie Ihr Fladenbrot selbst?",
+        "odgovor": "Ja! Wir kneten den Teig jeden Morgen und backen jedes Fladenbrot frisch im Ofen, kurz bevor wir servieren — so ist es immer warm und knusprig."
+      },
+      "seh-3": {
+        "vprasanje": "Wo sind Sie und wie sind Ihre Öffnungszeiten?",
+        "odgovor": "Wir haben zwei Standorte im Zentrum von Ljubljana. {ime1} in der Trubarjeva 31 ist täglich von {od1} bis {do1} geöffnet, freitags und samstags bis {vikend1}. {ime2} in der Slovenska 55 ist täglich von {od2} bis {do2} geöffnet."
+      },
+      "diff-1": {
+        "vprasanje": "Ist das gesamte Fleisch 100% halal-zertifiziert?",
+        "odgovor": "Ja, alle unsere Lieferanten besitzen offizielle Halal-Zertifikate mit lückenloser Rückverfolgbarkeit des Fleisches und strenger Hygienekontrolle.",
+        "vec": "Was halal bedeutet und wie es zertifiziert wird"
+      },
+      "diff-2": {
+        "vprasanje": "Haben Sie vegetarische und vegane Gerichte?",
+        "odgovor": "Selbstverständlich! Wir machen unser Falafel aus Kichererbsen und Kräutern selbst, dazu cremigen hausgemachten Hummus sowie Gemüsepizzen und Jufka-Wraps."
+      },
+      "diff-3": {
+        "vprasanje": "Welche Saucen und Dressings bieten Sie an?",
+        "odgovor": "Sie haben die Wahl zwischen einer milden Joghurtsauce mit frischen Kräutern, unserer scharfen Chilisauce und einer Sesam-Tahini-Sauce."
+      },
+      "diff-4": {
+        "vprasanje": "Nehmen Sie Karten und Bargeld?",
+        "odgovor": "Wir nehmen Bargeld, Zahlungskarten (Visa, Mastercard, Maestro) sowie Studentenbons über die App oder Karte."
+      },
+      "boni-1": {
+        "vprasanje": "Wie hoch ist die Zuzahlung und was enthält das Studentenmenü?",
+        "odgovor": "Die Zuzahlung mit gültigem Bon beträgt {doplacilo}. Das Menü umfasst ein Hauptgericht nach Wahl (Döner, Pizza, Burger, Falafel) + frischen Salat + einen Apfel + ein Getränk.",
+        "vec": "Alles über Studentenbons bei uns"
+      },
+      "boni-3": {
+        "vprasanje": "Bis wann kann ich meinen Studentenbon einlösen?",
+        "odgovor": "Das staatliche System für Studentenessen nimmt Bons zwischen {oknoOd} und {oknoDo} an. Da beide Standorte erst nach Mitternacht schließen, gilt der Bon bei uns bis {oknoDo} — in der Trubarjeva ab {od1}, in der Slovenska ab {od2}. Wer später kommt, wird zu den regulären Kartenpreisen bedient.",
+        "vec": "Prüfen, wann der Bon an welchem Standort gilt"
+      },
+      "boni-2": {
+        "vprasanje": "Kann ich telefonisch zur Abholung vorbestellen?",
+        "odgovor": "Selbstverständlich! Rufen Sie uns unter {telefon} an, und Ihre Bestellung wartet zur vereinbarten Zeit frisch und warm auf Sie — ganz ohne Anstehen."
+      }
+    }
+  },
+  "boniStran": {
+    "vodniZnak": "BONS",
+    "oznaka": "STUDENTENESSEN · LJUBLJANA",
+    "naslov": "Studentenessen in Ljubljana — <poudarek>{doplacilo} Zuzahlung</poudarek>",
+    "uvod": "{naBon} von {vseh} Gerichten unserer Karte gibt es auf den Studentenbon, an beiden Standorten im Zentrum von Ljubljana. Für eine einheitliche Zuzahlung bekommst du das komplette vierteilige Menü: Hauptgericht, frischen Salat, einen Apfel und ein Getränk.",
+    "factDoplacilo": "Zuzahlung",
+    "factDoplaciloPod": "das ganze Menü",
+    "factJedi": "Gerichte auf Bon",
+    "factJediPod": "{stevilo} fleischlos",
+    "factKvota": "Tageskontingent",
+    "factKvotaVrednost": "{stevilo} Bons",
+    "factKvotaPod": "auch am Wochenende",
+    "factLokaciji": "Standorte",
+    "factLokacijiVrednost": "{stevilo} in LJ",
+    "factLokacijiPod": "Stadtzentrum",
+    "gumbJedi": "Gerichte auf Bon ansehen ({stevilo})",
+    "gumbKakoUnovciti": "So löst du den Bon ein",
+    "altObrok": "Komplettes Studentenmenü bei Šeherezada — Döner, Salat, Apfel und Getränk",
+    "znackaPaket": "Das vierteilige Studentenmenü",
+    "polnaVrednost": "Voller Wert des Menüs:",
+    "drzavaSubvencionira": "Der Staat bezuschusst {znesek}",
+    "placasLe": "Du zahlst nur {znesek}",
+    "izracunVodniZnak": "RECHNUNG",
+    "izracunOznaka": "ZUSCHUSS & ZUZAHLUNG",
+    "izracunNaslov": "Klar gerechnet: was du tatsächlich zahlst",
+    "izracunPodnaslov": "Jedes bezuschusste Menü besteht aus dem Beitrag des Staates und deiner festen Zuzahlung. Bei uns zahlst du immer genau {doplacilo}.",
+    "subvencijaDrzave": "Staatlicher Zuschuss",
+    "subvencijaOpis": "Übernimmt das Arbeitsministerium",
+    "tvojeDoplacilo": "Deine Zuzahlung",
+    "doplaciloOpis": "Zahlst du an unserer Kasse",
+    "vrednostObroka": "Wert des Menüs",
+    "vrednostOpis": "So viel Essen bekommst du",
+    "kalkulatorNaslov": "Spar-Rechner für Studierende",
+    "kalkulatorOpis": "Wähle, wie oft pro Woche du bei Šeherezada auf den Studentenbon essen möchtest:",
+    "obrokovNaTeden": "{stevilo} Mahlzeiten / Woche",
+    "mesecniPrihranek": "Deine monatliche Ersparnis",
+    "prihranekOpomba": "im Vergleich zu regulären Preisen, bei {stevilo} warmen Mahlzeiten im Monat.",
+    "paketVodniZnak": "DAS MENÜ",
+    "paketOznaka": "WAS ENTHALTEN IST",
+    "paketNaslov": "Was jedes Studentenmenü enthält",
+    "paketPodnaslov": "Ein vollwertiges Menü, nicht nur ein Hauptgericht. Alle 4 Bestandteile sind immer in der Zuzahlung von {doplacilo} enthalten, ohne versteckte Kosten.",
+    "paket1Oznaka": "01 / Hauptgericht",
+    "paket1Naslov": "Ein Hauptgericht nach Wahl",
+    "paket1Opis": "Eine Auswahl aus {stevilo} Gerichten: saftiger Döner, knuspriges Jufka, Falafel, 6 Pizzasorten oder gegrillte Hähnchensteaks.",
+    "paket1Znacka": "100 % Halal-Fleisch",
+    "paket2Oznaka": "02 / Salat",
+    "paket2Naslov": "Täglich frischer Salat",
+    "paket2Opis": "Frisch geschnittener gemischter Salat (Kraut, Tomate, Gurke, Blattsalat), den ganzen Tag über frisch zubereitet.",
+    "paket2Znacka": "Frisch zubereitet, auf Bestellung",
+    "paket3Oznaka": "03 / Obst",
+    "paket3Naslov": "Frisches Obst (ein Apfel)",
+    "paket3Opis": "Eine natürliche Vitaminquelle zu jeder Mahlzeit. Den saftigen Apfel bekommst du direkt bei der Abholung.",
+    "paket3Znacka": "Reich an Vitaminen",
+    "paket4Oznaka": "04 / Getränk",
+    "paket4Naslov": "Ein erfrischendes Getränk",
+    "paket4Opis": "Wasser oder ein erfrischendes Getränk ist im Menü enthalten, ohne Aufpreis.",
+    "paket4Znacka": "Enthalten, ohne Aufpreis",
+    "izbiraVodniZnak": "AUSWAHL",
+    "izbiraOznaka": "{stevilo} GERICHTE AUF BON",
+    "izbiraNaslov": "Wähle dein Lieblingsgericht auf den Bon",
+    "izbiraPodnaslov": "Sieh dir alle {stevilo} Gerichte an, die du für die einheitliche Zuzahlung von {doplacilo} bestellen kannst. Klicke ein Gericht an für Zutaten und Allergene.",
+    "filterVse": "Alle Gerichte",
+    "filterKebab": "Döner & Wraps",
+    "filterPizza": "Pizzen",
+    "filterKroznik": "Teller",
+    "filterFalafel": "Falafel",
+    "filterBrezmesno": "Fleischlos",
+    "znackaVegansko": "Vegan",
+    "znackaVegetarijansko": "Vegetarisch",
+    "znackaVegi": "Vegi",
+    "naBon": "auf Bon",
+    "rednaCena": "Regulär: {cena}",
+    "podrobnostiOznaka": "Details zu {ime}",
+    "gumbSestavine": "Zutaten",
+    "lokacijeVodniZnak": "STANDORTE",
+    "lokacijeOznaka": "ZEITFENSTER & STANDORTE",
+    "lokacijeNaslov": "Bis wann du deinen Bon bei uns einlösen kannst",
+    "lokacijePodnaslov": "Das landesweite System für Studentenessen nimmt Bons zwischen {od} und {do} an. Prüfe die Öffnungszeiten und das Bon-Zeitfenster an beiden Standorten.",
+    "odpiralniCas": "Öffnungszeiten",
+    "bonVelja": "Bon gültig (Zeitfenster)",
+    "podrobnostiPoslovalnice": "Details zum Standort",
+    "polnocNaslov": "Nach Mitternacht sind wir offen, der Bon gilt per Gesetz aber nicht mehr",
+    "polnocOpis": "Beide Standorte im Zentrum von Ljubljana bleiben bis spät in die Nacht geöffnet (bis {do2} bzw. {do1} / {vikend1} am Wochenende). Das staatliche Bon-System stoppt automatisch um {oknoDo}. Wer nach Mitternacht kommt, wird von uns gerne mit denselben frischen Gerichten zu den regulären Kartenpreisen bedient.",
+    "navodilaVodniZnak": "ANLEITUNG",
+    "navodilaOznaka": "TERMINAL & REGELN",
+    "navodilaNaslov": "So löst du deinen Bon ein, Schritt für Schritt",
+    "navodilaPodnaslov": "Du löst den Bon mit der Handy-App über NFC oder mit der Studenten-Chipkarte ein. Hier siehst du genau, wo du sie an das Terminal hältst.",
+    "zavihekTelefon": "Handy (App)",
+    "zavihekKartica": "Studenten-Chipkarte",
+    "telefonNaslov": "Handy (NFC / App)",
+    "telefonOpis": "Halte das Handy von vorne an die <b>untere Kante des Terminals</b>.",
+    "telefonNasvet1": "Achte darauf, dass <b>NFC</b> in den Handy-Einstellungen aktiviert ist.",
+    "telefonNasvet2": "Erkennt das Terminal das Handy nicht, kannst du in der App<b> Code manuell eingeben</b> wählen.",
+    "karticaNaslov": "Kontaktlose Chipkarte",
+    "karticaOpis": "Halte die Studentenkarte seitlich an die <b>obere Kante des Terminals</b>.",
+    "karticaNasvet1": "Die Karte bekommst du bei der Anmeldung an einer Info-Stelle.",
+    "karticaNasvet2": "Die Karte funktioniert ohne Akku und ohne Mobilfunknetz.",
+    "pravilo1Naslov": "{stevilo} Bons pro Kalendertag",
+    "pravilo1Opis": "Jede und jeder Studierende hat Anspruch auf {stevilo} Zuschüsse pro Tag, an jedem Tag des Jahres, auch an Wochenenden und Feiertagen.",
+    "pravilo2Naslov": "Mindestens {stevilo} Stunden Abstand",
+    "pravilo2Opis": "Zwischen dem ersten und dem zweiten Bon am selben Tag müssen mindestens {stevilo} Stunden vergehen, bevor das System eine neue Bestätigung zulässt.",
+    "pravilo3Naslov": "Zeitfenster {od} – {do}",
+    "pravilo3Opis": "Alle Studentenbons in Slowenien können zwischen {od} morgens und Mitternacht ({do}) eingelöst werden.",
+    "pravilo4Naslov": "Ausweis bei der Abholung",
+    "pravilo4Opis": "Beim Einlösen eines Bons kann das Personal einen Ausweis oder einen gültigen Studentenausweis verlangen.",
+    "bruciVodniZnak": "ERSTSEMESTER",
+    "bruciOznaka": "ERSTE ANMELDUNG",
+    "bruciNaslov": "Zum ersten Mal Bons? Anmeldung in 3 einfachen Schritten",
+    "bruciPodnaslov": "Du machst das nur einmal bei der Einschreibung an der Hochschule; danach verlängerst du den Status jedes Studienjahr bequem über die App.",
+    "korak1Naslov": "Online anmelden",
+    "korak1Opis": "Fülle das Online-Formular auf dem offiziellen Portal für Studentenessen aus. Notiere dir beim Absenden die Antragsnummer.",
+    "korak1Povezava": "Zu {vir} →",
+    "korak2Naslov": "Aktivierung an der Info-Stelle",
+    "korak2Opis": "Bringe Antragsnummer, Ausweis und Immatrikulationsbescheinigung zu einer beliebigen Info-Stelle (etwa ŠOU Ljubljana oder Kampus).",
+    "korak2Opomba": "✓ Die Aktivierung dauert etwa 3 Minuten",
+    "korak3Naslov": "Offizielle App installieren",
+    "korak3Opis": "Lade die App Študentska prehrana herunter, um Bons schnell einzulösen, dein Kontingent zu prüfen und Restaurants zu finden.",
+    "faqVodniZnak": "FAQ",
+    "faqOznaka": "FRAGEN VON STUDIERENDEN",
+    "faqNaslov": "Was Studierende uns am häufigsten fragen",
+    "faqPodnaslov": "Schnelle Antworten auf die häufigsten Fragen zum Einlösen von Studentenbons bei Šeherezada.",
+    "ctaNaslov": "{stevilo} frische Gerichte warten auf deinen Bon",
+    "ctaOpis": "Von {vseh} Gerichten unserer Karte gibt es {naBon} auf den Studentenbon — darunter {vegan} vegane und {vegetarijanskih} vegetarische. Besuch uns in der Trubarjeva oder Slovenska!",
+    "ctaMeni": "Ganze Speisekarte",
+    "ctaKjeSmo": "Wo wir sind",
+    "virOznaka": "Offizielle Quelle zum bezuschussten Studentenessen",
+    "virZacetek": "Die Höhe des Zuschusses ({znesek}), die Regeln zum Einlösen und der Anmeldeprozess folgen den offiziellen Angaben des ŠOS-Systems für Studentenessen, abrufbar unter",
+    "virKonec": ". Zuletzt geprüft am {datum}. Angaben zu unseren Gerichten, den Öffnungszeiten und der einheitlichen Zuzahlung von {doplacilo} legt Šeherezada selbst fest.",
+    "opisJedi": "Beschreibung",
+    "sestavine": "Zutaten",
+    "alergeni": "Allergene",
+    "brezAlergenov": "Keine deklarierten Allergene",
+    "modalDoplacilo": "Zuzahlung auf Bon: {doplacilo}",
+    "modalRednaCena": "(regulärer Preis {cena})",
+    "vprasanja": {
+      "faq-1": {
+        "q": "Kann ich das Studentenmenü mitnehmen?",
+        "a": "Nach den Regeln des bezuschussten Systems ist eine bezuschusste Mahlzeit zum Verzehr im Lokal gedacht. Verpackung zum Mitnehmen kannst du bei uns selbstverständlich zu den ausgewiesenen Preisen dazubestellen."
+      },
+      "faq-2": {
+        "q": "Was tue ich, wenn das Terminal mein Handy nicht erkennt?",
+        "a": "Prüfe zuerst, ob NFC in den Handy-Einstellungen aktiviert ist und ob du das Handy genau an die untere Kante des Terminals hältst, wo der Sensor sitzt. Funktioniert NFC nicht, kannst du in der App Študentska prehrana die manuelle Code-Eingabe wählen und dem Personal den angezeigten Code einfach nennen."
+      },
+      "faq-3": {
+        "q": "Gelten Bons an Wochenenden, Feiertagen und in den Ferien?",
+        "a": "Ja! Studentenbons stehen an jedem Kalendertag des Jahres zur Verfügung, auch samstags, sonntags, an Feiertagen sowie in den Sommer- und Winterferien."
+      },
+      "faq-4": {
+        "q": "Wie viel Zeit muss zwischen zwei Bons am selben Tag vergehen?",
+        "a": "Nach den Regeln des Systems müssen zwischen dem ersten und dem zweiten Bon mindestens {razmik} Stunden vergehen. Vor Ablauf dieser Frist bestätigt das System keine neue Mahlzeit."
+      },
+      "faq-5": {
+        "q": "Sind alle Studentengerichte 100 % halal-zertifiziert?",
+        "a": "Ja, das gesamte Fleisch bei Šeherezada ist 100 % halal-zertifiziert, ohne Schweinefleisch und ohne Alkohol. Wir bereiten außerdem {brezmesnih} fleischlose (vegetarische und vegane) Gerichte auf den Bon zu, darunter Falafel und Gemüsepizzen."
+      },
+      "faq-6": {
+        "q": "Was ist, wenn ich alle Bons für diesen Monat verbraucht habe?",
+        "a": "Du kannst alle unsere Gerichte zu den regulären Kartenpreisen bestellen. Dein Bon-Kontingent wird am ersten Tag jedes neuen Monats automatisch zurückgesetzt."
+      }
+    }
+  },
+  "kontaktStran": {
+    "vodniZnak": "KONTAKT",
+    "oznaka": "NEHMEN SIE KONTAKT AUF · ŠEHEREZADA",
+    "naslov": "Kontakt und beide Standorte im Zentrum von Ljubljana",
+    "podnaslov": "Besuchen Sie uns in der Altstadt in der Trubarjeva oder an der Hauptachse Slovenska. Rufen Sie an, um zur Abholung zu bestellen oder einen Tisch zu reservieren — oder schreiben Sie uns einfach.",
+    "epostaNaslovDrzalo": "E-Mail an {eposta} senden",
+    "epostniPredal": "E-Mail",
+    "vprasanjaRezervacije": "Fragen & Reservierungen",
+    "altStik": "Kontakt zu Šeherezada aufnehmen",
+    "kliciteZaPrevzem": "Anrufen und zur Abholung bestellen",
+    "sporociloVodniZnak": "NACHRICHT",
+    "sporociloOznaka": "SCHREIBEN SIE UNS",
+    "sporociloNaslov": "Schreiben Sie uns bei Fragen, Reservierungen oder Lob",
+    "sporociloOpis": "Möchten Sie einen Tisch für eine größere Gruppe reservieren, nach Studentenbons fragen oder mehr über unser Angebot erfahren? Füllen Sie das Formular aus, wir antworten Ihnen gerne so schnell wie möglich.",
+    "instagramOznaka": "Instagram & Nachrichten",
+    "facebookOznaka": "Facebook-Seite",
+    "facebookVrednost": "Šeherezada Ljubljana",
+    "tiktokOznaka": "TikTok-Profil",
+    "poljeIme": "Vor- und Nachname *",
+    "poljeImeDrzalo": "z. B. Luka Novak",
+    "poljeEposta": "E-Mail-Adresse *",
+    "poljeEpostaDrzalo": "luka@beispiel.de",
+    "poljeTelefon": "Telefonnummer",
+    "poljeTelefonOpcijsko": "(optional)",
+    "poljeTelefonDrzalo": "+386 40 123 456",
+    "poljeZadeva": "Betreff",
+    "zadevaSplosno": "Allgemeine Frage oder Lob",
+    "zadevaRezervacija": "Tischreservierung für Gruppen",
+    "zadevaStudenti": "Studentenessen (Bons)",
+    "zadevaPoslovno": "Geschäftliche Anfrage / Jobs",
+    "zadevaDrugo": "Sonstiges",
+    "poljePoslovalnica": "Gewünschter Standort",
+    "poslovalnicaVseeno": "Egal / beide Standorte",
+    "poljeSporocilo": "Ihre Nachricht oder Ihr Wunsch *",
+    "poljeSporociloDrzalo": "Schreiben Sie Ihre Frage, Ihren Wunsch oder Ihre Nachricht an das Šeherezada-Team...",
+    "stevecZnakov": "{stevilo} / {najvec} Zeichen",
+    "posiljanje": "Nachricht wird gesendet...",
+    "posljiSporocilo": "Nachricht senden",
+    "soglasje": "Mit dem Klick stimmen Sie zu, dass wir Sie zu Ihrer Anfrage kontaktieren.",
+    "uspehNaslov": "Ihre Nachricht wurde gesendet!",
+    "uspehOpis": "Danke, <b>{ime}</b>. Wir haben Ihre Nachricht erhalten. Unser Team meldet sich schnellstmöglich unter <b>{eposta}</b>.",
+    "uspehZadeva": "Betreff:",
+    "uspehLokacija": "Standort:",
+    "povzetekRezervacija": "Tischreservierung",
+    "povzetekStudenti": "Studentenessen",
+    "povzetekPoslovno": "Geschäftliche Anfrage / Jobs",
+    "povzetekSplosno": "Allgemeine Frage",
+    "povzetekVseeno": "Egal",
+    "posljiNovo": "Weitere Nachricht senden",
+    "hitriKlic": "Schnellanruf: {telefon}",
+    "vodnikVodniZnak": "WEGWEISER",
+    "vodnikOznaka": "INTERAKTIVER WEGWEISER & ANFAHRT",
+    "vodnikNaslov": "So erreichen Sie uns in Ljubljana",
+    "vodnikOpis": "Wählen Sie einen Standort, um ihn auf der Karte zu sehen, samt Anfahrt mit dem LPP-Bus und Parkmöglichkeiten.",
+    "izborTrubarjeva": "01 · Altstadt",
+    "izborSlovenska": "02 · Stadtzentrum",
+    "mestoDrzava": "{mesto} · Slowenien",
+    "kopirajNaslov": "Genaue Adresse für die Navigation kopieren",
+    "kopirano": "Kopiert!",
+    "kopiraj": "Kopieren",
+    "prevozAvtobus": "LPP-Bushaltestelle",
+    "prevozParkiranje": "Parken & Parkhäuser",
+    "prevozPes": "Zu Fuß & BicikeLJ",
+    "gumbGoogleMaps": "Google Maps",
+    "gumbAppleMaps": "Apple Maps",
+    "gumbPoslovalnica": "Alles zu diesem Standort"
+  },
+  "galerijaStran": {
+    "vodniZnak": "FOTOS",
+    "oznaka": "EINE VISUELLE GESCHICHTE & UNSER LOKAL",
+    "naslov": "Eine visuelle Geschichte",
+    "podnaslov": "Sehen Sie, wie Ihre Lieblingsgerichte entstehen — von frisch gegrilltem Fleisch bis zu hausgemachten Spezialitäten.",
+    "utrinki": "Momente",
+    "zapriGalerijo": "Galerie schließen",
+    "prejsnjaSlika": "Vorheriges Bild",
+    "naslednjaSlika": "Nächstes Bild"
+  },
+  "blogStran": {
+    "vodniZnak": "BLOG",
+    "oznaka": "KULINARISCHER BLOG & GESCHICHTEN",
+    "naslov": "Blog — Essen, Halal und Studentenbons in Ljubljana",
+    "podnaslov": "Tipps und Geschichten rund um unser Essen, unser Halal-Angebot, vegane Gerichte und Studentenbons — und darüber, wo und wann man in Ljubljana isst.",
+    "niObjavNaslov": "Beiträge sind in Arbeit",
+    "niObjavOpis": "Bald finden Sie hier Tipps zu unserem Halal-Angebot, zu Studentenbons und zu den besten Kombinationen von unserer Karte. Bis dahin: Speisekarte ansehen oder uns an einem der Standorte besuchen.",
+    "poglejMeni": "Speisekarte ansehen",
+    "kjeSmo": "Wo wir sind",
+    "izpostavljena": "Ausgewählte Geschichte",
+    "preberiZgodbo": "Geschichte lesen",
+    "najnovejse": "Neueste Beiträge",
+    "raziscite": "Entdecken Sie unsere Geschichten",
+    "preberi": "Lesen"
+  },
+  "blogPodatki": {
+    "kategorije": {
+      "vse": "Alle Beiträge",
+      "kulinarka": "Kulinarische Geschichten",
+      "pekarna": "Backstube & Teig",
+      "vegi": "Vegi & vegan",
+      "boni": "Studentenessen",
+      "tradicija": "Tradition & Süßes",
+      "kakovost": "Qualität & Halal"
+    }
+  },
+  "oglasStran": {
+    "vsaMesta": "← Alle Stellen",
+    "lokacija": "Standort: {vrednost}",
+    "tipZaposlitve": "Anstellungsart: {vrednost}",
+    "placilo": "Vergütung: {vrednost}",
+    "veljaDo": "Diese Ausschreibung gilt bis:",
+    "kajBostesDelali": "Was Sie tun werden",
+    "kajPonujamo": "Was wir bieten",
+    "prijaviSe": "Über das Formular bewerben"
+  },
+  "oNasStran": {
+    "altZar": "Šeherezada Grillmeister bereitet frisches Fleisch zu",
+    "altKroznik": "Koch beim Anrichten eines Tellers",
+    "altJed": "Ein frisch zubereitetes orientalisches Gericht bei Šeherezada",
+    "dediscina": "Teil von Ljubljana",
+    "zgodbaVodniZnak": "GESCHICHTE",
+    "zgodbaOznaka": "ÜBER DAS RESTAURANT ŠEHEREZADA",
+    "naslov": "Halal Döner und Grill in Ljubljana — <poudarek>seit 1998.</poudarek>",
+    "podnaslov": "Seit 1998 halten wir in der Trubarjeva und Slovenska an echtem Grillfeuer, einer 24-Stunden-Marinade und täglich frisch geknetetem Teig fest. Ohne industrielle Abkürzungen und immer mit demselben Respekt vor dem Gast.",
+    "gumbMeni": "Speisekarte entdecken",
+    "narocilaPrevzem": "Bestellungen & Abholung",
+    "filozofijaVodniZnak": "PHILOSOPHIE",
+    "filozofijaOznaka": "WARUM ŠEHEREZADA",
+    "filozofijaNaslov": "Treue zum Handwerk, die man in jedem Bissen schmeckt.",
+    "filozofijaPodnaslov": "In einer Welt des Fast Food bleiben wir der Tradition treu. Unser Fleisch kennt keine industriellen Abkürzungen, und unser Fladenbrot geht langsam auf — genau so, wie man es vor Jahrzehnten gebacken hat.",
+    "kljukica1": "100% halal-zertifiziertes Kalb- und Hähnchenfleisch",
+    "kljukica2": "Täglich frisch gebackenes Fladenbrot und dünnes Lavaš",
+    "kljukica3": "Studentenbons mit günstiger Zuzahlung von nur {doplacilo}",
+    "kljukica4": "Täglich bis spät in die Nacht geöffnet, im Stadtzentrum",
+    "gumbLokaciji": "Besuchen Sie unsere zwei Standorte",
+    "procesVodniZnak": "ABLAUF",
+    "procesOznaka": "WIE WIR KOCHEN",
+    "procesNaslov": "So entsteht jedes Gericht",
+    "altKuhinja": "Die Küche bei der Arbeit, frische Zubereitung bei Šeherezada",
+    "svezaPriprava": "Frisch zubereitet bei jeder Bestellung",
+    "mnenjaVodniZnak": "BEWERTUNGEN",
+    "mnenjaOznaka": "GÄSTEBEWERTUNGEN",
+    "prikaziMnenje": "Bewertung von {avtor} anzeigen",
+    "altGostje": "Zufriedene Gäste bei Šeherezada",
+    "lokacijeVodniZnak": "STANDORTE",
+    "lokacijeOznaka": "BESUCHEN SIE UNS IN LJUBLJANA",
+    "lokacijeNaslov": "Zwei Standorte im Zentrum von Ljubljana",
+    "lokacijePodnaslov": "Wählen Sie den Standort, der Ihnen am nächsten liegt — in der bohemischen Trubarjeva oder an der Hauptachse Slovenska.",
+    "gumbGoogleMaps": "Google Maps",
+    "gumbAppleMaps": "Apple Maps ↗",
+    "vabiloNaslov": "Bereit für echten Geschmack vom echten Feuer?",
+    "vabiloOpis": "Sehen Sie sich unsere ganze Speisekarte an, entdecken Sie Fotos aus der Küche oder werden Sie Teil unseres Teams.",
+    "vabiloMeni": "Ganze Speisekarte entdecken",
+    "vabiloGalerija": "Fotogalerie",
+    "vabiloEkipa": "Teil des Teams werden"
+  },
+  "oNasPodatki": {
+    "mikro": {
+      "spicesNaslov": "12 orientalische Gewürze",
+      "spicesOpis": "Eine langsame 24-Stunden-Marinade für unwiderstehliche Saftigkeit.",
+      "breadNaslov": "Täglich frisch gebacken",
+      "breadOpis": "Jeden Morgen kneten wir den Teig für unser Fladenbrot von Hand.",
+      "halalNaslov": "100% Halal-Zertifikat",
+      "halalOpis": "Geprüfte Herkunft und regelmäßig kontrollierte Qualität.",
+      "locationsNaslov": "{stevilo} Standorte in Ljubljana",
+      "locationsOpis": "{prva} und {druga}."
+    },
+    "stat": {
+      "letoVrednost": "1998",
+      "letoOznaka": "Unser Anfang in LJ",
+      "letoPod": "Das erste Feuer in der Trubarjeva",
+      "tradicijaVrednost": "Seit 1998",
+      "tradicijaOznaka": "Ununterbrochene Tradition",
+      "tradicijaPod": "Echte Familienrezepte",
+      "halalVrednost": "100%",
+      "halalOznaka": "Halal-Zertifikat",
+      "halalPod": "Kompromisslose Fleischqualität",
+      "lokacijeVrednost": "{stevilo} Standorte",
+      "lokacijeOznaka": "Im Herzen von Ljubljana",
+      "lokacijePod": "Trubarjeva 31 & Slovenska 55"
+    },
+    "filozofija": {
+      "halalNaslov": "100% Halal-Zertifikat",
+      "halalOpis": "Unser gesamtes Fleisch kommt von streng geprüften Lieferanten mit gültigen Halal-Zertifikaten. Ohne Kompromisse.",
+      "breadNaslov": "Hausgemachtes Brot, frisch gebacken",
+      "breadOpis": "Wir kneten und backen jedes Fladenbrot kurz vor dem Servieren. Die Wärme und die Knusprigkeit spürt man sofort.",
+      "hoursNaslov": "Eine Anlaufstelle bis spät in die Nacht",
+      "hoursOpis": "Wenn die Stadt zur Ruhe kommt, brennen unsere Grills noch. In der Trubarjeva servieren wir warmes Essen bis {do1}, freitags und samstags bis {vikend1}.",
+      "studentsNaslov": "Studentenfreundlich",
+      "studentsOpis": "Offizieller Anbieter bezuschusster Studentenmahlzeiten. Eine reichhaltige, warme und ausgewogene Mahlzeit im Stadtzentrum."
+    },
+    "postopek": {
+      "korak1Naslov": "Auswahl und 24-stündiges Marinieren des Fleisches",
+      "korak1Opis": "Wir parieren jedes Stück Fleisch von Hand und marinieren es volle 24 Stunden in einer Mischung aus 12 orientalischen Gewürzen und Olivenöl.",
+      "korak2Naslov": "Täglich Teig kneten und gehen lassen",
+      "korak2Opis": "Jeden Morgen kneten unsere Bäcker frischen Teig von Hand aus Mehl, Wasser, Hefe und Salz — ohne industrielle Zusätze.",
+      "korak3Naslov": "Fladenbrot backen und über dem Feuer grillen",
+      "korak3Opis": "Wir backen das Fladenbrot frisch, kurz vor dem Servieren, und grillen das Fleisch langsam knusprig.",
+      "korak4Naslov": "Frisch zusammengestellt und herzlich serviert",
+      "korak4Opis": "Wir legen saftige Fleischscheiben oder Falafel in heißes Fladenbrot mit frischem Salat und hausgemachten Saucen — und servieren mit einem Lächeln."
+    },
+    "mnenjeVloga": "Google · {kdaj}",
+    "poslovalnice": {
+      "trubarjevaPodnaslov": "Wo alles begann · Altstadt",
+      "trubarjevaOpis": "Unser erster Standort im Herzen der Altstadt. Ein Ort, an dem Nachtleben, studentisches Treiben und mehr als ein Vierteljahrhundert echter orientalischer Tradition zusammenkommen.",
+      "trubarjevaLastnost1": "Stadtzentrum (Trubarjeva)",
+      "trubarjevaLastnost2": "Täglich bis {do1} geöffnet, Freitag und Samstag bis {vikend1}",
+      "trubarjevaLastnost3": "Studentenbons ({doplacilo} Zuzahlung)",
+      "trubarjevaLastnost4": "Schnelle Abholung & Lieferung über Wolt",
+      "slovenskaPodnaslov": "Zweiter Standort · Stadtzentrum",
+      "slovenskaOpis": "Ein großzügiges, modernes Restaurant an der Slovenska cesta, direkt am Bavarski dvor. Ideal für einen Snack am Morgen, ein Geschäftsessen, ein Studentenmenü oder einen Bissen am Abend.",
+      "slovenskaLastnost1": "Stadtzentrum (Slovenska cesta 55)",
+      "slovenskaLastnost2": "Täglich von {od2} bis {do2} geöffnet",
+      "slovenskaLastnost3": "Studentenbons & Mittagsangebote",
+      "slovenskaLastnost4": "Schnelle Abholung & Lieferung über Wolt"
+    },
+    "trak": {
+      "t1": "DÖNER KEBAB",
+      "t2": "FRISCHES FLADENBROT AUS DEM OFEN",
+      "t3": "ECHTER GRILL ÜBER FEUER",
+      "t4": "100% HALAL-ZERTIFIKAT",
+      "t5": "KNUSPRIGES HAUSGEMACHTES FALAFEL",
+      "t6": "STUDENTENBONS ({doplacilo} ZUZAHLUNG)",
+      "t7": "TRUBARJEVA CESTA 31",
+      "t8": "SLOVENSKA CESTA 55",
+      "t9": "TÄGLICH BIS SPÄT GEÖFFNET"
+    }
+  },
+  "karieraStran": {
+    "vodniZnak": "TEAM",
+    "oznaka": "TEIL DES TEAMS WERDEN · KARRIERE",
+    "naslov": "Jobs und Arbeiten bei Šeherezada, Ljubljana",
+    "podnaslov": "Werden Sie Teil unseres Teams im Zentrum von Ljubljana und gestalten Sie echte orientalische Aromen mit — mit natürlichen Marinaden, frisch gebackenem Fladenbrot und Respekt vor der Arbeit.",
+    "niMestNaslov": "Derzeit haben wir keine offenen Stellen",
+    "niMestOpis": "Trotzdem freuen wir uns über Ihre Bewerbung. Schreiben Sie uns über das Formular unten oder senden Sie Ihren Lebenslauf per E-Mail — sobald eine Stelle frei wird, sehen wir zuerst die vorhandenen Bewerbungen durch.",
+    "stolpecMesto": "STELLE",
+    "stolpecLokacija": "STANDORT",
+    "stolpecTip": "ANSTELLUNGSART",
+    "razpriPodrobnosti": "Details anzeigen",
+    "odpriOglas": "Ganze Ausschreibung öffnen →",
+    "odgovornostiOznaka": "• Aufgaben und Verantwortung:",
+    "hitraPrijava": "Schnellbewerbung",
+    "celotenOglas": "Ganze Ausschreibung & Teilen",
+    "nazajNaMesta": "Zurück zu allen Stellen",
+    "odgovornosti": "Wichtigste Aufgaben und Verantwortung:",
+    "kajPonujamo": "Was wir bieten:",
+    "obrazecOverline": "AUF DIESE STELLE BEWERBEN",
+    "obrazecNaslov": "Senden Sie uns Ihre Bewerbung",
+    "uspehNaslov": "✓ Danke für Ihre Bewerbung!",
+    "uspehOpis": "Ihre Bewerbung wurde gesendet. Wir rufen Sie innerhalb von 24 Stunden an.",
+    "poljeIme": "Vor- und Nachname *",
+    "poljeImeDrzalo": "z. B. Marko Novak",
+    "poljeTelefon": "Telefonnummer *",
+    "poljeTelefonDrzalo": "040 123 456",
+    "poljeEposta": "E-Mail-Adresse *",
+    "poljeEpostaDrzalo": "marko@email.com",
+    "poljeSporocilo": "Kurze Nachricht / Erfahrung (optional)",
+    "poljeSporociloDrzalo": "Erzählen Sie uns von Ihrer bisherigen Arbeit oder wann Sie anfangen könnten...",
+    "posljiPrijavo": "Bewerbung senden",
+    "kontaktZaCv": "Direkter Kontakt für Lebensläufe: ",
+    "kadrovska": "Personalabteilung: ",
+    "mobilniKontakt": "KONTAKT FÜR BEWERBENDE & FRAGEN",
+    "posljiCv": "Lebenslauf per E-Mail senden",
+    "poklici": "Personalabteilung anrufen",
+    "zapriModal": "Schließen",
+    "modalOverline": "AUF DIESE STELLE BEWERBEN",
+    "modalPodnaslov": "Füllen Sie das kurze Formular aus, wir melden uns innerhalb von 24 Stunden.",
+    "modalUspehOpis": "Ihre Bewerbung auf die Stelle „{mesto}“ wurde gesendet.",
+    "poljePozicija": "Gewählte Stelle",
+    "poljeIzkusnje": "Bisherige Erfahrung & Anmerkungen (optional)",
+    "poljeIzkusnjeDrzalo": "Erzählen Sie uns von Ihrer Küchenerfahrung oder wann Sie anfangen könnten...",
+    "oddajPrijavo": "Bewerbung abschicken"
+  },
+  "galerijaPodatki": {
+    "kategorije": {
+      "all": "Alle Fotos",
+      "hrana": "Gerichte & Döner",
+      "priprava": "Zubereitung & Grill",
+      "ambient": "Atmosphäre & Team"
+    },
+    "slike": {
+      "1": "Echter türkischer Döner Kebab",
+      "2": "Grillmeister bei der Zubereitung von frischem Döner",
+      "3": "Frisch gerolltes Jufka Kebab",
+      "4": "Hausgemachtes Fladenbrot im heißen Ofen",
+      "5": "Döner-Teller mit goldenen Pommes",
+      "6": "Frisches Gemüse und hausgemachte Saucen",
+      "7": "Knuspriges hausgemachtes Falafel mit Hummus",
+      "8": "Koch beim Anrichten eines Tellers",
+      "9": "Klassischer Cheeseburger mit geschmolzenem Käse",
+      "10": "Die Küche bei der Arbeit, frische Zubereitung",
+      "11": "Döner in der Box mit Pommes",
+      "12": "Frische Zubereitung und Gewürze",
+      "13": "Pizza Kebab mit hausgemachter Tomatenbasis",
+      "14": "100 % Rind-Čevapčiči im Fladenbrot",
+      "15": "Studentenmenü mit ausgewählten Beilagen",
+      "16": "Pizza Klasik mit Putenschinken",
+      "17": "Knuspriger Falafel-Teller",
+      "18": "Goldene knusprige Pommes",
+      "19": "Gemüse-Döner mit frischem Salat",
+      "20": "Frisch gebackene Pizza Margarita",
+      "21": "Frisches Gemüse-Jufka",
+      "22": "Bestellungen zur Abholung & freundliche Bedienung"
+    }
+  },
+  "zasebnost": {
+    "vodniZnak": "DATENSCHUTZ",
+    "oznaka": "SCHUTZ PERSONENBEZOGENER DATEN · DSGVO & ZVOP-2",
+    "naslov": "Datenschutzerklärung",
+    "uvod": "Bei Šeherezada schätzen wir Ihr Vertrauen. Wir verarbeiten Ihre personenbezogenen Daten im Einklang mit der Verordnung (EU) 2016/679 (Datenschutz-Grundverordnung — DSGVO), dem slowenischen Datenschutzgesetz (ZVOP-2) und dem geltenden slowenischen Recht.",
+    "posodobitev": "Zuletzt aktualisiert: 25. August 2026",
+    "razdelek1": "1. Verantwortlicher",
+    "razdelek1Uvod": "Verantwortlich für die über diese Website oder im Rahmen unserer Gastronomiedienstleistungen erhobenen personenbezogenen Daten ist:",
+    "oznakaZnamka": "Marke:",
+    "oznakaSedez": "Sitz:",
+    "oznakaMaticna": "Firmenbuchnummer:",
+    "oznakaPoslovalnici": "Standorte:",
+    "poslovalnici": "Trubarjeva cesta 31 und Slovenska cesta 55, Ljubljana",
+    "kontaktnaTocka": "Kontaktstelle für Datenschutz",
+    "oznakaEposta": "E-Mail:",
+    "oznakaTelefon": "Telefon:",
+    "oznakaVprasanja": "Fragen zum Datenschutz:",
+    "vprasanjaOdgovor": "bitte an die obige E-Mail-Adresse oder Telefonnummer",
+    "razdelek2": "2. Welche Daten wir erheben und wozu",
+    "razdelek2Uvod": "Wir erheben und verarbeiten personenbezogene Daten nur in dem Umfang, der für den jeweiligen Zweck unbedingt erforderlich ist:",
+    "obrazecNaslov": "Kontaktformular und Anfragen",
+    "obrazecOpis": "Wenn Sie uns über das Webformular schreiben, erheben wir Ihren Namen, Ihre E-Mail-Adresse, Ihre Telefonnummer und den Inhalt Ihrer Nachricht. Diese Daten nutzen wir ausschließlich, um zu antworten oder Ihre Anfrage zu bestätigen.",
+    "prijaveNaslov": "Bewerbungen auf offene Stellen",
+    "prijaveOpis": "Bei einer Bewerbung verarbeiten wir Ihre Kontaktdaten, Ihren Lebenslauf und Ihre Berufserfahrung. Diese Daten bewahren wir nur für die Dauer des Auswahlverfahrens auf, oder mit Ihrer Einwilligung für künftige Gelegenheiten.",
+    "dnevnikiNaslov": "Technische Server-Protokolle",
+    "dnevnikiOpis": "Beim Besuch der Website erfasst der Webserver automatisch technische Daten (IP-Adresse, Browsertyp, Datum und Uhrzeit des Zugriffs). Diese Daten dienen der Sicherheit und dem störungsfreien Betrieb des Netzwerks.",
+    "boniNaslov": "Studentenessen (Bons)",
+    "boniOpis": "Beim Einlösen eines Studentenbons erfolgt die Prüfung über das offizielle staatliche ŠOS-Terminal. Šeherezada speichert Ihre persönlichen Studierendendaten nicht in eigenen Systemen.",
+    "razdelek3": "3. Rechtsgrundlagen der Verarbeitung",
+    "razdelek3Uvod": "Wir verarbeiten Ihre personenbezogenen Daten auf folgenden Rechtsgrundlagen nach Artikel 6 DSGVO:",
+    "podlaga1": "• <b>Erfüllung eines Vertrags oder vorvertragliche Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO):</b> Bearbeitung von Essensbestellungen, Reservierungen und Antworten auf Anfragen.",
+    "podlaga2": "• <b>Ausdrückliche Einwilligung (Art. 6 Abs. 1 lit. a DSGVO):</b> Für optionale Cookies und für die Aufbewahrung eines Lebenslaufs für künftige Stellen. Wir versenden keine Newsletter.",
+    "podlaga3": "• <b>Berechtigte Interessen (Art. 6 Abs. 1 lit. f DSGVO):</b> Zur Sicherheit der IT-Systeme, zur Missbrauchsvermeidung und zur Verbesserung des Website-Betriebs.",
+    "razdelek4": "4. Ihre Rechte bezüglich Ihrer Daten",
+    "razdelek4Uvod": "Nach der DSGVO haben Sie jederzeit folgende Rechte:",
+    "pravicaDostopNaslov": "Recht auf Auskunft",
+    "pravicaDostopOpis": "Sie haben das Recht auf Bestätigung, ob wir Ihre Daten verarbeiten, und auf kostenlose Einsicht.",
+    "pravicaPopravekNaslov": "Recht auf Berichtigung",
+    "pravicaPopravekOpis": "Sie können die unverzügliche Berichtigung unrichtiger oder die Vervollständigung unvollständiger Daten verlangen.",
+    "pravicaIzbrisNaslov": "Recht auf Löschung",
+    "pravicaIzbrisOpis": "Sie können die Löschung Ihrer Daten verlangen („Recht auf Vergessenwerden“), sofern kein gesetzlicher Grund für die Aufbewahrung mehr besteht.",
+    "pravicaOmejitevNaslov": "Einschränkung der Verarbeitung",
+    "pravicaOmejitevOpis": "Sie haben das Recht, eine vorübergehende Einschränkung der Verarbeitung zu verlangen, etwa bei einem Widerspruch oder während der Prüfung der Richtigkeit.",
+    "pravicaPrenosNaslov": "Datenübertragbarkeit",
+    "pravicaPrenosOpis": "Sie können die von Ihnen bereitgestellten Daten in einem strukturierten, gängigen und maschinenlesbaren Format erhalten.",
+    "pravicaUgovorNaslov": "Widerspruchsrecht",
+    "pravicaUgovorOpis": "Sie können jederzeit einer Verarbeitung auf Grundlage berechtigter Interessen widersprechen oder eine erteilte Einwilligung widerrufen.",
+    "uveljavljanje": "Alle oben genannten Rechte können Sie mit einer einfachen schriftlichen Nachricht an <b>{eposta}</b> geltend machen. Wir antworten ohne unangemessene Verzögerung, spätestens innerhalb von 30 Tagen.",
+    "razdelek5": "5. Datensicherheit und Speicherdauer",
+    "varnost1": "Zum Schutz Ihrer Daten setzen wir moderne technische und organisatorische Maßnahmen ein, darunter verschlüsselte Verbindungen (SSL/TLS-Zertifikat), sichere Serverprotokolle und einen auf befugte Personen beschränkten Zugriff.",
+    "varnost2": "Wir bewahren Daten nur so lange auf, wie es für den Zweck der Erhebung erforderlich ist, bis zum Widerruf Ihrer Einwilligung oder bis zum Ablauf der gesetzlichen Aufbewahrungsfristen für Geschäftsunterlagen.",
+    "razdelek6": "6. An wen wir Daten weitergeben",
+    "razdelek6Uvod": "Wir verkaufen Ihre personenbezogenen Daten nicht und geben sie nicht zu Werbezwecken weiter. Für den Betrieb dieser Website arbeiten wir jedoch mit einem Dienstleister zusammen, der Daten nach unseren Weisungen verarbeitet:",
+    "gostovanje": "• <b>Hosting-Anbieter</b> — bei jedem Besuch erfasst der Server die technischen Daten, die zur Auslieferung der Seite nötig sind (IP-Adresse, Browsertyp, Zeitpunkt der Anfrage). Diese Daten nutzen wir nicht zur Besucheranalyse.",
+    "razkritje": "Darüber hinaus geben wir Daten nur weiter, wenn ein Gesetz oder eine zuständige Behörde dies verlangt.",
+    "razdelek7": "7. Aufsichtsbehörde in der Republik Slowenien",
+    "razdelek7Uvod": "Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer Daten gegen geltendes Recht verstößt, haben Sie das Recht, bei der zuständigen Aufsichtsbehörde Beschwerde einzulegen:",
+    "nadzorniOrgan": "Informationsbeauftragter der Republik Slowenien",
+    "nadzorniNaslov": "Adresse: Dunajska cesta 22, 1000 Ljubljana",
+    "nadzorniKontakt": "E-Mail: gp.ip@ip-rs.si | Telefon: +386 1 230 97 30",
+    "nadzorniSpletna": "Website:",
+    "gumbPiskotki": "Cookie-Richtlinie lesen",
+    "gumbMeni": "Zurück zur Speisekarte",
+    "gumbKontakt": "Kontakt"
+  },
+  "piskotkiStran": {
+    "vodniZnak": "COOKIES",
+    "oznaka": "RECHTLICHER HINWEIS · ZEKOM-2 & DSGVO",
+    "naslov": "Cookie-Richtlinie",
+    "uvodZacetek": "Auf der Website von Šeherezada achten wir auf Ihre Privatsphäre.",
+    "uvodZAnalitiko": "Wir verwenden ein notwendiges Cookie, das Ihre Auswahl speichert, sowie Analyse-Cookies für eine anonyme Besuchsstatistik. Analyse-Cookies werden <b>nur mit Ihrer Einwilligung</b> geladen. Werbe-Cookies verwenden wir nicht.",
+    "uvodBrezAnalitike": "Derzeit verwenden wir <b>ein einziges Cookie</b> — jenes, das Ihre Auswahl speichert. Die Analyse ist vorbereitet, aber noch nicht aktiviert; sobald sie es ist, wird sie nur für Gäste geladen, die im Banner „Alle akzeptieren“ gewählt haben. Werbe-Cookies verwenden wir nicht, und wir verfolgen Ihr Verhalten nicht.",
+    "posodobitev": "Zuletzt aktualisiert: 25. August 2026",
+    "razdelek1": "1. Was Cookies sind und wozu wir sie brauchen",
+    "kajSo1": "Cookies sind kleine <em>Textdateien</em>, die eine Website beim Besuch in Ihrem Browser speichert. Bei jedem erneuten Besuch erkennt die Website das Cookie und passt Inhalte an oder behält Ihre Einstellungen bei (etwa die gewählte Sprache, Ihre Einwilligung oder Ihren bevorzugten Standort).",
+    "kajSo2": "Cookies selbst enthalten keine Programme und können Ihr Gerät nicht beschädigen. Ohne Ihre ausdrückliche Einwilligung erheben sie keine personenbezogenen Daten.",
+    "razdelek2": "2. Arten von Cookies, die wir verwenden",
+    "razdelek2Uvod": "Im Einklang mit dem slowenischen Gesetz über elektronische Kommunikation (ZEKom-2) und der Datenschutz-Grundverordnung (DSGVO) unterscheiden wir drei Grundkategorien:",
+    "nujniNaslov": "Unbedingt notwendige Cookies",
+    "nujniOpis": "Diese Cookies sind für den Grundbetrieb der Website nötig (Sicherheit, Navigation, Speichern Ihrer Einwilligung). Für sie ist gesetzlich keine Einwilligung erforderlich, da die Website ohne sie nicht funktionieren kann.",
+    "funkcionalniNaslov": "Funktionale Cookies",
+    "funkcionalniOpis": "Sie ermöglichen erweiterte Funktionen und speichern Ihre persönlichen Einstellungen (etwa die Wahl zwischen Trubarjeva und Slovenska), damit Sie beim nächsten Besuch nicht erneut wählen müssen.",
+    "analiticniNaslov": "Analyse-Cookies",
+    "analiticniOpis": "Wir nutzen sie, um Besuche anonym auszuwerten (Seitenaufrufe, beliebteste Gerichte). IP-Adressen werden anonymisiert, die Daten nur in aggregierter Form verwendet.",
+    "razdelek3": "3. Liste der Cookies auf dieser Website",
+    "razdelek3Uvod": "Die folgende Tabelle listet jedes Cookie auf, das auf Ihrem Gerät gesetzt werden kann. Die Spalte „Status“ zeigt, ob ein Cookie derzeit tatsächlich im Einsatz ist — so sehen Sie, was heute auf Ihrem Gerät passiert und was erst geplant ist:",
+    "stolpecIme": "Cookie-Name",
+    "stolpecKategorija": "Kategorie",
+    "stolpecNamen": "Zweck",
+    "stolpecHramba": "Speicherdauer",
+    "stolpecIzdajatelj": "Gesetzt von",
+    "stolpecStanje": "Status",
+    "vUporabi": "Im Einsatz",
+    "niVUporabi": "Nicht im Einsatz",
+    "kategorijaNujni": "Notwendig",
+    "kategorijaAnaliticni": "Analyse",
+    "namenNujni": "Speichert Ihre Cookie-Auswahl, damit das Banner nicht bei jedem Besuch erneut fragt.",
+    "namenAnaliticni": "Anonymes Zählen von Besuchen und Seitenaufrufen, damit wir wissen, welche Bereiche für Gäste nützlich sind. Wird nur geladen, wenn Sie im Banner „Alle akzeptieren“ wählen.",
+    "trajanjeLeto": "1 Jahr",
+    "trajanjeDveLeti": "2 Jahre",
+    "izdajateljPrvaOseba": "{znamka} (Erstanbieter)",
+    "razdelek4": "4. Ihre aktuelle Auswahl",
+    "razdelek4Uvod": "Sie können Ihre Auswahl hier jederzeit ändern. Die Änderung wirkt sofort und wird im Cookie gespeichert",
+    "stanjeOznaka": "Status:",
+    "stanjeNiIzbral": "Sie haben noch nicht gewählt",
+    "stanjeVse": "Sie haben alle Cookies akzeptiert",
+    "stanjeSamoNujni": "Sie haben nur notwendige Cookies akzeptiert",
+    "nujniVednoVklopljen": "Das notwendige Cookie ist immer aktiv — ohne es könnte sich die Seite Ihre Auswahl nicht merken.",
+    "razlagaZAnalitiko": "Analyse-Cookies werden nur geladen, wenn Sie „Alle akzeptieren“ gewählt haben. Wählen Sie „Nur notwendige“, werden sie nicht geladen und vorhandene nicht verwendet.",
+    "razlagaBrezAnalitike": "Die Analyse ist noch nicht aktiviert, Ihre Auswahl ändert derzeit also nichts am Geladenen. Sie zählt aber im Voraus: sobald wir die Analyse einführen, wird sie nur für Gäste geladen, die hier „Alle akzeptieren“ gewählt haben.",
+    "gumbSamoNujni": "Nur notwendige",
+    "gumbSprejmiVse": "Alle akzeptieren",
+    "gumbPonastavi": "Auswahl zurücksetzen",
+    "izbiraShranjena": "Ihre Auswahl wurde gespeichert.",
+    "razdelek5": "5. Cookies im Browser verwalten oder löschen",
+    "razdelek5Uvod": "Sie können Ihre Cookie-Einstellungen jederzeit auch in Ihrem Webbrowser ändern. Die meisten Browser erlauben es, alle Cookies abzulehnen oder zu akzeptieren, nur bestimmte Arten zuzulassen oder Sie zu warnen, wenn eine Website ein Cookie setzen möchte.",
+    "navodilaNaslov": "So verwalten Sie Cookies in gängigen Browsern:",
+    "navodilaChrome": "• <b>Google Chrome:</b> Einstellungen → Datenschutz und Sicherheit → Cookies und andere Websitedaten.",
+    "navodilaFirefox": "• <b>Mozilla Firefox:</b> Einstellungen → Datenschutz & Sicherheit → Cookies und Website-Daten.",
+    "navodilaSafari": "• <b>Apple Safari:</b> Einstellungen → Datenschutz → Websitedaten verwalten.",
+    "navodilaEdge": "• <b>Microsoft Edge:</b> Einstellungen → Websiteberechtigungen → Cookies und Websitedaten.",
+    "opozorilo": "Hinweis: Wenn Sie Cookies vollständig deaktivieren, funktionieren einzelne Teile der Website möglicherweise nicht optimal.",
+    "razdelek6": "6. Verantwortlicher und Fragen",
+    "razdelek6Uvod": "Verantwortlich für diese Website und die über Cookies erhobenen Daten ist:",
+    "oznakaZnamka": "Marke:",
+    "oznakaSedez": "Sitz:",
+    "oznakaMaticna": "Firmenbuchnummer:",
+    "kontaktZaZasebnost": "Datenschutz-Kontakt",
+    "oznakaEposta": "E-Mail:",
+    "oznakaTelefon": "Telefon:",
+    "gumbZasebnost": "Datenschutzerklärung lesen",
+    "gumbMeni": "Zurück zur Speisekarte",
+    "gumbKontakt": "Kontakt"
+  },
+  "jedi": {
+    "1": {
+      "ime": "Döner Kebab",
+      "opis": "Frisch gegrilltes Fleisch, hausgemachtes Fladenbrot nach eigenem Rezept, gemischter Salat und Saucen nach Wahl. Unser meistverkauftes Gericht.",
+      "kategorija": "Döner & Wraps",
+      "sestavine": {
+        "0": "Hausgemachtes frisch gebackenes Fladenbrot",
+        "1": "Kalb- & Hähnchen-Dönerfleisch (100 % halal)",
+        "2": "Knackiger Salat, Tomate, Kraut, Zwiebel",
+        "3": "Hausgemachte cremige Joghurtsauce"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)",
+        "2": "Sesam"
+      }
+    },
+    "2": {
+      "ime": "Jufka Kebab",
+      "opis": "Fleisch nach Wahl, in dünnes Jufka gewickelt, mit frischem Gemüse und hausgemachten Saucen.",
+      "kategorija": "Döner & Wraps",
+      "sestavine": {
+        "0": "Dünnes Jufka (Lavaš)",
+        "1": "Dönerfleisch nach Wahl (100 % halal)",
+        "2": "Frischer Salat, Tomate, Zwiebel",
+        "3": "Joghurt- oder scharfe Sauce"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)",
+        "2": "Sesam"
+      }
+    },
+    "3": {
+      "ime": "Döner-Teller",
+      "opis": "Ein großzügiger Teller Dönerfleisch, knusprige Pommes, frischer gemischter Salat und Hausdressings. Für richtigen Hunger.",
+      "kategorija": "Döner & Wraps",
+      "sestavine": {
+        "0": "Eine großzügige Portion Dönerfleisch",
+        "1": "Goldene Pommes",
+        "2": "Gemischter Saisonsalat",
+        "3": "Hausgemachtes Joghurt- und scharfes Dressing"
+      },
+      "alergeni": {
+        "0": "Laktose (Milch)",
+        "1": "Sesam"
+      }
+    },
+    "4": {
+      "ime": "Döner Box",
+      "opis": "Eine handliche Portion saftiges Dönerfleisch mit knusprigen Pommes und Saucen nach Wahl.",
+      "kategorija": "Döner & Wraps",
+      "sestavine": {
+        "0": "Dönerfleisch (100 % halal)",
+        "1": "Pommes",
+        "2": "Frischer Salat & Saucen"
+      },
+      "alergeni": {
+        "0": "Laktose (Milch)",
+        "1": "Sesam"
+      }
+    },
+    "5": {
+      "ime": "Gemüse-Jufka",
+      "opis": "Frisches Saisongemüse und Saucen nach Wahl, in warmes dünnes Jufka gewickelt.",
+      "kategorija": "Döner & Wraps",
+      "sestavine": {
+        "0": "Dünnes Jufka (Lavaš)",
+        "1": "Vielfältiger knackiger Salat",
+        "2": "Cremiger Käse & Dressings"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)"
+      }
+    },
+    "6": {
+      "ime": "Gemüse-Döner",
+      "opis": "Frisches Gemüse, Käse und aromatische Kräuterdressings im warmen Fladenbrot. Das preiswerteste Gericht auf unserer Karte.",
+      "kategorija": "Döner & Wraps",
+      "sestavine": {
+        "0": "Warmes hausgemachtes Fladenbrot",
+        "1": "Große Auswahl an frischem Gemüse",
+        "2": "Cremiger Käse",
+        "3": "Kräuterdressings"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)"
+      }
+    },
+    "7": {
+      "ime": "Falafel",
+      "opis": "Knusprige Kichererbsenbällchen nach orientalischem Rezept, im warmen Fladenbrot mit Salat und Tahini. 100 % pflanzlich.",
+      "kategorija": "Falafel & Beilagen",
+      "sestavine": {
+        "0": "Knuspriges hausgemachtes Falafel",
+        "1": "Frisches Fladenbrot",
+        "2": "Sesam-Tahini-Sauce",
+        "3": "Tomate, saure Gurken, Petersilie"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Sesam"
+      }
+    },
+    "8": {
+      "ime": "Falafel XL",
+      "opis": "Eine größere Portion knuspriges Falafel mit extra frischem Gemüse und cremigem Hummus.",
+      "kategorija": "Falafel & Beilagen",
+      "sestavine": {
+        "0": "Extra Portion Falafelbällchen",
+        "1": "Hummus-Aufstrich & Tahini",
+        "2": "Große Auswahl an Salat"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Sesam"
+      }
+    },
+    "9": {
+      "ime": "Falafel-Teller",
+      "opis": "Falafelbällchen, goldene Pommes, frischer gemischter Salat, Pitabrot und orientalische Saucen.",
+      "kategorija": "Falafel & Beilagen",
+      "sestavine": {
+        "0": "6 goldene Falafelbällchen",
+        "1": "Pommes",
+        "2": "Frischer Salat & Pitabrot",
+        "3": "Tahini- & Knoblauchsauce"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Sesam"
+      }
+    },
+    "10": {
+      "ime": "Falafel + Hummus",
+      "opis": "Eine Kombination aus knusprigem Falafel und cremigem hausgemachtem Hummus mit Olivenöl.",
+      "kategorija": "Falafel & Beilagen",
+      "sestavine": {
+        "0": "Frisches Falafel",
+        "1": "Cremiger hausgemachter Kichererbsen-Hummus",
+        "2": "Natives Olivenöl & Pita"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Sesam"
+      }
+    },
+    "11": {
+      "ime": "Falafel Stück (1 St.)",
+      "opis": "Ein einzelnes knusprig frittiertes Falafel nach echtem traditionellem Rezept.",
+      "kategorija": "Falafel & Beilagen",
+      "sestavine": {
+        "0": "Kichererbsen, Knoblauch, Petersilie, orientalische Gewürze"
+      },
+      "alergeni": {
+        "0": "Sesam"
+      }
+    },
+    "12": {
+      "ime": "Hummus",
+      "opis": "Ein cremiger traditioneller Kichererbsen-Aufstrich mit nativem Olivenöl und Gewürzen.",
+      "kategorija": "Falafel & Beilagen",
+      "sestavine": {
+        "0": "Kichererbsen, Tahini, Zitronensaft, Knoblauch, Olivenöl"
+      },
+      "alergeni": {
+        "0": "Sesam"
+      }
+    },
+    "13": {
+      "ime": "Hähnchen-Set mit Reis",
+      "opis": "Saftige Stücke mariniertes Hähnchen mit aromatischem gelbem Reis und frischem Salat.",
+      "kategorija": "Teller & Hähnchen",
+      "sestavine": {
+        "0": "Mariniertes Hähnchenfilet (100 % halal)",
+        "1": "Aromatischer Gewürzreis",
+        "2": "Frische Salatbeilage",
+        "3": "Hausgemachte Joghurtsauce"
+      },
+      "alergeni": {
+        "0": "Laktose (Milch)"
+      }
+    },
+    "14": {
+      "ime": "Hähnchen-Set mit Pommes",
+      "opis": "Knusprig gebratenes Hähnchen mit goldenen Pommes und Hausdressings.",
+      "kategorija": "Teller & Hähnchen",
+      "sestavine": {
+        "0": "Saftige Hähnchenstücke",
+        "1": "Knusprige Pommes",
+        "2": "Gemischter Saisonsalat",
+        "3": "Ein Dip nach Wahl"
+      },
+      "alergeni": {
+        "0": "Laktose (Milch)"
+      }
+    },
+    "15": {
+      "ime": "Crispy Jufka",
+      "opis": "Knusprig paniertes Hähnchenschnitzel, frischer Salat und milde Mayonnaisesauce im Jufka.",
+      "kategorija": "Teller & Hähnchen",
+      "sestavine": {
+        "0": "Knusprig paniertes Hähnchenfilet",
+        "1": "Dünnes Jufka (Lavaš)",
+        "2": "Salat, Tomate, milde Sauce"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Eier",
+        "2": "Laktose (Milch)"
+      }
+    },
+    "16": {
+      "ime": "Crispy Burger",
+      "opis": "Knusprig paniertes Hähnchenfilet, frischer Salat, Tomate und Hausburgersauce im weichen Brötchen.",
+      "kategorija": "Burger",
+      "sestavine": {
+        "0": "Sesam-Burgerbrötchen",
+        "1": "Knusprig paniertes Hähnchen",
+        "2": "Salat, Tomate, saure Gurken",
+        "3": "Cremige Burgersauce"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Eier",
+        "2": "Sesam",
+        "3": "Laktose (Milch)"
+      }
+    },
+    "17": {
+      "ime": "Crispy Teller",
+      "opis": "Knusprig panierte Hähnchenmedaillons mit Pommes, Salat und einem Hausdip.",
+      "kategorija": "Teller & Hähnchen",
+      "sestavine": {
+        "0": "Knusprig frittierte Hähnchenstreifen",
+        "1": "Goldene Pommes",
+        "2": "Frischer Salat & Hausssauce"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Eier",
+        "2": "Laktose (Milch)"
+      }
+    },
+    "18": {
+      "ime": "Brathähnchen",
+      "opis": "Frisch gebratenes saftiges Hähnchen mit ausgewählten Gewürzen und hausgemachten Beilagen.",
+      "kategorija": "Teller & Hähnchen",
+      "sestavine": {
+        "0": "Gebratenes Hähnchenfilet",
+        "1": "Beilage nach Wahl (Reis oder Pommes)",
+        "2": "Salat mit Kräuterdressing"
+      },
+      "alergeni": {
+        "0": "Laktose (Milch)"
+      },
+      "opomba": "Nur in der Trubarjeva 31 erhältlich."
+    },
+    "19": {
+      "ime": "Hamburger",
+      "opis": "Ein klassisches saftiges Rindfleisch-Patty, Gurken, rote Zwiebel, frischer Salat und Haus-BBQ-Sauce.",
+      "kategorija": "Burger",
+      "sestavine": {
+        "0": "100 % Rindfleisch-Patty (halal)",
+        "1": "Weiches getoastetes Brötchen",
+        "2": "Tomate, Gurke, Zwiebel",
+        "3": "Klassische Burgersauce"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Sesam",
+        "2": "Senf"
+      }
+    },
+    "20": {
+      "ime": "Hähnchen-Burger",
+      "opis": "Ein zartes gegrilltes Hähnchenfilet mit frischen Zutaten im weichen Sesambrötchen.",
+      "kategorija": "Burger",
+      "sestavine": {
+        "0": "Gegrilltes Hähnchenfilet",
+        "1": "Burgerbrötchen mit Sesam",
+        "2": "Tomate, Salat, Hausdressing"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Sesam",
+        "2": "Laktose (Milch)"
+      }
+    },
+    "21": {
+      "ime": "Cheeseburger",
+      "opis": "Ein klassischer Burger mit einer großzügigen Scheibe geschmolzenem Cheddar, saftigem Rindfleisch und Sauce.",
+      "kategorija": "Burger",
+      "sestavine": {
+        "0": "Saftiges Rindfleisch-Patty",
+        "1": "Geschmolzener Cheddar",
+        "2": "Knackiger Salat & Gurken",
+        "3": "Hausgemachte Sauce"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)",
+        "2": "Sesam",
+        "3": "Senf"
+      }
+    },
+    "22": {
+      "ime": "Čevapčiči",
+      "opis": "100 % Rind-Čevapčiči nach traditionellem Rezept, im warmen Fladenbrot mit Zwiebel und Kajmak.",
+      "kategorija": "Teller & Hähnchen",
+      "sestavine": {
+        "0": "100 % Rind-Čevapčiči (halal)",
+        "1": "Warmes hausgemachtes Fladenbrot",
+        "2": "Frisch geschnittene Zwiebel",
+        "3": "Cremiger hausgemachter Kajmak & Ajvar"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)"
+      }
+    },
+    "23": {
+      "ime": "Pommes",
+      "opis": "Goldgelb frittierte, knusprige und gesalzene Pommes, frisch bei jeder Bestellung zubereitet.",
+      "kategorija": "Falafel & Beilagen",
+      "sestavine": {
+        "0": "Kartoffel, Pflanzenöl, Meersalz"
+      }
+    },
+    "24": {
+      "ime": "Pizza Gemüse",
+      "opis": "Tomatenpassata, Käse, frische Paprika, Mais, Champignons, Tomate und Oliven.",
+      "kategorija": "Pizzen",
+      "sestavine": {
+        "0": "Frisch gekneteter Teig",
+        "1": "Mozzarella & Tomatenpassata",
+        "2": "Paprika, Pilze, Tomate, Mais",
+        "3": "Oregano"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)"
+      }
+    },
+    "25": {
+      "ime": "Pizza Salami",
+      "opis": "Tomatenpassata, Mozzarella und würzige Rindersalami.",
+      "kategorija": "Pizzen",
+      "sestavine": {
+        "0": "Knuspriger Teig",
+        "1": "Tomatenbasis & Käse",
+        "2": "Rindersalami / Rinder-Kulen"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)"
+      }
+    },
+    "26": {
+      "ime": "Pizza Kebab",
+      "opis": "Pizza mit hausgemachter Tomatenbasis, Mozzarella, Dönerfleisch und Joghurtdressing. In zwei Größen erhältlich.",
+      "kategorija": "Pizzen",
+      "sestavine": {
+        "0": "Knuspriger Teig",
+        "1": "Mozzarella & Tomate",
+        "2": "Über dem Feuer gegrilltes Dönerfleisch",
+        "3": "Helles Hausdressing"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)"
+      }
+    },
+    "27": {
+      "ime": "Pizza Klasik",
+      "opis": "Tomatenpassata, Mozzarella, Putenschinken (halal) und frische Champignons.",
+      "kategorija": "Pizzen",
+      "sestavine": {
+        "0": "Frisch gekneteter Teig",
+        "1": "Tomatenpassata & Mozzarella",
+        "2": "Hochwertiger Putenschinken",
+        "3": "Frische Champignons"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)"
+      }
+    },
+    "28": {
+      "ime": "Pizza Thunfisch",
+      "opis": "Tomatenpassata, Mozzarella, ausgewählte Thunfischstücke, rote Zwiebel und Oliven.",
+      "kategorija": "Pizzen",
+      "sestavine": {
+        "0": "Hausgemachter Teig",
+        "1": "Tomatenpassata & Mozzarella",
+        "2": "Hochwertiger Thunfisch",
+        "3": "Zwiebel & mediterrane Kräuter"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)",
+        "2": "Fisch"
+      }
+    },
+    "29": {
+      "ime": "Pizza Margarita",
+      "opis": "Hausgemachte Tomatensauce, hochwertiger Mozzarella, Olivenöl und duftender Oregano.",
+      "kategorija": "Pizzen",
+      "sestavine": {
+        "0": "Von Hand gezogener hausgemachter Teig",
+        "1": "Tomatenpassata",
+        "2": "Mozzarella",
+        "3": "Oregano & Olivenöl"
+      },
+      "alergeni": {
+        "0": "Gluten (Weizen)",
+        "1": "Laktose (Milch)"
+      }
+    }
+  },
+  "kategorije": {
+    "all": {
+      "ime": "Alle Gerichte",
+      "kratko": "Alle"
+    },
+    "kebab": {
+      "ime": "Döner & Wraps",
+      "kratko": "Döner"
+    },
+    "falafel": {
+      "ime": "Falafel & Beilagen",
+      "kratko": "Falafel"
+    },
+    "kroznik": {
+      "ime": "Teller & Hähnchen",
+      "kratko": "Teller"
+    },
+    "burger": {
+      "ime": "Burger",
+      "kratko": "Burger"
+    },
+    "pizza": {
+      "ime": "Pizzen",
+      "kratko": "Pizzen"
+    }
+  }
+}

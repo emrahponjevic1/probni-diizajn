@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { GOOGLE_REVIEWS } from "@/data/reviews";
 import { LOCATIONS, locationById } from "@/data/locations";
 import { hoursSummary } from "@/lib/hours";
+import { useReviewText } from "@/i18n/reviewText";
 import { STUDENT_BON } from "@/components/menu/MenuData";
 
 // ---------------------------------------------------------------------------
@@ -76,6 +77,7 @@ export interface AboutContent {
 /** Vsa vsebina strani O nas, v jeziku strani. */
 export function useAboutContent(): AboutContent {
   const t = useTranslations("oNasPodatki");
+  const prevediMnenje = useReviewText();
 
   const trubarjeva = locationById("trubarjeva");
   const slovenska = locationById("slovenska");
@@ -141,7 +143,7 @@ export function useAboutContent(): AboutContent {
 
     // Mnenja izhajajo iz src/data/reviews.ts — samo resnične ocene z Googla.
     // Prej so bila tukaj izmišljena mnenja z naključnimi fotografijami s spleta.
-    testimonials: GOOGLE_REVIEWS.map((r) => ({
+    testimonials: GOOGLE_REVIEWS.map(prevediMnenje).map((r) => ({
       id: String(r.id),
       quote: r.text,
       author: r.author,

@@ -11,6 +11,7 @@
 // ---------------------------------------------------------------------------
 
 import { LOCATIONS, PHONE, type LocationId } from "@/data/locations";
+import { useLocationText } from "@/i18n/locationText";
 
 export interface LocationDetail {
   id: LocationId;
@@ -35,19 +36,28 @@ export interface LocationDetail {
   vibeText: string;
 }
 
-export const CONTACT_LOCATIONS: LocationDetail[] = LOCATIONS.map((l) => ({
-  id: l.id,
-  name: l.name,
-  badge: l.badge,
-  subtitle: l.subtitle,
-  address: l.street,
-  city: `${l.postalCode} ${l.city}`,
-  phone: PHONE.restaurant.display,
-  phoneRaw: PHONE.restaurant.e164,
-  email: l.email,
-  googleMapsUrl: l.googleMapsUrl,
-  appleMapsUrl: l.appleMapsUrl,
-  googleMapsEmbed: l.mapEmbed,
-  transport: l.transport,
-  vibeText: l.vibeText,
-}));
+/**
+ * Opis lokala in navodila za prevoz gredo skozi prevod — brez tega bi na
+ * tuji strani ostala slovenska besedila. Naslov, telefon in povezave do
+ * zemljevidov so dejstva in ostanejo iz locations.ts.
+ */
+export function useContactLocations(): LocationDetail[] {
+  const prevediLokal = useLocationText();
+
+  return LOCATIONS.map(prevediLokal).map((l) => ({
+    id: l.id,
+    name: l.name,
+    badge: l.badge,
+    subtitle: l.subtitle,
+    address: l.street,
+    city: `${l.postalCode} ${l.city}`,
+    phone: PHONE.restaurant.display,
+    phoneRaw: PHONE.restaurant.e164,
+    email: l.email,
+    googleMapsUrl: l.googleMapsUrl,
+    appleMapsUrl: l.appleMapsUrl,
+    googleMapsEmbed: l.mapEmbed,
+    transport: l.transport,
+    vibeText: l.vibeText,
+  }));
+}

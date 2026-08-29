@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import styles from "./CustomerReviews.module.css";
 import { GOOGLE_REVIEWS } from "@/data/reviews";
+import { useReviewText } from "@/i18n/reviewText";
 
 // Clean Vector SVG Star Icon
 const StarFilledSvg = ({ size = 26 }: { size?: number }) => (
@@ -17,6 +18,9 @@ const StarFilledSvg = ({ size = 26 }: { size?: number }) => (
 export default function CustomerReviews() {
   // Besedila so v messages/<jezik>.json pod ključem "ocene".
   const t = useTranslations("ocene");
+
+  // Besedilo mnenja ostane dobesedno; prevedeta se le oznaki kdaj in kontekst.
+  const prevediMnenje = useReviewText();
 
   const [activeQuoteIndex, setActiveQuoteIndex] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -32,7 +36,7 @@ export default function CustomerReviews() {
     return () => clearInterval(timer);
   }, [isPaused, activeQuoteIndex]);
 
-  const currentReview = GOOGLE_REVIEWS[activeQuoteIndex];
+  const currentReview = prevediMnenje(GOOGLE_REVIEWS[activeQuoteIndex]);
 
   return (
     <section className={styles.reviewsSection} id="ocene">

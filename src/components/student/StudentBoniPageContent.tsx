@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { hoursSummary } from "@/lib/hours";
 import { useLocationText } from "@/i18n/locationText";
+import { useMenuText } from "@/i18n/menuText";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { createPortal } from "react-dom";
@@ -319,8 +320,12 @@ export default function StudentBoniPageContent() {
   }, []);
 
   // Vse jedi, ki so na voljo na bon (19 jedi)
+  // Jedi morajo skozi prevod, sicer se na tuji strani pokažejo slovenska
+  // imena in opisi — enako kot na strani /meni.
+  const prevediJed = useMenuText();
+
   const studentItems = useMemo(
-    () => MENU_ITEMS.filter((item) => item.student),
+    () => MENU_ITEMS.map(prevediJed).filter((item) => item.student),
     []
   );
 

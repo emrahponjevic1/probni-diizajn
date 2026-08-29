@@ -7,7 +7,7 @@ import { PHONE, LOCATION_SLUG } from "@/data/locations";
 import { COMPANY } from "@/data/company";
 import styles from "./ContactPageContent.module.css";
 import WorldMapPattern from "./WorldMapPattern";
-import { CONTACT_LOCATIONS } from "./ContactData";
+import { useContactLocations } from "./ContactData";
 
 // Clean Vector SVG Icons
 interface SvgProps {
@@ -141,6 +141,7 @@ const CompassSvg = ({ size = 16, className, style }: SvgProps) => (
 export default function ContactPageContent() {
   // Besedila so v messages/<jezik>.json pod ključem "kontaktStran".
   const t = useTranslations("kontaktStran");
+  const CONTACT_LOCATIONS = useContactLocations();
 
   // Active map location state
   const [selectedMapLoc, setSelectedMapLoc] = useState<"trubarjeva" | "slovenska">("trubarjeva");

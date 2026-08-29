@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { openState } from "@/lib/hours";
 import styles from "./StatusBadge.module.css";
 
@@ -21,6 +22,9 @@ export default function StatusBadge({
   hours: { day: string; time: string }[];
   className?: string;
 }) {
+  // Besedila so v messages/<jezik>.json pod ključem "znacka".
+  const t = useTranslations("znacka");
+
   const [odprto, setOdprto] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -51,7 +55,7 @@ export default function StatusBadge({
         )}
       </span>
       <span className={styles.label}>
-        {odprto === false ? "Zaprto" : "Odprto"}
+        {odprto === false ? t("zaprto") : t("odprto")}
       </span>
     </span>
   );

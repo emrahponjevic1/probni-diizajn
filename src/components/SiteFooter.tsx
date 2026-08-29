@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { useLocationText } from "@/i18n/locationText";
 import styles from "./SiteFooter.module.css";
 import { LOCATIONS, PHONE } from "@/data/locations";
 import { Link } from "@/i18n/navigation";
@@ -47,11 +48,14 @@ const ArrowUpRightSvg = ({ size = 14 }: { size?: number }) => (
 
 // Naslovi, telefon in delovni čas prihajajo iz src/data/locations.ts.
 // Prej so bili prepisani na roko — sobota je bila zato dolgo napačna.
-const [trubarjeva, slovenska] = LOCATIONS;
 
 export default function SiteFooter() {
   // Besedila so v messages/<jezik>.json pod ključem "noga".
   const t = useTranslations("noga");
+
+  // Imena dni se prevedejo; ure, naslov in telefon so dejstva in ostanejo.
+  const prevediLokal = useLocationText();
+  const [trubarjeva, slovenska] = LOCATIONS.map(prevediLokal);
 
   return (
     <footer className={styles.footerSection}>

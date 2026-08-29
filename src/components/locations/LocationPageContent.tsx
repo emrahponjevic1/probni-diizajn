@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { useLocationText } from "@/i18n/locationText";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { PHONE, type LocationCore } from "@/data/locations";
@@ -56,7 +57,7 @@ const Ikona = {
 };
 
 export default function LocationPageContent({
-  loc,
+  loc: locSurovi,
   dishCount,
   other,
 }: {
@@ -67,6 +68,10 @@ export default function LocationPageContent({
 }) {
   // Besedila so v messages/<jezik>.json pod ključem "lokacijaStran".
   const t = useTranslations("lokacijaStran");
+
+  // Opis lokala, prednosti, prevoz in imena dni se prevedejo; naslov,
+  // telefon, ure in povezave do zemljevidov ostanejo iz locations.ts.
+  const loc = useLocationText()(locSurovi);
 
   const imaFotografije = loc.photos.some((f) => f.src);
 

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { metaZaStran } from "@/i18n/meta";
 import SiteNavbar from "@/components/SiteNavbar";
 import HalalPageContent from "@/components/halal/HalalPageContent";
-import { HALAL_FAQS } from "@/components/halal/halalFaqs";
+import { useHalalFaqs } from "@/components/halal/halalFaqs";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -32,10 +32,13 @@ export default function HalalPage({
   const { locale } = use(params);
   setRequestLocale(locale);
 
+  // Isti seznam, ki ga prikaže harmonika — schema in stran se ne moreta razhajati.
+  const halalFaqs = useHalalFaqs();
+
   return (
     <main>
       {/* Vprašanja so vidna na strani — schema samo ponovi, kar gost že bere. */}
-      <FaqJsonLd items={HALAL_FAQS.map((f) => ({ question: f.q, answer: f.a }))} />
+      <FaqJsonLd items={halalFaqs.map((f) => ({ question: f.q, answer: f.a }))} />
       <SiteNavbar activeRoute="halal" />
       <HalalPageContent />
       <SiteFooter />

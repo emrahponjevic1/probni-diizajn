@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { localizedSlugUrl } from "@/i18n/urls";
+import type { AppLocale } from "@/i18n/urls";
+import { SHARE_IMAGE, SITE_NAME, localeByCode } from "@/data/site";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import SiteNavbar from "@/components/SiteNavbar";
@@ -24,24 +28,45 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const loc = locationBySlug(slug);
-  if (!loc) return { title: "Poslovalnica ni najdena | Šeherezada" };
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
 
-  const url = `${BASE}/lokacije/${slug}`;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const loc = locationBySlug(slug);
+  if (!loc) return { title: t("lokacijaNiNajdena") };
+
+  // Kanonični naslov kaže na to stran v tem jeziku, ne na slovensko.
+  const url = localizedSlugUrl("/lokacije/[slug]", slug, locale as AppLocale);
 
   return {
-    title: `${loc.name}, ${loc.street} — halal kebab v Ljubljani`,
-    description: `${loc.name} na naslovu ${loc.fullAddress}. Odprto ${loc.hoursShort}. Kako priti, parkiranje in celoten meni s študentskimi boni.`,
+    title: t("lokacijaNaslov", { ime: loc.name, ulica: loc.street }),
+    description: t("lokacijaOpis", {
+      ime: loc.name,
+      naslov: loc.fullAddress,
+      urnik: loc.hoursShort,
+    }),
     alternates: { canonical: url },
     openGraph: {
-      title: `${loc.name} — ${loc.street}, Ljubljana`,
+      title: t("lokacijaOgNaslov", {
+        ime: loc.name,
+        ulica: loc.street,
+        mesto: loc.city,
+      }),
       description: loc.vibeText,
       url,
       type: "website",
-      locale: "sl_SI",
+      siteName: SITE_NAME,
+      locale: localeByCode(locale).hreflang.replace("-", "_"),
+      images: [
+        {
+          url: SHARE_IMAGE.src,
+          width: SHARE_IMAGE.width,
+          height: SHARE_IMAGE.height,
+          alt: t("ogSlikaOpis"),
+        },
+      ],
     },
   };
 }
@@ -124,22 +149,26 @@ export default async function LocationPage({
  * kot zapiranje naslednji dan.
  */
 function groupHours(hours: { day: string; time: string }[]) {
-  const EN: Record<string, string> = {
-    Ponedeljek: "Monday",
-    Torek: "Tuesday",
-    Sreda: "Wednesday",
-    Četrtek: "Thursday",
-    Petek: "Friday",
-    Sobota: "Saturday",
-    Nedelja: "Sunday",
-  };
+  // Google pričakuje angleška imena dni. Vzamemo jih po ZAPOREDJU, ne po
+  // slovenskem imenu: seznam se v src/data/locations.ts vedno začne s
+  // ponedeljkom, imena dni pa se v drugih jezikih prevedejo — iskanje po
+  // imenu bi takrat tiho vrnilo prazno.
+  const EN = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
 
   const byTime = new Map<string, string[]>();
-  for (const h of hours) {
+  hours.forEach((h, i) => {
     const key = h.time;
     if (!byTime.has(key)) byTime.set(key, []);
-    byTime.get(key)!.push(EN[h.day]);
-  }
+    byTime.get(key)!.push(EN[i]);
+  });
 
   return [...byTime.entries()].map(([time, days]) => {
     const [opens, closes] = time.split("–").map((t) => t.trim());

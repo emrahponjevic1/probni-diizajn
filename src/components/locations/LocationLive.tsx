@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { openState, todayIndex, type OpenState } from "@/lib/hours";
 import styles from "./LocationPageContent.module.css";
 
@@ -12,6 +13,8 @@ import styles from "./LocationPageContent.module.css";
  */
 
 export function LiveBadge({ hours }: { hours: { day: string; time: string }[] }) {
+  // Besedila so v messages/<jezik>.json pod ključem "znacka".
+  const t = useTranslations("znacka");
   const [state, setState] = useState<OpenState | null>(null);
 
   useEffect(() => {
@@ -25,7 +28,7 @@ export function LiveBadge({ hours }: { hours: { day: string; time: string }[] })
     return (
       <div className={styles.liveBadgeIdle}>
         <span className={styles.liveDotIdle} />
-        <span>Preverjamo delovni čas …</span>
+        <span>{t("preverjamo")}</span>
       </div>
     );
   }
@@ -38,8 +41,8 @@ export function LiveBadge({ hours }: { hours: { day: string; time: string }[] })
           <span className={styles.liveDot} />
         </span>
         <span>
-          <strong>Odprto zdaj</strong>
-          <span className={styles.liveSub}>&nbsp;· do {state.closesAt}</span>
+          <strong>{t("odprtoZdaj")}</strong>
+          <span className={styles.liveSub}>&nbsp;{t("doUre", { ura: state.closesAt ?? "" })}</span>
         </span>
       </div>
     );
@@ -49,9 +52,13 @@ export function LiveBadge({ hours }: { hours: { day: string; time: string }[] })
     <div className={styles.liveBadgeClosed}>
       <span className={styles.liveDotClosed} />
       <span>
-        <strong>Trenutno zaprto</strong>
+        <strong>{t("trenutnoZaprto")}</strong>
         <span className={styles.liveSub}>
-          &nbsp;· {state.opensTomorrow ? "jutri" : "danes"} od {state.opensAt}
+          &nbsp;
+          {t("odUre", {
+            kdaj: state.opensTomorrow ? t("jutri") : t("danes"),
+            ura: state.opensAt ?? "",
+          })}
         </span>
       </span>
     </div>
@@ -59,6 +66,7 @@ export function LiveBadge({ hours }: { hours: { day: string; time: string }[] })
 }
 
 export function HoursTable({ hours }: { hours: { day: string; time: string }[] }) {
+  const t = useTranslations("znacka");
   const [danes, setDanes] = useState<number | null>(null);
 
   useEffect(() => {
@@ -74,7 +82,7 @@ export function HoursTable({ hours }: { hours: { day: string; time: string }[] }
         >
           <span className={styles.day}>
             {h.day}
-            {i === danes && <span className={styles.todayTag}>danes</span>}
+            {i === danes && <span className={styles.todayTag}>{t("danesOznaka")}</span>}
           </span>
           <span className={styles.time}>{h.time}</span>
         </div>

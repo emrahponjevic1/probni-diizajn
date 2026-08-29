@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { hoursSummary } from "@/lib/hours";
+import { useLocationText } from "@/i18n/locationText";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { createPortal } from "react-dom";
@@ -281,6 +282,8 @@ export default function StudentBoniPageContent() {
   const t = useTranslations("boniStran");
 
   // Urnik se ne prepisuje v besedilo — izlušči se iz locations.ts.
+  // Kratek zapis delovnega časa se prevede; ure same ostanejo iz locations.ts.
+  const prevediLokal = useLocationText();
   const [prvaLok, drugaLok] = LOCATIONS;
   const urnikPrva = hoursSummary(prvaLok.hours);
   const urnikDruga = hoursSummary(drugaLok.hours);
@@ -773,7 +776,7 @@ export default function StudentBoniPageContent() {
           </div>
 
           <div className={styles.locGrid}>
-            {LOCATIONS.map((loc) => {
+            {LOCATIONS.map(prevediLokal).map((loc) => {
               const win = bonWindow(loc.hours);
               return (
                 <div key={loc.id} className={styles.locCard}>

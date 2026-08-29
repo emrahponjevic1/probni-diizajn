@@ -12,8 +12,9 @@ import {
   ZAVOD_HALAL,
 } from "@/data/halal";
 import { LOCATIONS, LOCATION_SLUG, PHONE } from "@/data/locations";
+import { useLocationText } from "@/i18n/locationText";
 import StatusBadge from "@/components/locations/StatusBadge";
-import { HALAL_FAQS } from "./halalFaqs";
+import { useHalalFaqs } from "./halalFaqs";
 import styles from "./HalalPageContent.module.css";
 
 // ---------------------------------------------------------------------------
@@ -162,6 +163,25 @@ export default function HalalPageContent() {
   // Besedila so v messages/<jezik>.json pod ključem "halalStran".
   const t = useTranslations("halalStran");
 
+  // Kratek zapis delovnega časa se prevede; ure same ostanejo iz locations.ts.
+  const prevediLokal = useLocationText();
+  const HALAL_FAQS = useHalalFaqs();
+
+  // Opis halal oznake in koraki certificiranja se prevedejo; imena zavoda,
+  // naslov in standard ostanejo v src/data/halal.ts kot dejstva.
+  const tp = useTranslations("halalPodatki");
+  const oznakaOpis = tp.has("oznakaOpisSlike")
+    ? tp("oznakaOpisSlike")
+    : HALAL_OZNAKA.alt;
+  const postopek = POSTOPEK.map((korak, i) => ({
+    title: tp.has(`postopek.korak${i + 1}Naslov`)
+      ? tp(`postopek.korak${i + 1}Naslov`)
+      : korak.title,
+    text: tp.has(`postopek.korak${i + 1}Opis`)
+      ? tp(`postopek.korak${i + 1}Opis`)
+      : korak.text,
+  }));
+
   const [openFaqId, setOpenFaqId] = useState<string | null>("hfaq-1");
 
   return (
@@ -241,7 +261,7 @@ export default function HalalPageContent() {
               <div className={styles.certCardFrame}>
                 <Image
                   src={HALAL_OZNAKA.src}
-                  alt={HALAL_OZNAKA.alt}
+                  alt={oznakaOpis}
                   width={HALAL_OZNAKA.width}
                   height={HALAL_OZNAKA.height}
                   priority
@@ -452,7 +472,7 @@ export default function HalalPageContent() {
               <div className={styles.certSealFrameShowcase}>
                 <Image
                   src={HALAL_OZNAKA.src}
-                  alt={HALAL_OZNAKA.alt}
+                  alt={oznakaOpis}
                   width={HALAL_OZNAKA.width}
                   height={HALAL_OZNAKA.height}
                   className={styles.certShowcaseSeal}
@@ -507,11 +527,11 @@ export default function HalalPageContent() {
           {/* 4-Step Certification Process */}
           <div className={styles.processSection}>
             <h3 className={styles.processHeading}>
-              {t("postopekNaslov", { stevilo: POSTOPEK.length })}
+              {t("postopekNaslov", { stevilo: postopek.length })}
             </h3>
 
             <div className={styles.processStepsGrid}>
-              {POSTOPEK.map((korak, idx) => (
+              {postopek.map((korak, idx) => (
                 <div key={korak.title} className={styles.processStepCard}>
                   <div className={styles.processStepNumberBadge}>
                     0{idx + 1}
@@ -632,7 +652,7 @@ export default function HalalPageContent() {
           </div>
 
           <div className={styles.locGrid}>
-            {LOCATIONS.map((loc) => (
+            {LOCATIONS.map(prevediLokal).map((loc) => (
               <div key={loc.id} className={styles.locCard}>
                 <div className={styles.locCardTop}>
                   <div>

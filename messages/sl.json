@@ -1005,6 +1005,133 @@
     "zaposlitevOgOpis": "Delo v Šeherezadi, restavraciji v središču Ljubljane. Oglej si trenutne priložnosti ali nam pošlji svojo ponudbo.",
     "stran404Naslov": "Stran ne obstaja (404) | Šeherezada Ljubljana",
     "stran404Opis": "Iskana stran na spletnem mestu Šeherezada Ljubljana ne obstaja. Preverite naš meni z {vseh} jedmi ali poiščite najbližjo poslovalnico.",
-    "ogSlikaOpis": "Šeherezada — halal kebab, falafel in humus v Ljubljani"
+    "ogSlikaOpis": "Šeherezada — halal kebab, falafel in humus v Ljubljani",
+    "lokacijaNiNajdena": "Poslovalnica ni najdena | Šeherezada",
+    "lokacijaNaslov": "{ime}, {ulica} — halal kebab v Ljubljani",
+    "lokacijaOpis": "{ime} na naslovu {naslov}. Odprto {urnik}. Kako priti, parkiranje in celoten meni s študentskimi boni.",
+    "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}"
+  },
+  "lokacijePodatki": {
+    "dnevi": {
+      "0": "Ponedeljek",
+      "1": "Torek",
+      "2": "Sreda",
+      "3": "Četrtek",
+      "4": "Petek",
+      "5": "Sobota",
+      "6": "Nedelja"
+    },
+    "trubarjeva": {
+      "hoursShort": "09:00 – 02:00, pet in sob do 03:00",
+      "badge": "Mestno jedro · Naša prva poslovalnica",
+      "h1": "Šeherezada — halal kebab na Trubarjevi 31",
+      "subtitle": "Bohemski mestni vrvež in nočna postojanka",
+      "vibeText": "Naša izvirna lokacija v samem osrčju stare Ljubljane. Popolna točka za hitro kosilo, nočni prigrizek ali sproščeno posedanje v bohemskem ritmu Trubarjeve ulice.",
+      "highlights": {
+        "0": "Odprto do 02:00, ob petkih in sobotah do 03:00",
+        "1": "Študentski boni — doplačilo 3,00 €",
+        "2": "Peka domačih lepinj sproti, tik pred postrežbo",
+        "3": "Hitri osebni prevzem in dostava prek Wolta",
+        "4": "Vseh 29 jedi z menija, vključno s Pečenim Piščancem"
+      },
+      "transport": {
+        "lpp": "Postajališče Zmajski most (linije 2, 13, 20) — 2 min hoje",
+        "parking": "Parkirna hiša Kapitelj / Komenskega ali Petkovškovo nabrežje",
+        "walking": "3 min od Prešernovega trga in Tromostovja"
+      },
+      "photos": {
+        "0": "Notranjost lokala na Trubarjevi cesti 31",
+        "1": "Priprava döner kebaba na ražnju",
+        "2": "Vhod v lokal s Trubarjeve ceste"
+      }
+    },
+    "slovenska": {
+      "hoursShort": "08:00 – 01:00, vsak dan",
+      "badge": "Center · Bavarski dvor",
+      "h1": "Šeherezada 2 — halal kebab na Slovenski 55",
+      "subtitle": "Prostorna restavracija ob glavni mestni aveniji",
+      "vibeText": "Sodobna restavracija ob Slovenski cesti, tik ob Bavarskem dvoru. Idealna za jutranje malice, poslovna kosila, študentske obede in večerne prigrizke.",
+      "highlights": {
+        "0": "Odprto vsak dan od 08:00 do 01:00",
+        "1": "Zajtrki in dopoldanske malice od 08:00 naprej",
+        "2": "Študentski boni — doplačilo 3,00 €",
+        "3": "Hitri osebni prevzem in dostava prek Wolta",
+        "4": "28 jedi z menija — brez Pečenega Piščanca"
+      },
+      "transport": {
+        "lpp": "Postajališče Bavarski dvor / Pošta (glavno mestno vozlišče) — 1–2 min hoje",
+        "parking": "Parkirna hiša Kozolec / Trg republike / Kongresni trg",
+        "walking": "V neposredni bližini Bavarskega dvora in Ajdovščine"
+      },
+      "photos": {
+        "0": "Notranjost lokala na Slovenski cesti 55",
+        "1": "Pult in ponudba jedi",
+        "2": "Vhod v lokal pri Bavarskem dvoru"
+      }
+    }
+  },
+  "halalVprasanja": {
+    "hfaq-1": {
+      "q": "Ali je res celotna ponudba mesa v Šeherezadi 100 % halal?",
+      "a": "Da, brez izjeme. Vse telečje in piščančje meso za döner kebab, jufke, krožnike in plošče prihaja izključno iz nadzorovanih evropskih virov z veljavnimi mednarodnimi halal certifikati. V naših kuhinjah ni nobenega necertificiranega mesa."
+    },
+    "hfaq-2": {
+      "q": "Kakšno šunko uporabljate na picah in v drugih jedeh?",
+      "a": "Na vseh naših picah (npr. Pizza Klasik) uporabljamo izključno 100 % halal puranjo šunko. Nobena jed na meniju ne vsebuje svinjskega mesa, pršuta ali svinjske slanine."
+    },
+    "hfaq-3": {
+      "q": "Ali točite alkohol ali ga uporabljate pri kuhanju?",
+      "a": "Ne. V restavraciji Šeherezada ne točimo alkoholnih pijač, prav tako alkohola, vina ali alkoholnih ekstraktov ne uporabljamo v nobenih marinadah, omakah ali testu."
+    },
+    "hfaq-4": {
+      "q": "Ali so tudi študentski boni 100 % halal?",
+      "a": "Vseh {naBon} jedi na študentski bon je pripravljenih po enakih strogih halal standardih iz enakega svežega certificiranega mesa ali rastlinskih sestavin kot jedi po rednem ceniku."
+    },
+    "hfaq-5": {
+      "q": "Kje si lahko ogledam originalni halal certifikat?",
+      "a": "Uradni halal certifikat je stalno fizično izobešen na vidnem mestu ob naročniškem pultu v obeh naših poslovalnicah — na Trubarjevi cesti 31 in Slovenski cesti 55 v Ljubljani."
+    },
+    "hfaq-6": {
+      "q": "Ali so falafli in vegetarijanske jedi pripravljeni ločeno od mesa?",
+      "a": "Da, falafli in rastlinske jedi se pripravljajo po strogih higienskih postopkih s čisto opremo, kar preprečuje navzkrižni stik in zagotavlja popolno varnost tako za halal kot za veganske in vegetarijanske goste."
+    }
+  },
+  "halalPodatki": {
+    "certifikatOpisSlike": "Halal certifikat Šeherezada, Ljubljana",
+    "zavodUstanova": "Islamska skupnost v Republiki Sloveniji",
+    "postopek": {
+      "korak1Naslov": "Prijava in pregled dokumentacije",
+      "korak1Opis": "Pregled vseh surovin, dodatkov in dobaviteljev — od kod pride vsaka sestavina.",
+      "korak2Naslov": "Inšpekcijski pregled",
+      "korak2Opis": "Ogled celotnega postopka priprave in higienskih razmer v kuhinji.",
+      "korak3Naslov": "Usposabljanje osebja",
+      "korak3Opis": "Zaposleni se naučijo ravnanja, ki prepreči navzkrižno onesnaženje z neustreznimi živili.",
+      "korak4Naslov": "Izdaja in obnova",
+      "korak4Opis": "Certifikat se izda za določen čas, sledijo pa mu redne in nenapovedane kontrole."
+    },
+    "oznakaOpisSlike": "Halal oznaka — hrana brez svinjine in alkohola"
+  },
+  "blogPodatki": {
+    "kategorije": {
+      "vse": "Vse objave",
+      "kulinarka": "Kulinarične zgodbe",
+      "pekarna": "Pekarna & testo",
+      "vegi": "Vegi & vegan",
+      "boni": "Študentska prehrana",
+      "tradicija": "Tradicija & sladice",
+      "kakovost": "Kakovost & halal"
+    }
+  },
+  "znacka": {
+    "preverjamo": "Preverjamo delovni čas …",
+    "odprtoZdaj": "Odprto zdaj",
+    "doUre": "· do {ura}",
+    "trenutnoZaprto": "Trenutno zaprto",
+    "odUre": "· {kdaj} od {ura}",
+    "jutri": "jutri",
+    "danes": "danes",
+    "odprto": "Odprto",
+    "zaprto": "Zaprto",
+    "danesOznaka": "danes"
   }
 }

@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { localizedSlugUrl } from "@/i18n/urls";
+import type { AppLocale } from "@/i18n/urls";
+import { SHARE_IMAGE, SITE_NAME, localeByCode } from "@/data/site";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import SiteNavbar from "@/components/SiteNavbar";
@@ -20,25 +24,38 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
+  const tm = await getTranslations({ locale, namespace: "meta" });
   const job = jobBySlug(slug);
 
-  if (!job) return { title: "Delovno mesto ni najdeno | Šeherezada" };
+  if (!job) return { title: tm("oglasNiNajden") };
 
-  const url = `${BASE}/zaposlitev/${job.slug}`;
+  // Kanonični naslov kaže na to stran v tem jeziku, ne na slovensko.
+  const url = localizedSlugUrl("/zaposlitev/[slug]", job.slug, locale as AppLocale);
 
   return {
-    title: `${job.title} — zaposlitev v Ljubljani | Šeherezada`,
+    title: tm("oglasNaslov", { mesto: job.title }),
     description: job.desc,
     alternates: { canonical: url },
     openGraph: {
-      title: `${job.title} — Šeherezada Ljubljana`,
+      title: tm("oglasOgNaslov", { mesto: job.title }),
       description: job.desc,
       url,
       type: "website",
-      locale: "sl_SI",
+      siteName: SITE_NAME,
+      locale: localeByCode(locale).hreflang.replace("-", "_"),
+      images: [
+        {
+          url: SHARE_IMAGE.src,
+          width: SHARE_IMAGE.width,
+          height: SHARE_IMAGE.height,
+          alt: tm("ogSlikaOpis"),
+        },
+      ],
     },
   };
 }
@@ -46,9 +63,15 @@ export async function generateMetadata({
 export default async function JobPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
+  // Drobtine bere Google in jih pokaže pod naslovom v zadetkih.
+  const tn = await getTranslations({ locale, namespace: "navigacija" });
+  const t = await getTranslations({ locale, namespace: "oglasStran" });
+
   const job = jobBySlug(slug);
 
   if (!job) notFound();
@@ -95,8 +118,8 @@ export default async function JobPage({
     <main>
       <BreadcrumbJsonLd
         items={[
-          { name: "Domov", path: "/" },
-          { name: "Zaposlitev", path: "/zaposlitev" },
+          { name: tn("domov"), path: "/" },
+          { name: tn("zaposlitev"), path: "/zaposlitev" },
           { name: job.title },
         ]}
       />
@@ -110,32 +133,32 @@ export default async function JobPage({
       <section className={styles.careersSection}>
         <div className={styles.container}>
           <nav aria-label="Drobtice" style={{ marginBottom: "1.5rem" }}>
-            <Link href="/zaposlitev">&larr; Vsa delovna mesta</Link>
+            <Link href="/zaposlitev">{t("vsaMesta")}</Link>
           </nav>
 
           <span>{job.badge}</span>
           <h1>{job.title}</h1>
 
           <ul>
-            <li>Lokacija: {job.location}</li>
-            <li>Tip zaposlitve: {job.type}</li>
-            {job.pay && <li>Plačilo: {job.pay}</li>}
+            <li>{t("lokacija", { vrednost: job.location })}</li>
+            <li>{t("tipZaposlitve", { vrednost: job.type })}</li>
+            {job.pay && <li>{t("placilo", { vrednost: job.pay })}</li>}
             <li>
-              Oglas velja do:{" "}
+              {t("veljaDo")}{" "}
               <time dateTime={job.validThrough}>{job.validThrough}</time>
             </li>
           </ul>
 
           <p>{job.desc}</p>
 
-          <h2>Kaj boste delali</h2>
+          <h2>{t("kajBostesDelali")}</h2>
           <ul>
             {job.tasks.map((t, i) => (
               <li key={i}>{t}</li>
             ))}
           </ul>
 
-          <h2>Kaj ponujamo</h2>
+          <h2>{t("kajPonujamo")}</h2>
           <ul>
             {job.perks.map((t, i) => (
               <li key={i}>{t}</li>
@@ -143,7 +166,7 @@ export default async function JobPage({
           </ul>
 
           <p>
-            <Link href="/zaposlitev">Prijavi se prek obrazca</Link>
+            <Link href="/zaposlitev">{t("prijaviSe")}</Link>
           </p>
         </div>
       </section>

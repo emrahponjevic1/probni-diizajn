@@ -423,7 +423,10 @@ export default function MenuPageContent() {
               dokumenta — videz je enak, ker .itemsCountText eksplicitno
               nastavi font-size in font-weight. */}
           <h2 className={styles.itemsCountText}>
-            Prikazanih <span className={styles.itemsCountBold}>{filteredItems.length}</span> jedi
+            {t.rich("prikazanih", {
+              stevilo: filteredItems.length,
+              b: (chunks) => <span className={styles.itemsCountBold}>{chunks}</span>,
+            })}
           </h2>
         </div>
 

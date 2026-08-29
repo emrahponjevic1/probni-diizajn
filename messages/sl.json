@@ -222,7 +222,8 @@
     "alergeni": "Alergeni",
     "brezAlergenov": "Brez znanih alergenov.",
     "schemaIme": "Meni — {znamka}",
-    "schemaVelika": "Velika"
+    "schemaVelika": "Velika",
+    "prikazanih": "Prikazanih <b>{stevilo}</b> jedi"
   },
   "halalStran": {
     "vodniZnak": "HALAL",
@@ -532,7 +533,8 @@
     "prevozAvtobus": "Z avtobusom",
     "prevozParkiranje": "Parkiranje",
     "prevozPes": "Peš",
-    "drugaPoslovalnica": "Naša druga poslovalnica"
+    "drugaPoslovalnica": "Naša druga poslovalnica",
+    "drobtineOznaka": "Drobtine"
   },
   "boniStran": {
     "vodniZnak": "BONI",
@@ -692,7 +694,8 @@
       }
     },
     "modalDoplacilo": "Doplačilo na bon: {doplacilo}",
-    "modalRednaCena": "(redna cena {cena})"
+    "modalRednaCena": "(redna cena {cena})",
+    "rednaCena": "Redna: {cena}"
   },
   "kontaktStran": {
     "vodniZnak": "KONTAKT",
@@ -1011,7 +1014,12 @@
     "lokacijaNiNajdena": "Poslovalnica ni najdena | Šeherezada",
     "lokacijaNaslov": "{ime}, {ulica} — halal kebab v Ljubljani",
     "lokacijaOpis": "{ime} na naslovu {naslov}. Odprto {urnik}. Kako priti, parkiranje in celoten meni s študentskimi boni.",
-    "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}"
+    "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
+    "oglasNiNajden": "Delovno mesto ni najdeno | Šeherezada",
+    "oglasNaslov": "{mesto} — zaposlitev v Ljubljani | Šeherezada",
+    "oglasOgNaslov": "{mesto} — Šeherezada Ljubljana",
+    "objavaNiNajdena": "Objava ni najdena | Šeherezada",
+    "objavaNaslov": "{naslov} | Šeherezada Ljubljana"
   },
   "lokacijePodatki": {
     "dnevi": {
@@ -1136,5 +1144,15 @@
     "zaprto": "Zaprto",
     "danesOznaka": "danes"
   },
-  "ocenePodatki": {}
+  "ocenePodatki": {},
+  "oglasStran": {
+    "vsaMesta": "← Vsa delovna mesta",
+    "lokacija": "Lokacija: {vrednost}",
+    "tipZaposlitve": "Tip zaposlitve: {vrednost}",
+    "placilo": "Plačilo: {vrednost}",
+    "veljaDo": "Oglas velja do:",
+    "kajBostesDelali": "Kaj boste delali",
+    "kajPonujamo": "Kaj ponujamo",
+    "prijaviSe": "Prijavi se prek obrazca"
+  }
 }

@@ -71,6 +71,7 @@ export default function LocationPageContent({
 
   // Opis lokala, prednosti, prevoz in imena dni se prevedejo; naslov,
   // telefon, ure in povezave do zemljevidov ostanejo iz locations.ts.
+  const tn = useTranslations("navigacija");
   const loc = useLocationText()(locSurovi);
 
   const imaFotografije = loc.photos.some((f) => f.src);
@@ -80,10 +81,10 @@ export default function LocationPageContent({
       {/* ================= GLAVA: podatki levo, zemljevid desno ================= */}
       <section className={styles.hero}>
         <div className={styles.container}>
-          <nav aria-label="Drobtine" className={styles.crumbs}>
-            <Link href="/">Domov</Link>
+          <nav aria-label={t("drobtineOznaka")} className={styles.crumbs}>
+            <Link href="/">{tn("domov")}</Link>
             <span className={styles.sep}>/</span>
-            <Link href="/kontakt">Lokaciji</Link>
+            <Link href="/kontakt">{tn("lokaciji")}</Link>
             <span className={styles.sep}>/</span>
             <span className={styles.crumbCurrent}>{loc.name}</span>
           </nav>

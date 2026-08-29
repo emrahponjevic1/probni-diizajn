@@ -74,9 +74,15 @@ export async function generateMetadata({
 export default async function LocationPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
+  // Drobtine bere Google in jih pokaže pod naslovom v zadetkih, zato morajo
+  // biti v jeziku strani.
+  const tn = await getTranslations({ locale, namespace: "navigacija" });
+
   const loc = locationBySlug(slug);
   if (!loc) notFound();
 
@@ -119,7 +125,7 @@ export default async function LocationPage({
     <main>
       {/* Samo dva člena: poti /lokacije ni, obstajata le strani poslovalnic. */}
       <BreadcrumbJsonLd
-        items={[{ name: "Domov", path: "/" }, { name: loc.name }]}
+        items={[{ name: tn("domov"), path: "/" }, { name: loc.name }]}
       />
       <script
         type="application/ld+json"

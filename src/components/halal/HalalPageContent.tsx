@@ -498,7 +498,9 @@ export default function HalalPageContent() {
                 </div>
                 <div className={styles.issuerRow}>
                   <span className={styles.issuerLabel}>{t("oznakaUstanova")}</span>
-                  <span className={styles.issuerValue}>{ZAVOD_HALAL.underAuspicesOf}</span>
+                  <span className={styles.issuerValue}>
+                    {tp.has("zavodUstanova") ? tp("zavodUstanova") : ZAVOD_HALAL.underAuspicesOf}
+                  </span>
                 </div>
                 <div className={styles.issuerRow}>
                   <span className={styles.issuerLabel}>{t("oznakaSedez")}</span>

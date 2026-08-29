@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { localizedSlugUrl } from "@/i18n/urls";
+import type { AppLocale } from "@/i18n/urls";
+import { SITE_NAME, localeByCode } from "@/data/site";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -24,19 +28,23 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
+  const tm = await getTranslations({ locale, namespace: "meta" });
   const post = postBySlug(slug);
 
   if (!post) {
-    return { title: "Objava ni najdena | Šeherezada" };
+    return { title: tm("objavaNiNajdena") };
   }
 
-  const url = `${BASE}/blog/${post.slug}`;
+  // Kanonični naslov kaže na to stran v tem jeziku, ne na slovensko.
+  const url = localizedSlugUrl("/blog/[slug]", post.slug, locale as AppLocale);
 
   return {
-    title: `${post.title} | Šeherezada Ljubljana`,
+    title: tm("objavaNaslov", { naslov: post.title }),
     description: post.excerpt,
     alternates: { canonical: url },
     openGraph: {
@@ -46,7 +54,8 @@ export async function generateMetadata({
       type: "article",
       publishedTime: post.isoDate,
       authors: [post.author.name],
-      locale: "sl_SI",
+      siteName: SITE_NAME,
+      locale: localeByCode(locale).hreflang.replace("-", "_"),
       images: [{ url: `${BASE}${post.coverImage}`, width: 1200, height: 630, alt: post.title }],
     },
   };
@@ -55,9 +64,13 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
+  // Drobtine bere Google in jih pokaže pod naslovom v zadetkih.
+  const tn = await getTranslations({ locale, namespace: "navigacija" });
   const post = postBySlug(slug);
 
   if (!post) notFound();
@@ -69,8 +82,8 @@ export default async function BlogPostPage({
       {/* Isti členi, kot jih gost vidi v drobtinah nad naslovom. */}
       <BreadcrumbJsonLd
         items={[
-          { name: "Domov", path: "/" },
-          { name: "Blog", path: "/blog" },
+          { name: tn("domov"), path: "/" },
+          { name: tn("blog"), path: "/blog" },
           { name: post.title },
         ]}
       />
@@ -81,11 +94,11 @@ export default async function BlogPostPage({
           <div className={styles.singleArticleWrapper}>
             <nav aria-label="Drobtice" className={styles.breadcrumbNav}>
               <Link href="/" className={styles.breadcrumbLink}>
-                Domov
+                {tn("domov")}
               </Link>
               <span className={styles.breadcrumbSeparator}>/</span>
               <Link href="/blog" className={styles.breadcrumbLink}>
-                Blog
+                {tn("blog")}
               </Link>
               <span className={styles.breadcrumbSeparator}>/</span>
               <span className={styles.breadcrumbCurrent}>{post.title}</span>

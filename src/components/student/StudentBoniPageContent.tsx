@@ -735,7 +735,7 @@ export default function StudentBoniPageContent() {
                   <div className={styles.dishCardPriceFooter}>
                     <div className={styles.priceBlock}>
                       <span className={styles.priceOldRow}>
-                        Redna: {eur(dish.price)}
+                        {t("rednaCena", { cena: eur(dish.price) })}
                       </span>
                       <div className={styles.priceMainRow}>
                         <span className={styles.priceSurcharge}>

@@ -354,7 +354,7 @@ export default function PopularPicks() {
 
                     <div className={styles.mobileCardFooter}>
                       <div className={styles.mobilePriceBox}>
-                        <span className={styles.mobilePriceLabel}>Cena</span>
+                        <span className={styles.mobilePriceLabel}>{t("cena")}</span>
                         <span className={styles.mobilePriceValue}>{dish.price}</span>
                       </div>
 

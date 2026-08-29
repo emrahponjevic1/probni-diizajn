@@ -34,7 +34,12 @@
     "lokacijaNiNajdena": "Location Not Found | Šeherezada",
     "lokacijaNaslov": "{ime}, {ulica} — Halal Kebab in Ljubljana",
     "lokacijaOpis": "{ime} at {naslov}. Open {urnik}. How to get here, parking and the full menu with student vouchers.",
-    "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}"
+    "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
+    "oglasNiNajden": "Position Not Found | Šeherezada",
+    "oglasNaslov": "{mesto} — job in Ljubljana | Šeherezada",
+    "oglasOgNaslov": "{mesto} — Šeherezada Ljubljana",
+    "objavaNiNajdena": "Post Not Found | Šeherezada",
+    "objavaNaslov": "{naslov} | Šeherezada Ljubljana"
   },
   "navigacija": {
     "domov": "Home",
@@ -269,7 +274,8 @@
     "alergeni": "Allergens",
     "brezAlergenov": "No known allergens.",
     "schemaIme": "Menu — {znamka}",
-    "schemaVelika": "Large"
+    "schemaVelika": "Large",
+    "prikazanih": "Showing <b>{stevilo}</b> dishes"
   },
   "halalStran": {
     "vodniZnak": "HALAL",
@@ -567,7 +573,8 @@
     "alergeni": "Allergens",
     "brezAlergenov": "No declared allergens",
     "modalDoplacilo": "Voucher surcharge: {doplacilo}",
-    "modalRednaCena": "(regular price {cena})"
+    "modalRednaCena": "(regular price {cena})",
+    "rednaCena": "Regular: {cena}"
   },
   "kontaktStran": {
     "vodniZnak": "CONTACT",
@@ -826,7 +833,8 @@
     "prevozAvtobus": "By bus",
     "prevozParkiranje": "Parking",
     "prevozPes": "On foot",
-    "drugaPoslovalnica": "Our other location"
+    "drugaPoslovalnica": "Our other location",
+    "drobtineOznaka": "Breadcrumb"
   },
   "lokacijePodatki": {
     "dnevi": {
@@ -1595,5 +1603,15 @@
       "kdaj": "a year ago",
       "kontekst": "Family"
     }
+  },
+  "oglasStran": {
+    "vsaMesta": "← All positions",
+    "lokacija": "Location: {vrednost}",
+    "tipZaposlitve": "Employment type: {vrednost}",
+    "placilo": "Pay: {vrednost}",
+    "veljaDo": "This listing is valid until:",
+    "kajBostesDelali": "What you will be doing",
+    "kajPonujamo": "What we offer",
+    "prijaviSe": "Apply through the form"
   }
 }

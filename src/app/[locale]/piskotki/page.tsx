@@ -1,16 +1,35 @@
+import { use } from "react";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { metaZaStran } from "@/i18n/meta";
 import SiteNavbar from "@/components/SiteNavbar";
 import PiskotkiPageContent from "@/components/legal/PiskotkiPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/piskotki" },
-  title: "Politika piškotkov | Šeherezada Ljubljana",
-  description:
-    "Informacije o uporabi piškotkov na spletnem mestu Šeherezada Ljubljana v skladu z ZEKom-2 in GDPR. Vrste piškotkov in možnosti upravljanja.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metaZaStran({
+    locale,
+    pot: "/piskotki",
+    naslovKljuc: "piskotkiNaslov",
+    opisKljuc: "piskotkiOpis",
+  });
+}
 
-export default function PiskotkiPage() {
+export default function PiskotkiPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Brez te vrstice se stran ne zgradi vnaprej, ampak ob vsakem obisku.
+  // use() namesto await, da komponenta ostane sinhrona in sme uporabljati hooke.
+  const { locale } = use(params);
+  setRequestLocale(locale);
+
   return (
     <main>
       <SiteNavbar />

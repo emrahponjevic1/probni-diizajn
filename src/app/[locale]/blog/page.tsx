@@ -1,14 +1,21 @@
+import { use } from "react";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { metaZaStran } from "@/i18n/meta";
 import SiteNavbar from "@/components/SiteNavbar";
 import BlogPageContent from "@/components/blog/BlogPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/blog" },
-  title: "Blog — hrana, halal in boni v Ljubljani | Šeherezada",
-  description:
-    "Nasveti in zgodbe o halal ponudbi, veganskih jedeh in študentskih bonih v Šeherezadi — restavraciji v središču Ljubljane.",
-  keywords: [
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  // Google keywords ignorira od leta 2009. Ostajajo, ker jih nismo
+  // odstranili z odločitvijo lastnika — glej PREDAJA, razdelek 7.
+  const keywords = [
     "Šeherezada blog",
     "kulinarične zgodbe",
     "orientalski žar Ljubljana",
@@ -16,17 +23,29 @@ export const metadata: Metadata = {
     "domači falafel",
     "halal hrana Ljubljana",
     "študentski boni hrana",
-  ],
-  openGraph: {
-    title: "Blog — hrana, halal in boni v Ljubljani | Šeherezada",
-    description:
-      "Spoznajte umetnost orientalske kulinarične tradicije, skrivnosti priprave svežih jedi in zgodbe naših mojstrov peke in žara.",
-    type: "website",
-    locale: "sl_SI",
-  },
-};
+  ];
 
-export default function BlogPage() {
+  const meta = await metaZaStran({
+    locale,
+    pot: "/blog",
+    naslovKljuc: "blogNaslov",
+    opisKljuc: "blogOpis",
+    ogOpisKljuc: "blogOgOpis",
+  });
+
+  return { ...meta, keywords };
+}
+
+export default function BlogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Brez te vrstice se stran ne zgradi vnaprej, ampak ob vsakem obisku.
+  // use() namesto await, da komponenta ostane sinhrona in sme uporabljati hooke.
+  const { locale } = use(params);
+  setRequestLocale(locale);
+
   return (
     <main>
       <SiteNavbar activeRoute="blog" />

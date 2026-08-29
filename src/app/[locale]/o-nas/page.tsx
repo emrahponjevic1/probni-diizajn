@@ -1,14 +1,21 @@
+import { use } from "react";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { metaZaStran } from "@/i18n/meta";
 import SiteNavbar from "@/components/SiteNavbar";
 import AboutPageContent from "@/components/about/AboutPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/o-nas" },
-  title: "O nas — halal kebab v Ljubljani od leta 1998 | Šeherezada",
-  description:
-    "Halal restavracija v središču Ljubljane od leta 1998. Sveže pečene lepinje, žar na ognju in dve lokaciji — Trubarjeva 31 in Slovenska 55.",
-  keywords: [
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  // Google keywords ignorira od leta 2009. Ostajajo, ker jih nismo
+  // odstranili z odločitvijo lastnika — glej PREDAJA, razdelek 7.
+  const keywords = [
     "Šeherezada Ljubljana",
     "O nas Šeherezada",
     "kebab tradicija Ljubljana",
@@ -16,17 +23,29 @@ export const metadata: Metadata = {
     "halal restavracija Ljubljana",
     "Trubarjeva kebab",
     "Slovenska orientalska hrana",
-  ],
-  openGraph: {
-    title: "O nas — halal kebab v Ljubljani od leta 1998 | Šeherezada",
-    description:
-      "Od leta 1998 pristna kulinarična dediščina, pravi ogenj in domač kruh v Ljubljani.",
-    type: "website",
-    locale: "sl_SI",
-  },
-};
+  ];
 
-export default function ONasPage() {
+  const meta = await metaZaStran({
+    locale,
+    pot: "/o-nas",
+    naslovKljuc: "oNasNaslov",
+    opisKljuc: "oNasOpis",
+    ogOpisKljuc: "oNasOgOpis",
+  });
+
+  return { ...meta, keywords };
+}
+
+export default function ONasPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Brez te vrstice se stran ne zgradi vnaprej, ampak ob vsakem obisku.
+  // use() namesto await, da komponenta ostane sinhrona in sme uporabljati hooke.
+  const { locale } = use(params);
+  setRequestLocale(locale);
+
   return (
     <main>
       <SiteNavbar activeRoute="o-nas" />

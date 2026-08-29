@@ -2,11 +2,14 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import CookieBanner from "@/components/legal/CookieBanner";
 import OrganizationJsonLd from "@/components/seo/OrganizationJsonLd";
 import { routing } from "@/i18n/routing";
-import { BRAND_COLOR, SHARE_IMAGE, SITE_NAME, SITE_URL } from "@/data/site";
+import { BRAND_COLOR, SHARE_IMAGE, SITE_NAME, SITE_URL, localeByCode } from "@/data/site";
+import { localizedUrl } from "@/i18n/urls";
+import type { AppLocale } from "@/i18n/urls";
+import { STUDENT_BON } from "@/components/menu/MenuData";
 import "../globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -30,16 +33,31 @@ export const viewport: Viewport = {
   themeColor: BRAND_COLOR,
 };
 
-export const metadata: Metadata = {
+/**
+ * Privzete vrednosti za vse strani pod tem jezikom. Posamezna stran naslov,
+ * opis in kanonični naslov postavi sama (glej src/i18n/meta.ts).
+ *
+ * Kanoničnega naslova tu NI namenoma: če bi bil, bi ga podedovala tudi stran
+ * 404 in Googlu trdila, da je naslovnica.
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+
+  return {
   /**
    * Brez tega Next ne zna sestaviti celega naslova iz poti, zato kanonični
    * naslovi in Open Graph ostanejo nedokončani. To je temelj vsega spodaj.
    */
   metadataBase: new URL(SITE_URL),
-  title: "Šeherezada – halal kebab, pizza in falafel v Ljubljani",
-  description:
-    "Halal kebab, jufka, falafel in pizza v središču Ljubljane. Dve lokaciji — Trubarjeva 31 in Slovenska 55. Študentski boni z doplačilom 3,00 €.",
-  alternates: { canonical: "/" },
+  title: t("naslovnicaNaslov"),
+  description: t("naslovnicaOpis", {
+    doplacilo: `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €`,
+  }),
 
   /**
    * IKONE
@@ -63,19 +81,20 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    locale: "sl_SI",
+    locale: localeByCode(locale).hreflang.replace("-", "_"),
     siteName: SITE_NAME,
-    url: SITE_URL,
+    url: localizedUrl("/", locale as AppLocale),
     images: [
       {
         url: SHARE_IMAGE.src,
         width: SHARE_IMAGE.width,
         height: SHARE_IMAGE.height,
-        alt: "Šeherezada — halal kebab, falafel in humus v Ljubljani",
+        alt: t("ogSlikaOpis"),
       },
     ],
   },
-};
+  };
+}
 
 export default async function LocaleLayout({
   children,

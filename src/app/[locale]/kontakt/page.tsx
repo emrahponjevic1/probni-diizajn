@@ -1,15 +1,22 @@
+import { use } from "react";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { metaZaStran } from "@/i18n/meta";
 import { PHONE } from "@/data/locations";
 import SiteNavbar from "@/components/SiteNavbar";
 import ContactPageContent from "@/components/contact/ContactPageContent";
 import SiteFooter from "@/components/SiteFooter";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/kontakt" },
-  title: "Kontakt — dve lokaciji v središču Ljubljane | Šeherezada",
-  description:
-    `Šeherezada na Trubarjevi 31 in Slovenski 55 v Ljubljani. Telefon ${PHONE.restaurant.display}, e-pošta in obrazec za povpraševanja, catering in rezervacije.`,
-  keywords: [
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  // Google keywords ignorira od leta 2009. Ostajajo, ker jih nismo
+  // odstranili z odločitvijo lastnika — glej PREDAJA, razdelek 7.
+  const keywords = [
     "Kontakt Šeherezada",
     "Šeherezada Trubarjeva delovni čas",
     "Šeherezada Slovenska telefon",
@@ -17,17 +24,30 @@ export const metadata: Metadata = {
     "catering kebab Ljubljana",
     "nočna hrana Ljubljana Trubarjeva",
     "halal hrana Ljubljana naročila",
-  ],
-  openGraph: {
-    title: "Kontakt — dve lokaciji v središču Ljubljane | Šeherezada",
-    description:
-      "Dve lokaciji v Ljubljani — Trubarjeva 31 in Slovenska 55. Telefon, e-pošta in obrazec za povpraševanja.",
-    type: "website",
-    locale: "sl_SI",
-  },
-};
+  ];
 
-export default function KontaktPage() {
+  const meta = await metaZaStran({
+    locale,
+    pot: "/kontakt",
+    naslovKljuc: "kontaktNaslov",
+    opisKljuc: "kontaktOpis",
+    ogOpisKljuc: "kontaktOgOpis",
+    vrednosti: { telefon: PHONE.restaurant.display },
+  });
+
+  return { ...meta, keywords };
+}
+
+export default function KontaktPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Brez te vrstice se stran ne zgradi vnaprej, ampak ob vsakem obisku.
+  // use() namesto await, da komponenta ostane sinhrona in sme uporabljati hooke.
+  const { locale } = use(params);
+  setRequestLocale(locale);
+
   return (
     <main>
       <SiteNavbar activeRoute="kontakt" />

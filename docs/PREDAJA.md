@@ -4,7 +4,7 @@
 
 Datum: 28. 8. 2026 · Grana: `main` · Sajt **nije objavljen** — radi samo lokalno
 
-**Faze 1, 2, 4 i 6 su gotove. Faza 5 je u toku — korak 5A je gotov.**
+**Faze 1, 2, 4 i 6 su gotove. Faza 5 je u toku — koraci 5A i 5B su gotovi.**
 **Ostaju 3 (objava) i 7 (Google).**
 
 ---
@@ -224,7 +224,7 @@ ne ostavlja sajt slomljen.
 | | Korak | Šta se dobije |
 |---|---|---|
 | ✅ | **5A** Temelj | `next-intl`, adrese u 6 jezika. Slovenački izgleda identično |
-| ⬜ | **5B** Izvlačenje teksta | tekst iz koda u `messages/sl.json`. Vizuelno ništa |
+| ✅ | **5B** Izvlačenje teksta | tekst iz koda u `messages/sl.json`. Vizuelno ništa |
 | ⬜ | **5C** Prevodi | EN, DE, IT, BS, TR — pet JSON fajlova |
 | ⬜ | **5D** Google sloj | `hreflang`, canonical po jeziku, **pravi** prekidač jezika |
 | ⬜ | **5E** Provjera | svih 84 adresa, meta naslovi, JSON-LD po jeziku |
@@ -271,16 +271,106 @@ prevode, a `site.ts` tabelu prevoda ne poznaje — primio bi jezik i tiho vratio
 Bez njega `/asdf` pada mimo jezičke grane i Next pokaže svoju golu 404 bez
 navigacije. Provjereno: prije njega je `/asdf` davao Next-ovu stranicu.
 
-#### Šta ostaje za 5B
+#### ✅ 5B — gotov 29. 8. 2026
 
-- [ ] Izvući ~800–1000 komada teksta iz 31 komponente u `messages/sl.json`
-- [ ] Najgušći fajlovi: `MenuData.ts`, `/studentski-boni`, `/piskotki`,
-      `/politika-zasebnosti`, `/halal`
-- [ ] Meta naslovi na 16 mjesta (`generateMetadata` umjesto `metadata`)
+**979 komada teksta** je u `messages/sl.json`. Nijedna stranica više ne nosi
+tekst u kodu — ni vidljivi tekst, ni opisi slika, ni meta naslovi za Google.
+
+```
+naslovnica  /meni  /halal  /piskotki  /politika-zasebnosti
+/pogosta-vprasanja  /studentski-boni  /kontakt  /o-nas
+/galerija  /zaposlitev  /blog  /lokacije/<slug>
+```
+
+#### Gdje šta živi — pravilo koje se ne mijenja
+
+| | Slovenački | Prevodi |
+|---|---|---|
+| **tekst stranica** | `messages/sl.json` | `messages/<jezik>.json` |
+| **meni (29 jela)** | `MenuData.ts` | `messages/<jezik>.json`, ključ `jedi` |
+| **poslovalnice** | `locations.ts` | ključ `lokacijePodatki` |
+| **halal podaci** | `halal.ts` | ključ `halalPodatki` |
+
+**Meni i poslovalnice ostaju u svojim fajlovima namjerno.** Meni se poredi sa
+zvaničnim PDF-om — da je razbijen na dva mjesta, razbila bi se i ta provjera.
+Isto za `locations.ts`, koji je jedini izvor podataka o lokalima.
+
+**Ako prevod negdje nedostaje, prikaže se slovenački.** Nikad prazna linija,
+nikad ključ. Zlijevanje je u `src/i18n/request.ts`. To važi i kasnije: kad
+dopišeš novi pasus, on prvo postoji samo na slovenačkom.
+
+#### Brojevi i satnica se više ne prepisuju
+
+Sve što se moglo raziću sa istinom sada se računa iz izvora:
+
+```
+29 jela, 19 na bon, 7 veganskih   MENU_STATS
+doplata 3,00 €                    STUDENT_BON.surcharge
+subvencija 5,19 €                 STUDENT_SUBSIDY
+2 bona/dan, okno 07:00–24:00      BON_RULES
+radno vrijeme                     locations.ts preko hoursSummary()
+telefon, e-mail, adrese           locations.ts, company.ts
+```
+
+Radno vrijeme je bilo prepisano rukom na **sedam mjesta** — naslovnica,
+`/pogosta-vprasanja` (2×), `/studentski-boni` i `/o-nas` (3×). Sada nijedno.
+Provjereno tako što je urnik privremeno promijenjen: sve rečenice su se
+popravile same.
+
+#### Kako je dokazano da se ništa nije promijenilo
+
+Prije prve izmjene snimljen je tačan ispis svih 15 stranica. Poslije svake
+komponente snimak se ponavlja i poredi. Tri mreže:
+
+```
+1. vidljivi tekst + alt slika + aria oznake     2687 redova
+2. strukturirani podaci za Google (JSON-LD)     12 stranica
+3. meta naslovi, opisi, canonical               15 stranica
+```
+
+Mreža je uhvatila stvarne greške: nestali opis slike, izgubljene `keywords`,
+i dvaput lažno prijavila razliku koje nije bilo — tada je popravljeno mjerilo,
+ne sajt.
+
+#### Šta NIJE prevedeno, i zašto
+
+- **`llms.txt`** — jedan fajl za jezičke modele, nije stranica. Ostaje slovenački.
+- **`blog.ts` i `jobs.ts`** — prazni su. Kad dopišeš objavu ili oglas, tekst je
+  slovenački i prevodi se tada.
+- **meta naslov stranice 404** — ostaje slovenački; sadržaj stranice je preveden.
+- **`keywords`** — netaknuti. Google ih ignoriše od 2009. (sekcija 7), ali to
+  nije odluka koju sam smio donijeti.
+
+#### Popravljeno usput — nije bilo u planu
+
+**Slika za dijeljenje linka nije postojala na četiri stranice.** Next `openGraph`
+blokove ne spaja nego zamjenjuje, pa su `/kontakt`, `/o-nas`, `/blog` i
+`/zaposlitev` imale svoj blok — i time ostale bez slike. Podijeljen link je
+pokazivao prazno polje. Sad je slika na svim stranicama.
+
+**`og:url` je na svim stranicama pokazivao na korijen sajta**, ne na samu
+stranicu. Popravljeno.
+
+**Kanonski URL je za svih šest jezika pokazivao na slovenačku stranicu.** To je
+tačno ono što `PREDAJA` upozorava da briše prevode iz Google-a. Sada svaka
+verzija pokazuje na sebe — provjereno na svih šest jezika.
+
+**Mapiranje dana za Google je tražilo slovenačko ime dana** (`Četrtek` →
+`Thursday`). Otkad se imena dana prevode, na njemačkoj stranici bi tiho vratilo
+prazno i Google bi ostao bez radnog vremena. Sad ide po rednom broju dana.
+
+#### Zamke u ovom okruženju — koštale su vremena
+
+- **Kosa crta u regexu nestaje.** Desilo se tri puta: `\.` postane `.`, što u
+  JavaScriptu znači „bilo koji znak" umjesto „tačka". Build to ne prijavi.
+  Zato u `src/proxy.ts` stoji `[^.]*`, bez ijedne kose crte.
+- **Apostrof u heredoc-u ruši shell.** Pisati preko zamjenskog znaka pa vratiti.
+- **Nelomljivi razmak se pretvori u obični.** U `messages` ga piši kao oznaku,
+  ne kao slovo. Uhvaćeno u naslovu `/meni`.
 
 **Ključno pravilo za 5D:** kanonski URL svake jezičke verzije pokazuje **na
-samu sebe**, nikad na slovenačku. Ako pokaže na slovenačku, prevedena stranica
-nestaje iz Google-a.
+samu sebe**, nikad na slovenačku. **To je već urađeno u 5B** — u 5D ostaje samo
+`hreflang`, da Google zna koje verzije postoje.
 
 #### Tabela prevedenih adresa — sada živi u kodu
 

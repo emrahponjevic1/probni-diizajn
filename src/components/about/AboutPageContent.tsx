@@ -1,21 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { PHONE } from "@/data/locations";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import styles from "./AboutPageContent.module.css";
 import { initials } from "@/data/reviews";
 import { LOCATION_SLUG } from "@/data/locations";
-import {
-  HERO_MICRO_ITEMS,
-  STATS_BANNER_ITEMS,
-  FLOATING_PHILOSOPHY_CARDS,
-  PROCESS_STEPS,
-  TESTIMONIALS,
-  LOCATIONS_PROFILES,
-  TICKER_ITEMS,
-} from "./AboutData";
+import { STUDENT_BON } from "@/components/menu/MenuData";
+import { useAboutContent } from "./AboutData";
 
 // Clean Vector SVG Icons
 const FlameSvg = ({ size = 20 }: { size?: number }) => (
@@ -90,6 +84,19 @@ const ArrowRightSvg = ({ size = 16 }: { size?: number }) => (
 );
 
 export default function AboutPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključema "oNasStran" in "oNasPodatki".
+  const t = useTranslations("oNasStran");
+
+  const {
+    heroMicroItems: HERO_MICRO_ITEMS,
+    statsBannerItems: STATS_BANNER_ITEMS,
+    philosophyCards: FLOATING_PHILOSOPHY_CARDS,
+    processSteps: PROCESS_STEPS,
+    testimonials: TESTIMONIALS,
+    locationProfiles: LOCATIONS_PROFILES,
+    tickerItems: TICKER_ITEMS,
+  } = useAboutContent();
+
   const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
 
   const getMicroIcon = (type: string) => {
@@ -156,7 +163,7 @@ export default function AboutPageContent() {
               <div className={styles.archMainCard}>
                 <Image
                   src="/images/seherezada-about-chef-lamps.avif"
-                  alt="Šeherezada mojster žara pri pripravi svežega mesa"
+                  alt={t("altZar")}
                   width={300}
                   height={480}
                   className={styles.archImg}
@@ -168,7 +175,7 @@ export default function AboutPageContent() {
               <div className={styles.floatChefCircle}>
                 <Image
                   src="/images/seherezada-about-chef-plating.avif"
-                  alt="Mojster pri dekoraciji krožnika"
+                  alt={t("altKroznik")}
                   width={180}
                   height={180}
                   className={styles.circleImg}
@@ -180,7 +187,7 @@ export default function AboutPageContent() {
               <div className={styles.floatDishSquircle}>
                 <Image
                   src="/images/seherezada-about-dish-orange.avif"
-                  alt="Sveže pripravljena orientalska jed Šeherezada"
+                  alt={t("altJed")}
                   width={160}
                   height={160}
                   className={styles.squircleImg}
@@ -193,7 +200,7 @@ export default function AboutPageContent() {
                 <span className={styles.heritageBadgeIcon}>🔥</span>
                 <div className={styles.heritageBadgeTextCol}>
                   <span className={styles.heritageBadgeNum}>1998</span>
-                  <span className={styles.heritageBadgeLabel}>Dediščina Ljubljane</span>
+                  <span className={styles.heritageBadgeLabel}>{t("dediscina")}</span>
                 </div>
               </div>
             </div>
@@ -201,26 +208,23 @@ export default function AboutPageContent() {
             {/* Right Column: Editorial Storytelling & Open Minimalist Features */}
             <div className={styles.heroContentCol}>
               <div className={styles.chapterTagContainer}>
-                <span className={styles.tagGhostWatermark}>ZGODBA</span>
+                <span className={styles.tagGhostWatermark}>{t("zgodbaVodniZnak")}</span>
                 <div className={styles.chapterIndexTag}>
                   <span className={styles.chapterDash} />
                   <span>
-                    <span className={styles.chapterNumber}>01</span> / O RESTAVRACIJI ŠEHEREZADA
+                    <span className={styles.chapterNumber}>01</span> / {t("zgodbaOznaka")}
                   </span>
                   <span className={styles.chapterDash} />
                 </div>
               </div>
 
               <h1 className={styles.sectionTitle}>
-                Halal kebab in žar v Ljubljani —{" "}
-                <span className={styles.sectionTitleAccent}>od leta 1998.</span>
+                {t.rich("naslov", {
+                  poudarek: (chunks) => <span className={styles.sectionTitleAccent}>{chunks}</span>,
+                })}
               </h1>
 
-              <p className={styles.sectionSubtitle}>
-                Že od leta 1998 na Trubarjevi in Slovenski ohranjamo spoštovanje do pravega žara,
-                24-urne marinade ter vsak dan sveže zamešanega testa. Brez industrijskih
-                bližnjic, zmeraj z istim spoštovanjem do gosta.
-              </p>
+              <p className={styles.sectionSubtitle}>{t("podnaslov")}</p>
 
               {/* Open Minimalist Feature Rows */}
               <div className={styles.heroFeatureList}>
@@ -240,7 +244,7 @@ export default function AboutPageContent() {
               {/* Action Buttons */}
               <div className={styles.heroActionRow}>
                 <Link href="/meni" className={styles.btnPrimaryOrange}>
-                  <span>Raziščite Meni</span>
+                  <span>{t("gumbMeni")}</span>
                   <ArrowRightSvg size={16} />
                 </Link>
 
@@ -249,7 +253,7 @@ export default function AboutPageContent() {
                     <PhoneSvg size={16} />
                   </div>
                   <div className={styles.phonePillTextCol}>
-                    <span className={styles.phonePillLabel}>Naročila &amp; Prevzem</span>
+                    <span className={styles.phonePillLabel}>{t("narocilaPrevzem")}</span>
                     <span className={styles.phonePillNumber}>{PHONE.restaurant.display}</span>
                   </div>
                 </a>
@@ -290,48 +294,42 @@ export default function AboutPageContent() {
             {/* Left Column: Philosophy & Checks */}
             <div className={styles.philosophyLeftCol}>
               <div className={styles.chapterTagContainer}>
-                <span className={styles.tagGhostWatermark}>FILOZOFIJA</span>
+                <span className={styles.tagGhostWatermark}>{t("filozofijaVodniZnak")}</span>
                 <div className={styles.chapterIndexTag}>
                   <span className={styles.chapterDash} />
                   <span>
-                    <span className={styles.chapterNumber}>02</span> / ZAKAJ ŠEHEREZADA
+                    <span className={styles.chapterNumber}>02</span> / {t("filozofijaOznaka")}
                   </span>
                   <span className={styles.chapterDash} />
                 </div>
               </div>
 
-              <h2 className={styles.sectionTitle}>
-                Zvestoba obrti, ki jo začutite v vsakem grižljaju.
-              </h2>
+              <h2 className={styles.sectionTitle}>{t("filozofijaNaslov")}</h2>
 
-              <p className={styles.sectionSubtitle}>
-                V svetu hitre prehrane ostajamo zvesti tradiciji. Naše meso ne pozna industrijskih
-                bližnjic, naše lepinje pa vzidejo počasi, natanko tako, kot so jih pekli pred
-                desetletji.
-              </p>
+              <p className={styles.sectionSubtitle}>{t("filozofijaPodnaslov")}</p>
 
               <ul className={styles.checkList}>
                 <li className={styles.checkListItem}>
                   <span className={styles.checkBullet}>✓</span>
-                  <span>100% Halal certificirano telečje in piščančje meso</span>
+                  <span>{t("kljukica1")}</span>
                 </li>
                 <li className={styles.checkListItem}>
                   <span className={styles.checkBullet}>✓</span>
-                  <span>Dnevno sveže pečene lepinje in tenak lavaš kruh</span>
+                  <span>{t("kljukica2")}</span>
                 </li>
                 <li className={styles.checkListItem}>
                   <span className={styles.checkBullet}>✓</span>
-                  <span>Študentski boni z ugodnim doplačilom le 3,00 €</span>
+                  <span>{t("kljukica3", { doplacilo: `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €` })}</span>
                 </li>
                 <li className={styles.checkListItem}>
                   <span className={styles.checkBullet}>✓</span>
-                  <span>Odprto vsak dan pozno v noč v središču mesta</span>
+                  <span>{t("kljukica4")}</span>
                 </li>
               </ul>
 
               <div>
                 <a href="#lokaciji" className={styles.btnPrimaryOrange}>
-                  <span>Obiščite Naši Lokaciji</span>
+                  <span>{t("gumbLokaciji")}</span>
                   <ArrowRightSvg size={16} />
                 </a>
               </div>
@@ -369,17 +367,17 @@ export default function AboutPageContent() {
             {/* Left Steps */}
             <div className={styles.processLeftCol}>
               <div className={styles.chapterTagContainer}>
-                <span className={styles.tagGhostWatermark}>PROCES</span>
+                <span className={styles.tagGhostWatermark}>{t("procesVodniZnak")}</span>
                 <div className={styles.chapterIndexTag}>
                   <span className={styles.chapterDash} />
                   <span>
-                    <span className={styles.chapterNumber}>03</span> / KULINARIČNI PROCES
+                    <span className={styles.chapterNumber}>03</span> / {t("procesOznaka")}
                   </span>
                   <span className={styles.chapterDash} />
                 </div>
               </div>
 
-              <h2 className={styles.sectionTitle}>Kako nastane vsaka jed</h2>
+              <h2 className={styles.sectionTitle}>{t("procesNaslov")}</h2>
 
               <div className={styles.processTimelineList}>
                 {PROCESS_STEPS.map((step) => (
@@ -398,14 +396,14 @@ export default function AboutPageContent() {
             <div className={styles.processVisualWrapper}>
               <Image
                 src="/images/seherezada-student-kitchen.avif"
-                alt="Kuhinjski utrip in priprava sveže hrane v Šeherezadi"
+                alt={t("altKuhinja")}
                 width={550}
                 height={460}
                 className={styles.processImg}
               />
               <div className={styles.processLiveBadge}>
                 <span className={styles.liveDot} />
-                <span className={styles.liveBadgeText}>Sveža priprava ob vsakem naročilu</span>
+                <span className={styles.liveBadgeText}>{t("svezaPriprava")}</span>
               </div>
             </div>
           </div>
@@ -422,11 +420,11 @@ export default function AboutPageContent() {
             {/* Left: Quote & Switcher */}
             <div className={styles.testimonialLeftCol}>
               <div className={styles.chapterTagContainer}>
-                <span className={styles.tagGhostWatermark}>MNENJA</span>
+                <span className={styles.tagGhostWatermark}>{t("mnenjaVodniZnak")}</span>
                 <div className={styles.chapterIndexTag}>
                   <span className={styles.chapterDash} />
                   <span>
-                    <span className={styles.chapterNumber}>04</span> / MNENJA GOSTOV
+                    <span className={styles.chapterNumber}>04</span> / {t("mnenjaOznaka")}
                   </span>
                   <span className={styles.chapterDash} />
                 </div>
@@ -445,18 +443,18 @@ export default function AboutPageContent() {
 
               {/* Interactive Avatar Switcher */}
               <div className={styles.avatarSwitcherRow}>
-                {TESTIMONIALS.map((t, idx) => (
+                {TESTIMONIALS.map((mnenje, idx) => (
                   <button
-                    key={t.id}
+                    key={mnenje.id}
                     type="button"
                     onClick={() => setActiveTestimonialIdx(idx)}
                     className={`${styles.avatarBtn} ${
                       activeTestimonialIdx === idx ? styles.avatarBtnActive : ""
                     }`}
-                    aria-label={`Prikaži mnenje: ${t.author}`}
+                    aria-label={t("prikaziMnenje", { avtor: mnenje.author })}
                   >
                     {/* Začetnice namesto naključne fotografije neke osebe s spleta */}
-                    <span className={styles.avatarInitials}>{initials(t.author)}</span>
+                    <span className={styles.avatarInitials}>{initials(mnenje.author)}</span>
                   </button>
                 ))}
               </div>
@@ -466,7 +464,7 @@ export default function AboutPageContent() {
             <div className={styles.testimonialPhotoWrapper}>
               <Image
                 src="/images/seherezada-student-meal.avif"
-                alt="Zadovoljni gostje v restavraciji Šeherezada"
+                alt={t("altGostje")}
                 width={550}
                 height={420}
                 className={styles.testimonialPhotoImg}
@@ -484,21 +482,18 @@ export default function AboutPageContent() {
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <div className={styles.chapterTagContainer}>
-              <span className={styles.tagGhostWatermark}>LOKACIJI</span>
+              <span className={styles.tagGhostWatermark}>{t("lokacijeVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
                 <span>
-                  <span className={styles.chapterNumber}>05</span> / OBIŠČITE NAS V LJUBLJANI
+                  <span className={styles.chapterNumber}>05</span> / {t("lokacijeOznaka")}
                 </span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
 
-            <h2 className={styles.sectionTitle}>Dve lokaciji v središču Ljubljane</h2>
-            <p className={styles.sectionSubtitle}>
-              Izberite lokacijo, ki vam je najbližje — na bohemski Trubarjevi ali ob
-              osrednji Slovenski cesti.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("lokacijeNaslov")}</h2>
+            <p className={styles.sectionSubtitle}>{t("lokacijePodnaslov")}</p>
           </div>
 
           <div className={styles.locationsGrid}>
@@ -545,7 +540,7 @@ export default function AboutPageContent() {
                     className={styles.locationBtnPrimary}
                   >
                     <PinSvg size={15} />
-                    <span>Google Maps</span>
+                    <span>{t("gumbGoogleMaps")}</span>
                   </a>
                   <a
                     href={loc.appleMapsUrl}
@@ -553,7 +548,7 @@ export default function AboutPageContent() {
                     rel="noopener noreferrer"
                     className={styles.locationBtnSecondary}
                   >
-                    <span>Apple Maps ↗</span>
+                    <span>{t("gumbAppleMaps")}</span>
                   </a>
                 </div>
               </article>
@@ -579,25 +574,20 @@ export default function AboutPageContent() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={styles.invitationArea}>
-            <h2 className={styles.invitationHeading}>
-              Pripravljeni na pristen okus s pravega ognja?
-            </h2>
+            <h2 className={styles.invitationHeading}>{t("vabiloNaslov")}</h2>
 
-            <p className={styles.invitationText}>
-              Oglejte si naš celotni meni, raziščite foto utrinke iz kuhinje ali pa se nam
-              pridružite v ekipi Šeherezade.
-            </p>
+            <p className={styles.invitationText}>{t("vabiloOpis")}</p>
 
             <div className={styles.invitationBtnGroup}>
               <Link href="/meni" className={styles.btnPrimaryOrange}>
-                <span>Raziščite Celotni Meni</span>
+                <span>{t("vabiloMeni")}</span>
                 <ArrowRightSvg size={16} />
               </Link>
               <Link href="/galerija" className={styles.btnCtaSecondary}>
-                <span>Foto Galerija</span>
+                <span>{t("vabiloGalerija")}</span>
               </Link>
               <Link href="/zaposlitev" className={styles.btnCtaSecondary}>
-                <span>Postanite Del Ekipe</span>
+                <span>{t("vabiloEkipa")}</span>
               </Link>
             </div>
           </div>

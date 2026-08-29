@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./GalleryPageContent.module.css";
-import { GALLERY_ITEMS, GalleryItem } from "./GalleryData";
+import { useGalleryContent, GalleryItem } from "./GalleryData";
 
 // Clean Vector Icons
 const SparklesIcon = () => (
@@ -89,6 +90,10 @@ const ChevronRightIcon = () => (
 );
 
 export default function GalleryPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključema "galerijaStran" in "galerijaPodatki".
+  const t = useTranslations("galerijaStran");
+  const { items: GALLERY_ITEMS } = useGalleryContent();
+
   const [activeLightboxIndex, setActiveLightboxIndex] = useState<number | null>(null);
 
   const gridContainerRef = useRef<HTMLDivElement>(null);
@@ -193,26 +198,24 @@ export default function GalleryPageContent() {
         {/* Gallery Header (Watermark, Chapter Tag, Title, Subtitle, Cool Divider) */}
         <header className={styles.galleryHeader}>
           <div className={styles.chapterTagContainer}>
-            <span className={styles.tagGhostWatermark}>FOTO</span>
+            <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
             <div className={styles.chapterIndexTag}>
               <span className={styles.chapterDash} />
-              <span>VIZUALNA ZGODBA &amp; AMBIENT</span>
+              <span>{t("oznaka")}</span>
               <span className={styles.chapterDash} />
             </div>
           </div>
 
-          <h1 className={styles.heroTitle}>Vizualna Zgodba</h1>
+          <h1 className={styles.heroTitle}>{t("naslov")}</h1>
 
-          <p className={styles.heroSubtitle}>
-            Poglejte, kako nastajajo vaše najljubše jedi, sveže pečeno meso in domače dobrote.
-          </p>
+          <p className={styles.heroSubtitle}>{t("podnaslov")}</p>
 
           {/* Cool Luxury Divider */}
           <div className={styles.coolDividerContainer}>
             <div className={styles.dividerLine} />
             <div className={styles.dividerBadge}>
               <span className={styles.dividerDot} />
-              <span>Vizualni Utrinki</span>
+              <span>{t("utrinki")}</span>
               <span className={styles.dividerCountPill}>{GALLERY_ITEMS.length}</span>
             </div>
             <div className={styles.dividerLineRight} />
@@ -282,7 +285,7 @@ export default function GalleryPageContent() {
               type="button"
               onClick={closeLightbox}
               className={styles.lightboxCloseBtn}
-              aria-label="Zapri galerijo"
+              aria-label={t("zapriGalerijo")}
             >
               <CloseIcon />
             </button>
@@ -294,7 +297,7 @@ export default function GalleryPageContent() {
                   type="button"
                   onClick={showPrev}
                   className={`${styles.lightboxNavBtn} ${styles.lightboxNavPrev}`}
-                  aria-label="Prejšnja slika"
+                  aria-label={t("prejsnjaSlika")}
                 >
                   <ChevronLeftIcon />
                 </button>
@@ -302,7 +305,7 @@ export default function GalleryPageContent() {
                   type="button"
                   onClick={showNext}
                   className={`${styles.lightboxNavBtn} ${styles.lightboxNavNext}`}
-                  aria-label="Naslednja slika"
+                  aria-label={t("naslednjaSlika")}
                 >
                   <ChevronRightIcon />
                 </button>

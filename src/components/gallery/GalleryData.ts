@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 export interface GalleryItem {
   id: number;
   title: string;
@@ -12,144 +13,141 @@ export interface CategoryOption {
   label: string;
 }
 
-export const GALLERY_CATEGORIES: CategoryOption[] = [
-  { id: "all", label: "Vse Slike" },
-  { id: "hrana", label: "Jedi & Kebab" },
-  { id: "priprava", label: "Priprava & Žar" },
-  { id: "ambient", label: "Vzdušje & Ekipa" },
-];
+/** Vrstni red kategorij. Njihova imena so v prevodih. */
+const CATEGORY_IDS: GalleryCategory[] = ["all", "hrana", "priprava", "ambient"];
 
-export const GALLERY_ITEMS: GalleryItem[] = [
+export const GALLERY_ITEMS: Omit<GalleryItem, "title">[] = [
   {
-    id: 1,
-    title: "Pravi Turški Döner Kebab",
+    id: 1,
     category: "hrana",
     src: "/images/seherezada-hero-doner-kebab.avif",
   },
   {
-    id: 2,
-    title: "Žar mojster pri pripravi svežega kebaba",
+    id: 2,
     category: "priprava",
     src: "/images/seherezada-story-chef.avif",
   },
   {
-    id: 3,
-    title: "Sveže zvita Jufka Kebab",
+    id: 3,
     category: "hrana",
     src: "/images/seherezada-jufka-kebab.avif",
   },
   {
-    id: 4,
-    title: "Peka domače lepinje v vroči peči",
+    id: 4,
     category: "priprava",
     src: "/images/seherezada-story-oven.avif",
   },
   {
-    id: 5,
-    title: "Kebab Krožnik z zlatim pomfrijem",
+    id: 5,
     category: "hrana",
     src: "/images/seherezada-kebab-na-krozniku.avif",
   },
   {
-    id: 6,
-    title: "Topel ambient restavracije",
+    id: 6,
     category: "ambient",
     src: "/images/seherezada-about-chef-lamps.avif",
   },
   {
-    id: 7,
-    title: "Domači hrustljavi Falafli s humusom",
+    id: 7,
     category: "hrana",
     src: "/images/seherezada-falafel-humus.avif",
   },
   {
-    id: 8,
-    title: "Mojster pri dekoraciji krožnika",
+    id: 8,
     category: "priprava",
     src: "/images/seherezada-about-chef-plating.avif",
   },
   {
-    id: 9,
-    title: "Klasični Cheeseburger s stopljenim sirom",
+    id: 9,
     category: "hrana",
     src: "/images/seherezada-cheese-burger.avif",
   },
   {
-    id: 10,
-    title: "Kuhinjski utrip in priprava sveže hrane",
+    id: 10,
     category: "ambient",
     src: "/images/seherezada-student-kitchen.avif",
   },
   {
-    id: 11,
-    title: "Kebab v škatli s pomfrijem (Box)",
+    id: 11,
     category: "hrana",
     src: "/images/seherezada-doner-kebab-box.avif",
   },
   {
-    id: 12,
-    title: "Sveža priprava in začimbe",
+    id: 12,
     category: "priprava",
     src: "/images/seherezada-about-dish-orange.avif",
   },
   {
-    id: 13,
-    title: "Pizza Kebab z domačo paradižnikovo osnovo",
+    id: 13,
     category: "hrana",
     src: "/images/seherezada-pizza-kebab.avif",
   },
   {
-    id: 14,
-    title: "100 % Goveji čevapčiči v lepinji",
+    id: 14,
     category: "hrana",
     src: "/images/seherezada-cevapcici.avif",
   },
   {
-    id: 15,
-    title: "Študentski meni z izbranimi prilogami",
+    id: 15,
     category: "ambient",
     src: "/images/seherezada-student-meal.avif",
   },
   {
-    id: 16,
-    title: "Pizza Klasik s puranjo šunko",
+    id: 16,
     category: "hrana",
     src: "/images/seherezada-pizza-classic.avif",
   },
   {
-    id: 17,
-    title: "Hrustljavi Falafel Krožnik",
+    id: 17,
     category: "hrana",
     src: "/images/seherezada-falafel-kroznik.avif",
   },
   {
-    id: 18,
-    title: "Hrustljav Crispy Burger",
+    id: 18,
     category: "hrana",
     src: "/images/seherezada-chicken-crispy.avif",
   },
   {
-    id: 19,
-    title: "Zelenjavni Kebab s svežo solato",
+    id: 19,
     category: "hrana",
     src: "/images/seherezada-zelenjavni-kebab.avif",
   },
   {
-    id: 20,
-    title: "Sveže pečena Pizza Margarita",
+    id: 20,
     category: "hrana",
     src: "/images/seherezada-pizza-margarita.avif",
   },
   {
-    id: 21,
-    title: "Sveža Zelenjavna Jufka",
+    id: 21,
     category: "hrana",
     src: "/images/seherezada-vegi-jufka.avif",
   },
   {
-    id: 22,
-    title: "Naročila za prevzem & prijazna postrežba",
+    id: 22,
     category: "ambient",
     src: "/images/seherezada-contact-call-hero.avif",
   },
 ];
+
+
+// ---------------------------------------------------------------------------
+// Naslovi slik in imena kategorij so v messages/<jezik>.json pod ključem
+// "galerijaPodatki". Tukaj ostane samo zgradba: katera slika je katera,
+// v kateri kategoriji je in kje leži datoteka.
+// ---------------------------------------------------------------------------
+
+export function useGalleryContent() {
+  const t = useTranslations("galerijaPodatki");
+
+  const categories: CategoryOption[] = CATEGORY_IDS.map((id) => ({
+    id,
+    label: t(`kategorije.${id}`),
+  }));
+
+  const items: GalleryItem[] = GALLERY_ITEMS.map((slika) => ({
+    ...slika,
+    title: t(`slike.${slika.id}`),
+  }));
+
+  return { categories, items };
+}

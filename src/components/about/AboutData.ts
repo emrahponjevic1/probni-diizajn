@@ -1,5 +1,21 @@
+import { useTranslations } from "next-intl";
 import { GOOGLE_REVIEWS } from "@/data/reviews";
-import { locationById } from "@/data/locations";
+import { LOCATIONS, locationById } from "@/data/locations";
+import { hoursSummary } from "@/lib/hours";
+import { STUDENT_BON } from "@/components/menu/MenuData";
+
+// ---------------------------------------------------------------------------
+// STRAN O NAS — ZGRADBA
+//
+// Tukaj je zgradba: kateri razdelki obstajajo, katera ikona gre h kateremu
+// in od kod pridejo naslovi ter povezave. Besedila so v messages/<jezik>.json
+// pod ključem "oNasPodatki", ker gredo v šest jezikov.
+//
+// Delovni čas se ne prepisuje. Tri mesta so ga prej nosila kot navadno
+// besedilo — kartica "nočna postojanka" in obe kartici poslovalnic — in bi ob
+// spremembi urnika ostala stara. Zdaj se izlušči iz locations.ts, iz istega
+// seznama, ki ga kaže značka Odprto/Zaprto.
+// ---------------------------------------------------------------------------
 
 export interface HeroMicroItem {
   id: string;
@@ -47,168 +63,134 @@ export interface LocationProfile {
   appleMapsUrl: string;
 }
 
-export const HERO_MICRO_ITEMS: HeroMicroItem[] = [
-  {
-    id: "spices",
-    title: "12 orientalskih začimb",
-    desc: "24-urna počasna marinada za neustavljivo sočnost.",
-    iconType: "spice",
-  },
-  {
-    id: "bread",
-    title: "Sveže pečeno vsak dan",
-    desc: "Vsako jutro ročno zamesimo sveže testo za lepinje.",
-    iconType: "bread",
-  },
-  {
-    id: "halal",
-    title: "100% Halal certifikat",
-    desc: "Preverjeno poreklo in redno nadzorovana kakovost.",
-    iconType: "halal",
-  },
-  {
-    id: "locations",
-    title: "2 lokaciji v Ljubljani",
-    desc: "Trubarjeva cesta 31 in Slovenska cesta 55.",
-    iconType: "pin",
-  },
-];
+export interface AboutContent {
+  heroMicroItems: HeroMicroItem[];
+  statsBannerItems: StatsBannerItem[];
+  philosophyCards: PhilosophyCard[];
+  processSteps: ProcessStep[];
+  testimonials: TestimonialItem[];
+  locationProfiles: LocationProfile[];
+  tickerItems: string[];
+}
 
-export const STATS_BANNER_ITEMS: StatsBannerItem[] = [
-  {
-    value: "1998",
-    label: "Leto začetka v LJ",
-    subtext: "Prvi ogenj na Trubarjevi cesti",
-    iconType: "calendar",
-  },
-  {
-    value: "Od 1998",
-    label: "Neprekinjene tradicije",
-    subtext: "Pristne družinske recepture",
-    iconType: "fire",
-  },
-  {
-    value: "100%",
-    label: "Halal certifikat",
-    subtext: "Brezkompromisna kakovost mesa",
-    iconType: "award",
-  },
-  {
-    value: "2 Lokaciji",
-    label: "V osrčju Ljubljane",
-    subtext: "Trubarjeva 31 & Slovenska 55",
-    iconType: "people",
-  },
-];
+/** Vsa vsebina strani O nas, v jeziku strani. */
+export function useAboutContent(): AboutContent {
+  const t = useTranslations("oNasPodatki");
 
-export const FLOATING_PHILOSOPHY_CARDS: PhilosophyCard[] = [
-  {
-    id: "halal",
-    number: "01",
-    title: "100% Halal certifikat",
-    description: "Vsi mesni kosi prihajajo od strogo preverjenih dobaviteljev z veljavnimi Halal certifikati. Brez kompromisov.",
-    iconType: "halal",
-  },
-  {
-    id: "bread",
-    number: "02",
-    title: "Domač kruh, pečen sproti",
-    description: "Vsako lepinjo zamesimo in spečemo sproti tik pred postrežbo. Toplina in hrustljavost, ki ju začutite takoj.",
-    iconType: "bread",
-  },
-  {
-    id: "hours",
-    number: "03",
-    title: "Mestna nočna postojanka",
-    description: "Ko se mesto umiri, naši žari še gorijo. Na Trubarjevi vam toplo hrano strežemo do 02:00, ob petkih in sobotah pa do 03:00.",
-    iconType: "clock",
-  },
-  {
-    id: "students",
-    number: "04",
-    title: "Prijazno do študentov",
-    description: "Uradni ponudnik subvencionirane študentske prehrane na bone. Bogat, topel in uravnotežen obrok v centru.",
-    iconType: "students",
-  },
-];
+  const trubarjeva = locationById("trubarjeva");
+  const slovenska = locationById("slovenska");
+  const urnikT = hoursSummary(trubarjeva.hours);
+  const urnikS = hoursSummary(slovenska.hours);
+  const doplacilo = `${STUDENT_BON.surcharge.toFixed(2).replace(".", ",")} €`;
 
-export const PROCESS_STEPS: ProcessStep[] = [
-  {
-    stepNumber: "01",
-    title: "Izbira in 24-urno mariniranje mesa",
-    description: "Vsak kos mesa ročno obrežemo in mariniramo v mešanici 12 orientalskih začimb ter oljčnega olja polnih 24 ur.",
-  },
-  {
-    stepNumber: "02",
-    title: "Dnevni zames in vzhajanje testa",
-    description: "Vsako jutro naši peki ročno zamesijo sveže testo iz moke, vode, kvasa in soli brez industrijskih dodatkov.",
-  },
-  {
-    stepNumber: "03",
-    title: "Peka lepinj in žar na ognju",
-    description: "Lepinje pečemo sproti, tik pred postrežbo, meso na žaru pa počasi do hrustljavosti.",
-  },
-  {
-    stepNumber: "04",
-    title: "Sveža sestava in topli sprejem",
-    description: "Sočne rezine mesa ali falaflé položimo v vročo lepinjo s svežo solato in domačimi omakami ter postrežemo z nasmehom.",
-  },
-];
+  /** Ure, ki jih besedila vstavljajo. Na enem mestu, da se ne razidejo. */
+  const ure = {
+    do1: urnikT.closes,
+    vikend1: urnikT.weekendCloses ?? urnikT.closes,
+    od2: urnikS.opens,
+    do2: urnikS.closes,
+  };
 
-/**
- * Mnenja izhajajo iz src/data/reviews.ts — samo resnične ocene z Googla.
- * Prej so bila tukaj izmišljena mnenja z naključnimi fotografijami s spleta.
- */
-export const TESTIMONIALS: TestimonialItem[] = GOOGLE_REVIEWS.map((r) => ({
-  id: String(r.id),
-  quote: r.text,
-  author: r.author,
-  role: [r.context, "Google · " + r.when].filter(Boolean).join(" · "),
-}));
-
-export const LOCATIONS_PROFILES: LocationProfile[] = [
-  {
-    id: "trubarjeva",
-    name: locationById("trubarjeva").name,
-    subtitle: "Zgodovinski začetek · Mestno jedro",
-    address: locationById("trubarjeva").fullAddress,
-    description:
-      "Naša prva poslovalnica v starem mestnem jedru. Prostor, kjer se prepletajo nočno življenje, študentski vrvež in več kot četrt stoletja pristne orientalske tradicije.",
-    features: [
-      "Center mesta (Trubarjeva ulica)",
-      "Odprto vsak dan do 02:00, petek in sobota do 03:00",
-      "Študentski boni (doplačilo 3,00 €)",
-      "Hitri prevzem & dostava prek Wolta",
+  return {
+    heroMicroItems: [
+      { id: "spices", title: t("mikro.spicesNaslov"), desc: t("mikro.spicesOpis"), iconType: "spice" },
+      { id: "bread", title: t("mikro.breadNaslov"), desc: t("mikro.breadOpis"), iconType: "bread" },
+      { id: "halal", title: t("mikro.halalNaslov"), desc: t("mikro.halalOpis"), iconType: "halal" },
+      {
+        id: "locations",
+        title: t("mikro.locationsNaslov", { stevilo: LOCATIONS.length }),
+        desc: t("mikro.locationsOpis", {
+          prva: trubarjeva.street,
+          druga: slovenska.street,
+        }),
+        iconType: "pin",
+      },
     ],
-    googleMapsUrl: locationById("trubarjeva").googleMapsUrl,
-    appleMapsUrl: locationById("trubarjeva").appleMapsUrl,
-  },
-  {
-    id: "slovenska",
-    name: locationById("slovenska").name,
-    subtitle: "Druga lokacija · Center prestolnice",
-    address: locationById("slovenska").fullAddress,
-    description:
-      "Prostorna in sodobna restavracija ob osrednji Slovenski cesti v Ljubljani. Idealna za jutranje malice, poslovna kosila, študentske obede ter večerne prigrizke v prijetnem ambientu.",
-    features: [
-      "Center mesta (Slovenska cesta 55)",
-      "Odprto vsak dan od 08:00 do 01:00",
-      "Študentski boni & dnevne malice",
-      "Hitri prevzem & dostava prek Wolta",
-    ],
-    googleMapsUrl: locationById("slovenska").googleMapsUrl,
-    appleMapsUrl: locationById("slovenska").appleMapsUrl,
-  },
-];
 
-export const TICKER_ITEMS: string[] = [
-  "DÖNER KEBAB",
-  "SVEŽE LEPINJE IZ PEČI",
-  "PRAVI ŽAR NA OGNJU",
-  "100% HALAL CERTIFIKAT",
-  "DOMAČI HRUSTLJAVI FALAFEL",
-  "ŠTUDENTSKI BONI (DOPLAČILO 3,00 €)",
-  "TRUBARJEVA CESTA 31",
-  "SLOVENSKA CESTA 55",
-  "ODPRTO VSAK DAN POZNO V NOČ",
-];
+    statsBannerItems: [
+      { value: t("stat.letoVrednost"), label: t("stat.letoOznaka"), subtext: t("stat.letoPod"), iconType: "calendar" },
+      { value: t("stat.tradicijaVrednost"), label: t("stat.tradicijaOznaka"), subtext: t("stat.tradicijaPod"), iconType: "fire" },
+      { value: t("stat.halalVrednost"), label: t("stat.halalOznaka"), subtext: t("stat.halalPod"), iconType: "award" },
+      {
+        value: t("stat.lokacijeVrednost", { stevilo: LOCATIONS.length }),
+        label: t("stat.lokacijeOznaka"),
+        subtext: t("stat.lokacijePod"),
+        iconType: "people",
+      },
+    ],
+
+    philosophyCards: [
+      { id: "halal", number: "01", title: t("filozofija.halalNaslov"), description: t("filozofija.halalOpis"), iconType: "halal" },
+      { id: "bread", number: "02", title: t("filozofija.breadNaslov"), description: t("filozofija.breadOpis"), iconType: "bread" },
+      {
+        id: "hours",
+        number: "03",
+        title: t("filozofija.hoursNaslov"),
+        description: t("filozofija.hoursOpis", { do1: ure.do1, vikend1: ure.vikend1 }),
+        iconType: "clock",
+      },
+      { id: "students", number: "04", title: t("filozofija.studentsNaslov"), description: t("filozofija.studentsOpis"), iconType: "students" },
+    ],
+
+    processSteps: [
+      { stepNumber: "01", title: t("postopek.korak1Naslov"), description: t("postopek.korak1Opis") },
+      { stepNumber: "02", title: t("postopek.korak2Naslov"), description: t("postopek.korak2Opis") },
+      { stepNumber: "03", title: t("postopek.korak3Naslov"), description: t("postopek.korak3Opis") },
+      { stepNumber: "04", title: t("postopek.korak4Naslov"), description: t("postopek.korak4Opis") },
+    ],
+
+    // Mnenja izhajajo iz src/data/reviews.ts — samo resnične ocene z Googla.
+    // Prej so bila tukaj izmišljena mnenja z naključnimi fotografijami s spleta.
+    testimonials: GOOGLE_REVIEWS.map((r) => ({
+      id: String(r.id),
+      quote: r.text,
+      author: r.author,
+      role: [r.context, t("mnenjeVloga", { kdaj: r.when })].filter(Boolean).join(" · "),
+    })),
+
+    locationProfiles: [
+      {
+        id: "trubarjeva",
+        name: trubarjeva.name,
+        subtitle: t("poslovalnice.trubarjevaPodnaslov"),
+        address: trubarjeva.fullAddress,
+        description: t("poslovalnice.trubarjevaOpis"),
+        features: [
+          t("poslovalnice.trubarjevaLastnost1"),
+          t("poslovalnice.trubarjevaLastnost2", { do1: ure.do1, vikend1: ure.vikend1 }),
+          t("poslovalnice.trubarjevaLastnost3", { doplacilo }),
+          t("poslovalnice.trubarjevaLastnost4"),
+        ],
+        googleMapsUrl: trubarjeva.googleMapsUrl,
+        appleMapsUrl: trubarjeva.appleMapsUrl,
+      },
+      {
+        id: "slovenska",
+        name: slovenska.name,
+        subtitle: t("poslovalnice.slovenskaPodnaslov"),
+        address: slovenska.fullAddress,
+        description: t("poslovalnice.slovenskaOpis"),
+        features: [
+          t("poslovalnice.slovenskaLastnost1"),
+          t("poslovalnice.slovenskaLastnost2", { od2: ure.od2, do2: ure.do2 }),
+          t("poslovalnice.slovenskaLastnost3"),
+          t("poslovalnice.slovenskaLastnost4"),
+        ],
+        googleMapsUrl: slovenska.googleMapsUrl,
+        appleMapsUrl: slovenska.appleMapsUrl,
+      },
+    ],
+
+    tickerItems: [
+      t("trak.t1"),
+      t("trak.t2"),
+      t("trak.t3"),
+      t("trak.t4"),
+      t("trak.t5"),
+      t("trak.t6", { doplacilo }),
+      t("trak.t7"),
+      t("trak.t8"),
+      t("trak.t9"),
+    ],
+  };
+}

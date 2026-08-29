@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { PHONE } from "@/data/locations";
 import { Link } from "@/i18n/navigation";
 import styles from "./CareersPageContent.module.css";
@@ -171,6 +172,9 @@ const PhoneSvg = ({ size = 16 }: { size?: number }) => (
 );
 
 export default function CareersPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "karieraStran".
+  const t = useTranslations("karieraStran");
+
   const [activeAccordionId, setActiveAccordionId] = useState<string | null>(null);
   const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
   const [modalJob, setModalJob] = useState<JobPosition | null>(null);
@@ -310,21 +314,17 @@ export default function CareersPageContent() {
               <div className={styles.hubHeader}>
                 <div className={styles.headerContent}>
                   <div className={styles.chapterTagContainer}>
-                    <span className={styles.tagGhostWatermark}>EKIPA</span>
+                    <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
                     <div className={styles.chapterIndexTag}>
                       <span className={styles.chapterDash} />
-                      <span>POSTANITE DEL EKIPE · KARIERA</span>
+                      <span>{t("oznaka")}</span>
                       <span className={styles.chapterDash} />
                     </div>
                   </div>
 
-                  <h1 className={styles.mainTitle}>Delo in zaposlitev v Šeherezadi, Ljubljana</h1>
+                  <h1 className={styles.mainTitle}>{t("naslov")}</h1>
 
-                  <p className={styles.subtitle}>
-                    Pridružite se naši ekipi v centru Ljubljane in soustvarjajte
-                    pristne orientalske okuse z naravnimi marinadami, svežo peko
-                    lepinj ter spoštljivim odnosom do dela.
-                  </p>
+                  <p className={styles.subtitle}>{t("podnaslov")}</p>
                 </div>
               </div>
 
@@ -334,23 +334,17 @@ export default function CareersPageContent() {
                     Namesto tega povemo, kako je, in povabimo k oddaji ponudbe. */}
                 {!HAS_OPEN_POSITIONS && (
                   <div className={styles.noOpeningsBox}>
-                    <h3 className={styles.noOpeningsTitle}>
-                      Trenutno nimamo odprtih delovnih mest
-                    </h3>
-                    <p className={styles.noOpeningsText}>
-                      Kljub temu z veseljem prejmemo vašo ponudbo. Pišite nam prek
-                      obrazca spodaj ali pošljite življenjepis na e-pošto — ko se
-                      odpre mesto, najprej pogledamo prijave, ki jih že imamo.
-                    </p>
+                    <h3 className={styles.noOpeningsTitle}>{t("niMestNaslov")}</h3>
+                    <p className={styles.noOpeningsText}>{t("niMestOpis")}</p>
                   </div>
                 )}
 
                 {/* Desktop Column Headers (Hidden on Tablet / Mobile) */}
                 {HAS_OPEN_POSITIONS && (
                   <div className={styles.tableHeaderRow}>
-                    <span>DELOVNO MESTO</span>
-                    <span>LOKACIJA</span>
-                    <span className={styles.tableHeaderRight}>TIP ZAPOSLITVE</span>
+                    <span>{t("stolpecMesto")}</span>
+                    <span>{t("stolpecLokacija")}</span>
+                    <span className={styles.tableHeaderRight}>{t("stolpecTip")}</span>
                   </div>
                 )}
 
@@ -392,7 +386,7 @@ export default function CareersPageContent() {
                               className={`${styles.arrowBtn} ${
                                 isActive ? styles.arrowBtnActive : ""
                               }`}
-                              aria-label="Razpri podrobnosti"
+                              aria-label={t("razpriPodrobnosti")}
                             >
                               <ArrowDownSvg />
                             </button>
@@ -434,7 +428,7 @@ export default function CareersPageContent() {
                               className={`${styles.arrowBtn} ${
                                 isActive ? styles.arrowBtnActive : ""
                               }`}
-                              aria-label="Razpri podrobnosti"
+                              aria-label={t("razpriPodrobnosti")}
                             >
                               <ArrowDownSvg />
                             </button>
@@ -452,13 +446,13 @@ export default function CareersPageContent() {
                                 JobPosting oznaka za Google for Jobs. */}
                             <p className={styles.jobFullPageLink}>
                               <Link href={{ pathname: "/zaposlitev/[slug]", params: { slug: job.slug } }}>
-                                Odpri celoten oglas &rarr;
+                                {t("odpriOglas")}
                               </Link>
                             </p>
 
                             <div className={styles.jobSectionBlock}>
                               <span className={styles.jobSectionTitle}>
-                                • Odgovornosti in ključne naloge:
+                                {t("odgovornostiOznaka")}
                               </span>
                               <ul className={styles.jobBulletList}>
                                 {job.tasks.map((task, idx) => (
@@ -487,7 +481,7 @@ export default function CareersPageContent() {
                                 onClick={() => handleOpenModal(job)}
                                 className={styles.btnApply}
                               >
-                                <span>Hitra Prijava</span>
+                                <span>{t("hitraPrijava")}</span>
                                 <ArrowUpRightSvg size={14} />
                               </button>
 
@@ -496,7 +490,7 @@ export default function CareersPageContent() {
                                 onClick={() => handleOpenSingleJob(job.slug)}
                                 className={styles.btnDetails}
                               >
-                                <span>Celoten oglas &amp; deljenje</span>
+                                <span>{t("celotenOglas")}</span>
                                 <ExternalLinkSvg size={13} />
                               </button>
 
@@ -534,7 +528,7 @@ export default function CareersPageContent() {
                   className={styles.backBtn}
                 >
                   <ArrowLeftSvg size={16} />
-                  <span>Nazaj na vsa delovna mesta</span>
+                  <span>{t("nazajNaMesta")}</span>
                 </button>
               </div>
 
@@ -572,7 +566,7 @@ export default function CareersPageContent() {
                 <div className={styles.detailCard}>
                   <span className={styles.detailCardTitle}>
                     <CheckCircleSvg size={18} />
-                    <span>Ključne odgovornosti in naloge:</span>
+                    <span>{t("odgovornosti")}</span>
                   </span>
                   <ul className={styles.jobBulletList}>
                     {currentSingleJob.tasks.map((task, idx) => (
@@ -586,7 +580,7 @@ export default function CareersPageContent() {
                 <div className={`${styles.detailCard} ${styles.detailCardPerks}`}>
                   <span className={styles.detailCardTitle}>
                     <GiftSvg size={18} />
-                    <span>Kaj vam ponujamo:</span>
+                    <span>{t("kajPonujamo")}</span>
                   </span>
                   <ul className={styles.jobBulletList}>
                     {currentSingleJob.perks.map((perk, idx) => (
@@ -601,8 +595,8 @@ export default function CareersPageContent() {
               {/* Embedded Direct Application Form */}
               <div className={styles.applyFormBlock}>
                 <div className={styles.formHeader}>
-                  <span className={styles.formOverline}>PRIJAVA NA TO MESTO</span>
-                  <h3 className={styles.formTitle}>Oddajte svojo prijavnico</h3>
+                  <span className={styles.formOverline}>{t("obrazecOverline")}</span>
+                  <h3 className={styles.formTitle}>{t("obrazecNaslov")}</h3>
                   <p className={styles.formSub}>
                     Po oddaji vas bomo kontaktirali v roku 24 ur.
                   </p>
@@ -610,65 +604,53 @@ export default function CareersPageContent() {
 
                 {singleSubmitted ? (
                   <div className={styles.successFeedback}>
-                    <span className={styles.successFeedbackTitle}>
-                      ✓ Hvala za vašo prijavo!
-                    </span>
-                    <span className={styles.successFeedbackSub}>
-                      Vaša prijava je bila uspešno poslana. Poklicali vas bomo v 24 urah.
-                    </span>
+                    <span className={styles.successFeedbackTitle}>{t("uspehNaslov")}</span>
+                    <span className={styles.successFeedbackSub}>{t("uspehOpis")}</span>
                   </div>
                 ) : (
                   <form onSubmit={handleSingleSubmit} className={styles.appForm}>
                     <div className={styles.formRow}>
                       <div className={styles.inputGroup}>
-                        <label className={styles.inputLabel}>
-                          Ime in Priimek *
-                        </label>
+                        <label className={styles.inputLabel}>{t("poljeIme")}</label>
                         <input
                           type="text"
                           required
-                          placeholder="npr. Marko Novak"
+                          placeholder={t("poljeImeDrzalo")}
                           className={styles.inputField}
                         />
                       </div>
                       <div className={styles.inputGroup}>
-                        <label className={styles.inputLabel}>
-                          Telefonska Številka *
-                        </label>
+                        <label className={styles.inputLabel}>{t("poljeTelefon")}</label>
                         <input
                           type="tel"
                           required
-                          placeholder="040 123 456"
+                          placeholder={t("poljeTelefonDrzalo")}
                           className={styles.inputField}
                         />
                       </div>
                     </div>
 
                     <div className={styles.inputGroup}>
-                      <label className={styles.inputLabel}>
-                        E-poštni Naslov *
-                      </label>
+                      <label className={styles.inputLabel}>{t("poljeEposta")}</label>
                       <input
                         type="email"
                         required
-                        placeholder="marko@email.com"
+                        placeholder={t("poljeEpostaDrzalo")}
                         className={styles.inputField}
                       />
                     </div>
 
                     <div className={styles.inputGroup}>
-                      <label className={styles.inputLabel}>
-                        Kratko sporočilo / izkušnje (neobvezno)
-                      </label>
+                      <label className={styles.inputLabel}>{t("poljeSporocilo")}</label>
                       <textarea
                         rows={3}
-                        placeholder="Opišite vaše dosedanje delo ali kdaj lahko začnete..."
+                        placeholder={t("poljeSporociloDrzalo")}
                         className={styles.inputField}
                       />
                     </div>
 
                     <button type="submit" className={styles.submitBtn}>
-                      Pošlji Prijavo
+                      {t("posljiPrijavo")}
                     </button>
                   </form>
                 )}
@@ -683,7 +665,7 @@ export default function CareersPageContent() {
             {/* A) Desktop Bar (> 768px) */}
             <div className={styles.desktopHrContent}>
               <div className={styles.hrItem}>
-                <span className={styles.hrLabel}>Neposredni kontakt za življenjepise: </span>
+                <span className={styles.hrLabel}>{t("kontaktZaCv")}</span>
                 <a
                   href="mailto:info@seherezada.net"
                   className={styles.hrLink}
@@ -693,7 +675,7 @@ export default function CareersPageContent() {
               </div>
 
               <div className={styles.hrItem}>
-                <span className={styles.hrLabel}>Kadrovska služba: </span>
+                <span className={styles.hrLabel}>{t("kadrovska")}</span>
                 <a
                   href={`tel:${PHONE.hr.e164}`}
                   className={styles.hrPhoneLink}
@@ -705,7 +687,7 @@ export default function CareersPageContent() {
 
             {/* B) Mobile & Tablet Touch Action Pills (<= 768px) */}
             <div className={styles.mobileHrContent}>
-              <span className={styles.mobileHrOverline}>KONTAKT ZA KANDIDATE &amp; VPRAŠANJA</span>
+              <span className={styles.mobileHrOverline}>{t("mobilniKontakt")}</span>
               <div className={styles.mobilePillsRow}>
                 <a
                   href="mailto:info@seherezada.net"
@@ -714,7 +696,7 @@ export default function CareersPageContent() {
                   <div className={styles.mobilePillIcon}>
                     <MailSvg size={15} />
                   </div>
-                  <span>Pošlji CV na e-mail</span>
+                  <span>{t("posljiCv")}</span>
                 </a>
 
                 <a
@@ -724,7 +706,7 @@ export default function CareersPageContent() {
                   <div className={styles.mobilePillIcon}>
                     <PhoneSvg size={15} />
                   </div>
-                  <span>Pokliči kadrovsko</span>
+                  <span>{t("poklici")}</span>
                 </a>
               </div>
             </div>
@@ -749,70 +731,59 @@ export default function CareersPageContent() {
               type="button"
               onClick={handleCloseModal}
               className={styles.closeModalBtn}
-              aria-label="Zapri modal"
+              aria-label={t("zapriModal")}
             >
               ✕
             </button>
 
             <div className={styles.modalHeader}>
-              <span className={styles.modalOverline}>
-                PRIJAVA NA DELOVNO MESTO
-              </span>
+              <span className={styles.modalOverline}>{t("modalOverline")}</span>
               <h3 className={styles.modalTitle}>{modalJob.title}</h3>
-              <p className={styles.modalSub}>
-                Izpolnite kratek obrazec in kontaktirali vas bomo v 24 urah.
-              </p>
+              <p className={styles.modalSub}>{t("modalPodnaslov")}</p>
             </div>
 
             {modalSubmitted ? (
               <div className={styles.successFeedback}>
-                <span className={styles.successFeedbackTitle}>
-                  ✓ Hvala za vašo prijavo!
-                </span>
+                <span className={styles.successFeedbackTitle}>{t("uspehNaslov")}</span>
                 <span className={styles.successFeedbackSub}>
-                  Vaša prijava na delovno mesto &quot;{modalJob.title}&quot; je
-                  bila uspešno poslana.
+                  {t("modalUspehOpis", { mesto: modalJob.title })}
                 </span>
               </div>
             ) : (
               <form onSubmit={handleModalSubmit} className={styles.appForm}>
                 <div className={styles.inputGroup}>
-                  <label className={styles.inputLabel}>Ime in Priimek *</label>
+                  <label className={styles.inputLabel}>{t("poljeIme")}</label>
                   <input
                     type="text"
                     required
-                    placeholder="npr. Marko Novak"
+                    placeholder={t("poljeImeDrzalo")}
                     className={styles.inputField}
                   />
                 </div>
 
                 <div className={styles.formRow}>
                   <div className={styles.inputGroup}>
-                    <label className={styles.inputLabel}>
-                      Telefonska Številka *
-                    </label>
+                    <label className={styles.inputLabel}>{t("poljeTelefon")}</label>
                     <input
                       type="tel"
                       required
-                      placeholder="040 123 456"
+                      placeholder={t("poljeTelefonDrzalo")}
                       className={styles.inputField}
                     />
                   </div>
                   <div className={styles.inputGroup}>
-                    <label className={styles.inputLabel}>
-                      E-poštni Naslov *
-                    </label>
+                    <label className={styles.inputLabel}>{t("poljeEposta")}</label>
                     <input
                       type="email"
                       required
-                      placeholder="marko@email.com"
+                      placeholder={t("poljeEpostaDrzalo")}
                       className={styles.inputField}
                     />
                   </div>
                 </div>
 
                 <div className={styles.inputGroup}>
-                  <label className={styles.inputLabel}>Izbrana Pozicija</label>
+                  <label className={styles.inputLabel}>{t("poljePozicija")}</label>
                   <input
                     type="text"
                     readOnly
@@ -828,18 +799,16 @@ export default function CareersPageContent() {
                 </div>
 
                 <div className={styles.inputGroup}>
-                  <label className={styles.inputLabel}>
-                    Dosedanje izkušnje &amp; opombe (neobvezno)
-                  </label>
+                  <label className={styles.inputLabel}>{t("poljeIzkusnje")}</label>
                   <textarea
                     rows={3}
-                    placeholder="Opišite vaše dosedanje izkušnje v kuhinji ali kdaj lahko začnete z delom..."
+                    placeholder={t("poljeIzkusnjeDrzalo")}
                     className={styles.inputField}
                   />
                 </div>
 
                 <button type="submit" className={styles.submitBtn}>
-                  Oddaj Prijavo
+                  {t("oddajPrijavo")}
                 </button>
               </form>
             )}

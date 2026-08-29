@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PHONE, LOCATION_SLUG } from "@/data/locations";
+import { COMPANY } from "@/data/company";
 import styles from "./ContactPageContent.module.css";
 import WorldMapPattern from "./WorldMapPattern";
 import { CONTACT_LOCATIONS } from "./ContactData";
@@ -137,6 +139,9 @@ const CompassSvg = ({ size = 16, className, style }: SvgProps) => (
 );
 
 export default function ContactPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "kontaktStran".
+  const t = useTranslations("kontaktStran");
+
   // Active map location state
   const [selectedMapLoc, setSelectedMapLoc] = useState<"trubarjeva" | "slovenska">("trubarjeva");
 
@@ -202,22 +207,17 @@ export default function ContactPageContent() {
             {/* Left Column: Heading, Subtitle, and 3 Quick Contact Cards */}
             <div className={styles.heroLeftCol}>
               <div className={styles.chapterTagContainer}>
-                <span className={styles.tagGhostWatermark}>KONTAKT</span>
+                <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
                 <div className={styles.chapterIndexTag}>
                   <span className={styles.chapterDash} />
-                  <span>STOPITE V STIK · ŠEHEREZADA</span>
+                  <span>{t("oznaka")}</span>
                   <span className={styles.chapterDash} />
                 </div>
               </div>
 
-              <h1 className={styles.heroTitle}>
-                Kontakt in obe lokaciji v središču Ljubljane
-              </h1>
+              <h1 className={styles.heroTitle}>{t("naslov")}</h1>
 
-              <p className={styles.heroSubtitle}>
-                Obiščite nas v mestnem jedru na Trubarjevi ali ob osrednji Slovenski cesti.
-                Pokličite nas za hitro naročilo za osebni prevzem, rezervacijo ali nam preprosto pošljite sporočilo.
-              </p>
+              <p className={styles.heroSubtitle}>{t("podnaslov")}</p>
 
               {/* 3 Floating Cards Row (Matching Locations & Email) */}
               <div className={styles.heroThreeCardsRow}>
@@ -242,15 +242,15 @@ export default function ContactPageContent() {
 
                 {/* Card 3: E-pošta */}
                 <a
-                  href="mailto:info@seherezada.net"
+                  href={`mailto:${COMPANY.privacyEmail}`}
                   className={`${styles.heroCardItem} ${styles.heroCardItemLink}`}
-                  title="Pošljite e-poštno sporočilo na info@seherezada.net"
+                  title={t("epostaNaslovDrzalo", { eposta: COMPANY.privacyEmail })}
                 >
-                  <div className={styles.heroCardHeading}>E-poštni predal</div>
-                  <div className={styles.heroCardSubtext}>Vprašanja &amp; rezervacije</div>
+                  <div className={styles.heroCardHeading}>{t("epostniPredal")}</div>
+                  <div className={styles.heroCardSubtext}>{t("vprasanjaRezervacije")}</div>
                   <div className={styles.heroCardEmailAlt}>
                     <MailSvg size={14} />
-                    <span>info@seherezada.net</span>
+                    <span>{COMPANY.privacyEmail}</span>
                   </div>
                 </a>
               </div>
@@ -268,7 +268,7 @@ export default function ContactPageContent() {
                 <div className={styles.heroImgContainer}>
                   <img
                     src="/images/seherezada-contact-call-hero.avif"
-                    alt="Stopite v stik s Šeherezado"
+                    alt={t("altStik")}
                     className={styles.heroCallImg}
                     loading="eager"
                   />
@@ -277,7 +277,7 @@ export default function ContactPageContent() {
                 {/* Floating Live Status Pill */}
                 <div className={styles.heroFloatingPill}>
                   <span className={styles.heroFloatingPillPulse} />
-                  <span>Kličite za naročilo za prevzem</span>
+                  <span>{t("kliciteZaPrevzem")}</span>
                 </div>
               </div>
             </div>
@@ -299,18 +299,15 @@ export default function ContactPageContent() {
             <div className={styles.formInfoCol}>
               <div className={styles.sectionHeader} style={{ textAlign: "left", margin: "0 0 1.5rem" }}>
                 <div className={styles.chapterTagContainer}>
-                  <span className={styles.tagGhostWatermark}>SPOROČILO</span>
+                  <span className={styles.tagGhostWatermark}>{t("sporociloVodniZnak")}</span>
                   <div className={styles.chapterIndexTag}>
                     <span className={styles.chapterDash} />
-                    <span>POŠLJITE SPOROČILO</span>
+                    <span>{t("sporociloOznaka")}</span>
                     <span className={styles.chapterDash} />
                   </div>
                 </div>
-                <h2 className={styles.sectionTitle}>Pišite nam za vprašanja, rezervacije ali pohvale</h2>
-                <p className={styles.sectionDesc}>
-                  Želite rezervirati mizo za večjo skupino, povprašati o študentskih bonih ali izvedeti več o naši ponudbi?
-                  Izpolnite obrazec in z veseljem vam odgovorimo v najkrajšem času.
-                </p>
+                <h2 className={styles.sectionTitle}>{t("sporociloNaslov")}</h2>
+                <p className={styles.sectionDesc}>{t("sporociloOpis")}</p>
               </div>
 
               {/* Social Channels List */}
@@ -325,7 +322,7 @@ export default function ContactPageContent() {
                     <InstagramSvg size={20} />
                   </div>
                   <div className={styles.directChannelText}>
-                    <span className={styles.directChannelLabel}>Instagram &amp; Sporočila</span>
+                    <span className={styles.directChannelLabel}>{t("instagramOznaka")}</span>
                     <span className={styles.directChannelVal}>@seherezada_si</span>
                   </div>
                 </a>
@@ -340,8 +337,8 @@ export default function ContactPageContent() {
                     <FacebookSvg size={20} />
                   </div>
                   <div className={styles.directChannelText}>
-                    <span className={styles.directChannelLabel}>Facebook stran</span>
-                    <span className={styles.directChannelVal}>Šeherezada Ljubljana</span>
+                    <span className={styles.directChannelLabel}>{t("facebookOznaka")}</span>
+                    <span className={styles.directChannelVal}>{t("facebookVrednost")}</span>
                   </div>
                 </a>
 
@@ -355,7 +352,7 @@ export default function ContactPageContent() {
                     <TikTokSvg size={20} />
                   </div>
                   <div className={styles.directChannelText}>
-                    <span className={styles.directChannelLabel}>TikTok profil</span>
+                    <span className={styles.directChannelLabel}>{t("tiktokOznaka")}</span>
                     <span className={styles.directChannelVal}>@seherezada_si</span>
                   </div>
                 </a>
@@ -369,7 +366,7 @@ export default function ContactPageContent() {
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label className={styles.formLabel} htmlFor="contactName">
-                        Ime in priimek *
+                        {t("poljeIme")}
                       </label>
                       <div className={styles.inputWrapper}>
                         <span className={styles.inputIcon}>
@@ -379,7 +376,7 @@ export default function ContactPageContent() {
                           id="contactName"
                           type="text"
                           required
-                          placeholder="npr. Luka Novak"
+                          placeholder={t("poljeImeDrzalo")}
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className={styles.formInput}
@@ -389,7 +386,7 @@ export default function ContactPageContent() {
 
                     <div className={styles.formGroup}>
                       <label className={styles.formLabel} htmlFor="contactEmail">
-                        E-poštni naslov *
+                        {t("poljeEposta")}
                       </label>
                       <div className={styles.inputWrapper}>
                         <span className={styles.inputIcon}>
@@ -399,7 +396,7 @@ export default function ContactPageContent() {
                           id="contactEmail"
                           type="email"
                           required
-                          placeholder="luka@primer.si"
+                          placeholder={t("poljeEpostaDrzalo")}
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className={styles.formInput}
@@ -411,7 +408,7 @@ export default function ContactPageContent() {
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label className={styles.formLabel} htmlFor="contactPhone">
-                        Telefonska številka <span className={styles.formOptional}>(opcijsko)</span>
+                        {t("poljeTelefon")} <span className={styles.formOptional}>{t("poljeTelefonOpcijsko")}</span>
                       </label>
                       <div className={styles.inputWrapper}>
                         <span className={styles.inputIcon}>
@@ -420,7 +417,7 @@ export default function ContactPageContent() {
                         <input
                           id="contactPhone"
                           type="tel"
-                          placeholder="+386 40 123 456"
+                          placeholder={t("poljeTelefonDrzalo")}
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className={styles.formInput}
@@ -430,7 +427,7 @@ export default function ContactPageContent() {
 
                     <div className={styles.formGroup}>
                       <label className={styles.formLabel} htmlFor="contactSubject">
-                        Zadeva sporočila
+                        {t("poljeZadeva")}
                       </label>
                       <div className={styles.inputWrapper}>
                         <select
@@ -440,11 +437,11 @@ export default function ContactPageContent() {
                           className={styles.formSelect}
                           style={{ paddingLeft: "1rem" }}
                         >
-                          <option value="splosno">Splošno vprašanje ali pohvala</option>
-                          <option value="rezervacija">Rezervacija mize za skupine</option>
-                          <option value="studenti">Študentska prehrana (Boni)</option>
-                          <option value="poslovno">Poslovno sodelovanje / Zaposlitev</option>
-                          <option value="drugo">Drugo</option>
+                          <option value="splosno">{t("zadevaSplosno")}</option>
+                          <option value="rezervacija">{t("zadevaRezervacija")}</option>
+                          <option value="studenti">{t("zadevaStudenti")}</option>
+                          <option value="poslovno">{t("zadevaPoslovno")}</option>
+                          <option value="drugo">{t("zadevaDrugo")}</option>
                         </select>
                       </div>
                     </div>
@@ -452,7 +449,7 @@ export default function ContactPageContent() {
 
                   <div className={styles.formGroup}>
                     <label className={styles.formLabel} htmlFor="contactLocation">
-                      Želena poslovalnica
+                      {t("poljePoslovalnica")}
                     </label>
                     <div className={styles.inputWrapper}>
                       <span className={styles.inputIcon}>
@@ -464,7 +461,7 @@ export default function ContactPageContent() {
                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                         className={styles.formSelect}
                       >
-                        <option value="vseeno">Vseeno / Obe lokaciji</option>
+                        <option value="vseeno">{t("poslovalnicaVseeno")}</option>
                         {CONTACT_LOCATIONS.map((loc) => (
                           <option key={loc.id} value={loc.id}>
                             {loc.name} — {loc.address}
@@ -476,36 +473,36 @@ export default function ContactPageContent() {
 
                   <div className={styles.formGroup}>
                     <label className={styles.formLabel} htmlFor="contactMessage">
-                      Vaše sporočilo ali želje *
+                      {t("poljeSporocilo")}
                     </label>
                     <textarea
                       id="contactMessage"
                       required
                       rows={4}
-                      placeholder="Vpišite vaše vprašanje, želje ali sporočilo za ekipo Šeherezada..."
+                      placeholder={t("poljeSporociloDrzalo")}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       maxLength={1200}
                       className={styles.formTextarea}
                     />
                     <div className={styles.formCharCounter}>
-                      {formData.message.length} / 1200 znakov
+                      {t("stevecZnakov", { stevilo: formData.message.length, najvec: 1200 })}
                     </div>
                   </div>
 
                   <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
                     {isSubmitting ? (
-                      <span>Pošiljanje sporočila...</span>
+                      <span>{t("posiljanje")}</span>
                     ) : (
                       <>
                         <SendSvg size={18} />
-                        <span>Pošlji sporočilo</span>
+                        <span>{t("posljiSporocilo")}</span>
                       </>
                     )}
                   </button>
 
                   <p className={styles.submitDisclaimer}>
-                    S klikom na gumb soglašate s kontaktiranjem glede vašega povpraševanja.
+                    {t("soglasje")}
                   </p>
                 </form>
               ) : (
@@ -513,40 +510,43 @@ export default function ContactPageContent() {
                   <div className={styles.successIconWrap}>
                     <CheckSvg size={36} />
                   </div>
-                  <h3 className={styles.successTitle}>Sporočilo je bilo uspešno poslano!</h3>
+                  <h3 className={styles.successTitle}>{t("uspehNaslov")}</h3>
                   <p className={styles.successText}>
-                    Hvala, <strong>{formData.name}</strong>. Vaše sporočilo smo prejeli. Naša ekipa vas bo
-                    kontaktirala na <strong>{formData.email}</strong> v najkrajšem možnem času.
+                    {t.rich("uspehOpis", {
+                      ime: formData.name,
+                      eposta: formData.email,
+                      b: (chunks) => <strong>{chunks}</strong>,
+                    })}
                   </p>
 
                   <div className={styles.successDetailsBox}>
                     <div>
-                      <strong>Zadeva:</strong>{" "}
+                      <strong>{t("uspehZadeva")}</strong>{" "}
                       {formData.subject === "rezervacija"
-                        ? "Rezervacija mize"
+                        ? t("povzetekRezervacija")
                         : formData.subject === "studenti"
-                        ? "Študentska prehrana"
+                        ? t("povzetekStudenti")
                         : formData.subject === "poslovno"
-                        ? "Poslovno sodelovanje / Zaposlitev"
-                        : "Splošno vprašanje"}
+                        ? t("povzetekPoslovno")
+                        : t("povzetekSplosno")}
                     </div>
                     <div>
-                      <strong>Lokacija:</strong>{" "}
+                      <strong>{t("uspehLokacija")}</strong>{" "}
                       {formData.location === "trubarjeva"
                         ? "Trubarjeva 31"
                         : formData.location === "slovenska"
                         ? "Slovenska 55"
-                        : "Vseeno"}
+                        : t("povzetekVseeno")}
                     </div>
                   </div>
 
                   <div className={styles.successActionRow}>
                     <button type="button" onClick={handleReset} className={styles.resetFormBtn}>
-                      Pošlji novo sporočilo
+                      {t("posljiNovo")}
                     </button>
                     <a href={`tel:${PHONE.restaurant.e164}`} className={styles.callLocationBtn}>
                       <PhoneSvg size={16} />
-                      <span>Hitri klic: {PHONE.restaurant.display}</span>
+                      <span>{t("hitriKlic", { telefon: PHONE.restaurant.display })}</span>
                     </a>
                   </div>
                 </div>
@@ -564,17 +564,15 @@ export default function ContactPageContent() {
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <div className={styles.chapterTagContainerCenter}>
-              <span className={styles.tagGhostWatermarkCenter}>VODNIK</span>
+              <span className={styles.tagGhostWatermarkCenter}>{t("vodnikVodniZnak")}</span>
               <div className={styles.chapterIndexTag}>
                 <span className={styles.chapterDash} />
-                <span>INTERAKTIVNI VODNIK &amp; DOSTOP</span>
+                <span>{t("vodnikOznaka")}</span>
                 <span className={styles.chapterDash} />
               </div>
             </div>
-            <h2 className={styles.sectionTitle}>Kako do nas v Ljubljani</h2>
-            <p className={styles.sectionDesc}>
-              Izberite poslovalnico za ogled točne lokacije na zemljevidu, navodil za prihod z LPP avtobusom ter možnosti parkiranja.
-            </p>
+            <h2 className={styles.sectionTitle}>{t("vodnikNaslov")}</h2>
+            <p className={styles.sectionDesc}>{t("vodnikOpis")}</p>
           </div>
 
           {/* Dual Interactive Location Switcher Cards */}
@@ -590,7 +588,7 @@ export default function ContactPageContent() {
                 <MapPinSvg size={18} />
               </div>
               <div className={styles.locationSelectTextGroup}>
-                <span className={styles.locationSelectTag}>01 · Mestno Jedro</span>
+                <span className={styles.locationSelectTag}>{t("izborTrubarjeva")}</span>
                 <span className={styles.locationSelectTitle}>Trubarjeva cesta 31</span>
               </div>
               <div className={styles.locationSelectRadio}>
@@ -609,7 +607,7 @@ export default function ContactPageContent() {
                 <MapPinSvg size={18} />
               </div>
               <div className={styles.locationSelectTextGroup}>
-                <span className={styles.locationSelectTag}>02 · Center</span>
+                <span className={styles.locationSelectTag}>{t("izborSlovenska")}</span>
                 <span className={styles.locationSelectTitle}>Slovenska cesta 55</span>
               </div>
               <div className={styles.locationSelectRadio}>
@@ -644,7 +642,7 @@ export default function ContactPageContent() {
                     </div>
                     <div className={styles.mapAddressTextGroup}>
                       <span className={styles.mapAddressStreet}>{activeMapLocationData.address}</span>
-                      <span className={styles.mapAddressCity}>{activeMapLocationData.city} · Slovenija</span>
+                      <span className={styles.mapAddressCity}>{t("mestoDrzava", { mesto: activeMapLocationData.city })}</span>
                     </div>
                   </div>
 
@@ -652,17 +650,17 @@ export default function ContactPageContent() {
                     type="button"
                     onClick={() => handleMapCopy(`${activeMapLocationData.address}, ${activeMapLocationData.city}`)}
                     className={`${styles.mapCopyBtn} ${mapCopied ? styles.mapCopyBtnDone : ""}`}
-                    title="Kopiraj točen naslov za navigacijo"
+                    title={t("kopirajNaslov")}
                   >
                     {mapCopied ? (
                       <>
                         <CheckSvg size={13} />
-                        <span>Kopirano!</span>
+                        <span>{t("kopirano")}</span>
                       </>
                     ) : (
                       <>
                         <CopySvg size={13} />
-                        <span>Kopiraj</span>
+                        <span>{t("kopiraj")}</span>
                       </>
                     )}
                   </button>
@@ -677,7 +675,7 @@ export default function ContactPageContent() {
                       <BusSvg size={18} />
                     </div>
                     <div className={styles.transitContent}>
-                      <div className={styles.transitLabel}>LPP Avtobusni Prihod</div>
+                      <div className={styles.transitLabel}>{t("prevozAvtobus")}</div>
                       <div className={styles.transitValue}>{activeMapLocationData.transport.lpp}</div>
                     </div>
                   </div>
@@ -687,7 +685,7 @@ export default function ContactPageContent() {
                       <CarParkingSvg size={18} />
                     </div>
                     <div className={styles.transitContent}>
-                      <div className={styles.transitLabel}>Parkiranje &amp; Garaže</div>
+                      <div className={styles.transitLabel}>{t("prevozParkiranje")}</div>
                       <div className={styles.transitValue}>{activeMapLocationData.transport.parking}</div>
                     </div>
                   </div>
@@ -697,7 +695,7 @@ export default function ContactPageContent() {
                       <FootWalkSvg size={18} />
                     </div>
                     <div className={styles.transitContent}>
-                      <div className={styles.transitLabel}>Dostop Peš &amp; BicikeLJ</div>
+                      <div className={styles.transitLabel}>{t("prevozPes")}</div>
                       <div className={styles.transitValue}>{activeMapLocationData.transport.walking}</div>
                     </div>
                   </div>
@@ -713,7 +711,7 @@ export default function ContactPageContent() {
                   className={styles.mapPrimaryNavBtn}
                 >
                   <NavigationSvg size={16} />
-                  <span>Google Maps</span>
+                  <span>{t("gumbGoogleMaps")}</span>
                 </a>
 
                 <a
@@ -723,7 +721,7 @@ export default function ContactPageContent() {
                   className={styles.mapSecondaryNavBtn}
                 >
                   <CompassSvg size={16} />
-                  <span>Apple Maps</span>
+                  <span>{t("gumbAppleMaps")}</span>
                 </a>
 
                 {/* Podrobnosti o posamezni poslovalnici imajo svojo stran —
@@ -733,7 +731,7 @@ export default function ContactPageContent() {
                   className={styles.mapDetailBtn}
                 >
                   <NavigationSvg size={16} />
-                  <span>Vse o tej poslovalnici</span>
+                  <span>{t("gumbPoslovalnica")}</span>
                 </Link>
               </div>
             </div>

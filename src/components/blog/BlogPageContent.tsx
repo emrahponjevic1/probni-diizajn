@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import styles from "./BlogPageContent.module.css";
 import {
@@ -142,6 +143,9 @@ const SparklesIcon = () => (
 );
 
 export default function BlogPageContent() {
+  // Besedila so v messages/<jezik>.json pod ključem "blogStran".
+  const t = useTranslations("blogStran");
+
   // Vsaka objava ima svojo stran na /blog/<slug>, zato tukaj ni več
   // stanja za odpiranje objave v oknu — kartice so navadne povezave.
 
@@ -168,39 +172,30 @@ export default function BlogPageContent() {
             {/* Header / Intro */}
             <div className={styles.blogHeader}>
               <div className={styles.chapterTagContainer}>
-                <span className={styles.tagGhostWatermark}>BLOG</span>
+                <span className={styles.tagGhostWatermark}>{t("vodniZnak")}</span>
                 <div className={styles.chapterIndexTag}>
                   <span className={styles.chapterDash} />
-                  <span>KULINARIČNI BLOG &amp; ZGODBE</span>
+                  <span>{t("oznaka")}</span>
                   <span className={styles.chapterDash} />
                 </div>
               </div>
 
-              <h1 className={styles.pageTitle}>
-                Blog — hrana, halal in študentski boni v Ljubljani
-              </h1>
+              <h1 className={styles.pageTitle}>{t("naslov")}</h1>
 
-              <p className={styles.pageSubtitle}>
-                Nasveti in zgodbe o naši hrani, halal ponudbi, veganskih jedeh
-                in študentskih bonih — ter o tem, kje in kdaj jesti v Ljubljani.
-              </p>
+              <p className={styles.pageSubtitle}>{t("podnaslov")}</p>
             </div>
 
             {/* Ko ni objav, prazen arhiv izgleda pokvarjeno. Povemo, kako je. */}
             {!featuredPost && (
               <div className={styles.noPostsBox}>
-                <h2 className={styles.noPostsTitle}>Objave pripravljamo</h2>
-                <p className={styles.noPostsText}>
-                  Tu bodo kmalu nasveti o halal ponudbi, študentskih bonih in
-                  najboljših kombinacijah z našega menija. Do takrat si oglejte
-                  celoten meni ali nas obiščite na eni od dveh lokacij.
-                </p>
+                <h2 className={styles.noPostsTitle}>{t("niObjavNaslov")}</h2>
+                <p className={styles.noPostsText}>{t("niObjavOpis")}</p>
                 <div className={styles.noPostsActions}>
                   <Link href="/meni" className={styles.noPostsBtn}>
-                    Poglej meni
+                    {t("poglejMeni")}
                   </Link>
                   <Link href="/kontakt" className={styles.noPostsBtnGhost}>
-                    Kje smo
+                    {t("kjeSmo")}
                   </Link>
                 </div>
               </div>
@@ -220,7 +215,7 @@ export default function BlogPageContent() {
                   />
                   <div className={styles.featuredBadgeFloating}>
                     <SparklesIcon />
-                    <span>Izpostavljena zgodba</span>
+                    <span>{t("izpostavljena")}</span>
                   </div>
                 </div>
 
@@ -252,7 +247,7 @@ export default function BlogPageContent() {
                     </div>
 
                     <span className={styles.readMoreBtn}>
-                      <span>Preberi zgodbo</span>
+                      <span>{t("preberiZgodbo")}</span>
                       <ArrowRightIcon />
                     </span>
                   </div>
@@ -263,8 +258,8 @@ export default function BlogPageContent() {
             {/* Grid Header & Articles Grid */}
             <div className={styles.gridHeadingRow}>
               <div>
-                <span className={styles.gridSectionKicker}>Najnovejše objave</span>
-                <h3 className={styles.gridSectionTitle}>Raziščite Kulinarične Zgodbe</h3>
+                <span className={styles.gridSectionKicker}>{t("najnovejse")}</span>
+                <h3 className={styles.gridSectionTitle}>{t("raziscite")}</h3>
               </div>
             </div>
 
@@ -310,7 +305,7 @@ export default function BlogPageContent() {
                       </span>
                     </div>
                     <span className={styles.cardActionLink}>
-                      <span>Preberi</span>
+                      <span>{t("preberi")}</span>
                       <ArrowRightIcon />
                     </span>
                   </div>

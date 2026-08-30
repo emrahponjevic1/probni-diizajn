@@ -13,17 +13,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
 
-  // Google keywords ignorira od leta 2009. Ostajajo, ker jih nismo
-  // odstranili z odločitvijo lastnika — glej PREDAJA, razdelek 7.
-  const keywords = [
-    "Šeherezada blog",
-    "kulinarične zgodbe",
-    "orientalski žar Ljubljana",
-    "recepti za lepinje",
-    "domači falafel",
-    "halal hrana Ljubljana",
-    "študentski boni hrana",
-  ];
 
   const meta = await metaZaStran({
     locale,
@@ -33,7 +22,7 @@ export async function generateMetadata({
     ogOpisKljuc: "blogOgOpis",
   });
 
-  return { ...meta, keywords };
+  return meta;
 }
 
 export default function BlogPage({

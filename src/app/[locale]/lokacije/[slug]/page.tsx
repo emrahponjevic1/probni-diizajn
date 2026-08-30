@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { hreflangZaSlug, localizedSlugUrl } from "@/i18n/urls";
+import { imeMesta, locationTextZaJezik } from "@/i18n/locationText.server";
 import type { AppLocale } from "@/i18n/urls";
 import { SHARE_IMAGE, SITE_NAME, localeByCode } from "@/data/site";
 import { notFound } from "next/navigation";
@@ -34,8 +35,15 @@ export async function generateMetadata({
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "meta" });
-  const loc = locationBySlug(slug);
-  if (!loc) return { title: t("lokacijaNiNajdena") };
+  const surovi = locationBySlug(slug);
+  if (!surovi) return { title: t("lokacijaNiNajdena") };
+
+  // Meta oznake berejo iz istega prevajalskega sloja kot vidni del strani.
+  // Prej so brale naravnost iz locations.ts, zato so na tujih jezikih
+  // ostajale slovenske — glej locationText.server.ts.
+  const prevedi = await locationTextZaJezik(locale);
+  const loc = prevedi(surovi);
+  const mesto = await imeMesta(locale, surovi.city);
 
   // Kanonični naslov kaže na to stran v tem jeziku, ne na slovensko.
   const url = localizedSlugUrl("/lokacije/[slug]", slug, locale as AppLocale);
@@ -56,13 +64,13 @@ export async function generateMetadata({
       title: t("lokacijaOgNaslov", {
         ime: loc.name,
         ulica: loc.street,
-        mesto: loc.city,
+        mesto,
       }),
       description: loc.vibeText,
       url,
       type: "website",
       siteName: SITE_NAME,
-      locale: localeByCode(locale).hreflang.replace("-", "_"),
+      locale: localeByCode(locale).og,
       images: [
         {
           url: SHARE_IMAGE.src,

@@ -221,7 +221,7 @@
     "ogSlikaOpis": "Šeherezada — Ljubljana'da helal döner, falafel ve humus",
     "lokacijaNiNajdena": "Şube bulunamadı | Šeherezada",
     "lokacijaNaslov": "{ime}, {ulica} — Ljubljana'da helal döner",
-    "lokacijaOpis": "{naslov} adresinde {ime}. Açılış: {urnik}. Nasıl gelinir, park imkânları ve öğrenci fişli tüm menü.",
+    "lokacijaOpis": "{naslov} adresinde {ime}. Açılış: {urnik}. Nasıl gelinir ve öğrenci fişli menü.",
     "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
     "oglasNiNajden": "Pozisyon bulunamadı | Šeherezada",
     "oglasNaslov": "{mesto} — Ljubljana'da iş | Šeherezada",
@@ -777,7 +777,7 @@
       "6": "Pazar"
     },
     "trubarjeva": {
-      "hoursShort": "09:00 – 02:00, cuma ve cumartesi 03:00 saatine kadar",
+      "hoursShort": "09:00 – 02:00, cuma ve cumartesi 09:00 – 03:00",
       "badge": "Şehir merkezi · İlk şubemiz",
       "h1": "Šeherezada — Trubarjeva 31'de helal döner",
       "subtitle": "Bohem şehir hareketliliği ve gece durağı",
@@ -823,7 +823,8 @@
         "1": "Banko ve yemek seçenekleri",
         "2": "Bavarski dvor yanındaki şubenin girişi"
       }
-    }
+    },
+    "mesto": "Ljubljana"
   },
   "oNasStran": {
     "altZar": "Šeherezada ızgara ustası taze et hazırlıyor",

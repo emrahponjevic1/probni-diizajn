@@ -56,21 +56,30 @@ export const SHARE_IMAGE = {
  * Vrstni red ni naključen: prvi je privzeti jezik. Enak vrstni red se
  * pokaže v prekidalniku jezikov v glavi strani.
  *
+ * `hreflang` gre v oznake za Google in je namenoma brez države: nemški gost
+ * iz Avstrije naj dobi isto stran kot tisti iz Nemčije.
+ *
+ * `og` je ista stvar za Facebook in WhatsApp, a ta zahtevata obliko
+ * jezik_DRŽAVA. Prej se je izpeljeval iz hreflanga z zamenjavo črtice za
+ * podčrtaj — kar je delovalo samo pri "sl-SI", ker edini ima črtico. Vsi
+ * ostali so ostali "de", "it", "tr", Facebook pa ob neveljavni vrednosti
+ * pade nazaj na en_US. Odkrito v neodvisni reviziji (6B.2).
+ *
  * `name` je ime jezika V TEM JEZIKU (avtonim) in se NE prevaja. Turek, ki
  * pristane na slovenski strani, mora v seznamu prepoznati "Türkçe" — če bi
  * pisalo "turščina", ga ne bi našel. `short` je kratka oznaka na gumbu.
  */
 export const LOCALES = [
   // Slovenščina nima predpone: /meni, ne /sl/meni.
-  { code: "sl", prefix: "", hreflang: "sl-SI", default: true, name: "Slovenščina", short: "SLO" },
-  { code: "en", prefix: "/en", hreflang: "en", default: false, name: "English", short: "ENG" },
-  { code: "de", prefix: "/de", hreflang: "de", default: false, name: "Deutsch", short: "DEU" },
-  { code: "it", prefix: "/it", hreflang: "it", default: false, name: "Italiano", short: "ITA" },
+  { code: "sl", prefix: "", hreflang: "sl-SI", og: "sl_SI", default: true, name: "Slovenščina", short: "SLO" },
+  { code: "en", prefix: "/en", hreflang: "en", og: "en_GB", default: false, name: "English", short: "ENG" },
+  { code: "de", prefix: "/de", hreflang: "de", og: "de_DE", default: false, name: "Deutsch", short: "DEU" },
+  { code: "it", prefix: "/it", hreflang: "it", og: "it_IT", default: false, name: "Italiano", short: "ITA" },
   // Oznaka je "BHS" po želji lastnika: gostje iz Bosne, Hrvaške in Srbije se
   // v tej oznaki prepoznajo, "BOS" pa bi jih del odvrnil. Koda jezika in
   // hreflang ostaneta "bs" — to bere Google, ne gost.
-  { code: "bs", prefix: "/bs", hreflang: "bs", default: false, name: "Bos / Hrv / Srp", short: "BHS" },
-  { code: "tr", prefix: "/tr", hreflang: "tr", default: false, name: "Türkçe", short: "TUR" },
+  { code: "bs", prefix: "/bs", hreflang: "bs", og: "bs_BA", default: false, name: "Bos / Hrv / Srp", short: "BHS" },
+  { code: "tr", prefix: "/tr", hreflang: "tr", og: "tr_TR", default: false, name: "Türkçe", short: "TUR" },
 ] as const;
 
 export type Locale = (typeof LOCALES)[number];

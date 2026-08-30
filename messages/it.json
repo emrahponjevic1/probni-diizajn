@@ -33,7 +33,7 @@
     "stran404Opis": "La pagina che cercate non esiste. Sfogliate il nostro menù con {vseh} piatti o trovate la sede più vicina.",
     "lokacijaNiNajdena": "Sede non trovata | Šeherezada",
     "lokacijaNaslov": "{ime}, {ulica} — kebab halal a Lubiana",
-    "lokacijaOpis": "{ime} in {naslov}. Aperto {urnik}. Come arrivare, parcheggio e il menù completo con i buoni studenti.",
+    "lokacijaOpis": "{ime} in {naslov}. Aperto {urnik}. Come arrivare e il menù con i buoni studenti.",
     "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
     "oglasNiNajden": "Posizione non trovata | Šeherezada",
     "oglasNaslov": "{mesto} — lavoro a Lubiana | Šeherezada",
@@ -369,7 +369,8 @@
         "1": "Il bancone e l’offerta del giorno",
         "2": "Ingresso presso Bavarski dvor"
       }
-    }
+    },
+    "mesto": "Lubiana"
   },
   "halalStran": {
     "vodniZnak": "HALAL",

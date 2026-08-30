@@ -81,7 +81,7 @@ export async function generateMetadata({
 
   openGraph: {
     type: "website",
-    locale: localeByCode(locale).hreflang.replace("-", "_"),
+    locale: localeByCode(locale).og,
     siteName: SITE_NAME,
     url: localizedUrl("/", locale as AppLocale),
     images: [

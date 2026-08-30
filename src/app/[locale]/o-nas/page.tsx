@@ -13,17 +13,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
 
-  // Google keywords ignorira od leta 2009. Ostajajo, ker jih nismo
-  // odstranili z odločitvijo lastnika — glej PREDAJA, razdelek 7.
-  const keywords = [
-    "Šeherezada Ljubljana",
-    "O nas Šeherezada",
-    "kebab tradicija Ljubljana",
-    "sveže pečene lepinje Ljubljana",
-    "halal restavracija Ljubljana",
-    "Trubarjeva kebab",
-    "Slovenska orientalska hrana",
-  ];
 
   const meta = await metaZaStran({
     locale,
@@ -33,7 +22,7 @@ export async function generateMetadata({
     ogOpisKljuc: "oNasOgOpis",
   });
 
-  return { ...meta, keywords };
+  return meta;
 }
 
 export default function ONasPage({

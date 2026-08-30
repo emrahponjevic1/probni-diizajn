@@ -51,7 +51,7 @@ export async function generateMetadata({
       url,
       type: "website",
       siteName: SITE_NAME,
-      locale: localeByCode(locale).hreflang.replace("-", "_"),
+      locale: localeByCode(locale).og,
       images: [
         {
           url: SHARE_IMAGE.src,

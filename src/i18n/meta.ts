@@ -60,8 +60,7 @@ export async function metaZaStran(opts: {
       type: "website",
       url: naslovStrani,
       siteName: SITE_NAME,
-      // og:locale pričakuje obliko jezik_DRŽAVA; naš zapis je sl-SI.
-      locale: localeByCode(opts.locale).hreflang.replace("-", "_"),
+      locale: localeByCode(opts.locale).og,
       images: [
         {
           url: SHARE_IMAGE.src,

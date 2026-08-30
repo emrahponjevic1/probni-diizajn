@@ -14,16 +14,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
 
-  // Google keywords ignorira od leta 2009. Ostajajo, ker jih nismo
-  // odstranili z odločitvijo lastnika — glej PREDAJA, razdelek 7.
-  const keywords = [
-    "Kontakt Šeherezada",
-    "Šeherezada Trubarjeva delovni čas",
-    "Šeherezada Slovenska telefon",
-    "kebab Ljubljana kontakt",
-    "nočna hrana Ljubljana Trubarjeva",
-    "halal hrana Ljubljana naročila",
-  ];
 
   const meta = await metaZaStran({
     locale,
@@ -34,7 +24,7 @@ export async function generateMetadata({
     vrednosti: { telefon: PHONE.restaurant.display },
   });
 
-  return { ...meta, keywords };
+  return meta;
 }
 
 export default function KontaktPage({

@@ -59,7 +59,7 @@ export async function generateMetadata({
       publishedTime: post.isoDate,
       authors: [post.author.name],
       siteName: SITE_NAME,
-      locale: localeByCode(locale).hreflang.replace("-", "_"),
+      locale: localeByCode(locale).og,
       images: [{ url: `${BASE}${post.coverImage}`, width: 1200, height: 630, alt: post.title }],
     },
   };

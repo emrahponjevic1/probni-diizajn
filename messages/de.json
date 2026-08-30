@@ -33,7 +33,7 @@
     "stran404Opis": "Die gesuchte Seite gibt es nicht. Sehen Sie sich unsere Speisekarte mit {vseh} Gerichten an oder finden Sie den nächsten Standort.",
     "lokacijaNiNajdena": "Standort nicht gefunden | Šeherezada",
     "lokacijaNaslov": "{ime}, {ulica} — Halal Döner in Ljubljana",
-    "lokacijaOpis": "{ime} in der {naslov}. Geöffnet {urnik}. Anfahrt, Parken und die ganze Speisekarte mit Studentenbons.",
+    "lokacijaOpis": "{ime} in der {naslov}. Geöffnet {urnik}. Anfahrt und die Speisekarte mit Studentenbons.",
     "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
     "oglasNiNajden": "Stelle nicht gefunden | Šeherezada",
     "oglasNaslov": "{mesto} — Job in Ljubljana | Šeherezada",
@@ -369,7 +369,8 @@
         "1": "Theke und Tagesangebot",
         "2": "Eingang am Bavarski dvor"
       }
-    }
+    },
+    "mesto": "Ljubljana"
   },
   "halalStran": {
     "vodniZnak": "HALAL",

@@ -221,7 +221,7 @@
     "ogSlikaOpis": "Šeherezada — halal kebab, falafel i humus u Ljubljani",
     "lokacijaNiNajdena": "Poslovnica nije pronađena | Šeherezada",
     "lokacijaNaslov": "{ime}, {ulica} — halal kebab u Ljubljani",
-    "lokacijaOpis": "{ime} na adresi {naslov}. Otvoreno {urnik}. Kako doći, parkiranje i cijeli meni sa studentskim bonima.",
+    "lokacijaOpis": "{ime} na adresi {naslov}. Otvoreno {urnik}. Kako doći i cijeli meni sa studentskim bonima.",
     "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
     "oglasNiNajden": "Radno mjesto nije pronađeno | Šeherezada",
     "oglasNaslov": "{mesto} — posao u Ljubljani | Šeherezada",
@@ -823,7 +823,8 @@
         "1": "Pult i ponuda jela",
         "2": "Ulaz u lokal kod Bavarskog dvora"
       }
-    }
+    },
+    "mesto": "Ljubljana"
   },
   "oNasStran": {
     "altZar": "Šeherezada majstor sa žara priprema svježe meso",

@@ -33,7 +33,7 @@
     "stran404Opis": "The page you are looking for does not exist. Browse our menu of {vseh} dishes or find your nearest location.",
     "lokacijaNiNajdena": "Location Not Found | Šeherezada",
     "lokacijaNaslov": "{ime}, {ulica} — Halal Kebab in Ljubljana",
-    "lokacijaOpis": "{ime} at {naslov}. Open {urnik}. How to get here, parking and the full menu with student vouchers.",
+    "lokacijaOpis": "{ime} at {naslov}. Open {urnik}. How to get here and the full menu with student vouchers.",
     "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
     "oglasNiNajden": "Position Not Found | Šeherezada",
     "oglasNaslov": "{mesto} — job in Ljubljana | Šeherezada",
@@ -890,7 +890,8 @@
         "1": "The counter and the day’s offering",
         "2": "Entrance by Bavarski dvor"
       }
-    }
+    },
+    "mesto": "Ljubljana"
   },
   "galerijaStran": {
     "vodniZnak": "PHOTOS",

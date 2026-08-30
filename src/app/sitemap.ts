@@ -49,15 +49,21 @@ const STATIC_PAGES: { path: StaticPathname; priority: number }[] = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   return LOCALES.flatMap((locale) => {
-    const entry = (url: string, priority: number) => ({
-      url,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority,
-    });
+    /**
+     * BREZ lastModified IN changeFrequency — namerno.
+     *
+     * lastModified je bil čas gradnje, torej isti na vseh naslovih. Po vsaki
+     * objavi bi vse strani trdile, da so bile spremenjene, čeprav se ni
+     * spremenila nobena. Google se na tak podatek hitro nauči, da mu ne sme
+     * verjeti, in ga neha gledati — s tem izgubimo tudi tiste primere, ko bi
+     * nam res koristil. Bolje brez kot lažen.
+     *
+     * changeFrequency Google po lastni izjavi ignorira od 2015.
+     *
+     * priority ostane: je le namig, katera stran je za nas pomembnejša.
+     */
+    const entry = (url: string, priority: number) => ({ url, priority });
 
     return [
       ...STATIC_PAGES.map(({ path, priority }) =>

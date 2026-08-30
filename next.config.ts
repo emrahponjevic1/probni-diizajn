@@ -17,12 +17,44 @@ const nextConfig: NextConfig = {
     // unoptimized je bil potreben samo zaradi statičnega izvoza.
     // Zdaj Next slike sam pretvori v AVIF/WebP in jih postreže v pravi velikosti.
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [
+    // remotePatterns je prazen namenoma: dokler je med njimi stal
+    // images.unsplash.com, je lahko /_next/image prek naše domene stregel
+    // katerokoli sliko s tistega naslova. Ostanek iz časa, ko so bile na
+    // strani tuje fotografije; nobena se ne uporablja več. Odkrito v
+    // neodvisni reviziji (6E.3).
+    remotePatterns: [],
+  },
+
+  /**
+   * VARNOSTNE GLAVE
+   *
+   * Ni SEO, je pa red za stran s kontaktnim obrazcem. Vercel sam doda HSTS,
+   * ostalega ne. Prej ni bilo nobene (6E.4).
+   *
+   *   X-Content-Type-Options  brskalnik ne sme ugibati vrste datoteke
+   *   Referrer-Policy         tuja stran ne izve, s katere poti je gost prišel
+   *   X-Frame-Options         strani ne more nihče vgraditi v svoj okvir
+   *   Permissions-Policy      izklopi naprave, ki jih ne uporabljamo
+   *
+   * Content-Security-Policy namenoma NI: vgrajeni Googlov zemljevid in
+   * next/font zahtevata natančno napisano pravilo, ki ga je treba preizkusiti
+   * na živi domeni. Napačno napisan CSP tiho polomi stran.
+   */
+  async headers() {
+    return [
       {
-        protocol: "https",
-        hostname: "images.unsplash.com",
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), payment=()",
+          },
+        ],
       },
-    ],
+    ];
   },
 };
 

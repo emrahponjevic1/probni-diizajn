@@ -1,4 +1,5 @@
 import createMiddleware from "next-intl/middleware";
+import { NextResponse, type NextRequest } from "next/server";
 import { routing } from "./i18n/routing";
 
 // ---------------------------------------------------------------------------
@@ -17,7 +18,34 @@ import { routing } from "./i18n/routing";
 // tiho neha loviti karkoli. Build tega ne javi. [^.]* nima te pasti.
 // ---------------------------------------------------------------------------
 
-export default createMiddleware(routing);
+const obdelaj = createMiddleware(routing);
+
+/**
+ * PREUSMERITEV /sl/... JE TRAJNA, NE ZAČASNA
+ *
+ * next-intl vrne 307 (začasno). Pri nas ta preusmeritev ni začasna: naslov
+ * /sl/meni ne bo nikoli obstajal, ker slovenščina po dogovoru nima predpone.
+ * 308 pove Googlu, naj si zapomni cilj in starega naslova ne obiskuje več.
+ *
+ * Pretvarjamo samo preusmeritve, ne vseh odgovorov, in samo tam, kjer je
+ * zaznavanje jezika izklopljeno — torej so vse preusmeritve strukturne,
+ * ne odvisne od gosta. Odkrito v neodvisni reviziji (6E.5).
+ */
+export default function proxy(zahteva: NextRequest) {
+  const odgovor = obdelaj(zahteva);
+
+  if (odgovor.status === 307) {
+    const cilj = odgovor.headers.get("location");
+    if (cilj) {
+      const trajna = NextResponse.redirect(new URL(cilj, zahteva.url), 308);
+      // Piškotek jezika, ki ga je nastavil next-intl, mora preživeti.
+      odgovor.cookies.getAll().forEach((c) => trajna.cookies.set(c));
+      return trajna;
+    }
+  }
+
+  return odgovor;
+}
 
 export const config = {
   matcher: "/((?!api|_next|_vercel)[^.]*)",

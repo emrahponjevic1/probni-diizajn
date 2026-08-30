@@ -1,1 +1,1617 @@
-{}
+{
+  "piskotki": {
+    "oznaka": "Çerez onayı",
+    "naslov": "Bu sitedeki çerezler",
+    "besediloZAnalitiko": "Zorunlu çerez bu seçimi hatırlar. Analitik çerezleri yalnızca „Tümünü kabul et“ derseniz yükleriz.",
+    "besediloBrezAnalitike": "Yalnızca bu seçimi hatırlayan çerezi kullanıyoruz. Analitik henüz açık değil — açıldığında yalnızca burada „Tümünü kabul et“ seçerseniz yüklenecek.",
+    "vec": "Ayrıntılar <povezava>çerez politikasında</povezava>.",
+    "samoNujni": "Yalnızca zorunlu",
+    "sprejmiVse": "Tümünü kabul et"
+  },
+  "noga": {
+    "opis": "1998'den beri Ljubljana sokak lezzeti. İki şubede helal döner, dürüm, falafel ve pizza — Trubarjeva 31 ve Slovenska 55.",
+    "lokacijiInKontakt": "ŞUBELER VE İLETİŞİM",
+    "avtorskePravice": "© 2026 Šeherezada Ljubljana. Tüm hakları saklıdır.",
+    "piskotki": "Çerezler",
+    "politikaZasebnosti": "Gizlilik politikası"
+  },
+  "navigacija": {
+    "domov": "Ana sayfa",
+    "meni": "Menü",
+    "galerija": "Galeri",
+    "oNas": "Hakkımızda",
+    "pogostaVprasanja": "Sık sorulan sorular",
+    "zaposlitev": "Kariyer",
+    "blog": "Blog",
+    "kontakt": "İletişim",
+    "lokaciji": "Şubeler",
+    "jezik": "Dil",
+    "izbiraJezika": "Dil seçimi",
+    "odpriMeni": "Gezinme menüsünü aç",
+    "zapriMeni": "Menüyü kapat"
+  },
+  "stran404": {
+    "oznaka": "HATA 404 · SAYFA BULUNAMADI",
+    "znacka": "🔍 Menüde mi kayboldunuz?",
+    "naslov": "Hay aksi! Bu sayfa menümüzden kayboldu",
+    "podnaslov": "İzlediğiniz bağlantı yok ya da taşınmış. Merak etmeyin — taze pişmiş döner, çıtır falafel ve sıcak pizzalar şubelerimizde sizi bekliyor!",
+    "nazajNaPrvo": "Ana sayfaya dön",
+    "oglejSiMeni": "Tüm menüye göz at",
+    "morda": "Belki bu sayfalardan birini arıyordunuz:",
+    "meniNaslov": "Tüm menü",
+    "meniOpis": "29 taze yemek: döner, dürüm, pizza, burger ve falafel.",
+    "boniNaslov": "Öğrenci fişleri",
+    "boniOpis": "Tek fiyat 3,00 € fark ve garnitürlerle fişe dahil 19 yemek.",
+    "halalNaslov": "%100 helal sertifikası",
+    "halalOpis": "1998'den beri sıkı temizlik standartları, domuz eti ve alkol yok.",
+    "kontaktNaslov": "Şubeler ve iletişim",
+    "kontaktOpis": "Trubarjeva 31 ve Slovenska 55. Her gün geç saatlere kadar açık."
+  },
+  "hero": {
+    "naslov": "Ljubljana merkezinde döner, pizza ve falafel",
+    "podnaslov": "Öğrenci fişleri · geç saatlere kadar açık",
+    "opis": "%100 taze pişmiş helal et ve çıtır ev yapımı falafel. Bizi Trubarjeva 31 ve Slovenska 55'te bulabilirsiniz.",
+    "ocena": "4,5",
+    "steviloOcen": "(1.972 Google değerlendirmesi)",
+    "poglejMeni": "Menüye ve fiyatlara bak",
+    "lokacija": "Şube",
+    "altKebab": "Šeherezada gerçek Türk döner kebap",
+    "halalMeso": "Helal et",
+    "stoOdstotkovSveze": "%100 taze",
+    "od1998": "1998'DEN BERİ",
+    "dveLokaciji": "İki şube",
+    "trubarjevaInSlovenska": "Trubarjeva ve Slovenska",
+    "domacKruh": "Gizli tarifle ev yapımı ekmek"
+  },
+  "priljubljene": {
+    "vodniZnak": "SEÇKİ",
+    "oznakaPoglavja": "EN ÇOK SEVİLENLER",
+    "naslov": "En çok sevilenler",
+    "podnaslov": "Misafirlerimizin en sık sipariş ettiği {stevilo} yemek. Hepsi %100 helal malzemelerle taze hazırlanır. Çoğu öğrenci fişiyle de alınabilir.",
+    "cena": "Fiyat",
+    "poglejPodrobnosti": "Ayrıntılara bak",
+    "izberiteJed": "Görüntülemek için bir yemek seçin:",
+    "steviloSpecialitet": "{stevilo} spesiyal",
+    "povlecite": "Daha fazla spesiyal için kaydırın",
+    "znackaNajbolj": "En çok satan",
+    "znackaVegansko": "Vegan",
+    "znackaVegetarijansko": "Vejetaryen",
+    "znackaNaBon": "Fişe dahil",
+    "celotenMeni": "Tüm menü: {stevilo} yemek",
+    "celotenMeniOpis": "Dönerler, dürümler, falafel, burgerler, tabaklar ve pizzalar. {stevilo} yemek öğrenci fişiyle alınabilir.",
+    "odpriMeni": "Tüm menüyü aç",
+    "halalZnacka": "✓ %100 helal",
+    "velika": "büyük {cena}",
+    "opisJedi": "Yemeğin tarifi",
+    "sestavine": "İçindekiler",
+    "alergeni": "Alerjenler",
+    "zapriOkno": "Pencereyi kapat"
+  },
+  "zgodba": {
+    "vodniZnak": "HİKÂYE",
+    "oznakaPoglavja": "HİKÂYEMİZ VE GELENEĞİMİZ",
+    "naslov": "1998'den beri Ljubljana merkezinde",
+    "uvod": "Šeherezada, Ljubljana'da 1998'den beri hizmet veriyor — 25 yılı aşkın süredir. Bugün iki şubemiz var: eski şehir merkezinde Trubarjeva 31 ve Bavarski dvor yanında Slovenska 55. Tarifler ve hazırlama şeklimiz hiç değişmedi.",
+    "stebri": {
+      "ogenjNaslov": "Gerçek ateş ve 24 saatlik marinasyon",
+      "ogenjOpis": "Eti 24 saat boyunca gerçek doğu baharatlarının karışımında marine ediyor, dayanılmaz bir sululuk için kızgın ızgarada pişiriyoruz.",
+      "kruhNaslov": "Gizli tarifle ev yapımı ekmek",
+      "kruhOpis": "Hamuru her sabah elle yoğuruyor, pide ekmeğini ve ince yufkayı anında pişiriyoruz — asla önceden değil.",
+      "halalNaslov": "%100 helal ve günlük tazelik",
+      "halalOpis": "Yalnızca sertifikalı, kaliteli dana ve tavuk eti ile yerel üretim taze sebze kullanıyoruz."
+    },
+    "altMojster": "Šeherezada ızgara ustası döner hazırlıyor",
+    "altKruh": "Fırında taze pişmiş ev yapımı pide ekmeği",
+    "letoOdprtja": "İlk kapımızı açtığımız yıl"
+  },
+  "halalZnak": {
+    "certificirano": "%100 helal sertifikalı",
+    "brezSvinjine": "%0 domuz eti · Taviz yok",
+    "vodniZnak": "HELAL",
+    "oznakaPoglavja": "KALİTE GARANTİSİ",
+    "naslov": "Ljubljana'da %100 helal yemek — her iki şubede",
+    "znackaMeso": "%100 helal et",
+    "znackaSvinjina": "%0 domuz eti",
+    "znackaAlkohol": "%100 alkolsüz",
+    "uvod": "Šeherezada'daki tüm et %100 helal sertifikalıdır. Trubarjeva 31 ve Slovenska 55'teki mutfaklarımızda domuz eti, domuz türevi ya da alkol yoktur — istisnasız. Menüde ayrıca tamamen bitkisel {stevilo} yemek bulunur.",
+    "poreklaNaslov": "Doğrulanmış ve sertifikalı kaynak",
+    "poreklaOpis": "Yalnızca geçerli uluslararası sertifikaya ve izlenebilirliğe sahip, denetlenen Avrupa kaynaklarından dana ve tavuk eti kullanıyoruz.",
+    "prepovedNaslov": "%0 domuz eti ve alkolsüz",
+    "prepovedOpis": "Mutfaklarımızda domuz eti, domuz türevleri, alkol ve her türlü gizli hayvansal yağ kesinlikle yasaktır.",
+    "svezeNaslov": "Her gün taze hazırlanır",
+    "svezeOpis": "Her sabah taze pişen ev yapımı pide ekmeği, gizli tarifle marinasyon ve yerel üretim taze sebze.",
+    "vecOHalalu": "Helal ne demek ve nasıl sertifikalanır"
+  },
+  "boniOdsek": {
+    "vodniZnak": "FİŞLER",
+    "oznakaPoglavja": "ÖĞRENCİ YEMEĞİ",
+    "naslov": "Šeherezada: <poudarek>Okurken</poudarek> <druga>doyarak kal!</druga>",
+    "podnaslov": "Menümüzdeki {vseh} yemekten {naBon} tanesi öğrenci fişiyle alınabilir. {doplacilo} fark ödeyerek ana yemek, salata, elma ve içecek alırsın — Ljubljana merkezindeki her iki şubede.",
+    "znacka": "Öğrenci fişi kabul edilir",
+    "bannerNaslov": "Öğrenci fişlerini Šeherezada'da kullan",
+    "bannerGumb": "Öğrenci fişleri hakkında",
+    "bannerVrstica1": "Döner, dürüm, falafel ve pizza",
+    "bannerVrstica2": "— hepsi fişe dahil.",
+    "altEkipa": "Šeherezada'nın güler yüzlü ekibi taze öğrenci menüleri hazırlıyor",
+    "naVsehLokacijah": "Tüm şubelerde",
+    "steviloLokacij": "Ljubljana'da {stevilo} şube",
+    "doplaciloOznaka": "FARK",
+    "doplaciloOpis": "Ana yemek, salata, elma ve içecek.",
+    "altObrok": "Döner öğrenci menüsü",
+    "kebabMeni": "Döner menü",
+    "ikonaGlavnaJed": "Ana yemek (döner)",
+    "ikonaSolata": "Taze salata",
+    "ikonaSadje": "Taze meyve (elma)",
+    "ikonaPijaca": "Su / içecek"
+  },
+  "ocene": {
+    "vodniZnak": "YORUMLAR",
+    "oznakaPoglavja": "MİSAFİR YORUMLARI VE GÜVEN",
+    "naslov": "Hep geri dönenlerin sözleri.",
+    "podnaslov": "Binlerce memnun misafirin güveni en büyük ödülümüz. Trubarjeva ve Slovenska şubelerimizden gerçek deneyimleri keşfedin.",
+    "vodniZnakGosti": "MİSAFİRLER",
+    "prikaziRecenzijo": "{stevilka}. yorumu göster"
+  },
+  "faqOdsek": {
+    "vodniZnak": "SORULAR",
+    "oznakaPoglavja": "SIK SORULAN SORULAR",
+    "naslovPrvaVrstica": "BİLMEN",
+    "naslovPoudarek": "GEREKEN",
+    "naslovTretjaVrstica": "HER ŞEY.",
+    "uvod": "Fişler, çalışma saatleri veya teslimat konusunda emin değil misin? İşte sıcak sıcak servis edilen cevaplar.",
+    "gumb": "Tüm soruları gör (SSS)",
+    "vprasanja": {
+      "hoursTag": "ÇALIŞMA SAATLERİ",
+      "hoursVprasanje": "ŠEHEREZADA'NIN ÇALIŞMA SAATLERİ NEDİR?",
+      "hoursOdgovor": "Trubarjeva 31'deki {ime1} her gün {od1} – {do1} arası, cuma ve cumartesi ise {vikend1} saatine kadar açıktır. Slovenska 55'teki {ime2} her gün {od2} – {do2} arası açıktır.",
+      "halalTag": "KALİTE VE HELAL",
+      "halalVprasanje": "TÜM ETLER %100 HELAL SERTİFİKALI MI?",
+      "halalOdgovor": "Evet, sunduğumuz tüm etler %100 helal sertifikalıdır; sıkı hijyen standartlarıyla, tam izlenebilirlikle ve %0 domuz etiyle hazırlanır.",
+      "boniTag": "ÖĞRENCİ FİŞLERİ",
+      "boniVprasanje": "ÖĞRENCİ FİŞLERİ ŠEHEREZADA'DA NASIL İŞLİYOR?",
+      "boniOdgovor": "Öğrenciler sipariş sırasında öğrenci kartıyla ya da ŠTUDENTSKA PREHRANA uygulamasıyla kimliklerini doğrular. Fark {doplacilo}, menüye ise ana yemek, salata, elma ve içecek dahildir.",
+      "deliveryTag": "TESLİMAT VE PAKET",
+      "deliveryVprasanje": "EVE YEMEK TESLİMATI YAPIYOR MUSUNUZ?",
+      "deliveryOdgovor": "Evet! Yemeklerimizi Wolt üzerinden gönderiyoruz; önceden arayarak istediğiniz şubeden hızlı paket alma da seçebilirsiniz."
+    }
+  },
+  "znacka": {
+    "preverjamo": "Çalışma saatleri kontrol ediliyor …",
+    "odprtoZdaj": "Şu anda açık",
+    "doUre": "· kapanış {ura}",
+    "trenutnoZaprto": "Şu anda kapalı",
+    "odUre": "· {kdaj} açılış {ura}",
+    "jutri": "yarın",
+    "danes": "bugün",
+    "odprto": "Açık",
+    "zaprto": "Kapalı",
+    "danesOznaka": "bugün"
+  },
+  "meta": {
+    "naslovnicaNaslov": "Ljubljana'da helal döner, falafel ve pizza | Šeherezada",
+    "naslovnicaOpis": "Ljubljana merkezinde helal döner, dürüm, falafel ve pizza. İki şube — Trubarjeva 31 ve Slovenska 55. Öğrenci fişlerinde {doplacilo} fark.",
+    "meniNaslov": "Ljubljana'da ucuz yemek — menü ve fiyatlar | Šeherezada",
+    "meniOpis": "Ljubljana merkezinde {vseh} yemek: döner, dürüm, falafel, burger ve sipariş üzerine pişen pizzalar. {naBon} yemek öğrenci fişiyle, {vegan} tanesi vegan. Fiyat performans harika, 1,00 €'dan başlıyor.",
+    "kontaktNaslov": "İletişim — Ljubljana merkezinde iki şube | Šeherezada",
+    "kontaktOpis": "Ljubljana'da Trubarjeva 31 ve Slovenska 55'te Šeherezada. Telefon {telefon}, e-posta ve sorular, catering ve rezervasyon için form.",
+    "kontaktOgOpis": "Ljubljana'da iki şube — Trubarjeva 31 ve Slovenska 55. Telefon, e-posta ve iletişim formu.",
+    "oNasNaslov": "Hakkımızda — 1998'den beri Ljubljana'da helal döner | Šeherezada",
+    "oNasOpis": "1998'den beri Ljubljana merkezinde helal restoran. Taze pişen pide ekmeği, ateşte ızgara ve iki şube — Trubarjeva 31 ve Slovenska 55.",
+    "oNasOgOpis": "1998'den beri Ljubljana'da gerçek mutfak mirası, gerçek ateş ve ev yapımı ekmek.",
+    "faqNaslov": "Sık sorulan sorular — helal, fişler, saatler | Šeherezada",
+    "faqOpis": "Helal sertifikası, {doplacilo} farkla öğrenci fişleri, vegan seçenekler ve Ljubljana'daki iki şubenin çalışma saatleri hakkında cevaplar.",
+    "galerijaNaslov": "Galeri · görsel hikâye | Šeherezada Ljubljana",
+    "galerijaOpis": "Ljubljana'daki Šeherezada restoranında en sevdiğiniz yemeklerin, taze pişen etin ve ev yapımı lezzetlerin nasıl hazırlandığını görün. Mutfağımızdan ve ortamımızdan kareler.",
+    "halalNaslov": "Ljubljana'da helal restoran — sertifikalı et | Šeherezada",
+    "halalOpis": "Helal ne demek, Slovenya'da nasıl sertifikalanır ve menümüzde ne anlama gelir: domuz eti yok, alkol yok, Ljubljana'daki iki şubede de sertifikalı helal et.",
+    "boniNaslov": "Ljubljana'da öğrenci fişleri — {doplacilo} fark | Šeherezada",
+    "boniOpis": "Šeherezada'da öğrenci fişi: ana yemek, salata, elma ve içecek için {doplacilo} fark. {naBon} yemek fişe dahil, Ljubljana merkezinde iki şube. Fiş ne zamana kadar geçerli ve nasıl kullanılır.",
+    "piskotkiNaslov": "Çerez politikası | Šeherezada Ljubljana",
+    "piskotkiOpis": "Šeherezada Ljubljana web sitesinde çerez kullanımı hakkında ZEKom-2 ve GDPR uyarınca bilgiler. Çerez türleri ve yönetim seçenekleri.",
+    "zasebnostNaslov": "Gizlilik politikası | Šeherezada Ljubljana",
+    "zasebnostOpis": "Šeherezada Ljubljana restoranında kişisel verilerin korunması ve gizlilik politikası, GDPR ve ZVOP-2 uyarınca. Şeffaflık, kişisel haklar ve güvenlik.",
+    "blogNaslov": "Blog — Ljubljana'da yemek, helal ve fişler | Šeherezada",
+    "blogOpis": "Ljubljana merkezindeki Šeherezada restoranında helal seçenekler, vegan yemekler ve öğrenci fişleri üzerine öneriler ve hikâyeler.",
+    "blogOgOpis": "Doğu mutfağı geleneğinin ustalığını, taze yemek hazırlamanın sırlarını ve fırın ile ızgara ustalarımızın hikâyelerini keşfedin.",
+    "zaposlitevNaslov": "Ljubljana'da iş ve kariyer | Šeherezada",
+    "zaposlitevOpis": "Ljubljana merkezindeki Šeherezada restoranında çalışın. Açık pozisyonlara bakın ya da bize başvurunuzu gönderin — iki şube, Trubarjeva 31 ve Slovenska 55.",
+    "zaposlitevOgOpis": "Ljubljana merkezindeki Šeherezada restoranında çalışın. Açık pozisyonlara bakın ya da bize başvurunuzu gönderin.",
+    "stran404Naslov": "Sayfa bulunamadı (404) | Šeherezada Ljubljana",
+    "stran404Opis": "Šeherezada Ljubljana web sitesinde aradığınız sayfa bulunamadı. {vseh} yemeklik menümüze bakın ya da size en yakın şubeyi bulun.",
+    "ogSlikaOpis": "Šeherezada — Ljubljana'da helal döner, falafel ve humus",
+    "lokacijaNiNajdena": "Şube bulunamadı | Šeherezada",
+    "lokacijaNaslov": "{ime}, {ulica} — Ljubljana'da helal döner",
+    "lokacijaOpis": "{naslov} adresinde {ime}. Açılış: {urnik}. Nasıl gelinir, park imkânları ve öğrenci fişli tüm menü.",
+    "lokacijaOgNaslov": "{ime} — {ulica}, {mesto}",
+    "oglasNiNajden": "Pozisyon bulunamadı | Šeherezada",
+    "oglasNaslov": "{mesto} — Ljubljana'da iş | Šeherezada",
+    "oglasOgNaslov": "{mesto} — Šeherezada Ljubljana",
+    "objavaNiNajdena": "Yazı bulunamadı | Šeherezada",
+    "objavaNaslov": "{naslov} | Šeherezada Ljubljana"
+  },
+  "meniStran": {
+    "vodniZnak": "MENÜ",
+    "oznakaPoglavja": "YEMEK LİSTESİ VE FİYATLAR",
+    "naslov": "Ljubljana'da uygun fiyatlı helal yemek — menü ve fiyatlar",
+    "podnaslov": "{vseh} yemek: döner, dürüm, falafel, burger ve sipariş üzerine pişen pizzalar. {naBon} yemek {doplacilo} farkla öğrenci fişiyle alınabilir, {veganskih} yemek ise vegandır.",
+    "zavihekVse": "Tüm menü",
+    "zavihekBoni": "Öğrenci fişleri",
+    "zavihekVegi": "Vejetaryen ve vegan",
+    "iskanje": "Yemek ara (döner, burger, pizza, falafel)...",
+    "pocistiIskanje": "Aramayı temizle",
+    "mrezaNaslov": "Kart ızgarası",
+    "mrezaOznaka": "Izgara görünümü",
+    "seznamNaslov": "Liste",
+    "seznamOznaka": "Liste görünümü",
+    "bannerZnacka": "Öğrenci yemeği",
+    "bannerNaslov": "Öğrenci fişlerini Šeherezada'da kullan",
+    "bannerUvod": "Her öğrenci menüsünde şunlar var:",
+    "bannerVsebina": "<b>Seçtiğin ana yemek</b> + <b>Taze salata</b> + <b>Elma</b> + <b>İçecek</b>.",
+    "doplaciloOznaka": "Fark",
+    "zVeljavnimBonom": "geçerli fişle",
+    "kategorijaOznaka": "{ime} kategorisi",
+    "steviloJedi": "{stevilo} yemek",
+    "niZadetkov": "Yemek bulunamadı",
+    "niZadetkovOpis": "Seçtiğiniz arama ya da filtre için şu anda sonuç yok. Başka bir arama terimi deneyin ya da filtreleri sıfırlayın.",
+    "ponastaviFiltre": "Filtreleri sıfırla",
+    "klikniSestavineAlergeni": "İçindekiler ve alerjenler için tıkla",
+    "klikniSestavine": "İçindekiler için tıkla",
+    "znackaVegansko": "Vegan",
+    "znackaVegetarijansko": "Vejetaryen",
+    "znackaVegi": "Vejetaryen",
+    "znackaNaBon": "Fişe dahil",
+    "znackaBon": "Fiş",
+    "naStudentskiBon": "✓ Öğrenci fişiyle ({doplacilo})",
+    "naBonSDoplacilom": "Fişe dahil ({doplacilo} fark)",
+    "studentskiBonZnacka": "Öğrenci fişi ({doplacilo})",
+    "velika": "büyük {cena}",
+    "narociWolt": "Wolt üzerinden sipariş ver",
+    "podrobnostiNaslov": "Yemek ayrıntıları (içindekiler ve alerjenler)",
+    "podrobnostiOznaka": "{ime} yemeğinin ayrıntıları",
+    "zapriOkno": "Pencereyi kapat",
+    "opisJedi": "Yemeğin tarifi",
+    "sestavine": "İçindekiler",
+    "alergeni": "Alerjenler",
+    "brezAlergenov": "Bilinen alerjen yok.",
+    "schemaIme": "Menü — {znamka}",
+    "schemaVelika": "Büyük",
+    "prikazanih": "<b>{stevilo}</b> yemek gösteriliyor"
+  },
+  "halalStran": {
+    "vodniZnak": "HELAL",
+    "oznaka": "%100 HELAL SERTİFİKALI · LJUBLJANA",
+    "naslov": "Ljubljana'da %100 helal yemek — <poudarek>taviz yok</poudarek>",
+    "uvod": "Šeherezada'da helal bir pazarlama sözü değil; temizliğe, izlenebilirliğe ve geleneğe saygıya verilmiş sarsılmaz bir sözdür. Tüm dana ve tavuk etimiz geçerli sertifikaya sahip doğrulanmış kaynaklardan gelir. Mutfaklarımızda domuz eti de alkol de yoktur.",
+    "factMeso": "Helal et",
+    "factMesoVrednost": "%100",
+    "factMesoPod": "dana ve tavuk",
+    "factSvinjina": "Domuz eti ve alkol",
+    "factSvinjinaVrednost": "%0",
+    "factSvinjinaPod": "hiçbir yemekte istisnasız",
+    "factLokacije": "Ljubljana'da şube",
+    "factLokacijePod": "Trubarjeva ve Slovenska",
+    "factBrezmesne": "Etsiz yemekler",
+    "factBrezmesnePod": "vegan ve vejetaryen",
+    "gumbMeni": "Tüm menüye bak",
+    "gumbCertifikat": "Sertifikayı ve standartları incele",
+    "certZnackaNaslov": "%100 helal sertifikalı",
+    "certZnackaPod": "%0 domuz eti · %0 alkol · Denetlenen kaynak",
+    "certObvestilo": "Sertifikanın orijinal belgesi her iki şubede de duvarda asılıdır.",
+    "stebriVodniZnak": "SÜTUNLAR",
+    "stebriOznaka": "NEYE İNANIYORUZ",
+    "stebriNaslov": "Helal güvenliğinin üç sarsılmaz sütunu",
+    "stebriPodnaslov": "Bizde helal, bütünsel bir sorumluluk sistemi demektir — her bir malzemenin kaynağından tabağınızdaki hazırlanış biçimine kadar.",
+    "steber1Oznaka": "01 / Temiz malzemeler",
+    "steber1Naslov": "Yasaklı malzeme yok",
+    "steber1Opis": "Mekânlarımızda domuz eti, domuz yağı, jelatin ya da bir damla alkol bulunmaz. Soslarda, dürüm hamurunda ve marinasyonlarda da yalnızca %100 temiz malzeme kullanırız.",
+    "steber1Znacka": "Hindi jambonu ve alkolsüz mutfak",
+    "steber2Oznaka": "02 / Tam izlenebilirlik",
+    "steber2Naslov": "%100 doğrulanmış kaynak",
+    "steber2Opis": "Yalnızca geçerli uluslararası helal sertifikalarına ve her partide ayrıntılı izlenebilirliğe sahip, tanınmış Avrupa kesimhanelerinden kaliteli dana ve tavuk eti kullanıyoruz.",
+    "steber2Znacka": "Uluslararası akredite tedarikçiler",
+    "steber3Oznaka": "03 / Sıkı protokoller",
+    "steber3Naslov": "Mutfakta hijyenik çalışma",
+    "steber3Opis": "Ayrı çalışma alanları, özel ekipman ve mutfak personelinin düzenli eğitimi her türlü çapraz bulaşmayı önler. Bizim için hijyen, dinî ve mutfak sorumluluğunun bir parçasıdır.",
+    "steber3Znacka": "Düzenli ve habersiz denetimler",
+    "meniVodniZnak": "MENÜ",
+    "meniOznaka": "TAM ŞEFFAFLIK",
+    "meniNaslov": "Menümüzde ne var ve bizde asla ne bulamazsınız",
+    "meniPodnaslov": "Her misafire karşı şeffaflık: gururla kullandığımız malzemelerin ve Šeherezada'da kesinlikle yasak olanların net bir listesi.",
+    "dovoljenoZnacka": "Her zaman kullandıklarımız (%100 helal)",
+    "dovoljenoNaslov": "İzin verilen ve sertifikalı",
+    "dovoljeno1Naslov": "%100 helal dana ve tavuk eti",
+    "dovoljeno1Opis": "Sulu döner, ızgara pirzolalar, şişler ve tabaklar.",
+    "dovoljeno2Naslov": "Pizzalarda hindi jambonu",
+    "dovoljeno2Opis": "Jambonlu tüm pizzalarda (örn. Pizza Klasik) yalnızca sertifikalı hindi jambonu kullanırız.",
+    "dovoljeno3Naslov": "Her gün taze bitkisel malzemeler",
+    "dovoljeno3Opis": "Elde hazırlanan nohutlu falafel, taze sebze, ev yapımı soslar ve susamlı ekmek.",
+    "dovoljeno4Naslov": "Alkolsüz menü",
+    "dovoljeno4Opis": "Alkol servis etmiyor ve yemek hazırlığında kullanmıyoruz.",
+    "prepovedanoZnacka": "Kesinlikle yasak (%0 bulunur)",
+    "prepovedanoNaslov": "Taviz yok",
+    "prepovedano1Naslov": "%0 domuz eti",
+    "prepovedano1Opis": "{vseh} yemeğimizin hiçbirinde domuz eti, jambon, pastırma ya da domuz yağı bulunmaz.",
+    "prepovedano2Naslov": "Yemekte ve içecekte %0 alkol",
+    "prepovedano2Opis": "Bira ya da şarap servis etmiyoruz; marinasyonlarda, soslarda, tatlılarda ve hamurda da alkol yoktur.",
+    "prepovedano3Naslov": "%0 sertifikasız et ürünü",
+    "prepovedano3Opis": "Tüm et yalnızca tam izlenebilirliğe ve denetime sahip doğrulanmış zincirlerden gelir.",
+    "prepovedano4Naslov": "%0 domuz jelatini",
+    "prepovedano4Opis": "Malzemeleri ve sosları helal sertifikalı tedarikçilerden satın alıyoruz.",
+    "nadzorVodniZnak": "DENETİM",
+    "nadzorOznaka": "RESMÎ BELGE VE KURUM",
+    "nadzorNaslov": "Slovenya'da helal resmî olarak nasıl sertifikalanır",
+    "nadzorPodnaslov": "Helal sertifikası duvardaki tek seferlik bir belge değil, en yüksek güven düzeyini sağlayan sürekli bir denetimdir.",
+    "statusZnacka": "Geçerli durum",
+    "statusNaslov": "Šeherezada helal sertifikası",
+    "statusOpis": "Šeherezada restoranı, yemek hazırlama ve servis için resmî helal sertifikasına sahiptir. Belge, Ljubljana'daki her iki şubemizde de duvarda asılıdır.",
+    "izdajateljNaslov": "Slovenya'daki resmî sertifika kurumu",
+    "oznakaIzdajatelj": "Veren kurum:",
+    "oznakaUstanova": "Kuruluş:",
+    "oznakaSedez": "Merkez:",
+    "oznakaStandard": "Standart:",
+    "izdajateljOpis": "Zavod Halal, tedarikçileri uzman denetimden geçirir, tüm malzemeleri analiz eder ve mutfak koşullarını düzenli olarak kontrol eder. Sertifika yalnızca sıkı uluslararası ölçütlerin tamamı karşılandığında verilir.",
+    "uradnaStran": "Zavod Halal resmî sitesi ({naslov})",
+    "postopekNaslov": "Resmî sertifikasyon sürecinin {stevilo} adımı:",
+    "rastlinskaZnacka": "Bitkisel seçenekler",
+    "rastlinskaNaslov": "{vegan} vegan ve {vegetarijanskih} vejetaryen yemek",
+    "rastlinskaOpis": "Helal ve bitkisel beslenme birbirini çok güzel tamamlar. Et yemeyenler bizde geniş bir seçkiye sahip: nohuttan çıtır ev yapımı falafel, zeytinyağlı taze karışık salatalar, kızarmış garnitürler ve dolu dolu etsiz pizzalar — hepsi menüde açıkça işaretli, gönül rahatlığıyla sipariş verin.",
+    "rastlinska1": "%100 vegan falafel",
+    "rastlinska2": "Her gün taze salatalar",
+    "rastlinska3": "Etsiz pizzalar",
+    "rastlinska4": "Ayrı hazırlık",
+    "faqVodniZnak": "SSS",
+    "faqOznaka": "HELAL YEMEK HAKKINDA SIK SORULAN SORULAR",
+    "faqNaslov": "En çok merak ettikleriniz",
+    "faqPodnaslov": "Šeherezada'da helal hazırlık, sertifika ve malzemelerle ilgili tüm sorulara hızlı ve şeffaf cevaplar.",
+    "lokacijeVodniZnak": "ŞUBELER",
+    "lokacijeOznaka": "BİZİ NEREDE BULURSUNUZ",
+    "lokacijeNaslov": "Ljubljana merkezindeki her iki şubemize de bekleriz",
+    "lokacijePodnaslov": "Her iki şubede de aynı taze %100 helal menü, aynı güler yüz ve keyifli bir ortam sizi bekliyor.",
+    "delovniCas": "Şubenin çalışma saatleri:",
+    "podrobnostiPoslovalnice": "Şube ayrıntıları",
+    "ctaNaslov": "Kendinize gerçek ve güvenli bir helal lezzet deneyimi yaşatın",
+    "ctaOpis": "Sulu dana dönerden hindi jambonlu çıtır pizzalara ve ev yapımı falafele kadar — tazeliğin ve standartlara saygının yarattığı farkı tadın.",
+    "ctaMeni": "Menüyü keşfet ({stevilo} yemek)",
+    "ctaKontakt": "İletişim ve rezervasyon"
+  },
+  "boniStran": {
+    "vodniZnak": "FİŞLER",
+    "oznaka": "ÖĞRENCİ YEMEĞİ · LJUBLJANA",
+    "naslov": "Šeherezada'da öğrenci fişleri — <poudarek>{doplacilo} fark</poudarek>",
+    "uvod": "Menümüzdeki {vseh} yemekten {naBon} tanesi, Ljubljana merkezindeki her iki şubede de öğrenci fişiyle alınabilir. Tek fiyat farkla 4 parçalık tam öğün alırsın: ana yemek, taze salata, elma ve içecek.",
+    "factDoplacilo": "Fark",
+    "factDoplaciloPod": "tüm menüde",
+    "factJedi": "Fişe dahil yemek",
+    "factJediPod": "{stevilo} tanesi etsiz",
+    "factKvota": "Günlük kota",
+    "factKvotaVrednost": "{stevilo} fiş",
+    "factKvotaPod": "hafta sonu da geçerli",
+    "factLokaciji": "Şube",
+    "factLokacijiVrednost": "Ljubljana'da {stevilo}",
+    "factLokacijiPod": "şehir merkezi",
+    "gumbJedi": "Fişe dahil yemeklere bak ({stevilo})",
+    "gumbKakoUnovciti": "Fiş nasıl kullanılır",
+    "altObrok": "Šeherezada'da tam öğrenci menüsü — döner, salata, elma ve içecek",
+    "znackaPaket": "4 parçalık öğrenci menüsü",
+    "polnaVrednost": "Öğünün tam değeri:",
+    "drzavaSubvencionira": "Devlet {znesek} destekliyor",
+    "placasLe": "Sen yalnızca {znesek} ödüyorsun",
+    "izracunVodniZnak": "HESAP",
+    "izracunOznaka": "DESTEK VE FARK",
+    "izracunNaslov": "Şeffaf hesap: gerçekte ne kadar ödüyorsun",
+    "izracunPodnaslov": "Desteklenen her öğün, devletin katkısı ile senin sabit farkından oluşur. Bizde her zaman tam {doplacilo} fark ödersin.",
+    "subvencijaDrzave": "Devlet desteği",
+    "subvencijaOpis": "Çalışma Bakanlığı karşılıyor",
+    "tvojeDoplacilo": "Senin farkın",
+    "doplaciloOpis": "Kasamızda ödüyorsun",
+    "vrednostObroka": "Öğünün değeri",
+    "vrednostOpis": "Tabağına bu kadar yemek geliyor",
+    "kalkulatorNaslov": "Öğrenci tasarruf hesaplayıcısı",
+    "kalkulatorOpis": "Šeherezada'da haftada kaç kez öğrenci fişiyle yemeyi planladığını seç:",
+    "obrokovNaTeden": "haftada {stevilo} öğün",
+    "mesecniPrihranek": "Aylık tasarrufun",
+    "prihranekOpomba": "ayda {stevilo} sıcak öğünde normal fiyatlarla karşılaştırıldığında.",
+    "paketVodniZnak": "MENÜ",
+    "paketOznaka": "ÖĞÜNÜN İÇERİĞİ",
+    "paketNaslov": "Her öğrenci menüsünde ne var",
+    "paketPodnaslov": "Sadece ana yemek değil, eksiksiz ve doyurucu bir öğün. 4 parçanın hepsi her zaman {doplacilo} farka dahildir, gizli ücret yoktur.",
+    "paket1Oznaka": "01 / Ana yemek",
+    "paket1Naslov": "Seçtiğin ana yemek",
+    "paket1Opis": "{stevilo} yemek arasından seç: sulu döner, çıtır dürüm, falafel, 6 çeşit pizza ya da ızgara tavuk pirzola.",
+    "paket1Znacka": "%100 helal et",
+    "paket2Oznaka": "02 / Salata",
+    "paket2Naslov": "Her gün taze salata",
+    "paket2Opis": "Taze doğranmış karışık salata (lahana, domates, salatalık, marul), gün boyunca sürekli hazırlanır.",
+    "paket2Znacka": "Anında taze hazırlanır",
+    "paket3Oznaka": "03 / Meyve",
+    "paket3Naslov": "Taze meyve (elma)",
+    "paket3Opis": "Her öğünde doğal bir vitamin kaynağı. Sulu elmayı yemeği teslim alırken birlikte veriyoruz.",
+    "paket3Znacka": "Vitamin dolu",
+    "paket4Oznaka": "04 / İçecek",
+    "paket4Naslov": "Serinletici içecek",
+    "paket4Opis": "Su ya da serinletici içecek menüye dahildir, ayrıca ödeme gerekmez.",
+    "paket4Znacka": "Farksız dahil",
+    "izbiraVodniZnak": "SEÇİM",
+    "izbiraOznaka": "FİŞE DAHİL {stevilo} YEMEK",
+    "izbiraNaslov": "Fişe dahil en sevdiğin yemeği seç",
+    "izbiraPodnaslov": "Tek fiyat {doplacilo} farkla sipariş edebileceğin {stevilo} yemeğin tamamına bak. İçindekiler ve alerjenler için yemeğe tıkla.",
+    "filterVse": "Tüm yemekler",
+    "filterKebab": "Döner ve dürüm",
+    "filterPizza": "Pizzalar",
+    "filterKroznik": "Tabaklar",
+    "filterFalafel": "Falafel",
+    "filterBrezmesno": "Etsiz",
+    "znackaVegansko": "Vegan",
+    "znackaVegetarijansko": "Vejetaryen",
+    "znackaVegi": "Vejetaryen",
+    "naBon": "fişe dahil",
+    "podrobnostiOznaka": "{ime} yemeğinin ayrıntıları",
+    "gumbSestavine": "İçindekiler",
+    "lokacijeVodniZnak": "ŞUBELER",
+    "lokacijeOznaka": "ZAMAN ARALIĞI VE ŞUBELER",
+    "lokacijeNaslov": "Fişi bizde ne zamana kadar kullanabilirsin",
+    "lokacijePodnaslov": "Ülke genelindeki öğrenci yemeği sistemi fişleri {od} – {do} arasında kabul eder. Her iki şubemizin çalışma saatlerini ve fiş kullanım aralığını kontrol et.",
+    "odpiralniCas": "Şubenin açılış saatleri",
+    "bonVelja": "Fiş geçerli (zaman aralığı)",
+    "podrobnostiPoslovalnice": "Şube ayrıntıları",
+    "polnocNaslov": "Gece yarısından sonra açığız ama fiş yasa gereği artık geçerli değil",
+    "polnocOpis": "Ljubljana merkezindeki iki şubemiz de gece geç saatlere kadar açık kalır ({do2}, sırasıyla {do1} / hafta sonu {vikend1}). Devletin fiş sistemi {oknoDo} saatinde otomatik olarak durur. Gece yarısından sonra gelirseniz, aynı taze yemekleri menüdeki normal fiyatlarla memnuniyetle sunarız.",
+    "navodilaVodniZnak": "KULLANIM",
+    "navodilaOznaka": "TERMİNAL VE KURALLAR",
+    "navodilaNaslov": "Fişi nasıl kolayca kullanırsın",
+    "navodilaPodnaslov": "Fişi mobil uygulamayla NFC üzerinden ya da öğrenci çipli kartıyla kullanırsın. Terminalde doğru okutma yerine bak.",
+    "zavihekTelefon": "Cep telefonu (uygulama)",
+    "zavihekKartica": "Öğrenci çipli kartı",
+    "telefonNaslov": "Cep telefonu (NFC / uygulama)",
+    "telefonOpis": "Telefonu ön taraftan <b>terminalin alt kenarına</b> yaklaştırın.",
+    "telefonNasvet1": "Telefon ayarlarınızda <b>NFC</b> açık olsun.",
+    "telefonNasvet2": "Terminal telefonu algılamazsa uygulamada<b> Kodu elle gir</b> seçeneğini kullanabilirsiniz.",
+    "karticaNaslov": "Temassız çipli kart",
+    "karticaOpis": "Öğrenci kartını yandan <b>terminalin üst kenarına</b> yaklaştırın.",
+    "karticaNasvet1": "Kartı kayıt sırasında bilgi noktasından alırsınız.",
+    "karticaNasvet2": "Kart pilsiz ve mobil sinyalsiz de çalışır.",
+    "pravilo1Naslov": "Takvim gününde {stevilo} fiş",
+    "pravilo1Opis": "Her öğrencinin, hafta sonları ve tatiller dahil yılın her günü için günde {stevilo} destek hakkı vardır.",
+    "pravilo2Naslov": "En az {stevilo} saat ara",
+    "pravilo2Opis": "Aynı gün içindeki birinci ve ikinci fiş arasında, sistem yeni onayı kabul etmeden önce en az {stevilo} saat geçmelidir.",
+    "pravilo3Naslov": "Zaman aralığı {od} – {do}",
+    "pravilo3Opis": "Slovenya'daki tüm öğrenci fişleri sabah {od} ile gece yarısı ({do}) arasında kullanılabilir.",
+    "pravilo4Naslov": "Teslim alırken kimlik",
+    "pravilo4Opis": "Fiş kullanılırken personel istediğinde kimlik belgesi ya da geçerli öğrenci kartı gösterilmelidir.",
+    "bruciVodniZnak": "YENİ ÖĞRENCİLER",
+    "bruciOznaka": "İLK KAYIT",
+    "bruciNaslov": "Fişleri ilk kez mi kullanıyorsun? 3 adımda kolay kayıt",
+    "bruciPodnaslov": "İşlemi yalnızca üniversiteye ya da yüksekokula kaydolurken bir kez yaparsın, sonra her öğretim yılında statünü uygulamadan kolayca uzatırsın.",
+    "korak1Naslov": "Çevrimiçi başvuru",
+    "korak1Opis": "Öğrenci yemeği resmî portalında çevrimiçi başvuru formunu doldurun. Gönderirken başvuru numaranızı not edin.",
+    "korak1Povezava": "{vir} adresine git →",
+    "korak2Naslov": "Bilgi noktasında etkinleştirme",
+    "korak2Opis": "Başvuru numarası, kimlik belgesi ve kayıt belgesiyle herhangi bir bilgi noktasına gidin (örn. ŠOU Ljubljana ya da Kampus).",
+    "korak2Opomba": "✓ Etkinleştirme 3 dakikada tamam",
+    "korak3Naslov": "Resmî uygulamayı yükle",
+    "korak3Opis": "Fişleri hızlı kullanmak, kota durumunu görmek ve restoran aramak için Študentska prehrana uygulamasını indir.",
+    "faqVodniZnak": "SSS",
+    "faqOznaka": "ÖĞRENCİLERİN SIK SORDUĞU SORULAR",
+    "faqNaslov": "En çok merak ettikleriniz",
+    "faqPodnaslov": "Šeherezada'da fiş kullanımıyla ilgili en sık sorulan sorulara hızlı cevaplar.",
+    "ctaNaslov": "{stevilo} taze yemek fişini bekliyor",
+    "ctaOpis": "Menümüzdeki {vseh} yemekten {naBon} tanesi öğrenci fişiyle alınabilir — bunların {vegan} tanesi vegan, {vegetarijanskih} tanesi vejetaryen. Bizi Trubarjeva ya da Slovenska'da ziyaret et!",
+    "ctaMeni": "Tüm menü",
+    "ctaKjeSmo": "Neredeyiz",
+    "virOznaka": "Desteklenen öğrenci yemeği verilerinin resmî kaynağı",
+    "virZacetek": "Destek tutarı ({znesek}), kullanım kuralları ve kayıt süreci hakkındaki bilgiler ŠOS öğrenci yemeği sisteminin resmî bilgilerinden alınmıştır; kaynak:",
+    "virKonec": ". Son kontrol {datum}. Yemek seçenekleri, şubelerin çalışma saatleri ve tek fiyat {doplacilo} fark doğrudan Šeherezada restoranı tarafından belirlenir.",
+    "opisJedi": "Yemeğin tarifi",
+    "sestavine": "İçindekiler",
+    "alergeni": "Alerjenler",
+    "brezAlergenov": "Beyan edilen alerjen yok",
+    "vprasanja": {
+      "faq-1": {
+        "q": "Öğrenci menüsünü paket olarak alabilir miyim?",
+        "a": "Desteklenen öğrenci yemeği sisteminin kurallarına göre desteklenen öğün mekânda yenmek üzeredir. Paket için ambalajı bizden elbette geçerli ambalaj fiyat listesine göre sipariş edebilirsiniz."
+      },
+      "faq-2": {
+        "q": "Terminal telefonumu algılamazsa ne yapmalıyım?",
+        "a": "Önce telefon ayarlarınızda NFC çipinin açık olduğunu ve telefonu tam olarak terminalin alt kenarına (sensörün olduğu yere) yaklaştırdığınızı kontrol edin. NFC çalışmazsa Študentska prehrana uygulamasında „Kodu elle gir“ seçeneğini kullanıp yazan kodu personele söylemeniz yeterlidir."
+      },
+      "faq-3": {
+        "q": "Fişler hafta sonu, resmî tatillerde ve tatil dönemlerinde geçerli mi?",
+        "a": "Evet! Öğrenci fişleri cumartesi, pazar, resmî tatiller ile yaz ve kış tatilleri dahil yılın her takvim gününde kullanılabilir."
+      },
+      "faq-4": {
+        "q": "Aynı gün iki fiş arasında ne kadar süre geçmeli?",
+        "a": "Sistemin kurallarına göre birinci ve ikinci fiş arasında en az {razmik} saat geçmelidir. Sistem bu süre dolmadan yeni bir öğünü onaylamaz."
+      },
+      "faq-5": {
+        "q": "Tüm öğrenci yemekleri %100 helal sertifikalı mı?",
+        "a": "Evet, Šeherezada'daki tüm et %100 helal sertifikalıdır; domuz eti ya da alkol içermez. Ayrıca falafel ve sebzeli pizzalar dahil fişe dahil {brezmesnih} etsiz (vejetaryen ve vegan) yemek hazırlıyoruz."
+      },
+      "faq-6": {
+        "q": "Bu ayın tüm fişlerini harcadıysam ne olur?",
+        "a": "Tüm yemeklerimizi menüdeki uygun normal fiyatlarla sipariş edebilirsiniz. Tanımlanan fiş sayısı her yeni ayın ilk gününde otomatik olarak sıfırlanır."
+      }
+    },
+    "modalDoplacilo": "Fişle fark: {doplacilo}",
+    "modalRednaCena": "(normal fiyat {cena})",
+    "rednaCena": "Normal: {cena}"
+  },
+  "faqStran": {
+    "vodniZnak": "YARDIM",
+    "oznaka": "YARDIM MERKEZİ VE CEVAPLAR",
+    "naslov": "Sık sorulan sorular — helal, fişler ve çalışma saatleri",
+    "podnaslov": "%100 helal menü, vegan yemekler, {doplacilo} farkla öğrenci fişleri ve Ljubljana'daki iki şubenin çalışma saatleri hakkında her şey.",
+    "ctaNaslov": "Başka bir sorunuz mu var?",
+    "ctaPodnaslov": "Ekibimiz size memnuniyetle yardımcı olur.",
+    "ctaMeni": "Menüye göz atın",
+    "sklopi": {
+      "seherezada": "Yemeklerimiz ve hazırlanışı",
+      "difference": "Helal, vegan ve ödeme",
+      "boni": "Öğrenci fişleri ve siparişler"
+    },
+    "vprasanja": {
+      "seh-1": {
+        "vprasanje": "Šeherezada dönerini özel kılan nedir?",
+        "odgovor": "Etimiz %100 helaldir, kendi doğu baharat karışımımızda 24 saat marine edilir ve sanayi katkısı olmadan kızgın açık ızgarada pişirilir."
+      },
+      "seh-2": {
+        "vprasanje": "Pide ekmeğini kendiniz mi pişiriyorsunuz?",
+        "odgovor": "Evet! Hamuru her sabah yoğuruyor, her ekmeği yemeğinizi servis etmeden hemen önce fırınımızda pişiriyoruz; bu yüzden her zaman sıcak ve çıtırdır."
+      },
+      "seh-3": {
+        "vprasanje": "Neredesiniz ve çalışma saatleriniz nedir?",
+        "odgovor": "Ljubljana merkezinde iki şubemiz var. Trubarjeva 31'deki {ime1} her gün {od1} – {do1} arası, cuma ve cumartesi ise {vikend1} saatine kadar açıktır. Slovenska 55'teki {ime2} her gün {od2} – {do2} arası açıktır."
+      },
+      "diff-1": {
+        "vprasanje": "Tüm etler %100 helal sertifikalı mı?",
+        "odgovor": "Evet, tüm tedarikçilerimizin resmî helal sertifikaları vardır; etin kaynağı tam izlenebilir ve hijyen denetimi sıkıdır.",
+        "vec": "Helal ne demek ve nasıl sertifikalanır"
+      },
+      "diff-2": {
+        "vprasanje": "Vejetaryen ve vegan yemekleriniz var mı?",
+        "odgovor": "Elbette! Nohut ve baharatlardan taze falafeli, kremamsı ev yapımı humusu, sebzeli pizzaları ve dürümleri kendimiz hazırlıyoruz."
+      },
+      "diff-3": {
+        "vprasanje": "Hangi sosları sunuyorsunuz?",
+        "odgovor": "Taze otlu hafif yoğurt sosu, ev yapımı acı biber sosu ve susamlı tahin sosu arasından seçebilirsiniz."
+      },
+      "diff-4": {
+        "vprasanje": "Kart ve nakit kabul ediyor musunuz?",
+        "odgovor": "Nakit, banka ve kredi kartları (Visa, Mastercard, Maestro) ile mobil uygulama veya kart üzerinden öğrenci fişlerini kabul ediyoruz."
+      },
+      "boni-1": {
+        "vprasanje": "Fark ne kadar ve öğrenci menüsünde ne var?",
+        "odgovor": "Geçerli fişle fark {doplacilo}. Menüye seçtiğin ana yemek (döner, pizza, burger, falafel) + taze salata + elma + içecek dahildir.",
+        "vec": "Bizde öğrenci fişleri hakkında her şey"
+      },
+      "boni-3": {
+        "vprasanje": "Öğrenci fişini saat kaça kadar kullanabilirim?",
+        "odgovor": "Öğrenci yemeği sistemi fişleri {oknoOd} – {oknoDo} arasında kabul eder. Her iki şube de gece yarısından sonra kapandığı için fiş bizde {oknoDo} saatine kadar geçerlidir — Trubarjeva'da {od1} saatinden, Slovenska'da {od2} saatinden itibaren. Daha geç gelirsen menüdeki normal fiyatla servis ederiz.",
+        "vec": "Fişin hangi şubede ne zaman geçerli olduğunu gör"
+      },
+      "boni-2": {
+        "vprasanje": "Paket almak için telefonla önceden sipariş verebilir miyim?",
+        "odgovor": "Elbette! Bizi {telefon} numarasından arayın; siparişiniz kararlaştırılan saatte taze ve sıcak olarak sizi bekler, sırada beklemeden."
+      }
+    }
+  },
+  "lokacijaStran": {
+    "navodilaZaPot": "Yol tarifi",
+    "meniInCene": "Menü ve fiyatlar",
+    "zemljevidNaslov": "Harita — {ime}, {naslov}",
+    "najdesNasNa": "Bizi burada bulursun",
+    "appleMaps": "Apple Maps",
+    "fotografijeOpomba": "Şube fotoğraflarını hazırlıyoruz. O zamana kadar bizi Google Haritalar'da görebilirsin.",
+    "delovniCas": "Çalışma saatleri",
+    "urnikOpomba": "Mutfak kapanışa kadar çalışır — son siparişi birkaç dakika öncesinde alırız.",
+    "kajTuDobis": "Burada ne bulursun",
+    "boniOznaka": "Öğrenci fişleri",
+    "boniOpis": "Bu şubede menümüzden <b>{stevilo} yemek</b> bulunur. <b>{doplacilo}</b> fark ödeyerek ana yemek, salata, elma ve içecek alırsın.",
+    "poglejMeni": "Tüm menüye bak",
+    "kakoPrides": "Bize nasıl gelirsin",
+    "kakoPridesUvod": "Şube şehir merkezinde, bu yüzden en hızlı yol yürüyerek ya da şehir otobüsüyle.",
+    "prevozAvtobus": "Otobüsle",
+    "prevozParkiranje": "Park",
+    "prevozPes": "Yürüyerek",
+    "drugaPoslovalnica": "Diğer şubemiz",
+    "drobtineOznaka": "Gezinme yolu"
+  },
+  "galerijaStran": {
+    "vodniZnak": "FOTO",
+    "oznaka": "GÖRSEL HİKÂYE VE ORTAM",
+    "naslov": "Görsel hikâye",
+    "podnaslov": "En sevdiğiniz yemeklerin, taze pişen etin ve ev yapımı lezzetlerin nasıl hazırlandığını görün.",
+    "utrinki": "Görsel kareler",
+    "zapriGalerijo": "Galeriyi kapat",
+    "prejsnjaSlika": "Önceki fotoğraf",
+    "naslednjaSlika": "Sonraki fotoğraf"
+  },
+  "blogStran": {
+    "vodniZnak": "BLOG",
+    "oznaka": "MUTFAK BLOGU VE HİKÂYELER",
+    "naslov": "Blog — Ljubljana'da yemek, helal ve öğrenci fişleri",
+    "podnaslov": "Yemeklerimiz, helal menümüz, vegan seçenekler ve öğrenci fişleri üzerine öneriler ve hikâyeler — ayrıca Ljubljana'da nerede ve ne zaman yenir.",
+    "niObjavNaslov": "Yazıları hazırlıyoruz",
+    "niObjavOpis": "Burada yakında helal menü, öğrenci fişleri ve menümüzdeki en iyi kombinasyonlar üzerine öneriler olacak. O zamana kadar tüm menüye göz atın ya da iki şubemizden birine uğrayın.",
+    "poglejMeni": "Menüye bak",
+    "kjeSmo": "Neredeyiz",
+    "izpostavljena": "Öne çıkan hikâye",
+    "preberiZgodbo": "Hikâyeyi oku",
+    "najnovejse": "En yeni yazılar",
+    "raziscite": "Mutfak hikâyelerini keşfedin",
+    "preberi": "Oku"
+  },
+  "oglasStran": {
+    "vsaMesta": "← Tüm pozisyonlar",
+    "lokacija": "Şube: {vrednost}",
+    "tipZaposlitve": "Çalışma şekli: {vrednost}",
+    "placilo": "Ücret: {vrednost}",
+    "veljaDo": "İlan şu tarihe kadar geçerli:",
+    "kajBostesDelali": "Ne yapacaksınız",
+    "kajPonujamo": "Ne sunuyoruz",
+    "prijaviSe": "Form üzerinden başvur"
+  },
+  "halalVprasanja": {
+    "hfaq-1": {
+      "q": "Šeherezada'daki tüm et gerçekten %100 helal mi?",
+      "a": "Evet, istisnasız. Döner, dürüm ve tabaklar için kullanılan tüm dana ve tavuk eti yalnızca geçerli uluslararası helal sertifikalarına sahip, denetlenen Avrupa kaynaklarından gelir. Mutfaklarımızda sertifikasız hiçbir et yoktur."
+    },
+    "hfaq-2": {
+      "q": "Pizzalarda ve diğer yemeklerde hangi jambonu kullanıyorsunuz?",
+      "a": "Tüm pizzalarımızda (örn. Pizza Klasik) yalnızca %100 helal hindi jambonu kullanıyoruz. Menüdeki hiçbir yemek domuz eti, jambon ya da domuz pastırması içermez."
+    },
+    "hfaq-3": {
+      "q": "Alkol servis ediyor ya da yemekte kullanıyor musunuz?",
+      "a": "Hayır. Šeherezada restoranında alkollü içecek servis etmiyoruz; alkolü, şarabı ya da alkollü özütleri hiçbir marinasyonda, sosta veya hamurda kullanmıyoruz."
+    },
+    "hfaq-4": {
+      "q": "Öğrenci fişine dahil yemekler de %100 helal mi?",
+      "a": "Öğrenci fişine dahil {naBon} yemeğin tamamı, normal fiyat listesindeki yemeklerle aynı sıkı helal standartlarına göre, aynı taze sertifikalı etten ya da bitkisel malzemelerden hazırlanır."
+    },
+    "hfaq-5": {
+      "q": "Orijinal helal sertifikasını nerede görebilirim?",
+      "a": "Resmî helal sertifikası, Ljubljana'daki her iki şubemizde de — Trubarjeva cesta 31 ve Slovenska cesta 55 — sipariş bankosunun yanında görünür bir yerde sürekli asılıdır."
+    },
+    "hfaq-6": {
+      "q": "Falafel ve vejetaryen yemekler etten ayrı mı hazırlanıyor?",
+      "a": "Evet, falafel ve bitkisel yemekler temiz ekipmanla sıkı hijyen kurallarına göre hazırlanır; bu da çapraz teması önler ve hem helal hem de vegan ve vejetaryen misafirler için tam güvenlik sağlar."
+    }
+  },
+  "halalPodatki": {
+    "certifikatOpisSlike": "Šeherezada helal sertifikası, Ljubljana",
+    "zavodUstanova": "Slovenya Cumhuriyeti İslam Cemaati",
+    "postopek": {
+      "korak1Naslov": "Başvuru ve belge incelemesi",
+      "korak1Opis": "Tüm hammaddelerin, katkıların ve tedarikçilerin incelenmesi — her malzemenin nereden geldiği.",
+      "korak2Naslov": "Yerinde denetim",
+      "korak2Opis": "Hazırlık sürecinin tamamının ve mutfaktaki hijyen koşullarının incelenmesi.",
+      "korak3Naslov": "Personel eğitimi",
+      "korak3Opis": "Çalışanlar, uygun olmayan gıdalarla çapraz bulaşmayı önleyen çalışma yöntemlerini öğrenir.",
+      "korak4Naslov": "Belge verilmesi ve yenilenmesi",
+      "korak4Opis": "Sertifika belirli bir süre için verilir; ardından düzenli ve habersiz denetimler gelir."
+    },
+    "oznakaOpisSlike": "Helal işareti — domuz eti ve alkol içermeyen yemek"
+  },
+  "blogPodatki": {
+    "kategorije": {
+      "vse": "Tüm yazılar",
+      "kulinarka": "Mutfak hikâyeleri",
+      "pekarna": "Fırın ve hamur",
+      "vegi": "Vejetaryen ve vegan",
+      "boni": "Öğrenci yemeği",
+      "tradicija": "Gelenek ve tatlılar",
+      "kakovost": "Kalite ve helal"
+    }
+  },
+  "kontaktStran": {
+    "vodniZnak": "İLETİŞİM",
+    "oznaka": "BİZE ULAŞIN · ŠEHEREZADA",
+    "naslov": "İletişim ve Ljubljana merkezindeki iki şube",
+    "podnaslov": "Bizi şehir merkezinde Trubarjeva'da ya da ana cadde Slovenska'da ziyaret edin. Hızlı paket sipariş ya da rezervasyon için arayın veya bize kısaca bir mesaj gönderin.",
+    "epostaNaslovDrzalo": "{eposta} adresine e-posta gönderin",
+    "epostniPredal": "E-posta adresi",
+    "vprasanjaRezervacije": "Sorular ve rezervasyonlar",
+    "altStik": "Šeherezada ile iletişime geçin",
+    "kliciteZaPrevzem": "Paket sipariş için arayın",
+    "sporociloVodniZnak": "MESAJ",
+    "sporociloOznaka": "MESAJ GÖNDERİN",
+    "sporociloNaslov": "Sorular, rezervasyonlar ya da güzel sözler için bize yazın",
+    "sporociloOpis": "Kalabalık bir grup için masa ayırtmak, öğrenci fişlerini sormak ya da menümüz hakkında daha fazla bilgi almak mı istiyorsunuz? Formu doldurun, en kısa sürede memnuniyetle cevap verelim.",
+    "instagramOznaka": "Instagram ve mesajlar",
+    "facebookOznaka": "Facebook sayfası",
+    "facebookVrednost": "Šeherezada Ljubljana",
+    "tiktokOznaka": "TikTok profili",
+    "poljeIme": "Ad ve soyad *",
+    "poljeImeDrzalo": "örn. Luka Novak",
+    "poljeEposta": "E-posta adresi *",
+    "poljeEpostaDrzalo": "luka@ornek.si",
+    "poljeTelefon": "Telefon numarası",
+    "poljeTelefonOpcijsko": "(isteğe bağlı)",
+    "poljeTelefonDrzalo": "+386 40 123 456",
+    "poljeZadeva": "Mesajın konusu",
+    "zadevaSplosno": "Genel soru ya da teşekkür",
+    "zadevaRezervacija": "Gruplar için masa rezervasyonu",
+    "zadevaStudenti": "Öğrenci yemeği (fişler)",
+    "zadevaPoslovno": "İş birliği / kariyer",
+    "zadevaDrugo": "Diğer",
+    "poljePoslovalnica": "Tercih ettiğiniz şube",
+    "poslovalnicaVseeno": "Fark etmez / her iki şube",
+    "poljeSporocilo": "Mesajınız ya da istekleriniz *",
+    "poljeSporociloDrzalo": "Sorunuzu, isteklerinizi ya da Šeherezada ekibine mesajınızı yazın...",
+    "stevecZnakov": "{stevilo} / {najvec} karakter",
+    "posiljanje": "Mesaj gönderiliyor...",
+    "posljiSporocilo": "Mesajı gönder",
+    "soglasje": "Butona tıklayarak talebinizle ilgili sizinle iletişime geçilmesini kabul edersiniz.",
+    "uspehNaslov": "Mesaj başarıyla gönderildi!",
+    "uspehOpis": "Teşekkürler, <b>{ime}</b>. Mesajınızı aldık. Ekibimiz en kısa sürede <b>{eposta}</b> adresinden size ulaşacak.",
+    "uspehZadeva": "Konu:",
+    "uspehLokacija": "Şube:",
+    "povzetekRezervacija": "Masa rezervasyonu",
+    "povzetekStudenti": "Öğrenci yemeği",
+    "povzetekPoslovno": "İş birliği / kariyer",
+    "povzetekSplosno": "Genel soru",
+    "povzetekVseeno": "Fark etmez",
+    "posljiNovo": "Yeni mesaj gönder",
+    "hitriKlic": "Hızlı arama: {telefon}",
+    "vodnikVodniZnak": "REHBER",
+    "vodnikOznaka": "ETKİLEŞİMLİ REHBER VE ULAŞIM",
+    "vodnikNaslov": "Ljubljana'da bize nasıl gelirsiniz",
+    "vodnikOpis": "Haritada tam konumu, LPP otobüsüyle geliş tarifini ve park imkânlarını görmek için bir şube seçin.",
+    "izborTrubarjeva": "01 · Şehir merkezi",
+    "izborSlovenska": "02 · Merkez",
+    "mestoDrzava": "{mesto} · Slovenya",
+    "kopirajNaslov": "Navigasyon için tam adresi kopyala",
+    "kopirano": "Kopyalandı!",
+    "kopiraj": "Kopyala",
+    "prevozAvtobus": "LPP otobüsüyle geliş",
+    "prevozParkiranje": "Park ve otoparklar",
+    "prevozPes": "Yürüyerek ve BicikeLJ ile ulaşım",
+    "gumbGoogleMaps": "Google Maps",
+    "gumbAppleMaps": "Apple Maps",
+    "gumbPoslovalnica": "Bu şube hakkında her şey"
+  },
+  "lokacijePodatki": {
+    "dnevi": {
+      "0": "Pazartesi",
+      "1": "Salı",
+      "2": "Çarşamba",
+      "3": "Perşembe",
+      "4": "Cuma",
+      "5": "Cumartesi",
+      "6": "Pazar"
+    },
+    "trubarjeva": {
+      "hoursShort": "09:00 – 02:00, cuma ve cumartesi 03:00 saatine kadar",
+      "badge": "Şehir merkezi · İlk şubemiz",
+      "h1": "Šeherezada — Trubarjeva 31'de helal döner",
+      "subtitle": "Bohem şehir hareketliliği ve gece durağı",
+      "vibeText": "Eski Ljubljana'nın tam kalbindeki ilk şubemiz. Hızlı bir öğle yemeği, gece atıştırması ya da Trubarjeva sokağının bohem ritminde keyifli bir mola için ideal.",
+      "highlights": {
+        "0": "02:00 saatine kadar, cuma ve cumartesi 03:00 saatine kadar açık",
+        "1": "Öğrenci fişleri — 3,00 € fark",
+        "2": "Ev yapımı pide ekmeği servisten hemen önce pişirilir",
+        "3": "Hızlı paket alma ve Wolt ile teslimat",
+        "4": "Menüdeki 29 yemeğin tamamı, Fırın Tavuk dahil"
+      },
+      "transport": {
+        "lpp": "Zmajski most durağı (2, 13, 20 hatları) — 2 dk yürüme",
+        "parking": "Kapitelj / Komenskega otoparkı ya da Petkovškovo nabrežje",
+        "walking": "Prešeren Meydanı ve Tromostovje'den 3 dk"
+      },
+      "photos": {
+        "0": "Trubarjeva cesta 31'deki şubenin iç mekânı",
+        "1": "Şişte döner hazırlığı",
+        "2": "Trubarjeva caddesinden şubenin girişi"
+      }
+    },
+    "slovenska": {
+      "hoursShort": "08:00 – 01:00, her gün",
+      "badge": "Merkez · Bavarski dvor",
+      "h1": "Šeherezada 2 — Slovenska 55'te helal döner",
+      "subtitle": "Ana cadde üzerinde geniş restoran",
+      "vibeText": "Bavarski dvor'un hemen yanında, Slovenska caddesi üzerinde modern bir restoran. Sabah kahvaltısı, iş yemeği, öğrenci öğünü ve akşam atıştırması için ideal.",
+      "highlights": {
+        "0": "Her gün 08:00 – 01:00 arası açık",
+        "1": "08:00'den itibaren kahvaltı ve öğle öncesi atıştırmalıklar",
+        "2": "Öğrenci fişleri — 3,00 € fark",
+        "3": "Hızlı paket alma ve Wolt ile teslimat",
+        "4": "Menüden 28 yemek — Fırın Tavuk hariç"
+      },
+      "transport": {
+        "lpp": "Bavarski dvor / Pošta durağı (ana şehir aktarma noktası) — 1–2 dk yürüme",
+        "parking": "Kozolec / Trg republike / Kongresni trg otoparkı",
+        "walking": "Bavarski dvor ve Ajdovščina'nın hemen yanında"
+      },
+      "photos": {
+        "0": "Slovenska cesta 55'teki şubenin iç mekânı",
+        "1": "Banko ve yemek seçenekleri",
+        "2": "Bavarski dvor yanındaki şubenin girişi"
+      }
+    }
+  },
+  "oNasStran": {
+    "altZar": "Šeherezada ızgara ustası taze et hazırlıyor",
+    "altKroznik": "Usta tabağı süslüyor",
+    "altJed": "Šeherezada'da taze hazırlanmış doğu mutfağı yemeği",
+    "dediscina": "Ljubljana'nın bir parçası",
+    "zgodbaVodniZnak": "HİKÂYE",
+    "zgodbaOznaka": "ŠEHEREZADA RESTORANI HAKKINDA",
+    "naslov": "Ljubljana'da helal döner ve ızgara — <poudarek>1998'den beri.</poudarek>",
+    "podnaslov": "1998'den beri Trubarjeva ve Slovenska'da gerçek ızgaraya, 24 saatlik marinasyona ve her gün taze yoğrulan hamura duyduğumuz saygıyı koruyoruz. Sanayi kestirmeleri olmadan, misafire hep aynı saygıyla.",
+    "gumbMeni": "Menüyü keşfedin",
+    "narocilaPrevzem": "Sipariş ve paket alma",
+    "filozofijaVodniZnak": "FELSEFE",
+    "filozofijaOznaka": "NEDEN ŠEHEREZADA",
+    "filozofijaNaslov": "Her lokmada hissedeceğiniz bir zanaat sadakati.",
+    "filozofijaPodnaslov": "Fast food dünyasında geleneğe bağlı kalıyoruz. Etimiz sanayi kestirmeleri tanımaz, ekmeğimiz ise tıpkı onlarca yıl önceki gibi yavaş yavaş kabarır.",
+    "kljukica1": "%100 helal sertifikalı dana ve tavuk eti",
+    "kljukica2": "Her gün taze pişen pide ekmeği ve ince yufka",
+    "kljukica3": "Yalnızca {doplacilo} uygun farkla öğrenci fişleri",
+    "kljukica4": "Şehir merkezinde her gün gece geç saatlere kadar açık",
+    "gumbLokaciji": "İki şubemizi ziyaret edin",
+    "procesVodniZnak": "SÜREÇ",
+    "procesOznaka": "MUTFAK SÜRECİ",
+    "procesNaslov": "Her yemek nasıl hazırlanır",
+    "altKuhinja": "Šeherezada'da mutfağın ritmi ve taze yemek hazırlığı",
+    "svezaPriprava": "Her siparişte taze hazırlık",
+    "mnenjaVodniZnak": "YORUMLAR",
+    "mnenjaOznaka": "MİSAFİR YORUMLARI",
+    "prikaziMnenje": "{avtor} yorumunu göster",
+    "altGostje": "Šeherezada restoranında memnun misafirler",
+    "lokacijeVodniZnak": "ŞUBELER",
+    "lokacijeOznaka": "BİZİ LJUBLJANA'DA ZİYARET EDİN",
+    "lokacijeNaslov": "Ljubljana merkezinde iki şube",
+    "lokacijePodnaslov": "Size en yakın olanı seçin — bohem Trubarjeva'da ya da ana cadde Slovenska'da.",
+    "gumbGoogleMaps": "Google Maps",
+    "gumbAppleMaps": "Apple Maps ↗",
+    "vabiloNaslov": "Gerçek ateşin gerçek lezzetine hazır mısınız?",
+    "vabiloOpis": "Tüm menümüze göz atın, mutfaktan kareleri keşfedin ya da Šeherezada ekibine katılın.",
+    "vabiloMeni": "Tüm menüyü keşfedin",
+    "vabiloGalerija": "Foto galeri",
+    "vabiloEkipa": "Ekibin parçası olun"
+  },
+  "oNasPodatki": {
+    "mikro": {
+      "spicesNaslov": "12 doğu baharatı",
+      "spicesOpis": "Dayanılmaz sululuk için 24 saatlik yavaş marinasyon.",
+      "breadNaslov": "Her gün taze pişer",
+      "breadOpis": "Pide ekmeğinin hamurunu her sabah elle yoğuruyoruz.",
+      "halalNaslov": "%100 helal sertifikası",
+      "halalOpis": "Doğrulanmış kaynak ve düzenli denetlenen kalite.",
+      "locationsNaslov": "Ljubljana'da {stevilo} şube",
+      "locationsOpis": "{prva} ve {druga}."
+    },
+    "stat": {
+      "letoVrednost": "1998",
+      "letoOznaka": "Ljubljana'daki başlangıç yılı",
+      "letoPod": "Trubarjeva caddesinde ilk ateş",
+      "tradicijaVrednost": "1998'den beri",
+      "tradicijaOznaka": "Kesintisiz gelenek",
+      "tradicijaPod": "Gerçek aile tarifleri",
+      "halalVrednost": "%100",
+      "halalOznaka": "Helal sertifikası",
+      "halalPod": "Ette tavizsiz kalite",
+      "lokacijeVrednost": "{stevilo} şube",
+      "lokacijeOznaka": "Ljubljana'nın kalbinde",
+      "lokacijePod": "Trubarjeva 31 ve Slovenska 55"
+    },
+    "filozofija": {
+      "halalNaslov": "%100 helal sertifikası",
+      "halalOpis": "Tüm et parçaları, geçerli helal sertifikalarına sahip sıkı denetlenen tedarikçilerden gelir. Taviz yok.",
+      "breadNaslov": "Ev yapımı ekmek, anında pişer",
+      "breadOpis": "Her ekmeği servisten hemen önce yoğurup pişiriyoruz. Sıcaklığı ve çıtırlığı hemen hissedersiniz.",
+      "hoursNaslov": "Şehrin gece durağı",
+      "hoursOpis": "Şehir sakinleştiğinde bizim ızgaralarımız hâlâ yanar. Trubarjeva'da sıcak yemeği {do1} saatine kadar, cuma ve cumartesi ise {vikend1} saatine kadar sunuyoruz.",
+      "studentsNaslov": "Öğrenci dostu",
+      "studentsOpis": "Fişle desteklenen öğrenci yemeğinin resmî sağlayıcısı. Şehir merkezinde doyurucu, sıcak ve dengeli bir öğün."
+    },
+    "postopek": {
+      "korak1Naslov": "Etin seçimi ve 24 saat marinasyonu",
+      "korak1Opis": "Her et parçasını elle ayıklıyor, 12 doğu baharatı ve zeytinyağı karışımında tam 24 saat marine ediyoruz.",
+      "korak2Naslov": "Günlük yoğurma ve hamurun mayalanması",
+      "korak2Opis": "Her sabah fırıncılarımız unu, suyu, mayayı ve tuzu sanayi katkısı olmadan elle yoğuruyor.",
+      "korak3Naslov": "Ekmeğin pişmesi ve ateşte ızgara",
+      "korak3Opis": "Ekmeği servisten hemen önce pişiriyor, eti ızgarada yavaş yavaş çıtır çıtır kızartıyoruz.",
+      "korak4Naslov": "Taze hazırlık ve sıcak karşılama",
+      "korak4Opis": "Sulu et dilimlerini ya da falafeli sıcak ekmeğe taze salata ve ev yapımı soslarla koyup gülümseyerek servis ediyoruz."
+    },
+    "mnenjeVloga": "Google · {kdaj}",
+    "poslovalnice": {
+      "trubarjevaPodnaslov": "Her şeyin başladığı yer · Şehir merkezi",
+      "trubarjevaOpis": "Eski şehir merkezindeki ilk şubemiz. Gece hayatının, öğrenci hareketliliğinin ve çeyrek asrı aşkın gerçek doğu geleneğinin buluştuğu yer.",
+      "trubarjevaLastnost1": "Şehir merkezi (Trubarjeva sokağı)",
+      "trubarjevaLastnost2": "Her gün {do1} saatine, cuma ve cumartesi {vikend1} saatine kadar açık",
+      "trubarjevaLastnost3": "Öğrenci fişleri ({doplacilo} fark)",
+      "trubarjevaLastnost4": "Hızlı paket alma ve Wolt ile teslimat",
+      "slovenskaPodnaslov": "İkinci şube · Şehir merkezi",
+      "slovenskaOpis": "Bavarski dvor'un hemen yanında, ana cadde Slovenska üzerinde geniş ve modern bir restoran. Sabah atıştırmaları, iş yemekleri, öğrenci öğünleri ve akşam atıştırmaları için ideal.",
+      "slovenskaLastnost1": "Şehir merkezi (Slovenska cesta 55)",
+      "slovenskaLastnost2": "Her gün {od2} – {do2} arası açık",
+      "slovenskaLastnost3": "Öğrenci fişleri ve günlük öğle menüleri",
+      "slovenskaLastnost4": "Hızlı paket alma ve Wolt ile teslimat"
+    },
+    "trak": {
+      "t1": "DÖNER KEBAP",
+      "t2": "FIRINDAN TAZE EKMEK",
+      "t3": "ATEŞTE GERÇEK IZGARA",
+      "t4": "%100 HELAL SERTİFİKASI",
+      "t5": "EV YAPIMI ÇITIR FALAFEL",
+      "t6": "ÖĞRENCİ FİŞLERİ ({doplacilo} FARK)",
+      "t7": "TRUBARJEVA CESTA 31",
+      "t8": "SLOVENSKA CESTA 55",
+      "t9": "HER GÜN GECE GEÇ SAATLERE KADAR AÇIK"
+    }
+  },
+  "galerijaPodatki": {
+    "kategorije": {
+      "all": "Tüm fotoğraflar",
+      "hrana": "Yemekler ve döner",
+      "priprava": "Hazırlık ve ızgara",
+      "ambient": "Ortam ve ekip"
+    },
+    "slike": {
+      "1": "Gerçek Türk döner kebap",
+      "2": "Izgara ustası taze döner hazırlıyor",
+      "3": "Yeni sarılmış Yufka Döner",
+      "4": "Ev yapımı pide ekmeğinin sıcak fırında pişmesi",
+      "5": "Altın rengi patatesle döner tabağı",
+      "6": "Restoranın sıcak ortamı",
+      "7": "Humuslu ev yapımı çıtır falafel",
+      "8": "Usta tabağı süslüyor",
+      "9": "Erimiş peynirli klasik cheeseburger",
+      "10": "Mutfağın ritmi ve taze yemek hazırlığı",
+      "11": "Kutuda patatesli döner (Box)",
+      "12": "Taze hazırlık ve baharatlar",
+      "13": "Ev yapımı domates tabanlı Pizza Döner",
+      "14": "Ekmek arası %100 dana cevapi",
+      "15": "Seçme garnitürlerle öğrenci menüsü",
+      "16": "Hindi jambonlu Pizza Klasik",
+      "17": "Çıtır falafel tabağı",
+      "18": "Çıtır Crispy Burger",
+      "19": "Taze salatalı sebzeli döner",
+      "20": "Taze pişmiş Pizza Margarita",
+      "21": "Taze sebzeli yufka",
+      "22": "Paket siparişler ve güler yüzlü servis"
+    }
+  },
+  "karieraStran": {
+    "vodniZnak": "EKİP",
+    "oznaka": "EKİBİN PARÇASI OL · KARİYER",
+    "naslov": "Šeherezada'da iş ve kariyer, Ljubljana",
+    "podnaslov": "Ljubljana merkezindeki ekibimize katılın; doğal marinasyonlar, taze pişen ekmek ve işe saygıyla gerçek doğu lezzetlerini birlikte yaratalım.",
+    "niMestNaslov": "Şu anda açık pozisyonumuz yok",
+    "niMestOpis": "Yine de başvurunuzu memnuniyetle alırız. Aşağıdaki formdan bize yazın ya da özgeçmişinizi e-postayla gönderin — bir pozisyon açıldığında önce elimizdeki başvurulara bakarız.",
+    "stolpecMesto": "POZİSYON",
+    "stolpecLokacija": "ŞUBE",
+    "stolpecTip": "ÇALIŞMA ŞEKLİ",
+    "razpriPodrobnosti": "Ayrıntıları göster",
+    "odpriOglas": "İlanın tamamını aç →",
+    "odgovornostiOznaka": "• Sorumluluklar ve temel görevler:",
+    "hitraPrijava": "Hızlı başvuru",
+    "celotenOglas": "İlanın tamamı ve paylaşım",
+    "nazajNaMesta": "Tüm pozisyonlara dön",
+    "odgovornosti": "Temel sorumluluklar ve görevler:",
+    "kajPonujamo": "Size ne sunuyoruz:",
+    "obrazecOverline": "BU POZİSYON İÇİN BAŞVURU",
+    "obrazecNaslov": "Başvurunuzu gönderin",
+    "uspehNaslov": "✓ Başvurunuz için teşekkürler!",
+    "uspehOpis": "Başvurunuz başarıyla gönderildi. 24 saat içinde sizi arayacağız.",
+    "poljeIme": "Ad ve soyad *",
+    "poljeImeDrzalo": "örn. Marko Novak",
+    "poljeTelefon": "Telefon numarası *",
+    "poljeTelefonDrzalo": "040 123 456",
+    "poljeEposta": "E-posta adresi *",
+    "poljeEpostaDrzalo": "marko@email.com",
+    "poljeSporocilo": "Kısa mesaj / deneyim (isteğe bağlı)",
+    "poljeSporociloDrzalo": "Önceki işinizi ya da ne zaman başlayabileceğinizi yazın...",
+    "posljiPrijavo": "Başvuruyu gönder",
+    "kontaktZaCv": "Özgeçmişler için doğrudan iletişim: ",
+    "kadrovska": "İnsan kaynakları: ",
+    "mobilniKontakt": "ADAYLAR VE SORULAR İÇİN İLETİŞİM",
+    "posljiCv": "CV'yi e-postayla gönder",
+    "poklici": "İnsan kaynaklarını ara",
+    "zapriModal": "Pencereyi kapat",
+    "modalOverline": "POZİSYON BAŞVURUSU",
+    "modalPodnaslov": "Kısa formu doldurun, 24 saat içinde sizinle iletişime geçelim.",
+    "modalUspehOpis": "\"{mesto}\" pozisyonu için başvurunuz başarıyla gönderildi.",
+    "poljePozicija": "Seçilen pozisyon",
+    "poljeIzkusnje": "Önceki deneyim ve notlar (isteğe bağlı)",
+    "poljeIzkusnjeDrzalo": "Mutfaktaki deneyiminizi ya da ne zaman işe başlayabileceğinizi yazın...",
+    "oddajPrijavo": "Başvuruyu gönder"
+  },
+  "zasebnost": {
+    "vodniZnak": "GİZLİLİK",
+    "oznaka": "KİŞİSEL VERİLERİN KORUNMASI · GDPR VE ZVOP-2",
+    "naslov": "Kişisel verilerin korunması ve gizlilik politikası",
+    "uvod": "Šeherezada restoranı olarak güveninize çok değer veriyoruz. Kişisel verilerinizi (AB) 2016/679 sayılı Tüzük (Genel Veri Koruma Tüzüğü – GDPR), Slovenya Kişisel Verilerin Korunması Kanunu (ZVOP-2) ve yürürlükteki Slovenya mevzuatı uyarınca işliyoruz.",
+    "posodobitev": "Son güncelleme: 25 Ağustos 2026",
+    "razdelek1": "1. Veri sorumlusu",
+    "razdelek1Uvod": "Bu web sitesi üzerinden ya da yeme içme hizmetlerimiz kapsamında toplanan kişisel verilerinizin sorumlusu:",
+    "oznakaZnamka": "Marka:",
+    "oznakaSedez": "Merkez:",
+    "oznakaMaticna": "Sicil numarası:",
+    "oznakaPoslovalnici": "Şubeler:",
+    "poslovalnici": "Trubarjeva cesta 31 ve Slovenska cesta 55, Ljubljana",
+    "kontaktnaTocka": "Gizlilik için iletişim noktası",
+    "oznakaEposta": "E-posta:",
+    "oznakaTelefon": "Telefon:",
+    "oznakaVprasanja": "Gizlilikle ilgili sorular:",
+    "vprasanjaOdgovor": "yukarıdaki e-posta adresine yazın ya da telefonla arayın",
+    "razdelek2": "2. Hangi kişisel verileri, hangi amaçla topluyoruz",
+    "razdelek2Uvod": "Kişisel verileri yalnızca ilgili amacın gerçekleşmesi için kesinlikle gerekli olan ölçüde topluyor ve işliyoruz:",
+    "obrazecNaslov": "İletişim formu ve talepler",
+    "obrazecOpis": "Çevrimiçi form üzerinden bize mesaj gönderdiğinizde adınızı, e-posta adresinizi, telefon numaranızı ve mesajın içeriğini topluyoruz. Bu verileri yalnızca size cevap hazırlamak ya da talebinizi onaylamak için kullanıyoruz.",
+    "prijaveNaslov": "Açık pozisyonlara başvurular",
+    "prijaveOpis": "Bir işe başvurduğunuzda iletişim bilgilerinizi, özgeçmişinizi ve iş deneyiminizi işliyoruz. Bu verileri yalnızca seçim süreci boyunca ya da onayınızla gelecekteki fırsatlar için saklıyoruz.",
+    "dnevnikiNaslov": "Teknik sunucu kayıtları",
+    "dnevnikiOpis": "Web sitesini ziyaret ettiğinizde sunucu teknik verileri otomatik olarak kaydeder (IP adresi, tarayıcı türü, erişim tarihi ve saati). Bu veriler ağın güvenliğini ve kesintisiz çalışmasını sağlamaya yarar.",
+    "boniNaslov": "Öğrenci yemeği (fişler)",
+    "boniOpis": "Öğrenci fişleri kullanılırken doğrulama işlemi resmî devlet terminali ŠOS üzerinden yapılır. Šeherezada, öğrenciye ait kişisel verileri kendi veri tabanlarında saklamaz.",
+    "razdelek3": "3. Veri işlemenin hukuki dayanakları",
+    "razdelek3Uvod": "Kişisel verilerinizi GDPR'nin 6. maddesindeki şu hukuki dayanaklara göre işliyoruz:",
+    "podlaga1": "• <b>Sözleşmenin ya da sözleşme öncesi tedbirlerin ifası (md. 6(1)(b) GDPR):</b> yemek siparişlerinin, rezervasyonların ve taleplere verilen cevapların işlenmesi.",
+    "podlaga2": "• <b>Açık rıza (md. 6(1)(a) GDPR):</b> zorunlu olmayan çerezler ve gelecekteki pozisyonlar için özgeçmişin saklanması. E-posta bülteni göndermiyoruz.",
+    "podlaga3": "• <b>Meşru menfaat (md. 6(1)(f) GDPR):</b> bilişim sistemlerinin güvenliğini sağlamak, kötüye kullanımı önlemek ve web sitesinin çalışmasını iyileştirmek.",
+    "razdelek4": "4. Kişisel verilerinizle ilgili haklarınız",
+    "razdelek4Uvod": "GDPR uyarınca her zaman şu haklara sahipsiniz:",
+    "pravicaDostopNaslov": "Erişim hakkı",
+    "pravicaDostopOpis": "Verilerinizi işleyip işlemediğimize dair onay alma ve bunları ücretsiz inceleme talebinde bulunma hakkınız vardır.",
+    "pravicaPopravekNaslov": "Düzeltme hakkı",
+    "pravicaPopravekOpis": "Hatalı kişisel verilerin derhâl düzeltilmesini ya da eksik verilerin tamamlanmasını talep edebilirsiniz.",
+    "pravicaIzbrisNaslov": "Silme hakkı",
+    "pravicaIzbrisOpis": "Verilerinizin saklanması için artık yasal bir sebep yoksa silinmesini talep edebilirsiniz (\"unutulma hakkı\").",
+    "pravicaOmejitevNaslov": "İşlemenin kısıtlanması",
+    "pravicaOmejitevOpis": "İtiraz hâlinde ya da doğruluk kontrolü sırasında verilerinizin işlenmesinin geçici olarak kısıtlanmasını talep etme hakkınız vardır.",
+    "pravicaPrenosNaslov": "Veri taşınabilirliği",
+    "pravicaPrenosOpis": "Bize verdiğiniz verileri yapılandırılmış, yaygın olarak kullanılan ve makine tarafından okunabilir bir biçimde alabilirsiniz.",
+    "pravicaUgovorNaslov": "İtiraz hakkı",
+    "pravicaUgovorOpis": "Meşru menfaate dayanan işlemeye her zaman itiraz edebilir ya da verdiğiniz rızayı geri çekebilirsiniz.",
+    "uveljavljanje": "Yukarıda sayılan tüm hakları <b>{eposta}</b> adresine göndereceğiniz basit bir yazılı mesajla kullanabilirsiniz. Talebinize gereksiz gecikme olmaksızın, en geç 30 gün içinde cevap veririz.",
+    "razdelek5": "5. Veri güvenliği ve saklama süresi",
+    "varnost1": "Verilerinizi korumak için bağlantı şifrelemesi (SSL/TLS sertifikası), güvenli sunucu protokolleri ve yalnızca yetkili kişilerin erişimi dahil gelişmiş teknik ve idari önlemler kullanıyoruz.",
+    "varnost2": "Verileri yalnızca toplanma amacına ulaşmak için gereken süre boyunca, ya da rızanızı geri çekene veya ticari belgelerin yasal saklama süreleri dolana kadar saklıyoruz.",
+    "razdelek6": "6. Verileri kimlerle paylaşıyoruz",
+    "razdelek6Uvod": "Kişisel verilerinizi satmıyor ve reklam amacıyla üçüncü kişilere aktarmıyoruz. Web sitesinin çalışması için ise verileri talimatlarımız doğrultusunda işleyen bir hizmet sağlayıcıyla çalışıyoruz:",
+    "gostovanje": "• <b>Barındırma sağlayıcısı</b> — sunucu her ziyarette sayfanın gönderilmesi için gerekli teknik verileri kaydeder (IP adresi, tarayıcı türü, istek zamanı). Bu verileri ziyaret analizi için kullanmıyoruz.",
+    "razkritje": "Bunun dışında verileri yalnızca kanun ya da yetkili bir devlet kurumu talep ettiğinde açıklıyoruz.",
+    "razdelek7": "7. Slovenya Cumhuriyeti'ndeki denetim makamı",
+    "razdelek7Uvod": "Kişisel verilerinizin işlenmesinin yürürlükteki mevzuata aykırı olduğunu düşünüyorsanız yetkili denetim makamına şikâyette bulunma hakkınız vardır:",
+    "nadzorniOrgan": "Slovenya Cumhuriyeti Bilgi Edinme Kurumu (Informacijski pooblaščenec)",
+    "nadzorniNaslov": "Adres: Dunajska cesta 22, 1000 Ljubljana",
+    "nadzorniKontakt": "E-posta: gp.ip@ip-rs.si | Telefon: +386 1 230 97 30",
+    "nadzorniSpletna": "Web sitesi:",
+    "gumbPiskotki": "Çerez politikasını oku",
+    "gumbMeni": "Menüye dön",
+    "gumbKontakt": "İletişim"
+  },
+  "piskotkiStran": {
+    "vodniZnak": "ÇEREZLER",
+    "oznaka": "HUKUKİ BİLGİLENDİRME · ZEKOM-2 VE GDPR",
+    "naslov": "Çerez kullanım politikası",
+    "uvodZacetek": "Šeherezada restoranının web sitesinde gizliliğinize saygı duyuyoruz.",
+    "uvodZAnalitiko": "Seçiminizi hatırlayan zorunlu bir çerez ile ziyaretlerin anonim istatistiği için analitik çerezler kullanıyoruz. Analitik olanlar <b>yalnızca onay verirseniz</b> yüklenir. Reklam çerezi kullanmıyoruz.",
+    "uvodBrezAnalitike": "Şu anda <b>yalnızca tek bir çerez</b> kullanıyoruz — seçiminizi hatırlayan çerez. Analitik hazır ama henüz açık değil; açıldığında yalnızca bantta „Tümünü kabul et“ seçen misafirler için yüklenecek. Reklam çerezi kullanmıyor ve davranışınızı izlemiyoruz.",
+    "posodobitev": "Son güncelleme: 25 Ağustos 2026",
+    "razdelek1": "1. Çerez nedir ve neden gerekir",
+    "kajSo1": "Çerezler (İng. <em>cookies</em>), bir web sitesinin siz sayfayı ziyaret ettiğinizde tarayıcınıza kaydettiği küçük metin dosyalarıdır. Her yeni ziyarette site çerezi tanır ve içeriği uyarlar ya da ayarlarınızı korur (örn. seçtiğiniz dil, onaylar veya tercih ettiğiniz şube).",
+    "kajSo2": "Çerezler kendi başlarına program içermez ve cihazınıza zarar veremez. Açık onayınız olmadan kişisel verilerinizi toplamazlar.",
+    "razdelek2": "2. Kullandığımız çerez türleri",
+    "razdelek2Uvod": "Slovenya Elektronik Haberleşme Kanunu (ZEKom-2) ve Genel Veri Koruma Tüzüğü (GDPR) uyarınca çerezleri üç temel kategoriye ayırıyoruz:",
+    "nujniNaslov": "Kesinlikle gerekli çerezler",
+    "nujniOpis": "Bu çerezler sitenin temel çalışması için zorunludur (güvenlik, gezinme, onayınızın saklanması). Yasaya göre kurulumları için onay gerekmez, çünkü site bunlar olmadan çalışamaz.",
+    "funkcionalniNaslov": "İşlevsel çerezler",
+    "funkcionalniOpis": "Daha gelişmiş işlevleri ve kişisel ayarlarınızın saklanmasını sağlar (örn. Trubarjeva ya da Slovenska şubesinin seçimi), böylece bir sonraki ziyarette yeniden seçmeniz gerekmez.",
+    "analiticniNaslov": "Analitik çerezler",
+    "analiticniOpis": "Site ziyaretlerini anonim olarak izlemek için kullanıyoruz (görüntülenme sayısı, menüdeki yemeklerin popülerliği). IP adresleri anonimleştirilir, veriler yalnızca toplu biçimde kullanılır.",
+    "razdelek3": "3. Sitedeki çerezlerin listesi",
+    "razdelek3Uvod": "Aşağıdaki tablo cihazınıza kurulabilecek tüm çerezleri gösterir. „Durum“ sütunu çerezin şu anda gerçekten kullanılıp kullanılmadığını söyler — böylece cihazınızda şu anda ne olduğunu ve neyi henüz planladığımızı bilirsiniz:",
+    "stolpecIme": "Çerez adı",
+    "stolpecKategorija": "Kategori",
+    "stolpecNamen": "Çerezin amacı",
+    "stolpecHramba": "Saklama süresi",
+    "stolpecIzdajatelj": "Yayınlayan",
+    "stolpecStanje": "Durum",
+    "vUporabi": "Kullanımda",
+    "niVUporabi": "Kullanımda değil",
+    "kategorijaNujni": "Zorunlu",
+    "kategorijaAnaliticni": "Analitik",
+    "namenNujni": "Çerezlerle ilgili seçiminizi hatırlar, böylece bant her ziyarette size yeniden sormaz.",
+    "namenAnaliticni": "Sitenin hangi bölümlerinin misafirlere yararlı olduğunu bilmek için ziyaretlerin ve sayfa görüntülemelerinin anonimleştirilmiş sayımı. Yalnızca bantta „Tümünü kabul et“ seçerseniz yüklenir.",
+    "trajanjeLeto": "1 yıl",
+    "trajanjeDveLeti": "2 yıl",
+    "izdajateljPrvaOseba": "{znamka} (birinci taraf)",
+    "razdelek4": "4. Şu anki seçiminiz",
+    "razdelek4Uvod": "Seçiminizi burada istediğiniz zaman değiştirebilirsiniz. Değişiklik hemen geçerli olur ve şu çereze kaydedilir",
+    "stanjeOznaka": "Durum:",
+    "stanjeNiIzbral": "henüz seçim yapmadınız",
+    "stanjeVse": "tüm çerezleri kabul ettiniz",
+    "stanjeSamoNujni": "yalnızca zorunlu çerezleri kabul ettiniz",
+    "nujniVednoVklopljen": "Zorunlu çerez her zaman açıktır — o olmadan site seçiminizi hatırlayamazdı.",
+    "razlagaZAnalitiko": "Analitik çerezler yalnızca „Tümünü kabul et“ seçtiyseniz yüklenir. „Yalnızca zorunlu“ seçerseniz yüklenmezler ve mevcut olanlar kullanılmaz.",
+    "razlagaBrezAnalitike": "Analitik henüz açık değil, bu yüzden seçiminiz şimdilik yüklenen hiçbir şeyi değiştirmiyor. Yine de ileriye dönük geçerlidir: analitiği devreye aldığımızda yalnızca burada „Tümünü kabul et“ seçen misafirler için yüklenecek.",
+    "gumbSamoNujni": "Yalnızca zorunlu",
+    "gumbSprejmiVse": "Tümünü kabul et",
+    "gumbPonastavi": "Seçimi sıfırla",
+    "izbiraShranjena": "Seçim kaydedildi.",
+    "razdelek5": "5. Tarayıcıda çerezleri nasıl yönetir ya da silersiniz",
+    "razdelek5Uvod": "Çerez ayarlarını istediğiniz zaman web tarayıcınızdan da değiştirebilirsiniz. Çoğu tarayıcı tüm çerezleri reddetmenize ya da kabul etmenize, yalnızca belirli türleri kabul etmenize veya bir site çerez kaydetmek istediğinde sizi uyarmasına imkân verir.",
+    "navodilaNaslov": "Yaygın tarayıcılarda çerezleri düzenleme adımları:",
+    "navodilaChrome": "• <b>Google Chrome:</b> Ayarlar → Gizlilik ve güvenlik → Çerezler ve diğer site verileri.",
+    "navodilaFirefox": "• <b>Mozilla Firefox:</b> Ayarlar → Gizlilik ve güvenlik → Çerezler ve site verileri.",
+    "navodilaSafari": "• <b>Apple Safari:</b> Ayarlar → Gizlilik → Web sitesi verilerini yönet.",
+    "navodilaEdge": "• <b>Microsoft Edge:</b> Ayarlar → Site izinleri → Çerezler ve depolanan veriler.",
+    "opozorilo": "Uyarı: çerezleri tamamen kapatırsanız sitenin bazı işlevleri en iyi şekilde çalışmayabilir.",
+    "razdelek6": "6. Veri sorumlusu ve sorular",
+    "razdelek6Uvod": "Web sitesinin ve çerezler yoluyla toplanan verilerin sorumlusu:",
+    "oznakaZnamka": "Marka:",
+    "oznakaSedez": "Merkez:",
+    "oznakaMaticna": "Sicil numarası:",
+    "kontaktZaZasebnost": "Gizlilik için iletişim",
+    "oznakaEposta": "E-posta:",
+    "oznakaTelefon": "Telefon:",
+    "gumbZasebnost": "Gizlilik politikasını oku",
+    "gumbMeni": "Menüye dön",
+    "gumbKontakt": "İletişim"
+  },
+  "jedi": {
+    "1": {
+      "ime": "Döner Kebap",
+      "opis": "Taze ızgara et, kendi tarifimizle ev yapımı pide ekmeği, karışık salata ve seçtiğiniz soslar. En çok satan yemeğimiz.",
+      "kategorija": "Döner ve dürüm",
+      "sestavine": {
+        "0": "Ev yapımı, taze pişmiş pide ekmeği",
+        "1": "Dana ve tavuk döner eti (%100 helal)",
+        "2": "Çıtır marul, domates, lahana, soğan",
+        "3": "Ev yapımı kremamsı yoğurt sosu"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)",
+        "2": "Susam"
+      }
+    },
+    "2": {
+      "ime": "Yufka Döner",
+      "opis": "Seçtiğiniz et, ince yufkaya sarılmış, taze sebze ve ev yapımı soslarla.",
+      "kategorija": "Döner ve dürüm",
+      "sestavine": {
+        "0": "İnce yufka (lavaş)",
+        "1": "Seçime göre döner eti (%100 helal)",
+        "2": "Taze marul, domates, soğan",
+        "3": "Yoğurt sosu ya da acı sos"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)",
+        "2": "Susam"
+      }
+    },
+    "3": {
+      "ime": "Döner Tabağı",
+      "opis": "Bol porsiyon döner eti, çıtır patates, taze karışık salata ve ev yapımı soslar. Gerçek açlık için.",
+      "kategorija": "Döner ve dürüm",
+      "sestavine": {
+        "0": "Bol porsiyon döner eti",
+        "1": "Altın rengi patates kızartması",
+        "2": "Mevsim karışık salata",
+        "3": "Ev yapımı yoğurt ve acı sos"
+      },
+      "alergeni": {
+        "0": "Laktoz (süt)",
+        "1": "Susam"
+      }
+    },
+    "4": {
+      "ime": "Döner Box",
+      "opis": "Pratik porsiyon sulu döner eti, çıtır patates ve seçtiğiniz soslarla.",
+      "kategorija": "Döner ve dürüm",
+      "sestavine": {
+        "0": "Döner eti (%100 helal)",
+        "1": "Patates kızartması",
+        "2": "Taze salata ve soslar"
+      },
+      "alergeni": {
+        "0": "Laktoz (süt)",
+        "1": "Susam"
+      }
+    },
+    "5": {
+      "ime": "Sebzeli Yufka",
+      "opis": "Taze mevsim sebzeleri ve seçtiğiniz soslar, sıcak ince yufkaya sarılmış.",
+      "kategorija": "Döner ve dürüm",
+      "sestavine": {
+        "0": "İnce yufka (lavaş)",
+        "1": "Zengin çıtır salata",
+        "2": "Kremamsı peynir ve soslar"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)"
+      }
+    },
+    "6": {
+      "ime": "Sebzeli Döner",
+      "opis": "Sıcak pide ekmeğinde taze sebze, peynir ve mis kokulu otlu soslar. Menümüzdeki en uygun fiyatlı yemek.",
+      "kategorija": "Döner ve dürüm",
+      "sestavine": {
+        "0": "Sıcak ev yapımı pide ekmeği",
+        "1": "Zengin taze sebze seçkisi",
+        "2": "Kremamsı peynir",
+        "3": "Otlu soslar"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)"
+      }
+    },
+    "7": {
+      "ime": "Falafel",
+      "opis": "Doğu tarifiyle çıtır nohut köfteleri, sıcak pide ekmeğinde salata ve tahinle. %100 bitkisel.",
+      "kategorija": "Falafel ve garnitürler",
+      "sestavine": {
+        "0": "Ev yapımı çıtır falafel",
+        "1": "Taze pide ekmeği",
+        "2": "Susamlı tahin sosu",
+        "3": "Domates, turşu, maydanoz"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Susam"
+      }
+    },
+    "8": {
+      "ime": "Falafel XL",
+      "opis": "Daha büyük porsiyon çıtır falafel, ekstra taze sebze ve kremamsı humusla.",
+      "kategorija": "Falafel ve garnitürler",
+      "sestavine": {
+        "0": "Ekstra porsiyon falafel köftesi",
+        "1": "Humus ezmesi ve tahin",
+        "2": "Zengin salata seçkisi"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Susam"
+      }
+    },
+    "9": {
+      "ime": "Falafel Tabağı",
+      "opis": "Falafel köfteleri, altın rengi patates, taze karışık salata, pide ve doğu sosları.",
+      "kategorija": "Falafel ve garnitürler",
+      "sestavine": {
+        "0": "6 adet altın rengi falafel köftesi",
+        "1": "Patates kızartması",
+        "2": "Taze salata ve pide",
+        "3": "Tahin ve sarımsak sosu"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Susam"
+      }
+    },
+    "10": {
+      "ime": "Falafel + Humus",
+      "opis": "Çıtır falafel ile zeytinyağlı ev yapımı kremamsı humusun buluşması.",
+      "kategorija": "Falafel ve garnitürler",
+      "sestavine": {
+        "0": "Taze falafel",
+        "1": "Ev yapımı kremamsı nohut humusu",
+        "2": "Natürel zeytinyağı ve pide"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Susam"
+      }
+    },
+    "11": {
+      "ime": "Falafel Tane (1 ad.)",
+      "opis": "Gerçek geleneksel tarifle kızarmış tek bir çıtır falafel.",
+      "kategorija": "Falafel ve garnitürler",
+      "sestavine": {
+        "0": "Nohut, sarımsak, maydanoz, doğu baharatları"
+      },
+      "alergeni": {
+        "0": "Susam"
+      }
+    },
+    "12": {
+      "ime": "Humus",
+      "opis": "Natürel zeytinyağı ve baharatlarla geleneksel, kremamsı nohut ezmesi.",
+      "kategorija": "Falafel ve garnitürler",
+      "sestavine": {
+        "0": "Nohut, tahin, limon suyu, sarımsak, zeytinyağı"
+      },
+      "alergeni": {
+        "0": "Susam"
+      }
+    },
+    "13": {
+      "ime": "Pilavlı Tavuk Menü",
+      "opis": "Sarı aromalı pilav ve taze salatayla marine edilmiş sulu tavuk parçaları.",
+      "kategorija": "Tabaklar ve tavuk",
+      "sestavine": {
+        "0": "Marine edilmiş tavuk fileto (%100 helal)",
+        "1": "Baharatlı aromalı pilav",
+        "2": "Taze salata garnitürü",
+        "3": "Ev yapımı yoğurt sosu"
+      },
+      "alergeni": {
+        "0": "Laktoz (süt)"
+      }
+    },
+    "14": {
+      "ime": "Patatesli Tavuk Menü",
+      "opis": "Altın rengi patates ve ev yapımı soslarla taze pişmiş çıtır tavuk.",
+      "kategorija": "Tabaklar ve tavuk",
+      "sestavine": {
+        "0": "Sulu tavuk parçaları",
+        "1": "Çıtır patates kızartması",
+        "2": "Mevsim karışık salata",
+        "3": "Seçtiğiniz sos"
+      },
+      "alergeni": {
+        "0": "Laktoz (süt)"
+      }
+    },
+    "15": {
+      "ime": "Crispy Yufka",
+      "opis": "Panelenmiş çıtır tavuk şnitzel, taze salata ve hafif mayonezli sos, yufkada.",
+      "kategorija": "Tabaklar ve tavuk",
+      "sestavine": {
+        "0": "Panelenmiş çıtır tavuk fileto",
+        "1": "İnce yufka (lavaş)",
+        "2": "Marul, domates, hafif sos"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Yumurta",
+        "2": "Laktoz (süt)"
+      }
+    },
+    "16": {
+      "ime": "Crispy Burger",
+      "opis": "Yumuşak ekmekte panelenmiş çıtır tavuk fileto, taze salata, domates ve ev yapımı burger sosu.",
+      "kategorija": "Burgerler",
+      "sestavine": {
+        "0": "Susamlı burger ekmeği",
+        "1": "Panelenmiş çıtır tavuk",
+        "2": "Marul, domates, turşu",
+        "3": "Kremamsı burger sosu"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Yumurta",
+        "2": "Susam",
+        "3": "Laktoz (süt)"
+      }
+    },
+    "17": {
+      "ime": "Crispy Tabağı",
+      "opis": "Panelenmiş çıtır tavuk madalyonları, patates, salata ve seçtiğiniz bir sosla.",
+      "kategorija": "Tabaklar ve tavuk",
+      "sestavine": {
+        "0": "Çıtır kızarmış tavuk şeritleri",
+        "1": "Altın rengi patates kızartması",
+        "2": "Taze salata ve ev yapımı sos"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Yumurta",
+        "2": "Laktoz (süt)"
+      }
+    },
+    "18": {
+      "ime": "Fırın Tavuk",
+      "opis": "Seçme baharatlar ve ev yapımı garnitürlerle taze pişmiş sulu tavuk.",
+      "kategorija": "Tabaklar ve tavuk",
+      "sestavine": {
+        "0": "Fırında tavuk fileto",
+        "1": "Seçime göre garnitür (pilav ya da patates)",
+        "2": "Otlu soslu salata"
+      },
+      "alergeni": {
+        "0": "Laktoz (süt)"
+      },
+      "opomba": "Yalnızca Trubarjeva 31 şubesinde."
+    },
+    "19": {
+      "ime": "Hamburger",
+      "opis": "Klasik sulu dana köfte, turşu, kırmızı soğan, taze salata ve ev yapımı BBQ sosu.",
+      "kategorija": "Burgerler",
+      "sestavine": {
+        "0": "%100 dana köfte (helal)",
+        "1": "Yumuşak, kızarmış ekmek",
+        "2": "Domates, salatalık, soğan",
+        "3": "Klasik burger sosu"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Susam",
+        "2": "Hardal"
+      }
+    },
+    "20": {
+      "ime": "Tavuk Burger",
+      "opis": "Susamlı yumuşak ekmekte yumuşacık ızgara tavuk fileto ve taze malzemeler.",
+      "kategorija": "Burgerler",
+      "sestavine": {
+        "0": "Izgara tavuk fileto",
+        "1": "Susamlı burger ekmeği",
+        "2": "Domates, marul, ev yapımı sos"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Susam",
+        "2": "Laktoz (süt)"
+      }
+    },
+    "21": {
+      "ime": "Cheeseburger",
+      "opis": "Bol dilim erimiş cheddar, sulu dana köfte ve sosla klasik burger.",
+      "kategorija": "Burgerler",
+      "sestavine": {
+        "0": "Sulu dana köfte",
+        "1": "Erimiş cheddar peyniri",
+        "2": "Çıtır marul ve salatalık",
+        "3": "Ev yapımı sos"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)",
+        "2": "Susam",
+        "3": "Hardal"
+      }
+    },
+    "22": {
+      "ime": "Cevapi",
+      "opis": "Geleneksel tarifle %100 dana cevapi, sıcak pide ekmeğinde soğan ve kaymakla.",
+      "kategorija": "Tabaklar ve tavuk",
+      "sestavine": {
+        "0": "%100 dana cevapi (helal)",
+        "1": "Sıcak ev yapımı pide ekmeği",
+        "2": "Taze doğranmış soğan",
+        "3": "Kremamsı ev yapımı kaymak ve ajvar"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)"
+      }
+    },
+    "23": {
+      "ime": "Patates Kızartması",
+      "opis": "Altın sarısı kızarmış, çıtır ve tuzlanmış patates; her siparişte taze hazırlanır.",
+      "kategorija": "Falafel ve garnitürler",
+      "sestavine": {
+        "0": "Patates, bitkisel yağ, deniz tuzu"
+      }
+    },
+    "24": {
+      "ime": "Sebzeli Pizza",
+      "opis": "Domates sosu, peynir, taze biber, mısır, mantar, domates ve zeytin.",
+      "kategorija": "Pizzalar",
+      "sestavine": {
+        "0": "Taze yoğrulmuş hamur",
+        "1": "Mozzarella ve domates sosu",
+        "2": "Biber, mantar, domates, mısır",
+        "3": "Kekik"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)"
+      }
+    },
+    "25": {
+      "ime": "Salamlı Pizza",
+      "opis": "Domates sosu, mozzarella ve baharatlı dana salam.",
+      "kategorija": "Pizzalar",
+      "sestavine": {
+        "0": "Çıtır hamur",
+        "1": "Domates tabanı ve peynir",
+        "2": "Dana salam / dana kulen"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)"
+      }
+    },
+    "26": {
+      "ime": "Pizza Döner",
+      "opis": "Ev yapımı domates tabanı, mozzarella, döner eti ve yoğurt soslu pizza. İki boyda mevcut.",
+      "kategorija": "Pizzalar",
+      "sestavine": {
+        "0": "Çıtır hamur",
+        "1": "Mozzarella ve domates",
+        "2": "Ateşte pişmiş döner eti",
+        "3": "Ev yapımı beyaz sos"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)"
+      }
+    },
+    "27": {
+      "ime": "Pizza Klasik",
+      "opis": "Domates sosu, mozzarella, hindi jambonu (helal) ve taze mantar.",
+      "kategorija": "Pizzalar",
+      "sestavine": {
+        "0": "Taze yoğrulmuş hamur",
+        "1": "Domates sosu ve mozzarella",
+        "2": "Kaliteli hindi jambonu",
+        "3": "Taze mantar"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)"
+      }
+    },
+    "28": {
+      "ime": "Ton Balıklı Pizza",
+      "opis": "Domates sosu, mozzarella, seçme ton balığı parçaları, kırmızı soğan ve zeytin.",
+      "kategorija": "Pizzalar",
+      "sestavine": {
+        "0": "Ev yapımı hamur",
+        "1": "Domates sosu ve mozzarella",
+        "2": "Kaliteli ton balığı",
+        "3": "Soğan ve Akdeniz otları"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)",
+        "2": "Balık"
+      }
+    },
+    "29": {
+      "ime": "Pizza Margarita",
+      "opis": "Ev yapımı domates sosu, kaliteli mozzarella, zeytinyağı ve mis kokulu kekik.",
+      "kategorija": "Pizzalar",
+      "sestavine": {
+        "0": "Elde açılmış ev yapımı hamur",
+        "1": "Domates sosu",
+        "2": "Mozzarella peyniri",
+        "3": "Kekik ve zeytinyağı"
+      },
+      "alergeni": {
+        "0": "Gluten (buğday)",
+        "1": "Laktoz (süt)"
+      }
+    }
+  },
+  "kategorije": {
+    "all": {
+      "ime": "Tüm yemekler",
+      "kratko": "Tümü"
+    },
+    "kebab": {
+      "ime": "Döner ve dürüm",
+      "kratko": "Döner"
+    },
+    "falafel": {
+      "ime": "Falafel ve garnitürler",
+      "kratko": "Falafel"
+    },
+    "kroznik": {
+      "ime": "Tabaklar ve tavuk",
+      "kratko": "Tabaklar"
+    },
+    "burger": {
+      "ime": "Burgerler",
+      "kratko": "Burger"
+    },
+    "pizza": {
+      "ime": "Pizzalar",
+      "kratko": "Pizza"
+    }
+  },
+  "ocenePodatki": {
+    "1": {
+      "kdaj": "9 ay önce",
+      "kontekst": "Tatil · Aile"
+    },
+    "2": {
+      "kdaj": "6 ay önce",
+      "kontekst": "Tatil · Arkadaşlar"
+    },
+    "3": {
+      "kdaj": "bir yıl önce",
+      "kontekst": "Aile"
+    }
+  }
+}

@@ -77,7 +77,7 @@ Cloudflare sam upozorava:
 
 **Znači: čist teren.** Domena je na Cloudflareu, ali ništa ne pokazuje nigdje.
 Ne postoji stari sajt koji bi se srušio kad prebacimo — jedina posljedica je da
-oживи ono čega sada nema.
+proradi ono čega sada nema.
 
 Zone ID i Account ID postoje (vlasnik ih ima na dashboardu) — **traži ih u chatu
 ako ti zatrebaju**, nisu u ovom fajlu.

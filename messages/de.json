@@ -271,7 +271,6 @@
     "zVeljavnimBonom": "mit gültigem Bon",
     "kategorijaOznaka": "Kategorie {ime}",
     "steviloJedi": "{stevilo} Gerichte",
-    "prikazanih": "Angezeigt: <b>{stevilo}</b> Gerichte",
     "niZadetkov": "Keine Gerichte gefunden",
     "niZadetkovOpis": "Für diese Suche oder diesen Filter gibt es keine Treffer. Versuchen Sie einen anderen Suchbegriff oder setzen Sie die Filter zurück.",
     "ponastaviFiltre": "Filter zurücksetzen",

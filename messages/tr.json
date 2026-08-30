@@ -280,8 +280,7 @@
     "alergeni": "Alerjenler",
     "brezAlergenov": "Bilinen alerjen yok.",
     "schemaIme": "Menü — {znamka}",
-    "schemaVelika": "Büyük",
-    "prikazanih": "<b>{stevilo}</b> yemek gösteriliyor"
+    "schemaVelika": "Büyük"
   },
   "halalStran": {
     "vodniZnak": "HELAL",

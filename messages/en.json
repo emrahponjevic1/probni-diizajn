@@ -280,8 +280,7 @@
     "alergeni": "Allergens",
     "brezAlergenov": "No known allergens.",
     "schemaIme": "Menu — {znamka}",
-    "schemaVelika": "Large",
-    "prikazanih": "Showing <b>{stevilo}</b> dishes"
+    "schemaVelika": "Large"
   },
   "halalStran": {
     "vodniZnak": "HALAL",

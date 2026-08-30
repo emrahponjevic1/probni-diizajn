@@ -534,6 +534,14 @@
   transform: scale(1.06);
 }
 
+/* Kategorija, ki ob trenutnem iskanju ali tipu menija nima nobene jedi.
+   Ne skrivamo je — vrsta krogcev bi poskakovala — ampak jo pritajimo, da
+   gost vidi, da klik nima kaj pokazati. Klik ostane mogoč; prazno stanje
+   spodaj ponudi gumb za ponastavitev filtrov. */
+.storyAvatarBtnEmpty {
+  opacity: 0.4;
+}
+
 .storyAvatarBtnActive .storyAvatarLabel {
   color: #ea580c;
   font-weight: 900;
@@ -564,26 +572,6 @@
   background: #ea580c;
   border-radius: 99px;
   will-change: transform, width;
-}
-
-/* Items Count & Status Bar */
-.itemsStatusBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding: 0 0.2rem;
-}
-
-.itemsCountText {
-  font-size: 0.9rem;
-  color: #78716c;
-  font-weight: 600;
-}
-
-.itemsCountBold {
-  color: #1c1917;
-  font-weight: 800;
 }
 
 /* ==========================================================================
@@ -1418,10 +1406,6 @@
     width: 80px;
     height: 3px;
     margin: 0.4rem auto 0;
-  }
-
-  .itemsStatusBar {
-    margin-bottom: 1.2rem;
   }
 
   .categoryPill {

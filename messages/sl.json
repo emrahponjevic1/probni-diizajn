@@ -226,8 +226,7 @@
     "alergeni": "Alergeni",
     "brezAlergenov": "Brez znanih alergenov.",
     "schemaIme": "Meni — {znamka}",
-    "schemaVelika": "Velika",
-    "prikazanih": "Prikazanih <b>{stevilo}</b> jedi"
+    "schemaVelika": "Velika"
   },
   "halalStran": {
     "vodniZnak": "HALAL",

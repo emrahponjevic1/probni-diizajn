@@ -271,7 +271,6 @@
     "zVeljavnimBonom": "con buono valido",
     "kategorijaOznaka": "Categoria {ime}",
     "steviloJedi": "{stevilo} piatti",
-    "prikazanih": "Mostrati: <b>{stevilo}</b> piatti",
     "niZadetkov": "Nessun piatto trovato",
     "niZadetkovOpis": "Non ci sono risultati per questa ricerca o per questo filtro. Provate con un altro termine oppure azzerate i filtri.",
     "ponastaviFiltre": "Azzera i filtri",

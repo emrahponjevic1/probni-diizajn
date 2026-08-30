@@ -133,10 +133,6 @@ export default function MenuPageContent() {
       .map((g) => ({ ...g, indeks: (it: MenuItem) => zaporedje.get(it.id) ?? 0 }));
   };
 
-  const getCategoryCount = (catId: string) => {
-    if (catId === "all") return MENU_ITEMS.length;
-    return MENU_ITEMS.filter((i) => i.category === catId).length;
-  };
   const avatarsTrackRef = useRef<HTMLDivElement>(null);
   const scrollThumbRef = useRef<HTMLDivElement>(null);
   const [canScroll, setCanScroll] = useState(false);
@@ -224,31 +220,51 @@ export default function MenuPageContent() {
     setSelectedCategory("all");
   };
 
-  const filteredItems = useMemo(() => {
+  /**
+   * Jedi, ki ustrezajo iskanju in izbranemu tipu menija — BREZ kategorije.
+   *
+   * Ločeno zato, ker iz istega seznama izhajata dve stvari: prikazane jedi
+   * in števila pod krogci kategorij. Števila morajo povedati, koliko jedi
+   * dobiš, ČE klikneš tisti krogec — zato pri njih kategorija ne sme šteti.
+   */
+  const ustrezneBrezKategorije = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
     return MENU_ITEMS.map(prevediJed).filter((item) => {
-      // 1. Search Query Filter
-      if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase().trim();
-        const matchesName = item.name.toLowerCase().includes(query);
-        const matchesDesc = item.desc.toLowerCase().includes(query);
-        const matchesCat = item.categoryLabel.toLowerCase().includes(query);
-        if (!matchesName && !matchesDesc && !matchesCat) {
-          return false;
-        }
+      if (query) {
+        const najde =
+          item.name.toLowerCase().includes(query) ||
+          item.desc.toLowerCase().includes(query) ||
+          item.categoryLabel.toLowerCase().includes(query);
+        if (!najde) return false;
       }
-
-      // 2. Menu Type Filter
       if (menuType === "student" && !item.student) return false;
       if (menuType === "vegi" && item.diet === null) return false;
-
-      // 3. Category Filter (only applicable in regular mode or when sub-selected)
-      if (selectedCategory !== "all" && item.category !== selectedCategory) {
-        return false;
-      }
-
       return true;
     });
-  }, [menuType, selectedCategory, searchQuery]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [menuType, searchQuery]);
+
+  const filteredItems = useMemo(
+    () =>
+      selectedCategory === "all"
+        ? ustrezneBrezKategorije
+        : ustrezneBrezKategorije.filter((i) => i.category === selectedCategory),
+    [ustrezneBrezKategorije, selectedCategory]
+  );
+
+  /**
+   * Števila pod krogci. Prej so bila statična — brala so iz celotnega menija
+   * in se ob iskanju ali ob preklopu na "Študentski boni" niso spremenila.
+   * Krogec je tako lahko obljubljal šest jedi, klik pa jih je pokazal dve.
+   */
+  const steviloVKategoriji = useMemo(() => {
+    const out: Record<string, number> = { all: ustrezneBrezKategorije.length };
+    for (const c of MENU_CATEGORIES) {
+      if (c.id === "all") continue;
+      out[c.id] = ustrezneBrezKategorije.filter((i) => i.category === c.id).length;
+    }
+    return out;
+  }, [ustrezneBrezKategorije]);
 
   return (
     <div className={styles.menuPageWrapper}>
@@ -397,13 +413,15 @@ export default function MenuPageContent() {
             >
               {MENU_CATEGORIES.map(prevediKategorijo).map((cat) => {
                 const isActive = selectedCategory === cat.id;
-                const count = getCategoryCount(cat.id);
+                const count = steviloVKategoriji[cat.id] ?? 0;
                 return (
                   <button
                     key={cat.id}
                     type="button"
                     onClick={(e) => handleCategorySelect(cat.id, e)}
-                    className={`${styles.storyAvatarBtn} ${isActive ? styles.storyAvatarBtnActive : ""}`}
+                    className={`${styles.storyAvatarBtn} ${isActive ? styles.storyAvatarBtnActive : ""} ${
+                      count === 0 ? styles.storyAvatarBtnEmpty : ""
+                    }`}
                     aria-label={t("kategorijaOznaka", { ime: cat.label })}
                   >
                     <div className={styles.storyAvatarRing}>
@@ -435,20 +453,6 @@ export default function MenuPageContent() {
             )}
           </div>
         )}
-
-        {/* Items Status Bar */}
-        <div className={styles.itemsStatusBar}>
-          {/* Števec, ne naslov. Bil je <h2> samo zato, ker stran ni imela
-              nobenega drugega naslova; zdaj jih ima pet — po enega nad vsako
-              skupino jedi — in števec bi obris dokumenta samo motil, saj pod
-              njim ni razdelka. Videz je nespremenjen. */}
-          <p className={styles.itemsCountText}>
-            {t.rich("prikazanih", {
-              stevilo: filteredItems.length,
-              b: (chunks) => <span className={styles.itemsCountBold}>{chunks}</span>,
-            })}
-          </p>
-        </div>
 
         {/* ==================================================================
             DISHES PRESENTATION: GRID OR LIST

@@ -492,6 +492,11 @@ prava `<a>` veza na **istu stranicu** u tom jeziku — radi i na stranicama sa
 slugom. Popis jezika dolazi iz `LOCALES` u `site.ts`, imena su autonimi
 (Deutsch, Türkçe) i ne prevode se.
 
+**Bosanski se u prekidaču zove `BHS` / „Bos / Hrv / Srp" — odluka vlasnika.**
+Nije autonim nego regionalna oznaka: gosti iz sve tri zemlje se u njoj
+prepoznaju. Kod jezika i `hreflang` ostaju `bs` — to čita Google, ne gost.
+Ne „ispravljati" u BOS.
+
 ### ✅ Tvrdnje na `/halal` — provjerene 27. 8. 2026
 Vlasnik je prošao kroz svih sedam. **Slovenački sadržaj je time zaključan** — uslov da se krene sa prevodima.
 

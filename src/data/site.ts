@@ -66,7 +66,10 @@ export const LOCALES = [
   { code: "en", prefix: "/en", hreflang: "en", default: false, name: "English", short: "ENG" },
   { code: "de", prefix: "/de", hreflang: "de", default: false, name: "Deutsch", short: "DEU" },
   { code: "it", prefix: "/it", hreflang: "it", default: false, name: "Italiano", short: "ITA" },
-  { code: "bs", prefix: "/bs", hreflang: "bs", default: false, name: "Bosanski", short: "BOS" },
+  // Oznaka je "BHS" po želji lastnika: gostje iz Bosne, Hrvaške in Srbije se
+  // v tej oznaki prepoznajo, "BOS" pa bi jih del odvrnil. Koda jezika in
+  // hreflang ostaneta "bs" — to bere Google, ne gost.
+  { code: "bs", prefix: "/bs", hreflang: "bs", default: false, name: "Bos / Hrv / Srp", short: "BHS" },
   { code: "tr", prefix: "/tr", hreflang: "tr", default: false, name: "Türkçe", short: "TUR" },
 ] as const;
 

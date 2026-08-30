@@ -2,8 +2,8 @@
   "piskotki": {
     "oznaka": "Pristanak na kolačiće",
     "naslov": "Kolačići na ovoj stranici",
-    "besediloZAnalitiko": "Neophodni kolačić pamti ovaj izbor. Analitičke učitavamo samo ako odaberete „Prihvati sve“.",
-    "besediloBrezAnalitike": "Koristimo samo kolačić koji pamti ovaj izbor. Analitika još nije uključena — kada bude, učitat će se samo ako ovdje odaberete „Prihvati sve“.",
+    "besediloZAnalitiko": "Neophodni kolačić pamti ovaj izbor, funkcionalni pamti jezik. Analitičke učitavamo samo ako odaberete „Prihvati sve“.",
+    "besediloBrezAnalitike": "Neophodni kolačić pamti ovaj izbor, funkcionalni pamti jezik. Analitika još nije uključena — kada bude, učitat će se samo ako ovdje odaberete „Prihvati sve“.",
     "vec": "Više u <povezava>politici kolačića</povezava>.",
     "samoNujni": "Samo neophodni",
     "sprejmiVse": "Prihvati sve"
@@ -1078,25 +1078,26 @@
     "nadzorniSpletna": "Web stranica:",
     "gumbPiskotki": "Pročitaj politiku kolačića",
     "gumbMeni": "Nazad na meni",
-    "gumbKontakt": "Kontakt"
+    "gumbKontakt": "Kontakt",
+    "zemljevid": "• <b>Google Maps</b> — na stranici Kontakt ugrađena je Google karta. Google Ireland Ltd. učitava kartu, pritom prima vašu IP adresu i postavlja svoje kolačiće. Kartu ne koristimo za analizu posjeta."
   },
   "piskotkiStran": {
     "vodniZnak": "KOLAČIĆI",
     "oznaka": "PRAVNA OBAVIJEST · ZEKOM-2 I GDPR",
     "naslov": "Politika upotrebe kolačića",
     "uvodZacetek": "Na web stranici restorana Šeherezada poštujemo vašu privatnost.",
-    "uvodZAnalitiko": "Koristimo neophodan kolačić koji pamti vaš izbor i analitičke kolačiće za anonimnu statistiku posjeta. Analitički se učitavaju <b>samo ako na to pristanete</b>. Oglašivačke kolačiće ne koristimo.",
-    "uvodBrezAnalitike": "Trenutno koristimo <b>samo jedan kolačić</b> — onaj koji pamti vaš izbor. Analitika je pripremljena, ali još nije uključena; kada bude, učitat će se isključivo gostima koji su u traci odabrali „Prihvati sve“. Oglašivačke kolačiće ne koristimo i ne pratimo vaše ponašanje.",
+    "uvodZAnalitiko": "Koristimo kolačić koji pamti vaš izbor i kolačić za jezik stranice; ugrađena karta dodaje Googleove. Analitički se učitavaju <b>samo ako na to pristanete</b>. Oglašivačke kolačiće ne koristimo.",
+    "uvodBrezAnalitike": "Trenutno se učitavaju kolačić za vaš izbor, kolačić za jezik stranice i oni koje Google postavi kada se prikaže ugrađena karta. <b>Analitika još nije uključena</b>; kada bude, učitat će se isključivo gostima koji su u traci odabrali „Prihvati sve“. Oglašivačke kolačiće ne koristimo i ne pratimo vaše ponašanje.",
     "posodobitev": "Posljednja izmjena: 25. august 2026.",
     "razdelek1": "1. Šta su kolačići i zašto su nam potrebni",
     "kajSo1": "Kolačići (engl. <em>cookies</em>) male su tekstualne datoteke koje web stranica pohrani u vaš pregledač pri posjeti. Pri svakoj ponovnoj posjeti stranica prepozna kolačić i prilagodi sadržaj ili zadrži vaše postavke (npr. odabrani jezik, saglasnosti ili omiljenu poslovnicu).",
     "kajSo2": "Kolačići sami po sebi ne sadrže programe i ne mogu oštetiti vaš uređaj. Ne prikupljaju vaše lične podatke bez vaše izričite saglasnosti.",
     "razdelek2": "2. Vrste kolačića koje koristimo",
-    "razdelek2Uvod": "U skladu sa slovenskim Zakonom o elektronskim komunikacijama (ZEKom-2) i Opštom uredbom o zaštiti podataka (GDPR) kolačiće dijelimo u tri osnovne kategorije:",
+    "razdelek2Uvod": "U skladu sa slovenskim Zakonom o elektronskim komunikacijama (ZEKom-2) i Opštom uredbom o zaštiti podataka (GDPR) kolačiće dijelimo u tri osnovne kategorije. Pored njih tu su i kolačići koje postavlja ugrađeni sadržaj treće strane.",
     "nujniNaslov": "Neophodni kolačići",
     "nujniOpis": "Ovi kolačići neophodni su za osnovni rad web stranice (sigurnost, navigacija, pohrana vaše saglasnosti). Za njihovu instalaciju po zakonu saglasnost nije potrebna, jer stranica bez njih ne može raditi.",
     "funkcionalniNaslov": "Funkcionalni kolačići",
-    "funkcionalniOpis": "Omogućavaju naprednije funkcije i pohranu vaših ličnih postavki (npr. izbor poslovnice Trubarjeva ili Slovenska), da pri sljedećoj posjeti ne morate ponovo birati.",
+    "funkcionalniOpis": "Čuvaju postavku koja je stranici potrebna za ispravan prikaz — kod nas jezik na kojem je čitate. Bez toga bi vas linkovi mogli vratiti na drugi jezik.",
     "analiticniNaslov": "Analitički kolačići",
     "analiticniOpis": "Koristimo ih za anonimno praćenje posjećenosti stranice (broj pregleda, popularnost jela u meniju). IP adrese su anonimizirane, a podaci se koriste isključivo u zbirnom obliku.",
     "razdelek3": "3. Spisak kolačića na web stranici",
@@ -1147,7 +1148,17 @@
     "oznakaTelefon": "Telefon:",
     "gumbZasebnost": "Pročitaj politiku privatnosti",
     "gumbMeni": "Nazad na meni",
-    "gumbKontakt": "Kontakt"
+    "gumbKontakt": "Kontakt",
+    "kategorijaFunkcionalni": "Funkcionalni",
+    "kategorijaTretjaOseba": "Treća strana",
+    "trajanjeSeja": "Do zatvaranja pregledača",
+    "trajanjeGoogle": "Određuje Google",
+    "namenJezik": "Bilježi jezik stranice koju gledate, da vas linkovi zadrže u istom jeziku. Postavlja se automatski pri učitavanju stranice.",
+    "namenZemljevid": "Kolačići koje Google postavi kada se prikaže ugrađena karta. Njihova imena i trajanje ne određujemo mi.",
+    "imeZemljevid": "Google Maps (ugrađena karta)",
+    "analiticniOpisBrez": "Namijenjeni su anonimnom praćenju posjećenosti stranice. Trenutno ih ne koristimo — analitika još nije uključena. Kada bude, učitat će se samo gostima koji u traci odaberu „Prihvati sve“.",
+    "tretjaOsebaNaslov": "Ugrađeni sadržaj trećih strana",
+    "tretjaOsebaOpis": "Na stranici Kontakt ugrađena je Google karta. Kada se stranica učita, prikazuje je Google i pritom postavlja svoje kolačiće — isto kao da ste kartu otvorili direktno na Googlu. Kako ih ne postavljamo mi, u tabeli ispod navodimo ih kao jednu stavku, bez imena i trajanja."
   },
   "jedi": {
     "1": {

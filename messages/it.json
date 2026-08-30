@@ -66,8 +66,8 @@
   "piskotki": {
     "oznaka": "Consenso ai cookie",
     "naslov": "Cookie su questo sito",
-    "besediloZAnalitiko": "Un cookie necessario ricorda questa scelta. I cookie analitici vengono caricati solo se scegliete «Accetta tutti».",
-    "besediloBrezAnalitike": "Usiamo solo un cookie che ricorda questa scelta. Le statistiche non sono ancora attive — quando lo saranno, verranno caricate solo per chi sceglie «Accetta tutti» qui.",
+    "besediloZAnalitiko": "Il cookie necessario ricorda questa scelta, quello funzionale ricorda la lingua. I cookie analitici si caricano solo se scegliete «Accetta tutti».",
+    "besediloBrezAnalitike": "Il cookie necessario ricorda questa scelta, quello funzionale ricorda la lingua. L’analitica non è ancora attiva — quando lo sarà, si caricherà solo se qui scegliete «Accetta tutti».",
     "vec": "Maggiori informazioni nella <povezava>informativa sui cookie</povezava>.",
     "samoNujni": "Solo necessari",
     "sprejmiVse": "Accetta tutti"
@@ -1092,25 +1092,26 @@
     "nadzorniSpletna": "Sito web:",
     "gumbPiskotki": "Leggi l’Informativa sui cookie",
     "gumbMeni": "Torna al menù",
-    "gumbKontakt": "Contatti"
+    "gumbKontakt": "Contatti",
+    "zemljevid": "• <b>Google Maps</b> — nella pagina Contatti è incorporata una mappa di Google. Google Ireland Ltd. carica la mappa, riceve in questo modo il vostro indirizzo IP e imposta i propri cookie. Non usiamo la mappa per analizzare le visite."
   },
   "piskotkiStran": {
     "vodniZnak": "COOKIE",
     "oznaka": "INFORMATIVA LEGALE · ZEKOM-2 E GDPR",
     "naslov": "Informativa sull’uso dei cookie",
     "uvodZacetek": "Sul sito web del ristorante Šeherezada rispettiamo la vostra privacy.",
-    "uvodZAnalitiko": "Usiamo un cookie tecnico necessario, che ricorda la vostra scelta, e cookie analitici per statistiche anonime sulle visite. Quelli analitici si caricano <b>solo se date il consenso</b>. Non usiamo cookie pubblicitari.",
-    "uvodBrezAnalitike": "Al momento usiamo <b>un solo cookie</b> — quello che ricorda la vostra scelta. L’analitica è pronta ma non ancora attiva; quando lo sarà, si caricherà esclusivamente per gli ospiti che nel banner hanno scelto «Accetta tutti». Non usiamo cookie pubblicitari e non tracciamo il vostro comportamento.",
+    "uvodZAnalitiko": "Usiamo un cookie che ricorda la vostra scelta e uno per la lingua della pagina; la mappa incorporata aggiunge quelli di Google. I cookie analitici si caricano <b>solo se date il consenso</b>. Non usiamo cookie pubblicitari.",
+    "uvodBrezAnalitike": "Al momento si caricano il cookie per la vostra scelta, il cookie per la lingua della pagina e quelli che Google imposta quando viene mostrata la mappa incorporata. <b>L’analitica non è ancora attiva</b>; quando lo sarà, si caricherà esclusivamente per gli ospiti che nel banner hanno scelto «Accetta tutti». Non usiamo cookie pubblicitari e non tracciamo il vostro comportamento.",
     "posodobitev": "Ultimo aggiornamento: 25 agosto 2026",
     "razdelek1": "1. Che cosa sono i cookie e perché ci servono",
     "kajSo1": "I cookie (letteralmente <em>biscotti</em>) sono piccoli file di testo che un sito web salva nel vostro browser quando visitate una pagina. A ogni nuova visita il sito riconosce il cookie e adatta i contenuti o mantiene le vostre impostazioni (ad esempio la lingua scelta, i consensi o la sede preferita).",
     "kajSo2": "I cookie di per sé non contengono programmi e non possono danneggiare il vostro dispositivo. Non raccolgono i vostri dati personali senza il vostro consenso esplicito.",
     "razdelek2": "2. Tipi di cookie che utilizziamo",
-    "razdelek2Uvod": "In conformità alla legge slovena sulle comunicazioni elettroniche (ZEKom-2) e al Regolamento generale sulla protezione dei dati (GDPR), i cookie si dividono in tre categorie di base:",
+    "razdelek2Uvod": "In conformità alla legge slovena sulle comunicazioni elettroniche (ZEKom-2) e al Regolamento generale sulla protezione dei dati (GDPR), i cookie si dividono in tre categorie di base. Accanto a queste ci sono i cookie impostati da contenuti incorporati di terze parti.",
     "nujniNaslov": "Cookie strettamente necessari",
     "nujniOpis": "Questi cookie sono indispensabili per il funzionamento di base del sito (sicurezza, navigazione, memorizzazione del vostro consenso). Per la loro installazione la legge non richiede il consenso, perché senza di essi il sito non può funzionare.",
     "funkcionalniNaslov": "Cookie funzionali",
-    "funkcionalniOpis": "Consentono funzioni più avanzate e la memorizzazione delle vostre impostazioni personali (ad esempio la scelta della sede di Trubarjeva o di Slovenska), così alla visita successiva non dovete scegliere di nuovo.",
+    "funkcionalniOpis": "Conservano un’impostazione che il sito usa per mostrarsi correttamente — nel nostro caso la lingua in cui lo state leggendo. Senza di essa i collegamenti potrebbero riportarvi in un’altra lingua.",
     "analiticniNaslov": "Cookie analitici",
     "analiticniOpis": "Li usiamo per seguire in forma anonima le visite al sito (numero di visualizzazioni, popolarità dei piatti nel menù). Gli indirizzi IP sono anonimizzati e i dati sono usati esclusivamente in forma aggregata.",
     "razdelek3": "3. Elenco dei cookie presenti sul sito",
@@ -1161,7 +1162,17 @@
     "oznakaTelefon": "Telefono:",
     "gumbZasebnost": "Leggi l’Informativa sulla privacy",
     "gumbMeni": "Torna al menù",
-    "gumbKontakt": "Contatti"
+    "gumbKontakt": "Contatti",
+    "kategorijaFunkcionalni": "Funzionali",
+    "kategorijaTretjaOseba": "Terza parte",
+    "trajanjeSeja": "Fino alla chiusura del browser",
+    "trajanjeGoogle": "Stabilita da Google",
+    "namenJezik": "Registra la lingua della pagina che state guardando, così i collegamenti vi mantengono nella stessa lingua. Viene impostato automaticamente al caricamento della pagina.",
+    "namenZemljevid": "Cookie impostati da Google quando viene mostrata la mappa incorporata. I loro nomi e la loro durata non li decidiamo noi.",
+    "imeZemljevid": "Google Maps (mappa incorporata)",
+    "analiticniOpisBrez": "Servono a misurare in forma anonima le visite al sito. Al momento non li usiamo — l’analitica non è ancora attiva. Quando lo sarà, si caricherà solo per gli ospiti che nel banner scelgono «Accetta tutti».",
+    "tretjaOsebaNaslov": "Contenuti incorporati di terze parti",
+    "tretjaOsebaOpis": "Nella pagina Contatti è incorporata una mappa di Google. Al caricamento della pagina è Google a mostrarla e a impostare i propri cookie — esattamente come se aveste aperto la mappa direttamente su Google. Poiché non li impostiamo noi, nella tabella qui sotto li indichiamo in una sola voce, senza nomi né durata."
   },
   "jedi": {
     "1": {

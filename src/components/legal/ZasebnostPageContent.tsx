@@ -255,8 +255,14 @@ export default function ZasebnostPageContent() {
           <h2 className={styles.sectionTitle}>{t("razdelek6")}</h2>
           <p className={styles.sectionText}>{t("razdelek6Uvod")}</p>
           <div className={styles.highlightBox}>
-            <p className={styles.sectionText} style={{ marginBottom: 0 }}>
+            <p className={styles.sectionText}>
               {t.rich("gostovanje", { b: (chunks) => <strong>{chunks}</strong> })}
+            </p>
+            {/* Vgrajeni Googlov zemljevid na strani Kontakt je tretja oseba,
+                ki ob prikazu prejme naslov IP obiskovalca. Prej ga besedilo
+                ni omenjalo — odkrito v neodvisni reviziji (6A.3). */}
+            <p className={styles.sectionText} style={{ marginBottom: 0 }}>
+              {t.rich("zemljevid", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
           </div>
           <p className={styles.sectionText}>{t("razkritje")}</p>

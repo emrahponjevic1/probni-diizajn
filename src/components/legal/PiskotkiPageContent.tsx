@@ -67,9 +67,17 @@ const CheckIcon = () => (
   </svg>
 );
 
+/** Barva značke po kategoriji. Prej sta bili dve, zdaj so štiri. */
+const ZNACKA: Record<CookieRecord["category"], string> = {
+  essential: styles.cookieBadgeEssential,
+  functional: styles.cookieBadgeFunctional,
+  analytics: styles.cookieBadgeAnalytics,
+  thirdparty: styles.cookieBadgeThirdParty,
+};
+
 interface CookieRecord {
   name: string;
-  category: "essential" | "analytics" | "functional";
+  category: "essential" | "analytics" | "functional" | "thirdparty";
   categoryLabel: string;
   purpose: string;
   duration: string;
@@ -81,6 +89,14 @@ interface CookieRecord {
    */
   active: boolean;
 }
+
+/**
+ * Piškotek, ki ga nastavi next-intl ob prikazu strani, da povezave ostanejo v
+ * istem jeziku. Ime je njegovo, ne naše — zato je tu zapisano kot dejstvo.
+ * Nastavi se ob VSAKEM obisku, tudi preden gost karkoli izbere v pasici, zato
+ * mora biti v tabeli. Odkrito v neodvisni reviziji (6A.3).
+ */
+const LOCALE_COOKIE = "NEXT_LOCALE";
 
 /**
  * Popis piškotkov — dejavnih in pripravljenih.
@@ -109,6 +125,15 @@ export default function PiskotkiPageContent() {
       active: true,
     },
     {
+      name: LOCALE_COOKIE,
+      category: "functional",
+      categoryLabel: t("kategorijaFunkcionalni"),
+      purpose: t("namenJezik"),
+      duration: t("trajanjeSeja"),
+      issuer: t("izdajateljPrvaOseba", { znamka: COMPANY.brandName }),
+      active: true,
+    },
+    {
       name: "_ga, _ga_*",
       category: "analytics",
       categoryLabel: t("kategorijaAnaliticni"),
@@ -116,6 +141,17 @@ export default function PiskotkiPageContent() {
       duration: t("trajanjeDveLeti"),
       issuer: "Google Analytics (Google Ireland Ltd.)",
       active: ANALYTICS_ENABLED,
+    },
+    {
+      // Piškotkov tretje osebe ne nastavljamo mi in njihovih imen ne
+      // določamo — zato je vrstica ena sama, brez izmišljenih imen.
+      name: t("imeZemljevid"),
+      category: "thirdparty",
+      categoryLabel: t("kategorijaTretjaOseba"),
+      purpose: t("namenZemljevid"),
+      duration: t("trajanjeGoogle"),
+      issuer: "Google Ireland Ltd.",
+      active: true,
     },
   ];
 
@@ -212,8 +248,21 @@ export default function PiskotkiPageContent() {
                 <CookieIcon />
               </div>
               <h3 className={styles.bentoCardTitle}>{t("analiticniNaslov")}</h3>
-              <p className={styles.bentoCardText}>{t("analiticniOpis")}</p>
+              {/* Tabela pravi "ni v uporabi"; besedilo je prej trdilo
+                  "uporabljamo jih". Zdaj oboje bere isto stikalo. */}
+              <p className={styles.bentoCardText}>
+                {ANALYTICS_ENABLED ? t("analiticniOpis") : t("analiticniOpisBrez")}
+              </p>
             </div>
+          </div>
+
+          {/* Vgrajeni Googlov zemljevid ni naša kategorija, ampak tuja
+              vsebina — zato stoji ločeno pod tremi karticami. */}
+          <div className={styles.highlightBox}>
+            <div className={styles.highlightTitle}>{t("tretjaOsebaNaslov")}</div>
+            <p className={styles.sectionText} style={{ marginBottom: 0 }}>
+              {t("tretjaOsebaOpis")}
+            </p>
           </div>
         </section>
 
@@ -241,15 +290,7 @@ export default function PiskotkiPageContent() {
                       <span className={styles.cookieCode}>{c.name}</span>
                     </td>
                     <td>
-                      {c.category === "essential" ? (
-                        <span className={styles.cookieBadgeEssential}>
-                          {c.categoryLabel}
-                        </span>
-                      ) : (
-                        <span className={styles.cookieBadgeAnalytics}>
-                          {c.categoryLabel}
-                        </span>
-                      )}
+                      <span className={ZNACKA[c.category]}>{c.categoryLabel}</span>
                     </td>
                     <td>{c.purpose}</td>
                     <td>{c.duration}</td>

@@ -66,8 +66,8 @@
   "piskotki": {
     "oznaka": "Cookie consent",
     "naslov": "Cookies on this site",
-    "besediloZAnalitiko": "An essential cookie remembers this choice. Analytics cookies are loaded only if you choose “Accept all”.",
-    "besediloBrezAnalitike": "We only use a cookie that remembers this choice. Analytics is not switched on yet — when it is, it will load only for visitors who choose “Accept all” here.",
+    "besediloZAnalitiko": "The essential cookie remembers this choice, the functional one remembers the language. Analytics cookies load only if you choose “Accept all”.",
+    "besediloBrezAnalitike": "The essential cookie remembers this choice, the functional one remembers the language. Analytics is not switched on yet — when it is, it will load only if you choose “Accept all” here.",
     "vec": "More in our <povezava>cookie policy</povezava>.",
     "samoNujni": "Essential only",
     "sprejmiVse": "Accept all"
@@ -1068,25 +1068,26 @@
     "nadzorniSpletna": "Website:",
     "gumbPiskotki": "Read the cookie policy",
     "gumbMeni": "Back to the menu",
-    "gumbKontakt": "Contact"
+    "gumbKontakt": "Contact",
+    "zemljevid": "• <b>Google Maps</b> — the Contact page has a Google map embedded in it. Google Ireland Ltd. loads the map, receives your IP address in the process and sets its own cookies. We do not use the map to analyse visits."
   },
   "piskotkiStran": {
     "vodniZnak": "COOKIES",
     "oznaka": "LEGAL NOTICE · ZEKOM-2 & GDPR",
     "naslov": "Cookie policy",
     "uvodZacetek": "We respect your privacy on the Šeherezada website.",
-    "uvodZAnalitiko": "We use an essential cookie that remembers your choice, and analytics cookies for anonymous visit statistics. Analytics cookies are loaded <b>only if you consent</b>. We do not use advertising cookies.",
-    "uvodBrezAnalitike": "At the moment we use <b>a single cookie</b> — the one that remembers your choice. Analytics is ready but not switched on yet; when it is, it will load only for visitors who chose “Accept all” in the banner. We do not use advertising cookies and we do not track your behaviour.",
+    "uvodZAnalitiko": "We use a cookie that remembers your choice and one that remembers the language of the page; the embedded map adds Google’s own. Analytics cookies load <b>only if you consent</b>. We do not use advertising cookies.",
+    "uvodBrezAnalitike": "What loads at the moment is the cookie for your choice, the cookie for the page language, and the ones Google sets when the embedded map is displayed. <b>Analytics is not switched on yet</b>; when it is, it will load only for visitors who chose “Accept all” in the banner. We do not use advertising cookies and we do not track your behaviour.",
     "posodobitev": "Last updated: 25 August 2026",
     "razdelek1": "1. What cookies are and why we need them",
     "kajSo1": "Cookies are small <em>text files</em> that a website stores in your browser when you visit. On each return visit the site recognises the cookie and adapts the content or keeps your settings (for example your chosen language, your consent or your preferred location).",
     "kajSo2": "Cookies themselves contain no programs and cannot damage your device. They do not collect your personal data without your explicit consent.",
     "razdelek2": "2. The types of cookies we use",
-    "razdelek2Uvod": "In line with the Slovenian Electronic Communications Act (ZEKom-2) and the General Data Protection Regulation (GDPR), cookies fall into three basic categories:",
+    "razdelek2Uvod": "Under the Slovenian Electronic Communications Act (ZEKom-2) and the General Data Protection Regulation (GDPR), cookies fall into three basic categories. Alongside them there are cookies set by embedded third-party content.",
     "nujniNaslov": "Strictly necessary cookies",
     "nujniOpis": "These cookies are necessary for the website to work at all (security, navigation, storing your consent). By law no consent is required to set them, because the site cannot function without them.",
     "funkcionalniNaslov": "Functional cookies",
-    "funkcionalniOpis": "These enable more advanced features and remember your personal settings (for example whether you prefer Trubarjeva or Slovenska), so you do not have to choose again on your next visit.",
+    "funkcionalniOpis": "They store a setting the site needs to display correctly — in our case the language you are reading in. Without it, links could take you back into a different language.",
     "analiticniNaslov": "Analytics cookies",
     "analiticniOpis": "We use these to follow site traffic anonymously (page views, which dishes are most popular). IP addresses are anonymised and the data is used only in aggregate form.",
     "razdelek3": "3. List of cookies on this website",
@@ -1137,7 +1138,17 @@
     "oznakaTelefon": "Phone:",
     "gumbZasebnost": "Read the privacy policy",
     "gumbMeni": "Back to the menu",
-    "gumbKontakt": "Contact"
+    "gumbKontakt": "Contact",
+    "kategorijaFunkcionalni": "Functional",
+    "kategorijaTretjaOseba": "Third party",
+    "trajanjeSeja": "Until the browser closes",
+    "trajanjeGoogle": "Set by Google",
+    "namenJezik": "Records the language of the page you are viewing, so that links keep you in the same language. It is set automatically when the page loads.",
+    "namenZemljevid": "Cookies set by Google when the embedded map is displayed. Their names and lifetimes are not ours to decide.",
+    "imeZemljevid": "Google Maps (embedded map)",
+    "analiticniOpisBrez": "They are meant for anonymous measurement of site traffic. We do not use them at the moment — analytics is not switched on yet. When it is, it will load only for visitors who choose “Accept all” in the banner.",
+    "tretjaOsebaNaslov": "Embedded third-party content",
+    "tretjaOsebaOpis": "The Contact page has a Google map embedded in it. When the page loads, Google displays the map and sets its own cookies — exactly as if you had opened the map on Google directly. Because we do not set them, we list them in the table below as one entry, without names or lifetimes."
   },
   "jedi": {
     "1": {

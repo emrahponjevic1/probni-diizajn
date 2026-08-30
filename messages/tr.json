@@ -2,8 +2,8 @@
   "piskotki": {
     "oznaka": "Çerez onayı",
     "naslov": "Bu sitedeki çerezler",
-    "besediloZAnalitiko": "Zorunlu çerez bu seçimi hatırlar. Analitik çerezleri yalnızca „Tümünü kabul et“ derseniz yükleriz.",
-    "besediloBrezAnalitike": "Yalnızca bu seçimi hatırlayan çerezi kullanıyoruz. Analitik henüz açık değil — açıldığında yalnızca burada „Tümünü kabul et“ seçerseniz yüklenecek.",
+    "besediloZAnalitiko": "Zorunlu çerez bu seçimi hatırlar, işlevsel olan ise dili. Analitik çerezleri yalnızca „Tümünü kabul et“ derseniz yükleriz.",
+    "besediloBrezAnalitike": "Zorunlu çerez bu seçimi hatırlar, işlevsel olan ise dili. Analitik henüz açık değil — açıldığında yalnızca burada „Tümünü kabul et“ seçerseniz yüklenecek.",
     "vec": "Ayrıntılar <povezava>çerez politikasında</povezava>.",
     "samoNujni": "Yalnızca zorunlu",
     "sprejmiVse": "Tümünü kabul et"
@@ -1078,25 +1078,26 @@
     "nadzorniSpletna": "Web sitesi:",
     "gumbPiskotki": "Çerez politikasını oku",
     "gumbMeni": "Menüye dön",
-    "gumbKontakt": "İletişim"
+    "gumbKontakt": "İletişim",
+    "zemljevid": "• <b>Google Maps</b> — İletişim sayfasında gömülü bir Google haritası vardır. Haritayı Google Ireland Ltd. yükler, bu sırada IP adresinizi alır ve kendi çerezlerini ayarlar. Haritayı ziyaret analizi için kullanmıyoruz."
   },
   "piskotkiStran": {
     "vodniZnak": "ÇEREZLER",
     "oznaka": "HUKUKİ BİLGİLENDİRME · ZEKOM-2 VE GDPR",
     "naslov": "Çerez kullanım politikası",
     "uvodZacetek": "Šeherezada restoranının web sitesinde gizliliğinize saygı duyuyoruz.",
-    "uvodZAnalitiko": "Seçiminizi hatırlayan zorunlu bir çerez ile ziyaretlerin anonim istatistiği için analitik çerezler kullanıyoruz. Analitik olanlar <b>yalnızca onay verirseniz</b> yüklenir. Reklam çerezi kullanmıyoruz.",
-    "uvodBrezAnalitike": "Şu anda <b>yalnızca tek bir çerez</b> kullanıyoruz — seçiminizi hatırlayan çerez. Analitik hazır ama henüz açık değil; açıldığında yalnızca bantta „Tümünü kabul et“ seçen misafirler için yüklenecek. Reklam çerezi kullanmıyor ve davranışınızı izlemiyoruz.",
+    "uvodZAnalitiko": "Seçiminizi hatırlayan bir çerez ve sayfanın dili için bir çerez kullanıyoruz; gömülü harita buna Google’ın kendi çerezlerini ekler. Analitik çerezler <b>yalnızca onay verirseniz</b> yüklenir. Reklam çerezi kullanmıyoruz.",
+    "uvodBrezAnalitike": "Şu anda seçiminiz için olan çerez, sayfa dili için olan çerez ve gömülü harita gösterildiğinde Google’ın ayarladığı çerezler yükleniyor. <b>Analitik henüz açık değil</b>; açıldığında yalnızca bantta „Tümünü kabul et“ seçen misafirler için yüklenecek. Reklam çerezi kullanmıyor ve davranışınızı izlemiyoruz.",
     "posodobitev": "Son güncelleme: 25 Ağustos 2026",
     "razdelek1": "1. Çerez nedir ve neden gerekir",
     "kajSo1": "Çerezler (İng. <em>cookies</em>), bir web sitesinin siz sayfayı ziyaret ettiğinizde tarayıcınıza kaydettiği küçük metin dosyalarıdır. Her yeni ziyarette site çerezi tanır ve içeriği uyarlar ya da ayarlarınızı korur (örn. seçtiğiniz dil, onaylar veya tercih ettiğiniz şube).",
     "kajSo2": "Çerezler kendi başlarına program içermez ve cihazınıza zarar veremez. Açık onayınız olmadan kişisel verilerinizi toplamazlar.",
     "razdelek2": "2. Kullandığımız çerez türleri",
-    "razdelek2Uvod": "Slovenya Elektronik Haberleşme Kanunu (ZEKom-2) ve Genel Veri Koruma Tüzüğü (GDPR) uyarınca çerezleri üç temel kategoriye ayırıyoruz:",
+    "razdelek2Uvod": "Slovenya Elektronik Haberleşme Kanunu (ZEKom-2) ve Genel Veri Koruma Tüzüğü (GDPR) uyarınca çerezler üç temel kategoriye ayrılır. Bunların yanında, gömülü üçüncü taraf içeriğinin ayarladığı çerezler de vardır.",
     "nujniNaslov": "Kesinlikle gerekli çerezler",
     "nujniOpis": "Bu çerezler sitenin temel çalışması için zorunludur (güvenlik, gezinme, onayınızın saklanması). Yasaya göre kurulumları için onay gerekmez, çünkü site bunlar olmadan çalışamaz.",
     "funkcionalniNaslov": "İşlevsel çerezler",
-    "funkcionalniOpis": "Daha gelişmiş işlevleri ve kişisel ayarlarınızın saklanmasını sağlar (örn. Trubarjeva ya da Slovenska şubesinin seçimi), böylece bir sonraki ziyarette yeniden seçmeniz gerekmez.",
+    "funkcionalniOpis": "Sitenin doğru görünmesi için gereken bir ayarı saklar — bizde sayfayı okuduğunuz dili. Bu olmadan bağlantılar sizi başka bir dile geri götürebilir.",
     "analiticniNaslov": "Analitik çerezler",
     "analiticniOpis": "Site ziyaretlerini anonim olarak izlemek için kullanıyoruz (görüntülenme sayısı, menüdeki yemeklerin popülerliği). IP adresleri anonimleştirilir, veriler yalnızca toplu biçimde kullanılır.",
     "razdelek3": "3. Sitedeki çerezlerin listesi",
@@ -1147,7 +1148,17 @@
     "oznakaTelefon": "Telefon:",
     "gumbZasebnost": "Gizlilik politikasını oku",
     "gumbMeni": "Menüye dön",
-    "gumbKontakt": "İletişim"
+    "gumbKontakt": "İletişim",
+    "kategorijaFunkcionalni": "İşlevsel",
+    "kategorijaTretjaOseba": "Üçüncü taraf",
+    "trajanjeSeja": "Tarayıcı kapanana kadar",
+    "trajanjeGoogle": "Google belirler",
+    "namenJezik": "Görüntülediğiniz sayfanın dilini kaydeder, böylece bağlantılar sizi aynı dilde tutar. Sayfa yüklenirken otomatik olarak ayarlanır.",
+    "namenZemljevid": "Gömülü harita gösterildiğinde Google tarafından ayarlanan çerezler. Adlarını ve sürelerini biz belirlemiyoruz.",
+    "imeZemljevid": "Google Maps (gömülü harita)",
+    "analiticniOpisBrez": "Site ziyaretlerini anonim olarak ölçmeye yarar. Şu anda kullanmıyoruz — analitik henüz açık değil. Açıldığında yalnızca bantta „Tümünü kabul et“ seçen ziyaretçiler için yüklenecek.",
+    "tretjaOsebaNaslov": "Gömülü üçüncü taraf içerikleri",
+    "tretjaOsebaOpis": "İletişim sayfasında gömülü bir Google haritası vardır. Sayfa yüklendiğinde haritayı Google gösterir ve bu sırada kendi çerezlerini ayarlar — haritayı doğrudan Google üzerinde açmışsınız gibi. Bunları biz ayarlamadığımız için, aşağıdaki tabloda adları ve süreleri olmadan tek bir satırda belirtiyoruz."
   },
   "jedi": {
     "1": {

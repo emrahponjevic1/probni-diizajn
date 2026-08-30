@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PHONE, LOCATION_SLUG } from "@/data/locations";
 import { COMPANY } from "@/data/company";
+import { HAS_SOCIAL, SOCIAL } from "@/data/social";
 import styles from "./ContactPageContent.module.css";
 import WorldMapPattern from "./WorldMapPattern";
 import { useContactLocations } from "./ContactData";
@@ -311,53 +312,63 @@ export default function ContactPageContent() {
                 <p className={styles.sectionDesc}>{t("sporociloOpis")}</p>
               </div>
 
-              {/* Social Channels List */}
-              <div className={styles.directChannelsList}>
-                <a
-                  href="https://instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.directChannelCard}
-                >
-                  <div className={styles.directChannelIcon}>
-                    <InstagramSvg size={20} />
-                  </div>
-                  <div className={styles.directChannelText}>
-                    <span className={styles.directChannelLabel}>{t("instagramOznaka")}</span>
-                    <span className={styles.directChannelVal}>@seherezada_si</span>
-                  </div>
-                </a>
+              {/* Social Channels List — beremo iz src/data/social.ts.
+                  Omrežje brez naslova se ne izriše; brez vseh treh izgine
+                  tudi seznam, da ne ostane prazen okvir. */}
+              {HAS_SOCIAL && (
+                <div className={styles.directChannelsList}>
+                  {SOCIAL.instagram.url && (
+                    <a
+                      href={SOCIAL.instagram.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.directChannelCard}
+                    >
+                      <div className={styles.directChannelIcon}>
+                        <InstagramSvg size={20} />
+                      </div>
+                      <div className={styles.directChannelText}>
+                        <span className={styles.directChannelLabel}>{t("instagramOznaka")}</span>
+                        <span className={styles.directChannelVal}>{SOCIAL.instagram.oznaka}</span>
+                      </div>
+                    </a>
+                  )}
 
-                <a
-                  href="https://facebook.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.directChannelCard}
-                >
-                  <div className={styles.directChannelIcon}>
-                    <FacebookSvg size={20} />
-                  </div>
-                  <div className={styles.directChannelText}>
-                    <span className={styles.directChannelLabel}>{t("facebookOznaka")}</span>
-                    <span className={styles.directChannelVal}>{t("facebookVrednost")}</span>
-                  </div>
-                </a>
+                  {SOCIAL.facebook.url && (
+                    <a
+                      href={SOCIAL.facebook.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.directChannelCard}
+                    >
+                      <div className={styles.directChannelIcon}>
+                        <FacebookSvg size={20} />
+                      </div>
+                      <div className={styles.directChannelText}>
+                        <span className={styles.directChannelLabel}>{t("facebookOznaka")}</span>
+                        <span className={styles.directChannelVal}>{SOCIAL.facebook.oznaka}</span>
+                      </div>
+                    </a>
+                  )}
 
-                <a
-                  href="https://tiktok.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.directChannelCard}
-                >
-                  <div className={styles.directChannelIcon}>
-                    <TikTokSvg size={20} />
-                  </div>
-                  <div className={styles.directChannelText}>
-                    <span className={styles.directChannelLabel}>{t("tiktokOznaka")}</span>
-                    <span className={styles.directChannelVal}>@seherezada_si</span>
-                  </div>
-                </a>
-              </div>
+                  {SOCIAL.tiktok.url && (
+                    <a
+                      href={SOCIAL.tiktok.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.directChannelCard}
+                    >
+                      <div className={styles.directChannelIcon}>
+                        <TikTokSvg size={20} />
+                      </div>
+                      <div className={styles.directChannelText}>
+                        <span className={styles.directChannelLabel}>{t("tiktokOznaka")}</span>
+                        <span className={styles.directChannelVal}>{SOCIAL.tiktok.oznaka}</span>
+                      </div>
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Right Clean Form Card */}

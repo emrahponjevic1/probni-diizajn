@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { useLocationText } from "@/i18n/locationText";
 import styles from "./SiteFooter.module.css";
 import { LOCATIONS, PHONE } from "@/data/locations";
+import { HAS_SOCIAL, SOCIAL } from "@/data/social";
 import { Link } from "@/i18n/navigation";
 
 // Clean Vector SVG Social & Contact Icons
@@ -75,38 +76,47 @@ export default function SiteFooter() {
 
             <p className={styles.brandBioText}>{t("opis")}</p>
 
-            <div className={styles.socialRow}>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className={styles.socialBtn}
-              >
-                <FacebookSvg size={16} />
-              </a>
+            {/* Ikone beremo iz src/data/social.ts. Omrežje s praznim naslovom
+                se ne izriše, in če ni nobenega, izgine tudi vrstica. */}
+            {HAS_SOCIAL && (
+              <div className={styles.socialRow}>
+                {SOCIAL.facebook.url && (
+                  <a
+                    href={SOCIAL.facebook.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className={styles.socialBtn}
+                  >
+                    <FacebookSvg size={16} />
+                  </a>
+                )}
 
-              <a
-                href="https://instagram.com/seherezada_si"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className={styles.socialBtn}
-              >
-                <InstagramSvg size={16} />
-              </a>
+                {SOCIAL.instagram.url && (
+                  <a
+                    href={SOCIAL.instagram.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className={styles.socialBtn}
+                  >
+                    <InstagramSvg size={16} />
+                  </a>
+                )}
 
-              <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok"
-                className={styles.socialBtn}
-              >
-                <TikTokSvg size={16} />
-              </a>
-
-            </div>
+                {SOCIAL.tiktok.url && (
+                  <a
+                    href={SOCIAL.tiktok.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                    className={styles.socialBtn}
+                  >
+                    <TikTokSvg size={16} />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Column 2: Lokaciji & Kontakt */}

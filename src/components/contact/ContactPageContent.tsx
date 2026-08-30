@@ -249,7 +249,7 @@ export default function ContactPageContent() {
                   title={t("epostaNaslovDrzalo", { eposta: COMPANY.privacyEmail })}
                 >
                   <div className={styles.heroCardHeading}>{t("epostniPredal")}</div>
-                  <div className={styles.heroCardSubtext}>{t("vprasanjaRezervacije")}</div>
+                  <div className={styles.heroCardSubtext}>{t("vprasanjaPovprasevanja")}</div>
                   <div className={styles.heroCardEmailAlt}>
                     <MailSvg size={14} />
                     <span>{COMPANY.privacyEmail}</span>
@@ -450,7 +450,6 @@ export default function ContactPageContent() {
                           style={{ paddingLeft: "1rem" }}
                         >
                           <option value="splosno">{t("zadevaSplosno")}</option>
-                          <option value="rezervacija">{t("zadevaRezervacija")}</option>
                           <option value="studenti">{t("zadevaStudenti")}</option>
                           <option value="poslovno">{t("zadevaPoslovno")}</option>
                           <option value="drugo">{t("zadevaDrugo")}</option>
@@ -534,9 +533,7 @@ export default function ContactPageContent() {
                   <div className={styles.successDetailsBox}>
                     <div>
                       <strong>{t("uspehZadeva")}</strong>{" "}
-                      {formData.subject === "rezervacija"
-                        ? t("povzetekRezervacija")
-                        : formData.subject === "studenti"
+                      {formData.subject === "studenti"
                         ? t("povzetekStudenti")
                         : formData.subject === "poslovno"
                         ? t("povzetekPoslovno")

@@ -21,7 +21,6 @@ export async function generateMetadata({
     "Šeherezada Trubarjeva delovni čas",
     "Šeherezada Slovenska telefon",
     "kebab Ljubljana kontakt",
-    "catering kebab Ljubljana",
     "nočna hrana Ljubljana Trubarjeva",
     "halal hrana Ljubljana naročila",
   ];

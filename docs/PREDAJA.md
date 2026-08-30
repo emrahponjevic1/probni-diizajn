@@ -213,7 +213,7 @@ Veganska jela su označena na `/meni` i pominju se na `/halal`; zasebna stranica
 
 U kodu nema šta da se mijenja — `SITE_URL` već pokazuje na pravu domenu i nema prekidača koji bi se mogao zaboraviti.
 
-### Faza 5 — jezici ← **U TOKU**
+### ✅ Faza 5 — jezici (gotova 30. 8. 2026)
 
 **Odluka vlasnika 28. 8. 2026: idu svih šest jezika odjednom.** Preporuka je bila
 SL + EN prvo; vlasnik je odlučio drugačije i to je njegov poziv.
@@ -227,7 +227,7 @@ ne ostavlja sajt slomljen.
 | ✅ | **5B** Izvlačenje teksta | tekst iz koda u `messages/sl.json`. Vizuelno ništa |
 | ✅ | **5C** Prevodi | EN, DE, IT, BS, TR — pet JSON fajlova |
 | ✅ | **5D** Google sloj | `hreflang`, canonical po jeziku, **pravi** prekidač jezika |
-| ⬜ | **5E** Provjera | svih 84 adresa, meta naslovi, JSON-LD po jeziku |
+| ✅ | **5E** Provjera | svih 84 adresa, meta naslovi, JSON-LD po jeziku |
 
 #### ✅ 5A — gotov 28. 8. 2026
 
@@ -466,6 +466,71 @@ prekidač na svih 6 jezika      SLO/ENG/DEU/ITA/BOS/TUR — tačna oznaka
 klik DE→TR na /standorte/…     /tr/subeler/… , lang=tr, bez preusmjerenja
 klik EN→TR u mobilnoj ladici   /tr/ogrenci-fisleri , ladica se zatvorila
 ```
+
+#### ✅ 5E — gotov 30. 8. 2026
+
+Dvije skripte prolaze kroz **svih 84 adrese** i ne traže „radi li", nego ono
+što bi tiho štetilo u Googleu.
+
+`revizija.js` po svakoj adresi: HTTP status, `<html lang>`, naslov (prazan,
+predug, duplikat), opis (prazan, predug, prekratak, duplikat), canonical,
+`og:locale` / `og:image` / `og:image:alt`, ispravnost svakog JSON-LD bloka,
+nezamijenjeni `{placeholderi}` u vidljivom tekstu, spojene riječi bez razmaka,
+i **da nijedan link ne vodi van svog jezika**.
+
+`revizija2.js`: 404 po jeziku, `robots.txt` / `sitemap.xml` / `llms.txt`, tipovi
+strukturiranih podataka po stranici, i da FAQ pitanje / kategorija menija /
+mrvica **nisu ostali slovenački** ni na jednoj stranoj stranici.
+
+Rezultat: **jedan nalaz koji je popravljen, jedan koji je prijavljen vlasniku,
+i jedno ograničenje Nexta.**
+
+#### Popravljeno u 5E — 14 predugih meta opisa
+
+Google reže opis na ~155–160 znakova. Četrnaest prevedenih opisa bilo je
+172–220 znakova, pa je posljednja rečenica bila bačena. Skraćeni su na
+128–154, s time da su **prvo mjerene prave dužine** — u opisu stoje
+`{vseh}`, `{naBon}`, `{vegan}` i `{doplacilo}`, koji se popunjavaju iz
+podataka, pa se dužina mijenja kad se doda jelo. Ostavljena je rezerva.
+
+Ključne riječi nisu izgubljene, nego pojačane: „günstig essen", „mangiare
+economico", „jeftino jesti", „ucuz yemek" sada stoje i u opisu, ne samo u
+naslovu.
+
+**Ostao je jedan, slovenački `/studentski-boni` (176 znakova).** Nije diran —
+to je tekst koji je vlasnik odobrio u fazi 2. Prijedlog za skraćivanje čeka
+njegovu riječ.
+
+#### Ograničenje Nexta na stranici 404 — provjereno, ne izmišljeno
+
+`not-found.tsx` u Nextu **ne dobija parametar rute**, pa ne zna koji je jezik,
+i ne renderira se unutar `[locale]/layout.tsx`. Posljedica: u sirovom HTML-u
+404 stranica ima praznu `<body>` i `<html id="__next_error__">` bez `lang`.
+
+Šta to znači u praksi:
+
+```
+HTTP status                    404 — tačan, i to je ono što Google gleda
+gost s JavaScriptom            vidi cijelu stranicu, prevedenu (provjereno
+                               u pregledniku na EN i TR)
+sadržaj u svih 6 jezika        da — provjereno programski
+gost bez JavaScripta           vidi praznu stranicu
+Google                         stranice sa statusom 404 ionako ne indeksira
+```
+
+Isprobano i **nije pomoglo**: dodavanje korijenskog `app/layout.tsx`,
+`useTranslations` umjesto `getTranslations`, `not-found.tsx` koji sam ispisuje
+`<html>`. Sadržaj se u sva tri slučaja pojavi samo u RSC paketu, ne u HTML-u.
+
+Jedini način da HTML ne bude prazan bio bi renderirati 404 iz
+`[...rest]/page.tsx`, ali to vraća status **200** — „soft 404", koji Google
+izričito označava kao grešku. Zamjena nije isplativa: mijenja se problem koji
+nikoga ne košta za problem koji košta.
+
+**Popravljeno je ono što se moglo:** naslov stranice 404 je bio tvrdo upisan
+na slovenačkom („Stran ne obstaja (404)…") i pojavljivao se i na engleskoj i
+na turskoj stranici, s brojem 29 prepisanim na roku. Sada stoji `404 |
+Šeherezada` — jednako pošteno u svih šest jezika.
 
 ### Faza 7 — poslije lansiranja
 - [ ] Google Search Console, poslati sitemap

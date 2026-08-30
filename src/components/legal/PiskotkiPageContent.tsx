@@ -111,6 +111,10 @@ export default function PiskotkiPageContent() {
   // Besedila so v messages/<jezik>.json pod ključem "piskotkiStran".
   const t = useTranslations("piskotkiStran");
 
+  // Trenutna izbira gosta. null = še ni izbral (pasica je še vidna).
+  const [analytics, setAnalytics] = useState<boolean | null>(null);
+  const [potrjeno, setPotrjeno] = useState(false);
+
   // Seznam je znotraj komponente, ker zunaj nje prevodi niso dosegljivi.
   // Imena piškotkov, trajanje in izdajatelj ostajajo dejstva, ne prevod;
   // prevaja se samo tisto, kar gost bere kot poved.
@@ -151,13 +155,12 @@ export default function PiskotkiPageContent() {
       purpose: t("namenZemljevid"),
       duration: t("trajanjeGoogle"),
       issuer: "Google Ireland Ltd.",
-      active: true,
+      // Zemljevid se zdaj naloži šele po privolitvi, zato stanje bere
+      // dejansko izbiro gosta in ne trdi obdelave, ki se ne dogaja.
+      active: analytics === true,
     },
   ];
 
-  // Trenutna izbira gosta. null = še ni izbral (pasica je še vidna).
-  const [analytics, setAnalytics] = useState<boolean | null>(null);
-  const [potrjeno, setPotrjeno] = useState(false);
 
   useEffect(() => {
     const posodobi = () => setAnalytics(readConsent()?.analytics ?? null);

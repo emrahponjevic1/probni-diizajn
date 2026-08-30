@@ -10,7 +10,7 @@
 // popravi celotno stran.
 // ---------------------------------------------------------------------------
 
-import { LOCATIONS, PHONE, type LocationId } from "@/data/locations";
+import { LOCATIONS, PHONE, mapEmbedUrl, type LocationId } from "@/data/locations";
 import { useLocationText } from "@/i18n/locationText";
 
 export interface LocationDetail {
@@ -56,7 +56,7 @@ export function useContactLocations(): LocationDetail[] {
     email: l.email,
     googleProfileUrl: l.googleProfileUrl,
     appleMapsUrl: l.appleMapsUrl,
-    googleMapsEmbed: l.mapEmbed,
+    googleMapsEmbed: mapEmbedUrl(l),
     transport: l.transport,
     vibeText: l.vibeText,
   }));

@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { useLocationText } from "@/i18n/locationText";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { PHONE, directionsUrl, type LocationCore } from "@/data/locations";
+import { PHONE, directionsUrl, mapEmbedUrl, type LocationCore } from "@/data/locations";
 import { STUDENT_BON } from "@/components/menu/MenuData";
 import { LiveBadge, HoursTable } from "./LocationLive";
 import LazyMap from "./LazyMap";
@@ -128,7 +128,7 @@ export default function LocationPageContent({
             <div className={styles.heroRight}>
               <div className={styles.mapCard}>
                 <LazyMap
-                  src={loc.mapEmbed}
+                  src={mapEmbedUrl(loc)}
                   title={t("zemljevidNaslov", { ime: loc.name, naslov: loc.fullAddress })}
                   className={styles.mapFrame}
                 />

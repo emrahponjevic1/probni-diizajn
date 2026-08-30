@@ -1086,15 +1086,15 @@
     "gumbPiskotki": "Pročitaj politiku kolačića",
     "gumbMeni": "Nazad na meni",
     "gumbKontakt": "Kontakt",
-    "zemljevid": "• <b>Google Maps</b> — na stranici Kontakt ugrađena je Google karta. Google Ireland Ltd. učitava kartu, pritom prima vašu IP adresu i postavlja svoje kolačiće. Kartu ne koristimo za analizu posjeta."
+    "zemljevid": "• <b>Google Maps</b> — na stranicama Kontakt i Lokacije ugrađena je Google karta. Učitava se tek nakon vašeg pristanka ili kada kliknete dugme na njenom mjestu. Tada je prikazuje Google Ireland Ltd., koji pritom prima vašu IP adresu i postavlja svoje kolačiće. Kartu ne koristimo za analizu posjeta."
   },
   "piskotkiStran": {
     "vodniZnak": "KOLAČIĆI",
     "oznaka": "PRAVNA OBAVIJEST · ZEKOM-2 I GDPR",
     "naslov": "Politika upotrebe kolačića",
     "uvodZacetek": "Na web stranici restorana Šeherezada poštujemo vašu privatnost.",
-    "uvodZAnalitiko": "Koristimo kolačić koji pamti vaš izbor i kolačić za jezik stranice; ugrađena karta dodaje Googleove. Analitički se učitavaju <b>samo ako na to pristanete</b>. Oglašivačke kolačiće ne koristimo.",
-    "uvodBrezAnalitike": "Trenutno se učitavaju kolačić za vaš izbor, kolačić za jezik stranice i oni koje Google postavi kada se prikaže ugrađena karta. <b>Analitika još nije uključena</b>; kada bude, učitat će se isključivo gostima koji su u traci odabrali „Prihvati sve“. Oglašivačke kolačiće ne koristimo i ne pratimo vaše ponašanje.",
+    "uvodZAnalitiko": "Koristimo kolačić koji pamti vaš izbor i kolačić za jezik stranice. Analitički kolačići i ugrađena karta učitavaju se <b>samo ako na to pristanete</b>. Oglašivačke kolačiće ne koristimo.",
+    "uvodBrezAnalitike": "Trenutno se učitavaju samo kolačić za vaš izbor i kolačić za jezik stranice. <b>Analitika još nije uključena</b>; kada bude, učitat će se isključivo gostima koji su u traci odabrali „Prihvati sve“. Ugrađena karta učitava se tek nakon vašeg pristanka ili kada je sami otvorite. Oglašivačke kolačiće ne koristimo i ne pratimo vaše ponašanje.",
     "posodobitev": "Posljednja izmjena: 25. august 2026.",
     "razdelek1": "1. Šta su kolačići i zašto su nam potrebni",
     "kajSo1": "Kolačići (engl. <em>cookies</em>) male su tekstualne datoteke koje web stranica pohrani u vaš pregledač pri posjeti. Pri svakoj ponovnoj posjeti stranica prepozna kolačić i prilagodi sadržaj ili zadrži vaše postavke (npr. odabrani jezik, saglasnosti ili omiljenu poslovnicu).",
@@ -1161,11 +1161,11 @@
     "trajanjeSeja": "Do zatvaranja pregledača",
     "trajanjeGoogle": "Određuje Google",
     "namenJezik": "Bilježi jezik stranice koju gledate, da vas linkovi zadrže u istom jeziku. Postavlja se automatski pri učitavanju stranice.",
-    "namenZemljevid": "Kolačići koje Google postavi kada se prikaže ugrađena karta. Njihova imena i trajanje ne određujemo mi.",
+    "namenZemljevid": "Kolačići koje Google postavi kada kartu učitate. Njihova imena i trajanje ne određujemo mi.",
     "imeZemljevid": "Google Maps (ugrađena karta)",
     "analiticniOpisBrez": "Namijenjeni su anonimnom praćenju posjećenosti stranice. Trenutno ih ne koristimo — analitika još nije uključena. Kada bude, učitat će se samo gostima koji u traci odaberu „Prihvati sve“.",
     "tretjaOsebaNaslov": "Ugrađeni sadržaj trećih strana",
-    "tretjaOsebaOpis": "Na stranici Kontakt ugrađena je Google karta. Kada se stranica učita, prikazuje je Google i pritom postavlja svoje kolačiće — isto kao da ste kartu otvorili direktno na Googlu. Kako ih ne postavljamo mi, u tabeli ispod navodimo ih kao jednu stavku, bez imena i trajanja."
+    "tretjaOsebaOpis": "Na stranicama Kontakt i Lokacije ugrađena je Google karta. Ne učitava se sama: dok ne odaberete „Prihvati sve“ ili ne kliknete dugme na njenom mjestu, Google o vama ne saznaje ništa. Kada je učitate, prikazuje je Google i pritom postavlja svoje kolačiće — isto kao da ste kartu otvorili direktno na Googlu. Kako ih ne postavljamo mi, u tabeli ispod navodimo ih kao jednu stavku, bez imena i trajanja."
   },
   "jedi": {
     "1": {
@@ -1635,5 +1635,9 @@
     "uvod": "Obje poslovnice su u centru grada, nekoliko minuta hoda jedna od druge, i imaju istu ponudu: halal kebab, falafel, burgere i pizze, pečene svježe po narudžbi. Studentski bon vrijedi u obje, uz doplatu od {doplacilo}. Odaberite onu koja vam je bliža.",
     "opomba": "Ne znate šta biste jeli? Cijeli meni s cijenama je na jednoj stranici, a jela na studentski bon su posebno označena.",
     "podrobnosti": "Detalji poslovnice"
+  },
+  "zemljevid": {
+    "opis": "Kartu učitava Google i pritom postavlja svoje kolačiće.",
+    "gumb": "Prikaži kartu"
   }
 }

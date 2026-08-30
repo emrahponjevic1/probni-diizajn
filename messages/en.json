@@ -1076,15 +1076,15 @@
     "gumbPiskotki": "Read the cookie policy",
     "gumbMeni": "Back to the menu",
     "gumbKontakt": "Contact",
-    "zemljevid": "• <b>Google Maps</b> — the Contact page has a Google map embedded in it. Google Ireland Ltd. loads the map, receives your IP address in the process and sets its own cookies. We do not use the map to analyse visits."
+    "zemljevid": "• <b>Google Maps</b> — the Contact and Locations pages have a Google map embedded in them. It loads only after you consent, or when you click the button in its place. Google Ireland Ltd. then displays the map, receives your IP address in the process and sets its own cookies. We do not use the map to analyse visits."
   },
   "piskotkiStran": {
     "vodniZnak": "COOKIES",
     "oznaka": "LEGAL NOTICE · ZEKOM-2 & GDPR",
     "naslov": "Cookie policy",
     "uvodZacetek": "We respect your privacy on the Šeherezada website.",
-    "uvodZAnalitiko": "We use a cookie that remembers your choice and one that remembers the language of the page; the embedded map adds Google’s own. Analytics cookies load <b>only if you consent</b>. We do not use advertising cookies.",
-    "uvodBrezAnalitike": "What loads at the moment is the cookie for your choice, the cookie for the page language, and the ones Google sets when the embedded map is displayed. <b>Analytics is not switched on yet</b>; when it is, it will load only for visitors who chose “Accept all” in the banner. We do not use advertising cookies and we do not track your behaviour.",
+    "uvodZAnalitiko": "We use a cookie that remembers your choice and one that remembers the language of the page. Analytics cookies and the embedded map load <b>only if you consent</b>. We do not use advertising cookies.",
+    "uvodBrezAnalitike": "What loads at the moment is only the cookie for your choice and the cookie for the page language. <b>Analytics is not switched on yet</b>; when it is, it will load only for visitors who chose “Accept all” in the banner. The embedded map loads only after you consent, or when you click on it yourself. We do not use advertising cookies and we do not track your behaviour.",
     "posodobitev": "Last updated: 25 August 2026",
     "razdelek1": "1. What cookies are and why we need them",
     "kajSo1": "Cookies are small <em>text files</em> that a website stores in your browser when you visit. On each return visit the site recognises the cookie and adapts the content or keeps your settings (for example your chosen language, your consent or your preferred location).",
@@ -1151,11 +1151,11 @@
     "trajanjeSeja": "Until the browser closes",
     "trajanjeGoogle": "Set by Google",
     "namenJezik": "Records the language of the page you are viewing, so that links keep you in the same language. It is set automatically when the page loads.",
-    "namenZemljevid": "Cookies set by Google when the embedded map is displayed. Their names and lifetimes are not ours to decide.",
+    "namenZemljevid": "Cookies set by Google once you load the map. Their names and lifetimes are not ours to decide.",
     "imeZemljevid": "Google Maps (embedded map)",
     "analiticniOpisBrez": "They are meant for anonymous measurement of site traffic. We do not use them at the moment — analytics is not switched on yet. When it is, it will load only for visitors who choose “Accept all” in the banner.",
     "tretjaOsebaNaslov": "Embedded third-party content",
-    "tretjaOsebaOpis": "The Contact page has a Google map embedded in it. When the page loads, Google displays the map and sets its own cookies — exactly as if you had opened the map on Google directly. Because we do not set them, we list them in the table below as one entry, without names or lifetimes."
+    "tretjaOsebaOpis": "The Contact and Locations pages have a Google map embedded in them. It does not load on its own: until you choose “Accept all” or click the button in its place, Google learns nothing about you. Once you load it, Google displays the map and sets its own cookies — exactly as if you had opened the map on Google directly. Because we do not set them, we list them in the table below as one entry, without names or lifetimes."
   },
   "jedi": {
     "1": {
@@ -1635,5 +1635,9 @@
     "uvod": "Both locations are in the city centre, a few minutes’ walk apart, and both serve the same food: halal kebab, falafel, burgers and pizza, made fresh to order. The student voucher works at both, with a {doplacilo} surcharge. Pick whichever is closer.",
     "opomba": "Not sure what to eat? The full menu with prices is on one page, and the dishes on the student voucher are marked separately.",
     "podrobnosti": "Location details"
+  },
+  "zemljevid": {
+    "opis": "The map is loaded by Google, which sets its own cookies.",
+    "gumb": "Show the map"
   }
 }

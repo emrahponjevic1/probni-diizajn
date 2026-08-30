@@ -1086,15 +1086,15 @@
     "gumbPiskotki": "Çerez politikasını oku",
     "gumbMeni": "Menüye dön",
     "gumbKontakt": "İletişim",
-    "zemljevid": "• <b>Google Maps</b> — İletişim sayfasında gömülü bir Google haritası vardır. Haritayı Google Ireland Ltd. yükler, bu sırada IP adresinizi alır ve kendi çerezlerini ayarlar. Haritayı ziyaret analizi için kullanmıyoruz."
+    "zemljevid": "• <b>Google Maps</b> — İletişim ve Şubeler sayfalarında gömülü bir Google haritası vardır. Ancak siz onay verdikten sonra ya da yerindeki düğmeye bastığınızda yüklenir. O anda haritayı Google Ireland Ltd. gösterir, bu sırada IP adresinizi alır ve kendi çerezlerini ayarlar. Haritayı ziyaret analizi için kullanmıyoruz."
   },
   "piskotkiStran": {
     "vodniZnak": "ÇEREZLER",
     "oznaka": "HUKUKİ BİLGİLENDİRME · ZEKOM-2 VE GDPR",
     "naslov": "Çerez kullanım politikası",
     "uvodZacetek": "Šeherezada restoranının web sitesinde gizliliğinize saygı duyuyoruz.",
-    "uvodZAnalitiko": "Seçiminizi hatırlayan bir çerez ve sayfanın dili için bir çerez kullanıyoruz; gömülü harita buna Google’ın kendi çerezlerini ekler. Analitik çerezler <b>yalnızca onay verirseniz</b> yüklenir. Reklam çerezi kullanmıyoruz.",
-    "uvodBrezAnalitike": "Şu anda seçiminiz için olan çerez, sayfa dili için olan çerez ve gömülü harita gösterildiğinde Google’ın ayarladığı çerezler yükleniyor. <b>Analitik henüz açık değil</b>; açıldığında yalnızca bantta „Tümünü kabul et“ seçen misafirler için yüklenecek. Reklam çerezi kullanmıyor ve davranışınızı izlemiyoruz.",
+    "uvodZAnalitiko": "Seçiminizi hatırlayan bir çerez ve sayfanın dili için bir çerez kullanıyoruz. Analitik çerezler ve gömülü harita <b>yalnızca onay verirseniz</b> yüklenir. Reklam çerezi kullanmıyoruz.",
+    "uvodBrezAnalitike": "Şu anda yalnızca seçiminiz için olan çerez ve sayfa dili için olan çerez yükleniyor. <b>Analitik henüz açık değil</b>; açıldığında yalnızca bantta „Tümünü kabul et“ seçen misafirler için yüklenecek. Gömülü harita ancak siz onay verdikten sonra ya da kendiniz açtığınızda yüklenir. Reklam çerezi kullanmıyor ve davranışınızı izlemiyoruz.",
     "posodobitev": "Son güncelleme: 25 Ağustos 2026",
     "razdelek1": "1. Çerez nedir ve neden gerekir",
     "kajSo1": "Çerezler (İng. <em>cookies</em>), bir web sitesinin siz sayfayı ziyaret ettiğinizde tarayıcınıza kaydettiği küçük metin dosyalarıdır. Her yeni ziyarette site çerezi tanır ve içeriği uyarlar ya da ayarlarınızı korur (örn. seçtiğiniz dil, onaylar veya tercih ettiğiniz şube).",
@@ -1161,11 +1161,11 @@
     "trajanjeSeja": "Tarayıcı kapanana kadar",
     "trajanjeGoogle": "Google belirler",
     "namenJezik": "Görüntülediğiniz sayfanın dilini kaydeder, böylece bağlantılar sizi aynı dilde tutar. Sayfa yüklenirken otomatik olarak ayarlanır.",
-    "namenZemljevid": "Gömülü harita gösterildiğinde Google tarafından ayarlanan çerezler. Adlarını ve sürelerini biz belirlemiyoruz.",
+    "namenZemljevid": "Haritayı yüklediğinizde Google tarafından ayarlanan çerezler. Adlarını ve sürelerini biz belirlemiyoruz.",
     "imeZemljevid": "Google Maps (gömülü harita)",
     "analiticniOpisBrez": "Site ziyaretlerini anonim olarak ölçmeye yarar. Şu anda kullanmıyoruz — analitik henüz açık değil. Açıldığında yalnızca bantta „Tümünü kabul et“ seçen ziyaretçiler için yüklenecek.",
     "tretjaOsebaNaslov": "Gömülü üçüncü taraf içerikleri",
-    "tretjaOsebaOpis": "İletişim sayfasında gömülü bir Google haritası vardır. Sayfa yüklendiğinde haritayı Google gösterir ve bu sırada kendi çerezlerini ayarlar — haritayı doğrudan Google üzerinde açmışsınız gibi. Bunları biz ayarlamadığımız için, aşağıdaki tabloda adları ve süreleri olmadan tek bir satırda belirtiyoruz."
+    "tretjaOsebaOpis": "İletişim ve Şubeler sayfalarında gömülü bir Google haritası vardır. Kendiliğinden yüklenmez: „Tümünü kabul et“ seçmediğiniz ya da yerindeki düğmeye basmadığınız sürece Google sizin hakkınızda hiçbir şey öğrenmez. Yüklediğinizde haritayı Google gösterir ve bu sırada kendi çerezlerini ayarlar — haritayı doğrudan Google üzerinde açmışsınız gibi. Bunları biz ayarlamadığımız için, aşağıdaki tabloda adları ve süreleri olmadan tek bir satırda belirtiyoruz."
   },
   "jedi": {
     "1": {
@@ -1635,5 +1635,9 @@
     "uvod": "Her iki şube de şehir merkezinde, birbirine birkaç dakika yürüme mesafesinde ve aynı menüyü sunuyor: helal döner, falafel, burger ve pizza, sipariş üzerine taze hazırlanır. Öğrenci fişi her ikisinde de geçerli, {doplacilo} farkla. Size yakın olanı seçin.",
     "opomba": "Ne yiyeceğinize karar veremediniz mi? Fiyatlarıyla birlikte tüm menü tek sayfada, öğrenci fişine dahil yemekler ise ayrıca işaretli.",
     "podrobnosti": "Şube ayrıntıları"
+  },
+  "zemljevid": {
+    "opis": "Haritayı Google yükler ve bu sırada kendi çerezlerini ayarlar.",
+    "gumb": "Haritayı göster"
   }
 }

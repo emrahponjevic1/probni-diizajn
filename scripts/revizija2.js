@@ -79,5 +79,63 @@ async function ld(put) {
     for (const d of dani) if (!EN.includes(d)) javi(j.lok + " ima neengleski dan: " + d);
   }
 
+  console.log("\n6) isti podatak na dva mjesta mora govoriti isto");
+  // ------------------------------------------------------------------
+  // TRECA VRSTA PROVJERE
+  //
+  // Prve dvije gledaju OBLIK: status, ispravnost JSON-a, duzinu naslova,
+  // slovenizme. Ugradjena karta je prosla obje: njen naslov je bio savrseno
+  // ispravnog oblika — samo je pokazivao 254 m od lokala, a identifikator
+  // mjesta mu je zavrsavao s ":0x1", dakle popunjenom prazninom.
+  //
+  // Isti oblik rupe je u prvoj reviziji propustio "facebook.com": adresa je
+  // bila ispravna, samo nije bila nasa.
+  //
+  // Pravilo: kad isti podatak postoji na dva mjesta, provjeri da se ta dva
+  // mjesta slazu — nemoj svako gledati posebno.
+  // ------------------------------------------------------------------
+  const koordinateIzNaslova = (u) => {
+    const q = u.match(/[?&]q=(-?[\d.]+),(-?[\d.]+)/);
+    if (q) return { lat: +q[1], lng: +q[2] };
+    const pb = u.match(/!2d(-?[\d.]+)!3d(-?[\d.]+)/);   // stari oblik
+    if (pb) return { lat: +pb[2], lng: +pb[1] };
+    return null;
+  };
+
+  const razdalja = (a, b) => {
+    const R = 6371000, rad = (x) => (x * Math.PI) / 180;
+    const dLat = rad(b.lat - a.lat), dLng = rad(b.lng - a.lng);
+    const h = Math.sin(dLat / 2) ** 2 +
+      Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLng / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  };
+
+  // Tabela JEZICI ima samo Trubarjevu; drugi lokal izvedemo iz iste putanje.
+  // Prva verzija ove provjere gledala je samo prvi lokal — a pogresna karta
+  // je bila bas na drugom. Provjera koja gleda pola podataka nije provjera.
+  const straniceLokala = JEZICI.flatMap((j) => [
+    j.lok,
+    j.lok.replace("trubarjeva-31", "slovenska-55"),
+  ]);
+
+  for (const put of straniceLokala) {
+    const h = await (await fetch(BASE + put)).text();
+
+    const geo = (await ld(put)).find((x) => x["@type"] === "Restaurant" && x.geo)?.geo;
+    if (!geo) { javi(put + " nema geo u strukturiranim podacima"); continue; }
+
+    const naslovi = [...h.matchAll(/https:\/\/(?:www\.)?maps\.google\.com\/maps\?[^"\ ]+/g)]
+      .map((m) => m[0].replace(/\u0026/g, "&"));
+    if (!naslovi.length) { javi(put + " nema naslova ugradjene karte"); continue; }
+
+    for (const u of naslovi) {
+      const k = koordinateIzNaslova(u);
+      if (!k) { javi(put + " ne umijem procitati koordinate iz " + u.slice(0, 70)); continue; }
+      const m = razdalja(k, { lat: geo.latitude, lng: geo.longitude });
+      if (m > 50)
+        javi(put + ": karta pokazuje " + Math.round(m) + " m od koordinata u strukturiranim podacima");
+    }
+  }
+
   console.log("\n" + (nalazi.length ? "NALAZA: " + nalazi.length : "NEMA NALAZA"));
 })();

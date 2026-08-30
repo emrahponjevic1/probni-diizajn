@@ -31,7 +31,7 @@ node scripts/slovenizmi.js http://localhost:3000 /bs /bs/meni
 | Skripta | Traži |
 |---|---|
 | **revizija.js** | Po svakoj adresi iz sitemapa: status, `<html lang>`, naslov (prazan / predug / duplikat), opis (isto + prekratak), canonical, `og:` oznake, ispravnost JSON-LD-a, nezamijenjene `{oznake}`, spojene riječi bez razmaka, vidljive ključeve prevoda, linkove koji vode van svog jezika, i **zaglavlje koje je na stranoj stranici ostalo doslovno slovenačko** |
-| **revizija2.js** | 404 po jeziku, `robots.txt` / `sitemap.xml` / `llms.txt`, tipove strukturiranih podataka po stranici, i da FAQ pitanje / kategorija menija / mrvica nisu ostali slovenački |
+| **revizija2.js** | 404 po jeziku, `robots.txt` / `sitemap.xml` / `llms.txt`, tipove strukturiranih podataka po stranici, da FAQ pitanje / kategorija menija / mrvica nisu ostali slovenački, i **da se ugrađena karta i koordinate u strukturiranim podacima slažu** (nalaz preko 50 m) |
 | **hreflang.js** | Uzajamnost `hreflang` veza na svim adresama: 7 oznaka po stranici, svaka navodi i samu sebe, svaka navedena adresa vraća 200 |
 | **provjeri-prevod.js** | Nedostajuće i višak ključeva, izgubljene `{oznake}` i `<tagove>` u prevodu |
 | **curenje2.js** | Red teksta koji je na stranoj stranici **identičan** slovenačkom — dakle neprevedeni ostatak. Ne oslanja se na slova č/š/ž |
@@ -59,5 +59,21 @@ Dvije rupe su već pronađene tek okom, pošto su skripte prolazile bez nalaza:
 2. Kad prevod ne postoji, next-intl ispiše **sam ključ** („lokacijaStran.nesto").
    Ni provjera prevoda to ne hvata, jer ključa nema ni u slovenačkom, pa
    poređenje jezika nema šta prijaviti.
+3. Ugrađena karta je pokazivala 254 m od lokala. Sve skripte su je propustile
+   jer su gledale **oblik**: adresa je bila savršeno ispravna, samo je tvrdila
+   pogrešnu činjenicu.
 
-Obje su zakrpane. Pretpostavi da postoji treća.
+Iz treće slijedi pravilo koje vrijedi šire:
+
+> **Kad isti podatak postoji na dva mjesta, provjeri da se ta dva mjesta
+> slažu — nemoj svako gledati posebno.**
+
+Isti oblik rupe je ranije propustio `facebook.com` u podnožju: adresa je bila
+ispravna, samo nije bila naša.
+
+Sve tri su zakrpane. Pretpostavi da postoji četvrta.
+
+**I još jedno:** prva verzija provjere karte gledala je samo Trubarjevu, jer
+tabela `JEZICI` sadrži samo nju — a pogrešna karta je bila baš na drugom
+lokalu. Provjera je šutjela. **Prije nego povjeruješ da provjera radi, pokvari
+podatak namjerno i vidi hoće li pasti.**

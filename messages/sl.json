@@ -389,15 +389,15 @@
     "gumbPiskotki": "Preberi Politiko piškotkov",
     "gumbMeni": "Nazaj na Meni",
     "gumbKontakt": "Kontakt",
-    "zemljevid": "• <b>Google Maps</b> — na strani Kontakt je vgrajen Googlov zemljevid. Ob prikazu ga naloži Google Ireland Ltd., ki pri tem prejme vaš naslov IP in nastavi svoje piškotke. Zemljevida ne uporabljamo za analizo obiska."
+    "zemljevid": "• <b>Google Maps</b> — na straneh Kontakt in Lokacije je vgrajen Googlov zemljevid. Naloži se šele po vaši privolitvi ali ko sami kliknete gumb na njegovem mestu. Takrat ga prikaže Google Ireland Ltd., ki pri tem prejme vaš naslov IP in nastavi svoje piškotke. Zemljevida ne uporabljamo za analizo obiska."
   },
   "piskotkiStran": {
     "vodniZnak": "PIŠKOTKI",
     "oznaka": "PRAVNO OBVESTILO · ZEKOM-2 & GDPR",
     "naslov": "Politika uporabe spletnih piškotkov",
     "uvodZacetek": "Na spletnem mestu restavracije Šeherezada spoštujemo vašo zasebnost.",
-    "uvodZAnalitiko": "Uporabljamo piškotek, ki si zapomni vašo izbiro, in piškotek za jezik strani; vgrajeni zemljevid naloži še Googlove. Analitični se naložijo <b>samo, če v to privolite</b>. Oglaševalskih piškotkov ne uporabljamo.",
-    "uvodBrezAnalitike": "Trenutno se naložijo piškotek za vašo izbiro, piškotek za jezik strani in tisti, ki jih ob prikazu vgrajenega zemljevida nastavi Google. <b>Analitika še ni vklopljena</b>; ko bo, se bo naložila izključno gostom, ki so v pasici izbrali „Sprejmi vse“. Oglaševalskih piškotkov ne uporabljamo in vašega vedenja ne sledimo.",
+    "uvodZAnalitiko": "Uporabljamo piškotek, ki si zapomni vašo izbiro, in piškotek za jezik strani. Analitični piškotki in vgrajeni zemljevid se naložijo <b>samo, če v to privolite</b>. Oglaševalskih piškotkov ne uporabljamo.",
+    "uvodBrezAnalitike": "Trenutno se naložita samo piškotek za vašo izbiro in piškotek za jezik strani. <b>Analitika še ni vklopljena</b>; ko bo, se bo naložila izključno gostom, ki so v pasici izbrali „Sprejmi vse“. Vgrajeni zemljevid se naloži šele po vaši privolitvi ali ko sami kliknete nanj. Oglaševalskih piškotkov ne uporabljamo in vašega vedenja ne sledimo.",
     "posodobitev": "Zadnja posodobitev: 25. avgust 2026",
     "razdelek1": "1. Kaj so piškotki in zakaj jih potrebujemo",
     "kajSo1": "Piškotki (angl. <em>cookies</em>) so majhne besedilne datoteke, ki jih spletno mesto shrani v vaš spletni brskalnik ob obisku strani. Ob vsakem ponovnem obisku spletno mesto prepozna piškotek in prilagodi vsebino ali ohrani vaše nastavitve (npr. izbrani jezik, privolitve ali priljubljeno poslovalnico).",
@@ -464,11 +464,11 @@
     "trajanjeSeja": "Do konca seje",
     "trajanjeGoogle": "Določi Google",
     "namenJezik": "Zapiše jezik strani, ki jo gledate, da vas povezave znotraj strani obdržijo v istem jeziku. Nastavi se samodejno ob prikazu strani.",
-    "namenZemljevid": "Piškotki, ki jih ob prikazu vgrajenega zemljevida nastavi Google. Njihovih imen in trajanja ne določamo mi.",
+    "namenZemljevid": "Piškotki, ki jih nastavi Google, ko zemljevid naložite. Njihovih imen in trajanja ne določamo mi.",
     "imeZemljevid": "Google Maps (vgrajeni zemljevid)",
     "analiticniOpisBrez": "Namenjeni so anonimnemu spremljanju obiskanosti strani. Trenutno jih ne uporabljamo — analitika še ni vklopljena. Ko bo, se bo naložila le gostom, ki v pasici izberejo „Sprejmi vse“.",
     "tretjaOsebaNaslov": "Vgrajene vsebine tretjih oseb",
-    "tretjaOsebaOpis": "Na strani Kontakt je vgrajen Googlov zemljevid. Ko se stran naloži, ga prikaže Google in ob tem nastavi svoje piškotke — enako, kot če bi zemljevid odprli neposredno na Googlu. Ker jih ne nastavljamo mi, jih v spodnji tabeli navajamo skupaj, brez imen in trajanja."
+    "tretjaOsebaOpis": "Na straneh Kontakt in Lokacije je vgrajen Googlov zemljevid. Ne naloži se sam: dokler ne izberete „Sprejmi vse“ ali ne kliknete gumba na njegovem mestu, Google o vas ne izve ničesar. Ko ga naložite, ga prikaže Google in ob tem nastavi svoje piškotke — enako, kot če bi zemljevid odprli neposredno na Googlu. Ker jih ne nastavljamo mi, jih v spodnji tabeli navajamo skupaj, brez imen in trajanja."
   },
   "faqStran": {
     "vodniZnak": "POMOČ",
@@ -1176,5 +1176,9 @@
     "uvod": "Obe poslovalnici sta v središču mesta, nekaj minut hoje narazen, in imata isto ponudbo: halal kebab, falafel, burgerje in pizze, sveže pečene po naročilu. Študentski bon velja v obeh, z doplačilom {doplacilo}. Izberite tisto, ki vam je bližje.",
     "opomba": "Ne veste, kaj bi jedli? Celoten meni s cenami je na eni strani, jedi na študentski bon pa so posebej označene.",
     "podrobnosti": "Podrobnosti poslovalnice"
+  },
+  "zemljevid": {
+    "opis": "Zemljevid naloži Google in ob tem nastavi svoje piškotke.",
+    "gumb": "Prikaži zemljevid"
   }
 }

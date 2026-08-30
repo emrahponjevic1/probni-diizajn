@@ -1100,15 +1100,15 @@
     "gumbPiskotki": "Cookie-Richtlinie lesen",
     "gumbMeni": "Zurück zur Speisekarte",
     "gumbKontakt": "Kontakt",
-    "zemljevid": "• <b>Google Maps</b> — auf der Kontaktseite ist eine Google-Karte eingebettet. Google Ireland Ltd. lädt die Karte, erhält dabei Ihre IP-Adresse und setzt eigene Cookies. Wir nutzen die Karte nicht zur Auswertung von Besuchen."
+    "zemljevid": "• <b>Google Maps</b> — auf den Seiten Kontakt und Standorte ist eine Google-Karte eingebettet. Sie lädt erst nach Ihrer Einwilligung oder wenn Sie die Schaltfläche an ihrer Stelle anklicken. Dann zeigt Google Ireland Ltd. die Karte an, erhält dabei Ihre IP-Adresse und setzt eigene Cookies. Wir nutzen die Karte nicht zur Auswertung von Besuchen."
   },
   "piskotkiStran": {
     "vodniZnak": "COOKIES",
     "oznaka": "RECHTLICHER HINWEIS · ZEKOM-2 & DSGVO",
     "naslov": "Cookie-Richtlinie",
     "uvodZacetek": "Auf der Website von Šeherezada achten wir auf Ihre Privatsphäre.",
-    "uvodZAnalitiko": "Wir verwenden ein Cookie, das Ihre Wahl speichert, und eines für die Sprache der Seite; die eingebettete Karte fügt Googles eigene hinzu. Analyse-Cookies laden <b>nur mit Ihrer Einwilligung</b>. Werbe-Cookies verwenden wir nicht.",
-    "uvodBrezAnalitike": "Derzeit werden das Cookie für Ihre Wahl, das Cookie für die Seitensprache und jene geladen, die Google beim Anzeigen der eingebetteten Karte setzt. <b>Die Analyse ist noch nicht eingeschaltet</b>; wenn sie es ist, lädt sie ausschließlich für Gäste, die im Banner „Alle akzeptieren“ gewählt haben. Werbe-Cookies verwenden wir nicht und Ihr Verhalten verfolgen wir nicht.",
+    "uvodZAnalitiko": "Wir verwenden ein Cookie, das Ihre Wahl speichert, und eines für die Sprache der Seite. Analyse-Cookies und die eingebettete Karte laden <b>nur mit Ihrer Einwilligung</b>. Werbe-Cookies verwenden wir nicht.",
+    "uvodBrezAnalitike": "Derzeit werden nur das Cookie für Ihre Wahl und das Cookie für die Seitensprache geladen. <b>Die Analyse ist noch nicht eingeschaltet</b>; wenn sie es ist, lädt sie ausschließlich für Gäste, die im Banner „Alle akzeptieren“ gewählt haben. Die eingebettete Karte lädt erst nach Ihrer Einwilligung oder wenn Sie selbst darauf klicken. Werbe-Cookies verwenden wir nicht und Ihr Verhalten verfolgen wir nicht.",
     "posodobitev": "Zuletzt aktualisiert: 25. August 2026",
     "razdelek1": "1. Was Cookies sind und wozu wir sie brauchen",
     "kajSo1": "Cookies sind kleine <em>Textdateien</em>, die eine Website beim Besuch in Ihrem Browser speichert. Bei jedem erneuten Besuch erkennt die Website das Cookie und passt Inhalte an oder behält Ihre Einstellungen bei (etwa die gewählte Sprache, Ihre Einwilligung oder Ihren bevorzugten Standort).",
@@ -1175,11 +1175,11 @@
     "trajanjeSeja": "Bis zum Schließen des Browsers",
     "trajanjeGoogle": "Von Google festgelegt",
     "namenJezik": "Hält fest, in welcher Sprache Sie die Seite ansehen, damit Links Sie in derselben Sprache halten. Er wird beim Laden der Seite automatisch gesetzt.",
-    "namenZemljevid": "Cookies, die Google beim Anzeigen der eingebetteten Karte setzt. Ihre Namen und Laufzeiten bestimmen nicht wir.",
+    "namenZemljevid": "Cookies, die Google setzt, sobald Sie die Karte laden. Ihre Namen und Laufzeiten bestimmen nicht wir.",
     "imeZemljevid": "Google Maps (eingebettete Karte)",
     "analiticniOpisBrez": "Sie dienen der anonymen Messung der Seitenaufrufe. Derzeit verwenden wir sie nicht — die Analyse ist noch nicht eingeschaltet. Wenn sie es ist, wird sie nur für Gäste geladen, die im Banner „Alle akzeptieren“ wählen.",
     "tretjaOsebaNaslov": "Eingebettete Inhalte Dritter",
-    "tretjaOsebaOpis": "Auf der Kontaktseite ist eine Google-Karte eingebettet. Beim Laden der Seite zeigt Google die Karte an und setzt dabei eigene Cookies — genauso, als hätten Sie die Karte direkt bei Google geöffnet. Da nicht wir sie setzen, führen wir sie in der Tabelle unten als einen Eintrag auf, ohne Namen und Laufzeiten."
+    "tretjaOsebaOpis": "Auf den Seiten Kontakt und Standorte ist eine Google-Karte eingebettet. Sie lädt nicht von selbst: Solange Sie nicht „Alle akzeptieren“ wählen oder die Schaltfläche an ihrer Stelle anklicken, erfährt Google nichts über Sie. Sobald Sie sie laden, zeigt Google die Karte an und setzt dabei eigene Cookies — genauso, als hätten Sie die Karte direkt bei Google geöffnet. Da nicht wir sie setzen, führen wir sie in der Tabelle unten als einen Eintrag auf, ohne Namen und Laufzeiten."
   },
   "jedi": {
     "1": {
@@ -1635,5 +1635,9 @@
     "uvod": "Beide Standorte liegen im Stadtzentrum, ein paar Gehminuten voneinander entfernt, und bieten dasselbe: Halal-Döner, Falafel, Burger und Pizza, frisch auf Bestellung zubereitet. Der Studentenbon gilt an beiden, mit {doplacilo} Zuzahlung. Nehmen Sie den, der näher liegt.",
     "opomba": "Sie wissen noch nicht, was Sie essen möchten? Die ganze Speisekarte mit Preisen steht auf einer Seite, die Gerichte auf Studentenbon sind eigens gekennzeichnet.",
     "podrobnosti": "Details zum Standort"
+  },
+  "zemljevid": {
+    "opis": "Die Karte lädt Google und setzt dabei eigene Cookies.",
+    "gumb": "Karte anzeigen"
   }
 }

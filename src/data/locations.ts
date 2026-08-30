@@ -63,8 +63,7 @@ export interface LocationCore {
   highlights: string[];
   /** Kako priti. */
   transport: { lpp: string; parking: string; walking: string };
-  /** Vgrajen Google zemljevid. */
-  mapEmbed: string;
+
   email: string;
 
   /**
@@ -115,8 +114,6 @@ export const LOCATIONS: LocationCore[] = [
       parking: "Parkirna hiša Kapitelj / Komenskega ali Petkovškovo nabrežje",
       walking: "3 min od Prešernovega trga in Tromostovja",
     },
-    mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.1128405021235!2d14.5097223!3d46.0522222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47653282245b0a7d%3A0x6fb26227b2a6f23!2sTrubarjeva%20cesta%2031%2C%201000%20Ljubljana!5e0!3m2!1ssl!2ssi!4v1700000000000!5m2!1ssl!2ssi",
     email: "info@seherezada.net",
     photos: [
       { src: "", alt: "Notranjost lokala na Trubarjevi cesti 31" },
@@ -161,8 +158,6 @@ export const LOCATIONS: LocationCore[] = [
       parking: "Parkirna hiša Kozolec / Trg republike / Kongresni trg",
       walking: "V neposredni bližini Bavarskega dvora in Ajdovščine",
     },
-    mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2769.0!2d14.504!3d46.054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765329ebc0e9eb7%3A0x1!2sSlovenska%20cesta%2055%2C%201000%20Ljubljana!5e0!3m2!1ssl!2ssi!4v1700000000000!5m2!1ssl!2ssi",
     email: "info@seherezada.net",
     photos: [
       { src: "", alt: "Notranjost lokala na Slovenski cesti 55" },
@@ -171,6 +166,25 @@ export const LOCATIONS: LocationCore[] = [
     ],
   },
 ];
+
+/**
+ * Naslov vgrajenega zemljevida.
+ *
+ * Prej je bil zapisan kot podatek — dolg niz "maps/embed?pb=...", sestavljen
+ * na roko. Oba sta kazala mimo: Trubarjeva za 33 m, Slovenska za 254 m, in
+ * njen identifikator kraja se je končal z ":0x1", torej z zapolnjeno vrzeljo,
+ * ne s pravim krajem z Google Zemljevidov.
+ *
+ * Najhuje je bilo, da si je stran nasprotovala sama: zemljevid je kazal eno
+ * mesto, gumb "Navodila za pot" pod njim pa je gosta poslal 254 m stran.
+ *
+ * Zato niza ne popravljamo, ampak ga odpravimo. Zemljevid se zdaj sestavi iz
+ * istih koordinat kot navodila za pot in strukturirani podatki — trije se
+ * fizično ne morejo več raziti. Odkrito v drugi neodvisni reviziji.
+ */
+export function mapEmbedUrl(loc: LocationCore) {
+  return `https://maps.google.com/maps?q=${loc.geo.lat},${loc.geo.lng}&z=17&hl=sl&output=embed`;
+}
 
 /**
  * Povezava do navodil za pot. Cilj so koordinate, ne ime — ime lahko Google

@@ -160,7 +160,9 @@ export default function PiskotkiPageContent() {
           <h1 className={styles.pageTitle}>{t("naslov")}</h1>
 
           <p className={styles.pageLead}>
-            {t("uvodZacetek")}
+            {/* Presledek mora biti izrecen: React med dvema izrazoma vstavi
+                le ločilo <!-- -->, ki ga brskalnik ne izriše kot presledek. */}
+            {t("uvodZacetek")}{" "}
             {ANALYTICS_ENABLED
               ? t.rich("uvodZAnalitiko", { b: (chunks) => <strong>{chunks}</strong> })
               : t.rich("uvodBrezAnalitike", { b: (chunks) => <strong>{chunks}</strong> })}

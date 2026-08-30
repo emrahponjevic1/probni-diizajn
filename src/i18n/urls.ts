@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/data/site";
+import { LOCALES, SITE_URL } from "@/data/site";
 import { getPathname } from "./navigation";
 import type { routing, SlugPathname, StaticPathname } from "./routing";
 
@@ -35,4 +35,50 @@ export function localizedSlugUrl(
 ) {
   const path = getPathname({ href: { pathname, params: { slug } }, locale });
   return `${SITE_URL}${path}`;
+}
+
+// ---------------------------------------------------------------------------
+// HREFLANG — KATERE JEZIKOVNE RAZLIČICE TE STRANI OBSTAJAJO
+//
+// Kanonični naslov Googlu pove "to je prava različica te strani". Hreflang mu
+// pove nekaj drugega: "ista stran obstaja še v petih jezikih, tu so naslovi".
+// Brez tega lahko Google šest jezikov obravnava kot šest tekmecev in izbere
+// enega, ali pa Slovencu v zadetkih pokaže turško stran.
+//
+// Dve pravili, ki ju Google zahteva in ju ta funkcija izpolnjuje sama od sebe,
+// ker vsi naslovi izhajajo iz iste tabele:
+//
+//   1. Vsaka stran našteje TUDI SAMO SEBE. Seznam je za vseh šest enak.
+//   2. Sklic mora biti vzajemen: če /en/menu kaže na /de/speisekarte, mora
+//      /de/speisekarte kazati nazaj na /en/menu. Sicer Google sklic zavrže.
+//
+// x-default je različica za obiskovalca, čigar jezika nimamo. Pri nas je to
+// slovenščina — restavracija stoji v Ljubljani.
+// ---------------------------------------------------------------------------
+
+/** Ključ v Next zapisu alternates.languages -> cel naslov. */
+type Hreflang = Record<string, string>;
+
+function sestavi(naslovZaJezik: (locale: AppLocale) => string): Hreflang {
+  const out: Hreflang = {};
+  for (const l of LOCALES) out[l.hreflang] = naslovZaJezik(l.code);
+  out["x-default"] = naslovZaJezik(DEFAULT_CODE);
+  return out;
+}
+
+/** Jezik, na katerega kaže x-default. */
+const DEFAULT_CODE = (LOCALES.find((l) => l.default) ?? LOCALES[0])
+  .code as AppLocale;
+
+/** Vseh šest naslovov strani brez sluga, plus x-default. */
+export function hreflangZaPot(pathname: StaticPathname): Hreflang {
+  return sestavi((locale) => localizedUrl(pathname, locale));
+}
+
+/** Vseh šest naslovov strani s slugom (objava, oglas, poslovalnica). */
+export function hreflangZaSlug(
+  pathname: SlugPathname,
+  slug: string
+): Hreflang {
+  return sestavi((locale) => localizedSlugUrl(pathname, slug, locale));
 }

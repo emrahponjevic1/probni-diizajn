@@ -53,16 +53,21 @@ export const SHARE_IMAGE = {
  * drugje zapisanega — dodajanje jezika je vrstica tukaj in nova datoteka
  * s prevodi, nič drugega.
  *
- * Vrstni red ni naključen: prvi je privzeti jezik.
+ * Vrstni red ni naključen: prvi je privzeti jezik. Enak vrstni red se
+ * pokaže v prekidalniku jezikov v glavi strani.
+ *
+ * `name` je ime jezika V TEM JEZIKU (avtonim) in se NE prevaja. Turek, ki
+ * pristane na slovenski strani, mora v seznamu prepoznati "Türkçe" — če bi
+ * pisalo "turščina", ga ne bi našel. `short` je kratka oznaka na gumbu.
  */
 export const LOCALES = [
   // Slovenščina nima predpone: /meni, ne /sl/meni.
-  { code: "sl", prefix: "", hreflang: "sl-SI", default: true },
-  { code: "en", prefix: "/en", hreflang: "en", default: false },
-  { code: "de", prefix: "/de", hreflang: "de", default: false },
-  { code: "it", prefix: "/it", hreflang: "it", default: false },
-  { code: "bs", prefix: "/bs", hreflang: "bs", default: false },
-  { code: "tr", prefix: "/tr", hreflang: "tr", default: false },
+  { code: "sl", prefix: "", hreflang: "sl-SI", default: true, name: "Slovenščina", short: "SLO" },
+  { code: "en", prefix: "/en", hreflang: "en", default: false, name: "English", short: "ENG" },
+  { code: "de", prefix: "/de", hreflang: "de", default: false, name: "Deutsch", short: "DEU" },
+  { code: "it", prefix: "/it", hreflang: "it", default: false, name: "Italiano", short: "ITA" },
+  { code: "bs", prefix: "/bs", hreflang: "bs", default: false, name: "Bosanski", short: "BOS" },
+  { code: "tr", prefix: "/tr", hreflang: "tr", default: false, name: "Türkçe", short: "TUR" },
 ] as const;
 
 export type Locale = (typeof LOCALES)[number];

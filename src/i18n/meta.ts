@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { localizedUrl } from "./urls";
+import { hreflangZaPot, localizedUrl } from "./urls";
 import type { AppLocale, StaticPathname } from "./urls";
 import { SHARE_IMAGE, SITE_NAME, localeByCode } from "@/data/site";
 
@@ -47,7 +47,11 @@ export async function metaZaStran(opts: {
   const naslovStrani = localizedUrl(opts.pot, opts.locale as AppLocale);
 
   return {
-    alternates: { canonical: naslovStrani },
+    alternates: {
+      canonical: naslovStrani,
+      // Vseh šest jezikovnih različic te iste strani + x-default.
+      languages: hreflangZaPot(opts.pot),
+    },
     title: naslov,
     description: opis,
     openGraph: {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { localizedSlugUrl } from "@/i18n/urls";
+import { hreflangZaSlug, localizedSlugUrl } from "@/i18n/urls";
 import type { AppLocale } from "@/i18n/urls";
 import { SHARE_IMAGE, SITE_NAME, localeByCode } from "@/data/site";
 import { notFound } from "next/navigation";
@@ -40,7 +40,11 @@ export async function generateMetadata({
   return {
     title: tm("oglasNaslov", { mesto: job.title }),
     description: job.desc,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      // Vseh šest jezikovnih različic te iste strani + x-default.
+      languages: hreflangZaSlug("/zaposlitev/[slug]", job.slug),
+    },
     openGraph: {
       title: tm("oglasOgNaslov", { mesto: job.title }),
       description: job.desc,

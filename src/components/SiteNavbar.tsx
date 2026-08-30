@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import NextLink from "next/link";
+import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, getPathname, usePathname } from "@/i18n/navigation";
 import styles from "./SiteNavbar.module.css";
 import StatusBadge from "./locations/StatusBadge";
 import { LOCATIONS, LOCATION_SLUG } from "@/data/locations";
+import { LOCALES, localeByCode } from "@/data/site";
 
 // Clean Vector SVG Icons
 const PinSvg = ({ size = 16, className }: { size?: number; className?: string }) => (
@@ -38,8 +41,53 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(true);
   const lastScrollYRef = useRef(0);
 
-  // Interactive Location & Language state
-  const [selectedLang, setSelectedLang] = useState<"SLO" | "ENG" | "BHS">("SLO");
+  // ------------------------------------------------------------------
+  // PREKIDALNIK JEZIKA
+  //
+  // Jezik ni stanje v brskalniku, ampak naslov strani. Prej je bil tu
+  // useState s tremi izmišljenimi oznakami (SLO/ENG/BHS): klik je prebarval
+  // gumb, strani pa ni zamenjal. Gost do svojega jezika ni mogel priti
+  // drugače kot z ročnim vpisom naslova.
+  //
+  // Zdaj beremo pravi jezik iz next-intl, seznam pa iz src/data/site.ts,
+  // da ostane en sam vir.
+  //
+  // usePathname() iz našega navigation.ts vrne NOTRANJO pot ("/lokacije/[slug]"),
+  // ne prevedene ("/de/standorte/trubarjeva-31"). Skupaj z useParams() iz nje
+  // sestavimo naslov iste strani v ciljnem jeziku — zato deluje tudi na
+  // straneh s slugom.
+  //
+  // Namenoma prava povezava, ne gumb z router.push: da se odpreti v novem
+  // zavihku, brskalnik jo predbere, in gost vidi, kam gre.
+  //
+  // Namenoma pa NE naš <Link locale={...}>. next-intl ob izrecno podanem
+  // jeziku vedno doda predpono ("Always include a prefix when changing
+  // locales"), zato bi za slovenščino sestavil /sl/meni — naslov, ki obstaja
+  // samo kot preusmeritev na /meni. getPathname() te prisile nima in vrne
+  // /meni. Preverjeno: /sl/meni res vrne 307.
+  //
+  // prefetch={false}: ob menjavi jezika se zamenja celotno drevo strani,
+  // zato Next za predbiranje vrne 404 (isto stori next-intl v svojem Linku
+  // in na prefetch celo opozori). Klik dela enako, le brez zavrnjene
+  // zahteve v ozadju.
+  // ------------------------------------------------------------------
+  const trenutniJezik = useLocale();
+  const notranjaPot = usePathname();
+  const parametriPoti = useParams();
+
+  /** Ista stran v drugem jeziku; slug ostane, pot se prevede. */
+  const potZaJezik = (jezik: (typeof LOCALES)[number]["code"]) =>
+    getPathname({
+      href: { pathname: notranjaPot, params: parametriPoti },
+      locale: jezik,
+    } as Parameters<typeof getPathname>[0]);
+
+  const jeziki = LOCALES.map((l) => ({
+    ...l,
+    aktiven: l.code === trenutniJezik,
+    pot: potZaJezik(l.code),
+  }));
+  const trenutniJezikPodatki = localeByCode(trenutniJezik);
 
   // Dropdown Open States (Desktop & Mobile Drawer)
   const [isDesktopLocOpen, setIsDesktopLocOpen] = useState(false);
@@ -148,14 +196,6 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
     },
   }));
 
-  const languagesList = [
-    { code: "SLO" as const, name: "Slovenščina" },
-    { code: "ENG" as const, name: "English" },
-    { code: "BHS" as const, name: "Bos / Hrv / Srp" },
-  ];
-
-  const currentLangObj = languagesList.find((l) => l.code === selectedLang) || languagesList[0];
-
   return (
     <>
       {/* Floating Island at Top (Desktop) / Smart Sticky Hide-on-Scroll (Mobile <= 1220px) */}
@@ -218,7 +258,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                 aria-label={t("izbiraJezika")}
                 aria-expanded={isDesktopLangOpen}
               >
-                <span style={{ fontWeight: 800 }}>{currentLangObj.code}</span>
+                <span style={{ fontWeight: 800 }}>{trenutniJezikPodatki.short}</span>
                 <span style={{ fontSize: "0.72rem", opacity: 0.6 }}>▾</span>
               </button>
 
@@ -248,24 +288,25 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
               {/* Language Dropdown */}
               {isDesktopLangOpen && (
                 <div className={`${styles.desktopDropdownMenu} ${styles.langDesktopDropdown}`}>
-                  {languagesList.map((lang) => (
-                    <button
+                  {jeziki.map((lang) => (
+                    <NextLink
                       key={lang.code}
-                      type="button"
-                      onClick={() => {
-                        setSelectedLang(lang.code);
-                        setIsDesktopLangOpen(false);
-                      }}
+                      href={lang.pot}
+                      prefetch={false}
+                      hrefLang={lang.hreflang}
+                      lang={lang.code}
+                      onClick={() => setIsDesktopLangOpen(false)}
                       className={`${styles.dropdownOptionItem} ${
-                        selectedLang === lang.code ? styles.dropdownOptionItemActive : ""
+                        lang.aktiven ? styles.dropdownOptionItemActive : ""
                       }`}
+                      aria-current={lang.aktiven ? "true" : undefined}
                     >
                       <div className={styles.dropdownItemMeta}>
-                        <span style={{ fontWeight: 800, color: "#1c1917" }}>{lang.code}</span>
+                        <span style={{ fontWeight: 800, color: "#1c1917" }}>{lang.short}</span>
                         <span className={styles.dropdownItemSub}>{lang.name}</span>
                       </div>
-                      {selectedLang === lang.code && <span className={styles.dropdownItemCheck}>✓</span>}
-                    </button>
+                      {lang.aktiven && <span className={styles.dropdownItemCheck}>✓</span>}
+                    </NextLink>
                   ))}
                 </div>
               )}
@@ -379,24 +420,28 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
 
             {isDrawerLangOpen && (
               <div className={styles.drawerDropdownMenu}>
-                {languagesList.map((lang) => (
-                  <button
+                {jeziki.map((lang) => (
+                  <NextLink
                     key={lang.code}
-                    type="button"
+                    href={lang.pot}
+                    prefetch={false}
+                    hrefLang={lang.hreflang}
+                    lang={lang.code}
                     onClick={() => {
-                      setSelectedLang(lang.code);
                       setIsDrawerLangOpen(false);
+                      setIsMobileMenuOpen(false);
                     }}
                     className={`${styles.dropdownOptionItem} ${
-                      selectedLang === lang.code ? styles.dropdownOptionItemActive : ""
+                      lang.aktiven ? styles.dropdownOptionItemActive : ""
                     }`}
+                    aria-current={lang.aktiven ? "true" : undefined}
                   >
                     <div className={styles.dropdownItemMeta}>
-                      <span style={{ fontWeight: 800, color: "#1c1917" }}>{lang.code}</span>
+                      <span style={{ fontWeight: 800, color: "#1c1917" }}>{lang.short}</span>
                       <span className={styles.dropdownItemSub}>{lang.name}</span>
                     </div>
-                    {selectedLang === lang.code && <span className={styles.dropdownItemCheck}>✓</span>}
-                  </button>
+                    {lang.aktiven && <span className={styles.dropdownItemCheck}>✓</span>}
+                  </NextLink>
                 ))}
               </div>
             )}
@@ -429,7 +474,7 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                 <span className={styles.drawerActionIcon} style={{ fontSize: "0.92rem", fontWeight: 800 }}>文A</span>
                 <div className={styles.drawerActionTextCol}>
                   <span className={styles.drawerActionLabel}>{t("jezik")}</span>
-                  <span className={styles.drawerActionValue}>{currentLangObj.code}</span>
+                  <span className={styles.drawerActionValue}>{trenutniJezikPodatki.short}</span>
                 </div>
                 <span className={styles.drawerActionArrow}>{isDrawerLangOpen ? "▴" : "▾"}</span>
               </button>

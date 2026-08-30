@@ -225,8 +225,8 @@ ne ostavlja sajt slomljen.
 |---|---|---|
 | ✅ | **5A** Temelj | `next-intl`, adrese u 6 jezika. Slovenački izgleda identično |
 | ✅ | **5B** Izvlačenje teksta | tekst iz koda u `messages/sl.json`. Vizuelno ništa |
-| ⬜ | **5C** Prevodi | EN, DE, IT, BS, TR — pet JSON fajlova |
-| ⬜ | **5D** Google sloj | `hreflang`, canonical po jeziku, **pravi** prekidač jezika |
+| ✅ | **5C** Prevodi | EN, DE, IT, BS, TR — pet JSON fajlova |
+| ✅ | **5D** Google sloj | `hreflang`, canonical po jeziku, **pravi** prekidač jezika |
 | ⬜ | **5E** Provjera | svih 84 adresa, meta naslovi, JSON-LD po jeziku |
 
 #### ✅ 5A — gotov 28. 8. 2026
@@ -392,6 +392,81 @@ Ovdje je ostavljena samo za čitanje; ako se raziđu, kod je istina.
 | `/politika-zasebnosti` | `/privacy-policy` | `/datenschutz` | `/privacy` | `/politika-privatnosti` | `/gizlilik-politikasi` |
 | `/blog` | `/blog` | `/blog` | `/blog` | `/blog` | `/blog` |
 
+#### ✅ 5C — gotov 30. 8. 2026
+
+Pet prevoda, svaki **1263 ključa** — identično engleskom. Slovenački izvor ima
+997; razlika su `jedi`, `kategorije` i `ocenePodatki`, koji u slovenačkom ostaju
+prazni jer se čitaju iz podatkovnih fajlova.
+
+Nisu doslovni prevodi nego tekst pisan za pretragu u tom jeziku:
+
+| Jezik | Naslovnica cilja | Meni cilja |
+|---|---|---|
+| EN | halal kebab Ljubljana | cheap food Ljubljana |
+| DE | Halal Döner Ljubljana | günstig essen Ljubljana |
+| IT | kebab **Lubiana** (egzonim!) | mangiare economico Lubiana |
+| BS | halal kebab Ljubljana | jeftino jesti u Ljubljani |
+| TR | Ljubljana helal döner | Ljubljana ucuz yemek |
+
+Tri varijante „jeftino" su **razmaknute** po naslovu, H1 i tekstu, ne nagomilane
+u jednu rečenicu — gomilanje je za Google spam.
+
+**Imena jela su lokalizovana, ne prepisana:** `Ćevapi` u BS, `Cevapi` u TR,
+`Yufka Döner` u TR (jufka *jest* turska yufka), `Pizza Margherita` u IT.
+
+#### Zamke po jeziku — svaka je koštala jedne greške
+
+- **IT** — apostrof (`l'olio`) lomi i bash heredoc i ICU. Rješenje: tipografski
+  `’` (koji je u italijanskom ionako ispravan).
+- **BS** — najbliži slovenačkom, pa tražilac curenja daje **238 lažnih alarma**
+  („Meni", „Kontakt", „Galerija" su isti u oba jezika). Napisan je obrnuti
+  tražilac `slovenizmi.js`: traži riječi koje postoje u slovenačkom a u
+  bosanskom ne. Nula pogodaka.
+- **TR** — padežni nastavak se piše apostrofom i zavisi od toga **kako se broj
+  čita**: `02:00'ye` (iki), ali `03:00'e` (üç). Sati dolaze iz `locations.ts`,
+  pa nastavak ne smije visjeti na broju — u osam poruka je prebačen na riječ
+  `saat` (`{do1} saatine kadar`), koja se ne mijenja. Bedž je preformulisan u
+  `· kapanış {ura}`, bez nastavka.
+
+#### ✅ 5D — gotov 30. 8. 2026
+
+**`hreflang`** — `hreflangZaPot()` i `hreflangZaSlug()` u `src/i18n/urls.ts`.
+Adrese se ne sastavljaju ručno nego izlaze iz iste tabele kao sitemap, pa su
+dva Googleova uslova ispunjena sama od sebe: svaka stranica navodi i **samu
+sebe**, i sve navedene veze su **uzajamne**. `x-default` pokazuje na slovenački.
+
+Dokazano skriptom `hreflang.js` na **svih 84 adrese iz sitemapa**: 7 tagova po
+stranici, svaka navodi sebe, svaka navedena adresa vraća 200 (ne preusmjerenje),
+skup je identičan na svih šest verzija, canonical pokazuje na samu sebe.
+
+**Prekidač jezika** — vidi „Prekidač za jezik" niže u poznatim problemima.
+
+#### Zašto prekidač NE koristi `<Link locale={...}>`
+
+next-intl u svom `Link`-u namjerno forsira prefiks kad se jezik zada izričito
+(`forcePrefix: locale != null`, komentar u kodu: *„Always include a prefix when
+changing locales"*). Za slovenački bi to dalo `/sl/meni` — adresu koja postoji
+**samo kao 307 preusmjerenje** na `/meni`. Provjereno curlom.
+
+Zato prekidač sam računa adresu preko `getPathname({href, locale})` i koristi
+običan `next/link`. Uz to `prefetch={false}`: pri promjeni jezika mijenja se
+cijelo stablo stranice, pa Next za predučitavanje vraća 404 (isto radi i
+next-intl, i na prefetch čak ispisuje upozorenje).
+
+#### Kako je dokazano da 5D ništa nije pokvario
+
+Snimak prije i poslije, na pravom serveru:
+
+```
+vidljivi tekst (15 stranica)   bez ijedne razlike
+JSON-LD (12 stranica)          bez ijedne razlike
+meta tagovi                    +98 redova, svi hreflang; 0 uklonjenih
+84 adrese iz sitemapa          sve 200, hreflang uzajaman
+prekidač na svih 6 jezika      SLO/ENG/DEU/ITA/BOS/TUR — tačna oznaka
+klik DE→TR na /standorte/…     /tr/subeler/… , lang=tr, bez preusmjerenja
+klik EN→TR u mobilnoj ladici   /tr/ogrenci-fisleri , ladica se zatvorila
+```
+
 ### Faza 7 — poslije lansiranja
 - [ ] Google Search Console, poslati sitemap
 - [ ] Oba GBP profila: kategorije, atributi, satnica, fotografije, meni
@@ -410,14 +485,12 @@ Ovdje je ostavljena samo za čitanje; ako se raziđu, kod je istina.
 **Lozinka ne ide u kod ni u razgovor** — u varijablu okoline koju vlasnik sam upiše kod hostinga.
 **Prije objave forma mora biti spojena ili poštena** — sad laže gostu da je poruka poslana.
 
-### 🔴 Prekidač za jezik u navigaciji ništa ne radi
-`SiteNavbar.tsx:38` — dugme nudi tri jezika (Slovenščina, English, Bos/Hrv/Srp).
-Klik samo pomjeri kvačicu. Nema prevoda, nema promjene stranice.
-
-Isti problem kao kontakt forma: **gost misli da je prebacio jezik, a nije.**
-Uz to nudi tri jezika, a dogovoreno je šest.
-
-Spaja se u koraku **5D**. Do tada stoji — sajt nije objavljen, pa niko ne strada.
+### ✅ Prekidač za jezik — spojen 30. 8. 2026 (korak 5D)
+Bio je `useState` sa tri izmišljene oznake (SLO/ENG/BHS): klik je samo pomjerao
+kvačicu. Sad čita pravi jezik iz next-intl, nudi svih šest, i svaka stavka je
+prava `<a>` veza na **istu stranicu** u tom jeziku — radi i na stranicama sa
+slugom. Popis jezika dolazi iz `LOCALES` u `site.ts`, imena su autonimi
+(Deutsch, Türkçe) i ne prevode se.
 
 ### ✅ Tvrdnje na `/halal` — provjerene 27. 8. 2026
 Vlasnik je prošao kroz svih sedam. **Slovenački sadržaj je time zaključan** — uslov da se krene sa prevodima.

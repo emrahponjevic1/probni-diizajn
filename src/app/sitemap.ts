@@ -33,6 +33,8 @@ const STATIC_PAGES: { path: StaticPathname; priority: number }[] = [
   { path: "/", priority: 1.0 },
   { path: "/meni", priority: 0.9 },
   { path: "/kontakt", priority: 0.8 },
+  // Pregled obeh poslovalnic — pokriva namen "kje jesti v Ljubljani".
+  { path: "/lokacije", priority: 0.8 },
   { path: "/studentski-boni", priority: 0.8 },
   { path: "/halal", priority: 0.8 },
   { path: "/o-nas", priority: 0.7 },

@@ -174,9 +174,13 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
     { label: t("meni"), href: "/meni", active: activeRoute === "meni" },
     { label: t("galerija"), href: "/galerija", active: activeRoute === "galerija" },
     { label: t("oNas"), href: "/o-nas", active: activeRoute === "o-nas" },
-    { label: t("pogostaVprasanja"), href: "/pogosta-vprasanja", active: activeRoute === "pogosta-vprasanja" },
+    // /studentski-boni in /halal sta bila narejena prav za "študentski boni"
+    // in "halal restavracija Ljubljana", v navigaciji pa ju ni bilo — imela
+    // sta po dve povezavi, politika piškotkov pa štirinajst. Zdaj sta tu,
+    // /pogosta-vprasanja in /blog pa v nogi, kjer povezav ne izgubita.
+    { label: t("studentskiBoni"), href: "/studentski-boni", active: activeRoute === "studentski-boni" },
+    { label: t("halal"), href: "/halal", active: activeRoute === "halal" },
     { label: t("zaposlitev"), href: "/zaposlitev", active: activeRoute === "zaposlitev" },
-    { label: t("blog"), href: "/blog", active: activeRoute === "blog" },
     { label: t("kontakt"), href: "/kontakt", active: activeRoute === "kontakt" },
     // as const: brez tega bi bil href navaden string in prevajalnik ne bi
     // ujel poti, ki ne obstaja.
@@ -282,6 +286,19 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                       <span className={styles.dropdownItemCheck}>→</span>
                     </Link>
                   ))}
+
+                  {/* Brez te vrstice stran /lokacije ne bi imela nobene
+                      povezave — bila bi sirota, ki je Google ne obišče. */}
+                  <Link
+                    href="/lokacije"
+                    onClick={() => setIsDesktopLocOpen(false)}
+                    className={styles.dropdownOptionItem}
+                  >
+                    <div className={styles.dropdownItemMeta}>
+                      <span style={{ fontWeight: 700 }}>{t("obeLokaciji")}</span>
+                    </div>
+                    <span className={styles.dropdownItemCheck}>→</span>
+                  </Link>
                 </div>
               )}
 
@@ -415,6 +432,20 @@ export default function SiteNavbar({ activeRoute = "home" }: SiteNavbarProps) {
                     <span className={styles.dropdownItemCheck}>→</span>
                   </Link>
                 ))}
+
+                <Link
+                  href="/lokacije"
+                  onClick={() => {
+                    setIsDrawerLocOpen(false);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={styles.dropdownOptionItem}
+                >
+                  <div className={styles.dropdownItemMeta}>
+                    <span style={{ fontWeight: 700 }}>{t("obeLokaciji")}</span>
+                  </div>
+                  <span className={styles.dropdownItemCheck}>→</span>
+                </Link>
               </div>
             )}
 

@@ -53,6 +53,8 @@ const ArrowUpRightSvg = ({ size = 14 }: { size?: number }) => (
 export default function SiteFooter() {
   // Besedila so v messages/<jezik>.json pod ključem "noga".
   const t = useTranslations("noga");
+  // Imena strani so v "navigacija", da se ne podvajajo.
+  const tn = useTranslations("navigacija");
 
   // Imena dni se prevedejo; ure, naslov in telefon so dejstva in ostanejo.
   const prevediLokal = useLocationText();
@@ -185,7 +187,24 @@ export default function SiteFooter() {
         <div className={styles.subFooterBar}>
           <p className={styles.copyrightText}>{t("avtorskePravice")}</p>
 
-          <div className={styles.legalLinksRow}>
+          {/* Povezave, ki so odšle iz glavne navigacije, stojijo tu skupaj s
+              pravnima. Noga je na vsaki strani, zato nobena ni izgubila
+              povezav. Med njimi je tudi /lokacije: povezava v spustnem
+              seznamu je v HTML ni, ker se seznam izriše šele ob kliku, in
+              Google je torej ne vidi. */}
+          <nav className={styles.legalLinksRow} aria-label={t("veCPovezav")}>
+            <Link href="/lokacije" className={styles.legalLink}>
+              {tn("obeLokaciji")}
+            </Link>
+            <span className={styles.legalSeparator} />
+            <Link href="/pogosta-vprasanja" className={styles.legalLink}>
+              {tn("pogostaVprasanja")}
+            </Link>
+            <span className={styles.legalSeparator} />
+            <Link href="/blog" className={styles.legalLink}>
+              {tn("blog")}
+            </Link>
+            <span className={styles.legalSeparator} />
             <Link href="/piskotki" className={styles.legalLink}>
               {t("piskotki")}
             </Link>
@@ -193,7 +212,7 @@ export default function SiteFooter() {
             <Link href="/politika-zasebnosti" className={styles.legalLink}>
               {t("politikaZasebnosti")}
             </Link>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>

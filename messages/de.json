@@ -39,18 +39,23 @@
     "oglasNaslov": "{mesto} — Job in Ljubljana | Šeherezada",
     "oglasOgNaslov": "{mesto} — Šeherezada Ljubljana",
     "objavaNiNajdena": "Beitrag nicht gefunden | Šeherezada",
-    "objavaNaslov": "{naslov} | Šeherezada Ljubljana"
+    "objavaNaslov": "{naslov} | Šeherezada Ljubljana",
+    "lokacijeNaslov": "Wo essen in Ljubljana — zwei Standorte | Šeherezada",
+    "lokacijeOpis": "Halal Döner, Falafel und Pizza im Zentrum von Ljubljana. Trubarjeva 31 und Slovenska 55 — Adressen, Öffnungszeiten und Anfahrt."
   },
   "navigacija": {
     "domov": "Start",
     "meni": "Speisekarte",
     "galerija": "Galerie",
     "oNas": "Über uns",
+    "studentskiBoni": "Studentenbons",
+    "halal": "Halal",
     "pogostaVprasanja": "FAQ",
     "zaposlitev": "Jobs",
     "blog": "Blog",
     "kontakt": "Kontakt",
     "lokaciji": "Standorte",
+    "obeLokaciji": "Beide Standorte",
     "jezik": "Sprache",
     "izbiraJezika": "Sprache wählen",
     "odpriMeni": "Navigationsmenü öffnen",
@@ -61,7 +66,8 @@
     "lokacijiInKontakt": "STANDORTE & KONTAKT",
     "avtorskePravice": "© 2026 Šeherezada Ljubljana. Alle Rechte vorbehalten.",
     "piskotki": "Cookies",
-    "politikaZasebnosti": "Datenschutz"
+    "politikaZasebnosti": "Datenschutz",
+    "veCPovezav": "Weitere Links"
   },
   "piskotki": {
     "oznaka": "Cookie-Einwilligung",
@@ -1623,5 +1629,12 @@
       "ime": "Pizzen",
       "kratko": "Pizzen"
     }
+  },
+  "lokacijeStran": {
+    "oznaka": "BEIDE STANDORTE · LJUBLJANA",
+    "naslov": "Wo essen in Ljubljana — zwei Standorte von Šeherezada",
+    "uvod": "Beide Standorte liegen im Stadtzentrum, ein paar Gehminuten voneinander entfernt, und bieten dasselbe: Halal-Döner, Falafel, Burger und Pizza, frisch auf Bestellung zubereitet. Der Studentenbon gilt an beiden, mit {doplacilo} Zuzahlung. Nehmen Sie den, der näher liegt.",
+    "opomba": "Sie wissen noch nicht, was Sie essen möchten? Die ganze Speisekarte mit Preisen steht auf einer Seite, die Gerichte auf Studentenbon sind eigens gekennzeichnet.",
+    "podrobnosti": "Details zum Standort"
   }
 }

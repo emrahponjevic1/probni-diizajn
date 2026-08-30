@@ -1463,3 +1463,47 @@
     justify-content: center;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   NASLOV KATEGORIJE NAD SKUPINO JEDI
+   Zadržan tiho: tanka črta, majhne razprte črke, ista topla paleta kot
+   ostala stran. Naslov mora Google videti, gostu pa ne sme razbiti mreže.
+   --------------------------------------------------------------------------- */
+.categorySection {
+  margin-bottom: 3rem;
+}
+
+.categorySection:last-child {
+  margin-bottom: 0;
+}
+
+.categoryHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1.4rem 0;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #78716c;
+}
+
+.categoryHeading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, #f2ede4, rgba(242, 237, 228, 0));
+}
+
+@media (max-width: 640px) {
+  .categorySection {
+    margin-bottom: 2.25rem;
+  }
+
+  .categoryHeading {
+    font-size: 0.76rem;
+    margin-bottom: 1.1rem;
+  }
+}

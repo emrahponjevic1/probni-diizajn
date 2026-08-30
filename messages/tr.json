@@ -13,18 +13,22 @@
     "lokacijiInKontakt": "ŞUBELER VE İLETİŞİM",
     "avtorskePravice": "© 2026 Šeherezada Ljubljana. Tüm hakları saklıdır.",
     "piskotki": "Çerezler",
-    "politikaZasebnosti": "Gizlilik politikası"
+    "politikaZasebnosti": "Gizlilik politikası",
+    "veCPovezav": "Diğer bağlantılar"
   },
   "navigacija": {
     "domov": "Ana sayfa",
     "meni": "Menü",
     "galerija": "Galeri",
     "oNas": "Hakkımızda",
+    "studentskiBoni": "Öğrenci fişleri",
+    "halal": "Helal",
     "pogostaVprasanja": "Sık sorulan sorular",
     "zaposlitev": "Kariyer",
     "blog": "Blog",
     "kontakt": "İletişim",
     "lokaciji": "Şubeler",
+    "obeLokaciji": "Her iki şube",
     "jezik": "Dil",
     "izbiraJezika": "Dil seçimi",
     "odpriMeni": "Gezinme menüsünü aç",
@@ -227,7 +231,9 @@
     "oglasNaslov": "{mesto} — Ljubljana'da iş | Šeherezada",
     "oglasOgNaslov": "{mesto} — Šeherezada Ljubljana",
     "objavaNiNajdena": "Yazı bulunamadı | Šeherezada",
-    "objavaNaslov": "{naslov} | Šeherezada Ljubljana"
+    "objavaNaslov": "{naslov} | Šeherezada Ljubljana",
+    "lokacijeNaslov": "Ljubljana’da nerede yemek — iki şube | Šeherezada",
+    "lokacijeOpis": "Ljubljana merkezinde helal döner, falafel ve pizza. Trubarjeva 31 ve Slovenska 55 — adresler, çalışma saatleri ve nasıl gelinir."
   },
   "meniStran": {
     "vodniZnak": "MENÜ",
@@ -1623,5 +1629,12 @@
       "kdaj": "bir yıl önce",
       "kontekst": "Aile"
     }
+  },
+  "lokacijeStran": {
+    "oznaka": "HER İKİ ŞUBE · LJUBLJANA",
+    "naslov": "Ljubljana’da nerede yemek — Šeherezada’nın iki şubesi",
+    "uvod": "Her iki şube de şehir merkezinde, birbirine birkaç dakika yürüme mesafesinde ve aynı menüyü sunuyor: helal döner, falafel, burger ve pizza, sipariş üzerine taze hazırlanır. Öğrenci fişi her ikisinde de geçerli, {doplacilo} farkla. Size yakın olanı seçin.",
+    "opomba": "Ne yiyeceğinize karar veremediniz mi? Fiyatlarıyla birlikte tüm menü tek sayfada, öğrenci fişine dahil yemekler ise ayrıca işaretli.",
+    "podrobnosti": "Şube ayrıntıları"
   }
 }

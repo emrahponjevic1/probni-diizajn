@@ -116,8 +116,18 @@ export const pathnames = {
     tr: "/kariyer/[slug]",
   },
 
-  // Strani /lokacije ni — obstajata samo strani posameznih poslovalnic.
-  // Zato je tu samo oblika s slugom.
+  // Pregled obeh poslovalnic. Prej te strani ni bilo in /lokacije je vračal
+  // 404, drobtine na straneh lokalov pa so imele samo dva člena. Odkrito v
+  // neodvisni reviziji (6D.3).
+  "/lokacije": {
+    sl: "/lokacije",
+    en: "/locations",
+    de: "/standorte",
+    it: "/sedi",
+    bs: "/lokacije",
+    tr: "/subeler",
+  },
+
   "/lokacije/[slug]": {
     sl: "/lokacije/[slug]",
     en: "/locations/[slug]",

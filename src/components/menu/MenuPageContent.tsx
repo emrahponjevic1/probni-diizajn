@@ -114,6 +114,25 @@ export default function MenuPageContent() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [layoutMode, setLayoutMode] = useState<"grid" | "list">("grid");
 
+  /**
+   * Jedi razvrščene po kategorijah, v vrstnem redu iz MENU_CATEGORIES.
+   * Prazne skupine izpadejo same, zato ob izbranem filtru ostane ena.
+   * Zaporedje hrani globalni vrstni red jedi — od njega je odvisno, katere
+   * slike se naložijo prednostno.
+   */
+  const skupineJedi = () => {
+    const zaporedje = new Map(filteredItems.map((it, i) => [it.id, i]));
+    return MENU_CATEGORIES.filter((c) => c.id !== "all")
+      .map(prevediKategorijo)
+      .map((cat) => ({
+        id: cat.id,
+        label: cat.label,
+        jedi: filteredItems.filter((it) => it.category === cat.id),
+      }))
+      .filter((g) => g.jedi.length > 0)
+      .map((g) => ({ ...g, indeks: (it: MenuItem) => zaporedje.get(it.id) ?? 0 }));
+  };
+
   const getCategoryCount = (catId: string) => {
     if (catId === "all") return MENU_ITEMS.length;
     return MENU_ITEMS.filter((i) => i.category === catId).length;
@@ -419,20 +438,29 @@ export default function MenuPageContent() {
 
         {/* Items Status Bar */}
         <div className={styles.itemsStatusBar}>
-          {/* Naslov razdelka z jedmi. <h2> namesto <span> zaradi strukture
-              dokumenta — videz je enak, ker .itemsCountText eksplicitno
-              nastavi font-size in font-weight. */}
-          <h2 className={styles.itemsCountText}>
+          {/* Števec, ne naslov. Bil je <h2> samo zato, ker stran ni imela
+              nobenega drugega naslova; zdaj jih ima pet — po enega nad vsako
+              skupino jedi — in števec bi obris dokumenta samo motil, saj pod
+              njim ni razdelka. Videz je nespremenjen. */}
+          <p className={styles.itemsCountText}>
             {t.rich("prikazanih", {
               stevilo: filteredItems.length,
               b: (chunks) => <span className={styles.itemsCountBold}>{chunks}</span>,
             })}
-          </h2>
+          </p>
         </div>
 
         {/* ==================================================================
             DISHES PRESENTATION: GRID OR LIST
             ================================================================== */}
+        {/* Jedi so bile en sam raven seznam, edini <h2> na strani pa je bil
+            števec ("Prikazanih 29 jedi"). Imena kategorij so obstajala samo
+            kot napis na gumbu za filtriranje, torej nikjer kot naslov —
+            čeprav ciljamo prav "kebab Ljubljana", "falafel Ljubljana" in
+            "pizza Ljubljana". Zdaj so jedi razvrščene po kategorijah in nad
+            vsako skupino stoji pravi <h2>. Filtrirni gumbi ostajajo enaki;
+            ob izbrani kategoriji ostane ena skupina z njenim naslovom.
+            Odkrito v neodvisni reviziji (6D.2). */}
         {filteredItems.length === 0 ? (
           <div className={styles.emptyState}>
             <h3 className={styles.emptyStateTitle}>{t("niZadetkov")}</h3>
@@ -450,9 +478,12 @@ export default function MenuPageContent() {
             </button>
           </div>
         ) : layoutMode === "grid" ? (
-          /* 1. GRID LAYOUT */
-          <div className={styles.gridContainer}>
-            {filteredItems.map((item, i) => (
+          /* 1. GRID LAYOUT — razvrščeno po kategorijah, vsaka s svojim <h2> */
+          skupineJedi().map((skupina) => (
+          <section key={skupina.id} className={styles.categorySection}>
+            <h2 className={styles.categoryHeading}>{skupina.label}</h2>
+            <div className={styles.gridContainer}>
+            {skupina.jedi.map((item) => { const i = skupina.indeks(item); return (
               <article key={item.id} className={styles.gridCard}>
                 <div className={styles.cardTop}>
                   <div
@@ -543,12 +574,17 @@ export default function MenuPageContent() {
                   </div>
                 </div>
               </article>
-            ))}
-          </div>
+            ); })}
+            </div>
+          </section>
+          ))
         ) : (
-          /* 2. LIST / BENTO LAYOUT */
-          <div className={styles.listContainer}>
-            {filteredItems.map((item, i) => (
+          /* 2. LIST / BENTO LAYOUT — ista razvrstitev kot pri mreži */
+          skupineJedi().map((skupina) => (
+          <section key={skupina.id} className={styles.categorySection}>
+            <h2 className={styles.categoryHeading}>{skupina.label}</h2>
+            <div className={styles.listContainer}>
+            {skupina.jedi.map((item) => { const i = skupina.indeks(item); return (
               <article key={item.id} className={styles.listCard}>
                 <div className={styles.listLeft}>
                   <div
@@ -620,8 +656,10 @@ export default function MenuPageContent() {
                   </button>
                 </div>
               </article>
-            ))}
-          </div>
+            ); })}
+            </div>
+          </section>
+          ))
         )}
       </main>
       </section>

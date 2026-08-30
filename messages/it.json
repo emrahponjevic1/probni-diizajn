@@ -39,18 +39,23 @@
     "oglasNaslov": "{mesto} — lavoro a Lubiana | Šeherezada",
     "oglasOgNaslov": "{mesto} — Šeherezada Lubiana",
     "objavaNiNajdena": "Articolo non trovato | Šeherezada",
-    "objavaNaslov": "{naslov} | Šeherezada Lubiana"
+    "objavaNaslov": "{naslov} | Šeherezada Lubiana",
+    "lokacijeNaslov": "Dove mangiare a Lubiana — due sedi | Šeherezada",
+    "lokacijeOpis": "Kebab halal, falafel e pizza nel centro di Lubiana. Trubarjeva 31 e Slovenska 55 — indirizzi, orari e come raggiungerci."
   },
   "navigacija": {
     "domov": "Home",
     "meni": "Menù",
     "galerija": "Galleria",
     "oNas": "Chi siamo",
+    "studentskiBoni": "Buoni studenti",
+    "halal": "Halal",
     "pogostaVprasanja": "FAQ",
     "zaposlitev": "Lavora con noi",
     "blog": "Blog",
     "kontakt": "Contatti",
     "lokaciji": "Sedi",
+    "obeLokaciji": "Entrambe le sedi",
     "jezik": "Lingua",
     "izbiraJezika": "Scegli la lingua",
     "odpriMeni": "Apri il menù di navigazione",
@@ -61,7 +66,8 @@
     "lokacijiInKontakt": "SEDI E CONTATTI",
     "avtorskePravice": "© 2026 Šeherezada Lubiana. Tutti i diritti riservati.",
     "piskotki": "Cookie",
-    "politikaZasebnosti": "Privacy"
+    "politikaZasebnosti": "Privacy",
+    "veCPovezav": "Altri collegamenti"
   },
   "piskotki": {
     "oznaka": "Consenso ai cookie",
@@ -1623,5 +1629,12 @@
       "ime": "Pizze",
       "kratko": "Pizze"
     }
+  },
+  "lokacijeStran": {
+    "oznaka": "ENTRAMBE LE SEDI · LUBIANA",
+    "naslov": "Dove mangiare a Lubiana — le due sedi di Šeherezada",
+    "uvod": "Entrambe le sedi sono in centro, a pochi minuti a piedi l’una dall’altra, e offrono la stessa cucina: kebab halal, falafel, hamburger e pizza, preparati al momento. Il buono studenti vale in entrambe, con un supplemento di {doplacilo}. Scegliete quella più vicina.",
+    "opomba": "Non sapete cosa mangiare? Il menù completo con i prezzi è su una sola pagina e i piatti con buono studenti sono segnalati a parte.",
+    "podrobnosti": "Dettagli della sede"
   }
 }

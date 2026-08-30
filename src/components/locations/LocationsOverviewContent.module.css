@@ -1,0 +1,282 @@
+/* ---------------------------------------------------------------------------
+   PREGLED OBEH POSLOVALNIC
+   Ista topla paleta in isti razmiki kot povsod (glej CLAUDE.md).
+   --------------------------------------------------------------------------- */
+
+.page {
+  position: relative;
+  background: #fffcf8;
+  padding: 5rem 2rem 5.5rem 2rem;
+  overflow: hidden;
+}
+
+.bgWarmGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 50% at 50% 0%, #fff7ed 0%, rgba(255, 252, 248, 0) 70%);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---------- glava ---------- */
+
+.head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.25rem auto;
+}
+
+.tagRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 1.1rem;
+}
+
+.tag {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ea580c;
+}
+
+.tagDash {
+  width: 26px;
+  height: 1px;
+  background: #fed7aa;
+}
+
+.title {
+  margin: 0 0 1rem 0;
+  font-size: clamp(2rem, 4.4vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #1c1917;
+}
+
+.lead {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #57534e;
+}
+
+/* ---------- kartici ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fffdfa;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  padding: 1.9rem;
+}
+
+.cardHead {
+  margin-bottom: 1.1rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b45309;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 99px;
+  padding: 0.34rem 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.cardTitle {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #1c1917;
+}
+
+.cardSubtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ea580c;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.address {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #57534e;
+}
+
+.vibe {
+  margin: 0 0 1.25rem 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: #57534e;
+}
+
+/* ---------- prednosti ---------- */
+
+.list {
+  list-style: none;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #44403c;
+}
+
+.listCheck {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+}
+
+/* ---------- gumbi ---------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 99px;
+  padding: 0.7rem 1.15rem;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btnPrimary {
+  background: #ea580c;
+  color: #fffdfa;
+  border: 1px solid #ea580c;
+}
+
+.btnPrimary:hover {
+  background: #c2410c;
+  border-color: #c2410c;
+}
+
+.btnGhost {
+  background: transparent;
+  color: #44403c;
+  border: 1px solid #f2ede4;
+}
+
+.btnGhost:hover {
+  border-color: #fed7aa;
+  color: #ea580c;
+}
+
+/* ---------- zaključek ---------- */
+
+.footNote {
+  margin-top: 2.5rem;
+  padding: 1.9rem;
+  background: #fffdfa;
+  border: 1px solid #f2ede4;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footText {
+  margin: 0;
+  flex: 1 1 320px;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: #57534e;
+}
+
+.footLinks {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- odzivnost ---------- */
+
+@media (max-width: 1024px) {
+  .page {
+    padding: 4rem 1.5rem 4.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 3.5rem 1.25rem 4rem 1.25rem;
+  }
+
+  .card,
+  .footNote {
+    padding: 1.5rem;
+  }
+
+  .head {
+    margin-bottom: 2.5rem;
+  }
+}

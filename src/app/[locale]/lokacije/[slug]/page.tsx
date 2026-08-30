@@ -154,9 +154,14 @@ export default async function LocationPage({
 
   return (
     <main>
-      {/* Samo dva člena: poti /lokacije ni, obstajata le strani poslovalnic. */}
+      {/* Trije členi: stran /lokacije zdaj obstaja, prej je vračala 404 in
+          je bil zato srednji člen izpuščen (6D.3). */}
       <BreadcrumbJsonLd
-        items={[{ name: tn("domov"), path: "/" }, { name: loc.name }]}
+        items={[
+          { name: tn("domov"), path: "/" },
+          { name: tn("lokaciji"), path: "/lokacije" },
+          { name: loc.name },
+        ]}
       />
       <script
         type="application/ld+json"

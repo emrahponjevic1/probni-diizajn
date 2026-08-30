@@ -13,18 +13,22 @@
     "lokacijiInKontakt": "LOKACIJI & KONTAKT",
     "avtorskePravice": "© 2026 Šeherezada Ljubljana. Vse pravice pridržane.",
     "piskotki": "Piškotki",
-    "politikaZasebnosti": "Politika zasebnosti"
+    "politikaZasebnosti": "Politika zasebnosti",
+    "veCPovezav": "Več povezav"
   },
   "navigacija": {
     "domov": "Domov",
     "meni": "Meni",
     "galerija": "Galerija",
     "oNas": "O nas",
+    "studentskiBoni": "Študentski boni",
+    "halal": "Halal",
     "pogostaVprasanja": "Pogosta vprašanja",
     "zaposlitev": "Zaposlitev",
     "blog": "Blog",
     "kontakt": "Kontakt",
     "lokaciji": "Lokaciji",
+    "obeLokaciji": "Obe poslovalnici",
     "jezik": "Jezik",
     "izbiraJezika": "Izbira jezika",
     "odpriMeni": "Odpri navigacijski meni",
@@ -1028,7 +1032,9 @@
     "oglasNaslov": "{mesto} — zaposlitev v Ljubljani | Šeherezada",
     "oglasOgNaslov": "{mesto} — Šeherezada Ljubljana",
     "objavaNiNajdena": "Objava ni najdena | Šeherezada",
-    "objavaNaslov": "{naslov} | Šeherezada Ljubljana"
+    "objavaNaslov": "{naslov} | Šeherezada Ljubljana",
+    "lokacijeNaslov": "Kje jesti v Ljubljani — dve lokaciji | Šeherezada",
+    "lokacijeOpis": "Halal kebab, falafel in pizza v središču Ljubljane. Trubarjeva 31 in Slovenska 55 — naslova, delovni čas in kako do nas."
   },
   "lokacijePodatki": {
     "dnevi": {
@@ -1164,5 +1170,12 @@
     "kajBostesDelali": "Kaj boste delali",
     "kajPonujamo": "Kaj ponujamo",
     "prijaviSe": "Prijavi se prek obrazca"
+  },
+  "lokacijeStran": {
+    "oznaka": "OBE POSLOVALNICI · LJUBLJANA",
+    "naslov": "Kje jesti v Ljubljani — dve lokaciji Šeherezade",
+    "uvod": "Obe poslovalnici sta v središču mesta, nekaj minut hoje narazen, in imata isto ponudbo: halal kebab, falafel, burgerje in pizze, sveže pečene po naročilu. Študentski bon velja v obeh, z doplačilom {doplacilo}. Izberite tisto, ki vam je bližje.",
+    "opomba": "Ne veste, kaj bi jedli? Celoten meni s cenami je na eni strani, jedi na študentski bon pa so posebej označene.",
+    "podrobnosti": "Podrobnosti poslovalnice"
   }
 }

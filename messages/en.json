@@ -39,18 +39,23 @@
     "oglasNaslov": "{mesto} — job in Ljubljana | Šeherezada",
     "oglasOgNaslov": "{mesto} — Šeherezada Ljubljana",
     "objavaNiNajdena": "Post Not Found | Šeherezada",
-    "objavaNaslov": "{naslov} | Šeherezada Ljubljana"
+    "objavaNaslov": "{naslov} | Šeherezada Ljubljana",
+    "lokacijeNaslov": "Where to Eat in Ljubljana — Two Locations | Šeherezada",
+    "lokacijeOpis": "Halal kebab, falafel and pizza in the centre of Ljubljana. Trubarjeva 31 and Slovenska 55 — addresses, opening hours and how to find us."
   },
   "navigacija": {
     "domov": "Home",
     "meni": "Menu",
     "galerija": "Gallery",
     "oNas": "About",
+    "studentskiBoni": "Student vouchers",
+    "halal": "Halal",
     "pogostaVprasanja": "FAQ",
     "zaposlitev": "Careers",
     "blog": "Blog",
     "kontakt": "Contact",
     "lokaciji": "Locations",
+    "obeLokaciji": "Both locations",
     "jezik": "Language",
     "izbiraJezika": "Choose language",
     "odpriMeni": "Open navigation menu",
@@ -61,7 +66,8 @@
     "lokacijiInKontakt": "LOCATIONS & CONTACT",
     "avtorskePravice": "© 2026 Šeherezada Ljubljana. All rights reserved.",
     "piskotki": "Cookies",
-    "politikaZasebnosti": "Privacy policy"
+    "politikaZasebnosti": "Privacy policy",
+    "veCPovezav": "More links"
   },
   "piskotki": {
     "oznaka": "Cookie consent",
@@ -1623,5 +1629,12 @@
     "kajBostesDelali": "What you will be doing",
     "kajPonujamo": "What we offer",
     "prijaviSe": "Apply through the form"
+  },
+  "lokacijeStran": {
+    "oznaka": "BOTH LOCATIONS · LJUBLJANA",
+    "naslov": "Where to eat in Ljubljana — two Šeherezada locations",
+    "uvod": "Both locations are in the city centre, a few minutes’ walk apart, and both serve the same food: halal kebab, falafel, burgers and pizza, made fresh to order. The student voucher works at both, with a {doplacilo} surcharge. Pick whichever is closer.",
+    "opomba": "Not sure what to eat? The full menu with prices is on one page, and the dishes on the student voucher are marked separately.",
+    "podrobnosti": "Location details"
   }
 }

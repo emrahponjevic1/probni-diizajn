@@ -497,9 +497,12 @@ Ključne riječi nisu izgubljene, nego pojačane: „günstig essen", „mangiar
 economico", „jeftino jesti", „ucuz yemek" sada stoje i u opisu, ne samo u
 naslovu.
 
-**Ostao je jedan, slovenački `/studentski-boni` (176 znakova).** Nije diran —
-to je tekst koji je vlasnik odobrio u fazi 2. Prijedlog za skraćivanje čeka
-njegovu riječ.
+Petnaesti je bio slovenački `/studentski-boni` (176 znakova). Kako je to
+tekst koji je vlasnik odobrio u fazi 2, nije diran dok nije **odobrio
+skraćivanje 30. 8. 2026**. Izbačena je samo zadnja rečenica („Do kdaj bon velja
+in kako ga unovčiš"), koju je Google ionako rezao: 176 → 138 znakova.
+
+Time **nijedna od 84 adrese više nema nalaz** u `revizija.js`.
 
 #### Ograničenje Nexta na stranici 404 — provjereno, ne izmišljeno
 

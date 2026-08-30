@@ -121,7 +121,7 @@ export default async function LocaleLayout({
           {children}
           {/* Pasica se pokaže samo, dokler gost ni izbral. Skripte za analitiko
               se sme naložiti šele, ko privolitev to dovoli — glej src/lib/consent.ts */}
-          <OrganizationJsonLd />
+          <OrganizationJsonLd locale={locale as AppLocale} />
           <CookieBanner />
         </NextIntlClientProvider>
       </body>

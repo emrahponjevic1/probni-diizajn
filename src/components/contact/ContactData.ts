@@ -25,7 +25,7 @@ export interface LocationDetail {
   phone: string;
   phoneRaw: string;
   email: string;
-  googleMapsUrl: string;
+  googleProfileUrl: string;
   appleMapsUrl: string;
   googleMapsEmbed: string;
   transport: {
@@ -54,7 +54,7 @@ export function useContactLocations(): LocationDetail[] {
     phone: PHONE.restaurant.display,
     phoneRaw: PHONE.restaurant.e164,
     email: l.email,
-    googleMapsUrl: l.googleMapsUrl,
+    googleProfileUrl: l.googleProfileUrl,
     appleMapsUrl: l.appleMapsUrl,
     googleMapsEmbed: l.mapEmbed,
     transport: l.transport,

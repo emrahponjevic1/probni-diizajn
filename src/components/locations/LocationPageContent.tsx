@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { useLocationText } from "@/i18n/locationText";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { PHONE, type LocationCore } from "@/data/locations";
+import { PHONE, directionsUrl, type LocationCore } from "@/data/locations";
 import { STUDENT_BON } from "@/components/menu/MenuData";
 import { LiveBadge, HoursTable } from "./LocationLive";
 import LazyMap from "./LazyMap";
@@ -109,7 +109,7 @@ export default function LocationPageContent({
 
               <div className={styles.ctaRow}>
                 <a
-                  href={loc.googleMapsUrl}
+                  href={directionsUrl(loc)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.btnPrimary}
@@ -137,14 +137,27 @@ export default function LocationPageContent({
                     <span className={styles.mapFootLabel}>{t("najdesNasNa")}</span>
                     <strong className={styles.mapFootValue}>{loc.fullAddress}</strong>
                   </div>
-                  <a
-                    href={loc.appleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.mapFootLink}
-                  >
-                    {t("appleMaps")} {Ikona.arrow(14)}
-                  </a>
+                  <div className={styles.mapFootLinks}>
+                    {/* Povezava na Google Business Profil — prej je stran
+                        nanj ni kazala nikjer, čeprav tam živi 1.900 mnenj.
+                        Odkrito v neodvisni reviziji (6C.5). */}
+                    <a
+                      href={loc.googleProfileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.mapFootLink}
+                    >
+                      {t("googleProfil")} {Ikona.arrow(14)}
+                    </a>
+                    <a
+                      href={loc.appleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.mapFootLink}
+                    >
+                      {t("appleMaps")} {Ikona.arrow(14)}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

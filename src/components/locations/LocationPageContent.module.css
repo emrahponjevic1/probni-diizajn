@@ -817,3 +817,11 @@
     border-radius: 20px;
   }
 }
+
+/* Pod zemljevidom sta zdaj dve povezavi — Google profil in Apple Maps. */
+.mapFootLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}

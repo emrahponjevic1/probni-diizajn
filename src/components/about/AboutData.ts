@@ -60,7 +60,7 @@ export interface LocationProfile {
   address: string;
   description: string;
   features: string[];
-  googleMapsUrl: string;
+  googleProfileUrl: string;
   appleMapsUrl: string;
 }
 
@@ -163,7 +163,7 @@ export function useAboutContent(): AboutContent {
           t("poslovalnice.trubarjevaLastnost3", { doplacilo }),
           t("poslovalnice.trubarjevaLastnost4"),
         ],
-        googleMapsUrl: trubarjeva.googleMapsUrl,
+        googleProfileUrl: trubarjeva.googleProfileUrl,
         appleMapsUrl: trubarjeva.appleMapsUrl,
       },
       {
@@ -178,7 +178,7 @@ export function useAboutContent(): AboutContent {
           t("poslovalnice.slovenskaLastnost3"),
           t("poslovalnice.slovenskaLastnost4"),
         ],
-        googleMapsUrl: slovenska.googleMapsUrl,
+        googleProfileUrl: slovenska.googleProfileUrl,
         appleMapsUrl: slovenska.appleMapsUrl,
       },
     ],

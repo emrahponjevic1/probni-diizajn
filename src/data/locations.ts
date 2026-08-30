@@ -23,9 +23,26 @@ export interface LocationCore {
   city: string;
   /** Cel naslov v eni vrstici. */
   fullAddress: string;
-  /** Iskanje po imenu + naslovu da natančnejši zadetek kot samo naslov. */
-  googleMapsUrl: string;
+  /**
+   * Naslov Google Business Profila tega lokala — tisti iz gumba "Deli" na
+   * Google Zemljevidih, ne naslov iskanja.
+   *
+   * Od tod izhaja sameAs v strukturiranih podatkih. Brez njega mora Google
+   * sam ugibati, da sta ta stran in profil na zemljevidu isti posel; s tem
+   * mu to povemo naravnost. Prej ga na strani ni bilo nikjer — odkrito v
+   * neodvisni reviziji (6C.5).
+   */
+  googleProfileUrl: string;
   appleMapsUrl: string;
+  /**
+   * Zemljepisna širina in dolžina vhoda v lokal, odčitani na Google
+   * Zemljevidih (desni klik na vhod). Namenoma NISO vzeti iz vgrajenega
+   * zemljevida spodaj — tam so zaokrožene in lahko kažejo čez cesto.
+   *
+   * Iz njiju izhajata geo v strukturiranih podatkih in povezava do navodil
+   * za pot, ki je natančnejša od iskanja po imenu.
+   */
+  geo: { lat: number; lng: number };
   /** Delovni čas po dnevih, po uradnem PDF-ju. */
   hours: { day: string; time: string }[];
   /** Kratek povzetek za značke in kartice. */
@@ -68,9 +85,9 @@ export const LOCATIONS: LocationCore[] = [
     postalCode: "1000",
     city: "Ljubljana",
     fullAddress: "Trubarjeva cesta 31, 1000 Ljubljana",
-    googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Šeherezada+Trubarjeva+cesta+31+Ljubljana",
+    googleProfileUrl: "https://maps.app.goo.gl/dmCFr6EhV1ycSDg4A",
     appleMapsUrl: "https://maps.apple.com/?q=Šeherezada+Trubarjeva+cesta+31+Ljubljana",
+    geo: { lat: 46.052483990380814, lng: 14.50992102057708 },
     hours: [
       { day: "Ponedeljek", time: "09:00 – 02:00" },
       { day: "Torek", time: "09:00 – 02:00" },
@@ -114,9 +131,9 @@ export const LOCATIONS: LocationCore[] = [
     postalCode: "1000",
     city: "Ljubljana",
     fullAddress: "Slovenska cesta 55, 1000 Ljubljana",
-    googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Šeherezada+Slovenska+cesta+55+Ljubljana",
+    googleProfileUrl: "https://maps.app.goo.gl/M3aL2Bz8ND1q1e3v5",
     appleMapsUrl: "https://maps.apple.com/?q=Šeherezada+Slovenska+cesta+55+Ljubljana",
+    geo: { lat: 46.05616240965046, lng: 14.505044866008422 },
     hours: [
       { day: "Ponedeljek", time: "08:00 – 01:00" },
       { day: "Torek", time: "08:00 – 01:00" },
@@ -154,6 +171,14 @@ export const LOCATIONS: LocationCore[] = [
     ],
   },
 ];
+
+/**
+ * Povezava do navodil za pot. Cilj so koordinate, ne ime — ime lahko Google
+ * ujame na napačen lokal, koordinata ne more.
+ */
+export function directionsUrl(loc: LocationCore) {
+  return `https://www.google.com/maps/dir/?api=1&destination=${loc.geo.lat},${loc.geo.lng}`;
+}
 
 /** Del naslova strani: /lokacije/<slug> */
 export const LOCATION_SLUG: Record<LocationId, string> = {

@@ -178,7 +178,7 @@ export default function SeherezadaHero() {
                 <StatusBadge hours={loc.hours} className={styles.statusBadgeArea} />
 
                 <a
-                  href={loc.googleMapsUrl}
+                  href={loc.googleProfileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.navodilaLink}

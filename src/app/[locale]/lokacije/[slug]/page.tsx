@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { hreflangZaSlug, localizedSlugUrl } from "@/i18n/urls";
+import { hreflangZaSlug, localizedSlugUrl, localizedUrl } from "@/i18n/urls";
 import { imeMesta, locationTextZaJezik } from "@/i18n/locationText.server";
 import type { AppLocale } from "@/i18n/urls";
 import { SHARE_IMAGE, SITE_NAME, localeByCode } from "@/data/site";
@@ -17,6 +17,7 @@ import {
   PHONE,
 } from "@/data/locations";
 import { itemsForLocation } from "@/components/menu/MenuData";
+import { groupHours } from "@/lib/hours";
 
 const BASE = "https://seherezada.net";
 
@@ -121,8 +122,12 @@ export default async function LocationPage({
     telephone: PHONE.restaurant.e164,
     email: loc.email,
     servesCuisine: ["Turkish", "Kebab", "Falafel", "Pizza", "Halal"],
-    priceRange: "€€",
-    hasMenu: `${BASE}/meni`,
+    // Isti lokal je tu imel "€€", oznaka podjetja pa "€". Google vzame eno
+    // in ne vemo katero. Jedi gredo od 1,00 € — pravilno je "€" (6C.1).
+    priceRange: "€",
+    // Isti @id kot ga ima oznaka menija na tej jezikovni različici —
+    // sicer bi kazal na vozlišče, ki na tej strani ne obstaja (6C.2).
+    hasMenu: `${localizedUrl("/meni", locale as AppLocale)}#menu`,
     address: {
       "@type": "PostalAddress",
       streetAddress: loc.street,
@@ -131,6 +136,20 @@ export default async function LocationPage({
       addressCountry: "SI",
     },
     openingHoursSpecification: openingHours,
+    /** Koordinate vhoda, odčitane na Google Zemljevidih (6C.4). */
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: loc.geo.lat,
+      longitude: loc.geo.lng,
+    },
+    /** Google Business Profil TEGA lokala, ne podjetja kot celote (6C.5). */
+    sameAs: loc.googleProfileUrl,
+    /**
+     * Google si za lokal želi sliko. Fotografij lokalov še ni (polja v
+     * locations.ts so prazna namenoma), zato gre zaenkrat skupna slika
+     * spletnega mesta — prava, ne izmišljena (6C.3).
+     */
+    image: `${BASE}${SHARE_IMAGE.src}`,
   };
 
   return (
@@ -161,40 +180,3 @@ export default async function LocationPage({
   );
 }
 
-/**
- * Dneve z enakim časom združi v en zapis, kot pričakuje Google.
- * Kadar je closes manjši od opens (npr. 09:00–03:00), Google to razume
- * kot zapiranje naslednji dan.
- */
-function groupHours(hours: { day: string; time: string }[]) {
-  // Google pričakuje angleška imena dni. Vzamemo jih po ZAPOREDJU, ne po
-  // slovenskem imenu: seznam se v src/data/locations.ts vedno začne s
-  // ponedeljkom, imena dni pa se v drugih jezikih prevedejo — iskanje po
-  // imenu bi takrat tiho vrnilo prazno.
-  const EN = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-
-  const byTime = new Map<string, string[]>();
-  hours.forEach((h, i) => {
-    const key = h.time;
-    if (!byTime.has(key)) byTime.set(key, []);
-    byTime.get(key)!.push(EN[i]);
-  });
-
-  return [...byTime.entries()].map(([time, days]) => {
-    const [opens, closes] = time.split("–").map((t) => t.trim());
-    return {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: days,
-      opens,
-      closes,
-    };
-  });
-}

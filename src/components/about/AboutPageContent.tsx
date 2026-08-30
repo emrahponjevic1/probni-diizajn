@@ -534,7 +534,7 @@ export default function AboutPageContent() {
                     obe navigaciji — gost na tem mestu išče pot, ne klica. */}
                 <div className={styles.locationActionButtons}>
                   <a
-                    href={loc.googleMapsUrl}
+                    href={loc.googleProfileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.locationBtnPrimary}

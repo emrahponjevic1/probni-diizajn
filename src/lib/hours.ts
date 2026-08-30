@@ -128,3 +128,41 @@ export function hoursSummary(
     weekendCloses: vikendEnak ? petek.closesLabel : undefined,
   };
 }
+
+/**
+ * Dneve z enakim časom združi v en zapis, kot pričakuje Google.
+ * Kadar je closes manjši od opens (npr. 09:00–03:00), Google to razume
+ * kot zapiranje naslednji dan.
+ */
+export function groupHours(hours: { day: string; time: string }[]) {
+  // Google pričakuje angleška imena dni. Vzamemo jih po ZAPOREDJU, ne po
+  // slovenskem imenu: seznam se v src/data/locations.ts vedno začne s
+  // ponedeljkom, imena dni pa se v drugih jezikih prevedejo — iskanje po
+  // imenu bi takrat tiho vrnilo prazno.
+  const EN = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  const byTime = new Map<string, string[]>();
+  hours.forEach((h, i) => {
+    const key = h.time;
+    if (!byTime.has(key)) byTime.set(key, []);
+    byTime.get(key)!.push(EN[i]);
+  });
+
+  return [...byTime.entries()].map(([time, days]) => {
+    const [opens, closes] = time.split("–").map((t) => t.trim());
+    return {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: days,
+      opens,
+      closes,
+    };
+  });
+}

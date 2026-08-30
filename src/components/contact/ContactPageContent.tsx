@@ -714,7 +714,7 @@ export default function ContactPageContent() {
               {/* Action Buttons Row */}
               <div className={styles.mapSideActions}>
                 <a
-                  href={activeMapLocationData.googleMapsUrl}
+                  href={activeMapLocationData.googleProfileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.mapPrimaryNavBtn}

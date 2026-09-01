@@ -101,7 +101,7 @@
     "meniNaslov": "Full menu",
     "meniOpis": "29 fresh dishes: döner kebab, jufka wraps, pizza, burgers and falafel.",
     "boniNaslov": "Student vouchers",
-    "boniOpis": "19 dishes on the voucher with a flat 3,00 € surcharge and sides.",
+    "boniOpis": "19 dishes on the voucher with a flat 2,55 € surcharge and sides.",
     "halalNaslov": "100 % Halal certificate",
     "halalOpis": "Strict cleanliness standards, no pork and no alcohol since 1998.",
     "kontaktNaslov": "Locations & Contact",
@@ -857,7 +857,7 @@
       "vibeText": "Our original location in the very heart of old Ljubljana. The perfect spot for a quick lunch, a late-night bite or a relaxed sit-down in the bohemian rhythm of Trubarjeva street.",
       "highlights": {
         "0": "Open until 02:00, and until 03:00 on Fridays and Saturdays",
-        "1": "Student vouchers — 3,00 € surcharge",
+        "1": "Student vouchers — 2,55 € surcharge",
         "2": "Homemade flatbread baked to order, just before serving",
         "3": "Fast pick-up and delivery via Wolt",
         "4": "All 29 dishes on the menu, including Roast Chicken"
@@ -882,7 +882,7 @@
       "highlights": {
         "0": "Open every day from 08:00 to 01:00",
         "1": "Breakfast and morning bites from 08:00",
-        "2": "Student vouchers — 3,00 € surcharge",
+        "2": "Student vouchers — 2,55 € surcharge",
         "3": "Fast pick-up and delivery via Wolt",
         "4": "28 dishes from the menu — without Roast Chicken"
       },

@@ -23,7 +23,7 @@ export interface MenuItem {
   price: number;
   /** Cena za veliko velikost (samo pizze: 9,50 €). */
   priceLarge?: number;
-  /** Na voljo na študentski bon (doplačilo 3,00 €). */
+  /** Na voljo na študentski bon (doplačilo 2,55 €). */
   student: boolean;
   /** null = vsebuje meso ali ribe. */
   diet: DietType | null;
@@ -682,7 +682,7 @@ export const MENU_ITEMS: MenuItem[] = [
 
 /** Doplačilo za študentski bon. */
 export const STUDENT_BON = {
-  surcharge: 3.0,
+  surcharge: 2.55,
   includes: ["glavna jed", "solata", "jabolko", "pijača"],
 } as const;
 

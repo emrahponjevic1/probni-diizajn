@@ -115,7 +115,7 @@
     "meniNaslov": "Menù completo",
     "meniOpis": "29 piatti freschi: döner kebab, jufka, pizza, hamburger e falafel.",
     "boniNaslov": "Buoni studenti",
-    "boniOpis": "19 piatti con il buono, supplemento fisso di 3,00 € e contorni.",
+    "boniOpis": "19 piatti con il buono, supplemento fisso di 2,55 € e contorni.",
     "halalNaslov": "Certificato 100 % Halal",
     "halalOpis": "Standard di igiene rigorosi, niente maiale e niente alcol dal 1998.",
     "kontaktNaslov": "Sedi e contatti",
@@ -336,7 +336,7 @@
       "vibeText": "La nostra prima sede nel cuore della città vecchia di Lubiana. Il posto ideale per un pranzo veloce, uno spuntino notturno o una sosta rilassata nel ritmo bohémien di Trubarjeva.",
       "highlights": {
         "0": "Aperto fino alle 02:00, il venerdì e il sabato fino alle 03:00",
-        "1": "Buoni studenti — supplemento di 3,00 €",
+        "1": "Buoni studenti — supplemento di 2,55 €",
         "2": "Pane fatto in casa, sfornato poco prima di servire",
         "3": "Ritiro rapido e consegna con Wolt",
         "4": "Tutti i 29 piatti del menù, incluso il pollo arrosto"
@@ -361,7 +361,7 @@
       "highlights": {
         "0": "Aperto tutti i giorni dalle 08:00 alle 01:00",
         "1": "Colazioni e spuntini mattutini dalle 08:00",
-        "2": "Buoni studenti — supplemento di 3,00 €",
+        "2": "Buoni studenti — supplemento di 2,55 €",
         "3": "Ritiro rapido e consegna con Wolt",
         "4": "28 piatti del menù — senza pollo arrosto"
       },

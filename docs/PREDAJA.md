@@ -117,7 +117,7 @@ Google od 2019. ignoriše ocjene koje firma objavi sama o sebi. Recenzije na saj
 29 jela ukupno · 19 na bon · 7 veganskih · 4 vegetarijanska
 1 samo na Trubarjevoj (Pečeni Piščanec)
 ```
-Doplata za bon: **3,00 €** — glavno jelo, salata, **jabuka**, piće. Subvencija države **5,19 €** (provjereno 25. 8. 2026; zakon je usklađuje u januaru i julu, pa provjeravaj).
+Doplata za bon: **2,55 €** — glavno jelo, salata, **jabuka**, piće. Subvencija države **5,19 €** (provjereno 25. 8. 2026; zakon je usklađuje u januaru i julu, pa provjeravaj).
 
 ### Radno vrijeme — po PDF-u
 ```
@@ -305,7 +305,7 @@ Sve što se moglo raziću sa istinom sada se računa iz izvora:
 
 ```
 29 jela, 19 na bon, 7 veganskih   MENU_STATS
-doplata 3,00 €                    STUDENT_BON.surcharge
+doplata 2,55 €                    STUDENT_BON.surcharge
 subvencija 5,19 €                 STUDENT_SUBSIDY
 2 bona/dan, okno 07:00–24:00      BON_RULES
 radno vrijeme                     locations.ts preko hoursSummary()

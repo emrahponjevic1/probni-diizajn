@@ -84,7 +84,7 @@ export const BLOG_CATEGORIES: BlogCategoryFilter[] = [
     slug: "kje-jesti-na-studentske-bone",
     title: "Kje jesti na študentske bone v Ljubljani",
     excerpt:
-      "Kako deluje študentski bon, koliko je doplačilo in kaj vse dobiš za 3,00 € pri nas.",
+      "Kako deluje študentski bon, koliko je doplačilo in kaj vse dobiš za 2,55 € pri nas.",
     category: "Študentska prehrana",
     categorySlug: "boni",
     date: "1. september 2026",
@@ -92,7 +92,7 @@ export const BLOG_CATEGORIES: BlogCategoryFilter[] = [
     readTime: "4 min branja",
     author: { name: "Ekipa Šeherezada", role: "Šeherezada Ljubljana" },
     coverImage: "/images/seherezada-student-meal.avif",
-    imageCaption: "Študentski meni z doplačilom 3,00 €.",
+    imageCaption: "Študentski meni z doplačilom 2,55 €.",
     contentHtml: `
       <p>Prvi odstavek objave.</p>
 

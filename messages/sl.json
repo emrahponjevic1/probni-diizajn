@@ -45,7 +45,7 @@
     "meniNaslov": "Celoten meni",
     "meniOpis": "29 svežih jedi: döner kebab, jufke, pizze, burgerji in falafli.",
     "boniNaslov": "Študentski boni",
-    "boniOpis": "19 jedi na bon z enotnim doplačilom 3,00 € in prilogami.",
+    "boniOpis": "19 jedi na bon z enotnim doplačilom 2,55 € in prilogami.",
     "halalNaslov": "100 % Halal certifikat",
     "halalOpis": "Strogi standardi čistosti, brez svinjine in alkohola od leta 1998.",
     "kontaktNaslov": "Lokaciji & Kontakt",
@@ -1053,7 +1053,7 @@
       "vibeText": "Naša izvirna lokacija v samem osrčju stare Ljubljane. Popolna točka za hitro kosilo, nočni prigrizek ali sproščeno posedanje v bohemskem ritmu Trubarjeve ulice.",
       "highlights": {
         "0": "Odprto do 02:00, ob petkih in sobotah do 03:00",
-        "1": "Študentski boni — doplačilo 3,00 €",
+        "1": "Študentski boni — doplačilo 2,55 €",
         "2": "Peka domačih lepinj sproti, tik pred postrežbo",
         "3": "Hitri osebni prevzem in dostava prek Wolta",
         "4": "Vseh 29 jedi z menija, vključno s Pečenim Piščancem"
@@ -1078,7 +1078,7 @@
       "highlights": {
         "0": "Odprto vsak dan od 08:00 do 01:00",
         "1": "Zajtrki in dopoldanske malice od 08:00 naprej",
-        "2": "Študentski boni — doplačilo 3,00 €",
+        "2": "Študentski boni — doplačilo 2,55 €",
         "3": "Hitri osebni prevzem in dostava prek Wolta",
         "4": "28 jedi z menija — brez Pečenega Piščanca"
       },

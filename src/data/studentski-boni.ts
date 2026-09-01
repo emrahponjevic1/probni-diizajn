@@ -2,7 +2,7 @@
 // ŠTUDENTSKI BONI — EDINI VIR PODATKOV
 //
 // Tu so podatki o subvencionirani študentski prehrani, ki jih določa država,
-// ne mi. Naše doplačilo (3,00 €) in seznam jedi na bon živita v
+// ne mi. Naše doplačilo (2,55 €) in seznam jedi na bon živita v
 // src/components/menu/MenuData.ts, delovni čas lokalov pa v src/data/locations.ts.
 //
 // KAJ MORAŠ POSODABLJATI IN KDAJ

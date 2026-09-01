@@ -104,7 +104,7 @@ export const LOCATIONS: LocationCore[] = [
       "Naša izvirna lokacija v samem osrčju stare Ljubljane. Popolna točka za hitro kosilo, nočni prigrizek ali sproščeno posedanje v bohemskem ritmu Trubarjeve ulice.",
     highlights: [
       "Odprto do 02:00, ob petkih in sobotah do 03:00",
-      "Študentski boni — doplačilo 3,00 €",
+      "Študentski boni — doplačilo 2,55 €",
       "Peka domačih lepinj sproti, tik pred postrežbo",
       "Hitri osebni prevzem in dostava prek Wolta",
       "Vseh 29 jedi z menija, vključno s Pečenim Piščancem",
@@ -149,7 +149,7 @@ export const LOCATIONS: LocationCore[] = [
     highlights: [
       "Odprto vsak dan od 08:00 do 01:00",
       "Zajtrki in dopoldanske malice od 08:00 naprej",
-      "Študentski boni — doplačilo 3,00 €",
+      "Študentski boni — doplačilo 2,55 €",
       "Hitri osebni prevzem in dostava prek Wolta",
       "28 jedi z menija — brez Pečenega Piščanca",
     ],

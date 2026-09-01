@@ -101,7 +101,7 @@
     "meniNaslov": "Ganze Speisekarte",
     "meniOpis": "29 frische Gerichte: Döner, Jufka, Pizza, Burger und Falafel.",
     "boniNaslov": "Studentenbons",
-    "boniOpis": "19 Gerichte auf Bon mit einheitlicher Zuzahlung von 3,00 € und Beilagen.",
+    "boniOpis": "19 Gerichte auf Bon mit einheitlicher Zuzahlung von 2,55 € und Beilagen.",
     "halalNaslov": "100 % Halal-Zertifikat",
     "halalOpis": "Strenge Hygienestandards, kein Schweinefleisch und kein Alkohol seit 1998.",
     "kontaktNaslov": "Standorte & Kontakt",
@@ -336,7 +336,7 @@
       "vibeText": "Unser erster Standort mitten in der Altstadt von Ljubljana. Der perfekte Ort für ein schnelles Mittagessen, einen späten Snack oder entspanntes Sitzen im bohemischen Rhythmus der Trubarjeva.",
       "highlights": {
         "0": "Geöffnet bis 02:00, freitags und samstags bis 03:00",
-        "1": "Studentenbons — 3,00 € Zuzahlung",
+        "1": "Studentenbons — 2,55 € Zuzahlung",
         "2": "Hausgemachtes Fladenbrot, frisch vor dem Servieren gebacken",
         "3": "Schnelle Abholung und Lieferung über Wolt",
         "4": "Alle 29 Gerichte der Karte, einschließlich Brathähnchen"
@@ -361,7 +361,7 @@
       "highlights": {
         "0": "Täglich von 08:00 bis 01:00 geöffnet",
         "1": "Frühstück und Vormittagssnacks ab 08:00",
-        "2": "Studentenbons — 3,00 € Zuzahlung",
+        "2": "Studentenbons — 2,55 € Zuzahlung",
         "3": "Schnelle Abholung und Lieferung über Wolt",
         "4": "28 Gerichte der Karte — ohne Brathähnchen"
       },

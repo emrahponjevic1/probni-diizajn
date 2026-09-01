@@ -45,7 +45,7 @@
     "meniNaslov": "Tüm menü",
     "meniOpis": "29 taze yemek: döner, dürüm, pizza, burger ve falafel.",
     "boniNaslov": "Öğrenci fişleri",
-    "boniOpis": "Tek fiyat 3,00 € fark ve garnitürlerle fişe dahil 19 yemek.",
+    "boniOpis": "Tek fiyat 2,55 € fark ve garnitürlerle fişe dahil 19 yemek.",
     "halalNaslov": "%100 helal sertifikası",
     "halalOpis": "1998'den beri sıkı temizlik standartları, domuz eti ve alkol yok.",
     "kontaktNaslov": "Şubeler ve iletişim",
@@ -790,7 +790,7 @@
       "vibeText": "Eski Ljubljana'nın tam kalbindeki ilk şubemiz. Hızlı bir öğle yemeği, gece atıştırması ya da Trubarjeva sokağının bohem ritminde keyifli bir mola için ideal.",
       "highlights": {
         "0": "02:00 saatine kadar, cuma ve cumartesi 03:00 saatine kadar açık",
-        "1": "Öğrenci fişleri — 3,00 € fark",
+        "1": "Öğrenci fişleri — 2,55 € fark",
         "2": "Ev yapımı pide ekmeği servisten hemen önce pişirilir",
         "3": "Hızlı paket alma ve Wolt ile teslimat",
         "4": "Menüdeki 29 yemeğin tamamı, Fırın Tavuk dahil"
@@ -815,7 +815,7 @@
       "highlights": {
         "0": "Her gün 08:00 – 01:00 arası açık",
         "1": "08:00'den itibaren kahvaltı ve öğle öncesi atıştırmalıklar",
-        "2": "Öğrenci fişleri — 3,00 € fark",
+        "2": "Öğrenci fişleri — 2,55 € fark",
         "3": "Hızlı paket alma ve Wolt ile teslimat",
         "4": "Menüden 28 yemek — Fırın Tavuk hariç"
       },

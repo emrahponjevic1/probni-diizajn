@@ -770,7 +770,11 @@
     "prevozPes": "Yürüyerek ve BicikeLJ ile ulaşım",
     "gumbGoogleMaps": "Google Maps",
     "gumbAppleMaps": "Apple Maps",
-    "gumbPoslovalnica": "Bu şube hakkında her şey"
+    "gumbPoslovalnica": "Bu şube hakkında her şey",
+    "napakaNaslov": "Mesajınız gönderilemedi",
+    "napakaPodatki": "Lütfen adınızı, e-posta adresinizi ve mesajınızı kontrol edin.",
+    "napakaPrepogosto": "Arka arkaya birkaç mesaj gönderdiniz. Lütfen birkaç dakika sonra tekrar deneyin.",
+    "napakaSplosno": "Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin ya da bizi {telefon} numarasından arayın."
   },
   "lokacijePodatki": {
     "dnevi": {
@@ -1074,7 +1078,7 @@
     "varnost1": "Verilerinizi korumak için bağlantı şifrelemesi (SSL/TLS sertifikası), güvenli sunucu protokolleri ve yalnızca yetkili kişilerin erişimi dahil gelişmiş teknik ve idari önlemler kullanıyoruz.",
     "varnost2": "Verileri yalnızca toplanma amacına ulaşmak için gereken süre boyunca, ya da rızanızı geri çekene veya ticari belgelerin yasal saklama süreleri dolana kadar saklıyoruz.",
     "razdelek6": "6. Verileri kimlerle paylaşıyoruz",
-    "razdelek6Uvod": "Kişisel verilerinizi satmıyor ve reklam amacıyla üçüncü kişilere aktarmıyoruz. Web sitesinin çalışması için ise verileri talimatlarımız doğrultusunda işleyen bir hizmet sağlayıcıyla çalışıyoruz:",
+    "razdelek6Uvod": "Kişisel verilerinizi satmıyor ve reklam amacıyla üçüncü kişilere aktarmıyoruz. Web sitesinin çalışması için ise verileri talimatlarımız doğrultusunda işleyen hizmet sağlayıcılarla çalışıyoruz:",
     "gostovanje": "• <b>Barındırma sağlayıcısı</b> — sunucu her ziyarette sayfanın gönderilmesi için gerekli teknik verileri kaydeder (IP adresi, tarayıcı türü, istek zamanı). Bu verileri ziyaret analizi için kullanmıyoruz.",
     "razkritje": "Bunun dışında verileri yalnızca kanun ya da yetkili bir devlet kurumu talep ettiğinde açıklıyoruz.",
     "razdelek7": "7. Slovenya Cumhuriyeti'ndeki denetim makamı",
@@ -1086,7 +1090,8 @@
     "gumbPiskotki": "Çerez politikasını oku",
     "gumbMeni": "Menüye dön",
     "gumbKontakt": "İletişim",
-    "zemljevid": "• <b>Google Maps</b> — İletişim ve Şubeler sayfalarında gömülü bir Google haritası vardır. Ancak siz onay verdikten sonra ya da yerindeki düğmeye bastığınızda yüklenir. O anda haritayı Google Ireland Ltd. gösterir, bu sırada IP adresinizi alır ve kendi çerezlerini ayarlar. Haritayı ziyaret analizi için kullanmıyoruz."
+    "zemljevid": "• <b>Google Maps</b> — İletişim ve Şubeler sayfalarında gömülü bir Google haritası vardır. Ancak siz onay verdikten sonra ya da yerindeki düğmeye bastığınızda yüklenir. O anda haritayı Google Ireland Ltd. gösterir, bu sırada IP adresinizi alır ve kendi çerezlerini ayarlar. Haritayı ziyaret analizi için kullanmıyoruz.",
+    "posta": "• <b>Zoho Mail</b> — iletişim formu üzerinden bize gönderdiğiniz mesaj, posta kutumuzun da bulunduğu e-posta sağlayıcısı Zoho üzerinden iletilir. Hesap Avrupa veri merkezinde olduğu için veriler Avrupa Birliği dışına çıkmaz. Zoho bu sırada adınızı, e-posta adresinizi, telefon numaranızı ve mesajınızın içeriğini işler."
   },
   "piskotkiStran": {
     "vodniZnak": "ÇEREZLER",

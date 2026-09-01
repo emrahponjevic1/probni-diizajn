@@ -167,20 +167,53 @@ export default function ContactPageContent() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  /** Ključ napake za prikaz gostu, ali null, kadar je vse v redu. */
+  const [napaka, setNapaka] = useState<string | null>(null);
+  /** Polje vaba proti botom — človek ga ne vidi in ostane prazno. */
+  const [vaba, setVaba] = useState("");
 
-  // Form submit simulation
-  const handleSubmit = (e: React.FormEvent) => {
+  // ------------------------------------------------------------------------
+  // ODDAJA OBRAZCA
+  //
+  // Prej je tu stal setTimeout, ki je po 0,9 sekunde gostu sporočil "poslano",
+  // poslano pa ni bilo nič. Zdaj gre sporočilo na /api/kontakt, uspeh pa se
+  // prikaže SAMO, če strežnik potrdi, da je pošta res odšla. Ob napaki gost
+  // to izve in dobi telefonsko številko kot drugo pot.
+  // ------------------------------------------------------------------------
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    setNapaka(null);
+
+    try {
+      const odgovor = await fetch("/api/kontakt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, podjetje: vaba }),
+      });
+
+      if (odgovor.ok) {
+        setIsSubmitted(true);
+      } else {
+        const telo = await odgovor.json().catch(() => ({}));
+        setNapaka(
+          telo?.napaka === "podatki" || telo?.napaka === "prepogosto"
+            ? telo.napaka
+            : "splosno"
+        );
+      }
+    } catch {
+      // Gost je brez povezave ali pa je zahteva padla na poti.
+      setNapaka("splosno");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 900);
+    }
   };
 
   // Reset form
   const handleReset = () => {
     setIsSubmitted(false);
+    setNapaka(null);
     setFormData({
       name: "",
       email: "",
@@ -500,6 +533,37 @@ export default function ContactPageContent() {
                       {t("stevecZnakov", { stevilo: formData.message.length, najvec: 1200 })}
                     </div>
                   </div>
+
+                  {/* Polje vaba: skrito pred gostom, botu pa mamljivo.
+                      Ni display:none, ker to nekateri boti prepoznajo. */}
+                  <div
+                    aria-hidden="true"
+                    style={{ position: "absolute", left: "-9999px", top: "auto", height: 0, overflow: "hidden" }}
+                  >
+                    <label htmlFor="contactPodjetje">Podjetje</label>
+                    <input
+                      id="contactPodjetje"
+                      name="podjetje"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={vaba}
+                      onChange={(e) => setVaba(e.target.value)}
+                    />
+                  </div>
+
+                  {napaka && (
+                    <div role="alert" className={styles.formError}>
+                      <strong>{t("napakaNaslov")}</strong>
+                      <span>
+                        {napaka === "podatki"
+                          ? t("napakaPodatki")
+                          : napaka === "prepogosto"
+                          ? t("napakaPrepogosto")
+                          : t("napakaSplosno", { telefon: PHONE.restaurant.display })}
+                      </span>
+                    </div>
+                  )}
 
                   <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
                     {isSubmitting ? (

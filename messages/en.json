@@ -643,7 +643,11 @@
     "prevozPes": "On foot & BicikeLJ",
     "gumbGoogleMaps": "Google Maps",
     "gumbAppleMaps": "Apple Maps",
-    "gumbPoslovalnica": "All about this location"
+    "gumbPoslovalnica": "All about this location",
+    "napakaNaslov": "Your message could not be sent",
+    "napakaPodatki": "Please check your name, e-mail address and message.",
+    "napakaPrepogosto": "You have sent several messages in a row. Please try again in a few minutes.",
+    "napakaSplosno": "Something went wrong while sending. Please try again or call us on {telefon}."
   },
   "faqStran": {
     "vodniZnak": "HELP",
@@ -1064,7 +1068,7 @@
     "varnost1": "To protect your data we use up-to-date technical and organisational measures, including encrypted connections (SSL/TLS certificate), secure server protocols and limited access for authorised staff only.",
     "varnost2": "We keep data only for as long as is necessary for the purpose for which it was collected, or until you withdraw your consent, or until the statutory retention periods for business records expire.",
     "razdelek6": "6. Who we share data with",
-    "razdelek6Uvod": "We do not sell your personal data and we do not pass it on for advertising. To run this website, however, we work with a provider that processes data on our instructions:",
+    "razdelek6Uvod": "We do not sell your personal data and we do not pass it on for advertising. To run this website, however, we work with providers that process data on our instructions:",
     "gostovanje": "• <b>Hosting provider</b> — with every visit the server records the technical data needed to deliver the page (IP address, browser type, time of request). We do not use this data to analyse visits.",
     "razkritje": "Beyond that, we disclose data only where required to do so by law or by a competent public authority.",
     "razdelek7": "7. Supervisory authority in the Republic of Slovenia",
@@ -1076,7 +1080,8 @@
     "gumbPiskotki": "Read the cookie policy",
     "gumbMeni": "Back to the menu",
     "gumbKontakt": "Contact",
-    "zemljevid": "• <b>Google Maps</b> — the Contact and Locations pages have a Google map embedded in them. It loads only after you consent, or when you click the button in its place. Google Ireland Ltd. then displays the map, receives your IP address in the process and sets its own cookies. We do not use the map to analyse visits."
+    "zemljevid": "• <b>Google Maps</b> — the Contact and Locations pages have a Google map embedded in them. It loads only after you consent, or when you click the button in its place. Google Ireland Ltd. then displays the map, receives your IP address in the process and sets its own cookies. We do not use the map to analyse visits.",
+    "posta": "• <b>Zoho Mail</b> — a message you send us through the contact form travels via the e-mail provider Zoho, where our mailbox is hosted. The account is in Zoho's European data centre, so the data does not leave the European Union. In doing so Zoho processes your name, e-mail address, phone number and the content of your message."
   },
   "piskotkiStran": {
     "vodniZnak": "COOKIES",

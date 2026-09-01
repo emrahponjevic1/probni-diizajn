@@ -377,7 +377,7 @@
     "varnost1": "Za varovanje vaših podatkov uporabljamo napredne tehnične in organizacijske ukrepe, vključno s šifriranjem povezav (SSL/TLS certifikat), varnimi strežniškimi protokoli in omejenim dostopom pooblaščenih oseb.",
     "varnost2": "Podatke hranimo le toliko časa, kolikor je potrebno za dosego namena, zaradi katerega so bili zbrani, oziroma do preklica vaše privolitve ali izteka zakonsko določenih rokov za hrambo poslovne dokumentacije.",
     "razdelek6": "6. Komu podatke posredujemo",
-    "razdelek6Uvod": "Vaših osebnih podatkov ne prodajamo in jih ne posredujemo naprej za oglaševanje. Za delovanje spletnega mesta pa sodelujemo z izvajalcem, ki podatke obdeluje po naših navodilih:",
+    "razdelek6Uvod": "Vaših osebnih podatkov ne prodajamo in jih ne posredujemo naprej za oglaševanje. Za delovanje spletnega mesta pa sodelujemo z izvajalci, ki podatke obdelujejo po naših navodilih:",
     "gostovanje": "• <b>Ponudnik gostovanja</b> — strežnik ob vsakem obisku zabeleži tehnične podatke, ki so za dostavo strani nujni (IP naslov, vrsta brskalnika, čas zahteve). Teh podatkov ne uporabljamo za analizo obiska.",
     "razkritje": "Poleg tega podatke razkrijemo le, če to od nas zahteva zakon ali pristojni državni organ.",
     "razdelek7": "7. Nadzorni organ v Republiki Sloveniji",
@@ -389,7 +389,8 @@
     "gumbPiskotki": "Preberi Politiko piškotkov",
     "gumbMeni": "Nazaj na Meni",
     "gumbKontakt": "Kontakt",
-    "zemljevid": "• <b>Google Maps</b> — na straneh Kontakt in Lokacije je vgrajen Googlov zemljevid. Naloži se šele po vaši privolitvi ali ko sami kliknete gumb na njegovem mestu. Takrat ga prikaže Google Ireland Ltd., ki pri tem prejme vaš naslov IP in nastavi svoje piškotke. Zemljevida ne uporabljamo za analizo obiska."
+    "zemljevid": "• <b>Google Maps</b> — na straneh Kontakt in Lokacije je vgrajen Googlov zemljevid. Naloži se šele po vaši privolitvi ali ko sami kliknete gumb na njegovem mestu. Takrat ga prikaže Google Ireland Ltd., ki pri tem prejme vaš naslov IP in nastavi svoje piškotke. Zemljevida ne uporabljamo za analizo obiska.",
+    "posta": "• <b>Zoho Mail</b> — sporočilo, ki nam ga pošljete prek kontaktnega obrazca, gre prek ponudnika elektronske pošte Zoho, kjer je tudi naš poštni predal. Račun je odprt v evropskem podatkovnem središču, zato podatki ne zapustijo Evropske unije. Zoho pri tem obdela vaše ime, e-poštni naslov, telefonsko številko in vsebino sporočila."
   },
   "piskotkiStran": {
     "vodniZnak": "PIŠKOTKI",
@@ -774,7 +775,11 @@
     "prevozPes": "Dostop Peš & BicikeLJ",
     "gumbGoogleMaps": "Google Maps",
     "gumbAppleMaps": "Apple Maps",
-    "gumbPoslovalnica": "Vse o tej poslovalnici"
+    "gumbPoslovalnica": "Vse o tej poslovalnici",
+    "napakaNaslov": "Sporočila ni bilo mogoče poslati",
+    "napakaPodatki": "Preverite ime, e-poštni naslov in vsebino sporočila.",
+    "napakaPrepogosto": "Poslali ste več sporočil zapored. Poskusite znova čez nekaj minut.",
+    "napakaSplosno": "Pri pošiljanju je prišlo do napake. Poskusite znova ali nas pokličite na {telefon}."
   },
   "oNasPodatki": {
     "mikro": {

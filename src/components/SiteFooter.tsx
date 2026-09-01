@@ -4,6 +4,7 @@ import styles from "./SiteFooter.module.css";
 import { LOCATIONS, PHONE } from "@/data/locations";
 import { HAS_SOCIAL, SOCIAL } from "@/data/social";
 import { Link } from "@/i18n/navigation";
+import { COMPANY } from "@/data/company";
 
 // Clean Vector SVG Social & Contact Icons
 const FacebookSvg = ({ size = 18 }: { size?: number }) => (
@@ -147,9 +148,9 @@ export default function SiteFooter() {
               </div>
 
               {/* Email */}
-              <a href="mailto:info@seherezada.net" className={styles.locEmailLink}>
+              <a href={`mailto:${COMPANY.email}`} className={styles.locEmailLink}>
                 <MailSvg size={14} />
-                <span>info@seherezada.net</span>
+                <span>{COMPANY.email}</span>
               </a>
             </div>
           </div>

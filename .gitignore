@@ -46,3 +46,6 @@ next-env.d.ts
 
 # Lokalne nastavitve za razvojna orodja (ni del projekta)
 /.claude/
+
+# Primer brez vrednosti — sme na GitHub, ker ne vsebuje gesla.
+!.env.example

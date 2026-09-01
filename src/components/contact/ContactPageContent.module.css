@@ -1298,3 +1298,27 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* --------------------------------------------------------------------------
+   NAPAKA PRI POŠILJANJU
+   Gost mora napako opaziti, zato koralno rdeča iz palete znamke, ne siva.
+   -------------------------------------------------------------------------- */
+.formError {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  color: #991b1b;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.formError strong {
+  font-weight: 700;
+  color: #7f1d1d;
+}

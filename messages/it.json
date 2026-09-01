@@ -798,7 +798,11 @@
     "prevozPes": "A piedi e BicikeLJ",
     "gumbGoogleMaps": "Google Maps",
     "gumbAppleMaps": "Apple Maps",
-    "gumbPoslovalnica": "Tutto su questa sede"
+    "gumbPoslovalnica": "Tutto su questa sede",
+    "napakaNaslov": "Non è stato possibile inviare il messaggio",
+    "napakaPodatki": "Controlla nome, indirizzo e-mail e testo del messaggio.",
+    "napakaPrepogosto": "Hai inviato più messaggi di seguito. Riprova tra qualche minuto.",
+    "napakaSplosno": "Si è verificato un errore durante l'invio. Riprova oppure chiamaci al {telefon}."
   },
   "galerijaStran": {
     "vodniZnak": "FOTO",
@@ -1088,7 +1092,7 @@
     "varnost1": "Per proteggere i vostri dati adottiamo misure tecniche e organizzative avanzate, tra cui la cifratura delle connessioni (certificato SSL/TLS), protocolli server sicuri e un accesso limitato alle sole persone autorizzate.",
     "varnost2": "Conserviamo i dati solo per il tempo necessario a raggiungere la finalità per cui sono stati raccolti, ovvero fino alla revoca del vostro consenso o alla scadenza dei termini di conservazione della documentazione aziendale previsti dalla legge.",
     "razdelek6": "6. A chi comunichiamo i dati",
-    "razdelek6Uvod": "Non vendiamo i vostri dati personali e non li trasmettiamo a terzi per finalità pubblicitarie. Per il funzionamento del sito web collaboriamo però con un fornitore che tratta i dati secondo le nostre istruzioni:",
+    "razdelek6Uvod": "Non vendiamo i vostri dati personali e non li trasmettiamo a terzi per finalità pubblicitarie. Per il funzionamento del sito web collaboriamo però con fornitori che trattano i dati secondo le nostre istruzioni:",
     "gostovanje": "• <b>Fornitore di hosting</b> — a ogni visita il server registra i dati tecnici necessari alla consegna della pagina (indirizzo IP, tipo di browser, ora della richiesta). Non usiamo questi dati per analizzare le visite.",
     "razkritje": "Oltre a ciò, comunichiamo i dati solo se richiesto dalla legge o da un’autorità statale competente.",
     "razdelek7": "7. Autorità di controllo nella Repubblica di Slovenia",
@@ -1100,7 +1104,8 @@
     "gumbPiskotki": "Leggi l’Informativa sui cookie",
     "gumbMeni": "Torna al menù",
     "gumbKontakt": "Contatti",
-    "zemljevid": "• <b>Google Maps</b> — nelle pagine Contatti e Sedi è incorporata una mappa di Google. Si carica solo dopo il vostro consenso, oppure quando premete il pulsante al suo posto. In quel momento Google Ireland Ltd. mostra la mappa, riceve il vostro indirizzo IP e imposta i propri cookie. Non usiamo la mappa per analizzare le visite."
+    "zemljevid": "• <b>Google Maps</b> — nelle pagine Contatti e Sedi è incorporata una mappa di Google. Si carica solo dopo il vostro consenso, oppure quando premete il pulsante al suo posto. In quel momento Google Ireland Ltd. mostra la mappa, riceve il vostro indirizzo IP e imposta i propri cookie. Non usiamo la mappa per analizzare le visite.",
+    "posta": "• <b>Zoho Mail</b> — il messaggio che ci inviate tramite il modulo di contatto passa dal fornitore di posta elettronica Zoho, dove si trova anche la nostra casella. L'account è nel centro dati europeo, quindi i dati non lasciano l'Unione europea. Zoho tratta in questo modo il vostro nome, l'indirizzo e-mail, il numero di telefono e il contenuto del messaggio."
   },
   "piskotkiStran": {
     "vodniZnak": "COOKIE",

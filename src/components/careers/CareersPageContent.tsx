@@ -6,6 +6,7 @@ import { PHONE } from "@/data/locations";
 import { Link } from "@/i18n/navigation";
 import styles from "./CareersPageContent.module.css";
 import { JOBS_DATA, HAS_OPEN_POSITIONS, JobPosition } from "./CareersData";
+import { COMPANY } from "@/data/company";
 
 // Clean Lucide-style SVG Icons
 const ArrowDownSvg = ({ className }: { className?: string }) => (
@@ -667,10 +668,10 @@ export default function CareersPageContent() {
               <div className={styles.hrItem}>
                 <span className={styles.hrLabel}>{t("kontaktZaCv")}</span>
                 <a
-                  href="mailto:info@seherezada.net"
+                  href={`mailto:${COMPANY.email}`}
                   className={styles.hrLink}
                 >
-                  info@seherezada.net
+                  {COMPANY.email}
                 </a>
               </div>
 
@@ -680,7 +681,7 @@ export default function CareersPageContent() {
                   href={`tel:${PHONE.hr.e164}`}
                   className={styles.hrPhoneLink}
                 >
-                  +386 64 183 155
+                  {PHONE.hr.display}
                 </a>
               </div>
             </div>
@@ -690,7 +691,7 @@ export default function CareersPageContent() {
               <span className={styles.mobileHrOverline}>{t("mobilniKontakt")}</span>
               <div className={styles.mobilePillsRow}>
                 <a
-                  href="mailto:info@seherezada.net"
+                  href={`mailto:${COMPANY.email}`}
                   className={styles.mobilePillBtn}
                 >
                   <div className={styles.mobilePillIcon}>

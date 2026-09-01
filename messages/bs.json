@@ -770,7 +770,11 @@
     "prevozPes": "Pristup pješke i BicikeLJ",
     "gumbGoogleMaps": "Google Maps",
     "gumbAppleMaps": "Apple Maps",
-    "gumbPoslovalnica": "Sve o ovoj poslovnici"
+    "gumbPoslovalnica": "Sve o ovoj poslovnici",
+    "napakaNaslov": "Poruku nije bilo moguće poslati",
+    "napakaPodatki": "Provjerite ime, e-mail adresu i sadržaj poruke.",
+    "napakaPrepogosto": "Poslali ste više poruka zaredom. Pokušajte ponovo za nekoliko minuta.",
+    "napakaSplosno": "Došlo je do greške pri slanju. Pokušajte ponovo ili nas nazovite na {telefon}."
   },
   "lokacijePodatki": {
     "dnevi": {
@@ -1074,7 +1078,7 @@
     "varnost1": "Za zaštitu vaših podataka koristimo napredne tehničke i organizacijske mjere, uključujući šifriranje veza (SSL/TLS certifikat), sigurne serverske protokole i ograničen pristup ovlaštenih osoba.",
     "varnost2": "Podatke čuvamo samo onoliko dugo koliko je potrebno za postizanje svrhe zbog koje su prikupljeni, odnosno do povlačenja vaše saglasnosti ili isteka zakonom određenih rokova za čuvanje poslovne dokumentacije.",
     "razdelek6": "6. Kome prosljeđujemo podatke",
-    "razdelek6Uvod": "Vaše lične podatke ne prodajemo i ne prosljeđujemo dalje u svrhe oglašavanja. Za rad web stranice sarađujemo s izvođačem koji podatke obrađuje po našim uputama:",
+    "razdelek6Uvod": "Vaše lične podatke ne prodajemo i ne prosljeđujemo dalje u svrhe oglašavanja. Za rad web stranice sarađujemo s izvođačima koji podatke obrađuju po našim uputama:",
     "gostovanje": "• <b>Pružalac hostinga</b> — server pri svakoj posjeti bilježi tehničke podatke koji su za isporuku stranice nužni (IP adresa, vrsta pregledača, vrijeme zahtjeva). Te podatke ne koristimo za analizu posjeta.",
     "razkritje": "Osim toga, podatke otkrivamo samo ako to od nas zahtijeva zakon ili nadležni državni organ.",
     "razdelek7": "7. Nadzorni organ u Republici Sloveniji",
@@ -1086,7 +1090,8 @@
     "gumbPiskotki": "Pročitaj politiku kolačića",
     "gumbMeni": "Nazad na meni",
     "gumbKontakt": "Kontakt",
-    "zemljevid": "• <b>Google Maps</b> — na stranicama Kontakt i Lokacije ugrađena je Google karta. Učitava se tek nakon vašeg pristanka ili kada kliknete dugme na njenom mjestu. Tada je prikazuje Google Ireland Ltd., koji pritom prima vašu IP adresu i postavlja svoje kolačiće. Kartu ne koristimo za analizu posjeta."
+    "zemljevid": "• <b>Google Maps</b> — na stranicama Kontakt i Lokacije ugrađena je Google karta. Učitava se tek nakon vašeg pristanka ili kada kliknete dugme na njenom mjestu. Tada je prikazuje Google Ireland Ltd., koji pritom prima vašu IP adresu i postavlja svoje kolačiće. Kartu ne koristimo za analizu posjeta.",
+    "posta": "• <b>Zoho Mail</b> — poruka koju nam pošaljete putem kontakt forme ide preko pružatelja e-pošte Zoho, gdje je i naše poštansko sanduče. Račun je otvoren u evropskom podatkovnom centru, pa podaci ne napuštaju Evropsku uniju. Zoho pritom obrađuje vaše ime, e-mail adresu, broj telefona i sadržaj poruke."
   },
   "piskotkiStran": {
     "vodniZnak": "KOLAČIĆI",

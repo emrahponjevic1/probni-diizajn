@@ -12,6 +12,8 @@
 // v imenu, ker se mora ime ujemati z Google Business Profilom.
 // ---------------------------------------------------------------------------
 
+import { COMPANY } from "./company";
+
 export type LocationId = "trubarjeva" | "slovenska";
 
 export interface LocationCore {
@@ -114,7 +116,7 @@ export const LOCATIONS: LocationCore[] = [
       parking: "Parkirna hiša Kapitelj / Komenskega ali Petkovškovo nabrežje",
       walking: "3 min od Prešernovega trga in Tromostovja",
     },
-    email: "info@seherezada.net",
+    email: COMPANY.email,
     photos: [
       { src: "", alt: "Notranjost lokala na Trubarjevi cesti 31" },
       { src: "", alt: "Priprava döner kebaba na ražnju" },
@@ -158,7 +160,7 @@ export const LOCATIONS: LocationCore[] = [
       parking: "Parkirna hiša Kozolec / Trg republike / Kongresni trg",
       walking: "V neposredni bližini Bavarskega dvora in Ajdovščine",
     },
-    email: "info@seherezada.net",
+    email: COMPANY.email,
     photos: [
       { src: "", alt: "Notranjost lokala na Slovenski cesti 55" },
       { src: "", alt: "Pult in ponudba jedi" },

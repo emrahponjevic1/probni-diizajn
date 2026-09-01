@@ -264,6 +264,13 @@ export default function ZasebnostPageContent() {
             <p className={styles.sectionText} style={{ marginBottom: 0 }}>
               {t.rich("zemljevid", { b: (chunks) => <strong>{chunks}</strong> })}
             </p>
+
+            {/* Sporočila iz obrazca gredo skozi našega poštnega ponudnika,
+                ki pri tem obdela ime, naslov in vsebino. Dokler je obrazec
+                samo hlinil pošiljanje, tega ni bilo treba navesti; zdaj je. */}
+            <p className={styles.bodyText}>
+              {t.rich("posta", { b: (chunks) => <strong>{chunks}</strong> })}
+            </p>
           </div>
           <p className={styles.sectionText}>{t("razkritje")}</p>
         </section>

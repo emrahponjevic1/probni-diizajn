@@ -1322,3 +1322,50 @@
   font-weight: 700;
   color: #7f1d1d;
 }
+
+/* --------------------------------------------------------------------------
+   HITRI KLIC NA POTRDILNI KARTICI
+   Gumb "Pošlji novo sporočilo" je bil oblikovan, telefonska povezava ob njem
+   pa ne — zato je stala gola in nižje od gumba. Zdaj sta enako visoka in
+   poravnana po sredini, kot dva enakovredna gumba.
+   -------------------------------------------------------------------------- */
+.callLocationBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid #f2ede4;
+  color: #1c1917;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 99px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.callLocationBtn:hover {
+  border-color: #fed7aa;
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+/* Gumb je <button>, povezava <a> — brez tega se razlikujeta v višini. */
+.successActionRow .resetFormBtn,
+.successActionRow .callLocationBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .successActionRow .resetFormBtn,
+  .successActionRow .callLocationBtn {
+    width: 100%;
+  }
+}

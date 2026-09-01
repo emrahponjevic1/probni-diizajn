@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PHONE, LOCATION_SLUG } from "@/data/locations";
 import { COMPANY } from "@/data/company";
@@ -142,6 +142,7 @@ const CompassSvg = ({ size = 16, className, style }: SvgProps) => (
 export default function ContactPageContent() {
   // Besedila so v messages/<jezik>.json pod ključem "kontaktStran".
   const t = useTranslations("kontaktStran");
+  const jezik = useLocale();
   const CONTACT_LOCATIONS = useContactLocations();
 
   // Active map location state
@@ -189,7 +190,7 @@ export default function ContactPageContent() {
       const odgovor = await fetch("/api/kontakt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, podjetje: vaba }),
+        body: JSON.stringify({ ...formData, podjetje: vaba, locale: jezik }),
       });
 
       if (odgovor.ok) {

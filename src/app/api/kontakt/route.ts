@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { COMPANY } from "@/data/company";
+import { LOCATIONS } from "@/data/locations";
+import sl from "../../../../messages/sl.json";
 
 // ---------------------------------------------------------------------------
 // STREŽNIŠKA POT ZA KONTAKTNI OBRAZEC
@@ -73,6 +75,14 @@ export async function POST(req: Request) {
   const lokacija = brezGlave(niz("location")).slice(0, 60);
   const sporocilo = niz("message").trim().slice(0, NAJVEC.sporocilo);
 
+  // Na šestjezični strani je koristno vedeti, v katerem jeziku je gost bral —
+  // odgovor mu potem napišemo v istem.
+  const JEZIKI: Record<string, string> = {
+    sl: "slovenščina", en: "angleščina", de: "nemščina",
+    it: "italijanščina", bs: "bosanščina", tr: "turščina",
+  };
+  const jezik = JEZIKI[niz("locale")] ?? "slovenščina";
+
   if (!ime || !sporocilo || !jeEposta(email))
     return NextResponse.json({ napaka: "podatki" }, { status: 400 });
 
@@ -97,12 +107,37 @@ export async function POST(req: Request) {
     auth: { user: COMPANY.email, pass: geslo },
   });
 
+  // ------------------------------------------------------------------------
+  // BERLJIVA IMENA NAMESTO SUROVIH VREDNOSTI
+  //
+  // Obrazec pošlje "splosno" in "vseeno" — to so ključi za kodo, ne besedilo
+  // za človeka. V predalu je pisalo prav to, z malo začetnico. Imena beremo
+  // iz istih prevodov in istih podatkov o poslovalnicah, ki jih vidi gost,
+  // da se ne razideta.
+  // ------------------------------------------------------------------------
+  const k = sl.kontaktStran;
+  const imenaZadev: Record<string, string> = {
+    splosno: k.zadevaSplosno,
+    studenti: k.zadevaStudenti,
+    poslovno: k.zadevaPoslovno,
+    drugo: k.zadevaDrugo,
+  };
+  const imeZadeve = imenaZadev[zadeva] ?? zadeva ?? "—";
+
+  const lokal = LOCATIONS.find((l) => l.id === lokacija);
+  const imeLokala = lokal
+    ? `${lokal.name} — ${lokal.fullAddress}`
+    : lokacija === "vseeno"
+    ? k.poslovalnicaVseeno
+    : lokacija || "—";
+
   const vrstice: [string, string][] = [
     ["Ime", ime],
     ["E-pošta", email],
     ["Telefon", telefon || "—"],
-    ["Zadeva", zadeva || "—"],
-    ["Poslovalnica", lokacija || "—"],
+    ["Zadeva", imeZadeve],
+    ["Poslovalnica", imeLokala],
+    ["Jezik strani", jezik],
   ];
 
   try {
@@ -114,17 +149,55 @@ export async function POST(req: Request) {
       text:
         vrstice.map(([k, v]) => `${k}: ${v}`).join("\n") +
         `\n\nSporočilo:\n${sporocilo}\n`,
-      html:
-        `<table style="font-family:system-ui,sans-serif;font-size:14px">` +
-        vrstice
-          .map(
-            ([k, v]) =>
-              `<tr><td style="padding:2px 12px 2px 0;color:#78716c">${k}</td>` +
-              `<td><b>${pobegni(v)}</b></td></tr>`
-          )
-          .join("") +
-        `</table><p style="font-family:system-ui,sans-serif;font-size:14px;` +
-        `white-space:pre-wrap;margin-top:16px">${pobegni(sporocilo)}</p>`,
+      html: `
+<div style="background:#fffcf8;padding:24px 12px;font-family:'Segoe UI',system-ui,-apple-system,sans-serif">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:560px;margin:0 auto;background:#ffffff;border:1px solid #f2ede4;border-radius:18px;overflow:hidden">
+    <tr>
+      <td style="background:#1c1917;padding:20px 24px">
+        <div style="color:#f59e0b;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase">${COMPANY.brandName}</div>
+        <div style="color:#ffffff;font-size:19px;font-weight:700;margin-top:4px">Novo sporočilo s spletne strani</div>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:22px 24px 6px">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="font-size:14px;color:#1c1917">
+          ${vrstice
+            .map(
+              ([kljuc, vred], i) => `
+          <tr>
+            <td style="padding:9px 14px 9px 0;color:#78716c;white-space:nowrap;vertical-align:top;${
+              i ? "border-top:1px solid #f7f3ec" : ""
+            }">${kljuc}</td>
+            <td style="padding:9px 0;font-weight:600;vertical-align:top;${
+              i ? "border-top:1px solid #f7f3ec" : ""
+            }">${pobegni(vred)}</td>
+          </tr>`
+            )
+            .join("")}
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:16px 24px 4px">
+        <div style="color:#78716c;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px">Sporočilo</div>
+        <div style="background:#fffcf8;border:1px solid #f2ede4;border-left:3px solid #ea580c;border-radius:12px;padding:14px 16px;font-size:15px;line-height:1.6;color:#1c1917;white-space:pre-wrap">${pobegni(
+          sporocilo
+        )}</div>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:16px 24px 22px">
+        <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:12px 14px;font-size:13px;color:#065f46;line-height:1.5">
+          Odgovorite kar na to sporočilo — šlo bo naravnost gostu na
+          <b style="color:#047857">${pobegni(email)}</b>.
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div style="max-width:560px;margin:12px auto 0;text-align:center;color:#a8a29e;font-size:11px">
+    Poslano prek kontaktnega obrazca na ${COMPANY.email}
+  </div>
+</div>`,
     });
   } catch (e) {
     // Podrobnosti strežnika ostanejo v dnevniku, gost jih ne sme videti.
